@@ -28,11 +28,11 @@ int main(){
 	assert('&#x00A5;'=='&yen;');
 	assert('&#x0023;'=='&num;');
 	assert('&#x0025;'=='&percnt;');
-	assert('&#38;#38;'=='&amp;');
+	assert('&#38;'=='&amp;');
 	assert('&#x002A;'=='&ast;');
 	assert('&#x0040;'=='&commat;');
 	assert('&#x005B;'=='&lsqb;');
-	assert('&#x005C;'=='&bsol;');
+	assert('\&#x005C;'=='\&bsol;');
 	assert('&#x005D;'=='&rsqb;');
 	assert('&#x007B;'=='&lcub;');
 	assert('&#x2015;'=='&horbar;');
@@ -59,7 +59,7 @@ int main(){
 	assert('&#x0021;'=='&excl;');
 	assert('&#x00A1;'=='&iexcl;');
 	assert('&#x0022;'=='&quot;');
-	assert('&#x0027;'=='&apos;');
+	assert('\&#x0027;'=='\&apos;');
 	assert('&#x0028;'=='&lpar;');
 	assert('&#x0029;'=='&rpar;');
 	assert('&#x002C;'=='&comma;');

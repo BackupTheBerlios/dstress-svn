@@ -7,7 +7,7 @@
 // @uri@	news:opsfwrktdm44buww@simon.mshome.net
 // @url@	nntp://digitalmars.com digitalmars.D.bugs/2114
 
-module dstress.nocompile.bug_mtype_2576;
+module dstress.nocompile.bug_mtype_2576_B;
 
 const char[] B = ['A'];
 

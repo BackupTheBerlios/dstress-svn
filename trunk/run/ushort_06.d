@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstess.run.ushort_06;
 
 int main(){
 	ushort u;

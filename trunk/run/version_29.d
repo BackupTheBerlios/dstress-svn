@@ -1,4 +1,4 @@
-module dstress.run.version_28;
+module dstress.run.version_29;
 
 int main(){
 	version(all){

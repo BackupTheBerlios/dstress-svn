@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.ubyte_06;
 
 int main(){
 	ubyte u;

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.nocompile.super_05;
 
 int x;
 struct MyStruct{

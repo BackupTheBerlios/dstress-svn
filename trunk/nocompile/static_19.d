@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.nocompile.static_19;
 
 int check(){
 	static int x;

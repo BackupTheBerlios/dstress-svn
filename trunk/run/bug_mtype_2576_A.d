@@ -7,7 +7,7 @@
 // @uri@	news:c8c0uk$229r$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/205
 
-module dstress.run.bug_mtype_2576;
+module dstress.run.bug_mtype_2576_A;
 
 struct Standard
 {

@@ -1,39 +1,40 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html"/>
+	<xsl:output method="html"/>
 
-  <xsl:template match="*"/>
+	<xsl:template match="*"/>
 
-  <xsl:template match="svn">
-    <html>
-      <head>
-        <title>
-          <xsl:if test="string-length(index/@name) != 0">
-            <xsl:value-of select="index/@name"/>
-            <xsl:text>: </xsl:text>
-          </xsl:if>
-          <xsl:value-of select="index/@path"/>
-        </title>
-        <link rel="stylesheet" type="text/css" href="/www/svnindex.css"/>
-      </head>
-      <body>
-        <div class="svn">
-          <xsl:apply-templates/>
-        </div>
-        <div class="footer">
-          <xsl:text>Powered by </xsl:text>
-          <xsl:element name="a">
-            <xsl:attribute name="href">
-              <xsl:value-of select="@href"/>
-            </xsl:attribute>
-            <xsl:text>Subversion</xsl:text>
-          </xsl:element>
-          <xsl:text> </xsl:text>
-          <xsl:value-of select="@version"/>
-        </div>
-      </body>
-    </html>
-  </xsl:template>
+	<xsl:template match="svn">
+	<html>
+		<head>
+			<title>
+				<xsl:if test="string-length(index/@name) != 0">
+					<xsl:value-of select="index/@name"/>
+					<xsl:text>: </xsl:text>
+				</xsl:if>
+				<xsl:value-of select="index/@path"/>
+			</title>
+			<link rel="stylesheet" type="text/css" href="/www/svnindex.css"/>
+		</head>
+		<body>
+			<div class="svn">
+				<xsl:apply-templates/>
+			</div>
+			<div class="footer">
+				<xsl:text>Powered by </xsl:text>
+				<xsl:element name="a">
+					<xsl:attribute name="href">
+						<xsl:value-of select="@href"/>
+					</xsl:attribute>
+					<xsl:text>Subversion</xsl:text>
+				</xsl:element>
+				<xsl:text> </xsl:text>
+				<xsl:value-of select="@version"/>
+				<xsl:text>; Hosting by Thomas K&uuml;hne</xsl:text>
+			</div>
+		</body>
+	</html>
+	</xsl:template>
 
   <xsl:template match="index">
     <div class="rev">

@@ -1,8 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>D round robin</title>
 		<link rel="stylesheet" type="text/css" href="formate.css" />
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
 		<h2><a name='top' id='top'></a>D round robin</h2>
@@ -39,7 +41,7 @@
 		<blockquote>
 			<dl>
 				<dt><strong><a name='big_bug-aim' id='big_bug-aim'></a>Aim</strong></dt>
-				<dd>Write the biggest - yet smallest possible - bug test for DMD and/or GDC bugs.</dd>
+				<dd>Write the smallest test case for the DMD/GDC bug that requires the biggest test case. The biggest - yet shortest possible - test case wins.</dd>
 				<dd>The test case's size is judged by counting the <a href='http://www.digitalmars.com/d/lex.html#tokens'>tokens</a> via a printf patched GDC frontend.</dd>
 				<dt><strong><a name='big_bug-conditions' id='big_bug-conditions'></a>Conditions</strong></dt>
 				<dd>
@@ -49,7 +51,7 @@
 						<li>the actual test code is vanilla D (Makefiles and equivalent are allowed though)</li>
 					</ol>
 				</dd>
-				<dt><strong><a name='big_bug-submit' id='big_bug-submit'>Sumbissions</a></strong></dt>
+				<dt><strong><a name='big_bug-submit' id='big_bug-submit'></a>Sumbissions</strong></dt>
 				<dd>Send your test case(s) to the digitalmars.D.bugs newsgroup [<a href='nttp://digitalmars.com/digitalmars.D.bugs'>NTTP</a>][<a href='http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D.bugs'>HTTP</a>].</dd>	
 			</dl>
 
@@ -61,7 +63,7 @@
 				<dt><strong><a name='utils-aim' id='utils-aim'></a>Aim</strong></dt>
 				<dd>Write a <a href='http://opensource.org/licenses/'>open sourced</a> minimal Phobos replacement library.</dd>
 				<dt><strong><a name='utils-conditions' id='utils-conditions'></a>Conditions</strong></dt>
-				<dd>(team submissions are welcome)</dd>
+				<dd>(team submissions and allready existing projects are welcome)</dd>
 				<dd>
 					<ol>
 						<li>supports all language specifications including Object(no printf/print support required), Exception(try/catch/throw), TypeInfo and ModuleInfo</li>
@@ -69,7 +71,7 @@
 						<li>supports at least one BigEndian and at least one LittleEndian architecture</li>
 						<li>supports at least one 32bit and at least one 64bit architecture</li>
 						<li>all programming languages that are supported by at least one open source compiler for every supported platform are allowed</li>
-						<li>submissions have to be available under an <a href='http://opensource.org/licenses/'>OSI certified license</a> 	
+						<li>submissions have to be available under an <a href='http://opensource.org/licenses/'>OSI certified license</a></li> 	
 					</ol>
 				</dd>
 				<dt><strong><a name='utils-submit' id='utils-submit'></a>Submissions</strong></dt>
@@ -80,8 +82,9 @@
 		</blockquote>
 
 		<h3><a name='comments' id='comments' href='#top'>^ Comments</a></h3>
-		<blockquote>
+		<blockquote><p>
 			Send an email to <u>d-round-robin at kuehne.cn</u> or edit the <a href='http://www.prowiki.org/wiki4d/wiki.cgi?D-Round-Robin'>Wiki page</a>.
-		</blockquote>
+		</p></blockquote>
+		
 	</body>
 </html>

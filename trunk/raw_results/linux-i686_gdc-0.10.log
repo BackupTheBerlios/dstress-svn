@@ -48,6 +48,24 @@ with preprocessed source if appropriate.
 See <URL:http://gcc.gnu.org/bugs.html> for instructions.
 
 --------
+compile: dmd   -c -odobj  compile/enum_12.d 1> log.tmp 2>&1
+compile/enum_12.d:0: interner Compiler-Fehler: Segmentation fault
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <URL:http://gcc.gnu.org/bugs.html> for instructions.
+
+--------
+compile: dmd   -c -odobj  compile/eol_comment_07.d 1> log.tmp 2>&1
+
+--------
+compile: dmd   -c -odobj  compile/eol_comment_08.d 1> log.tmp 2>&1
+compile/eol_comment_08.d:8: static assert  (0) is false
+
+--------
+compile: dmd   -c -odobj  compile/eol_comment_09.d 1> log.tmp 2>&1
+compile/eol_comment_09.d:8: static assert  (0) is false
+
+--------
 compile: dmd   -c -odobj  compile/extern_01.d 1> log.tmp 2>&1
 
 --------
@@ -164,8 +182,8 @@ nocompile: dmd   -c -odobj  nocompile/abstract_05.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd   -c -odobj  nocompile/alias_05.d 1> log.tmp 2>&1
-/home/th/tmp/ccq0Zk5j.s: Assembler messages:
-/home/th/tmp/ccq0Zk5j.s:17: Error: symbol `_D7dstress9nocompile8alias_053fooFiZv' is already defined
+/home/th/tmp/ccZelvMh.s: Assembler messages:
+/home/th/tmp/ccZelvMh.s:17: Error: symbol `_D7dstress9nocompile8alias_053fooFiZv' is already defined
 
 --------
 nocompile: dmd   -c -odobj  nocompile/align_01.d 1> log.tmp 2>&1
@@ -259,6 +277,9 @@ nocompile: dmd   -c -odobj  nocompile/bug_cgcod_1464.d 1> log.tmp 2>&1
 nocompile/bug_cgcod_1464.d:14: need upper and lower bound to slice pointer
 
 --------
+nocompile: dmd   -c -odobj  nocompile/bug_cgcs_353_B.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd   -c -odobj  nocompile/bug_cgcs_353.d 1> log.tmp 2>&1
 nocompile/bug_cgcs_353.d:19: cannot append to static array ubyte[64]
 nocompile/bug_cgcs_353.d:19: slice expression this.buffer[] is not a modifiable lvalue
@@ -324,6 +345,29 @@ nocompile: dmd   -c -odobj  nocompile/bug_mtype_507_B.d 1> log.tmp 2>&1
 nocompile/bug_mtype_507_B.d:19: incompatible types for ((s) == (i)): 'Struct' and 'int'
 
 --------
+nocompile: dmd   -c -odobj  nocompile/bug_mtype_507_C.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_C.d:0: interner Compiler-Fehler: Segmentation fault
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <URL:http://gcc.gnu.org/bugs.html> for instructions.
+
+--------
+nocompile: dmd   -c -odobj  nocompile/bug_mtype_507_D.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_D.d:0: interner Compiler-Fehler: Segmentation fault
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <URL:http://gcc.gnu.org/bugs.html> for instructions.
+
+--------
+nocompile: dmd   -c -odobj  nocompile/bug_mtype_507_E.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_E.d:12: incompatible types for ((0) + (Exception )): 'int' and 'Exception'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/bug_mtype_507_F.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_F.d: In function `test':
+nocompile/bug_mtype_507_F.d:12: Fehler: TypeExp::toElem: don't know what to do (Exception )
+
+--------
 nocompile: dmd   -c -odobj  nocompile/bug_s2ir_458.d 1> log.tmp 2>&1
 nocompile/bug_s2ir_458.d:14: break is not inside a loop or switch
 
@@ -341,6 +385,15 @@ nocompile/cast_03.d:24: cannot implicitly convert expression i of type MyInterfa
 
 --------
 nocompile: dmd   -c -odobj  nocompile/cast_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/cast_19.d 1> log.tmp 2>&1
+nocompile/cast_19.d:17: cannot implicitly convert expression mc of type MyClass to void
+cc1d: d/dmd/statement.c:1457: virtual Statement* ReturnStatement::semantic(Scope*): Assertion `fdx->vresult' failed.
+nocompile/cast_19.d:0: interner Compiler-Fehler: Aborted
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <URL:http://gcc.gnu.org/bugs.html> for instructions.
 
 --------
 nocompile: dmd   -c -odobj  nocompile/char_01.d 1> log.tmp 2>&1
@@ -623,6 +676,97 @@ nocompile/double_quoted_string_16.d:2: undefined escape sequence \!
 --------
 nocompile: dmd   -c -odobj  nocompile/enum_06.d 1> log.tmp 2>&1
 nocompile/enum_06.d: enum dstress.nocompile.enum_06.__anonymous enum __anonymous must have at least one member
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_comment_01.d 1> log.tmp 2>&1
+nocompile/eol_comment_01.d:7: unterminated /* */ comment
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_comment_02.d 1> log.tmp 2>&1
+nocompile/eol_comment_02.d:7: unterminated /* */ comment
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_comment_03.d 1> log.tmp 2>&1
+nocompile/eol_comment_03.d:7: unterminated /* */ comment
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_comment_04.d 1> log.tmp 2>&1
+nocompile/eol_comment_04.d:7: unterminated /+ +/ comment
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_comment_05.d 1> log.tmp 2>&1
+nocompile/eol_comment_05.d:7: unterminated /+ +/ comment
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_comment_06.d 1> log.tmp 2>&1
+nocompile/eol_comment_06.d:7: unterminated /+ +/ comment
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_01.d 1> log.tmp 2>&1
+nocompile/eol_string_01.d:7: unterminated string constant starting at nocompile/eol_string_01.d:7
+nocompile/eol_string_01.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_02.d 1> log.tmp 2>&1
+nocompile/eol_string_02.d:7: unterminated string constant starting at nocompile/eol_string_02.d:7
+nocompile/eol_string_02.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_03.d 1> log.tmp 2>&1
+nocompile/eol_string_03.d:7: unterminated string constant starting at nocompile/eol_string_03.d:7
+nocompile/eol_string_03.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_04.d 1> log.tmp 2>&1
+nocompile/eol_string_04.d:7: unterminated string constant starting at nocompile/eol_string_04.d:7
+nocompile/eol_string_04.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_05.d 1> log.tmp 2>&1
+nocompile/eol_string_05.d:7: unterminated string constant starting at nocompile/eol_string_05.d:7
+nocompile/eol_string_05.d:7: unterminated string constant starting at nocompile/eol_string_05.d:7
+nocompile/eol_string_05.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_06.d 1> log.tmp 2>&1
+nocompile/eol_string_06.d:7: unterminated string constant starting at nocompile/eol_string_06.d:7
+nocompile/eol_string_06.d:7: unterminated string constant starting at nocompile/eol_string_06.d:7
+nocompile/eol_string_06.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_07.d 1> log.tmp 2>&1
+nocompile/eol_string_07.d:7: unterminated string constant starting at nocompile/eol_string_07.d:7
+nocompile/eol_string_07.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_08.d 1> log.tmp 2>&1
+nocompile/eol_string_08.d:7: unterminated string constant starting at nocompile/eol_string_08.d:7
+nocompile/eol_string_08.d:7: unterminated string constant starting at nocompile/eol_string_08.d:7
+nocompile/eol_string_08.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_09.d 1> log.tmp 2>&1
+nocompile/eol_string_09.d:7: unterminated string constant starting at nocompile/eol_string_09.d:7
+nocompile/eol_string_09.d:7: unterminated string constant starting at nocompile/eol_string_09.d:7
+nocompile/eol_string_09.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_10.d 1> log.tmp 2>&1
+nocompile/eol_string_10.d:7: unterminated string constant starting at nocompile/eol_string_10.d:7
+nocompile/eol_string_10.d:7: unterminated string constant starting at nocompile/eol_string_10.d:7
+nocompile/eol_string_10.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_11.d 1> log.tmp 2>&1
+nocompile/eol_string_11.d:7: unterminated string constant starting at nocompile/eol_string_11.d:7
+nocompile/eol_string_11.d:7: unterminated string constant starting at nocompile/eol_string_11.d:7
+nocompile/eol_string_11.d:7: semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd   -c -odobj  nocompile/eol_string_12.d 1> log.tmp 2>&1
+nocompile/eol_string_12.d:7: ';' expected following module declaration instead of char
+nocompile/eol_string_12.d:7: Declaration expected, not '['
+nocompile/eol_string_12.d:7: unterminated string constant starting at nocompile/eol_string_12.d:7
 
 --------
 nocompile: dmd   -c -odobj  nocompile/escape_hex_02.d 1> log.tmp 2>&1
@@ -1018,6 +1162,147 @@ nocompile: dmd   -c -odobj  nocompile/interface_03.d 1> log.tmp 2>&1
 nocompile/interface_03.d:7: class interface_03.MyClass interface function MyInterface.two isn't implemented
 
 --------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_01.d 1> log.tmp 2>&1
+nocompile/invalid_utf_01.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_02.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_03.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_05.d 1> log.tmp 2>&1
+nocompile/invalid_utf_05.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_06.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_07.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_08.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_09.d 1> log.tmp 2>&1
+nocompile/invalid_utf_09.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_10.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_11.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_12.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_13.d 1> log.tmp 2>&1
+nocompile/invalid_utf_13.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_14.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_15.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_16.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_17.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_18.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_19.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_20.d 1> log.tmp 2>&1
+nocompile/invalid_utf_20.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_21.d 1> log.tmp 2>&1
+nocompile/invalid_utf_21.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_22.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_23.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_24.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_25.d 1> log.tmp 2>&1
+nocompile/invalid_utf_25.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_26.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_27.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_28.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_29.d 1> log.tmp 2>&1
+nocompile/invalid_utf_29.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_30.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_31.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_32.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_33.d 1> log.tmp 2>&1
+nocompile/invalid_utf_33.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_34.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_35.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_36.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_37.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_38.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_39.d 1> log.tmp 2>&1
+nocompile/invalid_utf_39.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_40.d 1> log.tmp 2>&1
+nocompile/invalid_utf_40.d:7: invalid UTF-8 sequence
+nocompile/invalid_utf_40.d:7: invalid UTF-8 sequence
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_41.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_42.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/invalid_utf_43.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd   -c -odobj  nocompile/invariant_03.d 1> log.tmp 2>&1
 nocompile/invariant_03.d:5: function dstress.nocompile.invariant_03.__invariant invariants only are for struct/union/class definitions
 
@@ -1109,6 +1394,10 @@ nocompile/main_06.d:3: cannot implicitly convert expression 0 of type int to voi
 
 --------
 nocompile: dmd   -c -odobj  nocompile/mixin_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd   -c -odobj  nocompile/module_03.d 1> log.tmp 2>&1
+nocompile/module_03.d:7: Declaration expected, not 'module'
 
 --------
 nocompile: dmd   -c -odobj  nocompile/offset_01.d 1> log.tmp 2>&1
@@ -1970,6 +2259,14 @@ run: dmd   -inline -odobj  -ofrun/bug_20041226_E.d.exe run/bug_20041226_E.d 1> l
 run/bug_20041226_E.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd   -odobj  -ofrun/bug_20050128_A.d.exe run/bug_20050128_A.d 1> log.tmp 2>&1
+run/bug_20050128_A.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/bug_20050128_B.d.exe run/bug_20050128_B.d 1> log.tmp 2>&1
+run/bug_20050128_B.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd   -O -odobj  -ofrun/bug_cgcod_1640_A.d.exe run/bug_cgcod_1640_A.d 1> log.tmp 2>&1
 run/bug_cgcod_1640_A.d.exe 1> log.tmp 2>&1
 
@@ -2041,12 +2338,27 @@ run: dmd   -odobj  -ofrun/bug_elfobj_1251_B.d.exe run/bug_elfobj_1251_B.d 1> log
 run/bug_elfobj_1251_B.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd   -g -odobj  -ofrun/bug_elfobj_1251_C.d.exe run/bug_elfobj_1251_C.d 1> log.tmp 2>&1
+run/bug_elfobj_1251_C.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd   -odobj  -ofrun/bug_expression_661_A.d.exe run/bug_expression_661_A.d 1> log.tmp 2>&1
 run/bug_expression_661_A.d:12: 'cast(float)(1) / cast(float)(8) - cast(float)(2147483647)' is not of integral type, it is a float
 -2147483646
 cc1d: d/dmd/expression.c:681: virtual integer_t IntegerExp::toInteger(): Assertion `0' failed.
-float 0x853a1d8
+float 0x853a1d0
 run/bug_expression_661_A.d:0: interner Compiler-Fehler: Aborted
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <URL:http://gcc.gnu.org/bugs.html> for instructions.
+
+--------
+run: dmd   -odobj  -ofrun/bug_expression_661_B.d.exe run/bug_expression_661_B.d 1> log.tmp 2>&1
+run/bug_expression_661_B.d:12: '0.0' is not of integral type, it is a double
+0
+cc1d: d/dmd/expression.c:681: virtual integer_t IntegerExp::toInteger(): Assertion `0' failed.
+double 0x853a228
+run/bug_expression_661_B.d:0: interner Compiler-Fehler: Aborted
 Please submit a full bug report,
 with preprocessed source if appropriate.
 See <URL:http://gcc.gnu.org/bugs.html> for instructions.
@@ -2063,6 +2375,19 @@ run/bug_mangle_61_B.d.exe 1> log.tmp 2>&1
 --------
 run: dmd   -odobj  -ofrun/bug_mtype_2576_A.d.exe run/bug_mtype_2576_A.d 1> log.tmp 2>&1
 run/bug_mtype_2576_A.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/bug_todt_194_A.d.exe run/bug_todt_194_A.d 1> log.tmp 2>&1
+run/bug_todt_194_A.d:21: interner Compiler-Fehler: Segmentation fault
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <URL:http://gcc.gnu.org/bugs.html> for instructions.
+
+--------
+run: dmd   -odobj  -ofrun/bug_todt_194_B.d.exe run/bug_todt_194_B.d 1> log.tmp 2>&1
+run/bug_todt_194_B.d:12: MyStruct!().i is used as a type
+run/bug_todt_194_B.d:12: new can only create structs, dynamic arrays or class objects, not void's
+run/bug_todt_194_B.d:12: incompatible types for ((new void*) == (4)): 'void*' and 'uint'
 
 --------
 run: dmd   -odobj  -ofrun/byte_01.d.exe run/byte_01.d 1> log.tmp 2>&1
@@ -2534,6 +2859,10 @@ run/destructor_03.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure run/destructor_03.d(31)
 
 --------
+run: dmd   -odobj  -ofrun/destructor_04.d.exe run/destructor_04.d 1> log.tmp 2>&1
+run/destructor_04.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd   -odobj  -ofrun/double_01.d.exe run/double_01.d 1> log.tmp 2>&1
 run/double_01.d.exe 1> log.tmp 2>&1
 
@@ -2747,6 +3076,18 @@ See <URL:http://gcc.gnu.org/bugs.html> for instructions.
 --------
 run: dmd   -odobj  -ofrun/enum_11.d.exe run/enum_11.d 1> log.tmp 2>&1
 run/enum_11.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/eol_01.d.exe run/eol_01.d 1> log.tmp 2>&1
+run/eol_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/eol_02.d.exe run/eol_02.d 1> log.tmp 2>&1
+run/eol_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/eol_03.d.exe run/eol_03.d 1> log.tmp 2>&1
+run/eol_03.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd   -odobj  -ofrun/escape_hex_01.d.exe run/escape_hex_01.d 1> log.tmp 2>&1
@@ -3552,6 +3893,37 @@ run/invariant_18.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure run/invariant_18.d(24)
 
 --------
+run: dmd   -odobj  -ofrun/invariant_19.d.exe run/invariant_19.d 1> log.tmp 2>&1
+run/invariant_19.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/invariant_20.d.exe run/invariant_20.d 1> log.tmp 2>&1
+run/invariant_20.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/invariant_21.d.exe run/invariant_21.d 1> log.tmp 2>&1
+run/invariant_21.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/invariant_22.d.exe run/invariant_22.d 1> log.tmp 2>&1
+run/invariant_22.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/invariant_23.d.exe run/invariant_23.d 1> log.tmp 2>&1
+run/invariant_23.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/invariant_23.d(23)
+
+--------
+run: dmd   -odobj  -ofrun/invariant_24.d.exe run/invariant_24.d 1> log.tmp 2>&1
+run/invariant_24.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/invariant_25.d.exe run/invariant_25.d 1> log.tmp 2>&1
+run/invariant_25.d:18: identifier 'InvariantException' is not defined
+run/invariant_25.d:18: InvariantException is used as a type
+Error: can only catch class objects, not 'void'
+
+--------
 run: dmd   -odobj  -ofrun/keys_01.d.exe run/keys_01.d 1> log.tmp 2>&1
 run/keys_01.d.exe 1> log.tmp 2>&1
 
@@ -3670,6 +4042,23 @@ run/module_01.d:15: no property 'module_01' for type 'int'
 run/module_01.d:15: no property 'i' for type 'int'
 
 --------
+run: dmd   -odobj  -ofrun/module_02.d.exe run/module_02.d 1> log.tmp 2>&1
+run/module_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -I. -odobj  -ofrun/module_04.d.exe run/module_04.d 1> log.tmp 2>&1
+run/module_04.d:15: undefined identifier run
+run/module_04.d:15: no property 'module_04' for type 'int'
+run/module_04.d:15: no property 'i' for type 'int'
+run/module_04.d:16: undefined identifier run
+run/module_04.d:16: no property 'module_04' for type 'int'
+run/module_04.d:16: no property 'i' for type 'int'
+run/module_04.d:16: constant 1 is not an lvalue
+run/module_04.d:17: undefined identifier run
+run/module_04.d:17: no property 'module_04' for type 'int'
+run/module_04.d:17: no property 'i' for type 'int'
+
+--------
 run: dmd   -odobj  -ofrun/nested_function_01.d.exe run/nested_function_01.d 1> log.tmp 2>&1
 run/nested_function_01.d.exe 1> log.tmp 2>&1
 
@@ -3684,6 +4073,15 @@ run/nested_function_03.d.exe 1> log.tmp 2>&1
 --------
 run: dmd   -odobj  -ofrun/nested_function_04.d.exe run/nested_function_04.d 1> log.tmp 2>&1
 run/nested_function_04.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/nested_function_05.d.exe run/nested_function_05.d 1> log.tmp 2>&1
+/home/th/tmp/cclyEleK.s: Assembler messages:
+/home/th/tmp/cclyEleK.s:93: Error: symbol `_Dmain' is already defined
+
+--------
+run: dmd   -odobj  -ofrun/nested_function_06.d.exe run/nested_function_06.d 1> log.tmp 2>&1
+run/nested_function_06.d:15: function dstress.run.nested_function_06.check.main parameters must be main() or main(char[][] args)
 
 --------
 run: dmd   -odobj  -ofrun/odd_bug_01.d.exe run/odd_bug_01.d 1> log.tmp 2>&1
@@ -3862,6 +4260,22 @@ run/overload_10.d:27: function dstress.run.overload_10.test overloads int(real a
 run: dmd   -odobj  -ofrun/overload_13.d.exe run/overload_13.d 1> log.tmp 2>&1
 run/overload_13.d:25: function dstress.run.overload_13.B.test (int val) does not match argument types ()
 run/overload_13.d:25: Error: expected 1 arguments, not 0
+
+
+--------
+run: dmd   -odobj  -ofrun/overload_14.d.exe run/overload_14.d 1> log.tmp 2>&1
+run/overload_14.d:21: function dstress.run.overload_14.MyClass.check () does not match argument types (int)
+run/overload_14.d:21: Error: expected 0 arguments, not 1
+
+
+--------
+run: dmd   -odobj  -ofrun/overload_15.d.exe run/overload_15.d 1> log.tmp 2>&1
+run/overload_15.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd   -odobj  -ofrun/overload_16.d.exe run/overload_16.d 1> log.tmp 2>&1
+run/overload_16.d:23: function dstress.run.overload_16.check (int x) does not match argument types ()
+run/overload_16.d:23: Error: expected 1 arguments, not 0
 
 
 --------

@@ -1,4 +1,4 @@
-Thanks to all the bug reporters and for the test case suggestions.
+﻿Thanks to all the bug reporters and for the test case suggestions.
 
 
 Andy Friesen		<andy@ikagames.com> 
@@ -17,6 +17,7 @@ David Friedman		<d3rdclsmail@earthlink.net>
 Derek Parnell		<derek@psych.ward> 
 Geoff Hickey		<Geoff_member@pathlink.com> 
 Hauke Duden		<H.NS.Duden@gmx.net> 
+Hiroshi Sakurai 	<Hiroshi_member@pathlink.com>
 heretic 		<heretic_member@pathlink.com>  
 Ilya Zaitseff 		<sark7@mail333.com> 
 Knud Sörensen		<knud@NetRunner.all-technology.com>  

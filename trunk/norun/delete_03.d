@@ -2,9 +2,13 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 11
+// @WARNING@ direct access to Phobos's GC
+
+// __DSTRESS_ELINE__ 15
 
 module dstress.run.delete_03;
+
+import std.gc;
 
 struct MyStruct{
 	delete(void* p){
@@ -12,7 +16,13 @@ struct MyStruct{
 	}
 }
 
-int main(){
+void test(){
 	MyStruct t;
+}
+
+int main(){
+	test();
+	std.gc.fullCollect();
+	std.gc.minimize();
 	return 0;
 }

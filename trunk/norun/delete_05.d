@@ -2,9 +2,13 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 11
+// @WARNING@ direct access to Phobos's GC
+
+// __DSTRESS_ELINE__ 15
 
 module dstress.run.delete_05;
+
+import std.gc;
 
 union MyUnion{
 	delete(void* p){
@@ -12,7 +16,13 @@ union MyUnion{
 	}
 }
 
+void test(){
+	MyUnion t;
+}
+
 int main(){
-	MyUnion u;
+	test();
+	std.gc.fullCollect();
+	std.gc.minimize();
 	return 0;
 }

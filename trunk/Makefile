@@ -22,7 +22,7 @@ OBJ_DIR = obj
 endif
 
 # file: append compiler messages and runtime assertions
-# NOTE: this has to be an absolute file name, not a relative one (required by some complex test cases)
+# NOTE: this has to be an absolut path (required for some complex.mak files)
 ifndef LOG
 LOG	= $(PWD)/log.txt
 endif
@@ -65,6 +65,11 @@ endif
 ###############################################################################
 ###############################################################################
 
+# tools
+return__	= ./return__
+ifeq__		= ./ifeq__
+extract__	= ./extract__
+
 # settings
 to_log = >> $(LOG) 2>&1
 ext_run = exe
@@ -75,10 +80,8 @@ ext_source = d
 ext_source_html = html
 complex_todo = complex.mak
 complex_done = complex.done
+flag_pattern = §DSTRESS_FLAGS§
 
-# tools
-return__ = ./return__
-ifeq__ = ./ifeq__
 
 .PHONY: all basic_tools compile nocompile run norun complex clean distclean clean_log log
 #
@@ -89,19 +92,30 @@ all : Makefile compile nocompile run norun complex
 #
 # the tools
 #
-$(return__) : return__.c
+$(return__) : return__.c Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
-$(ifeq__) : ifeq__.c
+$(ifeq__) : ifeq__.c Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
-basic_tools : Makefile $(ifeq__) $(return__)
+$(extract__) : extract__.c Makefile
+	$(CC) $(CFLAGS) $< -o $@
+
+basic_tools : $(ifeq__) $(return__) $(extract__)
 	
+
 #
 # include complex test cases
 #
 complex_makefiles = $(sort $(shell $(FIND) complex -regex ".*$(complex_todo)"))
 include $(complex_makefiles)
+
+# 
+# extract potential compiling flags from the test case sources
+# 
+define extract_z_flags
+	$(eval z_flags = $(shell $(extract__) $(flag_pattern) < $<))
+endef
 
 #
 # target should fail to compile
@@ -122,12 +136,14 @@ endef
 
 %.$(ext_nocompile) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_nocompile),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
 	$(analyse_nocompile)
 
 %.$(ext_nocompile) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_nocompile),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
 	$(analyse_nocompile)
 
 #
@@ -149,13 +165,15 @@ endef
 
 %.$(ext_compile) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_compile),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
 	$(analyse_compile)
 
 
 %.$(ext_compile) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_compile),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
 	$(analyse_compile)
 
 # 
@@ -186,12 +204,14 @@ endef
 
 %.$(ext_run) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_run),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
 	$(analyse_run)
 
 %.$(ext_run) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_run),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
 	$(analyse_run)
 
 #
@@ -217,12 +237,14 @@ endef
 
 %.$(ext_norun) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_norun),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
 	$(analyse_norun)
 
 %.$(ext_norun) : %.$(ext_source_html) Makefile 
 	$(eval z_name = $(subst .$(ext_norun),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(extract_z_flags)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
 	$(analyse_norun)
 
 
@@ -238,7 +260,8 @@ log : distclean all
 # 
 #
 distclean : clean_log clean
-	$(RM) $(shell $(FIND) . -regex ".*~") 
+	$(RM) $(shell $(FIND) . -regex ".*~") $(shell $(FIND) . -regex "\\..*\\.swp")
+	$(RM) return__ ifeq__ extract__ www/*.class
 
 #
 # remove compiler and assertion messages
@@ -246,13 +269,11 @@ distclean : clean_log clean
 clean_log :
 	$(RM) $(LOG)
 
-#test.xx : 
-#	$(eval tempus=$(shell ./dstress_return "$(DMD) test.d -oftest.xx $(to_log)"))
-#	echo "$(tempus)"
-
 #
 # remove targets and all temp objects
 #
 clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles)))
 	$(RM) $(OBJ_DIR)/?*.?*
 	$(RM) run/?*.$(ext_run) norun/?*.$(ext_norun) compile/?*.$(ext_compile) nocompile/?*.$(ext_nocompile)
+
+# the empty line above has to remain, otherwise some weired problems can arise

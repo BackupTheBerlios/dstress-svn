@@ -28,6 +28,7 @@
 						<xsl:value-of select="@href"/>
 					</xsl:attribute>
 					<xsl:text> Subversion</xsl:text>
+				       	<xsl:value-of select="@version"/>
 				</xsl:element>
 			</div>
 		</body>

@@ -1,8 +1,17 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.mixin_10;
+
 MyClass dummyThis;
 
 int value=1;
 
 class MyClass{
+
+	this(){}
+
 	int value=2;
 	
 	void test(){

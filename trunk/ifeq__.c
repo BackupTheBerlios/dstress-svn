@@ -1,6 +1,7 @@
 /* svn://svn.kuehne.cn/dstress/ifeq__.c
  *
  * compare the 2 input arguments (shell & OS independent)
+ * [deprecated: use dstress.c]
  *
  * Copyright (C) 2004, 2005 Thomas Kuehne
  *

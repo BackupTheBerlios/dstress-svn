@@ -1,6 +1,7 @@
 /* svn://svn.kuehne.cn/dstress/return__.c
  *
  * execute the first argument and print the return code
+ * [deprecated: use dstress.c]
  *
  * Copyright (C) 2004, 2005 Thomas Kuehne
  *

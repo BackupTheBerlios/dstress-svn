@@ -83,6 +83,7 @@ endif
 return__	:= ./return__
 ifeq__		:= ./ifeq__
 extract__	:= ./extract__
+dstress__	:= ./dstress__
 
 # settings
 to_log 		:= >> $(LOG) 2>&1
@@ -97,7 +98,7 @@ complex_todo 	:= complex.mak
 complex_done 	:= complex.done
 flag_pattern 	:= __DSTRESS_DFLAGS__
 
-.PHONY: all basic_tools compile nocompile run norun complex clean distclean clean_log log
+.PHONY: all basic_tools compile nocompile run norun complex clean distclean clean_log
 
 .SUFFIXES: $(ext_run) $(ext_norun) $(ext_nocompile) $(ext_compile) 
 #
@@ -117,7 +118,10 @@ $(ifeq__) : ifeq__.c Makefile
 $(extract__) : extract__.c Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
-basic_tools : $(ifeq__) $(return__) $(extract__)
+$(dstress__) : dstress.c Makefile
+	$(CC) $(CFLAGS) $< -o $@
+
+basic_tools : $(ifeq__) $(return__) $(extract__) $(dstress__)
 	
 
 #
@@ -136,8 +140,13 @@ endef
 #
 # target should fail to compile
 #
-nocompile : Makefile $(sort $(subst .$(ext_source),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source_html)" ) ) )
+nocompile : $(dstress__)
+	rm -f nocompile/*.o nocompile/*.$(ext_nocompile)
+	find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) nocompile" > nocompile.sh
+	chmod +x nocompile.sh
+	./nocompile.sh 2>> $(LOG)
 
+# used in some complex test cases
 define analyse_nocompile
 	@if $(ifeq__) $(z_return) 0 ; then \
 		$(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
@@ -154,29 +163,16 @@ define analyse_nocompile
 	fi
 endef
 
-%.$(ext_nocompile) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_nocompile),,$@))
-	$(extract_z_flags)
-	$(eval z_log = $(z_name).$(ext_log))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< > $(z_log) 2>&1"))
-	@$(CAT) $(z_log) $(to_log)
-	$(analyse_nocompile)
-	@$(RM) $(z_log)
-
-%.$(ext_nocompile) : %.$(ext_source_html) basic_tools
-	$(eval z_name = $(subst .$(ext_nocompile),,$@))
-	$(extract_z_flags)
-	$(eval z_log = $(z_name).$(ext_log))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< > $(z_log) 2>&1"))
-	@$(CAT) $(z_log) $(to_log)
-	$(analyse_nocompile)
-	@$(RM) $(z_log)
-
 #
 # target should compile (excludes linking)
 #
-compile : Makefile $(sort $(subst .$(ext_source),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source_html)" ) ) )
+compile : $(dstress__)
+	rm -f compile/*.o compile/*.$(ext_compile)
+	find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) compile" > compile.sh
+	chmod +x compile.sh
+	./compile.sh 2>> $(LOG)
 
+# used in some complex test cases
 define analyse_compile
 	@if $(ifeq__) $(z_return) 0 ; then \
 		$(ECHO) "PASS:  $(z_name)"; $(TOUCH) $@; \
@@ -189,24 +185,16 @@ define analyse_compile
 	fi
 endef
 
-%.$(ext_compile) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_compile),,$@))
-	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
-	$(analyse_compile)
-
-
-%.$(ext_compile) : %.$(ext_source_html) basic_tools
-	$(eval z_name = $(subst .$(ext_compile),,$@))
-	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
-	$(analyse_compile)
-
 # 
 # target should compile, link and run
 # 
-run : Makefile $(sort $(subst .$(ext_source),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source_html)" ) ) )
+run : $(dstress__)
+	rm -f run/*.exe run/*.$(ext_run)
+	find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) run" > run.sh
+	chmod +x run.sh
+	./run.sh 2>> $(LOG)
 
+# used in some complex testcases
 define analyse_run
 	@if $(ifeq__) $(z_return) 0 ; then \
 		$(eval z_return2 = $(shell $(return__) "./$@ $(to_log)")) \
@@ -227,18 +215,6 @@ define analyse_run
 		fi \
 	fi
 endef
-
-%.$(ext_run) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_run),,$@))
-	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	$(analyse_run)
-
-%.$(ext_run) : %.$(ext_source_html) basic_tools
-	$(eval z_name = $(subst .$(ext_run),,$@))
-	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	$(analyse_run)
 
 #
 # target should compile, link and run
@@ -277,8 +253,13 @@ endef
 #
 # target should compile and link but fail to run
 # 
-norun : Makefile $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source_html)" ) ) )
+norun : $(dstress__)
+	rm -f norun/*.exe norun/*.$(ext_norun)
+	find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) norun" > norun.sh
+	chmod +x norun.sh
+	./norun.sh 2>> $(LOG)
 
+# used in some complex test cases
 define analyse_norun
 	@if $(ifeq__) $(z_return) 0; then \
 		if ./$@ $(to_log); \
@@ -295,33 +276,17 @@ define analyse_norun
 	fi
 endef
 
-%.$(ext_norun) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_norun),,$@))
-	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	$(analyse_norun)
-
-%.$(ext_norun) : %.$(ext_source_html) Makefile 
-	$(eval z_name = $(subst .$(ext_norun),,$@))
-	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	$(analyse_norun)
-
-
 #
 # run all complex test cases
 #
-complex : $(sort $(subst $(complex_todo),$(complex_done),$(complex_makefiles)))
-
-
-log : distclean all
+complex : basic_tools $(sort $(subst $(complex_todo),$(complex_done),$(complex_makefiles)))
 
 #
 # 
 #
 distclean : clean_log clean
-	$(RM) $(shell $(FIND) . -regex ".*~") $(shell $(FIND) . -regex "\\..*\\.swp")
-	$(RM) return__ ifeq__ extract__ www/*.class
+	$(RM) $(shell $(FIND) . -regex ".*~") $(shell $(FIND) . -regex "\\..*\\.swp") $(shell $(FIND) . -regex "#.*#")
+	$(RM) $(return__) $(ifeq__) $(extract__) $(dstress__) www/*.class
 
 #
 # remove compiler and assertion messages
@@ -335,5 +300,6 @@ clean_log :
 clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles)))
 	$(RM) $(OBJ_DIR)/?*.?* nocompile/?*.$(ext_log)
 	$(RM) run/?*.$(ext_run) norun/?*.$(ext_norun) compile/?*.$(ext_compile) nocompile/?*.$(ext_nocompile)
+	$(RM) run.sh norun.sh compile.sh nocompile.sh
 
 # the empty line above has to remain, otherwise some weired problems can arise

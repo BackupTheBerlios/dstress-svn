@@ -1,6 +1,7 @@
 /* svn://svn.kuehne.cn/dstress/extract__.c
  *
  * extract compiler flags for DStress test cases
+ * [deprecated: use dstress.c]
  *
  * Copyright (C) 2004, 2005 Thomas Kuehne
  *

@@ -46,15 +46,15 @@ nocompile : $(sort $(subst .$(ext_source),.$(ext_nocompile),$(shell $(FIND) noco
 	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
 
 %.$(ext_nocompile) : %.$(ext_source_html)
-	@if $(DMD) $(DEFLAGS) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
+	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
 
 compile : $(sort $(subst .$(ext_source),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source_html)" ) ) )
 
 %.$(ext_compile) : %.$(ext_source)
-	@if $(DMD) $(DEFLAGS) -c -of$@ $< $(to_log) ; then $(ECHO) "PASS:  $(subst .$(ext_compile),,$@)"; $(TOUCH) $@; else $(ECHO) "XFAIL: $(subst .$(ext_compile),,$@)"; $(RM) $@; fi
+	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log) ; then $(ECHO) "PASS:  $(subst .$(ext_compile),,$@)"; $(TOUCH) $@; else $(ECHO) "XFAIL: $(subst .$(ext_compile),,$@)"; $(RM) $@; fi
 
 %.$(ext_compile) : %.$(ext_source_html) 
-	@if $(DMD) $(DEFLAGS) -c -of$@ $< $(to_log) ; then $(ECHO) "PASS:  $(subst .$(ext_compile),,$@)"; $(TOUCH) $@; else $(ECHO) "XFAIL: $(subst .$(ext_compile),,$@)"; $(RM) $@; fi
+	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log) ; then $(ECHO) "PASS:  $(subst .$(ext_compile),,$@)"; $(TOUCH) $@; else $(ECHO) "XFAIL: $(subst .$(ext_compile),,$@)"; $(RM) $@; fi
 
 
 run : $(sort $(subst .$(ext_source),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source_html)" ) ) )

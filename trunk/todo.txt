@@ -14,7 +14,6 @@ Benchmark:
 
 Test cases:
 * keyword: asm
-* keyword: abstract (http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D.bugs/1940)
 * keyword: break (mutexes)
 * keyword: in out body
 * keyword: cent

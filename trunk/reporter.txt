@@ -1,4 +1,4 @@
-﻿Thanks to all the bug reporters and for the test case suggestions.
+Thanks to all the bug reporters and for the test case suggestions.
 
 Aleksey Bobnev 		<uw@front.ru>
 Andy Friesen		<andy@ikagames.com>
@@ -58,3 +58,4 @@ Tyro 			<ridimz_at@yahoo.dot.com>
 van eeshan 		<vanee@hotmail.com>
 Vathix 			<vathixSpamFix@dprogramming.com>
 Walter 			<newshound@digitalmars.com>
+zwang			<nehzgnaw@gmail.com>

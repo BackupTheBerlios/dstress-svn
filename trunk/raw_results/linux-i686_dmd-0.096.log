@@ -76,6 +76,9 @@ compile/extern_07.d(16): found ')' when expecting ';' following 'statement'
 compile/extern_07.d(16): found ')' instead of statement
 
 --------
+compile: dmd-96   -c -odobj  compile/extern_08.d 1> log.tmp 2>&1
+
+--------
 compile: dmd-96   -c -odobj  compile/for_03.d 1> log.tmp 2>&1
 
 --------
@@ -144,11 +147,14 @@ compile: dmd-96   -c -odobj  compile/struct_21.d 1> log.tmp 2>&1
 compile: dmd-96   -c -odobj  compile/struct_22.d 1> log.tmp 2>&1
 
 --------
+compile: dmd-96   -c -odobj  compile/template_class_08.d 1> log.tmp 2>&1
+
+--------
 compile: dmd-96   -c -odobj  compile/template_struct_02.d 1> log.tmp 2>&1
 
 --------
 compile: dmd-96   -c -odobj  compile/typedef_05.d 1> log.tmp 2>&1
-String 0x81130a8
+String 0x81130a0
 Internal error: e2ir.c 443
 
 --------
@@ -171,10 +177,26 @@ compile/version_09.d(5): variable test conflicts with version_09.test at compile
 nocompile: dmd-96   -c -odobj  nocompile/abstract_05.d 1> log.tmp 2>&1
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/abstract_06.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/abstract_08.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/abstract_09.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/abstract_11.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/abstract_12.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/alias_05.d 1> log.tmp 2>&1
 
 --------
-nocompile: dmd-96   -c -odobj  nocompile/align_01.d 1> log.tmp 2>&1
+nocompile: dmd-96   -c -odobj  nocompile/alias_17.d 1> log.tmp 2>&1
+dmd.bin: func.c:891: void overloadResolveX(Match*, FuncDeclaration*, Array*): Assertion `0' failed.
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/align_02.d 1> log.tmp 2>&1
@@ -182,12 +204,6 @@ nocompile/align_02.d(2): integer expected, not -
 nocompile/align_02.d(2): found '1' when expecting ')'
 nocompile/align_02.d(2): Declaration expected, not ')'
 
-
---------
-nocompile: dmd-96   -c -odobj  nocompile/align_03.d 1> log.tmp 2>&1
-
---------
-nocompile: dmd-96   -c -odobj  nocompile/align_05.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/argument_01.d 1> log.tmp 2>&1
@@ -330,6 +346,10 @@ nocompile: dmd-96   -c -odobj  nocompile/bug_s2ir_458.d 1> log.tmp 2>&1
 Internal error: s2ir.c 457
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/bug_template_1455_A.d 1> log.tmp 2>&1
+nocompile/bug_template_1455_A.d(15): identifier 'Nothing' is not defined
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/byte_09.d 1> log.tmp 2>&1
 nocompile/byte_09.d(4): .size property is deprecated, use .sizeof
 
@@ -337,6 +357,14 @@ nocompile/byte_09.d(4): .size property is deprecated, use .sizeof
 nocompile: dmd-96   -c -odobj  nocompile/byte_10.d 1> log.tmp 2>&1
 ty = 14
 nocompile/byte_10.d(4): no property 'sign' for type 'byte'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/case_01.d 1> log.tmp 2>&1
+dmd.bin: expression.c:1296: virtual int StringExp::compare(Object*): Assertion `se2->op == TOKstring' failed.
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/case_02.d 1> log.tmp 2>&1
+nocompile/case_02.d(18): case 'getString()' is not a string
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/cast_03.d 1> log.tmp 2>&1
@@ -482,6 +510,10 @@ nocompile/const_11.d(12): non-constant expression &_init_7dstress9nocompile8cons
 --------
 nocompile: dmd-96   -c -odobj  nocompile/constructor_05.d 1> log.tmp 2>&1
 nocompile/constructor_05.d(14): constructor this constructors only are for class definitions
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/__DATE__02.d 1> log.tmp 2>&1
+nocompile/__DATE__02.d(8): undefined identifier __DATE__
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/dchar_01.d 1> log.tmp 2>&1
@@ -818,11 +850,12 @@ nocompile: dmd-96   -c -odobj  nocompile/ExpressionStatement_01.d 1> log.tmp 2>&
 nocompile: dmd-96   -c -odobj  nocompile/ExpressionStatement_02.d 1> log.tmp 2>&1
 
 --------
-nocompile: dmd-96   -c -odobj  nocompile/extern_05.d 1> log.tmp 2>&1
-
---------
 nocompile: dmd-96   -c -odobj  nocompile/extern_06.d 1> log.tmp 2>&1
 nocompile/extern_06.d(18): cannot implicitly convert int(*)() to int(C *)()
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/__FILE__02.d 1> log.tmp 2>&1
+nocompile/__FILE__02.d(8): undefined identifier __FILE__
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/final_01.d 1> log.tmp 2>&1
@@ -1033,6 +1066,14 @@ nocompile/InExpression_18.d(16): rvalue of in expression must be an associative 
 nocompile: dmd-96   -c -odobj  nocompile/inline_01.d 1> log.tmp 2>&1
 nocompile/inline_01.d(2): no identifier for declarator
 nocompile/inline_01.d(2): semicolon expected, not 'int'
+
+--------
+nocompile: dmd-96   -inline -c -odobj  nocompile/inline_07.d 1> log.tmp 2>&1
+dmd.bin: inline.c:368: virtual Expression* ThisExp::doInline(InlineDoState*): Assertion `ids->vthis' failed.
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/inline_08.d 1> log.tmp 2>&1
+nocompile/inline_08.d(19): need 'this' to access member bug
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/int_05.d 1> log.tmp 2>&1
@@ -1299,6 +1340,10 @@ nocompile: dmd-96   -c -odobj  nocompile/length_04.d 1> log.tmp 2>&1
 dmd.bin: mtype.c:2564: void TypeQualified::resolveHelper(Loc, Scope*, Dsymbol*, Dsymbol*, Expression**, Type**, Dsymbol**): Assertion `ei' failed.
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/__LINE__02.d 1> log.tmp 2>&1
+nocompile/__LINE__02.d(8): undefined identifier __LINE__
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/line_token_05.d 1> log.tmp 2>&1
 nocompile/line_token_05.d(1): #line integer ["filespec"]\n expected
 nocompile/line_token_05.d(1): Declaration expected, not '2'
@@ -1351,6 +1396,56 @@ nocompile: dmd-96   -c -odobj  nocompile/mixin_04.d 1> log.tmp 2>&1
 nocompile: dmd-96   -c -odobj  nocompile/module_03.d 1> log.tmp 2>&1
 nocompile/module_03.d(7): Declaration expected, not 'module'
 
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/named_entity_04.d 1> log.tmp 2>&1
+nocompile/named_entity_04.d(8): undefined escape sequence \&
+
+nocompile/named_entity_04.d(8): unterminated character constant
+nocompile/named_entity_04.d(8): unterminated character constant
+nocompile/named_entity_04.d(9): found '}' when expecting ';' following 'statement'
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/named_entity_05.d 1> log.tmp 2>&1
+nocompile/named_entity_05.d(8): undefined escape sequence \&
+
+nocompile/named_entity_05.d(8): unterminated character constant
+nocompile/named_entity_05.d(8): unterminated character constant
+nocompile/named_entity_05.d(8): semicolon expected, not '59U'
+nocompile/named_entity_05.d(9): found '}' when expecting ';' following 'statement'
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(9): found 'EOF' instead of statement
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/offset_01.d 1> log.tmp 2>&1
@@ -1695,6 +1790,10 @@ nocompile: dmd-96   -c -odobj  nocompile/super_09.d 1> log.tmp 2>&1
 nocompile/super_09.d(24): no super class constructor for Object
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/super_11.d 1> log.tmp 2>&1
+nocompile/super_11.d(13): super class constructor call must be in a constructor
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/switch_08.d 1> log.tmp 2>&1
 nocompile/switch_08.d(12): default not in switch statement
 
@@ -1736,6 +1835,14 @@ nocompile/template_06.d(23): function expected before (), not 'void'
 nocompile: dmd-96   -c -odobj  nocompile/template_09.d 1> log.tmp 2>&1
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/template_13.d 1> log.tmp 2>&1
+nocompile/template_13.d(15): template instance Template!(int) does not match any template declaration
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/template_class_07.d 1> log.tmp 2>&1
+nocompile/template_class_07.d(15): template instance Template!(int) does not match any template declaration
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/this_01.d 1> log.tmp 2>&1
 nocompile/this_01.d(13): 'this' is only allowed in non-static member functions
 
@@ -1758,7 +1865,24 @@ nocompile: dmd-96   -c -odobj  nocompile/this_06.d 1> log.tmp 2>&1
 dmd.bin: tocsym.c:135: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/__TIME__02.d 1> log.tmp 2>&1
+nocompile/__TIME__02.d(8): undefined identifier __TIME__
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/__TIMESTAMP__02.d 1> log.tmp 2>&1
+nocompile/__TIMESTAMP__02.d(8): undefined identifier __TIMESTAMP__
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/try_05.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/typeof_05.d 1> log.tmp 2>&1
+nocompile/typeof_05.d(13): variable x cannot be declared to be a function void()
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/typeof_06.d 1> log.tmp 2>&1
+nocompile/typeof_06.d(13): variable x cannot be declared to be a function void()
+dmd.bin: expression.c:2783: virtual Expression* CallExp::semantic(Scope*): Assertion `f' failed.
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/types_declaration_02.d 1> log.tmp 2>&1
@@ -1935,6 +2059,16 @@ nocompile: dmd-96   -c -odobj  nocompile/with_07.d 1> log.tmp 2>&1
 nocompile/with_07.d(12): found ':' instead of statement
 
 --------
+run: dmd-96   -odobj  -ofrun/abstract_07.d.exe run/abstract_07.d 1> log.tmp 2>&1
+gcc obj/abstract_07.o -o run/abstract_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/abstract_07.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/abstract_10.d.exe run/abstract_10.d 1> log.tmp 2>&1
+gcc obj/abstract_10.o -o run/abstract_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/abstract_10.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-96   -odobj  -ofrun/alias_01.d.exe run/alias_01.d 1> log.tmp 2>&1
 gcc obj/alias_01.o -o run/alias_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/alias_01.d.exe 1> log.tmp 2>&1
@@ -1991,10 +2125,12 @@ gcc obj/alias_14.o -o run/alias_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/alias_14.d.exe 1> log.tmp 2>&1
 
 --------
-run: dmd-96   -odobj  -ofrun/align_06.d.exe run/align_06.d 1> log.tmp 2>&1
-gcc obj/align_06.o -o run/align_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
-run/align_06.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/align_06.d(17)
+run: dmd-96   -odobj  -ofrun/alias_15.d.exe run/alias_15.d 1> log.tmp 2>&1
+run/alias_15.d(24): identifier 'a' of 'b.a.foo' is not defined
+
+--------
+run: dmd-96   -odobj  -ofrun/alias_16.d.exe run/alias_16.d 1> log.tmp 2>&1
+run/alias_16.d(24): identifier 'a' of 'b.a.foo' is not defined
 
 --------
 run: dmd-96   -odobj  -ofrun/align_07.d.exe run/align_07.d 1> log.tmp 2>&1
@@ -2289,6 +2425,10 @@ gcc obj/bug_cgcod_1640_G.o -o run/bug_cgcod_1640_G.d.exe -lphobos -lpthread -lm 
 run/bug_cgcod_1640_G.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/bug_cgcs_353_C.d.exe run/bug_cgcs_353_C.d 1> log.tmp 2>&1
+Internal error: ../ztc/cgcs.c 353
+
+--------
 run: dmd-96   -odobj  -ofrun/bug_e2ir_141_A.d.exe run/bug_e2ir_141_A.d 1> log.tmp 2>&1
 Internal error: e2ir.c 137
 
@@ -2497,6 +2637,14 @@ gcc obj/cast_18.o -o run/cast_18.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/di
 run/cast_18.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/cast_20.d.exe run/cast_20.d 1> log.tmp 2>&1
+run/cast_20.d(13): cannot implicitly convert int to bit
+
+--------
+run: dmd-96   -odobj  -ofrun/cast_21.d.exe run/cast_21.d 1> log.tmp 2>&1
+run/cast_21.d(13): cannot implicitly convert int to bit
+
+--------
 run: dmd-96   -odobj  -ofrun/char_03.d.exe run/char_03.d 1> log.tmp 2>&1
 gcc obj/char_03.o -o run/char_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/char_03.d.exe 1> log.tmp 2>&1
@@ -2680,6 +2828,10 @@ gcc obj/const_10.o -o run/const_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/const_10.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/const_14.d.exe run/const_14.d 1> log.tmp 2>&1
+run/const_14.d(12): 50 * 50 is not an expression
+
+--------
 run: dmd-96   -odobj  -ofrun/constructor_01.d.exe run/constructor_01.d 1> log.tmp 2>&1
 gcc obj/constructor_01.o -o run/constructor_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/constructor_01.d.exe 1> log.tmp 2>&1
@@ -2815,6 +2967,10 @@ run/creal_19.d.exe 1> log.tmp 2>&1
 run: dmd-96   -odobj  -ofrun/creal_20.d.exe run/creal_20.d 1> log.tmp 2>&1
 gcc obj/creal_20.o -o run/creal_20.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/creal_20.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/__DATE__01.d.exe run/__DATE__01.d 1> log.tmp 2>&1
+run/__DATE__01.d(8): undefined identifier __DATE__
 
 --------
 run: dmd-96   -odobj  -ofrun/dchar_03.d.exe run/dchar_03.d 1> log.tmp 2>&1
@@ -3226,6 +3382,11 @@ gcc obj/enum_11.o -o run/enum_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/di
 run/enum_11.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/enum_13.d.exe run/enum_13.d 1> log.tmp 2>&1
+ty = 18
+run/enum_13.d(26): no property 'VALUE_B' for type 'int'
+
+--------
 run: dmd-96   -odobj  -ofrun/eol_01.d.exe run/eol_01.d 1> log.tmp 2>&1
 gcc obj/eol_01.o -o run/eol_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/eol_01.d.exe 1> log.tmp 2>&1
@@ -3289,6 +3450,10 @@ run/escape_unicode32_02.d.exe 1> log.tmp 2>&1
 run: dmd-96   -odobj  -ofrun/escape_unicode32_03.d.exe run/escape_unicode32_03.d 1> log.tmp 2>&1
 gcc obj/escape_unicode32_03.o -o run/escape_unicode32_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/escape_unicode32_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/__FILE__01.d.exe run/__FILE__01.d 1> log.tmp 2>&1
+run/__FILE__01.d(8): undefined identifier __FILE__
 
 --------
 run: dmd-96   -odobj  -ofrun/final_02.d.exe run/final_02.d 1> log.tmp 2>&1
@@ -4237,16 +4402,8 @@ run: dmd-96   -odobj  -ofrun/InExpression_02.d.exe run/InExpression_02.d 1> log.
 run/InExpression_02.d(13): cannot implicitly convert int to int*
 
 --------
-run: dmd-96   -odobj  -ofrun/InExpression_03.d.exe run/InExpression_03.d 1> log.tmp 2>&1
-run/InExpression_03.d(13): cannot implicitly convert int to int*
-
---------
 run: dmd-96   -odobj  -ofrun/InExpression_04.d.exe run/InExpression_04.d 1> log.tmp 2>&1
 run/InExpression_04.d(20): cannot implicitly convert int to MyStruct *
-
---------
-run: dmd-96   -odobj  -ofrun/InExpression_05.d.exe run/InExpression_05.d 1> log.tmp 2>&1
-run/InExpression_05.d(20): cannot implicitly convert int to MyStruct *
 
 --------
 run: dmd-96   -odobj  -ofrun/InExpression_06.d.exe run/InExpression_06.d 1> log.tmp 2>&1
@@ -4259,10 +4416,6 @@ run/InExpression_07.d(20): cannot implicitly convert int to MyClass *
 --------
 run: dmd-96   -odobj  -ofrun/InExpression_08.d.exe run/InExpression_08.d 1> log.tmp 2>&1
 run/InExpression_08.d(18): cannot implicitly convert int to MyClass *
-
---------
-run: dmd-96   -odobj  -ofrun/InExpression_09.d.exe run/InExpression_09.d 1> log.tmp 2>&1
-run/InExpression_09.d(18): cannot implicitly convert int to MyClass *
 
 --------
 run: dmd-96   -odobj  -ofrun/InExpression_10.d.exe run/InExpression_10.d 1> log.tmp 2>&1
@@ -4283,6 +4436,29 @@ run/InExpression_13.d(13): cannot implicitly convert int to int*
 --------
 run: dmd-96   -odobj  -ofrun/InExpression_19.d.exe run/InExpression_19.d 1> log.tmp 2>&1
 run/InExpression_19.d(10): cannot implicitly convert int to void*
+
+--------
+run: dmd-96   -odobj  -ofrun/InExpression_20.d.exe run/InExpression_20.d 1> log.tmp 2>&1
+run/InExpression_20.d(19): cannot implicitly convert int to ArrayTest *
+
+--------
+run: dmd-96   -inline -odobj  -ofrun/inline_04.d.exe run/inline_04.d 1> log.tmp 2>&1
+run/inline_04.d(31): this.bar() is not an lvalue
+
+--------
+run: dmd-96   -odobj  -ofrun/inline_05.d.exe run/inline_05.d 1> log.tmp 2>&1
+gcc obj/inline_05.o -o run/inline_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/inline_05.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -inline -odobj  -ofrun/inline_06.d.exe run/inline_06.d 1> log.tmp 2>&1
+gcc obj/inline_06.o -o run/inline_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/inline_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -inline -odobj  -ofrun/inline_09.d.exe run/inline_09.d 1> log.tmp 2>&1
+gcc obj/inline_09.o -o run/inline_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/inline_09.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-96   -odobj  -ofrun/in_out_body_01.d.exe run/in_out_body_01.d 1> log.tmp 2>&1
@@ -4604,6 +4780,18 @@ gcc obj/length_02.o -o run/length_02.d.exe -lphobos -lpthread -lm -Xlinker -L/op
 run/length_02.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/length_05.d.exe run/length_05.d 1> log.tmp 2>&1
+run/length_05.d(13): expression expected, not 'TOK36'
+
+--------
+run: dmd-96   -odobj  -ofrun/length_06.d.exe run/length_06.d 1> log.tmp 2>&1
+run/length_06.d(12): expression expected, not 'TOK36'
+
+--------
+run: dmd-96   -odobj  -ofrun/__LINE__01.d.exe run/__LINE__01.d 1> log.tmp 2>&1
+run/__LINE__01.d(8): undefined identifier __LINE__
+
+--------
 run: dmd-96   -odobj  -ofrun/line_ending_dos.d.exe run/line_ending_dos.d 1> log.tmp 2>&1
 gcc obj/line_ending_dos.o -o run/line_ending_dos.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/line_ending_dos.d.exe 1> log.tmp 2>&1
@@ -4666,7 +4854,6 @@ Error: ArrayBoundsError run/line_token_04.d(31)
 run: dmd-96   -odobj  -ofrun/long_01.d.exe run/long_01.d 1> log.tmp 2>&1
 gcc obj/long_01.o -o run/long_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/long_01.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/long_01.d(6)
 
 --------
 run: dmd-96   -odobj  -ofrun/long_char_1025.d.exe run/long_char_1025.d 1> log.tmp 2>&1
@@ -4714,6 +4901,15 @@ gcc obj/mixin_03.o -o run/mixin_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/mixin_03.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/mixin_05.d.exe run/mixin_05.d 1> log.tmp 2>&1
+Error: 'x' is not a member of 'S'
+
+--------
+run: dmd-96   -odobj  -ofrun/mixin_06.d.exe run/mixin_06.d 1> log.tmp 2>&1
+gcc obj/mixin_06.o -o run/mixin_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/mixin_06.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-96   -odobj  -ofrun/module_01.d.exe run/module_01.d 1> log.tmp 2>&1
 run/module_01.d(15): undefined identifier dstress
 
@@ -4725,6 +4921,90 @@ run/module_02.d.exe 1> log.tmp 2>&1
 --------
 run: dmd-96   -I. -odobj  -ofrun/module_04.d.exe run/module_04.d 1> log.tmp 2>&1
 run/module_04.d(17): undefined identifier run
+
+--------
+run: dmd-96   -odobj  -ofrun/named_entity_01.d.exe run/named_entity_01.d 1> log.tmp 2>&1
+run/named_entity_01.d(10): undefined escape sequence \&
+
+run/named_entity_01.d(10): unterminated character constant
+run/named_entity_01.d(10): found ';' when expecting ')'
+run/named_entity_01.d(10): unterminated character constant
+run/named_entity_01.d(10): found '61U' when expecting ';' following 'statement'
+run/named_entity_01.d(10): found '=' instead of statement
+run/named_entity_01.d(11): undefined escape sequence \&
+
+run/named_entity_01.d(11): unterminated character constant
+run/named_entity_01.d(11): found ';' when expecting ')'
+run/named_entity_01.d(11): unterminated character constant
+run/named_entity_01.d(11): found '61U' when expecting ';' following 'statement'
+run/named_entity_01.d(11): found '=' instead of statement
+run/named_entity_01.d(12): undefined escape sequence \&
+
+run/named_entity_01.d(12): unterminated character constant
+run/named_entity_01.d(12): found ';' when expecting ')'
+run/named_entity_01.d(12): unterminated character constant
+run/named_entity_01.d(12): found '61U' when expecting ';' following 'statement'
+run/named_entity_01.d(12): found '=' instead of statement
+run/named_entity_01.d(13): undefined escape sequence \&
+
+run/named_entity_01.d(13): unterminated character constant
+run/named_entity_01.d(13): found ';' when expecting ')'
+
+--------
+run: dmd-96   -odobj  -ofrun/named_entity_02.d.exe run/named_entity_02.d 1> log.tmp 2>&1
+run/named_entity_02.d(10): undefined escape sequence \&
+
+run/named_entity_02.d(10): unterminated character constant
+run/named_entity_02.d(10): found ';' when expecting ')'
+run/named_entity_02.d(10): unterminated character constant
+run/named_entity_02.d(10): found '61U' when expecting ';' following 'statement'
+run/named_entity_02.d(10): found '=' instead of statement
+run/named_entity_02.d(11): undefined escape sequence \&
+
+run/named_entity_02.d(11): unterminated character constant
+run/named_entity_02.d(11): found ';' when expecting ')'
+run/named_entity_02.d(11): unterminated character constant
+run/named_entity_02.d(11): found '61U' when expecting ';' following 'statement'
+run/named_entity_02.d(11): found '=' instead of statement
+run/named_entity_02.d(12): undefined escape sequence \&
+
+run/named_entity_02.d(12): unterminated character constant
+run/named_entity_02.d(12): found ';' when expecting ')'
+run/named_entity_02.d(12): unterminated character constant
+run/named_entity_02.d(12): found '61U' when expecting ';' following 'statement'
+run/named_entity_02.d(12): found '=' instead of statement
+run/named_entity_02.d(13): undefined escape sequence \&
+
+run/named_entity_02.d(13): unterminated character constant
+run/named_entity_02.d(13): found ';' when expecting ')'
+
+--------
+run: dmd-96   -odobj  -ofrun/named_entity_03.d.exe run/named_entity_03.d 1> log.tmp 2>&1
+run/named_entity_03.d(10): undefined escape sequence \&
+
+run/named_entity_03.d(10): unterminated character constant
+run/named_entity_03.d(10): found ';' when expecting ')'
+run/named_entity_03.d(10): unterminated character constant
+run/named_entity_03.d(10): found '61U' when expecting ';' following 'statement'
+run/named_entity_03.d(10): found '=' instead of statement
+run/named_entity_03.d(11): undefined escape sequence \&
+
+run/named_entity_03.d(11): unterminated character constant
+run/named_entity_03.d(11): found ';' when expecting ')'
+run/named_entity_03.d(11): unterminated character constant
+run/named_entity_03.d(11): found '61U' when expecting ';' following 'statement'
+run/named_entity_03.d(11): found '=' instead of statement
+run/named_entity_03.d(12): undefined escape sequence \&
+
+run/named_entity_03.d(12): unterminated character constant
+run/named_entity_03.d(12): found ';' when expecting ')'
+run/named_entity_03.d(12): unterminated character constant
+run/named_entity_03.d(12): found '61U' when expecting ';' following 'statement'
+run/named_entity_03.d(12): found '=' instead of statement
+run/named_entity_03.d(13): undefined escape sequence \&
+
+run/named_entity_03.d(13): unterminated character constant
+run/named_entity_03.d(13): found ';' when expecting ')'
 
 --------
 run: dmd-96   -odobj  -ofrun/nested_function_01.d.exe run/nested_function_01.d 1> log.tmp 2>&1
@@ -4790,6 +5070,331 @@ run/offsetof_02.d(15): no property 'offsetof' for type 'int'
 run: dmd-96   -odobj  -ofrun/offsetof_07.d.exe run/offsetof_07.d 1> log.tmp 2>&1
 ty = 18
 run/offsetof_07.d(15): no property 'offsetof' for type 'int'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_09.d.exe run/offsetof_09.d 1> log.tmp 2>&1
+ty = 14
+run/offsetof_09.d(17): no property 'offsetof' for type 'byte'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_10.d.exe run/offsetof_10.d 1> log.tmp 2>&1
+ty = 14
+run/offsetof_10.d(17): no property 'offsetof' for type 'byte'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_11.d.exe run/offsetof_11.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_11.d(17): no property 'offsetof' for type 'byte[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_12.d.exe run/offsetof_12.d 1> log.tmp 2>&1
+ty = 15
+run/offsetof_12.d(17): no property 'offsetof' for type 'ubyte'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_13.d.exe run/offsetof_13.d 1> log.tmp 2>&1
+ty = 15
+run/offsetof_13.d(17): no property 'offsetof' for type 'ubyte'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_14.d.exe run/offsetof_14.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_14.d(17): no property 'offsetof' for type 'ubyte[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_15.d.exe run/offsetof_15.d 1> log.tmp 2>&1
+ty = 16
+run/offsetof_15.d(17): no property 'offsetof' for type 'short'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_16.d.exe run/offsetof_16.d 1> log.tmp 2>&1
+ty = 16
+run/offsetof_16.d(17): no property 'offsetof' for type 'short'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_17.d.exe run/offsetof_17.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_17.d(17): no property 'offsetof' for type 'short[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_18.d.exe run/offsetof_18.d 1> log.tmp 2>&1
+ty = 17
+run/offsetof_18.d(17): no property 'offsetof' for type 'ushort'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_19.d.exe run/offsetof_19.d 1> log.tmp 2>&1
+ty = 17
+run/offsetof_19.d(17): no property 'offsetof' for type 'ushort'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_20.d.exe run/offsetof_20.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_20.d(17): no property 'offsetof' for type 'ushort[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_21.d.exe run/offsetof_21.d 1> log.tmp 2>&1
+ty = 18
+run/offsetof_21.d(17): no property 'offsetof' for type 'int'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_22.d.exe run/offsetof_22.d 1> log.tmp 2>&1
+ty = 18
+run/offsetof_22.d(17): no property 'offsetof' for type 'int'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_23.d.exe run/offsetof_23.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_23.d(17): no property 'offsetof' for type 'int[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_24.d.exe run/offsetof_24.d 1> log.tmp 2>&1
+ty = 19
+run/offsetof_24.d(17): no property 'offsetof' for type 'uint'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_25.d.exe run/offsetof_25.d 1> log.tmp 2>&1
+ty = 19
+run/offsetof_25.d(17): no property 'offsetof' for type 'uint'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_26.d.exe run/offsetof_26.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_26.d(17): no property 'offsetof' for type 'uint[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_27.d.exe run/offsetof_27.d 1> log.tmp 2>&1
+ty = 20
+run/offsetof_27.d(17): no property 'offsetof' for type 'long'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_28.d.exe run/offsetof_28.d 1> log.tmp 2>&1
+ty = 20
+run/offsetof_28.d(17): no property 'offsetof' for type 'long'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_29.d.exe run/offsetof_29.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_29.d(17): no property 'offsetof' for type 'long[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_30.d.exe run/offsetof_30.d 1> log.tmp 2>&1
+ty = 21
+run/offsetof_30.d(17): no property 'offsetof' for type 'ulong'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_31.d.exe run/offsetof_31.d 1> log.tmp 2>&1
+ty = 21
+run/offsetof_31.d(17): no property 'offsetof' for type 'ulong'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_32.d.exe run/offsetof_32.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_32.d(17): no property 'offsetof' for type 'ulong[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_33.d.exe run/offsetof_33.d 1> log.tmp 2>&1
+ty = 24
+run/offsetof_33.d(17): no property 'offsetof' for type 'real'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_34.d.exe run/offsetof_34.d 1> log.tmp 2>&1
+ty = 24
+run/offsetof_34.d(17): no property 'offsetof' for type 'real'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_35.d.exe run/offsetof_35.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_35.d(17): no property 'offsetof' for type 'real[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_36.d.exe run/offsetof_36.d 1> log.tmp 2>&1
+ty = 22
+run/offsetof_36.d(17): no property 'offsetof' for type 'float'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_37.d.exe run/offsetof_37.d 1> log.tmp 2>&1
+ty = 22
+run/offsetof_37.d(17): no property 'offsetof' for type 'float'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_38.d.exe run/offsetof_38.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_38.d(17): no property 'offsetof' for type 'float[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_39.d.exe run/offsetof_39.d 1> log.tmp 2>&1
+ty = 23
+run/offsetof_39.d(17): no property 'offsetof' for type 'double'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_40.d.exe run/offsetof_40.d 1> log.tmp 2>&1
+ty = 23
+run/offsetof_40.d(17): no property 'offsetof' for type 'double'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_41.d.exe run/offsetof_41.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_41.d(17): no property 'offsetof' for type 'double[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_42.d.exe run/offsetof_42.d 1> log.tmp 2>&1
+ty = 13
+run/offsetof_42.d(17): no property 'offsetof' for type 'void'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_43.d.exe run/offsetof_43.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_43.d(17): no property 'offsetof' for type 'void[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_44.d.exe run/offsetof_44.d 1> log.tmp 2>&1
+ty = 25
+run/offsetof_44.d(17): no property 'offsetof' for type 'ifloat'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_45.d.exe run/offsetof_45.d 1> log.tmp 2>&1
+ty = 25
+run/offsetof_45.d(17): no property 'offsetof' for type 'ifloat'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_46.d.exe run/offsetof_46.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_46.d(17): no property 'offsetof' for type 'ifloat[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_47.d.exe run/offsetof_47.d 1> log.tmp 2>&1
+ty = 26
+run/offsetof_47.d(17): no property 'offsetof' for type 'idouble'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_48.d.exe run/offsetof_48.d 1> log.tmp 2>&1
+ty = 26
+run/offsetof_48.d(17): no property 'offsetof' for type 'idouble'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_49.d.exe run/offsetof_49.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_49.d(17): no property 'offsetof' for type 'idouble[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_50.d.exe run/offsetof_50.d 1> log.tmp 2>&1
+ty = 27
+run/offsetof_50.d(17): no property 'offsetof' for type 'ireal'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_51.d.exe run/offsetof_51.d 1> log.tmp 2>&1
+ty = 27
+run/offsetof_51.d(17): no property 'offsetof' for type 'ireal'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_52.d.exe run/offsetof_52.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_52.d(17): no property 'offsetof' for type 'ireal[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_53.d.exe run/offsetof_53.d 1> log.tmp 2>&1
+ty = 28
+run/offsetof_53.d(17): no property 'offsetof' for type 'cfloat'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_54.d.exe run/offsetof_54.d 1> log.tmp 2>&1
+ty = 28
+run/offsetof_54.d(17): no property 'offsetof' for type 'cfloat'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_55.d.exe run/offsetof_55.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_55.d(17): no property 'offsetof' for type 'cfloat[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_56.d.exe run/offsetof_56.d 1> log.tmp 2>&1
+ty = 29
+run/offsetof_56.d(17): no property 'offsetof' for type 'cdouble'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_57.d.exe run/offsetof_57.d 1> log.tmp 2>&1
+ty = 29
+run/offsetof_57.d(17): no property 'offsetof' for type 'cdouble'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_58.d.exe run/offsetof_58.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_58.d(17): no property 'offsetof' for type 'cdouble[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_59.d.exe run/offsetof_59.d 1> log.tmp 2>&1
+ty = 30
+run/offsetof_59.d(17): no property 'offsetof' for type 'creal'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_60.d.exe run/offsetof_60.d 1> log.tmp 2>&1
+ty = 30
+run/offsetof_60.d(17): no property 'offsetof' for type 'creal'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_61.d.exe run/offsetof_61.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_61.d(17): no property 'offsetof' for type 'creal[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_62.d.exe run/offsetof_62.d 1> log.tmp 2>&1
+ty = 32
+run/offsetof_62.d(17): no property 'offsetof' for type 'char'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_63.d.exe run/offsetof_63.d 1> log.tmp 2>&1
+ty = 32
+run/offsetof_63.d(17): no property 'offsetof' for type 'char'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_64.d.exe run/offsetof_64.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_64.d(17): no property 'offsetof' for type 'char[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_65.d.exe run/offsetof_65.d 1> log.tmp 2>&1
+ty = 33
+run/offsetof_65.d(17): no property 'offsetof' for type 'wchar'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_66.d.exe run/offsetof_66.d 1> log.tmp 2>&1
+ty = 33
+run/offsetof_66.d(17): no property 'offsetof' for type 'wchar'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_67.d.exe run/offsetof_67.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_67.d(17): no property 'offsetof' for type 'wchar[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_68.d.exe run/offsetof_68.d 1> log.tmp 2>&1
+ty = 34
+run/offsetof_68.d(17): no property 'offsetof' for type 'dchar'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_69.d.exe run/offsetof_69.d 1> log.tmp 2>&1
+ty = 34
+run/offsetof_69.d(17): no property 'offsetof' for type 'dchar'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_70.d.exe run/offsetof_70.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_70.d(17): no property 'offsetof' for type 'dchar[]'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_71.d.exe run/offsetof_71.d 1> log.tmp 2>&1
+ty = 5
+run/offsetof_71.d(17): no property 'offsetof' for type 'void()'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_72.d.exe run/offsetof_72.d 1> log.tmp 2>&1
+ty = 0
+run/offsetof_72.d(17): no property 'offsetof' for type 'void(*[])()'
+
+--------
+run: dmd-96   -odobj  -ofrun/offsetof_73.d.exe run/offsetof_73.d 1> log.tmp 2>&1
+ty = 11
+run/offsetof_73.d(17): no property 'offsetof' for type 'short[] delegate(Object )'
 
 --------
 run: dmd-96   -odobj  -ofrun/opCast_01.d.exe run/opCast_01.d 1> log.tmp 2>&1
@@ -4911,6 +5516,16 @@ run/out_05.d.exe 1> log.tmp 2>&1
 run: dmd-96   -odobj  -ofrun/out_06.d.exe run/out_06.d 1> log.tmp 2>&1
 gcc obj/out_06.o -o run/out_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/out_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/OutOfMemory_01.d.exe run/OutOfMemory_01.d 1> log.tmp 2>&1
+run/OutOfMemory_01.d(17): identifier 'OutOfMemoryException' is not defined
+
+--------
+run: dmd-96   -odobj  -ofrun/OutOfMemory_02.d.exe run/OutOfMemory_02.d 1> log.tmp 2>&1
+gcc obj/OutOfMemory_02.o -o run/OutOfMemory_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/OutOfMemory_02.d.exe 1> log.tmp 2>&1
+Error: Out of memory
 
 --------
 run: dmd-96   -odobj  -ofrun/overload_01.d.exe run/overload_01.d 1> log.tmp 2>&1
@@ -5244,7 +5859,7 @@ Error: AssertError Failure run/slice_09.d(18)
 --------
 run: dmd-96   -odobj  -ofrun/sort_01.d.exe run/sort_01.d 1> log.tmp 2>&1
 ty = 0
-run/sort_01.d(11): no property 'sort' for type 'bit[]'
+run/sort_01.d(15): no property 'sort' for type 'bit[]'
 
 --------
 run: dmd-96   -odobj  -ofrun/sort_02.d.exe run/sort_02.d 1> log.tmp 2>&1
@@ -5255,19 +5870,19 @@ run/sort_02.d.exe 1> log.tmp 2>&1
 run: dmd-96   -odobj  -ofrun/sort_03.d.exe run/sort_03.d 1> log.tmp 2>&1
 gcc obj/sort_03.o -o run/sort_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/sort_03.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/sort_03.d(30)
+Error: AssertError Failure run/sort_03.d(29)
 
 --------
 run: dmd-96   -odobj  -ofrun/sort_04.d.exe run/sort_04.d 1> log.tmp 2>&1
 gcc obj/sort_04.o -o run/sort_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/sort_04.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/sort_04.d(30)
+Error: AssertError Failure run/sort_04.d(29)
 
 --------
 run: dmd-96   -odobj  -ofrun/sort_05.d.exe run/sort_05.d 1> log.tmp 2>&1
 gcc obj/sort_05.o -o run/sort_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/sort_05.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/sort_05.d(30)
+Error: AssertError Failure run/sort_05.d(29)
 
 --------
 run: dmd-96   -odobj  -ofrun/sort_06.d.exe run/sort_06.d 1> log.tmp 2>&1
@@ -5303,6 +5918,24 @@ run/sort_11.d.exe 1> log.tmp 2>&1
 run: dmd-96   -odobj  -ofrun/sort_12.d.exe run/sort_12.d 1> log.tmp 2>&1
 gcc obj/sort_12.o -o run/sort_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/sort_12.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/sort_13.d.exe run/sort_13.d 1> log.tmp 2>&1
+gcc obj/sort_13.o -o run/sort_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/sort_13.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/sort_13.d(29)
+
+--------
+run: dmd-96   -odobj  -ofrun/sort_14.d.exe run/sort_14.d 1> log.tmp 2>&1
+gcc obj/sort_14.o -o run/sort_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/sort_14.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/sort_14.d(29)
+
+--------
+run: dmd-96   -odobj  -ofrun/sort_15.d.exe run/sort_15.d 1> log.tmp 2>&1
+gcc obj/sort_15.o -o run/sort_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/sort_15.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/sort_15.d(29)
 
 --------
 run: dmd-96   -odobj  -ofrun/static_01.d.exe run/static_01.d 1> log.tmp 2>&1
@@ -5414,6 +6047,15 @@ gcc obj/static_28.o -o run/static_28.d.exe -lphobos -lpthread -lm -Xlinker -L/op
 run/static_28.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/static_29.d.exe run/static_29.d 1> log.tmp 2>&1
+gcc obj/static_29.o -o run/static_29.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/static_29.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/static_30.d.exe run/static_30.d 1> log.tmp 2>&1
+dmd.bin: func.c:1274: virtual void CtorDeclaration::semantic(Scope*): Assertion `!(sc->stc & STCstatic)' failed.
+
+--------
 run: dmd-96   -odobj  -ofrun/struct_01.d.exe run/struct_01.d 1> log.tmp 2>&1
 gcc obj/struct_01.o -o run/struct_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/struct_01.d.exe 1> log.tmp 2>&1
@@ -5480,6 +6122,12 @@ run/struct_initialization_04.d.exe 1> log.tmp 2>&1
 run: dmd-96   -odobj  -ofrun/struct_initialization_05.d.exe run/struct_initialization_05.d 1> log.tmp 2>&1
 gcc obj/struct_initialization_05.o -o run/struct_initialization_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/struct_initialization_05.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/struct_initialization_06.d.exe run/struct_initialization_06.d 1> log.tmp 2>&1
+gcc obj/struct_initialization_06.o -o run/struct_initialization_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/struct_initialization_06.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/struct_initialization_06.d(22)
 
 --------
 run: dmd-96   -odobj  -ofrun/super_01.d.exe run/super_01.d 1> log.tmp 2>&1
@@ -5643,6 +6291,14 @@ run/throw_02.d(17): can only throw class objects, not type Alias
 run: dmd-96   -odobj  -ofrun/throw_03.d.exe run/throw_03.d 1> log.tmp 2>&1
 gcc obj/throw_03.o -o run/throw_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/throw_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/__TIME__01.d.exe run/__TIME__01.d 1> log.tmp 2>&1
+run/__TIME__01.d(8): undefined identifier __TIME__
+
+--------
+run: dmd-96   -odobj  -ofrun/__TIMESTAMP__01.d.exe run/__TIMESTAMP__01.d 1> log.tmp 2>&1
+run/__TIMESTAMP__01.d(8): undefined identifier __TIMESTAMP__
 
 --------
 run: dmd-96   -odobj  -ofrun/try_01.d.exe run/try_01.d 1> log.tmp 2>&1

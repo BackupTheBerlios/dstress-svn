@@ -2,12 +2,12 @@
 // $Date$
 // $Author$
 
-// onyl "" and "inout" are as modifiers allowed
+// only "" and "inout" are allowed as modifiers
 
 module dstress.nocompile.foreach_18;
 
 int main(){
-	char[] string
+	char[] string;
 	foreach(out char c; string){
 		
 	}

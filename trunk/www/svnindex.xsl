@@ -14,7 +14,7 @@
           </xsl:if>
           <xsl:value-of select="index/@path"/>
         </title>
-        <link rel="stylesheet" type="text/css" href="/svnindex.css"/>
+        <link rel="stylesheet" type="text/css" href="/www/svnindex.css"/>
       </head>
       <body>
         <div class="svn">

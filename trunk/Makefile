@@ -170,7 +170,7 @@ run : Makefile $(sort $(subst .$(ext_source),.$(ext_run),$(shell $(FIND) run -re
 	fi
 
 %.$(ext_run) : %.$(ext_source_html) Makefile
-	$(eval z_name = $(subst .$(ext_unittest_run),,$@))
+	$(eval z_name = $(subst .$(ext_run),,$@))
 	@if $(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log); then \
 		if $@ $(to_log); then \
 			$(ECHO) "PASS:  $(z_name)"; \

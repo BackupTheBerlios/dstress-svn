@@ -5,8 +5,12 @@
 
 module dstress.compile.bug_e2ir_1158_A;
 
-import std.c.windows.windows;
+version(Windows){
 
-void main(char[][] args) {
-     HDC dc = (args.length > 1 ? &GetWindowDC : &GetDC) (null);
+	import std.c.windows.windows;
+
+	void main(char[][] args) {
+		HDC dc = (args.length > 1 ? &GetWindowDC : &GetDC) (null);
+	}
+
 }

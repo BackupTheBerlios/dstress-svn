@@ -5,6 +5,8 @@
 // @author@	Daniel Horn <hellcatv@hotmail.com>
 // @date@	2004-05-06
 
+module dstress.compile.template_struct_02;
+
 struct vec(int size){
 	float data[size];
 	vec!(1) first(){

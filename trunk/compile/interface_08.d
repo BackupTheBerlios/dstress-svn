@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @author@	Miguel Ferreira Simıes <Kobold@netcabo.pt>
+// @author@	Miguel Ferreira Sim√µes <Kobold@netcabo.pt>
 // @date@	2004-12-23
 // @uri@	news:cqe7j0$2fl3$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D/14003

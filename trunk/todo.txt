@@ -20,7 +20,7 @@
 * keyword: idouble
 * keyword: ifloat
 * keyword: import
-* keyword: invariant (when: public, export, destructor; don't call public non-static funtions)
+* keyword: invariant (when: public, export, destructor; circumvent with pointers possible?)
 * keyword: ireal
 * keyword: module
 * keyword: package

@@ -7,7 +7,9 @@
 // @uri@	news:opsczziyi5a2sq9@digitalmars.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/1407
 
-module dstress.run.cast_01;
+// __DSTRESS_ELINE__ 21
+
+module dstress.nocompile.cast_01;
 
 enum Enum{
 	a
@@ -15,7 +17,8 @@ enum Enum{
 
 int test(Enum e){
 	bit[] b;
-	b = cast(bit[])(cast(bit*)e);
+	b = cast(bit[])
+		(cast(bit*)e);
 	return 0;
 }
 

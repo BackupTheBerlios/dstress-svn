@@ -15,7 +15,7 @@ class MyClass(T1){
 
 class MyClass(T1, T2){
 	alias T1 type1;
-	alias MyClass!(T2) type2;
+	alias .MyClass!(T2) type2;
 }
 
 int main(){

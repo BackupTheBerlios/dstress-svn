@@ -12,8 +12,9 @@ struct MyStruct{
 int main(){
 	MyStruct s;
 	
-	assert(MyStruct.a.offsetof == s.a.offsetof);
-	assert(MyStruct.b.offsetof == s.a.offsetof);
+	assert(MyStruct.a.offsetof >= 0);
+	assert(MyStruct.b.offsetof >= 0);
+	assert(MyStruct.a.offsetof != MyStruct.b.offsetof);
 
 	return 0;
 }

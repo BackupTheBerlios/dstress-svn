@@ -13,6 +13,7 @@ Benchmark:
 Test cases:
 * keyword: asm
 * keyword: in out body
+* keyword: in (associative array)
 * keyword: cent
 * keyword: cdouble
 * keyword: cfloat
@@ -53,6 +54,8 @@ Test cases:
 * floating literals
 
 * IEEE 754 tests
+
+* class (?struct?) allocators
 
 * module initializers & destructors
 

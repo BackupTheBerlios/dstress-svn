@@ -7,7 +7,7 @@
 // @uri@	news:cpk4vq$1m5a$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2546
 
-module dstress.run.template_07;
+module dstress.run.template_14;
 
 template T(){
 	class A {
@@ -19,6 +19,5 @@ template T(){
 }
 
 int main(){
-	mixin T!();
 	return 0;
 }

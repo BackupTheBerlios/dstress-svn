@@ -15,8 +15,10 @@ PASS:  compile/html_empty_01
 PASS:  compile/html_empty_02
 FAIL:  compile/mixin_01
 ERROR: compile/struct_16 [35584]
+FAIL:  compile/struct_18
 PASS:  compile/template_struct_02
 PASS:  compile/typedef_05
+FAIL:  compile/union_10
 PASS:  compile/unittest_02
 FAIL:  compile/version_09
 XPASS: nocompile/alias_05
@@ -71,6 +73,7 @@ XFAIL: nocompile/comment_08
 ERROR: nocompile/constructor_05 [35584]
 XFAIL: nocompile/dchar_01
 XFAIL: nocompile/dchar_02
+ERROR: nocompile/default_argument_05 [35584]
 XFAIL: nocompile/deprecated_01
 XPASS: nocompile/deprecated_02
 XPASS: nocompile/deprecated_03
@@ -408,6 +411,8 @@ PASS:  run/default_argument_01
 PASS:  run/default_argument_02
 PASS:  run/default_argument_03
 PASS:  run/default_argument_04
+PASS:  run/default_argument_06
+FAIL:  run/default_argument_07 (compiling error)
 PASS:  run/delegate_01
 PASS:  run/deprecated_09
 PASS:  run/deprecated_10
@@ -683,6 +688,8 @@ PASS:  run/pragma_02
 PASS:  run/pragma_05
 PASS:  run/pragma_06
 PASS:  run/private_01
+FAIL:  run/private_02 (compiling error)
+FAIL:  run/private_03 (compiling error)
 PASS:  run/real_01
 PASS:  run/real_02
 FAIL:  run/real_03
@@ -746,6 +753,7 @@ PASS:  run/struct_12
 PASS:  run/struct_13
 PASS:  run/struct_14
 PASS:  run/struct_15
+FAIL:  run/struct_17 (compiling error)
 PASS:  run/struct_initialization_01
 PASS:  run/struct_initialization_02
 PASS:  run/struct_initialization_03
@@ -862,6 +870,11 @@ PASS:  run/typeid_74
 PASS:  run/typeid_75
 PASS:  run/typeid_76
 PASS:  run/typeid_77
+PASS:  run/typeid_78
+PASS:  run/typeid_79
+PASS:  run/typeid_80
+PASS:  run/typeid_81
+PASS:  run/typeid_82
 PASS:  run/typeof_01
 PASS:  run/typeof_02
 PASS:  run/typeof_03
@@ -883,6 +896,7 @@ PASS:  run/union_04
 PASS:  run/union_05
 PASS:  run/union_06
 PASS:  run/union_07
+FAIL:  run/union_11 (compiling error)
 PASS:  run/unittest_01
 PASS:  run/ushort_01
 PASS:  run/ushort_02
@@ -911,9 +925,9 @@ FAIL:  run/with_11 (compiling error)
 FAIL:  run/xhtml_tag_01 (compiling error)
 XFAIL: norun/slice_06
 XFAIL: norun/slice_08
+XFAIL: complex/command_line/command_line_null_source_03
 XFAIL: complex/command_line/command_line_null_source_01
 XFAIL: complex/command_line/command_line_null_source_02
-XFAIL: complex/command_line/command_line_null_source_03
 XFAIL: complex/command_line/command_line_null_source_04
 XFAIL: complex/command_line/command_line_null_source_05
 XFAIL: complex/command_line/command_line_null_source_06

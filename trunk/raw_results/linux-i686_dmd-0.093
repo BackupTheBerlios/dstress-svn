@@ -15,8 +15,10 @@ PASS:  compile/html_empty_01
 PASS:  compile/html_empty_02
 FAIL:  compile/mixin_01
 ERROR: compile/struct_16 [35584]
+PASS:  compile/struct_18
 PASS:  compile/template_struct_02
 FAIL:  compile/typedef_05
+PASS:  compile/union_10
 PASS:  compile/unittest_02
 FAIL:  compile/version_09
 XPASS: nocompile/alias_05
@@ -64,8 +66,11 @@ XPASS: nocompile/command_line_version_12
 XPASS: nocompile/command_line_version_13
 XPASS: nocompile/command_line_version_14
 XPASS: nocompile/command_line_version_15
+XPASS: nocompile/command_line_version_16
+XPASS: nocompile/command_line_version_17
 XFAIL: nocompile/comment_07
 XFAIL: nocompile/comment_08
+ERROR: nocompile/constructor_05 [35584]
 XFAIL: nocompile/dchar_01
 XFAIL: nocompile/dchar_02
 XFAIL: nocompile/deprecated_01
@@ -256,6 +261,12 @@ XPASS: nocompile/version_19
 XPASS: nocompile/version_20
 XPASS: nocompile/version_21
 XPASS: nocompile/version_22
+XPASS: nocompile/version_23
+XPASS: nocompile/version_24
+XPASS: nocompile/version_25
+XPASS: nocompile/version_26
+XPASS: nocompile/version_27
+XPASS: nocompile/version_28
 XFAIL: nocompile/wchar_01
 XFAIL: nocompile/wchar_02
 XFAIL: nocompile/with_05
@@ -372,6 +383,7 @@ PASS:  run/constructor_01
 FAIL:  run/constructor_02 (compiling error)
 PASS:  run/constructor_03
 PASS:  run/constructor_04
+PASS:  run/constructor_06
 PASS:  run/creal_01
 PASS:  run/creal_02
 PASS:  run/creal_03
@@ -454,6 +466,7 @@ PASS:  run/enum_03
 PASS:  run/enum_04
 PASS:  run/enum_07
 PASS:  run/enum_08
+PASS:  run/enum_09
 PASS:  run/escape_hex_01
 PASS:  run/escape_hex_string_01
 PASS:  run/escape_hex_string_02
@@ -566,6 +579,10 @@ ERROR: run/if_06 [35584]
 PASS:  run/in_01
 PASS:  run/in_02
 PASS:  run/in_03
+PASS:  run/in_out_body_01
+FAIL:  run/in_out_body_02 (compiling error)
+FAIL:  run/in_out_body_03 (compiling error)
+PASS:  run/in_out_body_04
 PASS:  run/int_01
 PASS:  run/int_02
 PASS:  run/int_03
@@ -668,6 +685,8 @@ PASS:  run/pragma_02
 PASS:  run/pragma_05
 PASS:  run/pragma_06
 PASS:  run/private_01
+FAIL:  run/private_02 (compiling error)
+FAIL:  run/private_03 (compiling error)
 PASS:  run/real_01
 PASS:  run/real_02
 FAIL:  run/real_03
@@ -720,6 +739,8 @@ PASS:  run/static_12
 PASS:  run/static_14
 PASS:  run/static_15
 ERROR: run/static_16 [34304]
+PASS:  run/static_17
+FAIL:  run/static_18 (compiling error)
 PASS:  run/struct_01
 PASS:  run/struct_02
 PASS:  run/struct_03
@@ -729,6 +750,7 @@ PASS:  run/struct_12
 ERROR: run/struct_13 [35584]
 PASS:  run/struct_14
 FAIL:  run/struct_15
+FAIL:  run/struct_17 (compiling error)
 PASS:  run/struct_initialization_01
 PASS:  run/struct_initialization_02
 PASS:  run/struct_initialization_03
@@ -755,6 +777,8 @@ ERROR: run/template_class_05 [35584]
 PASS:  run/template_class_06
 PASS:  run/template_struct_01
 PASS:  run/throw_01
+FAIL:  run/throw_02 (compiling error)
+PASS:  run/throw_03
 PASS:  run/try_01
 PASS:  run/try_02
 PASS:  run/try_03
@@ -769,6 +793,85 @@ ERROR: run/typedef_04 [34304]
 PASS:  run/typeid_01
 PASS:  run/typeid_02
 PASS:  run/typeid_03
+ERROR: run/typeid_04 [run: 32512]
+ERROR: run/typeid_05 [run: 32512]
+ERROR: run/typeid_06 [run: 32512]
+ERROR: run/typeid_07 [run: 32512]
+ERROR: run/typeid_08 [run: 32512]
+ERROR: run/typeid_09 [run: 32512]
+ERROR: run/typeid_10 [run: 32512]
+ERROR: run/typeid_11 [run: 32512]
+ERROR: run/typeid_12 [run: 32512]
+ERROR: run/typeid_13 [run: 32512]
+ERROR: run/typeid_14 [run: 32512]
+PASS:  run/typeid_15
+ERROR: run/typeid_16 [run: 32512]
+ERROR: run/typeid_17 [run: 32512]
+PASS:  run/typeid_18
+PASS:  run/typeid_19
+PASS:  run/typeid_20
+PASS:  run/typeid_21
+PASS:  run/typeid_22
+PASS:  run/typeid_23
+PASS:  run/typeid_24
+PASS:  run/typeid_25
+PASS:  run/typeid_26
+PASS:  run/typeid_27
+PASS:  run/typeid_28
+PASS:  run/typeid_29
+PASS:  run/typeid_30
+PASS:  run/typeid_31
+PASS:  run/typeid_32
+PASS:  run/typeid_33
+PASS:  run/typeid_34
+PASS:  run/typeid_35
+PASS:  run/typeid_36
+PASS:  run/typeid_37
+PASS:  run/typeid_38
+PASS:  run/typeid_39
+PASS:  run/typeid_40
+PASS:  run/typeid_41
+PASS:  run/typeid_42
+PASS:  run/typeid_43
+PASS:  run/typeid_44
+PASS:  run/typeid_45
+PASS:  run/typeid_46
+PASS:  run/typeid_47
+PASS:  run/typeid_48
+PASS:  run/typeid_49
+PASS:  run/typeid_50
+PASS:  run/typeid_51
+PASS:  run/typeid_52
+PASS:  run/typeid_53
+PASS:  run/typeid_54
+PASS:  run/typeid_55
+PASS:  run/typeid_56
+PASS:  run/typeid_57
+PASS:  run/typeid_58
+PASS:  run/typeid_59
+PASS:  run/typeid_60
+PASS:  run/typeid_61
+PASS:  run/typeid_62
+PASS:  run/typeid_63
+PASS:  run/typeid_64
+PASS:  run/typeid_65
+PASS:  run/typeid_66
+PASS:  run/typeid_67
+PASS:  run/typeid_68
+PASS:  run/typeid_69
+PASS:  run/typeid_70
+PASS:  run/typeid_71
+PASS:  run/typeid_72
+PASS:  run/typeid_73
+PASS:  run/typeid_74
+PASS:  run/typeid_75
+PASS:  run/typeid_76
+PASS:  run/typeid_77
+PASS:  run/typeid_78
+PASS:  run/typeid_79
+PASS:  run/typeid_80
+PASS:  run/typeid_81
+PASS:  run/typeid_82
 PASS:  run/typeof_01
 PASS:  run/typeof_02
 PASS:  run/typeof_03
@@ -790,6 +893,7 @@ PASS:  run/union_04
 PASS:  run/union_05
 PASS:  run/union_06
 PASS:  run/union_07
+FAIL:  run/union_11 (compiling error)
 PASS:  run/unittest_01
 PASS:  run/ushort_01
 PASS:  run/ushort_02
@@ -803,8 +907,7 @@ PASS:  run/version_04
 PASS:  run/version_05
 PASS:  run/version_07
 PASS:  run/version_08
-PASS:  run/version_10
-FAIL:  run/version_16
+FAIL:  run/version_28 (compiling error)
 PASS:  run/while_01
 PASS:  run/while_02
 PASS:  run/while_03
@@ -820,8 +923,8 @@ ERROR: run/xhtml_tag_01 [run: 32512]
 XFAIL: norun/slice_06
 XFAIL: norun/slice_08
 XFAIL: complex/command_line/command_line_null_source_01
-XPASS: complex/command_line/command_line_null_source_03
 XFAIL: complex/command_line/command_line_null_source_02
+XPASS: complex/command_line/command_line_null_source_03
 XPASS: complex/command_line/command_line_null_source_05
 XPASS: complex/command_line/command_line_null_source_04
 XPASS: complex/command_line/command_line_null_source_06

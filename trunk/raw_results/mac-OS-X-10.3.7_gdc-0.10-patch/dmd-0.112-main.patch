@@ -1,0 +1,15 @@
+# patch to check the return type of main
+--- dmd-0.112/dmd/src/dmd/func.c.orig	Sun Dec 19 15:11:58 2004
++++ dmd-0.112/dmd/src/dmd/func.c	Thu Feb  3 16:19:29 2005
+@@ -333,6 +333,11 @@
+ 	Lmainerr:
+ 	    error("parameters must be main() or main(char[][] args)");
+ 	}
++	// Check return type to see if it is either void or int
++	if ((type->next->ty != Tvoid) && (type->next->ty != Tint32))
++	{
++	    error("return type must be either void or int");
++	}
+     }
+ }
+ 

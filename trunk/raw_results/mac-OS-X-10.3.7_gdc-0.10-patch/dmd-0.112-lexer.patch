@@ -1,0 +1,124 @@
+# patch to make DMD check for invalid UTF-8, in comments too
+--- dmd-0.112/dmd/src/dmd/lexer.c.orig	Tue Dec 21 13:47:50 2004
++++ dmd-0.112/dmd/src/dmd/lexer.c	Sat Jan 29 22:16:27 2005
+@@ -439,6 +439,30 @@
+ 					return;
+ 
+ 				    default:
++					if (*p & 0x80)
++					{   unsigned idx = 0;
++					    unsigned ndigits = 1;
++					    unsigned char octet[6];
++					    dchar_t c;
++					    char *s;
++
++					    octet[0] = *p;
++					    while (*p & 0x80)
++					    {
++						if (ndigits >= 6)
++						{
++						    error("invalid UTF-8 sequence");
++						    break;
++						}
++						octet[ndigits] = *p;
++						ndigits++;
++						p++;
++					    }
++					    s = utf_decodeChar(octet, ndigits, &idx, &c);
++					    if ((s && c != 0xFFFE && c != 0xFFFF) || idx != ndigits)
++						error(s);
++					}
++					else
+ 					p++;
+ 					continue;
+ 				}
+@@ -452,15 +475,49 @@
+ 
+ 		    case '/':
+ 			p++;
+-			p = (unsigned char *) memchr(p, '\n', end - p);
+-			if (p == NULL)
+-			{
+-			    p = end;
+-			    t->value = TOKeof;
+-			    return;
+-			}
+-			p++;
+-			loc.linnum++;
++			do
++			    switch (*p)
++			    {
++				case '\n':
++				p++;
++				loc.linnum++;
++				break;
++	
++				case 0:
++				case 0x1A:
++				p = end;
++				t->value = TOKeof;
++				return;
++	
++				default:
++				if (*p & 0x80)
++				{   unsigned idx = 0;
++				    unsigned ndigits = 1;
++				    unsigned char octet[6];
++				    dchar_t c;
++				    char *s;
++
++				    octet[0] = *p;
++				    while (*p & 0x80)
++				    {
++					if (ndigits >= 6)
++					{
++					     error("invalid UTF-8 sequence");
++					     break;
++					}
++					octet[ndigits] = *p;
++					ndigits++;
++					p++;
++				    }
++				    s = utf_decodeChar(octet, ndigits, &idx, &c);
++				    if ((s && c != 0xFFFE && c != 0xFFFF) || idx != ndigits)
++					error(s);
++				}
++				else
++				p++;
++				continue;
++			    }
++			while (p[-1] != '\n');
+ 			continue;
+ 
+ 		    case '+':
+@@ -504,6 +561,30 @@
+ 				    return;
+ 
+ 				default:
++				    if (*p & 0x80)
++				    {   unsigned idx = 0;
++					unsigned ndigits = 1;
++					unsigned char octet[6];
++					dchar_t c;
++					char *s;
++
++					octet[0] = *p;
++					while (*p & 0x80)
++					{
++					    if (ndigits >= 6)
++					    {
++						error("invalid UTF-8 sequence");
++						break;
++					    }
++					    octet[ndigits] = *p;
++					    ndigits++;
++					    p++;
++					}
++					s = utf_decodeChar(octet, ndigits, &idx, &c);
++					if ((s && c != 0xFFFE && c != 0xFFFF) || idx != ndigits)
++					    error(s);
++				    }
++				    else
+ 				    p++;
+ 				    continue;
+ 			    }

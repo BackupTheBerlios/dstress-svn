@@ -1,0 +1,111 @@
+--- std/format.d.unix	Thu Feb  3 12:04:03 2005
++++ std/format.d	Sun Feb  6 11:47:29 2005
+@@ -123,6 +123,7 @@
+ 	char vchar;
+ 	dchar vdchar;
+ 	Object vobject;
++	double vdouble;
+ 	real vreal;
+ 	creal vcreal;
+ 	Mangle m2;
+@@ -169,6 +170,69 @@
+ 		putc(' ');
+ 	}
+ 
++	void putdouble(double v)
++	{
++	    switch (fc)
++	    {
++		case 's':
++		    fc = 'g';
++		    break;
++
++		case 'f', 'F', 'e', 'E', 'g', 'G', 'a', 'A':
++		    break;
++
++		Lerror:
++		    throw new FormatError("floating");
++	    }
++	    version (DigitalMarsC)
++	    {
++	    	putreal(cast(real) v);
++	    }
++	    else
++	    {
++		int sl;
++		char[] fbuf = tmpbuf;
++		char[12] format;
++		format[0] = '%';
++		int i = 1;
++		if (flags & FLdash)
++		    format[i++] = '-';
++		if (flags & FLplus)
++		    format[i++] = '+';
++		if (flags & FLspace)
++		    format[i++] = ' ';
++		if (flags & FLhash)
++		    format[i++] = '#';
++		if (flags & FL0pad)
++		    format[i++] = '0';
++		format[i + 0] = '*';
++		format[i + 1] = '.';
++		format[i + 2] = '*';
++		format[i + 3] = fc;
++		format[i + 4] = 0;
++		if (!(flags & FLprecision))
++		    precision = -1;
++		while (1)
++		{   int n;
++
++		    sl = fbuf.length;
++		    n = snprintf(fbuf, sl, format, field_width, precision, v);
++		    //printf("format = '%s', n = %d\n", cast(char*)format, n);
++		    if (n >= 0 && n < sl)
++		    {	sl = n;
++			break;
++		    }
++		    if (n < 0)
++			sl = sl * 2;
++		    else
++			sl = n + 1;
++		    fbuf = (cast(char*)alloca(sl * char.sizeof))[0 .. sl];
++		}
++		putstr(fbuf[0 .. sl]);
++	    }
++	    return;
++	}
++
+ 	void putreal(real v)
+ 	{
+ 	    //printf("putreal %Lg\n", vreal);
+@@ -357,15 +421,15 @@
+ 	    case Mangle.Tifloat:
+ 		if (fc == 'x' || fc == 'X')
+ 		    goto Luint;
+-		vreal = va_arg!(float)(argptr);
+-		goto Lreal;
++		vdouble = va_arg!(float)(argptr);
++		goto Ldouble;
+ 
+ 	    case Mangle.Tdouble:
+ 	    case Mangle.Tidouble:
+ 		if (fc == 'x' || fc == 'X')
+ 		    goto Lulong;
+-		vreal = va_arg!(double)(argptr);
+-		goto Lreal;
++		vdouble = va_arg!(double)(argptr);
++		goto Ldouble;
+ 
+ 	    case Mangle.Treal:
+ 	    case Mangle.Tireal:
+@@ -511,6 +575,10 @@
+ 
+     Lreal:
+ 	putreal(vreal);
++	return;
++
++    Ldouble:
++	putdouble(vdouble);
+ 	return;
+ 
+     Lcomplex:

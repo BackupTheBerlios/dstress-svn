@@ -1,0 +1,100 @@
+--- d/phobos/std/format.d.writeln	Thu Feb  3 16:39:30 2005
++++ d/phobos/std/format.d	Thu Feb  3 16:39:44 2005
+@@ -96,7 +96,7 @@
+  * This is the core workhorse routine for all the various formatters.
+  */
+ 
+-void doFormat(void delegate(dchar) putc, TypeInfo[] arguments, va_list argptr)
++void doFormat(void delegate(dchar) putc, TypeInfo[] arguments, va_list argptr, bool ignorePercent = false)
+ {   int j;
+     TypeInfo ti;
+     Mangle m;
+@@ -566,6 +566,13 @@
+ 		    formatArg('s');
+ 		    continue;
+ 	    }
++
++		if (ignorePercent)
++		{
++			foreach(dchar c; fmt)
++			    putc(c);
++		   	return;
++		}
+ 
+ 	    for (size_t i = 0; i < fmt.length; )
+ 	    {	dchar c = fmt[i++];
+--- d/phobos/std/stdio.d.writeln	Thu Feb  3 16:39:36 2005
++++ d/phobos/std/stdio.d	Thu Feb  3 16:39:44 2005
+@@ -46,7 +46,7 @@
+     void __fp_unlock(FILE* fp) { }
+ }
+ 
+-private void writex(FILE* fp, TypeInfo[] arguments, va_list argptr, int newline)
++private void writex(FILE* fp, TypeInfo[] arguments, va_list argptr, bit newline, bit format)
+ {   int orientation;
+ 
+     version(GNU_Have_fwide)
+@@ -76,7 +76,7 @@
+ 		}
+ 	    }
+ 
+-	    std.format.doFormat(&putc, arguments, argptr);
++	    std.format.doFormat(&putc, arguments, argptr, !format);
+ 	    if (newline)
+ 		FPUTC('\n', fp);
+ 	}
+@@ -116,7 +116,7 @@
+ 		static assert(0);
+ 	    }
+ 
+-	    std.format.doFormat(&putcw, arguments, argptr);
++	    std.format.doFormat(&putcw, arguments, argptr, !format);
+ 	    if (newline)
+ 		FPUTWC('\n', fp);
+ 
+@@ -132,21 +132,41 @@
+ 
+ void writef(...)
+ {
+-    writex(stdout, _arguments, _argptr, 0);
++    writex(stdout, _arguments, _argptr, 0, 1);
+ }
+ 
+ void writefln(...)
+ {
+-    writex(stdout, _arguments, _argptr, 1);
++    writex(stdout, _arguments, _argptr, 1, 1);
++}
++
++void write(...)
++{
++    writex(stdout, _arguments, _argptr, 0, 0);
++}
++
++void writeln(...)
++{
++    writex(stdout, _arguments, _argptr, 1, 0);
+ }
+ 
+ void fwritef(FILE* fp, ...)
+ {
+-    writex(fp, _arguments, _argptr, 0);
++    writex(fp, _arguments, _argptr, 0, 1);
+ }
+ 
+ void fwritefln(FILE* fp, ...)
+ {
+-    writex(fp, _arguments, _argptr, 1);
++    writex(fp, _arguments, _argptr, 1, 1);
++}
++
++void fwrite(FILE* fp, ...)
++{
++    writex(fp, _arguments, _argptr, 0, 0);
++}
++
++void fwriteln(FILE* fp, ...)
++{
++    writex(fp, _arguments, _argptr, 1, 0);
+ }
+ 

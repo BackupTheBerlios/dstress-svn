@@ -9,11 +9,11 @@
 
 module dstress.run.bug_20041226_C;
 
-version(all){
+version(none){
+	import std.stdio;
+}else{
 	void writefln(...){
 	}
-}else{
-	import std.stdio;
 }
 
 struct vec3{

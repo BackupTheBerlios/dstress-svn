@@ -25,8 +25,8 @@ int main(){
 	value.i++;
 	value.c--;
 
-	assert(value.i == ptr.i);
-	assert(value.c == ptr.c);
+	assert(value.i != ptr.i);
+	assert(value.c != ptr.c);
 
 	return 0;
 }

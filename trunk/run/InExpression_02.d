@@ -12,7 +12,15 @@ int main(){
 	array[key]=value;
 	int* ptr = key in array;
 	
-	assert( &value == ptr);
+	assert(value == *ptr);
+
+	value=2;
+	assert(value == 2);
+	assert(*ptr == 1);
+
+	*ptr = 3;
+	assert(value == 2);
+	assert(*ptr == 3);
 
 	return 0;
 }

@@ -199,7 +199,7 @@ public class GenReport{
 			}
 			out.write(lowerCase+"' id='summary-"+lowerCase+"' name='summary-"+lowerCase+"'>"+lowerCase+"</a></th>");
 			for(int compiler=0; compiler<summary.length; compiler++){
-				out.write("<td class='"+(char)('A'+type)+"'>"+summary[compiler][type]+"</td>");
+				out.write("<td class='"+(char)('A'+type)+"' style=\"font-size:medium\">"+summary[compiler][type]+"</td>");
 			}
 			out.write("</tr>\n");
 		}

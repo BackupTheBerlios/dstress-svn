@@ -44,12 +44,12 @@
 		<style type="text/css">
 			/*<![CDATA[*/
 			<!--
-				.A { text-align: center }
-				.B { background: #58c932; text-align: center }
-				.D { background: #f43a3a; text-align: center }
-				.C { background: #ea6b6b; text-align: center }
-				.E { background: #98f47a; text-align: center }
-				.F { background: #5793ed; text-align: center }
+				.A { text-align: center; font-size:small }
+				.B { background: #58c932; text-align: center; font-size:small }
+				.D { background: #f43a3a; text-align: center; font-size:small }
+				.C { background: #ea6b6b; text-align: center; font-size:small }
+				.E { background: #98f47a; text-align: center; font-size:small }
+				.F { background: #5793ed; text-align: center; font-size:small }
 				td { text-align: center }
 			-->
 			/*]]>*/
@@ -125,7 +125,8 @@
 		<blockquote><div>
 			<dl>
 				<dt><strong>Names</strong></dt>
-					<dd>An asterix(*) marks patched versions. Further details can be found in the <a href='#notes'>Notes</a> section.</dd>
+					<dd><strong>*</strong>(asterix) marks patched versions. Further details can be found in the <a href='#notes'>Notes</a> section.</dd>
+					<dd><strong>Sol</strong> stands for Solaris.</dd>
 			</dl>
 			The symbols are the same as those used by the <a href='http://www.gnu.org/software/dejagnu/'>DejaGnu</a> test framework.
 			<dl>
@@ -145,39 +146,39 @@
 			</dl>
 			<table border='1' summary='on left the symbols used in the result table and on the right their explanation'>
 			<tr><th>Symbol</th><th>Description</th></tr>
-			<tr><td><a href='#summary-pass' id='symbol-pass' name='symbol-pass'>pass</a></td><td class='B'>test case was expected to pass, and it did</td></tr>
-			<tr><td><a href='#summary-xpass' id='symbol-xpass' name='symbol-xpass'>xpass</a></td><td class='C'>test case was expected to fail, but passed</td></tr>
-			<tr><td><a href='#summary-fail' id='symbol-fail' name='symbol-fail'>fail</a></td><td class='D'>test case was expected to pass, but failed</td></tr>
-			<tr><td><a href='#summary-xfail' id='symbol-xfail' name='symbol-xfail'>xfail</a></td><td class='E'>test case was expected to fail, and it did</td></tr>
-			<tr><td><a href='#summary-error' id='symbol-error' name='symbol-error'>error</a></td><td class='F'>compiler, linker or test case segfaulted</td></tr>
-			<tr><td><a href='#summary-untested' id='symbol-untested' name='symbol-untested'>-</a></td><td class='A'>not tested</td></tr>
+			<tr><td><a href='#summary-pass' id='symbol-pass' name='symbol-pass'>pass</a></td><td class='B' style="font-size:medium">test case was expected to pass, and it did</td></tr>
+			<tr><td><a href='#summary-xpass' id='symbol-xpass' name='symbol-xpass'>xpass</a></td><td class='C' style="font-size:medium">test case was expected to fail, but passed</td></tr>
+			<tr><td><a href='#summary-fail' id='symbol-fail' name='symbol-fail'>fail</a></td><td class='D' style="font-size:medium">test case was expected to pass, but failed</td></tr>
+			<tr><td><a href='#summary-xfail' id='symbol-xfail' name='symbol-xfail'>xfail</a></td><td class='E' style="font-size:medium">test case was expected to fail, and it did</td></tr>
+			<tr><td><a href='#summary-error' id='symbol-error' name='symbol-error'>error</a></td><td class='F' style="font-size:medium">compiler, linker or test case segfaulted</td></tr>
+			<tr><td><a href='#summary-untested' id='symbol-untested' name='symbol-untested'>-</a></td><td class='A' style="font-size:medium">not tested</td></tr>
 		</table></div></blockquote>
 		<h3><a href='#top' name='summary' id='summary' title='page top'>^Summary</a></h3>
 		<table border='1' summary='sums of test results sorted by compiler'>
 			<tr><td>&#160;</td>
-				<th><a href='#note-dmd-093' name='note-dmd-093-src' id='note-dmd-093-src' title='dmd 0.93 notes'>dmd 0.93</a></th>
-				<th><a href='#note-dmd-095' name='note-dmd-095-src' id='note-dmd-095-src' title='dmd 0.95 notes'>dmd 0.95</a></th>
-				<th><a href='#note-dmd-096' name='note-dmd-096-src' id='note-dmd-096-src' title='dmd 0.96 notes'>dmd 0.96</a></th>
-				<th><a href='#note-dmd-098' name='note-dmd-098-src' id='note-dmd-098-src' title='dmd 0.98 notes'>dmd 0.98</a></th>
-				<th><a href='#note-dmd-099' name='note-dmd-099-src' id='note-dmd-099-src' title='dmd 0.99 notes'>dmd 0.99</a></th>
-				<th><a href='#note-dmd-0100' name='note-dmd-0100-src' id='note-dmd-0100-src' title='dmd 0.100 notes'>dmd 0.100</a></th>
-				<th><a href='#note-dmd-0101' name='note-dmd-0101-src' id='note-dmd-0101-src' title='dmd 0.101 notes'>dmd 0.101</a></th>
-				<th><a href='#note-dmd-0102' name='note-dmd-0102-src' id='note-dmd-0102-src' title='dmd 0.102 notes'>dmd 0.102</a></th>
-				<th><a href='#note-gdc-1g' name='note-gdc-1g-src' id='note-gdc-1g-src' title='gdc 1g notes'>gdc 1g</a></th>
-				<th><a href='#note-dmd-0104' name='note-dmd-0104-src' id='note-dmd-0104-src' title='dmd 0.104 notes'>dmd 0.104</a></th>
-				<th><a href='#note-gdc-0.8' name='note-gdc-0.8-src' id='note-gdc-0.8-src' title='gdc 0.8 notes'>gdc 0.8*</a></th>
-				<th><a href='#note-gdc-0.8-Mac' name='note-gdc-0.8-Mac-src' id='note-gdc-0.8-Mac-src' title='gdc 0.8 Mac notes'>gdc 0.8 Mac*</a></th>
-				<th><a href='#note-dmd-0105' name='note-dmd-0105-src' id='note-dmd-0105-src' title='dmd 0.105 notes'>dmd 0.105</a></th>
-				<th><a href='#note-dmd-0106' name='note-dmd-0106-src' id='note-dmd-0106-src' title='dmd 0.106 notes'>dmd 0.106</a></th>
-				<th><a href='#note-dmd-0108' name='note-dmd-0108-src' id='note-dmd-0108-src' title='dmd 0.108 notes'>dmd 0.108</a></th>
-				<th><a href='#note-dmd-0109' name='note-dmd-0109-src' id='note-dmd-0109-src' title='dmd 0.109 notes'>dmd 0.109</a></th>
-				<th><a href='#note-gdc-0.9' name='note-gdc-0.9-src' id='note-gdc-0.9-src' title='gdc 0.9 notes'>gdc 0.9</a></th>
-				<th><a href='#note-dmd-0110' name='note-dmd-0110-src' id='note-dmd-0110-src' title='dmd 0.110 notes'>dmd 0.110</a></th>
-				<th><a href='#note-gdc-0.10-Mac' name='note-gdc-0.10-Mac-src' id='note-gdc-0.10-Mac-src' title='gdc 0.10 Mac notes'>gdc 0.10 Mac*</a></th>
-				<th><a href='#note-gdc-0.10' name='note-gdc-0.10-src' id='note-gdc-0.10-src' title='gdc 0.10 notes'>gdc 0.10</a></th>
-				<th><a href='#note-gdc-0.10-solaris' name='note-gdc-0.10-solaris-src' id='note-gdc-0.10-solaris-src' title='gdc 0.10 notes'>gdc 0.10 Solaris*</a></th>
-				<th><a href='#note-dmd-0111' name='note-dmd-0111-src' id='note-dmd-0111-src' title='dmd 0.111 notes'>dmd 0.111</a></th>
-				<th><a href='#note-dmd-0113' name='note-dmd-0113-src' id='note-dmd-0113-src' title='dmd 0.113 notes'>dmd 0.113</a></th>
+				<th><small><a href='#note-dmd-093' name='note-dmd-093-src' id='note-dmd-093-src' title='dmd 0.93 notes'>dmd 0.93</a></small></th>
+				<th><small><a href='#note-dmd-095' name='note-dmd-095-src' id='note-dmd-095-src' title='dmd 0.95 notes'>dmd 0.95</a></small></th>
+				<th><small><a href='#note-dmd-096' name='note-dmd-096-src' id='note-dmd-096-src' title='dmd 0.96 notes'>dmd 0.96</a></small></th>
+				<th><small><a href='#note-dmd-098' name='note-dmd-098-src' id='note-dmd-098-src' title='dmd 0.98 notes'>dmd 0.98</a></small></th>
+				<th><small><a href='#note-dmd-099' name='note-dmd-099-src' id='note-dmd-099-src' title='dmd 0.99 notes'>dmd 0.99</a></small></th>
+				<th><small><a href='#note-dmd-0100' name='note-dmd-0100-src' id='note-dmd-0100-src' title='dmd 0.100 notes'>dmd 0.100</a></small></th>
+				<th><small><a href='#note-dmd-0101' name='note-dmd-0101-src' id='note-dmd-0101-src' title='dmd 0.101 notes'>dmd 0.101</a></small></th>
+				<th><small><a href='#note-dmd-0102' name='note-dmd-0102-src' id='note-dmd-0102-src' title='dmd 0.102 notes'>dmd 0.102</a></small></th>
+				<th><small><a href='#note-gdc-1g' name='note-gdc-1g-src' id='note-gdc-1g-src' title='gdc 1g notes'>gdc 1g</a></small></th>
+				<th><small><a href='#note-dmd-0104' name='note-dmd-0104-src' id='note-dmd-0104-src' title='dmd 0.104 notes'>dmd 0.104</a></small></th>
+				<th><small><a href='#note-gdc-0.8' name='note-gdc-0.8-src' id='note-gdc-0.8-src' title='gdc 0.8 notes'>gdc 0.8*</a></small></th>
+				<th><small><a href='#note-gdc-0.8-Mac' name='note-gdc-0.8-Mac-src' id='note-gdc-0.8-Mac-src' title='gdc 0.8 Mac notes'>gdc 0.8 Mac*</a></small></th>
+				<th><small><a href='#note-dmd-0105' name='note-dmd-0105-src' id='note-dmd-0105-src' title='dmd 0.105 notes'>dmd 0.105</a></small></th>
+				<th><small><a href='#note-dmd-0106' name='note-dmd-0106-src' id='note-dmd-0106-src' title='dmd 0.106 notes'>dmd 0.106</a></small></th>
+				<th><small><a href='#note-dmd-0108' name='note-dmd-0108-src' id='note-dmd-0108-src' title='dmd 0.108 notes'>dmd 0.108</a></small></th>
+				<th><small><a href='#note-dmd-0109' name='note-dmd-0109-src' id='note-dmd-0109-src' title='dmd 0.109 notes'>dmd 0.109</a></small></th>
+				<th><small><a href='#note-gdc-0.9' name='note-gdc-0.9-src' id='note-gdc-0.9-src' title='gdc 0.9 notes'>gdc 0.9</a></small></th>
+				<th><small><a href='#note-dmd-0110' name='note-dmd-0110-src' id='note-dmd-0110-src' title='dmd 0.110 notes'>dmd 0.110</a></small></th>
+				<th><small><a href='#note-gdc-0.10-Mac' name='note-gdc-0.10-Mac-src' id='note-gdc-0.10-Mac-src' title='gdc 0.10 Mac notes'>gdc 0.10 Mac*</a></small></th>
+				<th><small><a href='#note-gdc-0.10' name='note-gdc-0.10-src' id='note-gdc-0.10-src' title='gdc 0.10 notes'>gdc 0.10</a></small></th>
+				<th><small><a href='#note-gdc-0.10-solaris' name='note-gdc-0.10-solaris-src' id='note-gdc-0.10-solaris-src' title='gdc 0.10 notes'>gdc 0.10 Sol*</a></small></th>
+				<th><small><a href='#note-dmd-0111' name='note-dmd-0111-src' id='note-dmd-0111-src' title='dmd 0.111 notes'>dmd 0.111</a></small></th>
+				<th><small><a href='#note-dmd-0113' name='note-dmd-0113-src' id='note-dmd-0113-src' title='dmd 0.113 notes'>dmd 0.113</a></small></th>
 
 				</tr>
 <!-- BEGIN: summary data -->
@@ -192,29 +193,29 @@
 		<h3><a href='#top' name='results' id='results' title='page top'>^ Results</a></h3>
 		<table border='1' summary='on the very left are the names of the test cases and to their right the results ordered by compiler version'>
 			<tr><td>&nbsp;</td>
-				<th><a href='#note-dmd-093' title='dmd 0.93 notes'>dmd 0.93</a></th>
-				<th><a href='#note-dmd-095' title='dmd 0.95 notes'>dmd 0.95</a></th>
-				<th><a href='#note-dmd-096' title='dmd 0.96 notes'>dmd 0.96</a></th>
-				<th><a href='#note-dmd-098' title='dmd 0.98 notes'>dmd 0.98</a></th>
-				<th><a href='#note-dmd-099' title='dmd 0.99 notes'>dmd 0.99</a></th>
-				<th><a href='#note-dmd-0100' title='dmd 0.100 notes'>dmd 0.100</a></th>
-				<th><a href='#note-dmd-0101' title='dmd 0.101 notes'>dmd 0.101</a></th>
-				<th><a href='#note-dmd-0102' title='dmd 0.102 notes'>dmd 0.102</a></th>
-				<th><a href='#note-gdc-1g' title='gdc 1g notes'>gdc 1g</a></th>
-				<th><a href='#note-dmd-0104' title='dmd 0.104 notes'>dmd 0.104</a></th>
-				<th><a href='#note-gdc-0.8' title='gdc 0.8 notes'>gdc 0.8*</a></th>
-				<th><a href='#note-gdc-0.8-Mac' title='gdc 0.8 Mac notes'>gdc 0.8<br />Mac*</a></th>
-				<th><a href='#note-dmd-0105' title='dmd 0.105 notes'>dmd 0.105</a></th>
-				<th><a href='#note-dmd-0106' title='dmd 0.106 notes'>dmd 0.106</a></th>
-				<th><a href='#note-dmd-0108' title='dmd 0.108 notes'>dmd 0.108</a></th>
-				<th><a href='#note-dmd-0109' title='dmd 0.109 notes'>dmd 0.109</a></th>
-				<th><a href='#note-gdc-0.9' title='gdc 0.9 notes'>gdc 0.9</a></th>
-				<th><a href='#note-dmd-0110' title='dmd 0.110 notes'>dmd 0.110</a></th>
-				<th><a href='#note-gdc-0.10-Mac' title='gdc 0.10 Mac notes'>gdc 0.10<br />Mac*</a></th>
-				<th><a href='#note-gdc-0.10' title='gdc 0.10 notes'>gdc 0.10</a></th>
-				<th><a href='#note-gdc-0.10-solaris' title='gdc 0.10 notes'>gdc 0.10<br />Solaris*</a></th>
-				<th><a href='#note-dmd-0111' title='dmd 0.111 notes'>dmd 0.111</a></th>
-				<th><a href='#note-dmd-0113' title='dmd 0.113 notes'>dmd 0.113</a></th>
+				<th><small><a href='#note-dmd-093' title='dmd 0.93 notes'>dmd 0.93</a></small></th>
+				<th><small><a href='#note-dmd-095' title='dmd 0.95 notes'>dmd 0.95</a></small></th>
+				<th><small><a href='#note-dmd-096' title='dmd 0.96 notes'>dmd 0.96</a></small></th>
+				<th><small><a href='#note-dmd-098' title='dmd 0.98 notes'>dmd 0.98</a></small></th>
+				<th><small><a href='#note-dmd-099' title='dmd 0.99 notes'>dmd 0.99</a></small></th>
+				<th><small><a href='#note-dmd-0100' title='dmd 0.100 notes'>dmd 0.100</a></small></th>
+				<th><small><a href='#note-dmd-0101' title='dmd 0.101 notes'>dmd 0.101</a></small></th>
+				<th><small><a href='#note-dmd-0102' title='dmd 0.102 notes'>dmd 0.102</a></small></th>
+				<th><small><a href='#note-gdc-1g' title='gdc 1g notes'>gdc 1g</a></small></th>
+				<th><small><a href='#note-dmd-0104' title='dmd 0.104 notes'>dmd 0.104</a></small></th>
+				<th><small><a href='#note-gdc-0.8' title='gdc 0.8 notes'>gdc 0.8*</a></small></th>
+				<th><small><a href='#note-gdc-0.8-Mac' title='gdc 0.8 Mac notes'>gdc 0.8<br />Mac*</a></small></th>
+				<th><small><a href='#note-dmd-0105' title='dmd 0.105 notes'>dmd 0.105</a></small></th>
+				<th><small><a href='#note-dmd-0106' title='dmd 0.106 notes'>dmd 0.106</a></small></th>
+				<th><small><a href='#note-dmd-0108' title='dmd 0.108 notes'>dmd 0.108</a></small></th>
+				<th><small><a href='#note-dmd-0109' title='dmd 0.109 notes'>dmd 0.109</a></small></th>
+				<th><small><a href='#note-gdc-0.9' title='gdc 0.9 notes'>gdc 0.9</a></small></th>
+				<th><small><a href='#note-dmd-0110' title='dmd 0.110 notes'>dmd 0.110</a></small></th>
+				<th><small><a href='#note-gdc-0.10-Mac' title='gdc 0.10 Mac notes'>gdc 0.10<br />Mac*</a></small></th>
+				<th><small><a href='#note-gdc-0.10' title='gdc 0.10 notes'>gdc 0.10</a></small></th>
+				<th><small><a href='#note-gdc-0.10-solaris' title='gdc 0.10 notes'>gdc 0.10<br />Sol*</a></small></th>
+				<th><small><a href='#note-dmd-0111' title='dmd 0.111 notes'>dmd 0.111</a></small></th>
+				<th><small><a href='#note-dmd-0113' title='dmd 0.113 notes'>dmd 0.113</a></small></th>
 			</tr>
 <!-- BEGIN: result data -->
 <tr><th><a name='abstract_01' href='../compile/abstract_01.d'>abstract 01</a></th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td></tr>
@@ -1545,29 +1546,29 @@
 
 <!-- END: result data -->
 			<tr><td>&nbsp;</td>
-				<th><a href='#note-dmd-093' title='dmd 0.93 notes'>dmd 0.93</a></th>
-				<th><a href='#note-dmd-095' title='dmd 0.95 notes'>dmd 0.95</a></th>
-				<th><a href='#note-dmd-096' title='dmd 0.96 notes'>dmd 0.96</a></th>
-				<th><a href='#note-dmd-098' title='dmd 0.98 notes'>dmd 0.98</a></th>
-				<th><a href='#note-dmd-099' title='dmd 0.99 notes'>dmd 0.99</a></th>
-				<th><a href='#note-dmd-0100' title='dmd 0.100 notes'>dmd 0.100</a></th>
-				<th><a href='#note-dmd-0101' title='dmd 0.101 notes'>dmd 0.101</a></th>
-				<th><a href='#note-dmd-0102' title='dmd 0.102 notes'>dmd 0.102</a></th>
-				<th><a href='#note-gdc-1g' title='gdc 1g notes'>gdc 1g</a></th>
-				<th><a href='#note-dmd-0104' title='dmd 0.104 notes'>dmd 0.104</a></th>
-				<th><a href='#note-gdc-0.8' title='gdc 0.8 notes'>gdc 0.8*</a></th>
-				<th><a href='#note-gdc-0.8-Mac' title='gdc 0.8 Mac notes'>gdc 0.8<br />Mac*</a></th>
-				<th><a href='#note-dmd-0105' title='dmd 0.105 notes'>dmd 0.105</a></th>
-				<th><a href='#note-dmd-0106' title='dmd 0.106 notes'>dmd 0.106</a></th>
-				<th><a href='#note-dmd-0108' title='dmd 0.108 notes'>dmd 0.108</a></th>
-				<th><a href='#note-dmd-0109' title='dmd 0.109 notes'>dmd 0.109</a></th>
-				<th><a href='#note-gdc-0.9' title='gdc 0.9 notes'>gdc 0.9</a></th>
-				<th><a href='#note-dmd-0110' title='dmd 0.110 notes'>dmd 0.110</a></th>
-				<th><a href='#note-gdc-0.10-Mac' title='gdc 0.10 Mac notes'>gdc 0.10<br />Mac*</a></th>
-				<th><a href='#note-gdc-0.10' title='gdc 0.10 notes'>gdc 0.10</a></th>
-				<th><a href='#note-gdc-0.10-solaris' title='gdc 0.10 notes'>gdc 0.10<br />Solaris*</a></th>
-				<th><a href='#note-dmd-0111' title='dmd 0.111 notes'>dmd 0.111</a></th>
-				<th><a href='#note-dmd-0113' title='dmd 0.113 notes'>dmd 0.113</a></th>
+				<th><small><a href='#note-dmd-093' title='dmd 0.93 notes'>dmd 0.93</a></small></th>
+				<th><small><a href='#note-dmd-095' title='dmd 0.95 notes'>dmd 0.95</a></small></th>
+				<th><small><a href='#note-dmd-096' title='dmd 0.96 notes'>dmd 0.96</a></small></th>
+				<th><small><a href='#note-dmd-098' title='dmd 0.98 notes'>dmd 0.98</a></small></th>
+				<th><small><a href='#note-dmd-099' title='dmd 0.99 notes'>dmd 0.99</a></small></th>
+				<th><small><a href='#note-dmd-0100' title='dmd 0.100 notes'>dmd 0.100</a></small></th>
+				<th><small><a href='#note-dmd-0101' title='dmd 0.101 notes'>dmd 0.101</a></small></th>
+				<th><small><a href='#note-dmd-0102' title='dmd 0.102 notes'>dmd 0.102</a></small></th>
+				<th><small><a href='#note-gdc-1g' title='gdc 1g notes'>gdc 1g</a></small></th>
+				<th><small><a href='#note-dmd-0104' title='dmd 0.104 notes'>dmd 0.104</a></small></th>
+				<th><small><a href='#note-gdc-0.8' title='gdc 0.8 notes'>gdc 0.8*</a></small></th>
+				<th><small><a href='#note-gdc-0.8-Mac' title='gdc 0.8 Mac notes'>gdc 0.8<br />Mac*</a></small></th>
+				<th><small><a href='#note-dmd-0105' title='dmd 0.105 notes'>dmd 0.105</a></small></th>
+				<th><small><a href='#note-dmd-0106' title='dmd 0.106 notes'>dmd 0.106</a></small></th>
+				<th><small><a href='#note-dmd-0108' title='dmd 0.108 notes'>dmd 0.108</a></small></th>
+				<th><small><a href='#note-dmd-0109' title='dmd 0.109 notes'>dmd 0.109</a></small></th>
+				<th><small><a href='#note-gdc-0.9' title='gdc 0.9 notes'>gdc 0.9</a></small></th>
+				<th><small><a href='#note-dmd-0110' title='dmd 0.110 notes'>dmd 0.110</a></small></th>
+				<th><small><a href='#note-gdc-0.10-Mac' title='gdc 0.10 Mac notes'>gdc 0.10<br />Mac*</a></small></th>
+				<th><small><a href='#note-gdc-0.10' title='gdc 0.10 notes'>gdc 0.10</a></small></th>
+				<th><small><a href='#note-gdc-0.10-solaris' title='gdc 0.10 notes'>gdc 0.10<br />Sol*</a></small></th>
+				<th><small><a href='#note-dmd-0111' title='dmd 0.111 notes'>dmd 0.111</a></small></th>
+				<th><small><a href='#note-dmd-0113' title='dmd 0.113 notes'>dmd 0.113</a></small></th>
 			</tr>
 		</table>
 		<h3><a href='#top' name='notes' id='notes' title='page top'>^ Notes</a></h3>

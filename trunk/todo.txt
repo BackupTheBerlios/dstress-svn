@@ -23,16 +23,14 @@
 
 * custom operator implementation
 
-* numeric literals
+* octal and decimal integer literals
 
-* numeric literals
+* floating literals
 
-* Embedded _ in numeric literals
-	18_446_744_073_709_551_615 / 18446744073709551615
-	
 * module initializers & ?destructors?
 	module foo;
 	
 	static this(){
 		... initialization code ...
 	}
+

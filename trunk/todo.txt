@@ -2,7 +2,7 @@ Makefile:
 * fix analyse_run (tries to execute the destination, even if compiling failed)
 
 Benchmark:
-* integrate benchmark results: SciMark, cowell-shah
+* integrate benchmark results: SciMark, cowell-shah, oopack
 * debug benchmark/cowell-shah/benchmark.d:double io(int ioMax)
 
 Test cases:

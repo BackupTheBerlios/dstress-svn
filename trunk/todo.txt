@@ -1,6 +1,8 @@
 Makefile:
 * fix analyse_run (tries to execute the destination, even if compiling failed)
 
+Results:
+* integrate benchmark: SciMark 
 
 Test cases:
 * keyword: asm

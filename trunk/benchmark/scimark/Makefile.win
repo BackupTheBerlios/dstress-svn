@@ -1,0 +1,16 @@
+DMD = dmd
+DFLAGS = -O -I..
+
+SOURCES = FFT.d kernel.d Stopwatch.d Random.d SOR.d SparseCompRow.d \
+	  array.d MonteCarlo.d LU.d constants.d scimark2.d
+
+OBJS = FFT.obj kernel.obj Stopwatch.obj Random.obj SOR.obj SparseCompRow.obj \
+	array.obj MonteCarlo.obj LU.obj constants.obj scimark2.obj
+
+all: scimark2.exe
+
+scimark2.exe : $(SOURCES) 
+	$(DMD) -ofscimark2.exe $(DFLAGS) $(SOURCES)
+
+clean :
+	rm $(OBJS)

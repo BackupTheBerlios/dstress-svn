@@ -89,10 +89,10 @@ all : Makefile compile nocompile run norun complex
 #
 # the tools
 #
-return__ : return__.c
+$(return__) : return__.c
 	$(CC) $(CFLAGS) $< -o $@
 
-ifeq__ : ifeq__.c
+$(ifeq__) : ifeq__.c
 	$(CC) $(CFLAGS) $< -o $@
 
 basic_tools : Makefile $(ifeq__) $(return__)
@@ -165,10 +165,15 @@ run : Makefile $(sort $(subst .$(ext_source),.$(ext_run),$(shell $(FIND) run -re
 
 define analyse_run
 	@if $(ifeq__) $(z_return) 0 ; then \
-		if ./$@ $(to_log); then \
+		$(eval z_return2 = $(shell $(return__) "./$@ $(to_log)")) \
+		if $(ifeq__) $(z_return2) 0 ; then \
 			$(ECHO) "PASS:  $(z_name)"; \
 		else \
-			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
+			if $(ifeq__) $(z_return2) 256 ; then \
+				$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
+			else \
+				$(ECHO) "ERROR: $(z_name) [run: $(z_return2)]"; $(RM) $@; \
+			fi \
 		fi \
 	else \
 		if $(ifeq__) $(z_return) 256 ; then \

@@ -12,7 +12,7 @@ module dstress.run.super_07;
 class Parent{
 }
 
-class Child{
+class Child : Parent {
 	this(){
 		super();
 	}

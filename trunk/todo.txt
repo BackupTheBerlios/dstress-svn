@@ -1,4 +1,5 @@
-* remove duplected tests
+* general review / remove duplicated tests
+
 * keyword: package
 * keyword: protected
 * keyword: public
@@ -6,3 +7,43 @@
 * keyword: debug
 * keyword: synchronized
 * keyword: private
+* keyword: unittest
+* keyword: struct (anonymous)
+* keyword: function
+* keyword: asm
+* keyword: char (test that it realy is unsigned)
+* keyword: wchar
+* keyword: dchar
+
+* extend tests for design by contract
+
+* extend tests for inner functions
+
+* operators
+
+* custom operator implementation
+
+* Embedded _ in numeric literals
+	18_446_744_073_709_551_615 / 18446744073709551615
+
+* WYSIWYG strings 
+	While embedded escape sequences are a must, What-You-See-Is-What-You-Get is a nice thing to have for string literals. D offers both kinds, the traditional escaped "" string literal and the r"" WSYIWYG literal. The later is particularly useful when entering regular expressions:
+	"y\\B\\w"	// regular strings
+	r"y\B\w"	// WYSIWYG strings
+	
+* X strings
+	D has the x string, where hex data can be simply wrapped with double quotes, leaving the whitespace intact:
+	x"00 0A E3 DC 86 73 7E 7E"
+
+* char escapes
+	\U , \u , \x
+	
+* module initializers & ?destructors?
+	module foo;
+	
+	static this(){
+		... initialization code ...
+	}
+
+* comments
+	/* */ // /+ +/

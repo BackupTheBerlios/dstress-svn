@@ -1,35 +1,31 @@
-// -*- mode: d -*-
-// $HeadURL$
+/* The Great Computer Language Shootout
+   http://shootout.alioth.debian.org/
 
-// http://www.functionalfuture.com/d/
-// http://dada.perl.it/shootout/
+   http://www.bagley.org/~doug/shootout/
 
-import std.string;
+   converted to D by Dave Fladebo
+   compile: dmd -O -inline -release hash.d
+*/
 
-char[] itoa(int v, int base)
+import std.stdio, std.string;
+
+void main(char[][] args)
 {
-   char[] output = new char[32];
-   int pos = output.length - 2;
-   
-   do
-   {  output[pos--] = hexdigits[v % base];
-   } while ((v /= base) != 0);
+    int n = args.length > 1 ? atoi(args[1]) : 1;
 
-   return output[pos+1 .. output.length-1];
-}
+    char[32]    str;
+    int[char[]] X;
 
-int main(char[][] args)
-{
-   int n = args.length < 2 ? 1 : std.string.atoi(args[1]);
-   int c = 0;
-   int[char[]] X;
-    
-   for(int i=1; i<=n; i++)
-      X[itoa(i,16)] = i;
-    
-   for(int i=n; i>0; i--)
-      if(itoa(i,10) in X) c++;
+    for(int i = 1; i <= n; i++) {
+        int len = sprintf(str,"%x",i);
+        X[str[0..len].dup] = i;
+    }
 
-   printf("%d\n", c);
-   return(0);
+    int c;
+    for(int i = n; i > 0; i--) {
+        int len = sprintf(str,"%d",i);
+        if(str[0..len] in X) c++;
+    }
+
+    writefln(c);
 }

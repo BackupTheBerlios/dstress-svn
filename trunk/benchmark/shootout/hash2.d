@@ -1,45 +1,41 @@
-/* -*- mode: d -*-
- * $HeadURL$
- *
- * http://www.functionalfuture.com/d/
- * http://www.bagley.org/~doug/shootout/
- */
+/* The Great Computer Language Shootout
+   http://shootout.alioth.debian.org/
 
-import std.string;
+   http://www.bagley.org/~doug/shootout/
 
-char[] itoa(int v, int base)
+   converted to D by Dave Fladebo
+   compile: dmd -O -inline -release hash2.d
+*/
+
+import std.stdio, std.string;
+
+void main(char[][] args)
 {
-   char[] output = new char[32];
-   int pos = output.length - 2;
-   
-   do
-   {  output[pos--] = hexdigits[v % base];
-   } while ((v /= base) != 0);
+    int n = args.length > 1 ? atoi(args[1]) : 1;
 
-   return output[pos+1 .. output.length-1];
-}
+    char[16]    str;
+    int[char[]] X0;
+    int[char[]] X1;
 
-int main(char[][] args)
-{
-    int i, n = args.length < 2 ? 1 : std.string.atoi(args[1]);
-    char buf[32];
-    int[char[]] ht1;
-    int[char[]] ht2;
+    for(int i = 0; i <= 9999; i++)
+    {
+        int len = sprintf(str,"foo_%d",i);
+        X0[str[0..len].dup] = i;
+    }
 
-    for (i=0; i<=9999; ++i)
-        ht1["foo_" ~ itoa(i,10)] = i;
+    char[][]    keys = X0.keys;
+    int[]       vals = X0.values;
+    for(int i = 0; i < n; i++)
+    {
+        foreach(int j, char[] key; keys)
+        {
+            X1[key] += vals[j];
+        }
+    }
 
-    char[][] ks = ht1.keys;
-
-    for (i=0; i<n; ++i)
-        for (int j = 0; j < ks.length; j++)
-            ht2[ks[j]] += ht1[ks[j]];
-
-    printf("%d %d %d %d\n",
-       ht1["foo_1"],
-       ht1["foo_9999"],
-       ht2["foo_1"],
-       ht2["foo_9999"]);
-
-    return(0);
+    writefln("%d %d %d %d",
+       X0["foo_1"],
+       X0["foo_9999"],
+       X1["foo_1"],
+       X1["foo_9999"]);
 }

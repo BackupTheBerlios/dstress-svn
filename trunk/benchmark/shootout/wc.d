@@ -1,52 +1,37 @@
-/* -*- mode: d -*-
- * $HeadURL$
- *
- * http://www.functionalfuture.com/d/
- * http://www.bagley.org/~doug/shootout/
- *
- * this program is modified from:
- *   http://cm.bell-labs.com/cm/cs/who/bwk/interps/pap.html
- * Timing Trials, or, the Trials of Timing: Experiments with Scripting
- * and User-Interface Languages</a> by Brian W. Kernighan and
- * Christopher J. Van Wyk.
- *
- */
+/* The Great Computer Language Shootout
+   http://shootout.alioth.debian.org/
+
+   contributed by Dave Fladebo
+   compile: dmd -O -inline -release wc.d
+*/
 
 import std.stream;
 
-const int IN = 1;
-const int OUT = 0;
-
-int main()
+void main()
 {
-    int i, nl, nw, nc, state, nread;
-    char c;
-    char buf[4096];
+    int  nl, nw, nc, nread, inword;
+    char[4096] buf;
 
-    state = OUT;
-    nl = nw = nc = 0;
-
-    while ((nread = stdin.readBlock(buf, buf.length)) > 0)
+    while((nread = stdin.readBlock(buf, buf.length)) > 0)
     {
         nc += nread;
-        for (i = 0; i < nread; i++)
+        for(int idx = 0; idx < nread; idx++)
         {
-            c = buf[i];
-            if (c == '\n')
-                ++nl;
-
-            if (c == ' ' || c == '\n' || c == '\t')
-                state = OUT;
-            else if (state == OUT)
+            switch(buf[idx])
             {
-                state = IN;
-                ++nw;
+                case '\n':
+                    nl++;
+                case ' ':
+                case '\t':
+                    nw += inword;
+                    inword = 0;
+                    break;
+                default:
+                    inword = 1;
+                    break;
             }
         }
     }
 
-    printf("%d %d %d\n", nl, nw, nc);
-    return(0);
+    stdout.writefln("%d %d %d", nl, nw, nc);
 }
-
-

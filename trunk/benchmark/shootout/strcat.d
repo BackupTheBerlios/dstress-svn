@@ -1,19 +1,24 @@
-// -*- mode: d -*-
-// $HeadURL$
+/* The Great Computer Language Shootout
+   http://shootout.alioth.debian.org/
 
-// http://www.functionalfuture.com/d/
-// http://dada.perl.it/shootout/
+   http://www.bagley.org/~doug/shootout/
 
-import std.string;
+   converted to D by Dave Fladebo
+   compile: dmd -O -inline -release strcat.d
+*/
 
-int main(char[][] args)
+import std.stdio, std.string, std.outbuffer;
+
+void main(char[][] args)
 {
-    int n = args.length < 2 ? 1 : atoi(args[1]);
-    char[] hello;
+    int n = args.length > 1 ? atoi(args[1]) : 1;
 
-    for (int i = 0; i < n; i++)
-        hello ~= "hello\n";
+    OutBuffer ob = new OutBuffer();
 
-    printf("%d\n", hello.length);
-    return(0);
+    for(int i = 0; i < n; i++)
+    {
+        ob.write("hello\n");
+    }
+
+    writefln(ob.toString().length);
 }

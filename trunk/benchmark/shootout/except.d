@@ -1,46 +1,59 @@
-// -*- mode: d -*-
-// $HeadURL$
+/* The Great Computer Language Shootout
+   http://shootout.alioth.debian.org/
 
-// http://www.functionalfuture.com/d/
-// http://www.bagley.org/~doug/shootout/
-// ported from Bill Lear's C++ version 
+   http://www.bagley.org/~doug/shootout/
 
-import std.string;
-import std.stdio;
+   converted to D by Dave Fladebo
+   compile: dmd -O -inline -release except.d
+*/
 
-uint HI = 0;
-uint LO = 0;
+import std.stdio, std.string;
+
+void main(char[][] args)
+{
+    int n = args.length > 1 ? atoi(args[1]) : 1;
+
+    while(n--)
+    {
+        some_function(n);
+    }
+
+    writefln("Exceptions: HI=",HI," / LO=",LO);
+}
+
+size_t HI = 0;
+size_t LO = 0;
 
 class Hi_exception
 {
-    uint n; 
-    char[8] N;
-
-    this(uint _n) { n = _n; }
-    char[] what() { sprintf(N, "%d", n); return N; }
+public:
+    this(size_t _n) { n = _n; }
+    char[] what() { return(std.string.toString(n)); }
+private:
+    size_t n;
 }
 
 class Lo_exception
 {
-    uint n; 
-    char[8] N;
-
-    this(uint _n) { n = _n; }
-    char[] what() { sprintf(N, "%d", n); return N; }
+public:
+    this(size_t _n) { n = _n; }
+    char[] what() { return(std.string.toString(n)); }
+private:
+    size_t n; char N[8];
 }
 
-void blowup(uint num)
+void blowup(size_t num)
 {
-    if (num % 2)
+    if(num % 2)
     {
         throw new Lo_exception(num);
     }
     throw new Hi_exception(num);
 }
 
-void lo_function(uint num) 
+void lo_function(size_t num)
 {
-    try 
+    try
     {
         blowup(num);
     }
@@ -50,39 +63,26 @@ void lo_function(uint num)
     }
 }
 
-void hi_function(uint num)
+void hi_function(size_t num)
 {
     try
     {
         lo_function(num);
-    } 
+    }
     catch(Hi_exception ex)
     {
         ++HI;
     }
 }
 
-void some_function(uint num) {
+void some_function(size_t num)
+{
     try
     {
         hi_function(num);
     }
     catch
     {
-        printf("We shouldn't get here\n");
+        fwritefln(stderr,"We shouldn't get here");
     }
-}
-
-int
-main(char[][] args)
-{
-    uint NUM = args.length < 2 ? 1 : std.string.atoi(args[1]);
-    while (NUM--)
-    {
-        some_function(NUM);
-    }
-
-    printf("Exceptions: HI=%u LO=%u\n", HI, LO);
-
-    return 0;
 }

@@ -1,21 +1,29 @@
-// -*- mode: d -*-
-// $HeadURL$
+/* The Great Computer Language Shootout
+   http://shootout.alioth.debian.org/
 
-// http://www.functionalfuture.com/d/
-// http://www.bagley.org/~doug/shootout/
+   http://www.bagley.org/~doug/shootout/
 
-import std.string;
-import std.stream;
+   converted to D by Dave Fladebo
+   compile: dmd -O -inline -release sumcol.d
+*/
 
-int main()
+import std.stream, std.conv;
+
+const size_t MAXLINELEN = 128;
+
+void main()
 {
-   int sum = 0;
-   char[] line;
+    int     sum;
+    char[]  bufr = new char[MAXLINELEN];
+    char[]  line;
 
-   while ((line = stdin.readLine()).length)
-      sum += atoi(line);
+    BufferedStream bsi = new BufferedStream(std.stream.stdin,4096);
+    while(!bsi.eof)
+    {
+        line = bsi.readLine(bufr);
+        if(line.length) sum += toInt(line);
+    }
+    bsi.close();
 
-   printf("%d\n", sum);
-   return(0);
+    printf("%d\n", sum);
 }
-

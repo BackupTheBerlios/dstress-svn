@@ -1,40 +1,35 @@
-// -*- mode: d -*-
-// $HeadURL$
+/* The Great Computer Language Shootout
+   http://shootout.alioth.debian.org/
 
-// http://www.functionalfuture.com/d/
-// http://www.bagley.org/~doug/shootout/
+   http://www.bagley.org/~doug/shootout/
 
-import std.string;
+   converted to D by Dave Fladebo
+   compile: dmd -O -inline -release sieve.d
+*/
 
-int main(char[][] args)
+import std.stdio, std.string;
+
+void main(char[][] args)
 {
-   int n = args.length < 2 ? 1 : atoi(args[1]);
-   char flags[8192 + 1];
-   int i, k;
-   int count = 0;
+    int n = args.length > 1 ? atoi(args[1]) : 1;
 
-   while (n--)
-   {
-      count = 0; 
+    char flags[8192 + 1];
+    int  count;
 
-      for (i = 2; i <= 8192; i++)
-         flags[i] = 1;
+    while(n--)
+    {
+        count = 0; 
+        flags[] = 1;
+        for(int i = 2; i < flags.length; i++)
+        {
+            if(flags[i])
+            {
+                // remove all multiples of prime: i
+                for(int j = i + i; j < flags.length; j += i) flags[j] = 0;
+                count++;
+            }
+        }
+    }
 
-      for (i = 2; i <= 8192; i++)
-      {
-         if (flags[i])
-         {
-            // remove all multiples of prime: i
-            for (k = i+i; k <= 8192; k += i)
-               flags[k] = 0;
-
-            count++;
-         }
-      }
-   }
-
-   printf("Count: %d\n", count);
-
-   return(0);
+    writefln("Count: ",count);
 }
-

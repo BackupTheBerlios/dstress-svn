@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
  
-//package cn.kuehne.dmd.dstress;
+package cn.kuehne.dmd.dstress;
 
 import java.io.FileInputStream;
 import java.io.InputStreamReader;

@@ -4,6 +4,7 @@ PASS:  compile/abstract_03
 PASS:  compile/abstract_04
 PASS:  compile/alias_08
 PASS:  compile/align_04
+PASS:  compile/bug_e2ir_1158_A
 FAIL:  compile/delegate_13
 PASS:  compile/empty_01
 ERROR: compile/enum_05 [35584]
@@ -36,6 +37,8 @@ XFAIL: nocompile/bit_02
 XFAIL: nocompile/bounds_checking_01
 ERROR: nocompile/bug_20041016_A [35584]
 ERROR: nocompile/bug_20041016_B [35584]
+XFAIL: nocompile/bug_20041203_A
+XFAIL: nocompile/bug_20041203_B
 XFAIL: nocompile/bug_cgcod_1464
 XFAIL: nocompile/bug_cgcs_353
 ERROR: nocompile/bug_cod4_352 [Internal compiler error]
@@ -211,6 +214,14 @@ XFAIL: nocompile/long_02
 XFAIL: nocompile/long_03
 XFAIL: nocompile/main_05
 XPASS: nocompile/main_06
+XFAIL: nocompile/offset_01
+XPASS: nocompile/offset_02
+XFAIL: nocompile/offset_03
+XFAIL: nocompile/offsetof_03
+XFAIL: nocompile/offsetof_04
+XFAIL: nocompile/offsetof_05
+XFAIL: nocompile/offsetof_06
+XFAIL: nocompile/offsetof_08
 ERROR: nocompile/opCmp_02 [Internal compiler error]
 XFAIL: nocompile/opNeg_03
 XFAIL: nocompile/opNeg_04
@@ -245,6 +256,11 @@ XFAIL: nocompile/pragma_04
 XPASS: nocompile/precondition_01
 XPASS: nocompile/private_import_01
 XPASS: nocompile/private_import_02
+XFAIL: nocompile/ptr_05
+XFAIL: nocompile/ptr_06
+XFAIL: nocompile/ptr_07
+XFAIL: nocompile/ptr_08
+XFAIL: nocompile/ptr_09
 XFAIL: nocompile/real_14
 XFAIL: nocompile/real_15
 XFAIL: nocompile/real_16
@@ -286,6 +302,10 @@ XFAIL: nocompile/uint_03
 XFAIL: nocompile/ulong_02
 XFAIL: nocompile/ulong_03
 XFAIL: nocompile/union_11
+XPASS: nocompile/union_12
+XPASS: nocompile/union_13
+XPASS: nocompile/union_14
+ERROR: nocompile/union_15 [Internal compiler error]
 XPASS: nocompile/unittest_03
 XPASS: nocompile/unittest_04
 XPASS: nocompile/unittest_05
@@ -404,6 +424,11 @@ PASS:  run/class_01
 PASS:  run/class_02
 PASS:  run/class_03
 FAIL:  run/class_06 (compiling error)
+PASS:  run/class_08
+PASS:  run/class_09
+PASS:  run/class_10
+PASS:  run/class_initialization_01
+PASS:  run/class_initialization_02
 PASS:  run/command_line_debug_01
 PASS:  run/command_line_debug_02
 PASS:  run/command_line_debug_03
@@ -454,6 +479,7 @@ PASS:  run/creal_16
 PASS:  run/creal_17
 PASS:  run/creal_18
 PASS:  run/creal_19
+PASS:  run/creal_20
 PASS:  run/dchar_03
 PASS:  run/dchar_05
 PASS:  run/dchar_07
@@ -708,6 +734,9 @@ PASS:  run/nested_function_03
 FAIL:  run/nested_function_04
 PASS:  run/odd_bug_01
 PASS:  run/odd_bug_02
+FAIL:  run/offsetof_01 (compiling error)
+FAIL:  run/offsetof_02 (compiling error)
+FAIL:  run/offsetof_07 (compiling error)
 PASS:  run/opCast_01
 PASS:  run/opCast_02
 FAIL:  run/opCast_03
@@ -749,6 +778,10 @@ PASS:  run/pragma_06
 PASS:  run/private_01
 FAIL:  run/private_02 (compiling error)
 FAIL:  run/private_03 (compiling error)
+FAIL:  run/ptr_01 (compiling error)
+FAIL:  run/ptr_02 (compiling error)
+FAIL:  run/ptr_03 (compiling error)
+FAIL:  run/ptr_04 (compiling error)
 PASS:  run/real_01
 PASS:  run/real_02
 FAIL:  run/real_03

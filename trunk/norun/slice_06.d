@@ -1,3 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 21
+
+module dstress.nocompile.slice_06;
+
 int main(){
 	bit[] a;
 	a.length=2;

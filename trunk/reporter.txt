@@ -8,6 +8,7 @@ Bastiaan Veelo		<Bastiaan.N.Veelo@ntnu.no>
 Ben Hinkle 		<bhinkle4@juno.com>, <bhinkle@mathworks.com>
 Bent Rasmussen 		<exo@bent-rasmussen.info>
 berupon 		<yu@3dcg.ne.jp>
+Brian Gardner		<briangr@friberg.us>
 Brian Hjøllund
 Buchan 			<kbuchan@xtra.co.nz>
 Burton Radons 		<burton-radons@shaw.ca>

@@ -242,7 +242,6 @@ XPASS: nocompile/switch_10
 XFAIL: nocompile/switch_11
 XPASS: nocompile/switch_12
 XFAIL: nocompile/switch_13
-XFAIL: nocompile/switch_14
 XFAIL: nocompile/switch_15
 XFAIL: nocompile/template_05
 XFAIL: nocompile/template_06
@@ -254,6 +253,7 @@ XFAIL: nocompile/uint_02
 XFAIL: nocompile/uint_03
 XFAIL: nocompile/ulong_02
 XFAIL: nocompile/ulong_03
+XFAIL: nocompile/union_11
 XPASS: nocompile/unittest_03
 XPASS: nocompile/unittest_04
 XPASS: nocompile/unittest_05
@@ -771,7 +771,7 @@ PASS:  run/struct_12
 PASS:  run/struct_13
 PASS:  run/struct_14
 PASS:  run/struct_15
-FAIL:  run/struct_17 (compiling error)
+XFAIL: nocompile/struct_17
 PASS:  run/struct_initialization_01
 PASS:  run/struct_initialization_02
 PASS:  run/struct_initialization_03
@@ -787,6 +787,7 @@ PASS:  run/switch_04
 PASS:  run/switch_05
 PASS:  run/switch_06
 PASS:  run/switch_07
+FAIL:  run/switch_14
 PASS:  run/template_01
 PASS:  run/template_03
 PASS:  run/template_04
@@ -914,7 +915,6 @@ PASS:  run/union_04
 PASS:  run/union_05
 PASS:  run/union_06
 PASS:  run/union_07
-FAIL:  run/union_11 (compiling error)
 PASS:  run/unittest_01
 PASS:  run/ushort_01
 PASS:  run/ushort_05

@@ -4,10 +4,13 @@ PASS:  compile/abstract_03
 PASS:  compile/abstract_04
 PASS:  compile/alias_08
 PASS:  compile/align_04
+FAIL:  compile/delegate_13
 PASS:  compile/empty_01
 ERROR: compile/enum_05 [35584]
 PASS:  compile/extern_01
 PASS:  compile/extern_02
+PASS:  compile/extern_03
+PASS:  compile/extern_04
 PASS:  compile/for_03
 FAIL:  compile/forward_reference_01
 PASS:  compile/forward_reference_02
@@ -26,6 +29,7 @@ XPASS: nocompile/align_01
 XFAIL: nocompile/align_02
 XPASS: nocompile/align_03
 XPASS: nocompile/align_05
+XFAIL: nocompile/array_initialization_04
 XFAIL: nocompile/assert_03
 XFAIL: nocompile/associative_array_01
 XFAIL: nocompile/bit_02
@@ -71,12 +75,27 @@ XPASS: nocompile/command_line_version_16
 XPASS: nocompile/command_line_version_17
 XFAIL: nocompile/comment_07
 XFAIL: nocompile/comment_08
+XFAIL: nocompile/const_02
+XFAIL: nocompile/const_03
+XFAIL: nocompile/const_04
+XFAIL: nocompile/const_07
+XFAIL: nocompile/const_08
+XFAIL: nocompile/const_09
+XFAIL: nocompile/const_11
 ERROR: nocompile/constructor_05 [35584]
 XFAIL: nocompile/dchar_01
 XFAIL: nocompile/dchar_02
 XPASS: nocompile/dchar_04
 XPASS: nocompile/dchar_06
 ERROR: nocompile/default_argument_05 [35584]
+XFAIL: nocompile/delegate_02
+XFAIL: nocompile/delegate_03
+XFAIL: nocompile/delegate_05
+XFAIL: nocompile/delegate_07
+XFAIL: nocompile/delegate_08
+XFAIL: nocompile/delegate_09
+XFAIL: nocompile/delegate_10
+XFAIL: nocompile/delegate_11
 XFAIL: nocompile/deprecated_01
 XPASS: nocompile/deprecated_02
 XPASS: nocompile/deprecated_03
@@ -117,6 +136,7 @@ XFAIL: nocompile/escape_unicode32_12
 XPASS: nocompile/evaluation_order_01
 XPASS: nocompile/evaluation_order_02
 XPASS: nocompile/evaluation_order_03
+XPASS: nocompile/extern_05
 XFAIL: nocompile/final_01
 XPASS: nocompile/final_04
 XPASS: nocompile/final_07
@@ -144,6 +164,11 @@ XFAIL: nocompile/float_litaeral_dec_15
 XPASS: nocompile/float_litaeral_dec_16
 XFAIL: nocompile/float_litaeral_dec_17
 ERROR: nocompile/foreach_14 [34304]
+XFAIL: nocompile/foreach_17
+XFAIL: nocompile/foreach_18
+XPASS: nocompile/html_empty_entity_01
+XPASS: nocompile/html_empty_entity_02
+XFAIL: nocompile/html_empty_entity_03
 XFAIL: nocompile/html_entity_10
 XFAIL: nocompile/html_entity_11
 XFAIL: nocompile/inline_01
@@ -240,6 +265,7 @@ XPASS: nocompile/static_19
 XFAIL: nocompile/struct_04
 XFAIL: nocompile/struct_05
 XFAIL: nocompile/struct_06
+XFAIL: nocompile/struct_17
 XFAIL: nocompile/super_03
 ERROR: nocompile/super_05 [34304]
 XFAIL: nocompile/switch_08
@@ -248,7 +274,6 @@ XPASS: nocompile/switch_10
 XFAIL: nocompile/switch_11
 XPASS: nocompile/switch_12
 ERROR: nocompile/switch_13 [34304]
-ERROR: nocompile/switch_14 [Internal compiler error]
 XFAIL: nocompile/switch_15
 XFAIL: nocompile/template_05
 XFAIL: nocompile/template_06
@@ -260,6 +285,7 @@ XFAIL: nocompile/uint_02
 XFAIL: nocompile/uint_03
 XFAIL: nocompile/ulong_02
 XFAIL: nocompile/ulong_03
+XFAIL: nocompile/union_11
 XPASS: nocompile/unittest_03
 XPASS: nocompile/unittest_04
 XPASS: nocompile/unittest_05
@@ -267,7 +293,7 @@ XFAIL: nocompile/unittest_06
 XFAIL: nocompile/ushort_02
 XFAIL: nocompile/ushort_03
 XPASS: nocompile/version_06
-XPASS: nocompile/version_11
+XFAIL: nocompile/version_11
 XFAIL: nocompile/version_12
 XFAIL: nocompile/version_13
 XFAIL: nocompile/version_14
@@ -354,6 +380,7 @@ PASS:  run/bug_20041103_B
 FAIL:  run/bug_20041103_C (compiling error)
 PASS:  run/bug_20041103_D
 PASS:  run/bug_20041103_E
+ERROR: run/bug_expression_661_A [34304]
 ERROR: run/bug_mangle_61_A [34304]
 PASS:  run/bug_mangle_61_B
 PASS:  run/bug_mtype_2576_A
@@ -400,6 +427,9 @@ PASS:  run/compare_01
 PASS:  run/compare_02
 PASS:  run/complex_01
 FAIL:  run/const_01 (compiling error)
+FAIL:  run/const_05 (compiling error)
+PASS:  run/const_06
+PASS:  run/const_10
 PASS:  run/constructor_01
 ERROR: run/constructor_02 [35584]
 PASS:  run/constructor_03
@@ -439,6 +469,9 @@ PASS:  run/default_argument_04
 PASS:  run/default_argument_06
 FAIL:  run/default_argument_07 (compiling error)
 FAIL:  run/delegate_01 (compiling error)
+PASS:  run/delegate_04
+PASS:  run/delegate_06
+PASS:  run/delegate_12
 PASS:  run/deprecated_09
 PASS:  run/deprecated_10
 PASS:  run/deprecated_12
@@ -779,7 +812,6 @@ PASS:  run/struct_12
 ERROR: run/struct_13 [35584]
 PASS:  run/struct_14
 PASS:  run/struct_15
-FAIL:  run/struct_17 (compiling error)
 PASS:  run/struct_initialization_01
 PASS:  run/struct_initialization_02
 PASS:  run/struct_initialization_03
@@ -795,6 +827,7 @@ PASS:  run/switch_04
 PASS:  run/switch_05
 PASS:  run/switch_06
 PASS:  run/switch_07
+FAIL:  run/switch_14 (compiling error)
 PASS:  run/template_01
 FAIL:  run/template_03 (compiling error)
 PASS:  run/template_04
@@ -901,6 +934,7 @@ PASS:  run/typeid_79
 PASS:  run/typeid_80
 PASS:  run/typeid_81
 PASS:  run/typeid_82
+PASS:  run/typeid_83
 PASS:  run/typeof_01
 PASS:  run/typeof_02
 PASS:  run/typeof_03
@@ -922,7 +956,6 @@ PASS:  run/union_04
 PASS:  run/union_05
 PASS:  run/union_06
 PASS:  run/union_07
-FAIL:  run/union_11 (compiling error)
 PASS:  run/unittest_01
 PASS:  run/ushort_01
 PASS:  run/ushort_04

@@ -18,7 +18,6 @@ Test cases:
 * keyword: cfloat
 * keyword: char (test that it realy is unsigned)
 * keyword: continue
-* keyword: delegate
 * keyword: delete
 * keyword: export
 * keyword: extern

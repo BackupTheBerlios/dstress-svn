@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // void is an illegal KeyType
 
 module dstress.nocompile.associative_array_06;

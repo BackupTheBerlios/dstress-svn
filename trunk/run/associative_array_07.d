@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 module dstress.nocompile.associative_array_07;
 
 int main(){

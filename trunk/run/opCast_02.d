@@ -15,6 +15,6 @@ class Child : Parent{
 }
 
 int main(){
-	(new Child).test=2;
+	(new Child()).test=2;
 	return 0;
 }

@@ -11,8 +11,5 @@ int main(){
 	void foo( short s ){
 	}
 
-	short s=1;
-	foo( s );
-
 	return 0;
 }

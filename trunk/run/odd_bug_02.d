@@ -12,12 +12,12 @@ struct TestStruct{
 	}
 
 	void foo(){
-		assert(left==null);
+		assert(left is null);
 		bar();
 	}
 
 	void bar(){
-		assert(left==null);
+		assert(left is null);
 	}
 
 	int opApply(int delegate(inout int val) dg){

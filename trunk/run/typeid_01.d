@@ -3,7 +3,7 @@ class MyClass{
 
 int main(){
 	TypeInfo ti = typeid(MyClass[]);
-	assert(ti!=null);
+	assert(!(ti is null));
 	
 	return 0;
 }

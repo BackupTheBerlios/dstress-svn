@@ -1,3 +1,3 @@
-align (-1) int check(){
-	return 5;
+struct MyStruct{
+	align (-1) int check;
 }

@@ -11,8 +11,7 @@ class MyClass{
 	}
 	
 	~this(){
-		status++;
-		status*=3;
+		status--;
 		throw new Exception("E2");
 	}
 }
@@ -23,11 +22,10 @@ int main(){
 		assert(status == 1);
 		delete m;
 	}catch(Exception e){
-		assert(status == 6);
-		status/=3;
-		status-=2;
+		assert(status == 0);
+		status--;
 	}
 	
-	assert( status == 0 );
+	assert( status == -1 );
 	return 0;
 }

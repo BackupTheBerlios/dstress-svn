@@ -8,6 +8,6 @@ class MyClass{
 
 int main(){
 	MyClass c = null;
-	assert( c == null);
+	assert( c is null);
 	return 0;
 }

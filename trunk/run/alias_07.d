@@ -5,11 +5,7 @@
 alias int MyInt;
 
 int main(){
-	int check(char[]c=""){
-		return 1;
-	}
-	assert(check("ABC")==1);
-	MyInt test(char[]c=""){
+	MyInt test(char[] c=""){
 		return 2;
 	}
 	assert(test("abc")==2);

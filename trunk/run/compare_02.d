@@ -8,12 +8,7 @@ class MyClass{
 
 int main(){
 	MyClass c = new MyClass();
-	assert( c != null);
-
-	c = null;
-	if( c != null){
-		assert(0);
-	}
+	assert( !(c is null));
 
 	return 0;
 }

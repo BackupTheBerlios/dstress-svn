@@ -1,7 +1,7 @@
 
 
 int main(){
-	char[] array="abc";
+	char[] array="abc".dup;
 	int count=0;
 	assert(count==0);
 	assert(array[0]=='a');

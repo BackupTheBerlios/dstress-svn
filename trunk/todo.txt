@@ -37,7 +37,7 @@ Test cases:
 
 * extend tests for design by contract
 
-* extend tests for inner functions
+* extend tests for inner functions and closures
 
 * operators
 

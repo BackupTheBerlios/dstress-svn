@@ -31,4 +31,4 @@ Source code comments:
 	@uri@		message id
 	@url@		message xRef
 	@WARNING@	external dependencies (e.g. Phobos)
-
+	§DSTRESS_FLAGS§	everything following in the same line will be interpreted as _additional_ compiler flags

@@ -1,6 +1,6 @@
-/* svn://svn.kuehne.cn/dstress/return__.c
+/* svn://svn.kuehne.cn/dstress/extract__.c
  *
- * execute the first argument and print the return code
+ * extract compiler flags for DStress test cases
  *
  * Copyright (C) 2004 Thomas Kuehne
  *
@@ -21,9 +21,38 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 
-int main(int argc, char *argv[]){
-	int returnCode = system(argv[1]);
-	printf("%d\n", returnCode);
+// @WARNING@ works only with ASCII / UTF-8 source files
+int main(int argc, char* argv[]){
+	if(argc!=2){
+		printf("this stdin will be queried for the patter given as first argument\n");
+		return -1;
+	}
+	
+	// the longest source line in the test is a bit over 1<<16 bytes long
+	size_t length = 1 << 17;
+	char* line = malloc(length);
+	char* buffer;
+	char* found;
+	char* pattern=argv[1];
+	size_t pattern_length=strlen(pattern);
+
+	errno=0;	
+	while(buffer=fgets(line, length, stdin)){
+		found = strstr(buffer, pattern);
+		
+		if(errno!=0){
+			break;
+		}else if(found!=NULL){
+			found+=pattern_length;
+			printf("%s", found);
+			break;
+		}
+	}
+	
+	free(line);
+	
 	return 0;
 }

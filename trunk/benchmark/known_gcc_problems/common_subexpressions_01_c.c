@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// $Autor$
+// $Author$
 
 /*
  * (25 Aug 2001) Common subexpression elimination cannot merge

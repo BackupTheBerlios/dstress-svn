@@ -7,7 +7,7 @@
 // @uri@	news:pan.2005.01.12.13.20.54.546749@teqdruid.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2676
 
-module dstress.run.opIdentity_022;
+module dstress.run.opIdentity_02;
 
 interface I {
 	I parent();

@@ -1,0 +1,23 @@
+make run/command_line_debug_01.diagnose.exe
+
+= = = = = stdout = = = = =
+# destination: run/command_line_debug_01.diagnose.exe
+# source: run/command_line_debug_01.d
+# name: run/command_line_debug_01
+# extract__: ./extract__
+# extract__.cmd: ./extract__ __DSTRESS_DFLAGS__ < run/command_line_debug_01.d
+# extract__.result: -debug
+# ifeq__: ./ifeq__
+# continue if ifeq__ works
+./ifeq__ someString someString
+# return__: ./return__
+# dmd: dmd
+# return__.return_code_0: 0 (expect=0)
+# return__.return_code_1: 256 (expect=256)
+# dmd.cmd: dmd  -debug -odobj -ofrun/command_line_debug_01.diagnose.exe run/command_line_debug_01.d >> /tmp/dstress/log.txt 2>&1
+# dmd.return: 0
+# for analyse_run diagnosis: '@if' -> 'if' in 'define analyse_run' (line 185)
+PASS:  run/command_line_debug_01
+ 
+= = = = =  log.txt = = = = =
+gcc obj/command_line_debug_01.o -o run/command_line_debug_01.diagnose.exe -lphobos -lpthread -lm 

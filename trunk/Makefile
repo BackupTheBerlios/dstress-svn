@@ -215,6 +215,34 @@ endef
 	$(analyse_run)
 
 #
+# target should compile, link and run
+# (used for Makefile diagnosis)
+#
+%.diagnose.$(ext_run) : %.$(ext_source) basic_tools
+	# destination: $@
+	# source: $<
+	$(eval z_name = $(subst .diagnose.$(ext_run),,$@))
+	# name: $(z_name)
+	# extract__: $(extract__)
+	# extract__.cmd: $(extract__) $(flag_pattern) < $<
+	$(extract_z_flags)
+	# extract__.result: $(z_flags)
+	# ifeq__: $(ifeq__)
+	# continue if ifeq__ works
+	$(ifeq__) someString someString
+	# return__: $(return__)
+	# dmd: $(DMD)
+	$(eval y_tmp = $(shell $(return__) "$(ifeq__) 1 1"))
+	# return__.return_code_0: $(y_tmp) (expect=0)
+	$(eval y_tmp = $(shell $(return__) "$(DMD) > /dev/null"))
+	# return__.return_code_1: $(y_tmp) (expect=256)
+	# dmd.cmd: $(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	# dmd.return: $(z_return)
+	# for analyse_run diagnosis: '@if' -> 'if' in 'define analyse_run' (line 185)
+	$(analyse_run)
+	
+#
 # target should compile and link but fail to run
 # 
 norun : Makefile $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source_html)" ) ) )

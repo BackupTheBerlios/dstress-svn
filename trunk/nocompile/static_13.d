@@ -1,3 +1,4 @@
+module dstress.nocompile.static_13;
 
 int check(){
 	static int x;

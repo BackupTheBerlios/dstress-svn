@@ -1,19 +1,37 @@
-* general review / remove duplicated tests
+* general review / endian issues 
+* remove duplicated tests
 
+* keyword: asm
+* keyword: body
+* keyword: cent
+* keyword: cdouble
+* keyword: cfloat
+* keyword: char (test that it realy is unsigned)
+* keyword: creal
+* keyword: const
+* keyword: continue
+* keyword: dchar
+* keyword: debug
+* keyword: delegate
+* keyword: export
+* keyword: extern
+* keyword: function
+* keyword: idouble
+* keyword: ifloat
+* keyword: import
+* keyword: invariant
+* keyword: ireal
+* keyword: module
 * keyword: package
+* keyword: private
 * keyword: protected
 * keyword: public
-* keyword: export
-* keyword: debug
-* keyword: synchronized
-* keyword: private
-* keyword: unittest
 * keyword: struct (anonymous)
-* keyword: function
-* keyword: asm
-* keyword: char (test that it realy is unsigned)
+* keyword: synchronized
+* keyword: ucent
+* keyword: unittest
+* keyword: volatile
 * keyword: wchar
-* keyword: dchar
 
 * extend tests for design by contract
 
@@ -26,6 +44,8 @@
 * octal and decimal integer literals
 
 * floating literals
+
+* IEEE 754 tests
 
 * module initializers & ?destructors?
 	module foo;

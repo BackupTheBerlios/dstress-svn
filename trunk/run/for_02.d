@@ -1,0 +1,18 @@
+// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/for_02.d,v 1.2 2004/09/22 23:25:38 th Exp $
+
+// @author@	Mike Swieton <mike@swieton.net>
+// @date@	2004-05-27
+// @uri@	news://pan.2004.05.27.03.36.49.673273@swieton.net
+
+int main(){
+	int status=1;
+	assert(status==1);
+	for(;;){
+		status++;
+		if(status==3){
+			break;
+		}
+	}
+	assert(status==3);
+	return 0;
+}

@@ -12,6 +12,7 @@ Benchmark:
 
 Test cases:
 * keyword: asm
+* keyword: break (intervening finally clauses; mutexes)
 * keyword: in out body
 * keyword: cent
 * keyword: cdouble

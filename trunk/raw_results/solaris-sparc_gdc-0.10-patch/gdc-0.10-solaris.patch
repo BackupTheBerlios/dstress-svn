@@ -1,0 +1,301 @@
+diff -bru d/Make-lang.in d.patched/Make-lang.in
+--- d/Make-lang.in	Sun Jan  9 16:52:07 2005
++++ d.patched/Make-lang.in	Fri Feb  4 16:48:41 2005
+@@ -76,7 +76,7 @@
+ 
+ D_INCLUDES = -I$(srcdir)/d -I$(srcdir)/d/dmd -Id
+ # -Wno-long-double is for MacOS X -- needs to be configurated
+-D_CC_FLAGS = -Wno-missing-braces
++D_CC_FLAGS = -Wno-missing-braces -Wcast-align
+ 
+ ALL_D_COMPILER_FLAGS = $(ALL_CFLAGS) $(ALL_CPPFLAGS) $(INCLUDES) $(D_INCLUDES) $(D_EXTRA_DEFINES) $(D_CC_FLAGS)
+ # Somehow, I started getting problems with the C++ <complex.h> being included..
+Only in d.patched: Make-lang.in~
+diff -bru d/dmd/array.c d.patched/dmd/array.c
+--- d/dmd/array.c	Tue Oct 26 02:41:27 2004
++++ d.patched/dmd/array.c	Tue Jan 11 17:45:48 2005
+@@ -18,6 +18,7 @@
+ #include <stdarg.h>
+ #include <string.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #if _MSC_VER
+ #include <malloc.h>
+diff -bru d/dmd/dchar.c d.patched/dmd/dchar.c
+--- d/dmd/dchar.c	Tue Oct 26 02:41:27 2004
++++ d.patched/dmd/dchar.c	Sun Feb  6 19:37:10 2005
+@@ -365,18 +365,21 @@
+ 
+ 	    case 2:
+ 		hash *= 37;
+-		hash += *(unsigned short *)str;
++		hash += str[0] * 256 + str[1];
++/*		hash += *(unsigned short *)str; */
+ 		return hash;
+ 
+ 	    case 3:
+ 		hash *= 37;
+-		hash += (*(unsigned short *)str << 8) +
+-			((unsigned char *)str)[2];
++		hash += (str[0] * 256 + str[1]) * 256 + str[2];
++/*		hash += (*(unsigned short *)str << 8) +
++			((unsigned char *)str)[2]; */
+ 		return hash;
+ 
+ 	    default:
+ 		hash *= 37;
+-		hash += *(long *)str;
++		hash += ((str[0] * 256 + str[1]) * 256 + str[2]) * 256 + str[3];
++/*		hash += *(long*)str; */
+ 		str += 4;
+ 		len -= 4;
+ 		break;
+Only in d.patched/dmd: dchar.c~
+diff -bru d/dmd/dsymbol.c d.patched/dmd/dsymbol.c
+--- d/dmd/dsymbol.c	Sun Jan  9 01:40:20 2005
++++ d.patched/dmd/dsymbol.c	Tue Jan 11 17:47:21 2005
+@@ -10,6 +10,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #include "mem.h"
+ 
+diff -bru d/dmd/expression.c d.patched/dmd/expression.c
+--- d/dmd/expression.c	Sun Jan  9 01:40:20 2005
++++ d.patched/dmd/expression.c	Tue Jan 11 17:46:50 2005
+@@ -21,6 +21,7 @@
+ #include <ctype.h>
+ #include <assert.h>
+ #include <complex.h>
++#include <alloca.h>
+ 
+ #ifdef __APPLE__
+ #define integer_t dmd_integer_t
+diff -bru d/dmd/func.c d.patched/dmd/func.c
+--- d/dmd/func.c	Sun Jan  9 01:40:20 2005
++++ d.patched/dmd/func.c	Tue Jan 11 17:45:59 2005
+@@ -15,6 +15,7 @@
+ 
+ #include <stdio.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #include "mars.h"
+ #include "declaration.h"
+diff -bru d/dmd/idgen.c d.patched/dmd/idgen.c
+--- d/dmd/idgen.c	Sun Jan  9 01:40:20 2005
++++ d.patched/dmd/idgen.c	Tue Jan 11 17:46:44 2005
+@@ -18,6 +18,7 @@
+ #include <string.h>
+ #include <stdarg.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ struct Msgtable
+ {
+diff -bru d/dmd/inifile.c d.patched/dmd/inifile.c
+--- d/dmd/inifile.c	Tue Oct 26 02:41:27 2004
++++ d.patched/dmd/inifile.c	Tue Jan 11 17:46:40 2005
+@@ -9,6 +9,7 @@
+ #include	<string.h>
+ #include	<stdlib.h>
+ #include	<ctype.h>
++#include <alloca.h>
+ 
+ #include	"root.h"
+ 
+diff -bru d/dmd/link.c d.patched/dmd/link.c
+--- d/dmd/link.c	Tue Oct 26 02:41:27 2004
++++ d.patched/dmd/link.c	Tue Jan 11 17:46:33 2005
+@@ -15,6 +15,7 @@
+ #include	<stdarg.h>
+ #include	<string.h>
+ #include	<stdlib.h>
++#include <alloca.h>
+ 
+ #if _WIN32
+ #include	<process.h>
+diff -bru d/dmd/mem.c d.patched/dmd/mem.c
+--- d/dmd/mem.c	Tue Oct 26 02:41:27 2004
++++ d.patched/dmd/mem.c	Tue Jan 11 17:46:22 2005
+@@ -5,6 +5,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <alloca.h>
+ 
+ #if linux
+ #include "../root/mem.h"
+diff -bru d/dmd/module.c d.patched/dmd/module.c
+--- d/dmd/module.c	Sun Jan  9 01:40:20 2005
++++ d.patched/dmd/module.c	Tue Jan 11 17:46:15 2005
+@@ -16,6 +16,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #include "mars.h"
+ #include "module.h"
+diff -bru d/dmd/mtype.c d.patched/dmd/mtype.c
+--- d/dmd/mtype.c	Sun Jan  9 01:40:20 2005
++++ d.patched/dmd/mtype.c	Tue Jan 11 17:46:09 2005
+@@ -18,6 +18,7 @@
+ 
+ #include <stdio.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #ifdef __DMC__
+ #include <fp.h>
+Only in d.patched/dmd: parse.c~
+diff -bru d/dmd/root.c d.patched/dmd/root.c
+--- d/dmd/root.c	Sun Dec 19 18:51:04 2004
++++ d.patched/dmd/root.c	Tue Jan 11 17:45:54 2005
+@@ -18,6 +18,7 @@
+ #include <stdarg.h>
+ #include <string.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #if _MSC_VER
+ #include <malloc.h>
+Only in d.patched/dmd: stringtable.c~
+diff -bru d/dmd/tocsym.c d.patched/dmd/tocsym.c
+--- d/dmd/tocsym.c	Sun Dec 19 18:51:04 2004
++++ d.patched/dmd/tocsym.c	Tue Jan 11 17:45:38 2005
+@@ -11,6 +11,7 @@
+ #include <stddef.h>
+ #include <time.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #include "mars.h"
+ #include "module.h"
+diff -bru d/dmd/toobj.c d.patched/dmd/toobj.c
+--- d/dmd/toobj.c	Sun Dec 26 17:15:05 2004
++++ d.patched/dmd/toobj.c	Tue Jan 11 17:45:28 2005
+@@ -17,6 +17,7 @@
+ #include <stddef.h>
+ #include <time.h>
+ #include <assert.h>
++#include <alloca.h>
+ 
+ #include "mars.h"
+ #include "module.h"
+Only in d.patched/phobos: autom4te.cache
+diff -bru d/phobos/config/config-mid d.patched/phobos/config/config-mid
+--- d/phobos/config/config-mid	Tue Oct 26 02:41:27 2004
++++ d.patched/phobos/config/config-mid	Sun Feb  6 02:12:35 2005
+@@ -125,6 +125,53 @@
+   int fpclassify(real x) { return __fpclassifyd(x); }    
+   int fpclassify(double x) { return __fpclassifyd(x); }    
+   int fpclassify(float x) { return __fpclassifyf(x); }    
++} else version (solaris) {
++    // for now this is a copy of the darwin stuff (and doesn't work)
++    version (all) {
++	enum {
++		FP_NAN          = 1,                   /*      NaN                    */
++		FP_INFINITE     = 2,                   /*      + or - infinity        */
++		FP_ZERO         = 3,                   /*      + or - zero            */
++		FP_NORMAL       = 4,                   /*      all normal numbers     */
++		FP_SUBNORMAL    = 5                    /*      denormal numbers       */
++	}
++    }
++    
++  extern (C) {
++      // the 'real' versions are declared, but do not actually exist...
++      int __isnand(double);
++      int __isnanf(float);
++      int __isnan(real);
++      int __isfinited(double);
++      int __isfinitef(float);
++      int __isfinite(real);
++      int __isnormald(double);
++      int __isnormalf(float);
++      int __isnormal(real);
++      int __fpclassifyd(double);
++      int __fpclassifyf(float);
++      int __fpclassify(real);
++      int __isinfd(double);
++      int __isinff(float);
++      int __isinf(real);
++      int __signbitd(double);
++      int __signbitf(float);
++      int __signbitl(real);
++  }
++  
++  int isnan(real x) { return __isnand(x); }
++  int isfinite(real x) { return __isfinited(x); }
++  int isnormal(real x) { return __isnormald(x); }
++  int isnormal(double x) { return __isnormald(x); }
++  int isnormal(float x) { return __isnormalf(x); }
++  int issubnormal(real x) { return __fpclassifyd(x) == FP_SUBNORMAL; }
++  int issubnormal(double x) { return __fpclassifyd(x) == FP_SUBNORMAL; }
++  int issubnormal(float x) { return __fpclassifyf(x) == FP_SUBNORMAL; }
++  int isinf(real x) { return __isinfd(x); }
++  int signbit(real x) { return __signbitd(x); }
++  int fpclassify(real x) { return __fpclassifyd(x); }    
++  int fpclassify(double x) { return __fpclassifyd(x); }    
++  int fpclassify(float x) { return __fpclassifyf(x); }    
+ } else {
+     // %%TODO: slightly better: test which of __fpclassify[fdl<null>] exist
+     // and use those.  Could do the same with __is
+Only in d.patched/phobos/config: config-mid~
+diff -bru d/phobos/config/gen_math.c d.patched/phobos/config/gen_math.c
+--- d/phobos/config/gen_math.c	Tue Oct 26 02:41:27 2004
++++ d.patched/phobos/config/gen_math.c	Sat Feb  5 23:48:21 2005
+@@ -24,6 +24,7 @@
+ 
+ void c_fpclassify()
+ {
++#if !defined(__sun__)
+     printf("enum {\n");
+     CES( FP_NAN );
+     CES( FP_INFINITE );
+@@ -31,6 +32,7 @@
+     CES( FP_SUBNORMAL );
+     CES( FP_NORMAL );
+     printf("}\n\n");
++#endif
+ }
+ 
+ int main()
+Only in d.patched/phobos/config: gen_math.c~
+Only in d.patched/phobos: configure
+diff -bru d/phobos/configure.in d.patched/phobos/configure.in
+--- d/phobos/configure.in	Sun Jan  9 19:43:17 2005
++++ d.patched/phobos/configure.in	Sat Feb  5 02:29:53 2005
+@@ -256,6 +256,7 @@
+ AC_CHECK_FUNCS(vsnprintf _vsnprintf,break,[AC_MSG_ERROR([No variant of vsnprintf.])])
+ 
+ AC_CHECK_HEADERS(semaphore.h)
++AC_SEARCH_LIBS(sem_init, pthread rt posix4)
+ AC_CHECK_FUNC(sem_init)
+ AC_CHECK_FUNC(semaphore_create)
+ 
+Only in d.patched/phobos: configure.in~
+Only in d: root
+diff -bru d/target-ver-syms.sh d.patched/target-ver-syms.sh
+--- d/target-ver-syms.sh	Tue Oct 26 02:41:27 2004
++++ d.patched/target-ver-syms.sh	Sun Feb  6 00:25:49 2005
+@@ -28,6 +28,7 @@
+ cygwin*) d_os_versym=cygwin ; d_unix=1 ;;
+ sysv3*) d_os_versym=sysv3; d_unix=1 ;;
+ sysv4*) d_os_versym=sysv4; d_unix=1 ;;
++solaris*) d_os_versym=solaris; d_unix=1 ;;
+ *) d_os_versym="$d_target_os"
+ esac
+ 
+@@ -35,6 +36,7 @@
+ i*86) d_cpu_versym=X86 ;;
+ *ppc*) d_cpu_versym=PPC ;;
+ powerpc) d_cpu_versym=PPC ;;
++sparc) d_cpu_versym=Sparc ;;
+ esac
+ 
+ output=""
+Only in d.patched: target-ver-syms.sh~

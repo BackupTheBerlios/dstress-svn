@@ -21,16 +21,14 @@
 				<xsl:apply-templates/>
 			</div>
 			<div class="footer">
-				<xsl:text>Powered by </xsl:text>
+				<a href="http://dstress.kuehne.cn/www/dstress.html">DStress </a>
+				<xsl:text> written by Thomas K&#252;hne and served by</xsl:text>
 				<xsl:element name="a">
 					<xsl:attribute name="href">
 						<xsl:value-of select="@href"/>
 					</xsl:attribute>
-					<xsl:text>Subversion</xsl:text>
+					<xsl:text> Subversion</xsl:text>
 				</xsl:element>
-				<xsl:text> </xsl:text>
-				<xsl:value-of select="@version"/>
-				<xsl:text>; Hosting by Thomas K&#252;hne</xsl:text>
 			</div>
 		</body>
 	</html>

@@ -392,7 +392,11 @@ err:		if(argc!=0)
 			if(res==RETURN_OK){
 				printf("PASS: \t%s\n", arg[2]);
 			}else if(res==RETURN_FAIL && good_error){
-				printf("FAIL: \t%s [%d]\n", arg[2], res);
+				if(checkErrorMessage(arg[2], "", buffer)){
+					printf("FAIL: \t%s [%d]\n", arg[2], res);
+				}else{
+					printf("ERROR:\t%s [%d]\n", arg[2], res);
+				}
 			}else{
 				printf("ERROR:\t%s [%d]\n", arg[2], res);
 			}

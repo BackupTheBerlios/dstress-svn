@@ -3,7 +3,9 @@
 // $Author$
 
 // @author@	Thomas Kuehne <thomas@kuehne.thisisspam.cn>
-// @date@	2005-01-26
+// @date@	2005-02-12
+// @uri@	news:cujja4$5ri$1@digitaldaemon.com
+// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2952
 
 // __DSTRESS_DFLAGS__ -I.
 

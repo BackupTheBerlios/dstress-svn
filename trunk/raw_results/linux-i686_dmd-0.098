@@ -1,0 +1,827 @@
+PASS:  compile/abstract_01
+PASS:  compile/abstract_02
+PASS:  compile/abstract_03
+PASS:  compile/abstract_04
+PASS:  compile/alias_08
+PASS:  compile/align_04
+PASS:  compile/empty_01
+ERROR: compile/enum_05 [35584]
+PASS:  compile/extern_01
+PASS:  compile/extern_02
+PASS:  compile/for_03
+FAIL:  compile/forward_reference_01
+PASS:  compile/forward_reference_02
+PASS:  compile/html_empty_01
+PASS:  compile/html_empty_02
+FAIL:  compile/mixin_01
+ERROR: compile/struct_16 [35584]
+PASS:  compile/template_struct_02
+FAIL:  compile/typedef_05
+PASS:  compile/unittest_02
+FAIL:  compile/version_09
+XPASS: nocompile/alias_05
+XPASS: nocompile/align_01
+XFAIL: nocompile/align_02
+XPASS: nocompile/align_03
+XPASS: nocompile/align_05
+XFAIL: nocompile/assert_03
+XFAIL: nocompile/associative_array_01
+XFAIL: nocompile/bit_02
+XFAIL: nocompile/bounds_checking_01
+ERROR: nocompile/bug_20041016_A [35584]
+ERROR: nocompile/bug_20041016_B [35584]
+XFAIL: nocompile/bug_cgcod_1464
+XFAIL: nocompile/bug_cgcs_353
+XFAIL: nocompile/bug_cod4_352
+XFAIL: nocompile/bug_e2ir_814
+ERROR: nocompile/bug_expression_1147 [34304]
+ERROR: nocompile/bug_mtype_2576 [34304]
+XFAIL: nocompile/bug_mtype_3154
+XFAIL: nocompile/bug_s2ir_458
+XFAIL: nocompile/byte_09
+XFAIL: nocompile/byte_10
+XFAIL: nocompile/cast_03
+XPASS: nocompile/cast_04
+XFAIL: nocompile/char_01
+XFAIL: nocompile/char_02
+XFAIL: nocompile/char_04
+XPASS: nocompile/char_05
+XFAIL: nocompile/class_04
+XFAIL: nocompile/class_05
+XPASS: nocompile/command_line_debug_05
+XPASS: nocompile/command_line_debug_06
+XPASS: nocompile/command_line_debug_07
+XFAIL: nocompile/command_line_debug_09
+XFAIL: nocompile/command_line_version_04
+XPASS: nocompile/command_line_version_05
+XFAIL: nocompile/command_line_version_06
+XFAIL: nocompile/command_line_version_07
+XPASS: nocompile/command_line_version_08
+XPASS: nocompile/command_line_version_09
+XPASS: nocompile/command_line_version_10
+XPASS: nocompile/command_line_version_11
+XPASS: nocompile/command_line_version_12
+XPASS: nocompile/command_line_version_13
+XPASS: nocompile/command_line_version_14
+XPASS: nocompile/command_line_version_15
+XFAIL: nocompile/comment_07
+XFAIL: nocompile/comment_08
+XFAIL: nocompile/dchar_01
+XFAIL: nocompile/dchar_02
+XFAIL: nocompile/deprecated_01
+XPASS: nocompile/deprecated_02
+XPASS: nocompile/deprecated_03
+XPASS: nocompile/deprecated_04
+XPASS: nocompile/deprecated_05
+XPASS: nocompile/deprecated_11
+XFAIL: nocompile/double_14
+XFAIL: nocompile/double_15
+XFAIL: nocompile/double_16
+XFAIL: nocompile/double_17
+XFAIL: nocompile/double_18
+XFAIL: nocompile/double_19
+XFAIL: nocompile/double_20
+XFAIL: nocompile/double_21
+XFAIL: nocompile/double_quoted_string_12
+XFAIL: nocompile/double_quoted_string_13
+XFAIL: nocompile/double_quoted_string_14
+XFAIL: nocompile/double_quoted_string_15
+XFAIL: nocompile/double_quoted_string_16
+XFAIL: nocompile/enum_06
+XFAIL: nocompile/escape_hex_02
+XFAIL: nocompile/escape_hex_string_03
+XFAIL: nocompile/escape_hex_string_04
+XPASS: nocompile/escape_octal_02
+XFAIL: nocompile/escape_unicode16_03
+XFAIL: nocompile/escape_unicode16_04
+XFAIL: nocompile/escape_unicode16_05
+XFAIL: nocompile/escape_unicode16_06
+XFAIL: nocompile/escape_unicode32_04
+XFAIL: nocompile/escape_unicode32_05
+XFAIL: nocompile/escape_unicode32_06
+XFAIL: nocompile/escape_unicode32_07
+XFAIL: nocompile/escape_unicode32_08
+XFAIL: nocompile/escape_unicode32_09
+XFAIL: nocompile/escape_unicode32_10
+XFAIL: nocompile/escape_unicode32_11
+XFAIL: nocompile/escape_unicode32_12
+XPASS: nocompile/evaluation_order_01
+XPASS: nocompile/evaluation_order_02
+XPASS: nocompile/evaluation_order_03
+XFAIL: nocompile/final_01
+XPASS: nocompile/final_04
+XPASS: nocompile/final_07
+XFAIL: nocompile/final_08
+XPASS: nocompile/final_09
+XPASS: nocompile/final_10
+XPASS: nocompile/final_11
+XFAIL: nocompile/float_14
+XFAIL: nocompile/float_15
+XFAIL: nocompile/float_16
+XFAIL: nocompile/float_17
+XFAIL: nocompile/float_18
+XFAIL: nocompile/float_19
+XFAIL: nocompile/float_20
+XFAIL: nocompile/float_21
+XPASS: nocompile/float_litaeral_dec_04
+XFAIL: nocompile/float_litaeral_dec_06
+XFAIL: nocompile/float_litaeral_dec_07
+XPASS: nocompile/float_litaeral_dec_08
+XPASS: nocompile/float_litaeral_dec_09
+ERROR: nocompile/foreach_14 [34304]
+XFAIL: nocompile/html_entity_10
+XFAIL: nocompile/html_entity_11
+XFAIL: nocompile/inline_01
+XFAIL: nocompile/int_05
+XFAIL: nocompile/int_06
+XFAIL: nocompile/integer_literal_binary_09
+XFAIL: nocompile/integer_literal_binary_10
+XFAIL: nocompile/integer_literal_binary_11
+XFAIL: nocompile/integer_literal_binary_12
+XFAIL: nocompile/integer_literal_binary_13
+XFAIL: nocompile/integer_literal_binary_14
+XPASS: nocompile/integer_literal_dec_01
+XFAIL: nocompile/integer_literal_dec_02
+XFAIL: nocompile/integer_literal_dec_03
+XFAIL: nocompile/integer_literal_dec_04
+XFAIL: nocompile/integer_literal_hex_09
+XFAIL: nocompile/integer_literal_hex_10
+XFAIL: nocompile/integer_literal_hex_11
+XFAIL: nocompile/integer_literal_hex_12
+XFAIL: nocompile/integer_literal_hex_13
+XFAIL: nocompile/interface_03
+XFAIL: nocompile/invariant_03
+XPASS: nocompile/invariant_04
+XFAIL: nocompile/invariant_05
+XPASS: nocompile/invariant_06
+XFAIL: nocompile/invariant_07
+XFAIL: nocompile/invariant_08
+XFAIL: nocompile/invariant_09
+XFAIL: nocompile/invariant_16
+XPASS: nocompile/invariant_17
+XFAIL: nocompile/length_03
+ERROR: nocompile/length_04 [34304]
+XFAIL: nocompile/line_token_04
+XFAIL: nocompile/line_token_05
+XFAIL: nocompile/line_token_06
+XFAIL: nocompile/line_token_07
+XFAIL: nocompile/line_token_08
+XFAIL: nocompile/line_token_09
+XFAIL: nocompile/long_02
+XFAIL: nocompile/long_03
+XFAIL: nocompile/main_05
+XPASS: nocompile/main_06
+XFAIL: nocompile/opCmp_02
+XFAIL: nocompile/opNeg_03
+XFAIL: nocompile/opNeg_04
+XFAIL: nocompile/opPos_03
+XFAIL: nocompile/opPos_04
+XPASS: nocompile/operator_01
+XPASS: nocompile/operator_02
+XFAIL: nocompile/operator_03
+XFAIL: nocompile/operator_04
+XFAIL: nocompile/operator_05
+XFAIL: nocompile/operator_06
+XFAIL: nocompile/operator_07
+XFAIL: nocompile/operator_08
+XFAIL: nocompile/operator_09
+XFAIL: nocompile/operator_10
+XFAIL: nocompile/operator_11
+XFAIL: nocompile/operator_12
+XFAIL: nocompile/operator_13
+XFAIL: nocompile/operator_14
+XFAIL: nocompile/operator_15
+XFAIL: nocompile/operator_16
+XFAIL: nocompile/override_02
+XPASS: nocompile/override_03
+XFAIL: nocompile/override_04
+XPASS: nocompile/override_05
+XPASS: nocompile/override_06
+XPASS: nocompile/override_07
+XPASS: nocompile/override_08
+XFAIL: nocompile/override_09
+XFAIL: nocompile/pragma_03
+XFAIL: nocompile/pragma_04
+XPASS: nocompile/precondition_01
+XPASS: nocompile/private_import_01
+XPASS: nocompile/private_import_02
+XFAIL: nocompile/real_14
+XFAIL: nocompile/real_15
+XFAIL: nocompile/real_16
+XFAIL: nocompile/real_17
+XFAIL: nocompile/real_18
+XFAIL: nocompile/real_19
+XFAIL: nocompile/real_20
+XFAIL: nocompile/real_21
+XFAIL: nocompile/short_02
+XFAIL: nocompile/short_03
+XPASS: nocompile/static_07
+XFAIL: nocompile/static_08
+XFAIL: nocompile/static_09
+XFAIL: nocompile/static_10
+XPASS: nocompile/static_11
+XPASS: nocompile/static_12
+XPASS: nocompile/static_13
+XFAIL: nocompile/struct_04
+XFAIL: nocompile/struct_05
+XFAIL: nocompile/struct_06
+XFAIL: nocompile/super_03
+ERROR: nocompile/super_04 [34304]
+XFAIL: nocompile/switch_08
+XFAIL: nocompile/template_05
+XFAIL: nocompile/template_06
+XPASS: nocompile/try_05
+XFAIL: nocompile/types_declaration_02
+XFAIL: nocompile/ubyte_02
+XFAIL: nocompile/ubyte_03
+XFAIL: nocompile/uint_02
+XFAIL: nocompile/uint_03
+XFAIL: nocompile/ulong_02
+XFAIL: nocompile/ulong_03
+XPASS: nocompile/unittest_03
+XPASS: nocompile/unittest_04
+XPASS: nocompile/unittest_05
+XFAIL: nocompile/unittest_06
+XFAIL: nocompile/ushort_02
+XFAIL: nocompile/ushort_03
+XPASS: nocompile/version_06
+XPASS: nocompile/version_11
+XFAIL: nocompile/version_12
+XFAIL: nocompile/version_13
+XFAIL: nocompile/version_14
+XFAIL: nocompile/version_15
+XPASS: nocompile/version_17
+XPASS: nocompile/version_18
+XPASS: nocompile/version_19
+XPASS: nocompile/version_20
+XPASS: nocompile/version_21
+XPASS: nocompile/version_22
+XFAIL: nocompile/wchar_01
+XFAIL: nocompile/wchar_02
+XFAIL: nocompile/with_05
+XFAIL: nocompile/with_06
+XFAIL: nocompile/with_07
+PASS:  run/Alternate_Wysiwyg_String_01
+PASS:  run/Alternate_Wysiwyg_String_02
+PASS:  run/Alternate_Wysiwyg_String_03
+PASS:  run/Alternate_Wysiwyg_String_04
+PASS:  run/Alternate_Wysiwyg_String_05
+PASS:  run/Alternate_Wysiwyg_String_06
+PASS:  run/Alternate_Wysiwyg_String_07
+PASS:  run/Alternate_Wysiwyg_String_08
+PASS:  run/Alternate_Wysiwyg_String_09
+PASS:  run/Alternate_Wysiwyg_String_10
+PASS:  run/Alternate_Wysiwyg_String_11
+PASS:  run/Alternate_Wysiwyg_String_12
+PASS:  run/Alternate_Wysiwyg_String_13
+PASS:  run/Alternate_Wysiwyg_String_14
+PASS:  run/Alternate_Wysiwyg_String_15
+PASS:  run/Alternate_Wysiwyg_String_16
+PASS:  run/Wysiwyg_String_01
+PASS:  run/Wysiwyg_String_02
+PASS:  run/Wysiwyg_String_03
+PASS:  run/Wysiwyg_String_04
+PASS:  run/Wysiwyg_String_05
+PASS:  run/Wysiwyg_String_06
+PASS:  run/Wysiwyg_String_07
+PASS:  run/Wysiwyg_String_08
+PASS:  run/Wysiwyg_String_09
+PASS:  run/Wysiwyg_String_10
+PASS:  run/Wysiwyg_String_11
+PASS:  run/Wysiwyg_String_12
+PASS:  run/Wysiwyg_String_13
+PASS:  run/Wysiwyg_String_14
+PASS:  run/Wysiwyg_String_15
+PASS:  run/alias_01
+PASS:  run/alias_02
+PASS:  run/alias_03
+PASS:  run/alias_04
+FAIL:  run/alias_07 (compiling error)
+FAIL:  run/alias_09 (compiling error)
+PASS:  run/alias_10
+PASS:  run/alias_11
+PASS:  run/alias_12
+FAIL:  run/align_06
+PASS:  run/align_07
+PASS:  run/array_initialization_02
+PASS:  run/array_initialization_03
+PASS:  run/assert_01
+PASS:  run/assert_02
+PASS:  run/associative_array_02
+ERROR: run/auto_01 [run: 35584]
+PASS:  run/auto_02
+ERROR: run/auto_03 [run: 35584]
+ERROR: run/auto_04 [run: 35584]
+PASS:  run/bit_01
+PASS:  run/bit_03
+PASS:  run/bit_04
+PASS:  run/bit_05
+PASS:  run/bit_06
+PASS:  run/break_01
+PASS:  run/break_02
+FAIL:  run/bug_20041103_A
+PASS:  run/bug_20041103_B
+FAIL:  run/bug_20041103_C (compiling error)
+PASS:  run/bug_20041103_D
+PASS:  run/bug_20041103_E
+PASS:  run/bug_mtype_2576
+PASS:  run/byte_01
+PASS:  run/byte_02
+PASS:  run/byte_03
+PASS:  run/byte_04
+PASS:  run/byte_05
+PASS:  run/byte_06
+PASS:  run/byte_07
+PASS:  run/byte_08
+PASS:  run/byte_11
+PASS:  run/byte_12
+PASS:  run/byte_13
+PASS:  run/byte_14
+FAIL:  run/cast_01 (compiling error)
+FAIL:  run/cast_02 (compiling error)
+FAIL:  run/cast_05
+PASS:  run/char_03
+FAIL:  run/class_06 (compiling error)
+PASS:  run/classes_01
+PASS:  run/classes_02
+PASS:  run/classes_03
+PASS:  run/command_line_debug_01
+PASS:  run/command_line_debug_02
+PASS:  run/command_line_debug_03
+PASS:  run/command_line_debug_04
+PASS:  run/command_line_debug_08
+PASS:  run/command_line_version_01
+PASS:  run/command_line_version_02
+PASS:  run/command_line_version_03
+PASS:  run/comment_01
+PASS:  run/comment_02
+PASS:  run/comment_03
+PASS:  run/comment_04
+PASS:  run/comment_05
+PASS:  run/comment_06
+PASS:  run/comment_09
+PASS:  run/comment_10
+PASS:  run/comment_11
+PASS:  run/comment_12
+PASS:  run/comment_13
+PASS:  run/compare_01
+PASS:  run/compare_02
+PASS:  run/complex_01
+FAIL:  run/const_01 (compiling error)
+PASS:  run/constructor_01
+ERROR: run/constructor_02 [35584]
+PASS:  run/constructor_03
+PASS:  run/constructor_04
+PASS:  run/creal_01
+PASS:  run/creal_02
+PASS:  run/creal_03
+FAIL:  run/creal_04
+PASS:  run/creal_05
+PASS:  run/creal_06
+PASS:  run/creal_07
+PASS:  run/creal_08
+PASS:  run/creal_09
+PASS:  run/creal_10
+PASS:  run/creal_11
+PASS:  run/creal_12
+PASS:  run/creal_13
+PASS:  run/creal_14
+PASS:  run/creal_15
+PASS:  run/creal_16
+PASS:  run/creal_17
+PASS:  run/creal_18
+PASS:  run/creal_19
+PASS:  run/debug_01
+PASS:  run/debug_02
+PASS:  run/debug_03
+PASS:  run/default_argument_01
+PASS:  run/default_argument_02
+PASS:  run/default_argument_03
+PASS:  run/default_argument_04
+FAIL:  run/delegate_01 (compiling error)
+PASS:  run/deprecated_09
+PASS:  run/deprecated_10
+PASS:  run/deprecated_12
+PASS:  run/deprecated_13
+PASS:  run/destructor_01
+FAIL:  run/destructor_03
+PASS:  run/do_while_01
+PASS:  run/do_while_02
+PASS:  run/do_while_03
+PASS:  run/double_01
+PASS:  run/double_02
+PASS:  run/double_03
+PASS:  run/double_04
+PASS:  run/double_05
+PASS:  run/double_06
+PASS:  run/double_07
+PASS:  run/double_08
+PASS:  run/double_09
+PASS:  run/double_10
+PASS:  run/double_11
+PASS:  run/double_12
+PASS:  run/double_13
+PASS:  run/double_quoted_string_01
+PASS:  run/double_quoted_string_02
+PASS:  run/double_quoted_string_03
+PASS:  run/double_quoted_string_04
+PASS:  run/double_quoted_string_05
+PASS:  run/double_quoted_string_06
+PASS:  run/double_quoted_string_07
+PASS:  run/double_quoted_string_08
+PASS:  run/double_quoted_string_09
+PASS:  run/double_quoted_string_10
+PASS:  run/double_quoted_string_11
+PASS:  run/double_quoted_string_17
+PASS:  run/double_quoted_string_18
+PASS:  run/dup_01
+PASS:  run/dup_02
+PASS:  run/dup_03
+ERROR: run/dup_04 [run: 35584]
+FAIL:  run/encoding_utf_16be (compiling error)
+PASS:  run/encoding_utf_16be_bom
+FAIL:  run/encoding_utf_16le (compiling error)
+PASS:  run/encoding_utf_16le_bom
+FAIL:  run/encoding_utf_32be (compiling error)
+PASS:  run/encoding_utf_32be_bom
+FAIL:  run/encoding_utf_32le (compiling error)
+PASS:  run/encoding_utf_32le_bom
+PASS:  run/encoding_utf_8
+PASS:  run/encoding_utf_8_bom
+PASS:  run/enum_01
+PASS:  run/enum_02
+PASS:  run/enum_03
+PASS:  run/enum_04
+PASS:  run/enum_07
+PASS:  run/enum_08
+PASS:  run/escape_hex_01
+PASS:  run/escape_hex_string_01
+PASS:  run/escape_hex_string_02
+PASS:  run/escape_octal_01
+PASS:  run/escape_unicode16_01
+PASS:  run/escape_unicode16_02
+PASS:  run/escape_unicode16_07
+PASS:  run/escape_unicode32_01
+PASS:  run/escape_unicode32_02
+PASS:  run/escape_unicode32_03
+PASS:  run/final_02
+PASS:  run/final_03
+PASS:  run/final_05
+PASS:  run/final_06
+PASS:  run/float_01
+PASS:  run/float_02
+PASS:  run/float_03
+PASS:  run/float_04
+PASS:  run/float_05
+PASS:  run/float_06
+PASS:  run/float_07
+PASS:  run/float_08
+PASS:  run/float_09
+PASS:  run/float_10
+PASS:  run/float_11
+PASS:  run/float_12
+PASS:  run/float_13
+PASS:  run/float_litaeral_dec_01
+PASS:  run/float_litaeral_dec_03
+PASS:  run/float_litaeral_dec_04
+PASS:  run/float_litaeral_dec_05
+PASS:  run/float_litaeral_dec_10
+PASS:  run/for_01
+PASS:  run/for_02
+PASS:  run/foreach_01
+PASS:  run/foreach_02
+PASS:  run/foreach_03
+PASS:  run/foreach_04
+PASS:  run/foreach_05
+PASS:  run/foreach_06
+PASS:  run/foreach_07
+PASS:  run/foreach_08
+PASS:  run/foreach_09
+PASS:  run/foreach_10
+PASS:  run/foreach_11
+PASS:  run/foreach_12
+PASS:  run/foreach_13
+PASS:  run/foreach_15
+FAIL:  run/foreach_16
+FAIL:  run/function_01 (compiling error)
+PASS:  run/goto_01
+PASS:  run/html_comment_01
+FAIL:  run/html_comment_02 (compiling error)
+PASS:  run/html_comment_03
+FAIL:  run/html_comment_04 (compiling error)
+PASS:  run/html_encoding_utf_16be
+PASS:  run/html_encoding_utf_16be_bom
+PASS:  run/html_encoding_utf_16le
+PASS:  run/html_encoding_utf_16le_bom
+PASS:  run/html_encoding_utf_32be
+PASS:  run/html_encoding_utf_32be_bom
+PASS:  run/html_encoding_utf_32le
+PASS:  run/html_encoding_utf_32le_bom
+PASS:  run/html_encoding_utf_8
+PASS:  run/html_encoding_utf_8_bom
+FAIL:  run/html_entity_01 (compiling error)
+FAIL:  run/html_entity_02 (compiling error)
+FAIL:  run/html_entity_03 (compiling error)
+FAIL:  run/html_entity_04 (compiling error)
+FAIL:  run/html_entity_05 (compiling error)
+FAIL:  run/html_entity_06 (compiling error)
+FAIL:  run/html_entity_07 (compiling error)
+FAIL:  run/html_entity_08 (compiling error)
+FAIL:  run/html_entity_09 (compiling error)
+FAIL:  run/html_entity_amsa (compiling error)
+FAIL:  run/html_entity_amsb (compiling error)
+FAIL:  run/html_entity_amsc (compiling error)
+FAIL:  run/html_entity_amsn (compiling error)
+FAIL:  run/html_entity_amso (compiling error)
+FAIL:  run/html_entity_amsr (compiling error)
+FAIL:  run/html_entity_box (compiling error)
+FAIL:  run/html_entity_cyr1 (compiling error)
+FAIL:  run/html_entity_cyr2 (compiling error)
+FAIL:  run/html_entity_dia (compiling error)
+FAIL:  run/html_entity_grk1 (compiling error)
+FAIL:  run/html_entity_grk2 (compiling error)
+FAIL:  run/html_entity_grk3 (compiling error)
+FAIL:  run/html_entity_lat1 (compiling error)
+FAIL:  run/html_entity_lat2 (compiling error)
+FAIL:  run/html_entity_mathml (compiling error)
+FAIL:  run/html_entity_mathml_extra (compiling error)
+FAIL:  run/html_entity_num (compiling error)
+FAIL:  run/html_entity_pub (compiling error)
+FAIL:  run/html_entity_tech (compiling error)
+PASS:  run/html_line_ending_dos
+PASS:  run/html_line_ending_linux
+FAIL:  run/html_line_ending_mac
+FAIL:  run/html_line_ending_unicode (compiling error)
+PASS:  run/html_tag_case_01
+FAIL:  run/html_tag_case_02 (compiling error)
+FAIL:  run/html_tag_case_03 (compiling error)
+FAIL:  run/html_tag_space_01 (compiling error)
+FAIL:  run/html_tag_space_02 (compiling error)
+PASS:  run/if_01
+PASS:  run/if_02
+PASS:  run/if_03
+PASS:  run/if_04
+PASS:  run/if_05
+ERROR: run/if_06 [35584]
+PASS:  run/in_01
+PASS:  run/in_02
+PASS:  run/in_03
+PASS:  run/int_01
+PASS:  run/int_02
+PASS:  run/int_03
+PASS:  run/int_04
+PASS:  run/int_07
+PASS:  run/integer_literal_binary_01
+PASS:  run/integer_literal_binary_02
+PASS:  run/integer_literal_binary_03
+PASS:  run/integer_literal_binary_04
+PASS:  run/integer_literal_binary_05
+PASS:  run/integer_literal_binary_06
+PASS:  run/integer_literal_binary_07
+PASS:  run/integer_literal_binary_08
+PASS:  run/integer_literal_dec_04
+PASS:  run/integer_literal_hex_01
+PASS:  run/integer_literal_hex_02
+PASS:  run/integer_literal_hex_03
+PASS:  run/integer_literal_hex_04
+PASS:  run/integer_literal_hex_05
+PASS:  run/integer_literal_hex_06
+PASS:  run/integer_literal_hex_07
+PASS:  run/integer_literal_hex_08
+PASS:  run/interface_01
+FAIL:  run/interface_02
+FAIL:  run/interface_04
+FAIL:  run/interface_05 (compiling error)
+PASS:  run/interface_06
+PASS:  run/interface_07
+PASS:  run/invariant_01
+PASS:  run/invariant_02
+PASS:  run/invariant_10
+FAIL:  run/invariant_11 (compiling error)
+PASS:  run/invariant_12
+PASS:  run/invariant_13
+FAIL:  run/invariant_14
+FAIL:  run/invariant_15
+FAIL:  run/invariant_18
+PASS:  run/keys_01
+FAIL:  run/length_01
+PASS:  run/length_02
+PASS:  run/line_ending_dos
+PASS:  run/line_ending_linux
+FAIL:  run/line_ending_mac (compiling error)
+FAIL:  run/line_ending_unicode (compiling error)
+PASS:  run/line_token_02
+FAIL:  run/line_token_03
+FAIL:  run/line_token_04
+FAIL:  run/long_01
+PASS:  run/long_char_1025
+PASS:  run/long_char_2049
+PASS:  run/long_char_65536
+PASS:  run/long_char_65537
+PASS:  run/main_02
+PASS:  run/main_03
+PASS:  run/many_functions_01
+PASS:  run/mixin_02
+PASS:  run/mixin_03
+FAIL:  run/nested_function_01
+PASS:  run/nested_function_02
+PASS:  run/nested_function_03
+FAIL:  run/nested_function_04
+PASS:  run/odd_bug_01
+PASS:  run/odd_bug_02
+PASS:  run/opCast_01
+PASS:  run/opCast_02
+FAIL:  run/opCast_03
+PASS:  run/opCatAssign_01
+PASS:  run/opCatAssign_02
+PASS:  run/opCatAssign_03
+PASS:  run/opCatAssign_04
+FAIL:  run/opCatAssign_05
+FAIL:  run/opCat_01 (compiling error)
+PASS:  run/opCat_02
+FAIL:  run/opCat_03 (compiling error)
+ERROR: run/opCmp_01 [35584]
+PASS:  run/opNeg_01
+PASS:  run/opNeg_02
+PASS:  run/opPos_01
+PASS:  run/opPos_02
+PASS:  run/out_01
+PASS:  run/out_02
+PASS:  run/out_03
+PASS:  run/out_04
+PASS:  run/out_05
+PASS:  run/out_06
+PASS:  run/overload_01
+PASS:  run/overload_02
+PASS:  run/overload_03
+PASS:  run/overload_04
+FAIL:  run/overload_05
+FAIL:  run/overload_06 (compiling error)
+FAIL:  run/overload_07 (compiling error)
+FAIL:  run/overload_08 (compiling error)
+FAIL:  run/overload_09 (compiling error)
+FAIL:  run/overload_10 (compiling error)
+FAIL:  run/overload_11 (compiling error)
+PASS:  run/override_01
+PASS:  run/pragma_01
+PASS:  run/pragma_02
+PASS:  run/pragma_05
+PASS:  run/pragma_06
+PASS:  run/private_01
+PASS:  run/real_01
+PASS:  run/real_02
+FAIL:  run/real_03
+PASS:  run/real_04
+PASS:  run/real_05
+PASS:  run/real_06
+PASS:  run/real_07
+PASS:  run/real_08
+PASS:  run/real_09
+PASS:  run/real_10
+PASS:  run/real_11
+PASS:  run/real_12
+PASS:  run/real_13
+PASS:  run/reverse_01
+PASS:  run/reverse_02
+PASS:  run/reverse_03
+PASS:  run/reverse_04
+FAIL:  run/scope_01
+PASS:  run/short_01
+PASS:  run/sizeof_01
+PASS:  run/sizeof_02
+PASS:  run/sizeof_03
+PASS:  run/sizeof_04
+PASS:  run/slice_01
+PASS:  run/slice_02
+PASS:  run/slice_03
+PASS:  run/slice_04
+PASS:  run/slice_05
+FAIL:  run/slice_07
+FAIL:  run/slice_09
+FAIL:  run/sort_01 (compiling error)
+PASS:  run/sort_02
+FAIL:  run/sort_03
+FAIL:  run/sort_04
+FAIL:  run/sort_05
+PASS:  run/sort_06
+PASS:  run/sort_07
+PASS:  run/sort_08
+PASS:  run/sort_09
+PASS:  run/sort_10
+PASS:  run/sort_11
+PASS:  run/sort_12
+PASS:  run/static_01
+PASS:  run/static_02
+PASS:  run/static_03
+PASS:  run/static_04
+PASS:  run/static_05
+PASS:  run/static_06
+PASS:  run/static_12
+PASS:  run/static_14
+PASS:  run/static_15
+FAIL:  run/static_16
+PASS:  run/struct_01
+PASS:  run/struct_02
+PASS:  run/struct_03
+PASS:  run/struct_08
+PASS:  run/struct_10
+PASS:  run/struct_12
+ERROR: run/struct_13 [35584]
+PASS:  run/struct_14
+PASS:  run/struct_15
+PASS:  run/struct_initialization_01
+PASS:  run/struct_initialization_02
+PASS:  run/struct_initialization_03
+PASS:  run/struct_initialization_04
+PASS:  run/struct_initialization_05
+PASS:  run/super_01
+PASS:  run/super_02
+PASS:  run/super_04
+PASS:  run/switch_01
+PASS:  run/switch_02
+FAIL:  run/switch_03
+PASS:  run/switch_04
+PASS:  run/switch_05
+PASS:  run/switch_06
+PASS:  run/switch_07
+PASS:  run/template_01
+FAIL:  run/template_03 (compiling error)
+PASS:  run/template_04
+PASS:  run/template_class_01
+PASS:  run/template_class_02
+FAIL:  run/template_class_03 (compiling error)
+ERROR: run/template_class_04 [35584]
+ERROR: run/template_class_05 [35584]
+PASS:  run/template_class_06
+PASS:  run/template_struct_01
+PASS:  run/throw_01
+PASS:  run/try_01
+PASS:  run/try_02
+PASS:  run/try_03
+PASS:  run/try_04
+PASS:  run/try_06
+PASS:  run/try_07
+PASS:  run/try_08
+PASS:  run/typedef_01
+PASS:  run/typedef_02
+FAIL:  run/typedef_03
+PASS:  run/typedef_04
+PASS:  run/typeid_01
+PASS:  run/typeid_02
+PASS:  run/typeid_03
+PASS:  run/typeof_01
+PASS:  run/typeof_02
+PASS:  run/typeof_03
+PASS:  run/typeof_04
+PASS:  run/types_declaration_01
+PASS:  run/types_defining_01
+PASS:  run/ubyte_01
+PASS:  run/ubyte_02
+PASS:  run/ubyte_03
+PASS:  run/ubyte_04
+PASS:  run/ubyte_05
+PASS:  run/uint_01
+PASS:  run/unicode_01
+PASS:  run/unicode_02
+PASS:  run/union_01
+PASS:  run/union_02
+PASS:  run/union_03
+PASS:  run/union_04
+PASS:  run/union_05
+PASS:  run/union_06
+PASS:  run/union_07
+PASS:  run/unittest_01
+PASS:  run/ushort_01
+PASS:  run/ushort_02
+PASS:  run/ushort_03
+PASS:  run/ushort_04
+PASS:  run/values_01
+PASS:  run/version_01
+PASS:  run/version_02
+PASS:  run/version_03
+PASS:  run/version_04
+PASS:  run/version_05
+PASS:  run/version_07
+PASS:  run/version_08
+PASS:  run/version_10
+FAIL:  run/version_16
+PASS:  run/while_01
+PASS:  run/while_02
+PASS:  run/while_03
+PASS:  run/with_01
+PASS:  run/with_02
+PASS:  run/with_03
+PASS:  run/with_04
+PASS:  run/with_08
+PASS:  run/with_09
+PASS:  run/with_10
+FAIL:  run/with_11 (compiling error)
+FAIL:  run/xhtml_tag_01 (compiling error)
+XFAIL: norun/slice_06
+XFAIL: norun/slice_08
+XPASS: complex/command_line/command_line_null_source_03
+XFAIL: complex/command_line/command_line_null_source_01
+XFAIL: complex/command_line/command_line_null_source_02
+XPASS: complex/command_line/command_line_null_source_05
+XFAIL: complex/command_line/command_line_null_source_04
+XFAIL: complex/command_line/command_line_null_source_06

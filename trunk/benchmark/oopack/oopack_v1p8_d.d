@@ -568,6 +568,9 @@ version(HAVE_COMPLEX){
 // The complex arithmetic is all inlined, so in principle the code should
 // run as fast as the version using explicit real and imaginary parts.
 //
+// Note: D has native complex types(cfloat,cdouble,creal), thus the original
+// purpose isn't valid anymore. Instead this is simply used to identify how 
+// efficent the class operators are.
 final class ComplexBenchmark : Benchmark {
 	private bool c_was_last;
 	char[] name(){
@@ -660,7 +663,7 @@ version(linux){
 //
 double C_Seconds = 1;	
 
-const char * Version = "D Version 1.8)"; // The OOPACK version number 
+const char * Version = "D Version 1.8 ($Date$)"; // The OOPACK version number 
 
 void Usage( char[][] argv) {
     printf( "Usage:\t%.*s test1=iterations1 test2=iterations2 ...\n", argv[0] ); 

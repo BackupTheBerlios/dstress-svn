@@ -31,8 +31,8 @@
 		<meta http-equiv="content-language" content="en" />
 		<meta name="DC.Language" content="en" />
 		<!-- date -->
-		<meta name="date" content="2004-10-13" />
-		<meta name="DC.Date" content="2004-10-13" />
+		<meta name="date" content="2004-10-14" />
+		<meta name="DC.Date" content="2004-10-14" />
 		<!-- struct -->
 		<link rel="start" href="index.html" title="Current Version" hreflang="en" />
 		<link rel="prev" href="archive.html" title="Archive" hreflang="en" />
@@ -67,9 +67,10 @@
 			<td>[<a href='#legend'>Legend</a>]</td>
 			<td>[<a href='#result'>Result</a>]</td>
 			<td>[<a href='#download'>Download</a>]</td>
+			<td>[<a href='#notes'>Notes</a>]</td>
 		</tr></table>
 		<h3><a href='#top' name='summary' id='summary' title='page top'>^ Summary</a></h3>
-		DStress is a collection of bug and language conformance test cases for the <a href='http://digitalmars.com/d' hreflang='en'>D programming language</a>. Currently the compilers <a href='http://digitalmars.com/d/dcompiler' hreflang='en'>dmd</a> and <a href='http://home.earthlink.net/~dvdfrdmn/d/' hreflang='en'>gdc</a> are being <q>dstressed</q>.
+		DStress is a collection of bug and language conformance[<a href='#note-bug' name='note-bug-src' id='note-bug-src'>#1</a>] test cases for the <a href='http://digitalmars.com/d' hreflang='en'>D programming language</a>. Currently the compilers <a href='http://digitalmars.com/d/dcompiler' hreflang='en'>dmd</a> and <a href='http://home.earthlink.net/~dvdfrdmn/d/' hreflang='en'>gdc</a> are being <q>dstressed</q>.
 		<h3><a href='#top' name='testbed' id='testbed' title='page top'>^ Testbed</a></h3>
 		<table border='0' summary='information on the testbed environment'>
 			<tr><th>OS</th><td>Linux</td></tr>
@@ -89,7 +90,7 @@
 		<br /><br />
 		<h3><a href='#top' name='result' id='result' title='page top'>^ Results</a></h3>
 		<table border='1' summary='on the very left are the names of the test cases and to their right the results orderd compiler version'>
-			<tr><td>&nbsp;</td><th>dmd 0.93</th><th>dmd 0.95</th><th>dmd 0.96</th><th>dmd 0.98</th><th>dmd 0.99</th><th>dmd 0.100</th><th>dmd 0.101</th><th>dmd 0.102</th><th>gdc 1f</th></tr>
+			<tr><td>&nbsp;</td><th>dmd 0.93</th><th>dmd 0.95</th><th>dmd 0.96</th><th>dmd 0.98</th><th>dmd 0.99</th><th>dmd 0.100</th><th>dmd 0.101</th><th>dmd 0.102</th><th>gdc 1f[<a href='#note-gdc' name='note-gdc-src' id='note-gdc-src'>#2</a>]</th></tr>
 <!-- BEGIN: result data -->
 <tr><th>abstract 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>abstract 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
@@ -716,7 +717,7 @@
 <tr><th>Wysiwyg String 14</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>Wysiwyg String 15</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <!-- END: result data -->
-			<tr><td align='right'>compiler:</td><th>dmd 0.93</th><th>dmd 0.95</th><th>dmd 0.96</th><th>dmd 0.98</th><th>dmd 0.99</th><th>dmd 0.100</th><th>dmd 0.101</th><th>dmd 0.102</th><th>gdc 1f</th></tr>
+<tr><td>&nbsp;</td><th>dmd 0.93</th><th>dmd 0.95</th><th>dmd 0.96</th><th>dmd 0.98</th><th>dmd 0.99</th><th>dmd 0.100</th><th>dmd 0.101</th><th>dmd 0.102</th><th>gdc 1f[<a href='#note-gdc'>#2</a>]</th></tr>
 		</table>
 		<br />
 		<br />
@@ -724,9 +725,16 @@
 		<p>The source of the test cases is accessible via Subversion [<a href='http://subversion.tigris.org' hreflang='en'>http://subversion.tigris.org</a>].<br />
 		svn checkout <a href='svn://svn.kuehne.cn/dstress' name='svn' id='svn'>svn://svn.kuehne.cn/dstress</a>
 		</p>
+		<h3><a href='#top' name='notes' id='notes' title='page top'>^ Notes</a></h3>
+		<p><dl>
+			<dt>[#1] <a name='note-bug' id='note-bug' href='#note-bug-src'>Language Conformance</a></dt>
+			<dd>Please note, that the D-Language specifications are in flux, thus a newly added features will show up as bugs in an earlyer compiler version. In addition DStress not only stresses the compiler but also DStress' maintainer with buggy test cases.</dd> 
+			<dt>[#2] <a name='note-gdc' id='note-gdc' href='#note-gdc-src'>GDC</a></dt>
+			<dd>GDC was compiled with the gcc-3.4.2 backend.</dd>
+		</dl></p>
 		</center>
 		<br />
 		<hr />
-		<small>2004-10-13; <a href='http://dmd.kuehne.cn/dstress.html'>http://dmd.kuehne.cn/dstress.html</a>;<a href='mailto:webmastro@kuehne.cn'>Webmastro</a></small>
+		<small>2004-10-14; <a href='http://dmd.kuehne.cn/dstress.html'>http://dmd.kuehne.cn/dstress.html</a>;<a href='mailto:webmastro@kuehne.cn'>Webmastro</a></small>
 	</body>
 </html>

@@ -31,7 +31,7 @@ Test cases:
 * keyword: public
 * keyword: struct (anonymous)
 * keyword: synchronized
-* keyword: typeid
+* keyword: typeid (functions, short, ushort, int, uint, long, ulong, char, wchar, dchar, ?union)
 * keyword: ucent
 * keyword: union (anonymous)
 * keyword: unittest

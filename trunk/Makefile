@@ -1,7 +1,12 @@
 # GnuMakefile for dstress
 
+ifndef OBJ_DIR
 OBJ_DIR = obj
+endif
+
+ifndef LOG
 LOG	= log.txt
+endif
 
 ifndef DMD
 DMD	= dmd
@@ -48,6 +53,7 @@ nocompile : $(sort $(subst .$(ext_source),.$(ext_nocompile),$(shell $(FIND) noco
 %.$(ext_nocompile) : %.$(ext_source_html)
 	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
 
+
 compile : $(sort $(subst .$(ext_source),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source_html)" ) ) )
 
 %.$(ext_compile) : %.$(ext_source)
@@ -74,13 +80,16 @@ norun : $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) norun -regex
 %.$(ext_norun) : %.$(ext_source_html)
 	@if $(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log); then if $@ $(to_log); then $(ECHO) "XPASS:  $(subst .$(ext_norun),,$@)"; $(RM) $@; else $(ECHO) "FAIL: $(subst .$(ext_norun),,$@)"; fi else $(ECHO) "XFAIL: $(subst .$(ext_run),,$@) (compiling error)"; $(RM) $@; fi
 
+
+
 log : distclean all
 	
+
 distclean : clean_log clean
+	
 
 clean_log :
 	$(RM) $(LOG)
 
 clean :
 	$(RM) $(OBJ_DIR)/?*.o run/?*.$(ext_run) norun/?*.$(ext_norun) compile/?*.$(ext_compile) nocompile/?*.$(ext_nocompile)
-

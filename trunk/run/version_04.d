@@ -18,6 +18,10 @@ int main(){
 		cpu++;
 	}
 
+	version(Sparc){
+		assert(0); // this isn't yet part of the standard (v0.111)
+	}
+
 	assert(cpu==1);
 
 	return 0;

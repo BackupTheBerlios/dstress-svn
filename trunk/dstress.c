@@ -127,13 +127,15 @@ char* loadFile(char* filename){
 		size = GetFileSize(file, NULL);
 		if (size != INVALID_FILE_SIZE){
 			back=malloc((size+1)*sizeof(char));
-			if (ReadFile(file,back,size,&numread,NULL) == 0){
-				if (numread==size)
+			if (ReadFile(file,back,size,&numread,NULL) == 1){
+				if (numread==size){
 					*(back+size+1) = '\x00';
-				else
+				}else{
 					back = "\x00";
-			}else
+				}
+			}else{
 				back = "\x00";
+			}
 		}
 		CloseHandle(file);
 	}

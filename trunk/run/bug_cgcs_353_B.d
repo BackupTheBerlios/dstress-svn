@@ -7,9 +7,7 @@
 // @uri@	news:ctf9mg$1ieg$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D/15319
 
-// __DSTRESS_ELINE__ 15
-
-module dstress.nocompile.bug_cgcs_353_B;
+module dstress.run.bug_cgcs_353_B;
 
 int main(char[][]args){
 	delete args[0..0];

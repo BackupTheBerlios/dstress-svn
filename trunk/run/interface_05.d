@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @author@	Steward Gordon <smjg_1998@yahoo.com>
+// @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2004-09-01
 // @uri@	news:ch44sj$211s$2@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/1726

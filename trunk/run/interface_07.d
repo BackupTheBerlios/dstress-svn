@@ -1,4 +1,4 @@
-// @author@	Steward Gordon <smjg_1998@yahoo.com>
+// @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2004-09-01
 
 int status;

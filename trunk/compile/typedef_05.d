@@ -1,4 +1,4 @@
-// @author@	Steward Gordon <smjg_1988@yahool.com>
+// @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2004-09-06
 
 typedef char[] String;

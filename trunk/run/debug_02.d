@@ -3,7 +3,9 @@
 // @uri@	news://ckro4i$1b4l$2@digitaldaemon.com
 // @url@	nttp://digitalmars.com/digitalmars.D.bugs:2119
 
-module dstress.complex.debug_.debug_02;
+// §DSTRESS_FLAGS§ -debug=2
+
+module dstress.run.debug_02;
 
 int main(){
 	int i=0;

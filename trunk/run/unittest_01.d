@@ -1,3 +1,7 @@
+// §DSTRESS_FLAGS§ -unittest
+
+module dstress.run.unittest_01;
+
 int status;
 
 int main(){

@@ -1,3 +1,7 @@
+// §DSTRESS_FLAGS§ -debug=a
+
+module dstress.run.debug_03;
+
 int main(){
 	int i;
 	assert(i==0);

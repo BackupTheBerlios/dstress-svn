@@ -304,6 +304,14 @@ nocompile: dmd-0.112   -c -odobj  nocompile/bug_20041203_B.d 1> log.tmp 2>&1
 nocompile/bug_20041203_B.d(21): undefined identifier undefined_identifier
 
 --------
+nocompile: dmd-0.112   -c -odobj  nocompile/bug_cgcod_1445_A.d 1> log.tmp 2>&1
+Internal error: ../ztc/cgcod.c 1420
+
+--------
+nocompile: dmd-0.112   -c -odobj  nocompile/bug_cgcod_1445_B.d 1> log.tmp 2>&1
+nocompile/bug_cgcod_1445_B.d(17): cannot implicitly convert expression s()() of type u* to u
+
+--------
 nocompile: dmd-0.112   -c -odobj  nocompile/bug_cgcod_1464.d 1> log.tmp 2>&1
 nocompile/bug_cgcod_1464.d(16): need upper and lower bound to slice pointer
 
@@ -847,27 +855,27 @@ nocompile/escape_hex_string_04.d(10): odd number (3) of hex characters in hex st
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/escape_octal_02.d 1> log.tmp 2>&1
-nocompile/escape_octal_02.d(15): unterminated string constant starting at nocompile/escape_octal_02.d(12)
-nocompile/escape_octal_02.d(15): semicolon expected, not 'EOF'
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
-nocompile/escape_octal_02.d(15): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): unterminated string constant starting at nocompile/escape_octal_02.d(10)
+nocompile/escape_octal_02.d(13): semicolon expected, not 'EOF'
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
+nocompile/escape_octal_02.d(13): found 'EOF' instead of statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/escape_unicode16_03.d 1> log.tmp 2>&1
@@ -997,7 +1005,7 @@ nocompile: dmd-0.112   -c -odobj  nocompile/finally_09.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/float_14.d 1> log.tmp 2>&1
-nocompile/float_14.d(11): found '0' when expecting ';' following 'statement'
+nocompile/float_14.d(10): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/float_15.d 1> log.tmp 2>&1
@@ -1139,56 +1147,56 @@ nocompile: dmd-0.112   -c -odobj  nocompile/html_empty_entity_02.html 1> log.tmp
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/html_empty_entity_03.html 1> log.tmp 2>&1
-nocompile/html_empty_entity_03.html(7): unterminated string constant starting at nocompile/html_empty_entity_03.html(5)
-nocompile/html_empty_entity_03.html(7): semicolon expected, not 'EOF'
+nocompile/html_empty_entity_03.html(12): unterminated string constant starting at nocompile/html_empty_entity_03.html(10)
+nocompile/html_empty_entity_03.html(12): semicolon expected, not 'EOF'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/html_entity_10.html 1> log.tmp 2>&1
-nocompile/html_entity_10.html(6): unterminated character constant
-nocompile/html_entity_10.html(6): #line integer ["filespec"]\n expected
-nocompile/html_entity_10.html(6): found ';' when expecting ')'
-nocompile/html_entity_10.html(6): unterminated character constant
-nocompile/html_entity_10.html(6): found '61U' when expecting ';' following 'statement'
-nocompile/html_entity_10.html(6): found '=' instead of statement
+nocompile/html_entity_10.html(11): unterminated character constant
+nocompile/html_entity_10.html(11): #line integer ["filespec"]\n expected
+nocompile/html_entity_10.html(11): found ';' when expecting ')'
+nocompile/html_entity_10.html(11): unterminated character constant
+nocompile/html_entity_10.html(11): found '61U' when expecting ';' following 'statement'
+nocompile/html_entity_10.html(11): found '=' instead of statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/html_entity_11.html 1> log.tmp 2>&1
-nocompile/html_entity_11.html(6): unterminated character constant
-nocompile/html_entity_11.html(6): #line integer ["filespec"]\n expected
-nocompile/html_entity_11.html(6): found ';' when expecting ')'
-nocompile/html_entity_11.html(6): unterminated character constant
-nocompile/html_entity_11.html(6): found '61U' when expecting ';' following 'statement'
-nocompile/html_entity_11.html(6): found '=' instead of statement
+nocompile/html_entity_11.html(11): unterminated character constant
+nocompile/html_entity_11.html(11): #line integer ["filespec"]\n expected
+nocompile/html_entity_11.html(11): found ';' when expecting ')'
+nocompile/html_entity_11.html(11): unterminated character constant
+nocompile/html_entity_11.html(11): found '61U' when expecting ';' following 'statement'
+nocompile/html_entity_11.html(11): found '=' instead of statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/InExpression_14.d 1> log.tmp 2>&1
-nocompile/InExpression_14.d(16): rvalue of in expression must be an associative array, not int[]
-nocompile/InExpression_14.d(16): cannot implicitly convert expression key in array of type int to int*
+nocompile/InExpression_14.d(18): rvalue of in expression must be an associative array, not int[]
+nocompile/InExpression_14.d(18): cannot implicitly convert expression key in array of type int to int*
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/InExpression_15.d 1> log.tmp 2>&1
-nocompile/InExpression_15.d(16): rvalue of in expression must be an associative array, not MyClass
-nocompile/InExpression_15.d(16): cannot implicitly convert expression 99 in object of type int to void*
+nocompile/InExpression_15.d(18): rvalue of in expression must be an associative array, not MyClass
+nocompile/InExpression_15.d(18): cannot implicitly convert expression 99 in object of type int to void*
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/InExpression_16.d 1> log.tmp 2>&1
-nocompile/InExpression_16.d(16): rvalue of in expression must be an associative array, not MyStruct
-nocompile/InExpression_16.d(16): cannot implicitly convert expression 99 in object of type int to void*
+nocompile/InExpression_16.d(18): rvalue of in expression must be an associative array, not MyStruct
+nocompile/InExpression_16.d(18): cannot implicitly convert expression 99 in object of type int to void*
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/InExpression_17.d 1> log.tmp 2>&1
-nocompile/InExpression_17.d(16): rvalue of in expression must be an associative array, not MyEnum
-nocompile/InExpression_17.d(16): cannot implicitly convert expression 99 in object of type int to void*
+nocompile/InExpression_17.d(17): rvalue of in expression must be an associative array, not MyEnum
+nocompile/InExpression_17.d(17): cannot implicitly convert expression 99 in object of type int to void*
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/InExpression_18.d 1> log.tmp 2>&1
-nocompile/InExpression_18.d(16): rvalue of in expression must be an associative array, not MyUnion
-nocompile/InExpression_18.d(16): cannot implicitly convert expression 99 in object of type int to void*
+nocompile/InExpression_18.d(17): rvalue of in expression must be an associative array, not MyUnion
+nocompile/InExpression_18.d(17): cannot implicitly convert expression 99 in object of type int to void*
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/inline_01.d 1> log.tmp 2>&1
-nocompile/inline_01.d(2): no identifier for declarator inline
-nocompile/inline_01.d(2): semicolon expected, not 'int'
+nocompile/inline_01.d(9): no identifier for declarator inline
+nocompile/inline_01.d(9): semicolon expected, not 'void'
 
 --------
 nocompile: dmd-0.112   -inline -c -odobj  nocompile/inline_07.d 1> log.tmp 2>&1
@@ -1196,82 +1204,82 @@ dmd.bin: inline.c:394: virtual Expression* ThisExp::doInline(InlineDoState*): As
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/inline_08.d 1> log.tmp 2>&1
-nocompile/inline_08.d(19): need 'this' to access member bug
+nocompile/inline_08.d(21): need 'this' to access member bug
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/int_05.d 1> log.tmp 2>&1
-nocompile/int_05.d(4): no property 'sign' for type 'int'
+nocompile/int_05.d(11): no property 'sign' for type 'int'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/int_06.d 1> log.tmp 2>&1
-nocompile/int_06.d(4): .size property is deprecated, use .sizeof
+nocompile/int_06.d(11): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_binary_09.d 1> log.tmp 2>&1
-nocompile/integer_literal_binary_09.d(2): semicolon expected, not 'h'
+nocompile/integer_literal_binary_09.d(10): semicolon expected, not 'h'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_binary_10.d 1> log.tmp 2>&1
-nocompile/integer_literal_binary_10.d(2): semicolon expected, not '2'
+nocompile/integer_literal_binary_10.d(10): semicolon expected, not '2'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_binary_11.d 1> log.tmp 2>&1
-nocompile/integer_literal_binary_11.d(2): binary digit expected
-nocompile/integer_literal_binary_11.d(3): semicolon expected, not 'return'
+nocompile/integer_literal_binary_11.d(10): binary digit expected
+nocompile/integer_literal_binary_11.d(11): semicolon expected, not 'return'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_binary_12.d 1> log.tmp 2>&1
-nocompile/integer_literal_binary_12.d(2): binary digit expected
-nocompile/integer_literal_binary_12.d(3): semicolon expected, not 'return'
+nocompile/integer_literal_binary_12.d(10): binary digit expected
+nocompile/integer_literal_binary_12.d(11): semicolon expected, not 'return'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_binary_13.d 1> log.tmp 2>&1
-nocompile/integer_literal_binary_13.d(2): binary digit expected
+nocompile/integer_literal_binary_13.d(10): binary digit expected
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_binary_14.d 1> log.tmp 2>&1
-nocompile/integer_literal_binary_14.d(2): binary digit expected
+nocompile/integer_literal_binary_14.d(10): binary digit expected
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_dec_01.d 1> log.tmp 2>&1
-nocompile/integer_literal_dec_01.d(4): signed integer overflow
+nocompile/integer_literal_dec_01.d(10): signed integer overflow
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_dec_02.d 1> log.tmp 2>&1
-nocompile/integer_literal_dec_02.d(2): cannot implicitly convert expression 2147483648 of type long to int
+nocompile/integer_literal_dec_02.d(10): cannot implicitly convert expression 2147483648 of type long to int
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_dec_03.d 1> log.tmp 2>&1
-nocompile/integer_literal_dec_03.d(2): cannot implicitly convert expression 2147483647 of type int to short
+nocompile/integer_literal_dec_03.d(10): cannot implicitly convert expression 2147483647 of type int to short
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_dec_04.d 1> log.tmp 2>&1
-nocompile/integer_literal_dec_04.d(2): semicolon expected, not 'A34'
+nocompile/integer_literal_dec_04.d(10): semicolon expected, not 'A34'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_hex_09.d 1> log.tmp 2>&1
-nocompile/integer_literal_hex_09.d(2): Hex digit expected, not ';'
+nocompile/integer_literal_hex_09.d(10): Hex digit expected, not ';'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_hex_10.d 1> log.tmp 2>&1
-nocompile/integer_literal_hex_10.d(2): Hex digit expected, not 'G'
-nocompile/integer_literal_hex_10.d(2): semicolon expected, not 'G'
+nocompile/integer_literal_hex_10.d(10): Hex digit expected, not 'G'
+nocompile/integer_literal_hex_10.d(10): semicolon expected, not 'G'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_hex_11.d 1> log.tmp 2>&1
-nocompile/integer_literal_hex_11.d(2): undefined identifier _0x1
+nocompile/integer_literal_hex_11.d(10): undefined identifier _0x1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_hex_12.d 1> log.tmp 2>&1
-nocompile/integer_literal_hex_12.d(2): semicolon expected, not 'h'
+nocompile/integer_literal_hex_12.d(10): semicolon expected, not 'h'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/integer_literal_hex_13.d 1> log.tmp 2>&1
-nocompile/integer_literal_hex_13.d(2): Hex digit expected, not ';'
+nocompile/integer_literal_hex_13.d(10): Hex digit expected, not ';'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/interface_03.d 1> log.tmp 2>&1
-nocompile/interface_03.d(7): class interface_03.MyClass interface function MyInterface.two isn't implemented
+nocompile/interface_03.d(14): class dstress.nocompile.interface_03.MyClass interface function MyInterface.two isn't implemented
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invalid_utf_01.d 1> log.tmp 2>&1
@@ -1416,316 +1424,313 @@ nocompile: dmd-0.112   -c -odobj  nocompile/invalid_utf_43.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invariant_03.d 1> log.tmp 2>&1
-nocompile/invariant_03.d(5): function dstress.nocompile.invariant_03.__invariant invariants only are for struct/union/class definitions
+nocompile/invariant_03.d(11): function dstress.nocompile.invariant_03.__invariant invariants only are for struct/union/class definitions
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invariant_05.d 1> log.tmp 2>&1
-nocompile/invariant_05.d(5): function dstress.nocompile.invariant_05.__invariant invariants only are for struct/union/class definitions
-
---------
-nocompile: dmd-0.112   -c -odobj  nocompile/invariant_06.d 1> log.tmp 2>&1
+nocompile/invariant_05.d(11): function dstress.nocompile.invariant_05.__invariant invariants only are for struct/union/class definitions
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invariant_07.d 1> log.tmp 2>&1
-nocompile/invariant_07.d(9): function dstress.nocompile.invariant_07.__invariant invariants only are for struct/union/class definitions
+nocompile/invariant_07.d(15): function dstress.nocompile.invariant_07.__invariant invariants only are for struct/union/class definitions
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invariant_08.d 1> log.tmp 2>&1
-nocompile/invariant_08.d(7): found 'invariant' instead of statement
-nocompile/invariant_08.d(10): Declaration expected, not 'return'
-nocompile/invariant_08.d(11): unrecognized declaration
+nocompile/invariant_08.d(13): found 'invariant' instead of statement
+nocompile/invariant_08.d(16): Declaration expected, not 'return'
+nocompile/invariant_08.d(17): unrecognized declaration
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invariant_09.d 1> log.tmp 2>&1
-nocompile/invariant_09.d(7): found 'invariant' instead of statement
-nocompile/invariant_09.d(10): Declaration expected, not 'return'
-nocompile/invariant_09.d(12): unrecognized declaration
+nocompile/invariant_09.d(13): found 'invariant' instead of statement
+nocompile/invariant_09.d(16): Declaration expected, not 'return'
+nocompile/invariant_09.d(18): unrecognized declaration
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invariant_16.d 1> log.tmp 2>&1
-nocompile/invariant_16.d(7): function dstress.nocompile.invariant_16.MyInterface.__invariant special function not allowed in interface MyInterface
-nocompile/invariant_16.d(7): function dstress.nocompile.invariant_16.MyInterface.__invariant function body is not abstract in interface MyInterface
+nocompile/invariant_16.d(13): function dstress.nocompile.invariant_16.MyInterface.__invariant special function not allowed in interface MyInterface
+nocompile/invariant_16.d(13): function dstress.nocompile.invariant_16.MyInterface.__invariant function body is not abstract in interface MyInterface
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/invariant_17.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/length_03.d 1> log.tmp 2>&1
-nocompile/length_03.d(3): array.length is not an lvalue
+nocompile/length_03.d(11): array.length is not an lvalue
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/length_04.d 1> log.tmp 2>&1
-nocompile/length_04.d(14): array is used as a type
-nocompile/length_04.d(14): no property 'length' for type 'void'
+nocompile/length_04.d(16): array is used as a type
+nocompile/length_04.d(16): no property 'length' for type 'void'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/__LINE__02.d 1> log.tmp 2>&1
-nocompile/__LINE__02.d(8): undefined identifier __LINE__
+nocompile/__LINE__02.d(10): undefined identifier __LINE__
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/line_token_05.d 1> log.tmp 2>&1
-nocompile/line_token_05.d(1): #line integer ["filespec"]\n expected
-nocompile/line_token_05.d(1): Declaration expected, not '2'
+nocompile/line_token_05.d(9): #line integer ["filespec"]\n expected
+nocompile/line_token_05.d(9): Declaration expected, not '2'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/line_token_06.d 1> log.tmp 2>&1
-nocompile/line_token_06.d(1): #line integer ["filespec"]\n expected
+nocompile/line_token_06.d(9): #line integer ["filespec"]\n expected
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/line_token_07.d 1> log.tmp 2>&1
-filespec(1): #line integer ["filespec"]\n expected
-filespec(1): Declaration expected, not '2'
+filespec(9): #line integer ["filespec"]\n expected
+filespec(9): Declaration expected, not '2'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/line_token_08.d 1> log.tmp 2>&1
-a(1): #line integer ["filespec"]\n expected
-a(1): Declaration expected, not 'b'
+a(9): #line integer ["filespec"]\n expected
+a(9): Declaration expected, not 'b'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/line_token_09.d 1> log.tmp 2>&1
-a(1): #line integer ["filespec"]\n expected
+a(9): #line integer ["filespec"]\n expected
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/line_token_10.d 1> log.tmp 2>&1
-nocompile/line_token_10.d(8): #line integer ["filespec"]\n expected
+nocompile/line_token_10.d(10): #line integer ["filespec"]\n expected
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/long_02.d 1> log.tmp 2>&1
-nocompile/long_02.d(4): no property 'sign' for type 'long'
+nocompile/long_02.d(11): no property 'sign' for type 'long'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/long_03.d 1> log.tmp 2>&1
-nocompile/long_03.d(4): .size property is deprecated, use .sizeof
+nocompile/long_03.d(11): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/mixin_04.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/module_03.d 1> log.tmp 2>&1
-nocompile/module_03.d(7): Declaration expected, not 'module'
+nocompile/module_03.d(9): Declaration expected, not 'module'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/named_entity_04.d 1> log.tmp 2>&1
-nocompile/named_entity_04.d(8): undefined escape sequence \&
+nocompile/named_entity_04.d(10): undefined escape sequence \&
 
-nocompile/named_entity_04.d(8): unterminated character constant
-nocompile/named_entity_04.d(8): unterminated character constant
-nocompile/named_entity_04.d(9): found '}' when expecting ';' following 'statement'
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
-nocompile/named_entity_04.d(9): found 'EOF' instead of statement
+nocompile/named_entity_04.d(10): unterminated character constant
+nocompile/named_entity_04.d(10): unterminated character constant
+nocompile/named_entity_04.d(11): found '}' when expecting ';' following 'statement'
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
+nocompile/named_entity_04.d(11): found 'EOF' instead of statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/named_entity_05.d 1> log.tmp 2>&1
-nocompile/named_entity_05.d(8): undefined escape sequence \&
+nocompile/named_entity_05.d(10): undefined escape sequence \&
 
-nocompile/named_entity_05.d(8): unterminated character constant
-nocompile/named_entity_05.d(8): unterminated character constant
-nocompile/named_entity_05.d(8): semicolon expected, not '59U'
-nocompile/named_entity_05.d(9): found '}' when expecting ';' following 'statement'
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
-nocompile/named_entity_05.d(9): found 'EOF' instead of statement
+nocompile/named_entity_05.d(10): unterminated character constant
+nocompile/named_entity_05.d(10): unterminated character constant
+nocompile/named_entity_05.d(10): semicolon expected, not '59U'
+nocompile/named_entity_05.d(11): found '}' when expecting ';' following 'statement'
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+nocompile/named_entity_05.d(11): found 'EOF' instead of statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offset_01.d 1> log.tmp 2>&1
-nocompile/offset_01.d(17): no property 'offset' for type 'int'
-nocompile/offset_01.d(18): no property 'offset' for type 'int'
 nocompile/offset_01.d(19): no property 'offset' for type 'int'
-nocompile/offset_01.d(19): no property 'offset' for type 'int'
+nocompile/offset_01.d(20): no property 'offset' for type 'int'
+nocompile/offset_01.d(21): no property 'offset' for type 'int'
+nocompile/offset_01.d(21): no property 'offset' for type 'int'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offset_02.d 1> log.tmp 2>&1
-nocompile/offset_02.d(15): .offset deprecated, use .offsetof
-nocompile/offset_02.d(16): .offset deprecated, use .offsetof
 nocompile/offset_02.d(17): .offset deprecated, use .offsetof
-nocompile/offset_02.d(17): .offset deprecated, use .offsetof
+nocompile/offset_02.d(18): .offset deprecated, use .offsetof
+nocompile/offset_02.d(19): .offset deprecated, use .offsetof
+nocompile/offset_02.d(19): .offset deprecated, use .offsetof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offset_03.d 1> log.tmp 2>&1
-nocompile/offset_03.d(17): no property 'offset' for type 'int'
-nocompile/offset_03.d(18): no property 'offset' for type 'int'
 nocompile/offset_03.d(19): no property 'offset' for type 'int'
-nocompile/offset_03.d(19): no property 'offset' for type 'int'
+nocompile/offset_03.d(20): no property 'offset' for type 'int'
+nocompile/offset_03.d(21): no property 'offset' for type 'int'
+nocompile/offset_03.d(21): no property 'offset' for type 'int'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offsetof_03.d 1> log.tmp 2>&1
-nocompile/offsetof_03.d(15): no property 'offsetof' for type 'int'
-nocompile/offsetof_03.d(16): no property 'offsetof' for type 'int'
 nocompile/offsetof_03.d(17): no property 'offsetof' for type 'int'
-nocompile/offsetof_03.d(17): no property 'offsetof' for type 'int'
+nocompile/offsetof_03.d(18): no property 'offsetof' for type 'int'
+nocompile/offsetof_03.d(19): no property 'offsetof' for type 'int'
+nocompile/offsetof_03.d(19): no property 'offsetof' for type 'int'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offsetof_04.d 1> log.tmp 2>&1
-nocompile/offsetof_04.d(17): no property 'offsetof' for type 'void'
+nocompile/offsetof_04.d(19): no property 'offsetof' for type 'void'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offsetof_05.d 1> log.tmp 2>&1
-nocompile/offsetof_05.d(19): no property 'offsetof' for type 'void'
+nocompile/offsetof_05.d(21): no property 'offsetof' for type 'void'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offsetof_06.d 1> log.tmp 2>&1
-nocompile/offsetof_06.d(19): no property 'offsetof' for type 'void'
+nocompile/offsetof_06.d(21): no property 'offsetof' for type 'void'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/offsetof_08.d 1> log.tmp 2>&1
-nocompile/offsetof_08.d(15): 'this' is only allowed in non-static member functions
-nocompile/offsetof_08.d(16): 'this' is only allowed in non-static member functions
+nocompile/offsetof_08.d(17): 'this' is only allowed in non-static member functions
+nocompile/offsetof_08.d(18): 'this' is only allowed in non-static member functions
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/opCmp_02.d 1> log.tmp 2>&1
-nocompile/opCmp_02.d(18): need member function opCmp() for struct MyStruct to compare
+nocompile/opCmp_02.d(20): need member function opCmp() for struct MyStruct to compare
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_01.d 1> log.tmp 2>&1
-nocompile/operator_01.d(20): incompatible types for ((a) + (b)): 'MyClass' and 'MyClass'
+nocompile/operator_01.d(24): incompatible types for ((a) + (b)): 'MyClass' and 'MyClass'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_02.d 1> log.tmp 2>&1
-nocompile/operator_02.d(20): incompatible types for ((a) - (b)): 'MyClass' and 'MyClass'
+nocompile/operator_02.d(24): incompatible types for ((a) - (b)): 'MyClass' and 'MyClass'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_03.d 1> log.tmp 2>&1
-nocompile/operator_03.d(20): 'a' is not an arithmetic type
-nocompile/operator_03.d(20): 'b' is not an arithmetic type
+nocompile/operator_03.d(24): 'a' is not an arithmetic type
+nocompile/operator_03.d(24): 'b' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_04.d 1> log.tmp 2>&1
-nocompile/operator_04.d(20): 'a' is not an arithmetic type
-nocompile/operator_04.d(20): 'b' is not an arithmetic type
+nocompile/operator_04.d(24): 'a' is not an arithmetic type
+nocompile/operator_04.d(24): 'b' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_05.d 1> log.tmp 2>&1
-nocompile/operator_05.d(20): 'a' is not an arithmetic type
-nocompile/operator_05.d(20): 'b' is not an arithmetic type
+nocompile/operator_05.d(24): 'a' is not an arithmetic type
+nocompile/operator_05.d(24): 'b' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_06.d 1> log.tmp 2>&1
-nocompile/operator_06.d(18): 'a' is not a scalar, it is a MyClass
-nocompile/operator_06.d(18): incompatible types for ((a) += (1)): 'MyClass' and 'int'
-nocompile/operator_06.d(18): 'a' is not an arithmetic type
+nocompile/operator_06.d(22): 'a' is not a scalar, it is a MyClass
+nocompile/operator_06.d(22): incompatible types for ((a) += (1)): 'MyClass' and 'int'
+nocompile/operator_06.d(22): 'a' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_07.d 1> log.tmp 2>&1
-nocompile/operator_07.d(18): 'a' is not an arithmetic type
+nocompile/operator_07.d(22): 'a' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_08.d 1> log.tmp 2>&1
-nocompile/operator_08.d(18): 'a' is not a scalar, it is a MyClass
+nocompile/operator_08.d(22): 'a' is not a scalar, it is a MyClass
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_09.d 1> log.tmp 2>&1
-nocompile/operator_09.d(18): 'a' is not an arithmetic type
+nocompile/operator_09.d(22): 'a' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_10.d 1> log.tmp 2>&1
-nocompile/operator_10.d(18): 'a' is not a scalar, it is a MyClass
-nocompile/operator_10.d(18): incompatible types for ((a) -= (1)): 'MyClass' and 'int'
-nocompile/operator_10.d(18): 'a' is not an arithmetic type
+nocompile/operator_10.d(22): 'a' is not a scalar, it is a MyClass
+nocompile/operator_10.d(22): incompatible types for ((a) -= (1)): 'MyClass' and 'int'
+nocompile/operator_10.d(22): 'a' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_11.d 1> log.tmp 2>&1
-nocompile/operator_11.d(18): 'a' is not a scalar, it is a MyClass
+nocompile/operator_11.d(22): 'a' is not a scalar, it is a MyClass
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_12.d 1> log.tmp 2>&1
-nocompile/operator_12.d(18): 'a' is not of integral type, it is a MyClass
+nocompile/operator_12.d(22): 'a' is not of integral type, it is a MyClass
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_13.d 1> log.tmp 2>&1
-nocompile/operator_13.d(20): 'a' is not of integral type, it is a MyClass
-nocompile/operator_13.d(20): 'b' is not of integral type, it is a MyClass
+nocompile/operator_13.d(24): 'a' is not of integral type, it is a MyClass
+nocompile/operator_13.d(24): 'b' is not of integral type, it is a MyClass
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_14.d 1> log.tmp 2>&1
-nocompile/operator_14.d(20): 'a' is not of integral type, it is a MyClass
-nocompile/operator_14.d(20): 'b' is not of integral type, it is a MyClass
+nocompile/operator_14.d(24): 'a' is not of integral type, it is a MyClass
+nocompile/operator_14.d(24): 'b' is not of integral type, it is a MyClass
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_15.d 1> log.tmp 2>&1
-nocompile/operator_15.d(20): 'a' is not of integral type, it is a MyClass
-nocompile/operator_15.d(20): 'b' is not of integral type, it is a MyClass
+nocompile/operator_15.d(24): 'a' is not of integral type, it is a MyClass
+nocompile/operator_15.d(24): 'b' is not of integral type, it is a MyClass
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/operator_16.d 1> log.tmp 2>&1
-nocompile/operator_16.d(20): 'a' is not of integral type, it is a MyClass
-nocompile/operator_16.d(20): 'b' is not of integral type, it is a MyClass
+nocompile/operator_16.d(24): 'a' is not of integral type, it is a MyClass
+nocompile/operator_16.d(24): 'b' is not of integral type, it is a MyClass
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/opNeg_03.d 1> log.tmp 2>&1
-nocompile/opNeg_03.d(8): 's' is not an arithmetic type
+nocompile/opNeg_03.d(15): 's' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/opNeg_04.d 1> log.tmp 2>&1
-nocompile/opNeg_04.d(7): 'c' is not an arithmetic type
+nocompile/opNeg_04.d(14): 'c' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/opPos_03.d 1> log.tmp 2>&1
-nocompile/opPos_03.d(12): 's' is not an arithmetic type
+nocompile/opPos_03.d(14): 's' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/opPos_04.d 1> log.tmp 2>&1
-nocompile/opPos_04.d(12): 'c' is not an arithmetic type
+nocompile/opPos_04.d(14): 'c' is not an arithmetic type
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/overload_11.d 1> log.tmp 2>&1
-nocompile/overload_11.d(28): function dstress.nocompile.overload_11.test overloads int(real a,real b) and int(real a,uint b) both match argument list for test
+nocompile/overload_11.d(30): function dstress.nocompile.overload_11.test overloads int(real a,real b) and int(real a,uint b) both match argument list for test
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/overload_12.d 1> log.tmp 2>&1
-nocompile/overload_12.d(24): function dstress.nocompile.overload_12.B.test () does not match argument types (int)
-nocompile/overload_12.d(24): Error: expected 0 arguments, not 1
+nocompile/overload_12.d(26): function dstress.nocompile.overload_12.B.test () does not match argument types (int)
+nocompile/overload_12.d(26): Error: expected 0 arguments, not 1
 
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/overload_14.d 1> log.tmp 2>&1
-nocompile/overload_14.d(23): function dstress.run.overload_14.MyClass.check () does not match argument types (int)
-nocompile/overload_14.d(23): Error: expected 0 arguments, not 1
+nocompile/overload_14.d(25): function dstress.run.overload_14.MyClass.check () does not match argument types (int)
+nocompile/overload_14.d(25): Error: expected 0 arguments, not 1
 
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/overload_16.d 1> log.tmp 2>&1
-nocompile/overload_16.d(25): function dstress.run.overload_16.check (int x) does not match argument types ()
-nocompile/overload_16.d(25): Error: expected 1 arguments, not 0
+nocompile/overload_16.d(27): function dstress.run.overload_16.check (int x) does not match argument types ()
+nocompile/overload_16.d(27): Error: expected 1 arguments, not 0
 
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/override_02.d 1> log.tmp 2>&1
-nocompile/override_02.d(6): function override_02.Child.check function check does not override any
+nocompile/override_02.d(13): function dstress.nocompile.override_02.Child.check function check does not override any
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/override_03.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/override_04.d 1> log.tmp 2>&1
-nocompile/override_04.d(7): function override_04.Child.test function test does not override any
+nocompile/override_04.d(14): function dstress.nocompile.override_04.Child.test function test does not override any
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/override_05.d 1> log.tmp 2>&1
@@ -1741,15 +1746,15 @@ nocompile: dmd-0.112   -c -odobj  nocompile/override_08.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/override_09.d 1> log.tmp 2>&1
-nocompile/override_09.d(10): function dstress.nocompile.override_09.Child.test function test does not override any
+nocompile/override_09.d(14): function dstress.nocompile.override_09.Child.test function test does not override any
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/pragma_03.d 1> log.tmp 2>&1
-nocompile/pragma_03.d(4): string expected for pragma msg, not 'check'
+nocompile/pragma_03.d(11): string expected for pragma msg, not 'check'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/pragma_04.d 1> log.tmp 2>&1
-nocompile/pragma_04.d(4): string expected for pragma msg, not 'check'
+nocompile/pragma_04.d(11): string expected for pragma msg, not 'check'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/pragma_lib_01.d 1> log.tmp 2>&1
@@ -1769,19 +1774,19 @@ attribute __anonymous unrecognized pragma(lib)
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/pragma_lib_05.d 1> log.tmp 2>&1
-nocompile/pragma_lib_05.d(7): expression expected, not 'TOK36'
+nocompile/pragma_lib_05.d(9): expression expected, not 'TOK36'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/pragma_lib_06.d 1> log.tmp 2>&1
-nocompile/pragma_lib_06.d(7): #line integer ["filespec"]\n expected
+nocompile/pragma_lib_06.d(9): #line integer ["filespec"]\n expected
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/pragma_lib_07.d 1> log.tmp 2>&1
-nocompile/pragma_lib_07.d(9): unrecognized pragma(lib)
+nocompile/pragma_lib_07.d(11): unrecognized pragma(lib)
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/precondition_01.d 1> log.tmp 2>&1
-nocompile/precondition_01.d(8): missing body { ... } after in or out
+nocompile/precondition_01.d(13): missing body { ... } after in or out
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/private_import_01.d 1> log.tmp 2>&1
@@ -1791,133 +1796,127 @@ nocompile: dmd-0.112   addon/private_import_A.d addon/private_import_B.d -c -odo
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ptr_05.d 1> log.tmp 2>&1
-nocompile/ptr_05.d(10): no property 'ptr' for type 'Object [char[]]'
-nocompile/ptr_05.d(10): incompatible types for ((1) is (null)): 'int' and 'void*'
+nocompile/ptr_05.d(12): no property 'ptr' for type 'Object [char[]]'
+nocompile/ptr_05.d(12): incompatible types for ((1) is (null)): 'int' and 'void*'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ptr_06.d 1> log.tmp 2>&1
-nocompile/ptr_06.d(10): no property 'ptr' for type 'Object'
-nocompile/ptr_06.d(10): incompatible types for ((1) is (null)): 'int' and 'void*'
+nocompile/ptr_06.d(12): no property 'ptr' for type 'Object'
+nocompile/ptr_06.d(12): incompatible types for ((1) is (null)): 'int' and 'void*'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ptr_07.d 1> log.tmp 2>&1
-nocompile/ptr_07.d(10): no property 'ptr' for type 'Object *'
-nocompile/ptr_07.d(10): incompatible types for ((1) is (null)): 'int' and 'void*'
+nocompile/ptr_07.d(12): no property 'ptr' for type 'Object *'
+nocompile/ptr_07.d(12): incompatible types for ((1) is (null)): 'int' and 'void*'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ptr_08.d 1> log.tmp 2>&1
-nocompile/ptr_08.d(10): no property 'ptr' for type 'int'
-nocompile/ptr_08.d(10): incompatible types for ((1) is (null)): 'int' and 'void*'
+nocompile/ptr_08.d(12): no property 'ptr' for type 'int'
+nocompile/ptr_08.d(12): incompatible types for ((1) is (null)): 'int' and 'void*'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ptr_09.d 1> log.tmp 2>&1
-nocompile/ptr_09.d(10): no property 'ptr' for type 'int'
-nocompile/ptr_09.d(10): incompatible types for ((1) is (null)): 'int' and 'void*'
+nocompile/ptr_09.d(12): no property 'ptr' for type 'int'
+nocompile/ptr_09.d(12): incompatible types for ((1) is (null)): 'int' and 'void*'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_14.d 1> log.tmp 2>&1
-nocompile/real_14.d(4): found '0' when expecting ';' following 'statement'
+nocompile/real_14.d(11): found '0' when expecting ';' following 'statement'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_15.d 1> log.tmp 2>&1
-nocompile/real_15.d(3): no property 'sign' for type 'real'
+nocompile/real_15.d(10): no property 'sign' for type 'real'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_16.d 1> log.tmp 2>&1
-nocompile/real_16.d(4): no property 'isnan' for type 'real'
+nocompile/real_16.d(11): no property 'isnan' for type 'real'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_17.d 1> log.tmp 2>&1
-nocompile/real_17.d(4): no property 'isinfinite' for type 'real'
+nocompile/real_17.d(11): no property 'isinfinite' for type 'real'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_18.d 1> log.tmp 2>&1
-nocompile/real_18.d(4): no property 'isnormal' for type 'real'
+nocompile/real_18.d(11): no property 'isnormal' for type 'real'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_19.d 1> log.tmp 2>&1
-nocompile/real_19.d(4): no property 'digits' for type 'real'
+nocompile/real_19.d(11): no property 'digits' for type 'real'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_20.d 1> log.tmp 2>&1
-nocompile/real_20.d(4): no property 'mantissa' for type 'real'
+nocompile/real_20.d(11): no property 'mantissa' for type 'real'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/real_21.d 1> log.tmp 2>&1
-nocompile/real_21.d(4): no property 'maxExp' for type 'real'
+nocompile/real_21.d(11): no property 'maxExp' for type 'real'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/scope_01.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/short_02.d 1> log.tmp 2>&1
-nocompile/short_02.d(4): no property 'sign' for type 'short'
+nocompile/short_02.d(11): no property 'sign' for type 'short'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/short_03.d 1> log.tmp 2>&1
-nocompile/short_03.d(4): .size property is deprecated, use .sizeof
+nocompile/short_03.d(11): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/sizeof_05.d 1> log.tmp 2>&1
-nocompile/sizeof_05.d(8): function dstress.nocompile.sizeof_05.MyStruct.sizeof .sizeof property cannot be redefined
+nocompile/sizeof_05.d(10): function dstress.nocompile.sizeof_05.MyStruct.sizeof .sizeof property cannot be redefined
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/sizeof_06.d 1> log.tmp 2>&1
-nocompile/sizeof_06.d(8): variable dstress.nocompile.sizeof_06.MyStruct.sizeof .sizeof property cannot be redefined
+nocompile/sizeof_06.d(10): variable dstress.nocompile.sizeof_06.MyStruct.sizeof .sizeof property cannot be redefined
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/sizeof_07.d 1> log.tmp 2>&1
-nocompile/sizeof_07.d(8): variable dstress.nocompile.sizeof_07.MyClass.sizeof .sizeof property cannot be redefined
+nocompile/sizeof_07.d(10): variable dstress.nocompile.sizeof_07.MyClass.sizeof .sizeof property cannot be redefined
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/sizeof_08.d 1> log.tmp 2>&1
-nocompile/sizeof_08.d(8): function dstress.nocompile.sizeof_08.MyClass.sizeof .sizeof property cannot be redefined
+nocompile/sizeof_08.d(10): function dstress.nocompile.sizeof_08.MyClass.sizeof .sizeof property cannot be redefined
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/sizeof_09.d 1> log.tmp 2>&1
-nocompile/sizeof_09.d(9): function dstress.nocompile.sizeof_09.MyUnion.sizeof .sizeof property cannot be redefined
+nocompile/sizeof_09.d(11): function dstress.nocompile.sizeof_09.MyUnion.sizeof .sizeof property cannot be redefined
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/sizeof_10.d 1> log.tmp 2>&1
-nocompile/sizeof_10.d(9): variable dstress.nocompile.sizeof_10.MyUnion.sizeof .sizeof property cannot be redefined
+nocompile/sizeof_10.d(11): variable dstress.nocompile.sizeof_10.MyUnion.sizeof .sizeof property cannot be redefined
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/slice_10.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/static_08.d 1> log.tmp 2>&1
-nocompile/static_08.d(5): need 'this' to access member status
+nocompile/static_08.d(12): need 'this' to access member status
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/static_09.d 1> log.tmp 2>&1
-nocompile/static_09.d(5): need 'this' to access member doIt
+nocompile/static_09.d(12): need 'this' to access member doIt
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/static_10.d 1> log.tmp 2>&1
-nocompile/static_10.d(6): 'this' is only allowed in non-static member functions
-
---------
-nocompile: dmd-0.112   -c -odobj  nocompile/static_16.d 1> log.tmp 2>&1
-
---------
-nocompile: dmd-0.112   -c -odobj  nocompile/static_19.d 1> log.tmp 2>&1
+nocompile/static_10.d(13): 'this' is only allowed in non-static member functions
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/struct_04.d 1> log.tmp 2>&1
-nocompile/struct_04.d(3): constructor struct_04.MyStruct.this constructors only are for class definitions
-nocompile/struct_04.d(3): constructor struct_04.MyStruct.this special member functions not allowed for structs
+nocompile/struct_04.d(10): constructor dstress.nocompile.struct_04.MyStruct.this constructors only are for class definitions
+nocompile/struct_04.d(10): constructor dstress.nocompile.struct_04.MyStruct.this special member functions not allowed for structs
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/struct_05.d 1> log.tmp 2>&1
-nocompile/struct_05.d(3): no identifier for declarator MyStruct
-nocompile/struct_05.d(3): semicolon expected, not '{'
-nocompile/struct_05.d(3): Declaration expected, not '{'
-nocompile/struct_05.d(8): Declaration expected, not 'return'
+nocompile/struct_05.d(10): no identifier for declarator MyStruct
+nocompile/struct_05.d(10): semicolon expected, not '{'
+nocompile/struct_05.d(10): Declaration expected, not '{'
+nocompile/struct_05.d(15): Declaration expected, not 'return'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/struct_06.d 1> log.tmp 2>&1
-nocompile/struct_06.d(3): function struct_06.MyStruct._dtor destructors only are for class definitions
-nocompile/struct_06.d(3): function struct_06.MyStruct._dtor special member functions not allowed for structs
+nocompile/struct_06.d(10): function dstress.nocompile.struct_06.MyStruct._dtor destructors only are for class definitions
+nocompile/struct_06.d(10): function dstress.nocompile.struct_06.MyStruct._dtor special member functions not allowed for structs
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/struct_17.d 1> log.tmp 2>&1
@@ -1933,9 +1932,9 @@ dmd.bin: module.c:470: void Module::semantic2(): Assertion `!deferred.dim' faile
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/super_03.d 1> log.tmp 2>&1
-nocompile/super_03.d(5): 'super' is only allowed in non-static member functions
-nocompile/super_03.d(5): no property 'x' for type 'int'
-nocompile/super_03.d(5): constant super.x is not an lvalue
+nocompile/super_03.d(12): 'super' is only allowed in non-static member functions
+nocompile/super_03.d(12): no property 'x' for type 'int'
+nocompile/super_03.d(12): constant super.x is not an lvalue
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/super_05.d 1> log.tmp 2>&1
@@ -1943,47 +1942,47 @@ dmd.bin: expression.c:1255: virtual Expression* SuperExp::semantic(Scope*): Asse
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/super_06.d 1> log.tmp 2>&1
-nocompile/super_06.d(16): no super class constructor for Object
+nocompile/super_06.d(18): no super class constructor for Object
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/super_09.d 1> log.tmp 2>&1
-nocompile/super_09.d(24): no super class constructor for Object
+nocompile/super_09.d(26): no super class constructor for Object
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/super_11.d 1> log.tmp 2>&1
-nocompile/super_11.d(13): super class constructor call must be in a constructor
+nocompile/super_11.d(15): super class constructor call must be in a constructor
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_08.d 1> log.tmp 2>&1
-nocompile/switch_08.d(12): default not in switch statement
+nocompile/switch_08.d(19): default not in switch statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_09.d 1> log.tmp 2>&1
-nocompile/switch_09.d(22): duplicate case "123" in switch statement
+nocompile/switch_09.d(24): duplicate case "123" in switch statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_10.d 1> log.tmp 2>&1
-nocompile/switch_10.d(20): duplicate case "123" in switch statement
+nocompile/switch_10.d(22): duplicate case "123" in switch statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_11.d 1> log.tmp 2>&1
-nocompile/switch_11.d(14): duplicate case 0 in switch statement
+nocompile/switch_11.d(16): duplicate case 0 in switch statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_12.d 1> log.tmp 2>&1
-nocompile/switch_12.d(20): duplicate case "123" in switch statement
+nocompile/switch_12.d(22): duplicate case "123" in switch statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_13.d 1> log.tmp 2>&1
-nocompile/switch_13.d(20): duplicate case "123" in switch statement
+nocompile/switch_13.d(22): duplicate case "123" in switch statement
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_15.d 1> log.tmp 2>&1
-nocompile/switch_15.d(12): 'f' is not of integral type, it is a float
+nocompile/switch_15.d(14): 'f' is not of integral type, it is a float
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/switch_16.d 1> log.tmp 2>&1
-nocompile/switch_16.d(14): switch statement already has a default
+nocompile/switch_16.d(16): switch statement already has a default
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/template_05.d 1> log.tmp 2>&1
@@ -2013,20 +2012,20 @@ nocompile/template_class_07.d(15): template instance Template!(int) does not mat
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/this_01.d 1> log.tmp 2>&1
-nocompile/this_01.d(13): 'this' is only allowed in non-static member functions
-nocompile/this_01.d(13): no property 'foobar' for type 'int'
+nocompile/this_01.d(15): 'this' is only allowed in non-static member functions
+nocompile/this_01.d(15): no property 'foobar' for type 'int'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/this_02.d 1> log.tmp 2>&1
-nocompile/this_02.d(12): found '.' when expecting '('
-nocompile/this_02.d(12): found ';' when expecting ')'
-nocompile/this_02.d(13): semicolon expected following function declaration
+nocompile/this_02.d(14): found '.' when expecting '('
+nocompile/this_02.d(14): found ';' when expecting ')'
+nocompile/this_02.d(15): semicolon expected following function declaration
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/this_04.d 1> log.tmp 2>&1
 test1
-nocompile/this_04.d(13): 'this' is only allowed in non-static member functions
-nocompile/this_04.d(13): cannot implicitly convert expression this of type int to MyStruct *
+nocompile/this_04.d(15): 'this' is only allowed in non-static member functions
+nocompile/this_04.d(15): cannot implicitly convert expression this of type int to MyStruct *
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/this_05.d 1> log.tmp 2>&1
@@ -2040,13 +2039,13 @@ test1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/__TIME__02.d 1> log.tmp 2>&1
-nocompile/__TIME__02.d(8): undefined identifier __TIME__
-nocompile/__TIME__02.d(8): cannot implicitly convert expression "1" of type char[1] to int
+nocompile/__TIME__02.d(10): undefined identifier __TIME__
+nocompile/__TIME__02.d(10): cannot implicitly convert expression "1" of type char[1] to int
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/__TIMESTAMP__02.d 1> log.tmp 2>&1
-nocompile/__TIMESTAMP__02.d(8): undefined identifier __TIMESTAMP__
-nocompile/__TIMESTAMP__02.d(8): cannot implicitly convert expression "1" of type char[1] to int
+nocompile/__TIMESTAMP__02.d(10): undefined identifier __TIMESTAMP__
+nocompile/__TIMESTAMP__02.d(10): cannot implicitly convert expression "1" of type char[1] to int
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/try_05.d 1> log.tmp 2>&1
@@ -2057,44 +2056,44 @@ Error: undefined label no_label
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/typeof_05.d 1> log.tmp 2>&1
-nocompile/typeof_05.d(13): variable dstress.nocompile.typeof_05.test.x cannot be declared to be a function void()
+nocompile/typeof_05.d(15): variable dstress.nocompile.typeof_05.test.x cannot be declared to be a function void()
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/typeof_06.d 1> log.tmp 2>&1
-nocompile/typeof_06.d(13): variable dstress.nocompile.typeof_06.test.x cannot be declared to be a function void()
+nocompile/typeof_06.d(15): variable dstress.nocompile.typeof_06.test.x cannot be declared to be a function void()
 dmd.bin: expression.c:2999: virtual Expression* CallExp::semantic(Scope*): Assertion `f' failed.
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/types_declaration_02.d 1> log.tmp 2>&1
-nocompile/types_declaration_02.d(3): multiple declarations must have the same type, not int and int*
-nocompile/types_declaration_02.d(4): multiple declarations must have the same type, not int[] and int
+nocompile/types_declaration_02.d(10): multiple declarations must have the same type, not int and int*
+nocompile/types_declaration_02.d(11): multiple declarations must have the same type, not int[] and int
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ubyte_02.d 1> log.tmp 2>&1
-nocompile/ubyte_02.d(4): .size property is deprecated, use .sizeof
+nocompile/ubyte_02.d(11): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ubyte_03.d 1> log.tmp 2>&1
-nocompile/ubyte_03.d(4): no property 'sign' for type 'ubyte'
+nocompile/ubyte_03.d(11): no property 'sign' for type 'ubyte'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ucent_01.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/uint_02.d 1> log.tmp 2>&1
-nocompile/uint_02.d(4): no property 'sign' for type 'uint'
+nocompile/uint_02.d(11): no property 'sign' for type 'uint'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/uint_03.d 1> log.tmp 2>&1
-nocompile/uint_03.d(4): .size property is deprecated, use .sizeof
+nocompile/uint_03.d(11): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ulong_02.d 1> log.tmp 2>&1
-nocompile/ulong_02.d(4): no property 'sign' for type 'ulong'
+nocompile/ulong_02.d(11): no property 'sign' for type 'ulong'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ulong_03.d 1> log.tmp 2>&1
-nocompile/ulong_03.d(4): .size property is deprecated, use .sizeof
+nocompile/ulong_03.d(11): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/union_11.d 1> log.tmp 2>&1
@@ -2111,7 +2110,7 @@ nocompile: dmd-0.112   -c -odobj  nocompile/union_14.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/union_15.d 1> log.tmp 2>&1
-nocompile/union_15.d(17): need 'this' to access member i
+nocompile/union_15.d(19): need 'this' to access member i
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/unittest_03.d 1> log.tmp 2>&1
@@ -2122,17 +2121,17 @@ anonymous union __anonymous can only be a part of an aggregate
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/unittest_06.d 1> log.tmp 2>&1
-nocompile/unittest_06.d(7): enum member expected
-nocompile/unittest_06.d(7): enum member expected
-nocompile/unittest_06.d(9): unrecognized declaration
+nocompile/unittest_06.d(13): enum member expected
+nocompile/unittest_06.d(13): enum member expected
+nocompile/unittest_06.d(15): unrecognized declaration
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ushort_02.d 1> log.tmp 2>&1
-nocompile/ushort_02.d(4): no property 'sign' for type 'ushort'
+nocompile/ushort_02.d(11): no property 'sign' for type 'ushort'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/ushort_03.d 1> log.tmp 2>&1
-nocompile/ushort_03.d(4): .size property is deprecated, use .sizeof
+nocompile/ushort_03.d(11): .size property is deprecated, use .sizeof
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/variadic_argument_01.d 1> log.tmp 2>&1
@@ -2147,32 +2146,26 @@ nocompile: dmd-0.112   -c -odobj  nocompile/version_06.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/version_11.d 1> log.tmp 2>&1
-nocompile/version_11.d(8): static assert  (0) is false
+nocompile/version_11.d(12): static assert  (0) is false
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/version_12.d 1> log.tmp 2>&1
-nocompile/version_12.d(1): identifier or integer expected, not )
-nocompile/version_12.d(1): found '{' when expecting ')'
-nocompile/version_12.d(2): unrecognized declaration
+nocompile/version_12.d(9): identifier or integer expected, not )
+nocompile/version_12.d(9): found '{' when expecting ')'
+nocompile/version_12.d(10): unrecognized declaration
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/version_13.d 1> log.tmp 2>&1
-nocompile/version_13.d(1): identifier or integer expected, not )
-nocompile/version_13.d(2): found 'EOF' when expecting ')'
+nocompile/version_13.d(9): identifier or integer expected, not )
+nocompile/version_13.d(10): found 'EOF' when expecting ')'
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/version_14.d 1> log.tmp 2>&1
-nocompile/version_14.d(1): identifier or integer expected, not a
+nocompile/version_14.d(9): identifier or integer expected, not a
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/version_15.d 1> log.tmp 2>&1
-nocompile/version_15.d(1): identifier or integer expected, not a
-
---------
-nocompile: dmd-0.112   -c -odobj  nocompile/version_17.d 1> log.tmp 2>&1
-
---------
-nocompile: dmd-0.112   -c -odobj  nocompile/version_18.d 1> log.tmp 2>&1
+nocompile/version_15.d(9): identifier or integer expected, not a
 
 --------
 nocompile: dmd-0.112   -c -odobj  nocompile/version_23.d 1> log.tmp 2>&1
@@ -2304,6 +2297,22 @@ gcc obj/align_07.o -o run/align_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/align_07.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.112   -odobj  -ofrun/align_08.d.exe run/align_08.d 1> log.tmp 2>&1
+gcc obj/align_08.o -o run/align_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/align_08.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/align_09.d.exe run/align_09.d 1> log.tmp 2>&1
+gcc obj/align_09.o -o run/align_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/align_09.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/align_09.d(32)
+
+--------
+run: dmd-0.112   -odobj  -ofrun/align_10.d.exe run/align_10.d 1> log.tmp 2>&1
+gcc obj/align_10.o -o run/align_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/align_10.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.112   -odobj  -ofrun/Alternate_Wysiwyg_String_01.d.exe run/Alternate_Wysiwyg_String_01.d 1> log.tmp 2>&1
 gcc obj/Alternate_Wysiwyg_String_01.o -o run/Alternate_Wysiwyg_String_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/Alternate_Wysiwyg_String_01.d.exe 1> log.tmp 2>&1
@@ -2417,6 +2426,56 @@ run/associative_array_02.d.exe 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/associative_array_07.d.exe run/associative_array_07.d 1> log.tmp 2>&1
 gcc obj/associative_array_07.o -o run/associative_array_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/associative_array_07.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_08.d.exe run/associative_array_08.d 1> log.tmp 2>&1
+gcc obj/associative_array_08.o -o run/associative_array_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_08.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_09.d.exe run/associative_array_09.d 1> log.tmp 2>&1
+gcc obj/associative_array_09.o -o run/associative_array_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_09.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_10.d.exe run/associative_array_10.d 1> log.tmp 2>&1
+gcc obj/associative_array_10.o -o run/associative_array_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_10.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_11.d.exe run/associative_array_11.d 1> log.tmp 2>&1
+gcc obj/associative_array_11.o -o run/associative_array_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_11.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_12.d.exe run/associative_array_12.d 1> log.tmp 2>&1
+gcc obj/associative_array_12.o -o run/associative_array_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_12.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_13.d.exe run/associative_array_13.d 1> log.tmp 2>&1
+gcc obj/associative_array_13.o -o run/associative_array_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_13.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_14.d.exe run/associative_array_14.d 1> log.tmp 2>&1
+gcc obj/associative_array_14.o -o run/associative_array_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_14.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_15.d.exe run/associative_array_15.d 1> log.tmp 2>&1
+gcc obj/associative_array_15.o -o run/associative_array_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_15.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_16.d.exe run/associative_array_16.d 1> log.tmp 2>&1
+gcc obj/associative_array_16.o -o run/associative_array_16.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_16.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/associative_array_17.d.exe run/associative_array_17.d 1> log.tmp 2>&1
+gcc obj/associative_array_17.o -o run/associative_array_17.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/associative_array_17.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/auto_01.d.exe run/auto_01.d 1> log.tmp 2>&1
@@ -2556,6 +2615,73 @@ gcc obj/bug_20050128_B.o -o run/bug_20050128_B.d.exe -lphobos -lpthread -lm -Xli
 run/bug_20050128_B.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_2393_A.d.exe run/bug_cg87_2393_A.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 2393
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_2393_B.d.exe run/bug_cg87_2393_B.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 2393
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_2393_C.d.exe run/bug_cg87_2393_C.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 2393
+
+--------
+run: dmd-0.112   -inline -odobj  -ofrun/bug_cg87_2393_D.d.exe run/bug_cg87_2393_D.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_2393_D.o -o run/bug_cg87_2393_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cg87_2393_D.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -O -odobj  -ofrun/bug_cg87_2393_E.d.exe run/bug_cg87_2393_E.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_2393_E.o -o run/bug_cg87_2393_E.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cg87_2393_E.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/bug_cg87_2393_E.d(26)
+
+--------
+run: dmd-0.112   -odobj  -ofrun/bug_cg87_2393_F.d.exe run/bug_cg87_2393_F.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_2393_F.o -o run/bug_cg87_2393_F.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cg87_2393_F.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_279_A.d.exe run/bug_cg87_279_A.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 279
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_279_B.d.exe run/bug_cg87_279_B.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 279
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_279_C.d.exe run/bug_cg87_279_C.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 279
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_279_D.d.exe run/bug_cg87_279_D.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 279
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_279_E.d.exe run/bug_cg87_279_E.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 279
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_279_F.d.exe run/bug_cg87_279_F.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 279
+
+--------
+run: dmd-0.112   -O -inline -odobj  -ofrun/bug_cg87_279_G.d.exe run/bug_cg87_279_G.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_279_G.o -o run/bug_cg87_279_G.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cg87_279_G.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -O -odobj  -ofrun/bug_cg87_279_H.d.exe run/bug_cg87_279_H.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_279_H.o -o run/bug_cg87_279_H.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cg87_279_H.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -inline -odobj  -ofrun/bug_cg87_279_I.d.exe run/bug_cg87_279_I.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_279_I.o -o run/bug_cg87_279_I.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cg87_279_I.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.112   -O -odobj  -ofrun/bug_cgcod_1640_A.d.exe run/bug_cgcod_1640_A.d 1> log.tmp 2>&1
 Internal error: ../ztc/cgcod.c 1640
 
@@ -2596,6 +2722,21 @@ Internal error: ../ztc/cgcs.c 353
 --------
 run: dmd-0.112   -odobj  -ofrun/bug_cgcs_353_C.d.exe run/bug_cgcs_353_C.d 1> log.tmp 2>&1
 Internal error: ../ztc/cgcs.c 353
+
+--------
+run: dmd-0.112   -inline -odobj  -ofrun/bug_cgcs_353_D.d.exe run/bug_cgcs_353_D.d 1> log.tmp 2>&1
+gcc obj/bug_cgcs_353_D.o -o run/bug_cgcs_353_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cgcs_353_D.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/bug_cgcs_353_D.d(30)
+
+--------
+run: dmd-0.112   -odobj  -ofrun/bug_cod1_1648_A.d.exe run/bug_cod1_1648_A.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 1648
+
+--------
+run: dmd-0.112   -inline -odobj  -ofrun/bug_cod1_1648_B.d.exe run/bug_cod1_1648_B.d 1> log.tmp 2>&1
+gcc obj/bug_cod1_1648_B.o -o run/bug_cod1_1648_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/bug_cod1_1648_B.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/bug_e2ir_141_A.d.exe run/bug_e2ir_141_A.d 1> log.tmp 2>&1
@@ -3079,7 +3220,7 @@ run/creal_03.d.exe 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/creal_04.d.exe run/creal_04.d 1> log.tmp 2>&1
 gcc obj/creal_04.o -o run/creal_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/creal_04.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/creal_04.d(15)
+Error: AssertError Failure run/creal_04.d(19)
 
 --------
 run: dmd-0.112   -odobj  -ofrun/creal_05.d.exe run/creal_05.d 1> log.tmp 2>&1
@@ -3209,6 +3350,34 @@ run/debug_02.d.exe 1> log.tmp 2>&1
 run: dmd-0.112   -debug=a -odobj  -ofrun/debug_03.d.exe run/debug_03.d 1> log.tmp 2>&1
 gcc obj/debug_03.o -o run/debug_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/debug_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/debug_info_01.d.exe run/debug_info_01.d 1> log.tmp 2>&1
+gcc obj/debug_info_01.o -o run/debug_info_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/debug_info_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -g -odobj  -ofrun/debug_info_02.d.exe run/debug_info_02.d 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/debug_info_03.d.exe run/debug_info_03.d 1> log.tmp 2>&1
+gcc obj/debug_info_03.o -o run/debug_info_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/debug_info_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -g -odobj  -ofrun/debug_info_04.d.exe run/debug_info_04.d 1> log.tmp 2>&1
+dmd.bin: glue.c:609: virtual unsigned int Type::totym(): Assertion `0' failed.
+ty = 6
+
+--------
+run: dmd-0.112   -g -odobj  -ofrun/debug_info_05.d.exe run/debug_info_05.d 1> log.tmp 2>&1
+dmd.bin: glue.c:609: virtual unsigned int Type::totym(): Assertion `0' failed.
+ty = 6
+
+--------
+run: dmd-0.112   -g -odobj  -ofrun/debug_info_06.d.exe run/debug_info_06.d 1> log.tmp 2>&1
+gcc obj/debug_info_06.o -o run/debug_info_06.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/debug_info_06.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/default_argument_01.d.exe run/default_argument_01.d 1> log.tmp 2>&1
@@ -3835,7 +4004,7 @@ run/foreach_15.d.exe 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/foreach_16.d.exe run/foreach_16.d 1> log.tmp 2>&1
 gcc obj/foreach_16.o -o run/foreach_16.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/foreach_16.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/foreach_16.d(12)
+Error: AssertError Failure run/foreach_16.d(16)
 
 --------
 run: dmd-0.112   -odobj  -ofrun/foreach_23.d.exe run/foreach_23.d 1> log.tmp 2>&1
@@ -3941,6 +4110,16 @@ run/html_comment_03.html.exe 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/html_comment_04.html.exe run/html_comment_04.html 1> log.tmp 2>&1
 run/html_comment_04.html(7): expression expected, not '>'
 run/html_comment_04.html(8): found 'return' when expecting ';' following 'statement'
+
+--------
+run: dmd-0.112   -odobj  -ofrun/html_complex_01.html.exe run/html_complex_01.html 1> log.tmp 2>&1
+gcc obj/html_complex_01.o -o run/html_complex_01.html.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/html_complex_01.html.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/html_complex_02.html.exe run/html_complex_02.html 1> log.tmp 2>&1
+gcc obj/html_complex_02.o -o run/html_complex_02.html.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/html_complex_02.html.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/html_encoding_utf_16be_bom.html.exe run/html_encoding_utf_16be_bom.html 1> log.tmp 2>&1
@@ -4394,27 +4573,27 @@ run/html_line_ending_linux.html.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/html_line_ending_mac.html.exe run/html_line_ending_mac.html 1> log.tmp 2>&1
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
-run/html_line_ending_mac.html(2): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
+run/html_line_ending_mac.html(1): found 'EOF' instead of statement
 
 --------
 run: dmd-0.112   -odobj  -ofrun/html_line_ending_unicode.html.exe run/html_line_ending_unicode.html 1> log.tmp 2>&1
@@ -4663,12 +4842,13 @@ run/in_out_body_02.d(22): unrecognized declaration
 
 --------
 run: dmd-0.112   -odobj  -ofrun/in_out_body_03.d.exe run/in_out_body_03.d 1> log.tmp 2>&1
-run/in_out_body_03.d(18): found 'inner' when expecting ';' following 'statement'
-run/in_out_body_03.d(18): expression expected, not ')'
-run/in_out_body_03.d(18): expression expected, not '{'
-run/in_out_body_03.d(19): found 'assert' when expecting ')'
-run/in_out_body_03.d(20): Declaration expected, not 'out'
-run/in_out_body_03.d(22): unrecognized declaration
+run/in_out_body_03.d(21): found 'inner' when expecting ';' following 'statement'
+run/in_out_body_03.d(21): expression expected, not ')'
+run/in_out_body_03.d(21): expression expected, not '{'
+run/in_out_body_03.d(22): found 'in_checked' when expecting ')'
+run/in_out_body_03.d(23): Declaration expected, not 'out'
+run/in_out_body_03.d(25): no identifier for declarator out_checked
+run/in_out_body_03.d(26): unrecognized declaration
 
 --------
 run: dmd-0.112   -odobj  -ofrun/in_out_body_04.d.exe run/in_out_body_04.d 1> log.tmp 2>&1
@@ -4869,6 +5049,10 @@ gcc obj/invariant_04.o -o run/invariant_04.d.exe -lphobos -lpthread -lm -Xlinker
 run/invariant_04.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.112   -odobj  -ofrun/invariant_06.d.exe run/invariant_06.d 1> log.tmp 2>&1
+run/invariant_06.d(35): expression u of type MyUnion does not have a boolean value
+
+--------
 run: dmd-0.112   -odobj  -ofrun/invariant_10.d.exe run/invariant_10.d 1> log.tmp 2>&1
 gcc obj/invariant_10.o -o run/invariant_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/invariant_10.d.exe 1> log.tmp 2>&1
@@ -5041,6 +5225,16 @@ run: dmd-0.112   -odobj  -ofrun/line_token_04.d.exe run/line_token_04.d 1> log.t
 gcc obj/line_token_04.o -o run/line_token_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/line_token_04.d.exe 1> log.tmp 2>&1
 Error: ArrayBoundsError run/line_token_04.d(31)
+
+--------
+run: dmd-0.112   -odobj  -ofrun/line_token_11.d.exe run/line_token_11.d 1> log.tmp 2>&1
+run/line_token_11.d(7): #line integer ["filespec"]\n expected
+
+--------
+run: dmd-0.112   -odobj  -ofrun/line_token_12.d.exe run/line_token_12.d 1> log.tmp 2>&1
+run/line_token_12.d(7): #line integer ["filespec"]\n expected
+run/line_token_12.d(9): no identifier for declarator __FILE__
+run/line_token_12.d(9): semicolon expected, not 'int'
 
 --------
 run: dmd-0.112   -odobj  -ofrun/long_01.d.exe run/long_01.d 1> log.tmp 2>&1
@@ -5617,15 +5811,15 @@ run: dmd-0.112   -odobj  -ofrun/opCast_02.d.exe run/opCast_02.d 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/opCast_03.d.exe run/opCast_03.d 1> log.tmp 2>&1
 gcc obj/opCast_03.o -o run/opCast_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/opCast_03.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/opCast_03.d(9)
+Error: AssertError Failure run/opCast_03.d(13)
 
 --------
 run: dmd-0.112   -odobj  -ofrun/opCat_01.d.exe run/opCat_01.d 1> log.tmp 2>&1
-run/opCat_01.d(6): incompatible types for ((a) ~ ("d")): 'dchar[]' and 'char[]'
-run/opCat_01.d(6): Can only concatenate arrays, not (dchar[] ~ char[])
-run/opCat_01.d(6): incompatible types for ((a ~ "d") ~ (b)): 'int' and 'dchar[]'
-run/opCat_01.d(6): Can only concatenate arrays, not (int ~ dchar[])
-run/opCat_01.d(6): cannot implicitly convert expression a ~ "d" ~ b of type int to dchar[]
+run/opCat_01.d(10): incompatible types for ((a) ~ ("d")): 'dchar[]' and 'char[]'
+run/opCat_01.d(10): Can only concatenate arrays, not (dchar[] ~ char[])
+run/opCat_01.d(10): incompatible types for ((a ~ "d") ~ (b)): 'int' and 'dchar[]'
+run/opCat_01.d(10): Can only concatenate arrays, not (int ~ dchar[])
+run/opCat_01.d(10): cannot implicitly convert expression a ~ "d" ~ b of type int to dchar[]
 
 --------
 run: dmd-0.112   -odobj  -ofrun/opCat_02.d.exe run/opCat_02.d 1> log.tmp 2>&1
@@ -5634,11 +5828,11 @@ run/opCat_02.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/opCat_03.d.exe run/opCat_03.d 1> log.tmp 2>&1
-run/opCat_03.d(6): incompatible types for ((a) ~ ("d")): 'wchar[]' and 'char[]'
-run/opCat_03.d(6): Can only concatenate arrays, not (wchar[] ~ char[])
-run/opCat_03.d(6): incompatible types for ((a ~ "d") ~ (b)): 'int' and 'wchar[]'
-run/opCat_03.d(6): Can only concatenate arrays, not (int ~ wchar[])
-run/opCat_03.d(6): cannot implicitly convert expression a ~ "d" ~ b of type int to wchar[]
+run/opCat_03.d(10): incompatible types for ((a) ~ ("d")): 'wchar[]' and 'char[]'
+run/opCat_03.d(10): Can only concatenate arrays, not (wchar[] ~ char[])
+run/opCat_03.d(10): incompatible types for ((a ~ "d") ~ (b)): 'int' and 'wchar[]'
+run/opCat_03.d(10): Can only concatenate arrays, not (int ~ wchar[])
+run/opCat_03.d(10): cannot implicitly convert expression a ~ "d" ~ b of type int to wchar[]
 
 --------
 run: dmd-0.112   -odobj  -ofrun/opCatAssign_01.d.exe run/opCatAssign_01.d 1> log.tmp 2>&1
@@ -5664,7 +5858,7 @@ run/opCatAssign_04.d.exe 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/opCatAssign_05.d.exe run/opCatAssign_05.d 1> log.tmp 2>&1
 gcc obj/opCatAssign_05.o -o run/opCatAssign_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/opCatAssign_05.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/opCatAssign_05.d(19)
+Error: AssertError Failure run/opCatAssign_05.d(23)
 
 --------
 run: dmd-0.112   -odobj  -ofrun/opCatAssign_06.d.exe run/opCatAssign_06.d 1> log.tmp 2>&1
@@ -5678,6 +5872,27 @@ run/opCatAssign_07.d(28): Can only concatenate arrays
 --------
 run: dmd-0.112   -odobj  -ofrun/opCatAssign_08.d.exe run/opCatAssign_08.d 1> log.tmp 2>&1
 run/opCatAssign_08.d(28): Can only concatenate arrays
+
+--------
+run: dmd-0.112   -odobj  -ofrun/opCatAssign_09.d.exe run/opCatAssign_09.d 1> log.tmp 2>&1
+gcc obj/opCatAssign_09.o -o run/opCatAssign_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/opCatAssign_09.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/opCatAssign_09.d(75)
+
+--------
+run: dmd-0.112   -odobj  -ofrun/opCatAssign_10.d.exe run/opCatAssign_10.d 1> log.tmp 2>&1
+gcc obj/opCatAssign_10.o -o run/opCatAssign_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/opCatAssign_10.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/opCatAssign_11.d.exe run/opCatAssign_11.d 1> log.tmp 2>&1
+gcc obj/opCatAssign_11.o -o run/opCatAssign_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/opCatAssign_11.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/opCatAssign_12.d.exe run/opCatAssign_12.d 1> log.tmp 2>&1
+gcc obj/opCatAssign_12.o -o run/opCatAssign_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/opCatAssign_12.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/opCmp_01.d.exe run/opCmp_01.d 1> log.tmp 2>&1
@@ -6040,7 +6255,7 @@ run/slice_02.d.exe 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/slice_03.d.exe run/slice_03.d 1> log.tmp 2>&1
 gcc obj/slice_03.o -o run/slice_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/slice_03.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/slice_03.d(13)
+Error: AssertError Failure run/slice_03.d(17)
 
 --------
 run: dmd-0.112   -odobj  -ofrun/slice_04.d.exe run/slice_04.d 1> log.tmp 2>&1
@@ -6192,6 +6407,11 @@ run/static_14.d.exe 1> log.tmp 2>&1
 run: dmd-0.112   -odobj  -ofrun/static_15.d.exe run/static_15.d 1> log.tmp 2>&1
 gcc obj/static_15.o -o run/static_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
 run/static_15.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.112   -odobj  -ofrun/static_16.d.exe run/static_16.d 1> log.tmp 2>&1
+gcc obj/static_16.o -o run/static_16.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/static_16.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/static_17.d.exe run/static_17.d 1> log.tmp 2>&1
@@ -6484,7 +6704,7 @@ run/throw_01.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/throw_02.d.exe run/throw_02.d 1> log.tmp 2>&1
-run/throw_02.d(17): can only throw class objects, not type Alias
+run/throw_02.d(19): can only throw class objects, not type Alias
 
 --------
 run: dmd-0.112   -odobj  -ofrun/throw_03.d.exe run/throw_03.d 1> log.tmp 2>&1
@@ -7044,7 +7264,8 @@ Error: AssertError Failure run/typeid_80.d(16)
 
 --------
 run: dmd-0.112   -odobj  -ofrun/typeid_81.d.exe run/typeid_81.d 1> log.tmp 2>&1
-run/typeid_81.d(16): A is used as a type
+gcc obj/typeid_81.o -o run/typeid_81.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+run/typeid_81.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.112   -odobj  -ofrun/typeid_82.d.exe run/typeid_82.d 1> log.tmp 2>&1
@@ -7453,6 +7674,11 @@ gcc obj/xhtml_tag_01.o -o run/xhtml_tag_01.html.exe -lphobos -lpthread -lm -Xlin
 : undefined reference to `_deh_end'
 collect2: ld gab 1 als Ende-Status zurück
 --- errorlevel 1
+
+--------
+norun: dmd-0.112   -odobj  -ofnorun/auto_05.d.exe norun/auto_05.d 1> log.tmp 2>&1
+gcc obj/auto_05.o -o norun/auto_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/112/dmd/lib 
+norun/auto_05.d.exe 1> log.tmp 2>&1
 
 --------
 norun: dmd-0.112   -odobj  -ofnorun/main_05.d.exe norun/main_05.d 1> log.tmp 2>&1

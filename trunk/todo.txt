@@ -1,8 +1,9 @@
 Makefile:
 * fix analyse_run (tries to execute the destination, even if compiling failed)
 
-Results:
-* integrate benchmark: SciMark 
+Benchmark:
+* integrate benchmark results: SciMark, cowell-shah
+* debug benchmark/cowell-shah/benchmark.d:double io(int ioMax)
 
 Test cases:
 * keyword: asm

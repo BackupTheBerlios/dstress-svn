@@ -34,6 +34,14 @@ Output Synopsis: (DejaGnu / POSIX 1003.3)
 	XFAIL:	test case was expected to fail, and it did
 	ERROR:	compiler, linker or test case segfaulted
 
+Testing:
+	1) the environment variable $DMD / %DMD% is used to detect the compiler executeable
+	2) the environment variable $LOG / %LOG% is used for the detailed log file
+	3) run as "make distclean all"
+	4) for manual tests used the "dstress.c" source, e.g.
+		./dstress nocompile ./the_source_file.d
+		./dstress run ./some_dir/source.html
+
 Source code comments:
 	@author@ 		reporter / author
 	@date@ 			year-month-day

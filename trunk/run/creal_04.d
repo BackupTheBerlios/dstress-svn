@@ -1,7 +1,5 @@
 module dstress.run.creal_04;
 
-import std.stdio;
-
 int main(){
 	real x1 = 2.0;
 	real y1 = 3.0;

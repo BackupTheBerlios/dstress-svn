@@ -190,12 +190,12 @@ norun : Makefile $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) nor
 	$(eval z_name = $(subst .$(ext_norun),,$@))
 	@if $(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log); then \
 		if $@ $(to_log); \
-			then $(ECHO) "XPASS:  $(z_name)"; $(RM) $@; \
+			then $(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
 		else \
-			$(ECHO) "FAIL: $(z_name)"; \
+			$(ECHO) "FAIL:  $(z_name)"; \
 		fi \
 	else \
-		$(ECHO) "XFAIL: $(z_name) (compiling error)"; $(RM) $@; \
+		$(ECHO) "XFAIL:  $(z_name) (compiling error)"; $(RM) $@; \
 	fi
 
 %.$(ext_norun) : %.$(ext_source_html) Makefile

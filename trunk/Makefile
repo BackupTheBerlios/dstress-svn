@@ -137,13 +137,13 @@ endef
 %.$(ext_nocompile) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_nocompile),,$@))
 	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
 	$(analyse_nocompile)
 
 %.$(ext_nocompile) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_nocompile),,$@))
 	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
 	$(analyse_nocompile)
 
 #

@@ -7,7 +7,11 @@
 // @uri@	news:cqi3v3$r2o$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2601
 
-module dstress.run.bug_e2ir_299_A;
+// function literals cannot call nested functions
+
+// __DSTRESS_ELINE__ 19
+
+module dstress.nocompile.bug_e2ir_299_A;
 
 int main(){
 	void foo() {}

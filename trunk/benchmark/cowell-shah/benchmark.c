@@ -1,10 +1,14 @@
 /* All code Copyright 2004 Christopher W. Cowell-Shah */
 
-// http://www.ocf.berkeley.edu/~cowell/research/benchmark/code/Benchmark.c
+/*
+	http://www.ocf.berkeley.edu/~cowell/research/benchmark/code/Benchmark.c
+*/
 
 #include <time.h>
 #include <math.h>
 #include <stdio.h>
+
+extern double log10(double);
 
 double intArithmetic(int);
 double doubleArithmetic(double, double);
@@ -14,24 +18,37 @@ double io(int);
 
 int main()
 {
-	int intMax =            1000000000; // 1B
-	double doubleMin =      10000000000.0; // 10B
-	double doubleMax =      11000000000.0; // 11B
-	long long int longMin = 10000000000LL; // 10B
-	long long int longMax = 11000000000LL; // 11B
-	double trigMax =        10000000; // 10M
-	int ioMax =             1000000; // 1M
+	int intMax =            1000000000; /* 1B */
+	double doubleMin =      10000000000.0; /* 10B */
+	double doubleMax =      11000000000.0; /* 11B */
+	long long int longMin = 10000000000LL; /* 10B */
+	long long int longMax = 11000000000LL; /* 11B */
+	double trigMax =        10000000; /* 10M */
+	int ioMax =             1000000; /* 1M */
 
+
+
+	long double intArithmeticTime;
+	long double doubleArithmeticTime;
+	long double longArithmeticTime;
+	long double trigTime;
+	long double ioTime;
+	long double totalTime;
 
 	printf("Start C benchmark\n");
 
-	long intArithmeticTime = (long)intArithmetic(intMax);
-	long doubleArithmeticTime = (long)doubleArithmetic(doubleMin, doubleMax);
-	long longArithmeticTime = (long)longArithmetic(longMin, longMax);
-	long trigTime = (long)trig(trigMax);
-	long ioTime = (long)io(ioMax);
-	long totalTime = intArithmeticTime + doubleArithmeticTime + longArithmeticTime + trigTime + ioTime;
-	printf("Total elapsed time: %d ms\n", totalTime);
+	intArithmeticTime = intArithmetic(intMax);
+	doubleArithmeticTime = doubleArithmetic(doubleMin, doubleMax);
+	longArithmeticTime = longArithmetic(longMin, longMax);
+	trigTime = trig(trigMax);
+#if 0
+	ioTime = io(ioMax);
+#else
+	ioTime = 0.0;
+#endif
+	totalTime = intArithmeticTime + doubleArithmeticTime + longArithmeticTime + trigTime + ioTime;
+
+	printf("Total elapsed time: %Lf ms\n", totalTime);
 
 	printf("Stop C benchmark\n");
 	return 0;
@@ -56,7 +73,7 @@ double intArithmetic(int intMax)
 
 	stopTime = clock();
 	elapsedTime = (stopTime - startTime) / (CLOCKS_PER_SEC / (double) 1000.0);
-	printf("Int arithmetic elapsed time: %1.0f ms with intMax of %ld\n", elapsedTime, intMax);
+	printf("Int arithmetic elapsed time: %1.0f ms with intMax of %Ld\n", elapsedTime, intMax);
 	printf(" i: %d\n", i);
 	printf(" intResult: %d\n", intResult);
 	return elapsedTime;
@@ -126,14 +143,13 @@ double trig(double trigMax)
 	double squareRoot;
 
 	double i = 0.0;
-	while (i < trigMax)
+	while (i++ < trigMax)
 	{
 		sine = sin(i);
 		cosine = cos(i);
 		tangent = tan(i);
 		logarithm = log10(i);
 		squareRoot = sqrt(i);
-		i++;
 	}
 
 	stopTime = clock();
@@ -156,15 +172,16 @@ double io(int ioMax)
 	clock_t startTime = clock();
 
 	FILE *stream;
+	int i;
+	char readLine[100];
 	stream = fopen("./TestGcc.txt", "w");
-	int i = 0;
+	i = 0;
 	while (i++ < ioMax)
 	{
 		fputs("abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefgh\n", stream);
 	}
 	fclose(stream);
 
-	char readLine[100];
 	stream = fopen("./TestGcc.txt", "r");
 	i = 0;
 	while (i++ < ioMax)

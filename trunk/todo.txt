@@ -1,3 +1,7 @@
+$HeadURL$
+$Date$
+$Author$ 
+
 Makefile:
 * fix analyse_run (tries to execute the destination, even if compiling failed)
 
@@ -31,7 +35,7 @@ Test cases:
 * keyword: public
 * keyword: struct (anonymous)
 * keyword: synchronized
-* keyword: typeid (functions, short, ushort, int, uint, long, ulong, char, wchar, dchar, ?union)
+* keyword: typeid (?functions, ?delegates)
 * keyword: ucent
 * keyword: union (anonymous)
 * keyword: unittest

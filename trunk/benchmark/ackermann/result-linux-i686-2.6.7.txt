@@ -1,0 +1,23 @@
+$HeadURL$ $Date$ ($Author$)
+
+Thomas Kühne <thomas-dloop@kuehne.cn>
+Tue, 09 Nov 2004 15:50:42 +0100
+news:cmql9e$sqe$1@digitaldaemon.com
+http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D/12393
+
+best of 5
+
+gdc-0.8 -O2 -frename-registers -fomit-frame-pointer -fweb -frelease -finline-functions3: (dmd -O -release -inline) 
+	ack(3,11): 16381 (8.640000e+00 seconds)	
+
+icc-8.0 -O3:
+        ack(3,11): 16381 (8.980000e+00 seconds)
+
+gdc-0.8 -O3 -frelease:
+	ack(3,11): 16381 (1.468000e+01 seconds)
+
+gcc-3.4.2 -O3:
+	ack(3,11): 16381 (1.141000e+01 seconds)
+
+dmd-0.106 -O -release -inline:
+	ack(3,11): 16381 (2.406000e+01 seconds)

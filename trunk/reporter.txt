@@ -3,25 +3,25 @@ Thanks to all the bug reporters and for the test case suggestions.
 Aleksey Bobnev 		<uw@front.ru>
 Andy Friesen		<andy@ikagames.com>
 Ant			<duitoolkit@yahoo.ca>
-Arcane Jill		<Arcane_member@pathlink.com>
+Arcane Jill
 Bastiaan Veelo		<Bastiaan.N.Veelo@ntnu.no>
 Ben Hinkle 		<bhinkle4@juno.com>, <bhinkle@mathworks.com>
 Bent Rasmussen 		<exo@bent-rasmussen.info>
 berupon 		<yu@3dcg.ne.jp>
-Brian Hjøllund		<Brian_member@pathlink.com>
+Brian Hjøllund
 Buchan 			<kbuchan@xtra.co.nz>
 Burton Radons 		<burton-radons@shaw.ca>
 Carlos Santander B. 	<carlos8294@msn.com>
-Charlie			<Charlie_member@pathlink.com>
+Charlie
 Chris Newton		<redshodan@dot.gmail.dot.dooot.com>
 Daniel Horn		<hellcatv@hotmail.com>
 David Friedman		<d3rdclsmail@earthlink.net>
 Derek Parnell		<derek@psych.ward>
-D Trebbien 		<D_member@pathlink.com>
-Geoff Hickey		<Geoff_member@pathlink.com>
+D Trebbien
+Geoff Hickey
 Hauke Duden		<H.NS.Duden@gmx.net>
-Hiroshi Sakurai 	<Hiroshi_member@pathlink.com>
-heretic 		<heretic_member@pathlink.com>
+Hiroshi Sakurai
+heretic
 Ilya Zaitseff 		<sark7@mail333.com>
 Jarrett Billingsley	<kb3ctd2@yahoo.com>
 Knud Sörensen		<knud@NetRunner.all-technology.com>
@@ -29,11 +29,11 @@ Ivan Senji		<ivan.senji@public.srce.hr>
 J Anderson		<REMOVEanderson@badmama.com.au>
 J C Calvarese		<jcc7@cox.net>
 John Reimer		<brk_6502@NO_SPA_M.yahoo.com>
-k2			<k2_member@pathlink.com>
-Kevin Bealer 		<Kevin_member@pathlink.com>
-kinghajj		<kinghajj_member@pathlink.com>
+k2
+Kevin Bealer
+kinghajj
 Kris			<someidiot@earthlink.dot.dot.dot.net>
-larrycowan		<larrycowan_member@pathlink.com>
+larrycowan
 Lars Ivar Igesund	<larsivar@igesund.net>
 Lionello Lunesu		<lionello.lunesu@crystalinter.remove.com>
 Miguel Ferreira Simões	<Kobold@netcabo.pt>
@@ -41,7 +41,7 @@ Mike Swieton		<mike@swieton.net>
 Mike Parker		<aldacron71@yahoo.com>
 ndove 			http://www.dsource.org/forums/profile.php?mode=viewprofile&u=142
 Oskar Linde		<d98-oliRE.MO.VE@nada.kth.se>
-Patrick Down		<Patrick_member@pathlink.com>
+Patrick Down
 Paul Runde		<prunde@consolidated.net>
 Regan Heath		<regan@netwin.co.nz>
 Roel Mathys		<roel.mathys@yucom.be>
@@ -50,10 +50,10 @@ Russ Lewis		<spamhole-2001-07-16@deming-os.org>
 Sam McCall 		<tunah@tunah.net>
 Sean Kelly 		<sean@f4.ca>
 shinichiro.h 		<s31552@mail.ecc.u-tokyo.ac.jp>
-Simon Buchan 		<currently@no.where>
+Simon Buchan
 Stephan Wienczny	<Stephan@Wienczny.de>, <wienczny@web.de>
-Stewart Gordon		<smjg_1998@yahoo.com>, <Steward_member@pathlink.com>
-tetsuya 		<tetsuya_member@pathlink.com>
+Stewart Gordon		<smjg_1998@yahoo.com>
+tetsuya
 teqDruid		<me@teqdruid.com>
 Thomas Kuehne 		<thomas-dloop@kuehne.thisisspam.cn>
 Tyro 			<ridimz_at@yahoo.dot.com>

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.sort_11;
+
 int main(){
 	uint a[];
 	a.length=7;
@@ -29,5 +35,6 @@ int main(){
 	assert(b[5]==uint.max-1);
 	assert(b[6]==uint.max);
 
+	assert(&a != &b);
 	return 0;
 }

@@ -10,7 +10,8 @@
 module dstress.run.sort_05;
 
 int main(){
-	double[10] array;
+	double[] array;
+	array.length=10;
 	array[0]=double.max;
 	array[1]=0.875;
 	array[2]=0.75;
@@ -22,30 +23,33 @@ int main(){
 	array[8]=0.0;
 	array[9]=double.min;
 
-	double[] sorted_copy = array.dup;
-	sorted_copy.sort;
+	double[] sorted_copy = array.sort;
 
 	assert(sorted_copy.length==10);
-	double test = 0;
-	assert(sorted_copy[0]==test);
-	test = double.min;
-	assert(sorted_copy[1]==test);
-	test = 0.125;
-	assert(sorted_copy[2]==test);
-	test = 0.25;
-	assert(sorted_copy[3]==test);
-	test = 0.375;
-	assert(sorted_copy[4]==test);
-	test = 0.5;
-	assert(sorted_copy[5]==test);
-	test = 0.625;
-	assert(sorted_copy[6]==test);
-	test = 0.75;
-	assert(sorted_copy[7]==test);
-	test = 0.875;
-	assert(sorted_copy[8]==test);
-	test = double.max;
-	assert(sorted_copy[9]==test);
+	assert(sorted_copy[0]==0.0);
+	assert(sorted_copy[1]==double.min);
+	assert(sorted_copy[2]==0.125);
+	assert(sorted_copy[3]==0.25);
+	assert(sorted_copy[4]==0.375);
+	assert(sorted_copy[5]==0.5);
+	assert(sorted_copy[6]==0.625);
+	assert(sorted_copy[7]==0.75);
+	assert(sorted_copy[8]==0.875);
+	assert(sorted_copy[9]==double.max);
 
+	assert(array.length==10);
+	assert(array[0]==0.0);
+	assert(array[1]==double.min);
+	assert(array[2]==0.125);
+	assert(array[3]==0.25);
+	assert(array[4]==0.375);
+	assert(array[5]==0.5);
+	assert(array[6]==0.625);
+	assert(array[7]==0.75);
+	assert(array[8]==0.875);
+	assert(array[9]==double.max);
+	
+	assert(&array != &sorted_copy);
+	
 	return 0;
 }

@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // sort is documented as a general array property
 module dstress.run.sort_01;
 
@@ -19,6 +23,8 @@ int main(){
 	assert(!b[0]);
 	assert(!b[1]);
 	assert(b[2]);
+	
+	assert(&a != &b);
 
 	return 0;
 }

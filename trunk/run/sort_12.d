@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.sort_12;
+
 int main(){
 	ulong a[];
 	a.length=7;
@@ -29,5 +35,7 @@ int main(){
 	assert(b[5]==ulong.max-1);
 	assert(b[6]==ulong.max);
 
+	assert(&a != &b);
+	
 	return 0;
 }

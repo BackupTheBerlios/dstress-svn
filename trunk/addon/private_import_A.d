@@ -1,6 +1,6 @@
-module dstress.addon.private_import_A;
+module addon.private_import_A;
 
-private import dstress.addon.private_import_B;
+private import addon.private_import_B;
 
 class FooA {
 

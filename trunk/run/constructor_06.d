@@ -9,10 +9,10 @@
 
 // see also dstress.addon.constructor_06_A
 
-// __DSTRESS_DFLAGS__ -I..  addon/constructor_06_A.d 
+// __DSTRESS_DFLAGS__ addon/constructor_06_A.d 
 
 module dstress.run.constructor_06;
-import dstress.addon.constructor_06_A;
+import addon.constructor_06_A;
 
 int main(){
 	Derived c = new Derived();

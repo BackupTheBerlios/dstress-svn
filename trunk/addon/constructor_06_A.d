@@ -10,7 +10,7 @@
 // see dstress.run.constructor_06 
 // see also dstress.addon.constructor_04_A
 
-module dstress.addon.constructor_06_A;
+module addon.constructor_06_A;
 
 class Base{
 	this(){

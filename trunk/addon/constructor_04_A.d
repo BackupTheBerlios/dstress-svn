@@ -8,7 +8,7 @@
 // @url@	nntp://digitalmars.com/D.gnu/829
 
 // see dstress.run.constructor_04
-module dstress.addon.constructor_04_A;
+module addon.constructor_04_A;
 
 class Base{
 	this(){

@@ -1,8 +1,6 @@
-// __DSTRESS_DFLAGS__ -I..
-
 module dstress.nocompile.private_import_01;
 
-import dstress.addon.private_import_B;
+import addon.private_import_B;
 
 class Foo2 : Bar {
 

@@ -1,3 +1,6 @@
+cc  ifeq__.c -o ifeq__
+cc  return__.c -o return__
+cc  extract__.c -o extract__
 FAIL:  compile/abstract_01
 FAIL:  compile/abstract_02
 FAIL:  compile/abstract_03
@@ -8,7 +11,7 @@ PASS:  compile/bug_dsymbol_611_C
 PASS:  compile/bug_e2ir_1158_A
 FAIL:  compile/delegate_13
 PASS:  compile/empty_01
-ERROR: compile/enum_05 [35584]
+FAIL:  compile/enum_05
 PASS:  compile/extern_01
 PASS:  compile/extern_02
 PASS:  compile/extern_03
@@ -22,10 +25,10 @@ PASS:  compile/html_empty_02
 PASS:  compile/interface_08
 PASS:  compile/interface_09
 FAIL:  compile/mixin_01
-ERROR: compile/struct_16 [35584]
+PASS:  compile/struct_16
 PASS:  compile/struct_18
 PASS:  compile/template_struct_02
-FAIL:  compile/typedef_05
+PASS:  compile/typedef_05
 PASS:  compile/union_10
 PASS:  compile/unittest_02
 PASS:  compile/variadic_argument_02
@@ -38,7 +41,7 @@ XFAIL: nocompile/InExpression_15
 XFAIL: nocompile/InExpression_16
 XFAIL: nocompile/InExpression_17
 XFAIL: nocompile/InExpression_18
-XPASS: nocompile/alias_05
+XFAIL: nocompile/alias_05
 XPASS: nocompile/align_01
 XFAIL: nocompile/align_02
 XPASS: nocompile/align_03
@@ -55,20 +58,20 @@ XFAIL: nocompile/bit_02
 XFAIL: nocompile/bounds_checking_01
 XFAIL: nocompile/break_06
 XFAIL: nocompile/break_07
-ERROR: nocompile/bug_20041016_A [35584]
-ERROR: nocompile/bug_20041016_B [35584]
+ERROR: nocompile/bug_20041016_A [Internal compiler error]
+XPASS: nocompile/bug_20041016_B
 XFAIL: nocompile/bug_20041203_A
 XFAIL: nocompile/bug_20041203_B
 XFAIL: nocompile/bug_cgcod_1464
 XFAIL: nocompile/bug_cgcs_353
 XFAIL: nocompile/bug_cod4_352
-XFAIL: nocompile/bug_dsymbol_611_A
+ERROR: nocompile/bug_dsymbol_611_A [Internal compiler error]
 XFAIL: nocompile/bug_dsymbol_611_B
-ERROR: nocompile/bug_e2ir_814 [Internal compiler error]
-ERROR: nocompile/bug_expression_1147 [34304]
-ERROR: nocompile/bug_mtype_2576_B [34304]
+XFAIL: nocompile/bug_e2ir_814
+ERROR: nocompile/bug_expression_1147 [Internal compiler error]
+XFAIL: nocompile/bug_mtype_2576_B
 XFAIL: nocompile/bug_mtype_3154
-ERROR: nocompile/bug_s2ir_458 [Internal compiler error]
+XFAIL: nocompile/bug_s2ir_458
 XFAIL: nocompile/byte_09
 XFAIL: nocompile/byte_10
 XFAIL: nocompile/cast_03
@@ -76,29 +79,29 @@ XPASS: nocompile/cast_04
 XFAIL: nocompile/char_01
 XFAIL: nocompile/char_02
 XFAIL: nocompile/char_04
-XPASS: nocompile/char_05
+XFAIL: nocompile/char_05
 XFAIL: nocompile/class_04
 XFAIL: nocompile/class_05
 XFAIL: nocompile/class_07
-XPASS: nocompile/command_line_debug_05
-XPASS: nocompile/command_line_debug_06
-XPASS: nocompile/command_line_debug_07
+XFAIL: nocompile/command_line_debug_05
+XFAIL: nocompile/command_line_debug_06
+XFAIL: nocompile/command_line_debug_07
 XFAIL: nocompile/command_line_debug_09
-XFAIL: nocompile/command_line_deprecated_02
+XPASS: nocompile/command_line_deprecated_02
 XFAIL: nocompile/command_line_version_04
-XPASS: nocompile/command_line_version_05
+XFAIL: nocompile/command_line_version_05
 XFAIL: nocompile/command_line_version_06
 XFAIL: nocompile/command_line_version_07
-XPASS: nocompile/command_line_version_08
-XPASS: nocompile/command_line_version_09
-XPASS: nocompile/command_line_version_10
-XPASS: nocompile/command_line_version_11
-XPASS: nocompile/command_line_version_12
-XPASS: nocompile/command_line_version_13
-XPASS: nocompile/command_line_version_14
-XPASS: nocompile/command_line_version_15
+XFAIL: nocompile/command_line_version_08
+XFAIL: nocompile/command_line_version_09
+XFAIL: nocompile/command_line_version_10
+XFAIL: nocompile/command_line_version_11
+XFAIL: nocompile/command_line_version_12
+XFAIL: nocompile/command_line_version_13
+XFAIL: nocompile/command_line_version_14
+XFAIL: nocompile/command_line_version_15
 XPASS: nocompile/command_line_version_16
-XPASS: nocompile/command_line_version_17
+XFAIL: nocompile/command_line_version_17
 XFAIL: nocompile/comment_07
 XFAIL: nocompile/comment_08
 XFAIL: nocompile/const_02
@@ -108,15 +111,15 @@ XFAIL: nocompile/const_07
 XFAIL: nocompile/const_08
 XFAIL: nocompile/const_09
 XFAIL: nocompile/const_11
-ERROR: nocompile/constructor_05 [35584]
+ERROR: nocompile/constructor_05 [Internal compiler error]
 XFAIL: nocompile/dchar_01
 XFAIL: nocompile/dchar_02
-XPASS: nocompile/dchar_04
-XPASS: nocompile/dchar_06
-ERROR: nocompile/default_argument_05 [35584]
+XFAIL: nocompile/dchar_04
+XFAIL: nocompile/dchar_06
+XFAIL: nocompile/default_argument_05
 XFAIL: nocompile/delegate_02
 XFAIL: nocompile/delegate_03
-XFAIL: nocompile/delegate_05
+XPASS: nocompile/delegate_05
 XFAIL: nocompile/delegate_07
 XFAIL: nocompile/delegate_08
 XFAIL: nocompile/delegate_09
@@ -190,17 +193,17 @@ XFAIL: nocompile/float_litaeral_dec_14
 XFAIL: nocompile/float_litaeral_dec_15
 XPASS: nocompile/float_litaeral_dec_16
 XFAIL: nocompile/float_litaeral_dec_17
-ERROR: nocompile/foreach_14 [34304]
+XFAIL: nocompile/foreach_14
 XFAIL: nocompile/foreach_17
 XFAIL: nocompile/foreach_18
 XFAIL: nocompile/foreach_19
 XFAIL: nocompile/foreach_20
-ERROR: nocompile/foreach_21 [34304]
-ERROR: nocompile/foreach_22 [34304]
+ERROR: nocompile/foreach_21 [Internal compiler error]
+ERROR: nocompile/foreach_22 [Internal compiler error]
 XFAIL: nocompile/goto_04
 XFAIL: nocompile/goto_06
-XPASS: nocompile/html_empty_entity_01
-XPASS: nocompile/html_empty_entity_02
+XFAIL: nocompile/html_empty_entity_01
+XFAIL: nocompile/html_empty_entity_02
 XFAIL: nocompile/html_empty_entity_03
 XFAIL: nocompile/html_entity_10
 XFAIL: nocompile/html_entity_11
@@ -213,7 +216,7 @@ XFAIL: nocompile/integer_literal_binary_11
 XFAIL: nocompile/integer_literal_binary_12
 XFAIL: nocompile/integer_literal_binary_13
 XFAIL: nocompile/integer_literal_binary_14
-XPASS: nocompile/integer_literal_dec_01
+XFAIL: nocompile/integer_literal_dec_01
 XFAIL: nocompile/integer_literal_dec_02
 XFAIL: nocompile/integer_literal_dec_03
 XFAIL: nocompile/integer_literal_dec_04
@@ -233,7 +236,7 @@ XFAIL: nocompile/invariant_09
 XFAIL: nocompile/invariant_16
 XPASS: nocompile/invariant_17
 XFAIL: nocompile/length_03
-ERROR: nocompile/length_04 [34304]
+XFAIL: nocompile/length_04
 XFAIL: nocompile/line_token_05
 XFAIL: nocompile/line_token_06
 XFAIL: nocompile/line_token_07
@@ -246,14 +249,14 @@ XFAIL: nocompile/main_05
 XFAIL: nocompile/main_06
 XPASS: nocompile/mixin_04
 XFAIL: nocompile/offset_01
-XPASS: nocompile/offset_02
+XFAIL: nocompile/offset_02
 XFAIL: nocompile/offset_03
 XFAIL: nocompile/offsetof_03
 XFAIL: nocompile/offsetof_04
 XFAIL: nocompile/offsetof_05
 XFAIL: nocompile/offsetof_06
 XFAIL: nocompile/offsetof_08
-ERROR: nocompile/opCmp_02 [Internal compiler error]
+XFAIL: nocompile/opCmp_02
 XFAIL: nocompile/opNeg_03
 XFAIL: nocompile/opNeg_04
 XFAIL: nocompile/opPos_03
@@ -286,7 +289,7 @@ XFAIL: nocompile/pragma_03
 XFAIL: nocompile/pragma_04
 XFAIL: nocompile/precondition_01
 XFAIL: nocompile/private_import_01
-XPASS: nocompile/private_import_02
+XFAIL: nocompile/private_import_02
 XFAIL: nocompile/ptr_05
 XFAIL: nocompile/ptr_06
 XFAIL: nocompile/ptr_07
@@ -316,21 +319,21 @@ XFAIL: nocompile/struct_04
 XFAIL: nocompile/struct_05
 XFAIL: nocompile/struct_06
 XFAIL: nocompile/struct_17
-XFAIL: nocompile/super_03
-ERROR: nocompile/super_05 [34304]
-ERROR: nocompile/super_09 [35584]
+ERROR: nocompile/super_03 [Internal compiler error]
+ERROR: nocompile/super_05 [Internal compiler error]
+ERROR: nocompile/super_09 [Internal compiler error]
 XFAIL: nocompile/switch_08
-XPASS: nocompile/switch_09
-XPASS: nocompile/switch_10
+XFAIL: nocompile/switch_09
+XFAIL: nocompile/switch_10
 XFAIL: nocompile/switch_11
-XPASS: nocompile/switch_12
-ERROR: nocompile/switch_13 [34304]
+XFAIL: nocompile/switch_12
+XFAIL: nocompile/switch_13
 XFAIL: nocompile/switch_15
 XFAIL: nocompile/switch_16
 XFAIL: nocompile/template_05
 XFAIL: nocompile/template_06
 XPASS: nocompile/template_09
-XFAIL: nocompile/this_01
+ERROR: nocompile/this_01 [Internal compiler error]
 XFAIL: nocompile/this_02
 XPASS: nocompile/try_05
 XFAIL: nocompile/types_declaration_02
@@ -341,13 +344,13 @@ XFAIL: nocompile/uint_03
 XFAIL: nocompile/ulong_02
 XFAIL: nocompile/ulong_03
 XFAIL: nocompile/union_11
-XPASS: nocompile/union_12
-XPASS: nocompile/union_13
-XPASS: nocompile/union_14
-ERROR: nocompile/union_15 [Internal compiler error]
+XFAIL: nocompile/union_12
+XFAIL: nocompile/union_13
+XFAIL: nocompile/union_14
+XFAIL: nocompile/union_15
 XPASS: nocompile/unittest_03
-XPASS: nocompile/unittest_04
-XPASS: nocompile/unittest_05
+XFAIL: nocompile/unittest_04
+XFAIL: nocompile/unittest_05
 XFAIL: nocompile/unittest_06
 XFAIL: nocompile/ushort_02
 XFAIL: nocompile/ushort_03
@@ -372,8 +375,8 @@ XPASS: nocompile/version_27
 XPASS: nocompile/version_28
 XFAIL: nocompile/wchar_01
 XFAIL: nocompile/wchar_02
-XPASS: nocompile/wchar_04
-XPASS: nocompile/wchar_06
+XFAIL: nocompile/wchar_04
+XFAIL: nocompile/wchar_06
 XFAIL: nocompile/with_05
 XFAIL: nocompile/with_06
 XFAIL: nocompile/with_07
@@ -393,20 +396,20 @@ PASS:  run/Alternate_Wysiwyg_String_13
 PASS:  run/Alternate_Wysiwyg_String_14
 PASS:  run/Alternate_Wysiwyg_String_15
 PASS:  run/Alternate_Wysiwyg_String_16
-FAIL:  run/InExpression_01 (compiling error)
-FAIL:  run/InExpression_02 (compiling error)
-FAIL:  run/InExpression_03 (compiling error)
-FAIL:  run/InExpression_04 (compiling error)
-FAIL:  run/InExpression_05 (compiling error)
-FAIL:  run/InExpression_06 (compiling error)
-FAIL:  run/InExpression_07 (compiling error)
-FAIL:  run/InExpression_08 (compiling error)
-FAIL:  run/InExpression_09 (compiling error)
-FAIL:  run/InExpression_10 (compiling error)
-FAIL:  run/InExpression_11 (compiling error)
-FAIL:  run/InExpression_12 (compiling error)
-FAIL:  run/InExpression_13 (compiling error)
-FAIL:  run/InExpression_19 (compiling error)
+ERROR: run/InExpression_01 [run: 35584]
+FAIL:  run/InExpression_02
+ERROR: run/InExpression_03 [run: 35584]
+ERROR: run/InExpression_04 [run: 35584]
+FAIL:  run/InExpression_05
+ERROR: run/InExpression_06 [run: 35584]
+ERROR: run/InExpression_07 [run: 35584]
+FAIL:  run/InExpression_08
+ERROR: run/InExpression_09 [run: 35584]
+ERROR: run/InExpression_10 [run: 35584]
+PASS:  run/InExpression_11
+PASS:  run/InExpression_12
+PASS:  run/InExpression_13
+PASS:  run/InExpression_19
 PASS:  run/Wysiwyg_String_01
 PASS:  run/Wysiwyg_String_02
 PASS:  run/Wysiwyg_String_03
@@ -438,10 +441,10 @@ PASS:  run/array_initialization_03
 PASS:  run/assert_01
 PASS:  run/assert_02
 PASS:  run/associative_array_02
-ERROR: run/auto_01 [run: 35584]
+ERROR: run/auto_01 [run: 34304]
 PASS:  run/auto_02
-ERROR: run/auto_03 [run: 35584]
-ERROR: run/auto_04 [run: 35584]
+ERROR: run/auto_03 [run: 34304]
+ERROR: run/auto_04 [run: 34304]
 PASS:  run/bit_01
 PASS:  run/bit_03
 PASS:  run/bit_04
@@ -449,17 +452,17 @@ PASS:  run/bit_05
 PASS:  run/bit_06
 PASS:  run/break_01
 PASS:  run/break_02
-PASS:  run/break_03
-PASS:  run/break_04
-PASS:  run/break_05
-FAIL:  run/break_08
-FAIL:  run/break_09
-FAIL:  run/bug_20041103_A
+FAIL:  run/break_03 (compiling error)
+FAIL:  run/break_04 (compiling error)
+FAIL:  run/break_05 (compiling error)
+PASS:  run/break_08
+PASS:  run/break_09
+PASS:  run/bug_20041103_A
 PASS:  run/bug_20041103_B
 FAIL:  run/bug_20041103_C (compiling error)
 PASS:  run/bug_20041103_D
 PASS:  run/bug_20041103_E
-FAIL:  run/bug_cgcod_1640_A (compiling error)
+PASS:  run/bug_cgcod_1640_A
 PASS:  run/bug_cgcod_1640_B
 PASS:  run/bug_cgcod_1640_C
 PASS:  run/bug_cgcod_1640_D
@@ -470,8 +473,8 @@ FAIL:  run/bug_e2ir_299_A (compiling error)
 FAIL:  run/bug_e2ir_299_B (compiling error)
 PASS:  run/bug_elfobj_1251_A
 PASS:  run/bug_elfobj_1251_B
-ERROR: run/bug_expression_661_A [34304]
-ERROR: run/bug_mangle_61_A [34304]
+FAIL:  run/bug_expression_661_A (compiling error)
+FAIL:  run/bug_mangle_61_A (compiling error)
 PASS:  run/bug_mangle_61_B
 PASS:  run/bug_mtype_2576_A
 PASS:  run/byte_01
@@ -488,7 +491,7 @@ PASS:  run/byte_13
 PASS:  run/byte_14
 FAIL:  run/cast_01 (compiling error)
 FAIL:  run/cast_02 (compiling error)
-FAIL:  run/cast_05
+PASS:  run/cast_05
 PASS:  run/char_03
 PASS:  run/class_01
 PASS:  run/class_02
@@ -500,13 +503,13 @@ PASS:  run/class_10
 PASS:  run/class_initialization_01
 PASS:  run/class_initialization_02
 PASS:  run/command_line_debug_01
-PASS:  run/command_line_debug_02
+FAIL:  run/command_line_debug_02 (compiling error)
 PASS:  run/command_line_debug_03
-PASS:  run/command_line_debug_04
+FAIL:  run/command_line_debug_04 (compiling error)
 PASS:  run/command_line_debug_08
 PASS:  run/command_line_deprecated_01
 PASS:  run/command_line_version_01
-PASS:  run/command_line_version_02
+FAIL:  run/command_line_version_02 (compiling error)
 PASS:  run/command_line_version_03
 PASS:  run/comment_01
 PASS:  run/comment_02
@@ -527,16 +530,16 @@ FAIL:  run/const_05 (compiling error)
 PASS:  run/const_06
 PASS:  run/const_10
 PASS:  run/constructor_01
-ERROR: run/constructor_02 [35584]
+PASS:  run/constructor_02
 PASS:  run/constructor_03
-PASS:  run/constructor_04
-PASS:  run/constructor_06
+FAIL:  run/constructor_04 (compiling error)
+FAIL:  run/constructor_06 (compiling error)
 PASS:  run/constructor_07
 FAIL:  run/constructor_08 (compiling error)
 PASS:  run/creal_01
 PASS:  run/creal_02
 PASS:  run/creal_03
-FAIL:  run/creal_04
+PASS:  run/creal_04
 PASS:  run/creal_05
 PASS:  run/creal_06
 PASS:  run/creal_07
@@ -545,9 +548,9 @@ PASS:  run/creal_09
 PASS:  run/creal_10
 PASS:  run/creal_11
 PASS:  run/creal_12
-PASS:  run/creal_13
+FAIL:  run/creal_13
 PASS:  run/creal_14
-PASS:  run/creal_15
+FAIL:  run/creal_15
 PASS:  run/creal_16
 PASS:  run/creal_17
 PASS:  run/creal_18
@@ -559,14 +562,14 @@ PASS:  run/dchar_07
 PASS:  run/dchar_08
 PASS:  run/dchar_09
 PASS:  run/debug_01
-PASS:  run/debug_02
+FAIL:  run/debug_02 (compiling error)
 PASS:  run/debug_03
 PASS:  run/default_argument_01
 PASS:  run/default_argument_02
 PASS:  run/default_argument_03
 PASS:  run/default_argument_04
-PASS:  run/default_argument_06
-FAIL:  run/default_argument_07 (compiling error)
+FAIL:  run/default_argument_06 (compiling error)
+PASS:  run/default_argument_07
 PASS:  run/delegate_01
 PASS:  run/delegate_04
 PASS:  run/delegate_06
@@ -610,13 +613,13 @@ PASS:  run/dup_01
 PASS:  run/dup_02
 PASS:  run/dup_03
 ERROR: run/dup_04 [run: 35584]
-FAIL:  run/encoding_utf_16be (compiling error)
+PASS:  run/encoding_utf_16be
 PASS:  run/encoding_utf_16be_bom
-FAIL:  run/encoding_utf_16le (compiling error)
+PASS:  run/encoding_utf_16le
 PASS:  run/encoding_utf_16le_bom
-FAIL:  run/encoding_utf_32be (compiling error)
+PASS:  run/encoding_utf_32be
 PASS:  run/encoding_utf_32be_bom
-FAIL:  run/encoding_utf_32le (compiling error)
+PASS:  run/encoding_utf_32le
 PASS:  run/encoding_utf_32le_bom
 PASS:  run/encoding_utf_8
 PASS:  run/encoding_utf_8_bom
@@ -643,7 +646,7 @@ PASS:  run/final_02
 PASS:  run/final_03
 PASS:  run/final_05
 PASS:  run/final_06
-FAIL:  run/finally_01
+PASS:  run/finally_01
 PASS:  run/float_01
 PASS:  run/float_02
 PASS:  run/float_03
@@ -689,8 +692,8 @@ FAIL:  run/goto_05 (compiling error)
 FAIL:  run/goto_07 (compiling error)
 PASS:  run/goto_08
 FAIL:  run/goto_09 (compiling error)
-FAIL:  run/goto_10 (compiling error)
-FAIL:  run/goto_11 (compiling error)
+PASS:  run/goto_10
+PASS:  run/goto_11
 PASS:  run/html_comment_01
 FAIL:  run/html_comment_02 (compiling error)
 PASS:  run/html_comment_03
@@ -737,8 +740,8 @@ PASS:  run/html_line_ending_linux
 FAIL:  run/html_line_ending_mac
 FAIL:  run/html_line_ending_unicode (compiling error)
 PASS:  run/html_tag_case_01
-FAIL:  run/html_tag_case_02 (compiling error)
-FAIL:  run/html_tag_case_03 (compiling error)
+PASS:  run/html_tag_case_02
+PASS:  run/html_tag_case_03
 FAIL:  run/html_tag_space_01 (compiling error)
 FAIL:  run/html_tag_space_02 (compiling error)
 PASS:  run/if_01
@@ -746,7 +749,7 @@ PASS:  run/if_02
 PASS:  run/if_03
 PASS:  run/if_04
 PASS:  run/if_05
-ERROR: run/if_06 [35584]
+PASS:  run/if_06
 PASS:  run/in_01
 PASS:  run/in_02
 PASS:  run/in_03
@@ -787,7 +790,7 @@ FAIL:  run/interface_11 (compiling error)
 PASS:  run/invariant_01
 PASS:  run/invariant_02
 PASS:  run/invariant_10
-FAIL:  run/invariant_11 (compiling error)
+PASS:  run/invariant_11
 PASS:  run/invariant_12
 PASS:  run/invariant_13
 FAIL:  run/invariant_14
@@ -795,7 +798,7 @@ FAIL:  run/invariant_15
 FAIL:  run/invariant_18
 PASS:  run/keys_01
 PASS:  run/label_01
-ERROR: run/label_02 [35584]
+FAIL:  run/label_02 (compiling error)
 PASS:  run/label_03
 PASS:  run/length_01
 PASS:  run/length_02
@@ -823,20 +826,20 @@ PASS:  run/nested_function_04
 PASS:  run/odd_bug_01
 PASS:  run/odd_bug_02
 FAIL:  run/offsetof_01 (compiling error)
-FAIL:  run/offsetof_02 (compiling error)
-FAIL:  run/offsetof_07 (compiling error)
+PASS:  run/offsetof_02
+PASS:  run/offsetof_07
 FAIL:  run/opCast_01 (compiling error)
-ERROR: run/opCast_02 [35584]
+FAIL:  run/opCast_02 (compiling error)
 FAIL:  run/opCast_03
 PASS:  run/opCatAssign_01
 PASS:  run/opCatAssign_02
 PASS:  run/opCatAssign_03
-PASS:  run/opCatAssign_04
-FAIL:  run/opCatAssign_05
+FAIL:  run/opCatAssign_04 (compiling error)
+FAIL:  run/opCatAssign_05 (compiling error)
 FAIL:  run/opCat_01 (compiling error)
 PASS:  run/opCat_02
 FAIL:  run/opCat_03 (compiling error)
-ERROR: run/opCmp_01 [35584]
+PASS:  run/opCmp_01
 PASS:  run/opNeg_01
 PASS:  run/opNeg_02
 PASS:  run/opPos_01
@@ -866,10 +869,10 @@ PASS:  run/pragma_06
 PASS:  run/private_01
 FAIL:  run/private_02 (compiling error)
 FAIL:  run/private_03 (compiling error)
-FAIL:  run/ptr_01 (compiling error)
-FAIL:  run/ptr_02 (compiling error)
-FAIL:  run/ptr_03 (compiling error)
-FAIL:  run/ptr_04 (compiling error)
+PASS:  run/ptr_01
+PASS:  run/ptr_02
+PASS:  run/ptr_03
+FAIL:  run/ptr_04
 PASS:  run/real_01
 PASS:  run/real_02
 FAIL:  run/real_03
@@ -899,7 +902,7 @@ PASS:  run/sizeof_03
 PASS:  run/sizeof_04
 PASS:  run/slice_01
 PASS:  run/slice_02
-FAIL:  run/slice_03
+PASS:  run/slice_03
 PASS:  run/slice_04
 PASS:  run/slice_05
 PASS:  run/slice_07
@@ -927,13 +930,13 @@ PASS:  run/static_14
 PASS:  run/static_15
 FAIL:  run/static_16
 PASS:  run/static_17
-FAIL:  run/static_18 (compiling error)
+PASS:  run/static_18
 PASS:  run/static_20
-FAIL:  run/static_21 (compiling error)
+PASS:  run/static_21
 PASS:  run/static_22
 PASS:  run/static_23
 PASS:  run/static_24
-FAIL:  run/static_25 (compiling error)
+PASS:  run/static_25
 PASS:  run/static_26
 PASS:  run/static_27
 PASS:  run/static_28
@@ -943,9 +946,9 @@ PASS:  run/struct_03
 PASS:  run/struct_08
 PASS:  run/struct_10
 PASS:  run/struct_12
-ERROR: run/struct_13 [35584]
+PASS:  run/struct_13
 PASS:  run/struct_14
-FAIL:  run/struct_15
+PASS:  run/struct_15
 PASS:  run/struct_initialization_01
 PASS:  run/struct_initialization_02
 PASS:  run/struct_initialization_03
@@ -954,9 +957,9 @@ PASS:  run/struct_initialization_05
 PASS:  run/super_01
 PASS:  run/super_02
 PASS:  run/super_04
-ERROR: run/super_06 [35584]
-ERROR: run/super_07 [35584]
-ERROR: run/super_08 [35584]
+FAIL:  run/super_06 (compiling error)
+FAIL:  run/super_07 (compiling error)
+FAIL:  run/super_08 (compiling error)
 PASS:  run/switch_01
 PASS:  run/switch_02
 FAIL:  run/switch_03
@@ -966,15 +969,15 @@ PASS:  run/switch_06
 PASS:  run/switch_07
 FAIL:  run/switch_14 (compiling error)
 PASS:  run/template_01
-FAIL:  run/template_03 (compiling error)
+PASS:  run/template_03
 PASS:  run/template_04
 FAIL:  run/template_07 (compiling error)
-ERROR: run/template_08 [35072]
+FAIL:  run/template_08 (compiling error)
 PASS:  run/template_class_01
 PASS:  run/template_class_02
 FAIL:  run/template_class_03 (compiling error)
-ERROR: run/template_class_04 [35584]
-ERROR: run/template_class_05 [35584]
+FAIL:  run/template_class_04 (compiling error)
+FAIL:  run/template_class_05 (compiling error)
 PASS:  run/template_class_06
 PASS:  run/template_struct_01
 PASS:  run/throw_01
@@ -1108,7 +1111,7 @@ PASS:  run/version_04
 PASS:  run/version_05
 PASS:  run/version_07
 PASS:  run/version_08
-FAIL:  run/version_29 (compiling error)
+PASS:  run/version_29
 PASS:  run/wchar_03
 PASS:  run/wchar_05
 PASS:  run/wchar_07
@@ -1130,11 +1133,11 @@ XFAIL: norun/slice_06
 XFAIL: norun/slice_08
 XFAIL: complex/command_line/command_line_null_source_01
 XFAIL: complex/command_line/command_line_null_source_02
-XPASS: complex/command_line/command_line_null_source_03
+XFAIL: complex/command_line/command_line_null_source_03
 XFAIL: complex/command_line/command_line_null_source_04
-XPASS: complex/command_line/command_line_null_source_05
+XFAIL: complex/command_line/command_line_null_source_05
 XFAIL: complex/command_line/command_line_null_source_06
-PASS:  complex/linking/linking_01
+FAIL:  complex/linking/linking_01 (compiling error)
 PASS:  complex/linking/linking_02_A
 FAIL:  complex/linking/linking_02_B
 FAIL:  complex/linking/linking_02_C

@@ -179,7 +179,7 @@ compile : Makefile $(sort $(subst .$(ext_source),.$(ext_compile),$(shell $(FIND)
 
 define analyse_compile
 	@if $(ifeq__) $(z_return) 0 ; then \
-		$(ECHO) "PASS:  $(z_name)"; \
+		$(ECHO) "PASS:  $(z_name)"; $(TOUCH) $@; \
 	else \
 		if $(ifeq__) $(z_return) 256 ; then \
 			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
@@ -192,14 +192,14 @@ endef
 %.$(ext_compile) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_compile),,$@))
 	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
 	$(analyse_compile)
 
 
 %.$(ext_compile) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_compile),,$@))
 	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -of$@ $< $(to_log)"))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
 	$(analyse_compile)
 
 # 

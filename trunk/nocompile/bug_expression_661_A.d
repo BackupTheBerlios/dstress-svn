@@ -7,7 +7,9 @@
 // @date@	2004-11-30
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs:2371
 
-module dstress.run.bug_expression_661_A;
+// __DSTRESS_ELINE__ 14
+
+module dstress.nocompile.bug_expression_661_A;
 
 ulong[cast(uint)((cast(float)byte.sizeof/ulong.sizeof)-int.max>>2)+int.max>>2] hexarray;
 

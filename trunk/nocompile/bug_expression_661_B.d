@@ -6,8 +6,10 @@
 // @date@	2005-02-03
 // @uri@	news:ctth2h$1ai$1@digitaldaemon.com
 
-module dstress.run.bug_expression_661_B;
+// __DSTRESS_ELINE__ 14
 
-int main(){
-	return cast(int)(.0>>0);
+module dstress.nocompile.bug_expression_661_B;
+
+void test(){
+	int i = cast(int)(.0>>0);
 } 

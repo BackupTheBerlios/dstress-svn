@@ -25,13 +25,6 @@
 
 * Embedded _ in numeric literals
 	18_446_744_073_709_551_615 / 18446744073709551615
-
-* X strings
-	D has the x string, where hex data can be simply wrapped with double quotes, leaving the whitespace intact:
-	x"00 0A E3 DC 86 73 7E 7E"
-
-* char escapes
-	\U , \u , \x
 	
 * module initializers & ?destructors?
 	module foo;

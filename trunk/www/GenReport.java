@@ -107,10 +107,8 @@ public class GenReport{
 				if(status<0){
 					throw new IOException("Unknown token \""+token+"\"");
 				}
-				// pares test name
+				// test name
 				String name=nizer.nextToken();
-				name=name.substring(name.lastIndexOf('/')+1);
-				name=name.replace('_',' ');
 				// get
 				TestResult test=(TestResult)data.get(name);
 				if(test==null){
@@ -132,7 +130,28 @@ public class GenReport{
 		// test cases:
 		for(Enumeration e=data.elements();e.hasMoreElements();){
 			TestResult result= (TestResult) e.nextElement();
-			out.write("<tr><th>"+result.name+"</th>");
+			String plainName=result.name;
+			plainName=plainName.substring(plainName.lastIndexOf('/')+1);
+			plainName=plainName.replace('_',' ');			
+			String linkName=result.name;
+			if(linkName.startsWith("run") || linkName.startsWith("compile") || linkName.startsWith("nocompile") || linkName.startsWith("norun")){
+				linkName="../"+linkName;
+				if(linkName.indexOf("html")>-1){
+					linkName+=".html";
+				}else{
+					linkName+=".d";
+				}
+			}else if(linkName.startsWith("complex")){
+				linkName="../"+linkName.substring(0,linkName.lastIndexOf("/")+1);
+			}else{
+				linkName=null;
+			}
+			if(linkName==null){
+				out.write("<tr><th>"+plainName+"</th>");
+			}else{
+				// @todo@ fix linkName escape
+				out.write("<tr><th><a href='"+linkName+"'>"+plainName+"</a></th>");
+			}
 			for(int index=0; index<result.status.length; index++){
 				out.write("<td class='");
 				try{

@@ -1,4 +1,8 @@
-(unordered)
+Makefile:
+* fix analyse_run (tries to execute the destination, even if compiling failed)
+
+
+Test cases:
 * keyword: asm
 * keyword: in out body
 * keyword: cent
@@ -25,6 +29,7 @@
 * keyword: public
 * keyword: struct (anonymous)
 * keyword: synchronized
+* keyword: typeid
 * keyword: ucent
 * keyword: unittest
 * keyword: volatile
@@ -46,7 +51,7 @@
 
 * module initializers & destructors
 
-* maximum possible size of source/name/arrays/strings
+* maximum possible size of source/names/arrays
 
 * maximum possible amount of aliases / templates / vars / functions in a source file
 

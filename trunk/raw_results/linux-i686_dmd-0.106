@@ -37,7 +37,7 @@ XFAIL: nocompile/bug_cgcs_353
 XFAIL: nocompile/bug_cod4_352
 ERROR: nocompile/bug_e2ir_814 [Internal compiler error]
 XFAIL: nocompile/bug_expression_1147
-XFAIL: nocompile/bug_mtype_2576
+XFAIL: nocompile/bug_mtype_2576_B
 XFAIL: nocompile/bug_mtype_3154
 XFAIL: nocompile/bug_s2ir_458
 XFAIL: nocompile/byte_09
@@ -137,6 +137,12 @@ XFAIL: nocompile/float_litaeral_dec_06
 XFAIL: nocompile/float_litaeral_dec_07
 XPASS: nocompile/float_litaeral_dec_08
 XPASS: nocompile/float_litaeral_dec_09
+XPASS: nocompile/float_litaeral_dec_12
+XFAIL: nocompile/float_litaeral_dec_13
+XFAIL: nocompile/float_litaeral_dec_14
+XFAIL: nocompile/float_litaeral_dec_15
+XPASS: nocompile/float_litaeral_dec_16
+XFAIL: nocompile/float_litaeral_dec_17
 XFAIL: nocompile/foreach_14
 XFAIL: nocompile/html_entity_10
 XFAIL: nocompile/html_entity_11
@@ -170,12 +176,12 @@ XFAIL: nocompile/invariant_16
 XPASS: nocompile/invariant_17
 XFAIL: nocompile/length_03
 XFAIL: nocompile/length_04
-XFAIL: nocompile/line_token_04
 XFAIL: nocompile/line_token_05
 XFAIL: nocompile/line_token_06
 XFAIL: nocompile/line_token_07
 XFAIL: nocompile/line_token_08
 XFAIL: nocompile/line_token_09
+XFAIL: nocompile/line_token_10
 XFAIL: nocompile/long_02
 XFAIL: nocompile/long_03
 XFAIL: nocompile/main_05
@@ -229,13 +235,13 @@ XFAIL: nocompile/static_08
 XFAIL: nocompile/static_09
 XFAIL: nocompile/static_10
 XPASS: nocompile/static_11
-XPASS: nocompile/static_12
 XPASS: nocompile/static_13
+XPASS: nocompile/static_19
 XFAIL: nocompile/struct_04
 XFAIL: nocompile/struct_05
 XFAIL: nocompile/struct_06
 XFAIL: nocompile/super_03
-ERROR: nocompile/super_04 [34304]
+ERROR: nocompile/super_05 [34304]
 XFAIL: nocompile/switch_08
 XPASS: nocompile/switch_09
 XPASS: nocompile/switch_10
@@ -348,7 +354,9 @@ PASS:  run/bug_20041103_B
 FAIL:  run/bug_20041103_C (compiling error)
 PASS:  run/bug_20041103_D
 PASS:  run/bug_20041103_E
-PASS:  run/bug_mtype_2576
+ERROR: run/bug_mangle_61_A [34304]
+PASS:  run/bug_mangle_61_B
+PASS:  run/bug_mtype_2576_A
 PASS:  run/byte_01
 PASS:  run/byte_02
 PASS:  run/byte_03
@@ -517,9 +525,9 @@ PASS:  run/float_12
 PASS:  run/float_13
 PASS:  run/float_litaeral_dec_01
 PASS:  run/float_litaeral_dec_03
-PASS:  run/float_litaeral_dec_04
 PASS:  run/float_litaeral_dec_05
 PASS:  run/float_litaeral_dec_10
+PASS:  run/float_litaeral_dec_11
 PASS:  run/for_01
 PASS:  run/for_02
 PASS:  run/foreach_01
@@ -617,7 +625,7 @@ PASS:  run/integer_literal_binary_05
 PASS:  run/integer_literal_binary_06
 PASS:  run/integer_literal_binary_07
 PASS:  run/integer_literal_binary_08
-PASS:  run/integer_literal_dec_04
+PASS:  run/integer_literal_dec_05
 PASS:  run/integer_literal_hex_01
 PASS:  run/integer_literal_hex_02
 PASS:  run/integer_literal_hex_03
@@ -900,10 +908,10 @@ PASS:  run/typeof_04
 PASS:  run/types_declaration_01
 PASS:  run/types_defining_01
 PASS:  run/ubyte_01
-PASS:  run/ubyte_02
-PASS:  run/ubyte_03
 PASS:  run/ubyte_04
 PASS:  run/ubyte_05
+PASS:  run/ubyte_06
+PASS:  run/ubyte_07
 PASS:  run/uint_01
 PASS:  run/unicode_01
 PASS:  run/unicode_02
@@ -917,9 +925,9 @@ PASS:  run/union_07
 FAIL:  run/union_11 (compiling error)
 PASS:  run/unittest_01
 PASS:  run/ushort_01
-PASS:  run/ushort_02
-PASS:  run/ushort_03
 PASS:  run/ushort_04
+PASS:  run/ushort_05
+PASS:  run/ushort_06
 PASS:  run/values_01
 PASS:  run/version_01
 PASS:  run/version_02
@@ -928,7 +936,7 @@ PASS:  run/version_04
 PASS:  run/version_05
 PASS:  run/version_07
 PASS:  run/version_08
-PASS:  run/version_28
+PASS:  run/version_29
 PASS:  run/wchar_03
 PASS:  run/wchar_05
 PASS:  run/wchar_07

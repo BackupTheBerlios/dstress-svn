@@ -7,7 +7,9 @@
 // @uri@	news:crshla$2io3$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2659
 
-module dstress.run.cast_10;
+// __DSTESS_ELINE__  25
+
+module dstress.nocompile.cast_10;
 
 class Parent{
 }

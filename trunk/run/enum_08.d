@@ -10,7 +10,11 @@
 module destress.run.enum_08;
 
 int main(){
-	enum MyEnum{ A=-1, AA, B };
+	enum MyEnum{
+		A=-1,
+		AA,
+		B
+	};
 	MyEnum e = -MyEnum.B;
 	assert(MyEnum.B>0);
 	assert(e<0);

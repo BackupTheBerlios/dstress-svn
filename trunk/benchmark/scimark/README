@@ -2,8 +2,8 @@
 
 This is a D version of the SciMark2 benchmark, translated from 
 the ANSI C (based on the original Java sources).  The intent
-in making this benchmark available in D is for mainly
-for performance comparisons.
+in making this benchmark available in D is mainly for performance
+comparisons.
 
 For more information about SciMark, see http://math.nist.gov/scimark.
 

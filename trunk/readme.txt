@@ -3,6 +3,7 @@ Project:
 
 URL:
 	http://dmd.kuehne.cn/dstress.html
+	mailto:dstress@kuehne.cn
 
 Description:
 	stress tests and bug checks for D-language compilers

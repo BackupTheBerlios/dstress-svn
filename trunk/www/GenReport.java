@@ -39,7 +39,7 @@ public class GenReport{
 	protected static class TestResult{
 
 		static final String typ[] = new String[]{
-			"ERROR", "PASS", "XPASS", "FAIL", "XFAIL"
+			"-", "PASS", "XPASS", "FAIL", "XFAIL", "ERROR"
 		};
 
 		static String lower[];
@@ -50,11 +50,12 @@ public class GenReport{
 				lower[index]=typ[index].toLowerCase();
 			}
 		}
-		static final byte ERROR=0;
+		static final byte UNTESTED=0;
 		static final byte PASS=1;
 		static final byte XPASS=2;
 		static final byte FAIL=3;
 		static final byte XFAIL=4;
+		static final byte ERROR=5;
 
 		/** the test's name */
 		protected String name;
@@ -98,15 +99,15 @@ public class GenReport{
 				// pare result status
 				StringTokenizer nizer = new StringTokenizer(line," \n:",false);
 				String token=nizer.nextToken();
-				byte status=-1;
+				byte status=TestResult.UNTESTED;
 				for(byte typeIndex=0; typeIndex<TestResult.typ.length; typeIndex++){
 					if(TestResult.typ[typeIndex].equals(token)){
 						status=typeIndex;
 					}
 				}
-				if(status<0){
+				/*if(status<0){
 					throw new IOException("Unknown token \""+token+"\"");
-				}
+				}*/
 				// test name
 				String name=nizer.nextToken();
 				// get
@@ -168,7 +169,14 @@ public class GenReport{
 		// summary:
 		for(int type=0; type<TestResult.typ.length; type++){
 			out.write("<!-- summary --><tr><th>");
-			out.write("<a href='#symbol-"+TestResult.lower[type]+"' id='summary-"+TestResult.lower[type]+"' name='summary-"+TestResult.lower[type]+"'>"+TestResult.lower[type]+"</a></th>");
+			out.write("<a href='#symbol-");
+			String lowerCase;
+			if(type!=TestResult.UNTESTED){
+				lowerCase=TestResult.lower[type];
+			}else{
+				lowerCase="untested";
+			}
+			out.write(lowerCase+"' id='summary-"+lowerCase+"' name='summary-"+lowerCase+"'>"+lowerCase+"</a></th>");
 			for(int compiler=0; compiler<summary.length; compiler++){
 				out.write("<td class='"+(char)('A'+type)+"'>"+summary[compiler][type]+"</td>");
 			}

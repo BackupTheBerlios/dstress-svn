@@ -221,6 +221,12 @@ endef
 %.diagnose.$(ext_run) : %.$(ext_source) basic_tools
 	# destination: $@
 	# source: $<
+	$(eval y_tmp = OK)
+	# eval: $(y_tmp)
+	# shell:
+	@$(ECHO) $(shell $(ECHO) "OK")
+	$(eval y_tmp = $(shell $(ECHO) "OK"))
+	# eval.shell: $(y_tmp)
 	$(eval z_name = $(subst .diagnose.$(ext_run),,$@))
 	# name: $(z_name)
 	# extract__: $(extract__)

@@ -3,6 +3,10 @@ make run/command_line_debug_01.diagnose.exe
 = = = = = stdout = = = = =
 # destination: run/command_line_debug_01.diagnose.exe
 # source: run/command_line_debug_01.d
+# eval: OK
+# shell:
+OK
+# eval.shell: OK
 # name: run/command_line_debug_01
 # extract__: ./extract__
 # extract__.cmd: ./extract__ __DSTRESS_DFLAGS__ < run/command_line_debug_01.d
@@ -18,6 +22,6 @@ make run/command_line_debug_01.diagnose.exe
 # dmd.return: 0
 # for analyse_run diagnosis: '@if' -> 'if' in 'define analyse_run' (line 185)
 PASS:  run/command_line_debug_01
- 
-= = = = =  log.txt = = = = =
+
+= = = = = log.txt = = = = =
 gcc obj/command_line_debug_01.o -o run/command_line_debug_01.diagnose.exe -lphobos -lpthread -lm 

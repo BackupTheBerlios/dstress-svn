@@ -1,4 +1,4 @@
-// §DSTRESS_DFLAGS§ -version=Win64 -version=linux
+// __DSTRESS_DFLAGS__ -version=Win64 -version=linux
 
 module dstress.nocompile.command_line_version_13;
 

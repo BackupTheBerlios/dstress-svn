@@ -24,7 +24,7 @@ int main(){
 	assert(status==0);
 	MyClass object = new MyClass();
 	assert(status==2);
-	object = new MyObject(3);
+	object = new MyClass(3);
 	assert(status==5);
 	return 0;
 }

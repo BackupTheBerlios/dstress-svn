@@ -80,7 +80,7 @@ ext_source = d
 ext_source_html = html
 complex_todo = complex.mak
 complex_done = complex.done
-flag_pattern = §DSTRESS_FLAGS§
+flag_pattern = __DSTRESS_DFLAGS__
 
 
 .PHONY: all basic_tools compile nocompile run norun complex clean distclean clean_log log

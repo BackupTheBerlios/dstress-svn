@@ -1,4 +1,4 @@
-// §DSTRESS_FLAGS§ -version=A2
+// __DSTRESS_DFLAGS__ -version=A2
 
 module dstress.run.command_line_version_03;
 

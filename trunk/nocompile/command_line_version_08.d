@@ -1,4 +1,4 @@
-// §DSTRESS_DFLAGS§ -version=X86 -version=AMD64
+// __DSTRESS_DFLAGS__ -version=X86 -version=AMD64
 
 module dstress.nocompile.command_line_version_08;
 

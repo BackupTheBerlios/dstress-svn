@@ -17,7 +17,7 @@
 #
 
 #
-# NOTE: almost all tests can be written using §DSTRESS_FLAGS§
+# NOTE: almost all tests can be written using __DSTRESS_DFLAGS__
 #
 
 .PHONY: \

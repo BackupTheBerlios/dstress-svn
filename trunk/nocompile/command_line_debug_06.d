@@ -1,4 +1,4 @@
-// §DSTRESS_FLAGS§ -debug123
+// __DSTRESS_DFLAGS__ -debug123
 
 module stress.run.command_line_debug_06;
 

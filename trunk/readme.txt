@@ -26,9 +26,9 @@ Output Synopsis: (DejaGnu / POSIX 1003.3)
 	ERROR:	test error (compiler, linker or test case segfaulted)
 
 Source code comments:
-	@author@ 	reporter / author
-	@date@ 		year-month-day
-	@uri@		message id
-	@url@		message xRef
-	@WARNING@	external dependencies (e.g. Phobos)
-	§DSTRESS_FLAGS§	everything following in the same line will be interpreted as _additional_ compiler flags
+	@author@ 		reporter / author
+	@date@ 			year-month-day
+	@uri@			message id
+	@url@			message xRef
+	@WARNING@		external dependencies (e.g. Phobos)
+	__DSTRESS_DFLAGS__	everything following in the same line will be interpreted as _additional_ compiler flags

@@ -3,7 +3,7 @@
 // @uri@	news://cls8bk$16j5$1@digitaldaemon.com
 // @url@	nttp://digitalmars.com/digitalmars.D.bugs:2157
 
-// §DSTRESS_FLAGS§ -c -g
+// __DSTRESS_FLAG__ -c -g
 
 module dstress.compile.unittest_02;
 

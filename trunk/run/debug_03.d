@@ -1,4 +1,4 @@
-// §DSTRESS_FLAGS§ -debug=a
+// __DSTRESS_DFLAGS__ -debug=a
 
 module dstress.run.debug_03;
 

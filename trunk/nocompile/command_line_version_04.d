@@ -1,4 +1,4 @@
-// §DSTRESS_DFLAGS§ -version
+// __DSTRESS_DFLAGS__ -version
 
 module dstress.nocompile.command_line_version_04;
 

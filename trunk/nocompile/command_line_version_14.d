@@ -1,4 +1,4 @@
-// §DSTRESS_DFLAGS§ -version=LittleEndian -version=BigEndian
+// __DSTRESS_DFLAGS__ -version=LittleEndian -version=BigEndian
 
 module dstress.nocompile.command_line_version_14;
 

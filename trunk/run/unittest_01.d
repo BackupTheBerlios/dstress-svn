@@ -1,4 +1,4 @@
-// §DSTRESS_FLAGS§ -unittest
+// __DSTRESS_DFLAGS__ -unittest
 
 module dstress.run.unittest_01;
 

@@ -11,7 +11,7 @@ int i;
 
 int main(){
 	assert(dstress.run.module_01.i==0);
-	stress.run.module_01.i++;
+	dstress.run.module_01.i++;
 	assert(dstress.run.module_01.i==1);
 	return 0;
 }

@@ -1,3 +1,5 @@
+module dstress.run.opCatAsign_05;
+
 int main(){
 	bit[] a;
 	a.length=3;

@@ -1,7 +1,3 @@
-(priority)
-* general review / endian issues 
-* remove duplicated tests
-
 (unordered)
 * keyword: asm
 * keyword: body
@@ -20,7 +16,7 @@
 * keyword: idouble
 * keyword: ifloat
 * keyword: import
-* keyword: invariant (when: public, export, destructor; circumvent with pointers possible?)
+* keyword: invariant (when: public, export, destructor; circumvention with pointers possible?)
 * keyword: ireal
 * keyword: module
 * keyword: package

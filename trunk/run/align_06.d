@@ -1,3 +1,5 @@
+module dtress.run.align_06;
+
 struct SmallStruct{
 	align(1) byte a;
 	align(1) byte b;

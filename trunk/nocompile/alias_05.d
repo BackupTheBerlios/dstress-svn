@@ -1,3 +1,4 @@
+module dstress.nocompile.alias_05;
 
 alias int myint;
 

@@ -1,3 +1,6 @@
+// SwitchError should be a sub-class of Error witch in turn is a sub-class of Exception
+
+module dstress.run.switch_03;
 
 int main(){
 	int test=10;
@@ -10,6 +13,8 @@ int main(){
 		}
 	}catch(Exception e){
 		test=1;	
+	}catch{
+		test=0;
 	}
 
 	assert(test==1);

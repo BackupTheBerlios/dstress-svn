@@ -1,3 +1,5 @@
+module dstress.run.opCat_03;
+
 int main(){
 	wchar[] a="abc";
 	wchar[] b="efg";

@@ -1,7 +1,9 @@
-
 // @author@	J Anderson <REMOVEanderson@badmama.com.au>
-// @date@	2004-01-05
+// @date@	2004-05-01
 // @uri@	news://c70jk9$off$1@digitaldaemon.com
+// @url@	nttp://digitalmars.com/digitalmars.D.bugs:53
+
+module dstress.run.scope_01;
 
 int check;
 
@@ -11,13 +13,16 @@ class MyClass{
 	}
 	
 	void call(){
+		assert(check==0);
 		assert(status==3);
+		check+=1;
 		s.test();
-		check+=5;
+		check+=4;
 	}
 
 	struct MyStruct{
 		void test(){
+			assert(check==1);
 			assert(status==3);
 			status=4;
 			check+=3;

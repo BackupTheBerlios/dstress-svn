@@ -1,7 +1,9 @@
-
 // @author@	Andy Friesen <andy@ikagames.com>
 // @date@	2004-04-30
 // @uri@	news://c6s698$2nt$1@digitaldaemon.com
+// @url@	nttp://digitalmars.com/digitalmars.D.bugs:32
+
+module dstress.run.overload_07;
 
 int status;
 

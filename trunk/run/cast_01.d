@@ -1,7 +1,9 @@
-
 // @author@	Regan Heat <regan@netwin.co.nz>
 // @date@	2004-08-19
 // @uri@	news://opsczziyi5a2sq9@digitalmars.com
+// @url@	nttp://digitalmars.com/digitalmars.D.bugs:1407
+
+module dstress.run.cast_01;
 
 enum Enum{
 	a

@@ -1,3 +1,6 @@
+// sort is documented as a general array property
+module dstress.run.sort_01;
+
 int main(){
 	bit a[];
 	a.length=3;

@@ -1,3 +1,8 @@
+// @author@	Thomas Kuehne <thomas-dloop@kuehne.cn>
+// @date@	2004-10-22
+// @uri@	news://clbr09$uc6$1@digitaldaemon.com
+// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2140
+
 module dstress.run.invariant_14.d;
 
 class Parent{

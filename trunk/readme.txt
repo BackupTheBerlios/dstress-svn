@@ -23,4 +23,11 @@ Output Synopsis:
 	XFAIL:	unexpected failure
 	PASS:	expected pass
 	XPASS:	unexpected pass
-	
+
+Source code comments:
+	@author@ 	reporter / author
+	@date@ 		year-month-day
+	@uri@		message id
+	@url@		message xRef
+	@WARNING@	external dependencies (e.g. Phobos)
+

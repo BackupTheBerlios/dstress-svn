@@ -1,4 +1,3 @@
-// based on a report by:
 // @author@	Russ Lewis <spamhole-2001-07-16@deming-os.org>
 // @date@	2004-10-11
 // @url@	nttp://digitalmars.com/digitalmars.D.bugs:2068

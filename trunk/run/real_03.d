@@ -1,3 +1,4 @@
+module dstress.run.real_03;
 
 int main(){
 	real r;

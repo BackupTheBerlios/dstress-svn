@@ -2,16 +2,12 @@ int main(){
 	try{
 		#line 0 ""
 		assert(0);
-	}catch(Exception e){
-		checkFileSpec(e);
-		return 0;
-	}catch(Error e){
-		checkFileSpec(e);
+	}catch(Object o){
+		checkFileSpec(o);
 		return 0;
 	}
 
-	assert(-1);
-	return 1;
+	assert(0);
 }
 
 /*

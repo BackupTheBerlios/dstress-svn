@@ -1,10 +1,7 @@
+module dstress.run.foreach_16;
+
 int main(){
-	char[] string;
-	string.length=4;
-	string[0] = 0xF0;
-	string[1] = 0x9D;
-	string[2] = 0x83;
-	string[3] = 0x93;
+	char[] string = x"F0 9D 83 93"; // utf-8 for U+1D0D3
 
 	int count=0;
 	wchar tmp;

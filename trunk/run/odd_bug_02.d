@@ -1,6 +1,11 @@
 // @author@	Ben Hinkle <bhinkle4@juno.com>
 // @date@	2004-09-26
+// @uri@	news://cj6g4d$9iv$1@digitaldaemon.com
+// @url@	nttp://digitalmars.com/digitalmars.D.bugs:1953
 
+module dstress.run.odd_bug_02;
+
+// @WARNING@: this code requires phobos
 import std.stdarg;
 
 struct TestStruct{

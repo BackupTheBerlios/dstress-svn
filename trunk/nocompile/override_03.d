@@ -1,3 +1,5 @@
+// override can only be applied to class functions
+module dstress.nocompile.override_03;
 
 class Parent{
 	int check;

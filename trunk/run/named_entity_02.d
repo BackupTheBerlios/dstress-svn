@@ -98,8 +98,8 @@ int main(){
 	assert('\&prop;'==8733);
 	assert('\&infin;'==8734);
 	assert('\&ang;'==8736);
-	assert('\&and;'==8869);
-	assert('\&or;'==8870);
+	assert('\&and;'==8743);
+	assert('\&or;'==8744);
 	assert('\&cap;'==8745);
 	assert('\&cup;'==8746);
 	assert('\&int;'==8747);

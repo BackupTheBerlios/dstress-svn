@@ -8,5 +8,6 @@ module dstress.run.typeid_46;
 int main(){
 	TypeInfo ti = typeid(double*);
 	assert(!(ti is null));
+	assert(ti.toString()=="double*");
 	return 0;
 }

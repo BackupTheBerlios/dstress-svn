@@ -13,5 +13,6 @@ enum MyEnum{
 int main(){
 	TypeInfo ti = typeid(MyEnum);
 	assert(!(ti is null));
+	assert(ti.toString()=="MyEnum");
 	return 0;
 }

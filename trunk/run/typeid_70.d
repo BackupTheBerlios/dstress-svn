@@ -12,5 +12,6 @@ struct MyStruct{
 int main(){
 	TypeInfo ti = typeid(MyStruct);
 	assert(!(ti is null));
+	assert(ti.toString()=="MyStruct");
 	return 0;
 }

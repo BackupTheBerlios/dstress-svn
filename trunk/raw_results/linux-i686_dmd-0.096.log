@@ -40,6 +40,20 @@ compile: dmd-96   -c -odobj  compile/empty_01.d 1> log.tmp 2>&1
 compile: dmd-96   -c -odobj  compile/enum_05.d 1> log.tmp 2>&1
 
 --------
+compile: dmd-96   -c -odobj  compile/enum_12.d 1> log.tmp 2>&1
+
+--------
+compile: dmd-96   -c -odobj  compile/eol_comment_07.d 1> log.tmp 2>&1
+
+--------
+compile: dmd-96   -c -odobj  compile/eol_comment_08.d 1> log.tmp 2>&1
+compile/eol_comment_08.d(8): static assert  (0) is false
+
+--------
+compile: dmd-96   -c -odobj  compile/eol_comment_09.d 1> log.tmp 2>&1
+compile/eol_comment_09.d(8): static assert  (0) is false
+
+--------
 compile: dmd-96   -c -odobj  compile/extern_01.d 1> log.tmp 2>&1
 
 --------
@@ -239,6 +253,10 @@ nocompile: dmd-96   -c -odobj  nocompile/bug_cgcod_1464.d 1> log.tmp 2>&1
 Internal error: ../ztc/cgcod.c 1464
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/bug_cgcs_353_B.d 1> log.tmp 2>&1
+Internal error: ../ztc/cgcs.c 353
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/bug_cgcs_353.d 1> log.tmp 2>&1
 nocompile/bug_cgcs_353.d(19): cannot append to static array ubyte[64]
 
@@ -277,12 +295,28 @@ dmd.bin: mtype.c:3404: virtual Expression* TypeStruct::dotExp(Scope*, Expression
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/bug_mtype_507_A.d 1> log.tmp 2>&1
-nocompile/bug_mtype_507_A.d(12): function opEquals (Object o) does not match argument types (int)
-nocompile/bug_mtype_507_A.d(12): cannot implicitly convert int to Object
+nocompile/bug_mtype_507_A.d(15): function opEquals (Object o) does not match argument types (int)
+nocompile/bug_mtype_507_A.d(15): cannot implicitly convert int to Object
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/bug_mtype_507_B.d 1> log.tmp 2>&1
-nocompile/bug_mtype_507_B.d(17): incompatible types for ((s) == (i)): 'Struct' and 'int'
+nocompile/bug_mtype_507_B.d(19): incompatible types for ((s) == (i)): 'Struct' and 'int'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/bug_mtype_507_C.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_C.d(12): 'this' is only allowed in non-static member functions
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/bug_mtype_507_D.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_D.d(12): 'this' is only allowed in non-static member functions
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/bug_mtype_507_E.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_E.d(12): incompatible types for ((0) + (Exception )): 'int' and 'Exception'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/bug_mtype_507_F.d 1> log.tmp 2>&1
+nocompile/bug_mtype_507_F.d(12): type Exception  is not an expression
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/bug_s2ir_458.d 1> log.tmp 2>&1
@@ -572,6 +606,98 @@ nocompile/double_quoted_string_16.d(2): undefined escape sequence \!
 --------
 nocompile: dmd-96   -c -odobj  nocompile/enum_06.d 1> log.tmp 2>&1
 nocompile/enum_06.d: enum __anonymous enum __anonymous must have at least one member
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_comment_01.d 1> log.tmp 2>&1
+nocompile/eol_comment_01.d(7): unterminated /* */ comment
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_comment_02.d 1> log.tmp 2>&1
+nocompile/eol_comment_02.d(7): unterminated /* */ comment
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_comment_03.d 1> log.tmp 2>&1
+nocompile/eol_comment_03.d(7): unterminated /* */ comment
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_comment_04.d 1> log.tmp 2>&1
+nocompile/eol_comment_04.d(7): unterminated /+ +/ comment
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_comment_05.d 1> log.tmp 2>&1
+nocompile/eol_comment_05.d(7): unterminated /+ +/ comment
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_comment_06.d 1> log.tmp 2>&1
+nocompile/eol_comment_06.d(7): unterminated /+ +/ comment
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_01.d 1> log.tmp 2>&1
+nocompile/eol_string_01.d(7): unterminated string constant starting at nocompile/eol_string_01.d(7)
+nocompile/eol_string_01.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_02.d 1> log.tmp 2>&1
+nocompile/eol_string_02.d(7): unterminated string constant starting at nocompile/eol_string_02.d(7)
+nocompile/eol_string_02.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_03.d 1> log.tmp 2>&1
+nocompile/eol_string_03.d(7): unterminated string constant starting at nocompile/eol_string_03.d(7)
+nocompile/eol_string_03.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_04.d 1> log.tmp 2>&1
+nocompile/eol_string_04.d(7): unterminated string constant starting at nocompile/eol_string_04.d(7)
+nocompile/eol_string_04.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_05.d 1> log.tmp 2>&1
+nocompile/eol_string_05.d(7): unterminated string constant starting at nocompile/eol_string_05.d(7)
+nocompile/eol_string_05.d(7): unterminated string constant starting at nocompile/eol_string_05.d(7)
+nocompile/eol_string_05.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_06.d 1> log.tmp 2>&1
+nocompile/eol_string_06.d(7): unterminated string constant starting at nocompile/eol_string_06.d(7)
+nocompile/eol_string_06.d(7): unterminated string constant starting at nocompile/eol_string_06.d(7)
+nocompile/eol_string_06.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_07.d 1> log.tmp 2>&1
+nocompile/eol_string_07.d(7): unterminated string constant starting at nocompile/eol_string_07.d(7)
+nocompile/eol_string_07.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_08.d 1> log.tmp 2>&1
+nocompile/eol_string_08.d(7): unterminated string constant starting at nocompile/eol_string_08.d(7)
+nocompile/eol_string_08.d(7): unterminated string constant starting at nocompile/eol_string_08.d(7)
+nocompile/eol_string_08.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_09.d 1> log.tmp 2>&1
+nocompile/eol_string_09.d(7): unterminated string constant starting at nocompile/eol_string_09.d(7)
+nocompile/eol_string_09.d(7): unterminated string constant starting at nocompile/eol_string_09.d(7)
+nocompile/eol_string_09.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_10.d 1> log.tmp 2>&1
+nocompile/eol_string_10.d(7): unterminated string constant starting at nocompile/eol_string_10.d(7)
+nocompile/eol_string_10.d(7): unterminated string constant starting at nocompile/eol_string_10.d(7)
+nocompile/eol_string_10.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_11.d 1> log.tmp 2>&1
+nocompile/eol_string_11.d(7): unterminated string constant starting at nocompile/eol_string_11.d(7)
+nocompile/eol_string_11.d(7): unterminated string constant starting at nocompile/eol_string_11.d(7)
+nocompile/eol_string_11.d(7): semicolon expected, not 'EOF'
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/eol_string_12.d 1> log.tmp 2>&1
+nocompile/eol_string_12.d(7): ';' expected following module declaration instead of char
+nocompile/eol_string_12.d(7): Declaration expected, not '['
+
+nocompile/eol_string_12.d(7): unterminated string constant starting at nocompile/eol_string_12.d(7)
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/escape_hex_02.d 1> log.tmp 2>&1
@@ -970,6 +1096,147 @@ nocompile: dmd-96   -c -odobj  nocompile/interface_03.d 1> log.tmp 2>&1
 nocompile/interface_03.d(7): class MyClass 1interface function MyInterface.two is not implemented
 
 --------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_01.d 1> log.tmp 2>&1
+nocompile/invalid_utf_01.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_02.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_03.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_05.d 1> log.tmp 2>&1
+nocompile/invalid_utf_05.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_06.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_07.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_08.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_09.d 1> log.tmp 2>&1
+nocompile/invalid_utf_09.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_10.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_11.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_12.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_13.d 1> log.tmp 2>&1
+nocompile/invalid_utf_13.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_14.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_15.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_16.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_17.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_18.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_19.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_20.d 1> log.tmp 2>&1
+nocompile/invalid_utf_20.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_21.d 1> log.tmp 2>&1
+nocompile/invalid_utf_21.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_22.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_23.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_24.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_25.d 1> log.tmp 2>&1
+nocompile/invalid_utf_25.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_26.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_27.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_28.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_29.d 1> log.tmp 2>&1
+nocompile/invalid_utf_29.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_30.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_31.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_32.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_33.d 1> log.tmp 2>&1
+nocompile/invalid_utf_33.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_34.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_35.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_36.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_37.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_38.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_39.d 1> log.tmp 2>&1
+nocompile/invalid_utf_39.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_40.d 1> log.tmp 2>&1
+nocompile/invalid_utf_40.d(7): invalid UTF-8 sequence
+nocompile/invalid_utf_40.d(7): invalid UTF-8 sequence
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_41.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_42.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/invalid_utf_43.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-96   -c -odobj  nocompile/invariant_03.d 1> log.tmp 2>&1
 nocompile/invariant_03.d(5): function _invariant invariants only are for struct/union/class definitions
 
@@ -1065,6 +1332,11 @@ nocompile: dmd-96   -c -odobj  nocompile/main_06.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/mixin_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-96   -c -odobj  nocompile/module_03.d 1> log.tmp 2>&1
+nocompile/module_03.d(7): Declaration expected, not 'module'
+
 
 --------
 nocompile: dmd-96   -c -odobj  nocompile/offset_01.d 1> log.tmp 2>&1
@@ -1681,6 +1953,15 @@ gcc obj/alias_12.o -o run/alias_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/alias_12.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/alias_13.d.exe run/alias_13.d 1> log.tmp 2>&1
+run/alias_13.d(28): need 'this' to access member sum
+
+--------
+run: dmd-96   -odobj  -ofrun/alias_14.d.exe run/alias_14.d 1> log.tmp 2>&1
+gcc obj/alias_14.o -o run/alias_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/alias_14.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-96   -odobj  -ofrun/align_06.d.exe run/align_06.d 1> log.tmp 2>&1
 gcc obj/align_06.o -o run/align_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/align_06.d.exe 1> log.tmp 2>&1
@@ -1934,6 +2215,17 @@ gcc obj/bug_20041226_E.o -o run/bug_20041226_E.d.exe -lphobos -lpthread -lm -Xli
 run/bug_20041226_E.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/bug_20050128_A.d.exe run/bug_20050128_A.d 1> log.tmp 2>&1
+gcc obj/bug_20050128_A.o -o run/bug_20050128_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/bug_20050128_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/bug_20050128_A.d(16)
+
+--------
+run: dmd-96   -odobj  -ofrun/bug_20050128_B.d.exe run/bug_20050128_B.d 1> log.tmp 2>&1
+gcc obj/bug_20050128_B.o -o run/bug_20050128_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/bug_20050128_B.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-96   -O -odobj  -ofrun/bug_cgcod_1640_A.d.exe run/bug_cgcod_1640_A.d 1> log.tmp 2>&1
 Internal error: ../ztc/cgcod.c 1640
 
@@ -2005,8 +2297,17 @@ gcc obj/bug_elfobj_1251_B.o -o run/bug_elfobj_1251_B.d.exe -lphobos -lpthread -l
 run/bug_elfobj_1251_B.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -g -odobj  -ofrun/bug_elfobj_1251_C.d.exe run/bug_elfobj_1251_C.d 1> log.tmp 2>&1
+gcc obj/bug_elfobj_1251_C.o -o run/bug_elfobj_1251_C.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/bug_elfobj_1251_C.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-96   -odobj  -ofrun/bug_expression_661_A.d.exe run/bug_expression_661_A.d 1> log.tmp 2>&1
 run/bug_expression_661_A.d(12): 'cast(float)(1) / cast(float)(8) - cast(float)(2147483647)' is not an integral type
+
+--------
+run: dmd-96   -odobj  -ofrun/bug_expression_661_B.d.exe run/bug_expression_661_B.d 1> log.tmp 2>&1
+run/bug_expression_661_B.d(12): '0' is not an integral type
 
 --------
 run: dmd-96   -odobj  -ofrun/bug_mangle_61_A.d.exe run/bug_mangle_61_A.d 1> log.tmp 2>&1
@@ -2022,6 +2323,13 @@ run/bug_mangle_61_B.d.exe 1> log.tmp 2>&1
 run: dmd-96   -odobj  -ofrun/bug_mtype_2576_A.d.exe run/bug_mtype_2576_A.d 1> log.tmp 2>&1
 gcc obj/bug_mtype_2576_A.o -o run/bug_mtype_2576_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/bug_mtype_2576_A.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/bug_todt_194_A.d.exe run/bug_todt_194_A.d 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/bug_todt_194_B.d.exe run/bug_todt_194_B.d 1> log.tmp 2>&1
+run/bug_todt_194_B.d(12): MyStruct!().i is used as a type
 
 --------
 run: dmd-96   -odobj  -ofrun/byte_01.d.exe run/byte_01.d 1> log.tmp 2>&1
@@ -2884,6 +3192,21 @@ gcc obj/enum_11.o -o run/enum_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/di
 run/enum_11.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/eol_01.d.exe run/eol_01.d 1> log.tmp 2>&1
+gcc obj/eol_01.o -o run/eol_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/eol_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/eol_02.d.exe run/eol_02.d 1> log.tmp 2>&1
+gcc obj/eol_02.o -o run/eol_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/eol_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/eol_03.d.exe run/eol_03.d 1> log.tmp 2>&1
+gcc obj/eol_03.o -o run/eol_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/eol_03.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-96   -odobj  -ofrun/escape_hex_01.d.exe run/escape_hex_01.d 1> log.tmp 2>&1
 gcc obj/escape_hex_01.o -o run/escape_hex_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/escape_hex_01.d.exe 1> log.tmp 2>&1
@@ -3702,6 +4025,24 @@ collect2: ld gab 1 als Ende-Status zurück
 --- errorlevel 1
 
 --------
+run: dmd-96   -odobj  -ofrun/html_htm_01.htm.exe run/html_htm_01.htm 1> log.tmp 2>&1
+Error: unrecognized file extension htm
+
+
+--------
+run: dmd-96   -odobj  -ofrun/html_htm_02.HTM.exe run/html_htm_02.HTM 1> log.tmp 2>&1
+Error: unrecognized file extension HTM
+
+
+--------
+run: dmd-96   -odobj  -ofrun/html_html_01.html.exe run/html_html_01.html 1> log.tmp 2>&1
+gcc obj/html_html_01.o -o run/html_html_01.html.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/html_html_01.html.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/html_html_02.HTML.exe run/html_html_02.HTML 1> log.tmp 2>&1
+
+--------
 run: dmd-96   -odobj  -ofrun/html_line_ending_dos.html.exe run/html_line_ending_dos.html 1> log.tmp 2>&1
 gcc obj/html_line_ending_dos.o -o run/html_line_ending_dos.html.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/html_line_ending_dos.html.exe 1> log.tmp 2>&1
@@ -4286,6 +4627,19 @@ gcc obj/mixin_03.o -o run/mixin_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/mixin_03.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/module_01.d.exe run/module_01.d 1> log.tmp 2>&1
+run/module_01.d(13): undefined identifier dstress
+
+--------
+run: dmd-96   -odobj  -ofrun/module_02.d.exe run/module_02.d 1> log.tmp 2>&1
+gcc obj/module_02.o -o run/module_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/module_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -I. -odobj  -ofrun/module_04.d.exe run/module_04.d 1> log.tmp 2>&1
+run/module_04.d(15): undefined identifier run
+
+--------
 run: dmd-96   -odobj  -ofrun/nested_function_01.d.exe run/nested_function_01.d 1> log.tmp 2>&1
 gcc obj/nested_function_01.o -o run/nested_function_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/nested_function_01.d.exe 1> log.tmp 2>&1
@@ -4306,6 +4660,20 @@ run: dmd-96   -odobj  -ofrun/nested_function_04.d.exe run/nested_function_04.d 1
 gcc obj/nested_function_04.o -o run/nested_function_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/nested_function_04.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure run/nested_function_04.d(14)
+
+--------
+run: dmd-96   -odobj  -ofrun/nested_function_05.d.exe run/nested_function_05.d 1> log.tmp 2>&1
+gcc obj/nested_function_05.o -o run/nested_function_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+obj/nested_function_05.o(.deh_beg+0x0): multiple definition of `_deh_beg'
+obj/nested_function_05.o(.deh_beg+0x0): first defined here
+obj/nested_function_05.o(.deh_end+0x0): multiple definition of `_deh_end'
+obj/nested_function_05.o(.deh_end+0x0): first defined here
+collect2: ld gab 1 als Ende-Status zurück
+--- errorlevel 1
+
+--------
+run: dmd-96   -odobj  -ofrun/nested_function_06.d.exe run/nested_function_06.d 1> log.tmp 2>&1
+run/nested_function_06.d(15): function main parameters must be main() or main(char[][] args)
 
 --------
 run: dmd-96   -odobj  -ofrun/odd_bug_01.d.exe run/odd_bug_01.d 1> log.tmp 2>&1
@@ -4503,6 +4871,23 @@ run/overload_10.d(27): function test overloads int(real a,real b) and int(real a
 run: dmd-96   -odobj  -ofrun/overload_13.d.exe run/overload_13.d 1> log.tmp 2>&1
 run/overload_13.d(25): function test (int val) does not match argument types ()
 run/overload_13.d(25): Error: expected 1 arguments, not 0
+
+
+--------
+run: dmd-96   -odobj  -ofrun/overload_14.d.exe run/overload_14.d 1> log.tmp 2>&1
+run/overload_14.d(21): function check () does not match argument types (int)
+run/overload_14.d(21): Error: expected 0 arguments, not 1
+
+
+--------
+run: dmd-96   -odobj  -ofrun/overload_15.d.exe run/overload_15.d 1> log.tmp 2>&1
+gcc obj/overload_15.o -o run/overload_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/overload_15.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/overload_16.d.exe run/overload_16.d 1> log.tmp 2>&1
+run/overload_16.d(23): function check (int x) does not match argument types ()
+run/overload_16.d(23): Error: expected 1 arguments, not 0
 
 
 --------
@@ -5022,6 +5407,10 @@ run/super_07.d(17): no super class constructor for Parent
 --------
 run: dmd-96   -odobj  -ofrun/super_08.d.exe run/super_08.d 1> log.tmp 2>&1
 run/super_08.d(22): no super class constructor for Object
+
+--------
+run: dmd-96   -odobj  -ofrun/super_10.d.exe run/super_10.d 1> log.tmp 2>&1
+run/super_10.d(14): no super class constructor for Object
 
 --------
 run: dmd-96   -odobj  -ofrun/switch_01.d.exe run/switch_01.d 1> log.tmp 2>&1
@@ -5733,6 +6122,29 @@ gcc obj/unicode_02.o -o run/unicode_02.d.exe -lphobos -lpthread -lm -Xlinker -L/
 run/unicode_02.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-96   -odobj  -ofrun/unicode_03.d.exe run/unicode_03.d 1> log.tmp 2>&1
+gcc obj/unicode_03.o -o run/unicode_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/unicode_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/unicode_04.d.exe run/unicode_04.d 1> log.tmp 2>&1
+gcc obj/unicode_04.o -o run/unicode_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/unicode_04.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/unicode_05.d.exe run/unicode_05.d 1> log.tmp 2>&1
+gcc obj/unicode_05.o -o run/unicode_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+run/unicode_05.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-96   -odobj  -ofrun/unicode_06.d.exe run/unicode_06.d 1> log.tmp 2>&1
+run/unicode_06.d(17): undefined identifier dstress
+
+--------
+run: dmd-96   -odobj  -ofrun/unicode_07.d.exe run/unicode_07.d 1> log.tmp 2>&1
+run/unicode_07.d(15): cannot implicitly convert int to geräusch
+
+--------
 run: dmd-96   -odobj  -ofrun/union_01.d.exe run/union_01.d 1> log.tmp 2>&1
 gcc obj/union_01.o -o run/union_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
 run/union_01.d.exe 1> log.tmp 2>&1
@@ -6019,3 +6431,70 @@ norun/slice_08.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure norun/slice_08.d(15)
 
 --------
+Digital Mars D Compiler v0.96
+Copyright (c) 1999-2004 by Digital Mars written by Walter Bright
+Documentation: www.digitalmars.com/d/index.html
+Usage:
+  dmd files.d ... { -switch }
+
+  files.d        D source files
+  -c             do not link
+  -d             allow deprecated features
+  -g             add symbolic debug info
+  -gt            add trace profiling hooks
+  -v             verbose
+  -O             optimize
+  -odobjdir      write object files to directory objdir
+  -offilename	 name output file to filename
+  -op            do not strip paths from source file
+  -Ipath         where to look for imports
+  -Llinkerflag   pass linkerflag to link
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
+  -inline        do function inlining
+  -release	 compile release version
+  -unittest      compile in unit tests
+  -version=level compile in version code >= level
+  -version=ident compile in version code identified by ident
+Digital Mars D Compiler v0.96
+Copyright (c) 1999-2004 by Digital Mars written by Walter Bright
+Documentation: www.digitalmars.com/d/index.html
+Usage:
+  dmd files.d ... { -switch }
+
+  files.d        D source files
+  -c             do not link
+  -d             allow deprecated features
+  -g             add symbolic debug info
+  -gt            add trace profiling hooks
+  -v             verbose
+  -O             optimize
+  -odobjdir      write object files to directory objdir
+  -offilename	 name output file to filename
+  -op            do not strip paths from source file
+  -Ipath         where to look for imports
+  -Llinkerflag   pass linkerflag to link
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
+  -inline        do function inlining
+  -release	 compile release version
+  -unittest      compile in unit tests
+  -version=level compile in version code >= level
+  -version=ident compile in version code identified by ident
+gcc .o -o  -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+/usr/bin/ld: cannot open output file /usr/lib/crt1.o: Permission denied
+collect2: ld gab 1 als Ende-Status zurück
+--- errorlevel 1
+gcc ..o -o . -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+/usr/bin/ld: cannot open output file .: Is a directory
+collect2: ld gab 1 als Ende-Status zurück
+--- errorlevel 1
+gcc obj/a.o obj/b.o obj/c.o -o complex/linking/linking_01 -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+gcc complex/linking/a.o complex/linking/b.o complex/linking/c.o -o complex/linking/linking_02 -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/96/dmd/lib 
+complex/linking/c.o(.bss+0x0): multiple definition of `_init_7dstress7complex7linking1a9StructA_i7StructA'
+complex/linking/b.o(.bss+0x0): first defined here
+collect2: ld gab 1 als Ende-Status zurück
+--- errorlevel 1
+sh: line 1: ./complex/linking/linking_02: No such file or directory

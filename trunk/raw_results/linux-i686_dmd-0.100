@@ -1,7 +1,8 @@
-cc -o dstress.exe dstress.c
-find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress.exe compile" > compile.sh
+cc  dstress.c -o dstress__
+rm -f compile/*.o compile/*.o
+find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ compile" > compile.sh
 chmod +x compile.sh
-./compile.sh 2>> log.txt
+./compile.sh 2>> /tmp/dstress/log.txt
 PASS: 	compile/abstract_01.d
 PASS: 	compile/abstract_02.d
 PASS: 	compile/abstract_03.d
@@ -15,6 +16,10 @@ FAIL: 	compile/const_13.d [256]
 FAIL: 	compile/delegate_13.d [256]
 PASS: 	compile/empty_01.d
 ERROR:	compile/enum_05.d [35584]
+ERROR:	compile/enum_12.d [35584]
+PASS: 	compile/eol_comment_07.d
+FAIL: 	compile/eol_comment_08.d [256]
+FAIL: 	compile/eol_comment_09.d [256]
 PASS: 	compile/extern_01.d
 PASS: 	compile/extern_02.d
 PASS: 	compile/extern_03.d
@@ -44,9 +49,10 @@ PASS: 	compile/unittest_02.d
 PASS: 	compile/variadic_argument_02.d
 PASS: 	compile/variadic_argument_03.d
 FAIL: 	compile/version_09.d [256]
-find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress.exe nocompile" > nocompile.sh
+rm -f nocompile/*.o nocompile/*.no
+find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ nocompile" > nocompile.sh
 chmod +x nocompile.sh
-./nocompile.sh 2>> log.txt
+./nocompile.sh 2>> /tmp/dstress/log.txt
 XPASS:	nocompile/abstract_05.d
 XPASS:	nocompile/alias_05.d
 XPASS:	nocompile/align_01.d
@@ -71,6 +77,7 @@ ERROR:	nocompile/bug_20041016_B.d [35584]
 XFAIL:	nocompile/bug_20041203_A.d
 XFAIL:	nocompile/bug_20041203_B.d
 XFAIL:	nocompile/bug_cgcod_1464.d
+ERROR:	nocompile/bug_cgcs_353_B.d (Internal compiler error)
 XFAIL:	nocompile/bug_cgcs_353.d
 XFAIL:	nocompile/bug_cod4_352.d
 XFAIL:	nocompile/bug_dsymbol_611_A.d
@@ -82,6 +89,10 @@ ERROR:	nocompile/bug_mtype_2576_B.d [34304]
 XFAIL:	nocompile/bug_mtype_3154.d
 XFAIL:	nocompile/bug_mtype_507_A.d
 XFAIL:	nocompile/bug_mtype_507_B.d
+XFAIL:	nocompile/bug_mtype_507_C.d
+XFAIL:	nocompile/bug_mtype_507_D.d
+XFAIL:	nocompile/bug_mtype_507_E.d
+XFAIL:	nocompile/bug_mtype_507_F.d
 ERROR:	nocompile/bug_s2ir_458.d (Internal compiler error)
 XFAIL:	nocompile/byte_09.d
 XFAIL:	nocompile/byte_10.d
@@ -156,6 +167,24 @@ XFAIL:	nocompile/double_quoted_string_14.d
 XFAIL:	nocompile/double_quoted_string_15.d
 XFAIL:	nocompile/double_quoted_string_16.d
 XFAIL:	nocompile/enum_06.d
+XFAIL:	nocompile/eol_comment_01.d
+XFAIL:	nocompile/eol_comment_02.d
+XFAIL:	nocompile/eol_comment_03.d
+XFAIL:	nocompile/eol_comment_04.d
+XFAIL:	nocompile/eol_comment_05.d
+XFAIL:	nocompile/eol_comment_06.d
+XFAIL:	nocompile/eol_string_01.d
+XFAIL:	nocompile/eol_string_02.d
+XFAIL:	nocompile/eol_string_03.d
+XFAIL:	nocompile/eol_string_04.d
+XFAIL:	nocompile/eol_string_05.d
+XFAIL:	nocompile/eol_string_06.d
+XFAIL:	nocompile/eol_string_07.d
+XFAIL:	nocompile/eol_string_08.d
+XFAIL:	nocompile/eol_string_09.d
+XFAIL:	nocompile/eol_string_10.d
+XFAIL:	nocompile/eol_string_11.d
+XFAIL:	nocompile/eol_string_12.d
 XFAIL:	nocompile/escape_hex_02.d
 XFAIL:	nocompile/escape_hex_string_03.d
 XFAIL:	nocompile/escape_hex_string_04.d
@@ -244,6 +273,49 @@ XFAIL:	nocompile/integer_literal_hex_11.d
 XFAIL:	nocompile/integer_literal_hex_12.d
 XFAIL:	nocompile/integer_literal_hex_13.d
 XFAIL:	nocompile/interface_03.d
+XFAIL:	nocompile/invalid_utf_01.d
+XPASS:	nocompile/invalid_utf_02.d
+XPASS:	nocompile/invalid_utf_03.d
+XPASS:	nocompile/invalid_utf_04.d
+XFAIL:	nocompile/invalid_utf_05.d
+XPASS:	nocompile/invalid_utf_06.d
+XPASS:	nocompile/invalid_utf_07.d
+XPASS:	nocompile/invalid_utf_08.d
+XFAIL:	nocompile/invalid_utf_09.d
+XPASS:	nocompile/invalid_utf_10.d
+XPASS:	nocompile/invalid_utf_11.d
+XPASS:	nocompile/invalid_utf_12.d
+XFAIL:	nocompile/invalid_utf_13.d
+XPASS:	nocompile/invalid_utf_14.d
+XPASS:	nocompile/invalid_utf_15.d
+XPASS:	nocompile/invalid_utf_16.d
+XPASS:	nocompile/invalid_utf_17.d
+XPASS:	nocompile/invalid_utf_18.d
+XPASS:	nocompile/invalid_utf_19.d
+XFAIL:	nocompile/invalid_utf_20.d
+XFAIL:	nocompile/invalid_utf_21.d
+XPASS:	nocompile/invalid_utf_22.d
+XPASS:	nocompile/invalid_utf_23.d
+XPASS:	nocompile/invalid_utf_24.d
+XFAIL:	nocompile/invalid_utf_25.d
+XPASS:	nocompile/invalid_utf_26.d
+XPASS:	nocompile/invalid_utf_27.d
+XPASS:	nocompile/invalid_utf_28.d
+XFAIL:	nocompile/invalid_utf_29.d
+XPASS:	nocompile/invalid_utf_30.d
+XPASS:	nocompile/invalid_utf_31.d
+XPASS:	nocompile/invalid_utf_32.d
+XFAIL:	nocompile/invalid_utf_33.d
+XPASS:	nocompile/invalid_utf_34.d
+XPASS:	nocompile/invalid_utf_35.d
+XPASS:	nocompile/invalid_utf_36.d
+XPASS:	nocompile/invalid_utf_37.d
+XPASS:	nocompile/invalid_utf_38.d
+XFAIL:	nocompile/invalid_utf_39.d
+XFAIL:	nocompile/invalid_utf_40.d
+XPASS:	nocompile/invalid_utf_41.d
+XPASS:	nocompile/invalid_utf_42.d
+XPASS:	nocompile/invalid_utf_43.d
 XFAIL:	nocompile/invariant_03.d
 XPASS:	nocompile/invariant_04.d
 XFAIL:	nocompile/invariant_05.d
@@ -266,6 +338,7 @@ XFAIL:	nocompile/long_03.d
 XFAIL:	nocompile/main_05.d
 XFAIL:	nocompile/main_06.d
 XPASS:	nocompile/mixin_04.d
+XFAIL:	nocompile/module_03.d
 XFAIL:	nocompile/offset_01.d
 XPASS:	nocompile/offset_02.d
 XFAIL:	nocompile/offset_03.d
@@ -408,10 +481,10 @@ XPASS:	nocompile/wchar_06.d
 XFAIL:	nocompile/with_05.d
 XFAIL:	nocompile/with_06.d
 XFAIL:	nocompile/with_07.d
-rm -f run/*.exe
-find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress.exe run" > run.sh
+rm -f run/*.exe run/*.exe
+find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
-./run.sh 2>> log.txt
+./run.sh 2>> /tmp/dstress/log.txt
 PASS: 	run/alias_01.d
 PASS: 	run/alias_02.d
 PASS: 	run/alias_03.d
@@ -421,6 +494,8 @@ FAIL: 	run/alias_09.d [256]
 PASS: 	run/alias_10.d
 PASS: 	run/alias_11.d
 PASS: 	run/alias_12.d
+FAIL: 	run/alias_13.d [256]
+PASS: 	run/alias_14.d
 FAIL: 	run/align_06.d [run: 256]
 PASS: 	run/align_07.d
 PASS: 	run/Alternate_Wysiwyg_String_01.d
@@ -471,25 +546,31 @@ PASS: 	run/bug_20041226_B.d
 PASS: 	run/bug_20041226_C.d
 PASS: 	run/bug_20041226_D.d
 PASS: 	run/bug_20041226_E.d
-FAIL: 	run/bug_cgcod_1640_A.d [256]
+FAIL: 	run/bug_20050128_A.d [run: 256]
+PASS: 	run/bug_20050128_B.d
+ERROR:	run/bug_cgcod_1640_A.d (Internal compiler error)
 PASS: 	run/bug_cgcod_1640_B.d
 PASS: 	run/bug_cgcod_1640_C.d
 PASS: 	run/bug_cgcod_1640_D.d
 PASS: 	run/bug_cgcod_1640_E.d
 PASS: 	run/bug_cgcod_1640_F.d
 PASS: 	run/bug_cgcod_1640_G.d
-FAIL: 	run/bug_e2ir_141_A.d [256]
+ERROR:	run/bug_e2ir_141_A.d (Internal compiler error)
 FAIL: 	run/bug_e2ir_141_B.d [run: 256]
 PASS: 	run/bug_e2ir_141_C.d
-FAIL: 	run/bug_e2ir_141_D.d [256]
-FAIL: 	run/bug_e2ir_299_A.d [256]
-FAIL: 	run/bug_e2ir_299_B.d [256]
+ERROR:	run/bug_e2ir_141_D.d (Internal compiler error)
+ERROR:	run/bug_e2ir_299_A.d (Internal compiler error)
+ERROR:	run/bug_e2ir_299_B.d (Internal compiler error)
 PASS: 	run/bug_elfobj_1251_A.d
 PASS: 	run/bug_elfobj_1251_B.d
+PASS: 	run/bug_elfobj_1251_C.d
 ERROR:	run/bug_expression_661_A.d [34304]
+FAIL: 	run/bug_expression_661_B.d [256]
 ERROR:	run/bug_mangle_61_A.d [34304]
 PASS: 	run/bug_mangle_61_B.d
 PASS: 	run/bug_mtype_2576_A.d
+ERROR:	run/bug_todt_194_A.d [35584]
+FAIL: 	run/bug_todt_194_B.d [256]
 PASS: 	run/byte_01.d
 PASS: 	run/byte_02.d
 PASS: 	run/byte_03.d
@@ -502,7 +583,7 @@ PASS: 	run/byte_11.d
 PASS: 	run/byte_12.d
 PASS: 	run/byte_13.d
 PASS: 	run/byte_14.d
-FAIL: 	run/cast_01.d [256]
+ERROR:	run/cast_01.d (Internal compiler error)
 FAIL: 	run/cast_02.d [256]
 FAIL: 	run/cast_05.d [run: 256]
 PASS: 	run/cast_06.d
@@ -657,6 +738,9 @@ PASS: 	run/enum_08.d
 PASS: 	run/enum_09.d
 FAIL: 	run/enum_10.d [256]
 PASS: 	run/enum_11.d
+PASS: 	run/eol_01.d
+PASS: 	run/eol_02.d
+PASS: 	run/eol_03.d
 PASS: 	run/escape_hex_01.d
 PASS: 	run/escape_hex_string_01.d
 PASS: 	run/escape_hex_string_02.d
@@ -765,6 +849,10 @@ FAIL: 	run/html_entity_lat2.html [256]
 FAIL: 	run/html_entity_num.html [256]
 FAIL: 	run/html_entity_pub.html [256]
 FAIL: 	run/html_entity_tech.html [256]
+FAIL: 	run/html_htm_01.htm [256]
+FAIL: 	run/html_htm_02.HTM [256]
+PASS: 	run/html_html_01.html
+ERROR:	run/html_html_02.HTML [35584]
 PASS: 	run/html_line_ending_dos.html
 PASS: 	run/html_line_ending_linux.html
 FAIL: 	run/html_line_ending_mac.html [run: 256]
@@ -863,10 +951,15 @@ PASS: 	run/main_03.d
 PASS: 	run/many_functions_01.d
 PASS: 	run/mixin_02.d
 PASS: 	run/mixin_03.d
+FAIL: 	run/module_01.d [256]
+PASS: 	run/module_02.d
+FAIL: 	run/module_04.d [256]
 FAIL: 	run/nested_function_01.d [run: 256]
 PASS: 	run/nested_function_02.d
 PASS: 	run/nested_function_03.d
 FAIL: 	run/nested_function_04.d [run: 256]
+FAIL: 	run/nested_function_05.d [256]
+FAIL: 	run/nested_function_06.d [256]
 PASS: 	run/odd_bug_01.d
 PASS: 	run/odd_bug_02.d
 FAIL: 	run/offsetof_01.d [256]
@@ -907,6 +1000,9 @@ FAIL: 	run/overload_08.d [256]
 FAIL: 	run/overload_09.d [256]
 FAIL: 	run/overload_10.d [256]
 FAIL: 	run/overload_13.d [256]
+FAIL: 	run/overload_14.d [256]
+PASS: 	run/overload_15.d
+FAIL: 	run/overload_16.d [256]
 PASS: 	run/override_01.d
 PASS: 	run/pragma_01.d
 PASS: 	run/pragma_02.d
@@ -1008,6 +1104,7 @@ PASS: 	run/super_04.d
 ERROR:	run/super_06.d [35584]
 ERROR:	run/super_07.d [35584]
 ERROR:	run/super_08.d [35584]
+ERROR:	run/super_10.d [35584]
 PASS: 	run/switch_01.d
 PASS: 	run/switch_02.d
 FAIL: 	run/switch_03.d [run: 256]
@@ -1015,7 +1112,7 @@ PASS: 	run/switch_04.d
 PASS: 	run/switch_05.d
 PASS: 	run/switch_06.d
 PASS: 	run/switch_07.d
-FAIL: 	run/switch_14.d [256]
+ERROR:	run/switch_14.d (Internal compiler error)
 PASS: 	run/template_01.d
 FAIL: 	run/template_03.d [256]
 PASS: 	run/template_04.d
@@ -1143,6 +1240,11 @@ PASS: 	run/ubyte_07.d
 PASS: 	run/uint_01.d
 PASS: 	run/unicode_01.d
 PASS: 	run/unicode_02.d
+PASS: 	run/unicode_03.d
+PASS: 	run/unicode_04.d
+PASS: 	run/unicode_05.d
+FAIL: 	run/unicode_06.d [256]
+FAIL: 	run/unicode_07.d [256]
 PASS: 	run/union_01.d
 PASS: 	run/union_02.d
 PASS: 	run/union_03.d
@@ -1196,9 +1298,23 @@ PASS: 	run/Wysiwyg_String_13.d
 PASS: 	run/Wysiwyg_String_14.d
 PASS: 	run/Wysiwyg_String_15.d
 FAIL: 	run/xhtml_tag_01.html [256]
-rm -f norun/*.exe
-find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress.exe norun" > norun.sh
+rm -f norun/*.exe norun/*.bin
+find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
-./norun.sh 2>> log.txt
+./norun.sh 2>> /tmp/dstress/log.txt
 XFAIL:	norun/slice_06.d
 XFAIL:	norun/slice_08.d
+cc  ifeq__.c -o ifeq__
+cc  return__.c -o return__
+cc  extract__.c -o extract__
+XFAIL: complex/command_line/command_line_null_source_01
+XFAIL: complex/command_line/command_line_null_source_02
+XPASS: complex/command_line/command_line_null_source_03
+XFAIL: complex/command_line/command_line_null_source_04
+XPASS: complex/command_line/command_line_null_source_05
+XFAIL: complex/command_line/command_line_null_source_06
+PASS:  complex/linking/linking_01
+PASS:  complex/linking/linking_02_A
+PASS:  complex/linking/linking_02_B
+PASS:  complex/linking/linking_02_C
+FAIL:  complex/linking/linking_02 (compiling error)

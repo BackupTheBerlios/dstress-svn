@@ -15,7 +15,7 @@ int main(){
 	geräusch würfel=10;
 	geräusch bücher=1;
 	
-	assert(bücher*10=würfel);
+	assert(bücher*10==würfel);
 	
 	return 0;
 }

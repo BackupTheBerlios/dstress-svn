@@ -59,10 +59,10 @@ all : compile nocompile run norun
 nocompile : $(dest_nocompile)
 
 %.$(ext_nocompile) : %.$(ext_source)
-	@if $(DMD) $(DFLAGS) -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
+	@if $(DMD) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
 
 %.$(ext_nocompile) : %.$(ext_source_html)
-	        @if $(DMD) $(DFLAGS) -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
+	        @if $(DMD) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
 
 
 compile : $(dest_compile)

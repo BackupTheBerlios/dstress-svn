@@ -3,7 +3,7 @@
 // $Author$
 
 // @author@	tetsuya <tetsuya_member@pathlink.com>
-// @dateq@	2004-10-16
+// @date@	2004-10-16
 // @uri@	news:ckrq8e$1cnl$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2121
 

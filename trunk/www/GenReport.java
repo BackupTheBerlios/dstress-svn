@@ -137,7 +137,7 @@ public class GenReport{
 		for(Enumeration e=data.elements();e.hasMoreElements();){
 			TestResult result= (TestResult) e.nextElement();
 			String plainName=result.name;
-			plainName=plainName.substring(plainName.lastIndexOf('/')+1);			
+			plainName=plainName.substring(plainName.lastIndexOf('/')+1);
 			String linkName=result.name;
 			if(linkName.startsWith("run") || linkName.startsWith("compile") || linkName.startsWith("nocompile") || linkName.startsWith("norun")){
 				linkName="../"+linkName;
@@ -152,7 +152,8 @@ public class GenReport{
 				linkName=null;
 			}
 			if(linkName==null || !new File(linkName).exists()){
-				out.write("<tr><th>"+plainName+"</th>");
+				// ignore test deprecated test cases
+				continue;
 			}else{
 				// @todo@ fix linkName escape
 				out.write("<tr><th><a name='"+plainName+"' href='"+linkName+"'>"+plainName.replace('_',' ')+"</a></th>");

@@ -1,3 +1,4 @@
+module dstress.run.version_02;
 
 int main(){
 	int os;
@@ -15,15 +16,15 @@ int main(){
 	}
 	
 	version(linux){
-		os=+3;
+		os++;
 	}
 
 	version(darwin){
-		os=+3;
+		os+=99; // this isn't part of the standard (v0.111)
 	}
 
 	version(Unix){
-		os=-2;
+		os+=99; // this isn't part of the standard (v0.111)
 	}
 	
 	assert(os == 1);

@@ -1,0 +1,88 @@
+*** d/dmd-script.orig	Sun Nov 14 01:43:33 2004
+--- d/dmd-script	Tue Nov 16 20:33:43 2004
+***************
+*** 56,65 ****
+  foreach my $arg (@ARGV) {
+      if ($arg =~ m/^-c$/ ) {
+  	$link = 0;
+!     } elsif ( $arg =~ m/^-d/ ) {
+  	push @out, '-fdeprecated';
+!     } elsif ( $arg =~ m/^-debug(?:=(.*))$/ ) {
+! 	push @out, (defined($1) ? '-fdebug=$1' : '-fdebug');
+      } elsif ( $arg =~ m/^-gt$/ ) {
+  	# there is more to profiling than this ... -finstrument-functions?
+  	push @out, '-pg';
+--- 56,68 ----
+  foreach my $arg (@ARGV) {
+      if ($arg =~ m/^-c$/ ) {
+  	$link = 0;
+!     } elsif ( $arg =~ m/^-d$/ ) {
+  	push @out, '-fdeprecated';
+!     } elsif ( $arg =~ m/^-debug(?:=(.*))?$/ ) {
+! 	push @out, (defined($1) ? "-fdebug=$1" : '-fdebug');
+!     } elsif ( $arg =~ m/^-debug.*$/ ) {
+! 	# Passing this to gdc only gives warnings; exit with an error here
+! 	die "unrecognized switch '$arg'";
+      } elsif ( $arg =~ m/^-gt$/ ) {
+  	# there is more to profiling than this ... -finstrument-functions?
+  	push @out, '-pg';
+***************
+*** 88,93 ****
+--- 91,98 ----
+  	push @out, '-v'; # not really equivalent
+      } elsif ( $arg =~ m/^-version=(.*)$/ ) {
+  	push @out, '-fversion=$1';
++     } elsif ( $arg =~ m/^-version.*$/ ) {
++ 	die "unrecognized switch '$arg'";
+      } elsif ( $arg =~ m/^-vdmd$/ ) {
+  	$show_commands = 1;
+      } elsif ( $arg =~ m/^-q(.*)$/ ) {
+***************
+*** 98,104 ****
+      } elsif ( $arg =~ m/^-.+$/ ) {
+  	push @out, $arg;
+      } elsif ( $arg =~ m/^[^\.]+$/ ||
+! 	      $arg =~ m/^.+\.d$/) {
+  	$first_input_file = $arg if ! $first_input_file;
+  	push @sources, $arg;
+      } elsif ( $arg =~ m/^(.+)(\.exe)$/i ) {
+--- 103,110 ----
+      } elsif ( $arg =~ m/^-.+$/ ) {
+  	push @out, $arg;
+      } elsif ( $arg =~ m/^[^\.]+$/ ||
+! 	      $arg =~ m/^.+\.d$/ ||
+! 	      $arg =~ m/^.+\.html$/) {
+  	$first_input_file = $arg if ! $first_input_file;
+  	push @sources, $arg;
+      } elsif ( $arg =~ m/^(.+)(\.exe)$/i ) {
+***************
+*** 120,131 ****
+  }
+  
+  if ( $link && ! $output_file && $first_input_file ) {
+!     $output_file = fileparse( $first_input_file, qr{\..*$} );
+      if ( osHasEXE() ) {
+  	$output_file .= '.exe';
+      }
+  }
+  
+  my $ok = 1;
+  
+  foreach my $srcf_i (@sources) {
+--- 126,141 ----
+  }
+  
+  if ( $link && ! $output_file && $first_input_file ) {
+!     $output_file = fileparse( $first_input_file, qr/\..*$/ );
+      if ( osHasEXE() ) {
+  	$output_file .= '.exe';
+      }
+  }
+  
++ if (! scalar(@sources) && ! ($link && scalar(@objects))) {
++     die "no input files";
++ }
++ 
+  my $ok = 1;
+  
+  foreach my $srcf_i (@sources) {

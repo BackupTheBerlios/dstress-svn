@@ -38,54 +38,32 @@
 #define COMPILE		4
 #define NOCOMPILE	8
 
-/* Query the environment for the compiler name */
-char* getCompiler(){
-	char* back = getenv("DMD");
-	if(back == NULL){
-		back = getenv("dmd");
-		if(back==NULL){
-			back = "dmd";
-		}
-	}
-	return back;
-}
-
-/* Query the environment for general flags */
-char* getGeneralFlags(){
-	char* back = getenv("DFLAGS");
-	if(back == NULL){
-		back = getenv("dflags");
-		if(back==NULL){
-			back = "";
-		}
-	}
-	return back;
-}
-
 #ifdef __GNU_LIBRARY__
-#define USE_POSIX_LOAD
+#define USE_POSIX
 #endif
 
 #ifdef __GLIBC__
-#define USE_POSIX_LOAD
+#define USE_POSIX
 #endif
 
 #ifdef linux
-#define USE_POSIX_LOAD
+#define USE_POSIX
 #endif
 
 #if defined(__APPLE__) && defined(__MACH__)
-#define USE_POSIX_LOAD
+#define USE_POSIX
 #endif
 
 #ifdef __FreeBSD__
-#define USE_POSIX_LOAD
+#define USE_POSIX
 #endif
 
-#ifdef USE_POSIX_LOAD
+
+#ifdef USE_POSIX
 
 #define RETURN_OK 0
 #define RETURN_FAIL 256
+#define crashRun system
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -110,6 +88,7 @@ char* loadFile(char* filename){
 	errno = 0;
 	return back;
 }
+
 #else
 
 #ifdef WIN32
@@ -142,20 +121,186 @@ char* loadFile(char* filename){
 	errno = 0;
 	return back;
 }
-#else
+#error no crashRun adaptation for this system available
+
+#else 
 #error no loadFile adaptation for this system available
+#error no crashRun adaptation for this system available
+#endif /* WIN32 else */
+#endif /* USE_POSIX else */
+
+/* Query the environment for the compiler name */
+char* getCompiler(){
+	char* back = getenv("DMD");
+	if(back == NULL){
+		back = getenv("dmd");
+		if(back==NULL){
+			back = "dmd";
+		}
+	}
+	return back;
+}
+
+/* Query the environment for general flags */
+char* getGeneralFlags(){
+	char* back = getenv("DFLAGS");
+	if(back == NULL){
+		back = getenv("dflags");
+		if(back==NULL){
+			back = "";
+		}
+	}
+	return back;
+}
+
+/* extract the FIRST occurance of a given FLAG until the next linebreak */
+char* getCaseFlag(const char* data, const char* tag){
+	char* begin;
+	char* end1;
+	char* end2;
+	char* back;
+	
+	if(data!=NULL && tag!=NULL){
+		begin = strstr(data, tag);
+		if(begin!=NULL){
+			begin = begin+strlen(tag);
+			end1 = strstr(begin, "\n");
+			end2 = strstr(begin, "\r");
+			if(end2!=NULL && ((end1!=NULL && end2<end1) || end1==NULL)){
+				end1=end2;
+			}
+			if(end1==NULL){
+				end1 = begin + strlen(begin);
+			}
+			back = malloc(end1-begin+1);
+			strncpy(back, begin, end1-begin);
+			back[end1-begin+1]='\x00';
+			return back;
+		}
+	}
+
+	return "";
+}
+
+
+int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
+
+	char* file;
+	char* line;
+	char* dmd;
+	char* gdc;
+
+	char* begin;
+	char* end1;
+	char* end2;
+
+	int back=0;
+
+	/* clean arguments */
+	if(strcmp(file_, "")!=0){
+		file = malloc(strlen(file_)+1);
+		strcpy(file, file_);
+	}else{
+		file=NULL;
+	}
+	
+	if(strcmp(line_, "")!=0){
+		line = malloc(strlen(line_)+1);
+		strcpy(line, line_);
+	}else{
+		line=NULL;
+	}
+	
+	/* gen patterns*/
+	if(file!=NULL){
+		if(line!=NULL){
+			dmd = malloc(strlen(file)+strlen(line)+5);
+			dmd[0]='\x00';
+			strcat(dmd, file);
+			strcat(dmd, "(");
+			strcat(dmd, line);
+			strcat(dmd, "): ");
+			gdc = malloc(strlen(file)+strlen(line)+4);
+			gdc[0]='\x00';
+			strcat(gdc, file);
+			strcat(gdc, ":");
+			strcat(gdc, line);
+			strcat(gdc, ": ");
+		}else{
+			dmd = malloc(strlen(file)+2);
+			dmd[0]='\x00';
+			strcat(dmd, file);
+			strcat(dmd, "(");
+			gdc = malloc(strlen(file)+2);
+			gdc[0]='\x00';
+			strcat(gdc, file);
+			strcat(gdc, ":");
+		}
+	}else if(line!=NULL){
+		dmd = malloc(strlen(line)+5);
+		dmd[0]='\x00';
+		strcat(dmd, "(");
+		strcat(dmd, line);
+		strcat(dmd, "): ");
+		gdc = malloc(strlen(line)+4);
+		gdc[0]='\x00';
+		strcat(gdc, ":");
+		strcat(gdc, line);
+		strcat(gdc, ": ");
+	}else{
+		dmd=NULL;
+		gdc=NULL;
+	}
+
+	/* fix filenames */
+#ifdef WIN32
+	end1="/";
+	end2="\\";
+#else
+	end1="\\";
+	end2="/";
 #endif
 
-#endif
+	if(dmd!=NULL){
+		while( (begin=strchr(dmd, end1[0])) ){
+			begin[0]=end2[0];
+		}
+	}
+
+	if(gdc!=NULL){
+		while( (begin=strchr(gdc, end1[0])) ){
+			begin[0]=end2[0];
+		}
+	}
+
+	/* specific error messages */
+		
+	if( (dmd!=NULL && strstr(buffer, dmd))
+			|| (gdc!=NULL && strstr(buffer, gdc))
+			|| (dmd==NULL && gdc==NULL)){
+		back=1;
+	}
+
+	/* @todo@ check format of all other messages */
+	return back;
+}
+
+int checkRuntimeErrorMessage(const char* file, const char* line, const char* buffer){
+	/* @todo@ */
+	return 1;
+}
+
 
 int main(int argc, char* arg[]){
-
-	char* compiler;
-	char* general;
-	char* spezial;
-	char* cmd;
-	int modus;
-	int res;
+	char* compiler;		/* the compiler */
+	char* cmd_arg_general;	/* additional arguments - from enviroment flag "DFLAGS" */
+	char* cmd_arg_case;	/* additional arguments - from the testcase file */
+	char* buffer;		/* general purpos buffer */
+	int modus;		/* test modus: RUN NORUN COMPILE NOCOMPILE */	
+	int res;		/* return code from external executions */ 
+	char* error_file;	/* expected sourcefile containing the error */
+	char* error_line;	/* expected error line */
+	int good_error;		/* error contained file and line and matched the expectations */
 	
 	/* check arguments */
 	if(argc != 3){
@@ -180,70 +325,79 @@ err:		if(argc!=0)
 
 	/* gen flags */
 	compiler = getCompiler();
-	general = getGeneralFlags();
-	cmd = loadFile(arg[2]);
-	if(cmd==NULL){
-		spezial="";
-	}else{
-		cmd = strstr(cmd, TAG);
-		if(cmd==NULL){
-			spezial="";
-		}else{
-			spezial = cmd + strlen(TAG);
-			cmd = strstr(spezial, "\n");
-			if(cmd!=NULL){
-				*cmd='\x00';
-			}
-			cmd = strstr(spezial, "\r");
-			if(cmd!=NULL){
-				*cmd='\x00';
-			}
-		}
+	cmd_arg_general = getGeneralFlags();
+	buffer = loadFile(arg[2]);
+	
+	cmd_arg_case = getCaseFlag(buffer, "__DSTRESS_DFLAGS__");
+	error_line = getCaseFlag(buffer, "__DSTRESS_ELINE__");
+	error_file = getCaseFlag(buffer, "__DSTRESS_EFILE__");
+
+printf("@DEBUG1@ -%s-\n", error_line);
+	/* strip spaces */
+	while(error_line[0]==' '){
+		error_line++;
+	}
+	for(buffer=error_line+strlen(error_line)-1; buffer && buffer[0]==' '; buffer=error_line+strlen(error_line)-1){
+		buffer[0]='\x00';	
+	}
+	while(error_file[0]==' '){
+		error_file++;
+	}
+	for(buffer=error_file+strlen(error_file)-1; buffer && buffer[0]==' '; buffer=error_file+strlen(error_file)-1){
+		buffer[0]='\x00';	
 	}
 
+	/* set implicit source file */
+	if(strcmp(error_line, "")!=0 && strcmp(error_file, "")==0){
+		error_file=arg[2];
+	}
+	
+	/* start working */
 	if(modus==COMPILE || modus==NOCOMPILE){
 		/* gen command */
-		cmd = malloc(strlen(compiler)+strlen(general)+strlen(spezial)+strlen(OBJ)
+		buffer = malloc(strlen(compiler)+strlen(cmd_arg_general)+strlen(cmd_arg_case)+strlen(OBJ)
 			+strlen(arg[2])+strlen(TLOG)+64);
-		cmd[0]='\x00';
-		strcat(cmd, compiler);
-		strcat(cmd, " ");
-		strcat(cmd, general);
-		strcat(cmd, " ");
-		strcat(cmd, spezial);
-		strcat(cmd, " -c ");
-		if(NULL==strstr(cmd, "-od")){
-			strcat(cmd, OBJ);
-			strcat(cmd, " ");
+		buffer[0]='\x00';
+		strcat(buffer, compiler);
+		strcat(buffer, " ");
+		strcat(buffer, cmd_arg_general);
+		strcat(buffer, " ");
+		strcat(buffer, cmd_arg_case);
+		strcat(buffer, " -c ");
+		if(NULL==strstr(buffer, "-od")){
+			strcat(buffer, OBJ);
+			strcat(buffer, " ");
 		}
-		strcat(cmd, arg[2]);
-		strcat(cmd, " 1> ");
-		strcat(cmd, TLOG);
-		strcat(cmd, " 2>&1");
+		strcat(buffer, arg[2]);
+		strcat(buffer, " 1> ");
+		strcat(buffer, TLOG);
+		strcat(buffer, " 2>&1");
 
 		/* test */
 		if(modus==COMPILE){
-			fprintf(stderr, "compile: %s\n", cmd);
+			fprintf(stderr, "compile: %s\n", buffer);
 		}else{
-			fprintf(stderr, "nocompile: %s\n", cmd);
+			fprintf(stderr, "nocompile: %s\n", buffer);
 		}
-		res = system(cmd);
+		res = crashRun(buffer);
 
-		/* diagnostic output */
-		cmd = loadFile(TLOG);
-		fprintf(stderr, "%s\n", cmd);
-		if(strstr(cmd, "Internal error")!= NULL || strstr(cmd, "gcc.gnu.org/bugs")!=NULL){
+		/* diagnostic */
+		buffer = loadFile(TLOG);
+		fprintf(stderr, "%s\n", buffer);
+		good_error = checkErrorMessage(error_file, error_line, buffer); 
+
+		if(strstr(buffer, "Internal error")!= NULL || strstr(buffer, "gcc.gnu.org/bugs")!=NULL){
 			printf("ERROR:\t%s (Internal compiler error)\n", arg[2]);
 		}else if(modus==COMPILE){
 			if(res==RETURN_OK){
 				printf("PASS: \t%s\n", arg[2]);
-			}else if(res==RETURN_FAIL){
+			}else if(res==RETURN_FAIL && good_error){
 				printf("FAIL: \t%s [%d]\n", arg[2], res);
 			}else{
 				printf("ERROR:\t%s [%d]\n", arg[2], res);
 			}
 		}else{
-			if(res==RETURN_FAIL){
+			if(res==RETURN_FAIL && good_error){
 				printf("XFAIL:\t%s\n", arg[2]);
 			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s\n", arg[2]);
@@ -254,45 +408,46 @@ err:		if(argc!=0)
 		fprintf(stderr,"--------\n");
 	}else if(modus==RUN || modus==NORUN){
 		/* gen command */
-		cmd = malloc(strlen(compiler)+strlen(general)+strlen(spezial)+strlen(OBJ)
+		buffer = malloc(strlen(compiler)+strlen(cmd_arg_general)+strlen(cmd_arg_case)+strlen(OBJ)
 			+strlen(arg[2])*2+strlen(TLOG)+64);
-		cmd[0]='\x00';
-		strcat(cmd, compiler);
-		strcat(cmd, " ");
-		strcat(cmd, general);
-		strcat(cmd, " ");
-		strcat(cmd, spezial);
-		strcat(cmd, " ");
-		if(NULL==strstr(cmd, "-od")){
-			strcat(cmd, OBJ);
-			strcat(cmd, " ");
+		buffer[0]='\x00';
+		strcat(buffer, compiler);
+		strcat(buffer, " ");
+		strcat(buffer, cmd_arg_general);
+		strcat(buffer, " ");
+		strcat(buffer, cmd_arg_case);
+		strcat(buffer, " ");
+		if(NULL==strstr(buffer, "-od")){
+			strcat(buffer, OBJ);
+			strcat(buffer, " ");
 		}
-		if(NULL==strstr(cmd, "-of")){
-			strcat(cmd, "-of");
-			strcat(cmd, arg[2]);
-			strcat(cmd, ".exe ");
+		if(NULL==strstr(buffer, "-of")){
+			strcat(buffer, "-of");
+			strcat(buffer, arg[2]);
+			strcat(buffer, ".exe ");
 		}
-		strcat(cmd, arg[2]);
-		strcat(cmd, " 1> ");
-		strcat(cmd, TLOG);
-		strcat(cmd, " 2>&1");
+		strcat(buffer, arg[2]);
+		strcat(buffer, " 1> ");
+		strcat(buffer, TLOG);
+		strcat(buffer, " 2>&1");
 
 		/* test 1/2 */
 		if(modus==RUN){
-			fprintf(stderr, "run: %s\n", cmd);
+			fprintf(stderr, "run: %s\n", buffer);
 		}else{
-			fprintf(stderr, "norun: %s\n", cmd);
+			fprintf(stderr, "norun: %s\n", buffer);
 		}
-		res = system(cmd);
+		res = crashRun(buffer);
 		
 		/* diagnostic 1/2 */
-		cmd = loadFile(TLOG);
-		fprintf(stderr, "%s", cmd);
-		if(strstr(cmd, "Internal error")!= NULL || strstr(cmd, "gcc.gnu.org/bugs")!=NULL){
+		buffer = loadFile(TLOG);
+		fprintf(stderr, "%s", buffer);
+		good_error = checkErrorMessage(error_file, error_line, buffer);
+		if(strstr(buffer, "Internal error")!= NULL || strstr(buffer, "gcc.gnu.org/bugs")!=NULL){
 			printf("ERROR:\t%s (Internal compiler error)\n", arg[2]);
 			fprintf(stderr, "\n--------\n");
 			return 0;
-		}else if(res==RETURN_FAIL){
+		}else if(res==RETURN_FAIL && good_error){
 			printf("FAIL: \t%s [%d]\n", arg[2], res);
 			fprintf(stderr, "\n--------\n");
 			return 0;
@@ -303,31 +458,32 @@ err:		if(argc!=0)
 		}
 		
 		/* test 2/2 */
-		cmd = malloc(strlen(arg[2]) + strlen(TLOG) + 24);
-		*cmd = '\x00';
-		strcat(cmd, arg[2]);
-		strcat(cmd, ".exe 1> ");
-		strcat(cmd, TLOG);
-		strcat(cmd, " 2>&1");
-		fprintf(stderr, "%s\n", cmd);
-		res=system(cmd);
+		buffer = malloc(strlen(arg[2]) + strlen(TLOG) + 24);
+		*buffer = '\x00';
+		strcat(buffer, arg[2]);
+		strcat(buffer, ".exe 1> ");
+		strcat(buffer, TLOG);
+		strcat(buffer, " 2>&1");
+		fprintf(stderr, "%s\n", buffer);
+		res=crashRun(buffer);
 		
 		/* diagnostic 2/2 */
-		cmd = loadFile(TLOG);
-		if(cmd==NULL || strlen(cmd)<2){
-			cmd="";
+		buffer = loadFile(TLOG);
+		if(buffer==NULL || strlen(buffer)<2){
+			buffer="";
 		}
-		fprintf(stderr, "%s\n", cmd);
+		fprintf(stderr, "%s\n", buffer);
+		good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
 		if(modus==RUN){
 			if(res==RETURN_OK){
 				printf("PASS: \t%s\n", arg[2]);
-			}else if(res==RETURN_FAIL){
+			}else if(res==RETURN_FAIL && good_error){
 				printf("FAIL: \t%s [run: %d]\n", arg[2], res);
 			}else{
 				printf("ERROR:\t%s [run: %d]\n", arg[2], res);
 			}
 		}else{
-			if(res==RETURN_FAIL){
+			if(res==RETURN_FAIL && good_error){
 				printf("XFAIL:\t%s\n", arg[2]);
 			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s [norun: %d]\n", arg[2], res);
@@ -337,7 +493,7 @@ err:		if(argc!=0)
 		}
 		fprintf(stderr, "--------\n");
 	}else{
-		printf("@toto@ %d (%s)\n", modus, arg[2]);
+		printf("@bug@ %d (%s)\n", modus, arg[2]);
 	}
 	return 0;
 }

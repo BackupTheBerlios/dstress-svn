@@ -36,6 +36,8 @@ complex/command_line/raw = \
 	complex/command_line/command_line_debug_03__-debug=abc__-od$(OBJ_DIR)__-of$(OBJ_DIR)/dummy.xxx.cmdrun \
 	complex/command_line/command_line_debug_04__-debug=123456789__-od$(OBJ_DIR)__-of$(OBJ_DIR)/dummy.xxx.cmdrun \
 	complex/command_line/command_line_debug_05__-debug=1A__-od$(OBJ_DIR)__-of$(OBJ_DIR)/dummy.xxx.cmdfail \
+	complex/command_line/command_line_debug_06__-debug123__-od$(OBJ_DIR)__-of$(OBJ_DIR)/dummy.xxx.cmdfail \
+	complex/command_line/command_line_debug_07__-debugABC__-od$(OBJ_DIR)__-of$(OBJ_DIR)/dummy.xxx.cmdfail \
 	complex/command_line/command_line_null_source_01__-c.cmdnullfail \
 	complex/command_line/command_line_null_source_02__.cmdnullfail \
 	complex/command_line/command_line_null_source_03__-c__"".cmdnullfail \

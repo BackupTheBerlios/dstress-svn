@@ -25,7 +25,7 @@ complex/debug/warning :
 	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex\" or \"all\""
 
 # this will be called by root's "all" / "complex" target
-complex/debug/$(complex_done) : complex/debug/debug_01.$(ext_run) complex/debug/debug_02.$(ext_run) complex/debug/debug_03.$(ext_run) complex/debug/debug_04.$(ext_nocompile) complex/debug/debug_05.$(ext_nocompile)
+complex/debug/$(complex_done) : complex/debug/debug_01.$(ext_run) complex/debug/debug_02.$(ext_run) complex/debug/debug_03.$(ext_run)
 	
 complex/debug/debug_01.$(ext_run) :  complex/debug/debug_01.$(ext_source)
 	$(eval z_name = $(subst .$(ext_run),,$@))

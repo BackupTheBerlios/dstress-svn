@@ -2,7 +2,7 @@ int main(){
 	int i=0;
 	assert(i==0);
 	debug(1){
-		assert(i==0);
+		assert(0);
 	}
 	debug(2){
 		i++;

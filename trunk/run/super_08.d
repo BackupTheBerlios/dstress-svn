@@ -17,7 +17,7 @@ class Parent{
 	}
 }
 
-class Child{
+class Child : Parent{
 	this(){
 		super();
 	}

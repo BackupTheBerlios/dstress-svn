@@ -7,18 +7,17 @@
 // @uri@        news:sr8p82-lu3.ln1@kuehne.cn
 // @url@        nntp://digitalmars.com/digitalmars.D.bugs/2528
 
-module dstress.run.super_07;
+// Object has no constructor
 
-class Parent{
-}
+module dstress.nocompile.super_06;
 
-class Child : Parent {
+class MyClass : Object{
 	this(){
 		super();
 	}
 }
 
 int main(){
-	Child o = new Child();
+	MyClass o = new MyClass();
 	return 0;
 }

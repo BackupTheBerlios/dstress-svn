@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<head>
-		<title>[dstress.kuehne.cn] DStress</title>
+		<title>[dstress.kuehne.cn] DStress summary</title>
 		<!-- find -->
 		<meta name="keywords" lang="en" content="thomas, kuehne, kuehne.cn, dstress, dmd, gdc" xml:lang="en" />
 		<meta name="description" lang="en" content="DStress is a D-programming language compiler stress testing and bug tracking suit." />
@@ -33,8 +33,8 @@
 		<meta http-equiv="content-language" content="en" />
 		<meta name="DC.Language" content="en" />
 		<!-- date -->
-		<meta name="date" content="2005-03-17" />
-		<meta name="DC.Date" content="2005-03-17" />
+		<meta name="date" content="2005-03-24" />
+		<meta name="DC.Date" content="2005-03-24" />
 		<!-- struct -->
 		<link rel="start" href="http://dmd.kuehne.cn/index.html" title="Current Version" hreflang="en" />
 		<link rel="prev" href="http://dmd.kuehne.cn/archive.html" title="Archive" hreflang="en" />
@@ -44,12 +44,12 @@
 		<style type="text/css">
 			/*<![CDATA[*/
 			<!--
-				.A { text-align: center }
-				.B { background: #58c932; text-align: center }
-				.D { background: #f43a3a; text-align: center }
-				.C { background: #ea6b6b; text-align: center }
-				.E { background: #98f47a; text-align: center }
-				.F { background: #5793ed; text-align: center }
+				.A { text-align: center; font-size:small }
+				.B { background: #58c932; text-align: center; font-size:small }
+				.D { background: #f43a3a; text-align: center; font-size:small }
+				.C { background: #ea6b6b; text-align: center; font-size:small }
+				.E { background: #98f47a; text-align: center; font-size:small }
+				.F { background: #5793ed; text-align: center; font-size:small }
 				td { text-align: center }
 			-->
 			/*]]>*/
@@ -71,14 +71,6 @@
 	<body lang='en' xml:lang='en'>
 		<p align='center'><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></p>
 		<!-- <p align='center'><a href='http://nosoftwarepatents.com/'><img border='0' src='http://nosoftwarepatents.com/banners/mysql_3.jpg' alt="Defend the future! Europe's better off without software patents." /></a></p>-->
-		<table border='0' summary='dmd.kuehne.cn navigation' align='center'><tr>
-			<td>[<a href='http://dmd.kuehne.cn/index.html' name='top' id='top'>Current Version</a>]</td>
-			<td>[<a href='http://dmd.kuehne.cn/archive.html'>Archive</a>]</td>
-			<td>[DStress]</td>
-			<td>[<a href='http://dmd.kuehne.cn/diverse.html'>Diverse</a>]</td>
-			<td>[<a href='http://dmd.kuehne.cn/links.html'>Links</a>]</td>
-			<td>[<a href='http://dmd.kuehne.cn/contact.html'>Contact</a>]</td>
-		</tr></table>
 		<h2 align='center'> DStress by Thomas K&uuml;hne</h2>
 		<table border='0' summary='link overview of this page' align='center'><tr>
 					<td>[<a href='#about'>About</a>]</td>
@@ -113,9 +105,9 @@
 			<dt><strong>Processor</strong></dt>
 				<dd>i686</dd>
 			<dt><strong>DStress Revision</strong></dt>
-				<dd>392</dd>
+				<dd>446</dd>
 			<dt><strong>Test Date</strong></dt>
-				<dd>2005-03-17</dd>
+				<dd>2005-03-24</dd>
 		</dl>
 		Thanks to <a href='http://www.algonet.se/~afb/d/'>Anders F Bj&ouml;rklund</a> for providing GDC's results for MacOSX.
 		<br />
@@ -130,18 +122,23 @@
 			</dl>
 			The symbols are the same as those used by the <a href='http://www.gnu.org/software/dejagnu/'>DejaGnu</a> test framework.
 			<dl>
-				<dt><strong>Condition Passed</strong></dt>
+				<dt><strong>Condition: Passed</strong></dt>
 				<dd><ol>
 					<li>compiler return code zero</li>
 					<li>no assertion was thrown</li>
 					<li>return code of main is zero (applies only to the runtime tests)</li>
 				</ol></dd>
-				<dt><strong>Condition Failed</strong></dt>
+				<dt><strong>Condition: Failed</strong></dt>
 				<dd><ol>
 					<li>compiler return code unequal zero</li>
 					<li>linker return code unequal zero</li>
 					<li>assertion was throwm</li>
 					<li>return code of main isn't zero (applies only to the runtime tests)</li>
+				</ol></dd>
+				<dt><strong>Condition: Error</strong></dt>
+				<dd><ol>
+					<li>compiler segfaulted</li>
+					<li>test case segfaulted</li>
 				</ol></dd>
 			</dl>
 			<table border='1' summary='on left the symbols used in the result table and on the right their explanation'>
@@ -178,25 +175,29 @@
 				<th><small><a href='#note-gdc-0.10' name='note-gdc-0.10-src' id='note-gdc-0.10-src' title='gdc 0.10 notes'>gdc 0.10</a></small></th>
 				<th><small><a href='#note-gdc-0.10-solaris' name='note-gdc-0.10-solaris-src' id='note-gdc-0.10-solaris-src' title='gdc 0.10 notes'>gdc 0.10 Sol*</a></small></th>
 				<th><small><a href='#note-dmd-0111' name='note-dmd-0111-src' id='note-dmd-0111-src' title='dmd 0.111 notes'>dmd 0.111</a></small></th>
+				<th><small><a href='#note-dmd-0112' name='note-dmd-0112-src' id='note-dmd-0112-src' title='dmd 0.112 notes'>dmd 0.112</a></small></th>
 				<th><small><a href='#note-dmd-0113' name='note-dmd-0113-src' id='note-dmd-0113-src' title='dmd 0.113 notes'>dmd 0.113</a></small></th>
+				<th><small><a href='#note-dmd-0114' name='note-dmd-0114-src' id='note-dmd-0114-src' title='dmd 0.114 notes'>dmd 0.114</a></small></th>
 				<th><small><a href='#note-dmd-0115' name='note-dmd-0115-src' id='note-dmd-0115-src' title='dmd 0.115 notes'>dmd 0.115</a></small></th>
 				<th><small><a href='#note-dmd-0116' name='note-dmd-0116-src' id='note-dmd-0116-src' title='dmd 0.116 notes'>dmd 0.116</a></small></th>
+				<th><small><a href='#note-dmd-0117' name='note-dmd-0117-src' id='note-dmd-0117-src' title='dmd 0.117 notes'>dmd 0.117</a></small></th>
 				<th><small><a href='#note-dmd-0118' name='note-dmd-0118-src' id='note-dmd-0118-src' title='dmd 0.118 notes'>dmd 0.118</a></small></th>
-				</tr>
+				<th><small><a href='#note-dmd-0119' name='note-dmd-0119-src' id='note-dmd-0119-src' title='dmd 0.119 notes'>dmd 0.119</a></small></th>
+			</tr>
 <!-- BEGIN: summary data -->
-<!-- summary --><tr><th><a href='#symbol-pass' id='summary-pass' name='summary-pass'>pass</a></th><td class='B' style="font-size:medium">642</td><td class='B' style="font-size:medium">649</td><td class='B' style="font-size:medium">657</td><td class='B' style="font-size:medium">663</td><td class='B' style="font-size:medium">661</td><td class='B' style="font-size:medium">663</td><td class='B' style="font-size:medium">664</td><td class='B' style="font-size:medium">667</td><td class='B' style="font-size:medium">486</td><td class='B' style="font-size:medium">665</td><td class='B' style="font-size:medium">719</td><td class='B' style="font-size:medium">583</td><td class='B' style="font-size:medium">668</td><td class='B' style="font-size:medium">668</td><td class='B' style="font-size:medium">726</td><td class='B' style="font-size:medium">730</td><td class='B' style="font-size:medium">629</td><td class='B' style="font-size:medium">738</td><td class='B' style="font-size:medium">713</td><td class='B' style="font-size:medium">719</td><td class='B' style="font-size:medium">673</td><td class='B' style="font-size:medium">742</td><td class='B' style="font-size:medium">752</td><td class='B' style="font-size:medium">755</td><td class='B' style="font-size:medium">805</td><td class='B' style="font-size:medium">815</td></tr>
-<!-- summary --><tr><th><a href='#symbol-xpass' id='summary-xpass' name='summary-xpass'>xpass</a></th><td class='C' style="font-size:medium">156</td><td class='C' style="font-size:medium">154</td><td class='C' style="font-size:medium">142</td><td class='C' style="font-size:medium">139</td><td class='C' style="font-size:medium">136</td><td class='C' style="font-size:medium">136</td><td class='C' style="font-size:medium">135</td><td class='C' style="font-size:medium">135</td><td class='C' style="font-size:medium">74</td><td class='C' style="font-size:medium">135</td><td class='C' style="font-size:medium">94</td><td class='C' style="font-size:medium">77</td><td class='C' style="font-size:medium">130</td><td class='C' style="font-size:medium">120</td><td class='C' style="font-size:medium">109</td><td class='C' style="font-size:medium">109</td><td class='C' style="font-size:medium">57</td><td class='C' style="font-size:medium">103</td><td class='C' style="font-size:medium">60</td><td class='C' style="font-size:medium">94</td><td class='C' style="font-size:medium">92</td><td class='C' style="font-size:medium">103</td><td class='C' style="font-size:medium">105</td><td class='C' style="font-size:medium">105</td><td class='C' style="font-size:medium">106</td><td class='C' style="font-size:medium">94</td></tr>
-<!-- summary --><tr><th><a href='#symbol-fail' id='summary-fail' name='summary-fail'>fail</a></th><td class='D' style="font-size:medium">248</td><td class='D' style="font-size:medium">297</td><td class='D' style="font-size:medium">289</td><td class='D' style="font-size:medium">278</td><td class='D' style="font-size:medium">277</td><td class='D' style="font-size:medium">277</td><td class='D' style="font-size:medium">278</td><td class='D' style="font-size:medium">278</td><td class='D' style="font-size:medium">192</td><td class='D' style="font-size:medium">278</td><td class='D' style="font-size:medium">118</td><td class='D' style="font-size:medium">94</td><td class='D' style="font-size:medium">278</td><td class='D' style="font-size:medium">278</td><td class='D' style="font-size:medium">219</td><td class='D' style="font-size:medium">217</td><td class='D' style="font-size:medium">144</td><td class='D' style="font-size:medium">206</td><td class='D' style="font-size:medium">120</td><td class='D' style="font-size:medium">118</td><td class='D' style="font-size:medium">86</td><td class='D' style="font-size:medium">202</td><td class='D' style="font-size:medium">215</td><td class='D' style="font-size:medium">212</td><td class='D' style="font-size:medium">162</td><td class='D' style="font-size:medium">152</td></tr>
-<!-- summary --><tr><th><a href='#symbol-xfail' id='summary-xfail' name='summary-xfail'>xfail</a></th><td class='E' style="font-size:medium">280</td><td class='E' style="font-size:medium">282</td><td class='E' style="font-size:medium">293</td><td class='E' style="font-size:medium">291</td><td class='E' style="font-size:medium">296</td><td class='E' style="font-size:medium">296</td><td class='E' style="font-size:medium">297</td><td class='E' style="font-size:medium">300</td><td class='E' style="font-size:medium">187</td><td class='E' style="font-size:medium">300</td><td class='E' style="font-size:medium">325</td><td class='E' style="font-size:medium">185</td><td class='E' style="font-size:medium">305</td><td class='E' style="font-size:medium">316</td><td class='E' style="font-size:medium">327</td><td class='E' style="font-size:medium">327</td><td class='E' style="font-size:medium">283</td><td class='E' style="font-size:medium">333</td><td class='E' style="font-size:medium">359</td><td class='E' style="font-size:medium">325</td><td class='E' style="font-size:medium">318</td><td class='E' style="font-size:medium">333</td><td class='E' style="font-size:medium">344</td><td class='E' style="font-size:medium">348</td><td class='E' style="font-size:medium">347</td><td class='E' style="font-size:medium">362</td></tr>
-<!-- summary --><tr><th><a href='#symbol-error' id='summary-error' name='summary-error'>error</a></th><td class='F' style="font-size:medium">115</td><td class='F' style="font-size:medium">59</td><td class='F' style="font-size:medium">60</td><td class='F' style="font-size:medium">70</td><td class='F' style="font-size:medium">71</td><td class='F' style="font-size:medium">69</td><td class='F' style="font-size:medium">67</td><td class='F' style="font-size:medium">61</td><td class='F' style="font-size:medium">10</td><td class='F' style="font-size:medium">63</td><td class='F' style="font-size:medium">45</td><td class='F' style="font-size:medium">18</td><td class='F' style="font-size:medium">60</td><td class='F' style="font-size:medium">59</td><td class='F' style="font-size:medium">60</td><td class='F' style="font-size:medium">58</td><td class='F' style="font-size:medium">19</td><td class='F' style="font-size:medium">61</td><td class='F' style="font-size:medium">45</td><td class='F' style="font-size:medium">45</td><td class='F' style="font-size:medium">121</td><td class='F' style="font-size:medium">61</td><td class='F' style="font-size:medium">25</td><td class='F' style="font-size:medium">21</td><td class='F' style="font-size:medium">21</td><td class='F' style="font-size:medium">18</td></tr>
-<!-- summary --><tr><th><a href='#symbol-untested' id='summary-untested' name='summary-untested'>untested</a></th><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">492</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">140</td><td class='A' style="font-size:medium">484</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">309</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">144</td><td class='A' style="font-size:medium">140</td><td class='A' style="font-size:medium">151</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td></tr>
+<!-- summary --><tr><th><a href='#symbol-pass' id='summary-pass' name='summary-pass'>pass</a></th><td class='B' style="font-size:medium">614</td><td class='B' style="font-size:medium">627</td><td class='B' style="font-size:medium">635</td><td class='B' style="font-size:medium">641</td><td class='B' style="font-size:medium">639</td><td class='B' style="font-size:medium">641</td><td class='B' style="font-size:medium">646</td><td class='B' style="font-size:medium">649</td><td class='B' style="font-size:medium">486</td><td class='B' style="font-size:medium">647</td><td class='B' style="font-size:medium">612</td><td class='B' style="font-size:medium">583</td><td class='B' style="font-size:medium">650</td><td class='B' style="font-size:medium">650</td><td class='B' style="font-size:medium">707</td><td class='B' style="font-size:medium">711</td><td class='B' style="font-size:medium">629</td><td class='B' style="font-size:medium">719</td><td class='B' style="font-size:medium">713</td><td class='B' style="font-size:medium">719</td><td class='B' style="font-size:medium">673</td><td class='B' style="font-size:medium">723</td><td class='B' style="font-size:medium">723</td><td class='B' style="font-size:medium">735</td><td class='B' style="font-size:medium">739</td><td class='B' style="font-size:medium">739</td><td class='B' style="font-size:medium">788</td><td class='B' style="font-size:medium">801</td><td class='B' style="font-size:medium">801</td><td class='B' style="font-size:medium">826</td></tr>
+<!-- summary --><tr><th><a href='#symbol-xpass' id='summary-xpass' name='summary-xpass'>xpass</a></th><td class='C' style="font-size:medium">157</td><td class='C' style="font-size:medium">155</td><td class='C' style="font-size:medium">143</td><td class='C' style="font-size:medium">141</td><td class='C' style="font-size:medium">139</td><td class='C' style="font-size:medium">139</td><td class='C' style="font-size:medium">134</td><td class='C' style="font-size:medium">134</td><td class='C' style="font-size:medium">65</td><td class='C' style="font-size:medium">134</td><td class='C' style="font-size:medium">59</td><td class='C' style="font-size:medium">68</td><td class='C' style="font-size:medium">129</td><td class='C' style="font-size:medium">119</td><td class='C' style="font-size:medium">109</td><td class='C' style="font-size:medium">109</td><td class='C' style="font-size:medium">46</td><td class='C' style="font-size:medium">103</td><td class='C' style="font-size:medium">48</td><td class='C' style="font-size:medium">82</td><td class='C' style="font-size:medium">80</td><td class='C' style="font-size:medium">103</td><td class='C' style="font-size:medium">103</td><td class='C' style="font-size:medium">104</td><td class='C' style="font-size:medium">104</td><td class='C' style="font-size:medium">104</td><td class='C' style="font-size:medium">102</td><td class='C' style="font-size:medium">90</td><td class='C' style="font-size:medium">90</td><td class='C' style="font-size:medium">35</td></tr>
+<!-- summary --><tr><th><a href='#symbol-fail' id='summary-fail' name='summary-fail'>fail</a></th><td class='D' style="font-size:medium">304</td><td class='D' style="font-size:medium">348</td><td class='D' style="font-size:medium">339</td><td class='D' style="font-size:medium">333</td><td class='D' style="font-size:medium">334</td><td class='D' style="font-size:medium">334</td><td class='D' style="font-size:medium">330</td><td class='D' style="font-size:medium">330</td><td class='D' style="font-size:medium">182</td><td class='D' style="font-size:medium">330</td><td class='D' style="font-size:medium">113</td><td class='D' style="font-size:medium">84</td><td class='D' style="font-size:medium">329</td><td class='D' style="font-size:medium">329</td><td class='D' style="font-size:medium">272</td><td class='D' style="font-size:medium">270</td><td class='D' style="font-size:medium">128</td><td class='D' style="font-size:medium">259</td><td class='D' style="font-size:medium">107</td><td class='D' style="font-size:medium">105</td><td class='D' style="font-size:medium">76</td><td class='D' style="font-size:medium">255</td><td class='D' style="font-size:medium">255</td><td class='D' style="font-size:medium">262</td><td class='D' style="font-size:medium">257</td><td class='D' style="font-size:medium">257</td><td class='D' style="font-size:medium">207</td><td class='D' style="font-size:medium">194</td><td class='D' style="font-size:medium">194</td><td class='D' style="font-size:medium">165</td></tr>
+<!-- summary --><tr><th><a href='#symbol-xfail' id='summary-xfail' name='summary-xfail'>xfail</a></th><td class='E' style="font-size:medium">290</td><td class='E' style="font-size:medium">292</td><td class='E' style="font-size:medium">304</td><td class='E' style="font-size:medium">297</td><td class='E' style="font-size:medium">301</td><td class='E' style="font-size:medium">301</td><td class='E' style="font-size:medium">307</td><td class='E' style="font-size:medium">310</td><td class='E' style="font-size:medium">185</td><td class='E' style="font-size:medium">310</td><td class='E' style="font-size:medium">248</td><td class='E' style="font-size:medium">183</td><td class='E' style="font-size:medium">316</td><td class='E' style="font-size:medium">327</td><td class='E' style="font-size:medium">336</td><td class='E' style="font-size:medium">336</td><td class='E' style="font-size:medium">279</td><td class='E' style="font-size:medium">342</td><td class='E' style="font-size:medium">355</td><td class='E' style="font-size:medium">321</td><td class='E' style="font-size:medium">314</td><td class='E' style="font-size:medium">342</td><td class='E' style="font-size:medium">342</td><td class='E' style="font-size:medium">355</td><td class='E' style="font-size:medium">361</td><td class='E' style="font-size:medium">361</td><td class='E' style="font-size:medium">362</td><td class='E' style="font-size:medium">377</td><td class='E' style="font-size:medium">377</td><td class='E' style="font-size:medium">435</td></tr>
+<!-- summary --><tr><th><a href='#symbol-error' id='summary-error' name='summary-error'>error</a></th><td class='F' style="font-size:medium">119</td><td class='F' style="font-size:medium">62</td><td class='F' style="font-size:medium">63</td><td class='F' style="font-size:medium">72</td><td class='F' style="font-size:medium">71</td><td class='F' style="font-size:medium">69</td><td class='F' style="font-size:medium">67</td><td class='F' style="font-size:medium">61</td><td class='F' style="font-size:medium">10</td><td class='F' style="font-size:medium">63</td><td class='F' style="font-size:medium">22</td><td class='F' style="font-size:medium">18</td><td class='F' style="font-size:medium">60</td><td class='F' style="font-size:medium">59</td><td class='F' style="font-size:medium">60</td><td class='F' style="font-size:medium">58</td><td class='F' style="font-size:medium">19</td><td class='F' style="font-size:medium">61</td><td class='F' style="font-size:medium">38</td><td class='F' style="font-size:medium">38</td><td class='F' style="font-size:medium">111</td><td class='F' style="font-size:medium">61</td><td class='F' style="font-size:medium">61</td><td class='F' style="font-size:medium">28</td><td class='F' style="font-size:medium">23</td><td class='F' style="font-size:medium">23</td><td class='F' style="font-size:medium">25</td><td class='F' style="font-size:medium">22</td><td class='F' style="font-size:medium">22</td><td class='F' style="font-size:medium">23</td></tr>
+<!-- summary --><tr><th><a href='#symbol-untested' id='summary-untested' name='summary-untested'>untested</a></th><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">556</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">430</td><td class='A' style="font-size:medium">548</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">383</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">223</td><td class='A' style="font-size:medium">219</td><td class='A' style="font-size:medium">230</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td><td class='A' style="font-size:medium">0</td></tr>
 <!-- END: summary data -->
 		</table>
 		<h3><a href='#top' name='results' id='results' title='page top'>^ Results</a></h3>
 			<blockquote><div><table border='0'>
 				<tr><th>File</th><th>Size</th></tr>
-				<tr><td><a href='./results.html'>results.html</a></td><td>1010K</td></tr>
-				<tr><td><a href='./results.html.bz2'>results.html.bz2</a></td><td>19K</td></tr>
+				<tr><td><a href='./results.html'>results.html</a></td><td>1,2M</td></tr>
+				<!--<tr><td><a href='./dstress-results.zip'>dstress-results.zip</a></td><td>19K</td></tr>-->
 			</table></div></blockquote>
 		<h3><a href='#top' name='notes' id='notes' title='page top'>^ Notes</a></h3>
 		<blockquote><div>
@@ -206,7 +207,6 @@
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-095-src' name='note-dmd-095' id='note-dmd-095'>dmd 0.95</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new095'>2004-07-06</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-096-src' name='note-dmd-096' id='note-dmd-096'>dmd 0.96</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new096'>2004-07-21</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-098-src' name='note-dmd-098' id='note-dmd-098'>dmd 0.98</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new098'>2004-08-05</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
-			<tr><th align='left'><a title='compiler results' href='#note-dmd-099-src' name='note-dmd-099' id='note-dmd-099'>dmd 0.99</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new099'>2004-08-19</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-0100-src' name='note-dmd-0100' id='note-dmd-0100'>dmd 0.100</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0100'>2004-08-20</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-0101-src' name='note-dmd-0101' id='note-dmd-0101'>dmd 0.101</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0101'>2004-08-30</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-0102-src' name='note-dmd-0102' id='note-dmd-0102'>dmd 0.102</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0102'>2004-09-20</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
@@ -228,7 +228,6 @@
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-0115-src' name='note-dmd-0115' id='note-dmd-0115'>dmd 0.115</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0115'>2005-02-28</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-0116-src' name='note-dmd-0116' id='note-dmd-0116'>dmd 0.116</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0116'>2005-03-07</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-0118-src' name='note-dmd-0118' id='note-dmd-0118'>dmd 0.118</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0118'>2005-03-12</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
-
 			</table>
 			<br />
 		</div></blockquote>
@@ -250,7 +249,6 @@
 					<dt><strong>Suggestions, Comments</strong></dt>
 					<dd>dstress (at the host) kuehne.cn</dd>
 				</dl></div></blockquote>
-		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/results.html'>http://dstress.kuehne.cn/www/results.html</a>;&nbsp;&nbsp;2005-03-17; <a href='mailto:webmastro@kuehne.THISISSPAM.cn'>Webmastro</a></div>
+		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/www/dstress.html</a>;&nbsp;&nbsp;2005-03-24; <a href='mailto:webmastro@kuehne.THISISSPAM.cn'>Webmastro</a></div>
 	</body>
-	
 </html>

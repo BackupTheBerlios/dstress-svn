@@ -25,6 +25,9 @@
 	complex/command_line/$(complex_done) \
 	complex/command_line/clean
 
+.SUFFIXES: \
+	.cmdnullfail
+	
 complex/command_line/warning :
 	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex/command_line/complex.done\", \"complex\" or \"all\""
 

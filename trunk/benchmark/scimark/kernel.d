@@ -1,7 +1,7 @@
 module scimark.kernel;
 
 private{
-	import std.stdio;
+	import std.c.stdio;
 	import std.c.stdlib;
 	import scimark.LU;
 	import scimark.FFT;

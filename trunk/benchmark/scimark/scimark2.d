@@ -3,7 +3,7 @@ module scimark.scimark2;
 const float VERSION = 2.0;
 
 private{
-	import std.stdio;
+	import std.c.stdio;
 	import std.c.stdlib;
 	import std.string;
 

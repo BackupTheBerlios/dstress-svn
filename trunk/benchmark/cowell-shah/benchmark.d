@@ -7,7 +7,7 @@ import std.c.time;
 import std.math;
 import std.c.stdio;
 
-// handle a bug in Phobos (dmd-0.105)
+// @bugwatch@ handle a bug in Phobos (dmd-0.105)
 version(linux){
 	const double CLOCKS_PER_SEC = 1000000.0;
 }else version(darwin){

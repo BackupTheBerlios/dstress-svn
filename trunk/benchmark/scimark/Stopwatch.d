@@ -3,7 +3,7 @@ module scimark.Stopwatch;
 private import std.c.stdlib;
 private import std.c.time;
 
-// handle a bug in Phobos (dmd-0.105)
+// @bugwatch@ handle a bug in Phobos (dmd-0.105)
 version(linux){
 	const double CLOCKS_PER_SEC = 1000000.0;
 }else version(darwin){

@@ -1,7 +1,7 @@
 module scimark.FFT;
 
 private {
-	import std.stdio;
+	import std.c.stdio;
 	import std.c.stdlib;
 	import std.math;
 }

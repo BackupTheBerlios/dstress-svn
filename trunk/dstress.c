@@ -74,6 +74,14 @@ char* getGeneralFlags(){
 #define USE_POSIX_LOAD
 #endif
 
+#if defined(__APPLE__) && defined(__MACH__)
+#define USE_POSIX_LOAD
+#endif
+
+#ifdef __FreeBSD__
+#define USE_POSIX_LOAD
+#endif
+
 #ifdef USE_POSIX_LOAD
 
 #define RETURN_OK 0

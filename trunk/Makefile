@@ -142,7 +142,7 @@ endef
 #
 nocompile : $(dstress__)
 	rm -f nocompile/*.o nocompile/*.$(ext_nocompile)
-	find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) nocompile" > nocompile.sh
+	find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) nocompile" > nocompile.sh
 	chmod +x nocompile.sh
 	./nocompile.sh 2>> $(LOG)
 
@@ -168,7 +168,7 @@ endef
 #
 compile : $(dstress__)
 	rm -f compile/*.o compile/*.$(ext_compile)
-	find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) compile" > compile.sh
+	find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) compile" > compile.sh
 	chmod +x compile.sh
 	./compile.sh 2>> $(LOG)
 
@@ -190,7 +190,7 @@ endef
 # 
 run : $(dstress__)
 	rm -f run/*.exe run/*.$(ext_run)
-	find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) run" > run.sh
+	find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) run" > run.sh
 	chmod +x run.sh
 	./run.sh 2>> $(LOG)
 
@@ -255,7 +255,7 @@ endef
 # 
 norun : $(dstress__)
 	rm -f norun/*.exe norun/*.$(ext_norun)
-	find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "$(dstress__) norun" > norun.sh
+	find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) norun" > norun.sh
 	chmod +x norun.sh
 	./norun.sh 2>> $(LOG)
 

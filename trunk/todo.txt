@@ -12,7 +12,7 @@ Benchmark:
 
 Test cases:
 * keyword: asm
-* keyword: break (intervening finally clauses; mutexes)
+* keyword: break (mutexes)
 * keyword: in out body
 * keyword: cent
 * keyword: cdouble
@@ -23,7 +23,7 @@ Test cases:
 * keyword: export
 * keyword: extern
 * keyword: function
-* keyword: goto (intervening finally clauses; synchronization objects/mutexes)
+* keyword: goto (synchronization objects/mutexes)
 * keyword: idouble
 * keyword: ifloat
 * keyword: import

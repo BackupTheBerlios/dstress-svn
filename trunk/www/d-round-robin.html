@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>D round robin</title>
+		<link rel="stylesheet" type="text/css" href="formate.css" />
+	</head>
+	<body>
+		<h2><a name='top' id='top'></a>D round robin</h2>
+		<blockquote>
+			<dl>
+				<dt><strong>Aim</strong></dt>
+				<dd>The aim of <a href='http://dstress.kuehne.cn/www/d-round-robin.html'>D round robin</a> is to unlock <a href='http://www.digitalmars.com/d'>D</a>'s potential and of course having fun.</dd>
+				<dd>Everybody is encouraged to take part - be it with <a href='#big_bug'> hunting Big Bugs</a>, <a href='#utils'>writing core libraries</a> or <a href='#code_contest'>toying with D source code</a>.</dd>
+				<dt><strong>Dates / Prizes</strong></dt>
+				<dd>Deadlines, detailed rules and rewards will be announced on 2005-02-17.</dd>
+				<dt><strong>Comments</strong></dt>
+				<dd>Send an email to <u>d-round-robin at kuehne.cn</u> or edit the <a href='http://www.prowiki.org/wiki4d/wiki.cgi?D-Round-Robin'>Wiki page</a>.</dd>
+			</dl>
+		</blockquote>
+		
+		<h3><a name='code_contest' id='code_contest' href='#top'>^ 1. Code Contest</a></h3>
+		<blockquote>
+			<dl>
+				<dt><strong><a name='code_contest-aim' id='code_contest-aim'></a>Aim</strong></dt>
+				<dd>Design obfuscated D - read: the kind of code you usually try to avoid ;)</dd>
+				<dt><strong><a name='code_contest-conditions' id='code_contest-conditions'></a>Conditions</strong></dt>
+				<dd><ol>
+					<li>only vanilla D code that compiles with the current DMD and the current GDC</li>
+					<li>the submission has to produce a working executable</li>
+					<li>source code size: min 1 byte, max 4096 bytes</li>
+					<li>anonymous/pseudonymous submissions allowed</li>
+				</ol></dd>
+				<dt><strong><a name='code_contest-sumbit' id='code_contest-submit'></a>Submissions</strong></dt>
+				<dd>Send an email containing all required source files and documentation to <u>d-round-robin at kuehne.cn</u>.</dd>
+			</dl>
+		</blockquote>
+
+		<h3><a name='big_bug' id='big_bug' href='#top'>^ 2. Big Bug</a></h3>
+		<blockquote>
+			<dl>
+				<dt><strong><a name='big_bug-aim' id='big_bug-aim'></a>Aim</strong></dt>
+				<dd>Write the biggest - yet smallest possible - bug test for DMD and/or GDC bugs.</dd>
+				<dd>The test case's size is judged by counting the <a href='http://www.digitalmars.com/d/lex.html#tokens'>tokens</a> via a printf patched GDC frontend.</dd>
+				<dt><strong><a name='big_bug-conditions' id='big_bug-conditions'></a>Conditions</strong></dt>
+				<dd>
+					<ol>
+						<li>reproduceable bug with the latest(date of submission) DMD and/or GDC version</li>
+						<li>as of the submission date no test code has been posted to the digitalmars.D.bugs newsgroup - or added to <a href='http://dstress.kuehne.cn/www/dstress.html'>DStress</a> - or the submission reduces the smallest known test case for that bug by at least 10%</li>
+						<li>the actual test code is vanilla D (Makefiles and equivalent are allowed though)</li>
+					</ol>
+				</dd>
+				<dt><strong><a name='big_bug-submit' id='big_bug-submit'>Sumbissions</a></strong></dt>
+				<dd>Send your test case(s) to the digitalmars.D.bugs newsgroup [<a href='nttp://digitalmars.com/digitalmars.D.bugs'>NTTP</a>][<a href='http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D.bugs'>HTTP</a>].</dd>	
+			</dl>
+
+		</blockquote>
+		
+		<h3><a name='utils' id='utils' href='#top'>^ 3. Utils / Libs</a></h3>
+		<blockquote>
+			<dl>
+				<dt><strong><a name='utils-aim' id='utils-aim'></a>Aim</strong></dt>
+				<dd>Write a <a href='http://opensource.org/licenses/'>open sourced</a> minimal Phobos replacement library.</dd>
+				<dt><strong><a name='utils-conditions' id='utils-conditions'></a>Conditions</strong></dt>
+				<dd>(team submissions are welcome)</dd>
+				<dd>
+					<ol>
+						<li>supports all language specifications including Object(no printf/print support required), Exception(try/catch/throw), TypeInfo and ModuleInfo</li>
+						<li>provides a working GC</li>
+						<li>supports at least one BigEndian and at least one LittleEndian architecture</li>
+						<li>supports at least one 32bit and at least one 64bit architecture</li>
+						<li>all programming languages that are supported by at least one open source compiler for every supported platform are allowed</li>
+						<li>submissions have to be available under an <a href='http://opensource.org/licenses/'>OSI certified license</a> 	
+					</ol>
+				</dd>
+				<dt><strong><a name='utils-submit' id='utils-submit'></a>Submissions</strong></dt>
+				<dd>Send an email containing all required source files and documentation to <u>d-round-robin at kuehne.cn</u>.</dd>
+				<dd>Note: Announcing your project at <a href='http://dsource.org'>dsource.org</a> or in the <a href='nttp://digitalmars.com/digitalmars.D'>digitalmars.D</a> newsgroup might foster your team and your efforts.</dd>
+					
+			</dl>
+		</blockquote>
+
+		<h3><a name='comments' id='comments' href='#top'>^ Comments</a></h3>
+		<blockquote>
+			Send an email to <u>d-round-robin at kuehne.cn</u> or edit the <a href='http://www.prowiki.org/wiki4d/wiki.cgi?D-Round-Robin'>Wiki page</a>.
+		</blockquote>
+	</body>
+</html>

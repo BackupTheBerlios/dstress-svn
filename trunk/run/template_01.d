@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/template_01.d,v 1.1 2004/08/20 23:42:54 th Exp $
 
 // @author@	Daniel Horn <hellcatv@hotmail.com>
 // @date@	2004-05-01

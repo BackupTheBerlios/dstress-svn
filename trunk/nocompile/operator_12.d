@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/nocompile/operator_12.d,v 1.1 2004/08/20 23:42:44 th Exp $
 
 // @author@	Ivan Senji <ivan.senji@public.srce.hr>
 // @date@	2004-08-07

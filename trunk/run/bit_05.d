@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/bit_05.d,v 1.2 2004/09/23 09:44:00 th Exp $
 
 // @author@	Carlos Santander B. <carlos8294@msn.com>
 // @date@	2004-08-20

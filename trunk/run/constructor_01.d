@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/constructor_01.d,v 1.1 2004/08/20 23:42:52 th Exp $
 
 // @author@	Stephan Wienczny <wienczny@web.de>
 // @date@	2004-04-30

@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/odd_bug_01.d,v 1.2 2004/08/23 18:28:08 th Exp $
 
 // @author@	Paul Runde <prunde@consolidated.net>
 // @date@	2004-06-02

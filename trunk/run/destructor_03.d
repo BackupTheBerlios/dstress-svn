@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/destructor_03.d,v 1.1 2004/08/20 23:42:52 th Exp $
 
 // @author@	Ilya Zaitseff <sark7@mail333.com>
 // @date@	2004-08-06

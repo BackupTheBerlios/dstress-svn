@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/for_02.d,v 1.2 2004/09/22 23:25:38 th Exp $
 
 // @author@	Mike Swieton <mike@swieton.net>
 // @date@	2004-05-27

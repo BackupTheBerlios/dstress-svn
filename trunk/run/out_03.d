@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/out_03.d,v 1.1 2004/08/23 17:18:35 th Exp $
 
 struct MyStruct{
 	int x=2;

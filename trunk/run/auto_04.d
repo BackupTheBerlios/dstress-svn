@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/auto_04.d,v 1.1 2004/09/23 00:33:38 th Exp $
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2004-09-11

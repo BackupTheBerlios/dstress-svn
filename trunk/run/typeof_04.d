@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/typeof_04.d,v 1.1 2004/08/20 23:42:55 th Exp $
 
 class A {
 	int value(){

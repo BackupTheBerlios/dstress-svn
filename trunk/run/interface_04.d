@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/interface_04.d,v 1.1 2004/08/23 17:18:35 th Exp $
 
 // @author@	van eeshan <vanee@hotmail.com>
 // @date@	2004-08-05

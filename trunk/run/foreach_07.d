@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/foreach_07.d,v 1.1 2004/09/21 21:04:47 th Exp $
 
 
 int main(){

@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/nocompile/cast_03.d,v 1.1 2004/08/20 23:42:43 th Exp $
 
 // @author@	Walter <newshound@digitalmars.com>
 // @date@	2004-08-16

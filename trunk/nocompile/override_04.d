@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/nocompile/override_04.d,v 1.1 2004/08/20 23:42:44 th Exp $
 
 class Parent{
 	int test;

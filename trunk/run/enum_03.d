@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/enum_03.d,v 1.1 2004/08/23 20:56:27 th Exp $
 
 enum MyEnum : byte {
 	A,

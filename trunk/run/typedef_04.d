@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/typedef_04.d,v 1.1 2004/08/21 22:51:39 th Exp $
 
 // @author@ 	berupon <yu@3dcg.ne.jp>
 // @date@	2004-06-10

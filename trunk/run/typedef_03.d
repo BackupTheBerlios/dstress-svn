@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/typedef_03.d,v 1.1 2004/08/20 23:42:54 th Exp $
 
 // @author@	Sam McCall <tunah@tunah.net>
 // @date@	2004-07-27

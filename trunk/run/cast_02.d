@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/cast_02.d,v 1.1 2004/08/20 23:42:52 th Exp $
 
 // @author@	Regan Heat <regan@netwin.co.nz>
 // @date@	2004-08-19

@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/scope_01.d,v 1.1 2004/08/21 21:38:30 th Exp $
 
 // @author@	J Anderson <REMOVEanderson@badmama.com.au>
 // @date@	2004-01-05

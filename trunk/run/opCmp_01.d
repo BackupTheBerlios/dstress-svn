@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/opCmp_01.d,v 1.1 2004/08/20 23:42:53 th Exp $
 
 // @author@	k2 <k2_member@pathlink.com>
 // @date@	2004-08-04

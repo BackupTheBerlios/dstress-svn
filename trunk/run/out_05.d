@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/out_05.d,v 1.2 2004/09/23 11:16:54 th Exp $
 
 int status;
 

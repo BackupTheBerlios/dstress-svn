@@ -1,4 +1,3 @@
-//$Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/super_02.d,v 1.1 2004/08/21 20:44:51 th Exp $
 
 // @author@	Ant <duitoolkit@yahoo.ca>
 // @date@	2004-08-21

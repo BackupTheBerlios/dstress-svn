@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/in_03.d,v 1.2 2004/09/23 07:38:07 th Exp $
 
 class MyClass{
 	int x;

@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/template_03.d,v 1.1 2004/08/22 07:47:07 th Exp $
 
 // @author@	Nick <Nick_member@pathlink.com>
 // @date@	2004-08-05

@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/overload_06.d,v 1.1 2004/08/20 23:42:54 th Exp $
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2004-07-28

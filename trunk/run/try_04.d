@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/try_04.d,v 1.1 2004/09/22 20:12:54 th Exp $
 
 class MyException :  Exception{
 	this(char[] msg){

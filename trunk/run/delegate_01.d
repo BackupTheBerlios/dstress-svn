@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/delegate_01.d,v 1.1 2004/08/20 23:42:52 th Exp $
 
 // @author@	Ben Rasmussen <exo@bent-rasmussen.info>
 // @date@	2004-08-12

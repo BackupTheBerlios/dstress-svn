@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/alias_07.d,v 1.1 2004/09/23 00:58:19 th Exp $
 
 // @author@	Ilya Zaitseff <sark7@mail333.com>
 // @date@	2004-09-06

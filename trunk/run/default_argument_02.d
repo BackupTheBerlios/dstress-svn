@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/default_argument_02.d,v 1.1 2004/08/21 23:18:23 th Exp $
 
 // @author@	Andy Friesen <andy@ikagames.com>
 // @date@	2004-06-25

@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/types_declaration_01.d,v 1.1 2004/08/20 23:42:55 th Exp $
 
 int main(char[][] args){
 	int a;		// a is an int

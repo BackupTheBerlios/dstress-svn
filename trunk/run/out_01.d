@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/out_01.d,v 1.1 2004/08/23 17:18:35 th Exp $
 
 void check(out int x){
 }

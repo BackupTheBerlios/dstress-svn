@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/template_class_02.d,v 1.1 2004/09/23 05:12:38 th Exp $
 
 // @author@	berupon <yu@3dcg.ne.jp>
 // @date@	2004-05-10

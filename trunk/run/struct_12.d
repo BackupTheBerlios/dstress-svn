@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/struct_12.d,v 1.1 2004/08/21 23:01:17 th Exp $
 
 // @author@	Bent Rasmussen <exo@bent-rasmussen.info>
 // @date@	2004-06-21

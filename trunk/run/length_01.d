@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/length_01.d,v 1.2 2004/09/22 23:25:38 th Exp $
 
 int main(){
 	byte[3] array;

@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/in_01.d,v 1.2 2004/08/23 20:38:17 th Exp $
 
 void check(in int a){
 	assert(a==0);

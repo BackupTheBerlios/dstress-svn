@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/nocompile/alias_05.d,v 1.1 2004/08/20 23:42:43 th Exp $
 
 alias int myint;
 

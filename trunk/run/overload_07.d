@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/overload_07.d,v 1.1 2004/08/20 23:42:54 th Exp $
 
 // @author@	Andy Friesen <andy@ikagames.com>
 // @date@	2004-04-30

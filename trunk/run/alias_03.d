@@ -1,4 +1,3 @@
-// $Header: /home/th/Dokumente/Entwicklung/MEIN_CVS/MiniD/src/run/alias_03.d,v 1.1 2004/08/20 23:42:51 th Exp $
 
 template Foo2(T) { alias T t; }
 alias Foo2!(int) t1;

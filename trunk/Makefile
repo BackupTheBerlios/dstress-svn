@@ -1,3 +1,7 @@
+# $HeadURL$
+# $Date$
+# $Author$
+#
 # GnuMakefile for DStress http://dmd.kuehne.cn/dstress.html
 # Copyright (C) 2004 Thomas Kuehne
 #
@@ -57,6 +61,16 @@ ifndef TOUCH
 TOUCH	= touch
 endif
 
+# executeable: detect if stdin contains "Internal error" (dmd) or "gcc.gnu.org/bugs" (gcd)
+ifndef GREP
+GREP = grep -s '\(Internal error\)\|\(gcc.gnu.org/bugs\)' > /dev/null 2>&1
+endif
+
+# executeable: used to concat files 
+ifndef CAT
+CAT = cat
+endif
+
 ###############################################################################
 ###############################################################################
 #
@@ -78,10 +92,10 @@ ext_nocompile = no
 ext_compile = o
 ext_source = d
 ext_source_html = html
+ext_log = log
 complex_todo = complex.mak
 complex_done = complex.done
 flag_pattern = __DSTRESS_DFLAGS__
-
 
 .PHONY: all basic_tools compile nocompile run norun complex clean distclean clean_log log
 #
@@ -126,10 +140,14 @@ define analyse_nocompile
 	@if $(ifeq__) $(z_return) 0 ; then \
 		$(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
 	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "XFAIL: $(z_name)"; $(TOUCH) $@; \
+		if $(CAT) $(z_log) | $(GREP) ; then \
+			$(ECHO) "ERROR: $(z_name) [Internal compiler error]"; $(RM) $@; \
 		else \
-			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
+			if $(ifeq__) $(z_return) 256 ; then \
+				$(ECHO) "XFAIL: $(z_name)"; $(TOUCH) $@; \
+			else \
+				$(ECHO) "ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
+			fi \
 		fi \
 	fi
 endef
@@ -137,14 +155,20 @@ endef
 %.$(ext_nocompile) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_nocompile),,$@))
 	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
+	$(eval z_log = $(z_name).$(ext_log))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< > $(z_log) 2>&1"))
+	@$(CAT) $(z_log) $(to_log)
 	$(analyse_nocompile)
+	@$(RM) $(z_log)
 
 %.$(ext_nocompile) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_nocompile),,$@))
 	$(extract_z_flags)
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< $(to_log)"))
+	$(eval z_log = $(z_name).$(ext_log))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) $(z_flags) -c -od$(OBJ_DIR) $< > $(z_log) 2>&1"))
+	@$(CAT) $(z_log) $(to_log)
 	$(analyse_nocompile)
+	@$(RM) $(z_log)
 
 #
 # target should compile (excludes linking)
@@ -307,7 +331,7 @@ clean_log :
 # remove targets and all temp objects
 #
 clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles)))
-	$(RM) $(OBJ_DIR)/?*.?*
+	$(RM) $(OBJ_DIR)/?*.?* nocompile/?*.$(ext_log)
 	$(RM) run/?*.$(ext_run) norun/?*.$(ext_norun) compile/?*.$(ext_compile) nocompile/?*.$(ext_nocompile)
 
 # the empty line above has to remain, otherwise some weired problems can arise

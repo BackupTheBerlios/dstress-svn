@@ -9,7 +9,8 @@
 
 // Note:
 // 	this crashs dmd-0.106 but results in the pseudo return code 1,
-// 	thus DStress can't detect this bug
+// 	thus DStress can't detect this bug directly. Instead the compiler
+//	output is parsed for "Internal error"(dmd) and "gcc.gnu.org/bugs"(gdc/gcc)
 
 static void dummy(...){
 }

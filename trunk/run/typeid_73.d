@@ -12,6 +12,7 @@ struct MyClass{
 int main(){
 	TypeInfo ti = typeid(MyClass);
 	assert(!(ti is null));
+	assert(ti.tsize==(MyClass).sizeof);
 	assert(ti.toString()=="MyClass");
 	return 0;
 }

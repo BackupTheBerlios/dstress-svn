@@ -13,6 +13,7 @@ union MyUnion{
 int main(){
 	TypeInfo ti = typeid(MyUnion[]);
 	assert(!(ti is null));
+	assert(ti.tsize==(MyUnion[]).sizeof);
 	assert(ti.toString()=="MyUnion[]");
 	return 0;
 }

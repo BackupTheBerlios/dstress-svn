@@ -11,6 +11,6 @@ module dstress.run.real_22;
 int main(){
 	real f = 0.0000195l;
 	assert(typeid(typeof(0.0000195l)) == typeid(real));
-	assert(.5 + f * 1e6 == .5 + 0.0000195f * 1e6);
+	assert(.5l + f * 1e6l == .5l + 0.0000195l * 1e6l);
 	return 0;
 }

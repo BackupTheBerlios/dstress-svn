@@ -11,6 +11,6 @@ module dstress.run.float_22;
 int main(){
 	float f = 0.0000195f;
 	assert(typeid(typeof(0.0000195f)) == typeid(float));
-	assert(.5 + f * 1e6 == .5 + 0.0000195f * 1e6);
+	assert(.5f + f * 1e6f == .5f + 0.0000195f * 1e6f);
 	return 0;
 }

@@ -7,7 +7,7 @@
 // @uri@	news:crmrb6$2slf$1@digitaldaemon.com
 // @url@        nntp://news.digitalmars.com/digitalmars.D.bugs/2649
 
-module dstress.run.overload_12;
+module dstress.nocompile.overload_12;
 
 class A{
 	void test(int val){

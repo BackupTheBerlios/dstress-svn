@@ -41,7 +41,7 @@ int main(char[][] argv)
 		}
 
         if(current_arg+1 < argv.length) {
-            min_time = atof(argv[current_arg]);
+            min_time = std.string.atof(argv[current_arg]);
         }	
     }
 

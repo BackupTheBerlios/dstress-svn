@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @author@	Ben Rasmussen <exo@bent-rasmussen.info>
+// @author@	Bent Rasmussen <exo@bent-rasmussen.info>
 // @date@	2004-08-12
 // @uri@	news:cfe9vt$1btr$1@digitaldaemon.com
 

@@ -1,4 +1,8 @@
-// @author@	<hellcatv@hotmail.com>
+// $HeadURL$
+// $Date$
+// $Author$
+
+// @author@	Daniel Horn <hellcatv@hotmail.com>
 // @date@	2004-05-06
 
 struct vec(int size){

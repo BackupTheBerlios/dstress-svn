@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @author@	Thomas Kuehne <thomas-dloop@kuehne.cn>
+// @author@	Thomas Kuehne <thomas-dloop@kuehne.thisisspam.cn>
 // @date@	2004-11-04
 // @uri@	news:cmdbq1$1a49$3@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2194

@@ -40,7 +40,6 @@ Test cases:
 * keyword: union (anonymous)
 * keyword: unittest
 * keyword: volatile
-* keyword: wchar
 
 * extend tests for design by contract
 

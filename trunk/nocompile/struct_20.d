@@ -7,7 +7,7 @@
 // @uri@	news:cs2u76$18jn$1@digitaldaemon.com
 // @url@	nttp://news.digitalmars.com/digitalmars.D.bugs/2674
 
-module dstress.compile.struct_20;
+module dstress.nocompile.struct_20;
 
 struct StructA {
 	StructB b;

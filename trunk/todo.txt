@@ -3,15 +3,20 @@ $Date$
 $Author$ 
 
 Makefile:
-* fix analyse_run (tries to execute the destination, even if compiling failed)
-* check the Windows bat generator
+* update/check the Windows bat generator (./beta)
+
+dstress.c:
+* add line check for error messages
+* stop the pop-up for segfaulting test cases: use "createProcess" instead of "system" on MSWindows
 
 Benchmark:
 * integrate benchmark results: SciMark, cowell-shah, oopack, ackermann
 * debug benchmark/cowell-shah/benchmark.d:double io(int ioMax)
 
+
 Test cases:
 * keyword: asm
+* keyword: abstract (http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D.bugs/1940)
 * keyword: break (mutexes)
 * keyword: in out body
 * keyword: cent

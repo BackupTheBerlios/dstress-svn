@@ -293,6 +293,7 @@ err:		if(argc!=0)
 		}
 		
 		/* test 2/2 */
+		cmd = malloc(strlen(arg[2]) + strlen(TLOG) + 24);
 		*cmd = '\x00';
 		strcat(cmd, arg[2]);
 		strcat(cmd, ".exe 1> ");

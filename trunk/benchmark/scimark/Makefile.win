@@ -1,16 +1,21 @@
+# $HeadURL$
+# $Date$
+
 DMD = dmd
-DFLAGS = -O -I..
+RM = del
 
-SOURCES = FFT.d kernel.d Stopwatch.d Random.d SOR.d SparseCompRow.d \
-	  array.d MonteCarlo.d LU.d constants.d scimark2.d
+DFLAGS += -O -inline -release
 
-OBJS = FFT.obj kernel.obj Stopwatch.obj Random.obj SOR.obj SparseCompRow.obj \
-	array.obj MonteCarlo.obj LU.obj constants.obj scimark2.obj
+SOURCES = fft.d kernel.d stopwatch.d random.d sor.d sparsematmult.d \
+	      array.d montecarlo.d lu.d constants.d scimark2.d
 
-all: scimark2.exe
+OBJS = fft.o kernel.o stopwatch.o random.o sor.o sparsematmult.o \
+	   array.o montecarlo.o lu.o constants.o scimark2.o
 
-scimark2.exe : $(SOURCES) 
-	$(DMD) -ofscimark2.exe $(DFLAGS) $(SOURCES)
+all: scimark2
+
+scimark2 : $(SOURCES)
+	$(DMD) -ofscimark2 $(DFLAGS) $(SOURCES)
 
 clean :
-	rm $(OBJS)
+	$(RM) scimark2 $(OBJS)

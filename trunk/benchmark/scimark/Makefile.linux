@@ -2,13 +2,17 @@ ifndef DMD
 DMD = dmd
 endif
 
-DFLAGS += -O -I..
+ifndef RM
+RM = rm
+endif
 
-SOURCES = FFT.d kernel.d Stopwatch.d Random.d SOR.d SparseCompRow.d \
-	  array.d MonteCarlo.d LU.d constants.d scimark2.d
+DFLAGS += -O -inline -release
 
-OBJS = FFT.o kernel.o Stopwatch.o Random.o SOR.o SparseCompRow.o \
-	array.o MonteCarlo.o LU.o constants.o scimark2.o
+SOURCES = fft.d kernel.d stopwatch.d random.d sor.d sparsematmult.d \
+	      array.d montecarlo.d lu.d constants.d scimark2.d
+
+OBJS = fft.o kernel.o stopwatch.o random.o sor.o sparsematmult.o \
+	   array.o montecarlo.o lu.o constants.o scimark2.o
 
 all: scimark2
 
@@ -16,4 +20,6 @@ scimark2 : $(SOURCES)
 	$(DMD) -ofscimark2 $(DFLAGS) $(SOURCES)
 
 clean :
-	rm $(OBJS)
+	$(RM) scimark2 $(OBJS)
+
+.PHONY : all clean

@@ -9,6 +9,7 @@ For more information about SciMark, see http://math.nist.gov/scimark.
 
 The current D version of SciMark can be retrieved via Subversion:
 svn://svn.kuehne.cn/dstress/benchmark/scimark
+http://svn.kuehne.cn/dstress/benchmark/scimark
 
 Results of this benchmark can be sent to pozo@nist.gov.
 
@@ -17,7 +18,7 @@ kernel routines.  A sample makefile is included;
 however, one could simply write 
 
 
-> dmd -ofscimark2  -O *.d
+> dmd -ofscimark2  -O -release *.d
 
 and then run
 

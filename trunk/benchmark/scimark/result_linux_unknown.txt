@@ -1,0 +1,46 @@
+Dave <Dave_member@pathlink.com>
+Wed, 3 Nov 2004 22:35:13 +0000 (UTC)
+news:cmbmf1$u0o$1@digitaldaemon.com
+http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D/2266
+
+--- DMD v0.105 ---
+# dmd -O -inline -release -ofscimark2_dmd *.d
+# scimark2_dmd
+Composite Score:          234.70
+FFT             Mflops:    61.59    (N=1024)
+SOR             Mflops:   316.93    (100 x 100)
+MonteCarlo:     Mflops:    51.03
+Sparse matmult  Mflops:   111.84    (N=1000, nz=5000)
+LU              Mflops:   632.10    (M=100, N=100)
+
+--- GDC 1g (dmd 0.102 / GCC v3.4.1) ---
+# dmd -O -inline -release *.d -ofscimark2_gdc
+# scimark2_gdc
+Composite Score:          409.91
+FFT             Mflops:   231.33    (N=1024)
+SOR             Mflops:   315.89    (100 x 100)
+MonteCarlo:     Mflops:    57.60
+Sparse matmult  Mflops:   627.14    (N=1000, nz=5000)
+LU              Mflops:   817.56    (M=100, N=100)
+
+--- GCC v3.4.1 ---
+# gcc -O3 -lm *.c -o scimark2
+# scimark2
+Composite Score:          394.51
+FFT             Mflops:   222.48    (N=1024)
+SOR             Mflops:   316.93    (100 x 100)
+MonteCarlo:     Mflops:    57.85
+Sparse matmult  Mflops:   567.41    (N=1000, nz=5000)
+LU              Mflops:   807.89    (M=100, N=100)
+
+--- Intel C/C++ v8.0 ---
+# /opt/intel_cc_80/bin/icc -O3 -static *.c -o scimark2
+# scimark2
+Composite Score:          442.65
+FFT             Mflops:   231.33    (N=1024)
+SOR             Mflops:   456.62    (100 x 100)
+MonteCarlo:     Mflops:    58.36
+Sparse matmult  Mflops:   534.99    (N=1000, nz=5000)
+LU              Mflops:   931.97    (M=100, N=100)
+
+

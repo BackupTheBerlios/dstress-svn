@@ -1,0 +1,29 @@
+Thomas Kühne <thomas-dloop@kuehne.cn>
+Wed, 03 Nov 2004 20:38:45 +0100
+news:cmbbtt$7t8$1@digitaldaemon.com
+http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D/12263
+
+= = = dmd-0.105 -O = = =
+Composite:	100.07
+FFT:		39.50
+SOR:		223.03
+M.Carlo:	30.37
+matmult:	85.56 
+LU:		121.90
+
+= = = gdc-0.8 -O2 -frename-registers -fomit-frame-pointer -fweb = = =
+Composite:	132.54
+FFT:		138.87
+SOR:		225.11
+M.Carlo:	31.66
+matmult:	131.07
+LU:		135.99
+
+= = = gcc 3.4.2 -O3 = = =
+Composite:	134.63
+FFT:		144.39 
+SOR:		227.24
+M.Carlo:	39.48
+matmult:	133.75
+LU:		128.32
+

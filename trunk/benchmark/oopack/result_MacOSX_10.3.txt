@@ -1,0 +1,30 @@
+Anders F Björklund <afb@algonet.se>
+Fri, 05 Nov 2004 11:49:37 +0100
+news://cmfls1$279q$1@digitaldaemon.com
+http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D/12302
+
+Here are the test results from GDC, running on Mac OS X 10.3:
+
+g++ 3.4.2: (g++ -O3 -mcpu=G4)
+
+                          Seconds       Mflops
+Test       Iterations     C    OOP     C    OOP  Ratio
+----       ----------  -----------  -----------  -----
+Iterator       100000    0.7   0.8  281.7 266.7    1.1
+Complex          1000    0.0   0.2  400.0  42.1    9.5
+Matrix           1000    0.9   0.9  280.9 274.7    1.0
+Max            100000    1.5   1.9   65.8  52.1    1.3
+
+gdc 0.8: (gdc -O2 -fweb -frelease -finline-functions -mcpu=G4)
+
+                          Seconds       Mflops
+Test       Iterations     C    OOP     C    OOP  Ratio
+----       ----------  -----------  -----------  -----
+Iterator       100000  0.070 1.279  2857.143 156.372  18.271
+Complex          1000  0.002 0.483  4000.000 16.563  241.500
+Matrix           1000  0.095 0.753  2631.579 332.005  7.926
+Max            100000  0.233 0.375  429.185 266.667  1.609
+
+Both were using the same local gcc/gdc build, by the way.
+(i.e. I used the g++ compiler from the gdc installation)
+

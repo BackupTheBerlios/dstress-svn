@@ -1,0 +1,41 @@
+Thomas Kühne <thomas-dloop@kuehne.cn>
+Thu, 04 Nov 2004 09:30:46 +0100
+news:cmcp5c$41g$4@digitaldaemon.com
+http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D/12277
+
+gdc-0.8(gcc-3.4.2): -O2 -frename-registers -fomit-frame-pointer -fweb
+-frelease -finline-functions -march=i686
+                         Seconds       Mflops
+Test       Iterations     C    OOP     C    OOP  Ratio
+----       ----------  -----------  -----------  -----
+Iterator       100000  0.530 28.990  377.358 6.899  54.698
+Complex          1000  0.020 801.01  400.000 0.010  40050.500
+Matrix           1000  0.890 7.420  280.899 33.693  8.337
+Max            100000  0.860 3.510  116.279 28.490  4.081
+
+dmd-0.105: -O -release -inline
+                         Seconds       Mflops
+Test       Iterations     C    OOP     C    OOP  Ratio
+----       ----------  -----------  -----------  -----
+Iterator       100000  1.060 9.910  188.679 20.182  9.349
+Complex          1000  0.040 3.990  200.000 2.005  99.750
+Matrix           1000  1.460 6.720  171.233 37.202  4.603
+Max            100000  0.790 3.530  126.582 28.329  4.468
+
+g++-3.4.2: -O3 -march=i686
+                         Seconds       Mflops
+Test       Iterations     C    OOP     C    OOP  Ratio
+----       ----------  -----------  -----------  -----
+Iterator       100000    0.5   0.5  377.4 377.4    1.0
+Complex          1000    0.0   0.1  400.0  57.1    7.0
+Matrix           1000    0.9   0.7  274.7 342.5    0.8
+Max            100000    0.8   0.8  126.6 126.6    1.0
+
+icc-8.0: -O3 -march=i686
+                         Seconds       Mflops
+Test       Iterations     C    OOP     C    OOP  Ratio
+----       ----------  -----------  -----------  -----
+Iterator       100000    0.5   0.6  444.4 357.1    1.2
+Complex          1000    0.0   0.0  400.0 400.0    1.0
+Matrix           1000    0.7   0.7  384.6 384.6    1.0
+Max            100000    0.7   0.7  137.0 137.0    1.0

@@ -1,6 +1,6 @@
 ﻿Thanks to all the bug reporters and for the test case suggestions.
 
-
+Aleksey Bobnev 		<uw@front.ru>
 Andy Friesen		<andy@ikagames.com>
 Ant			<duitoolkit@yahoo.ca>
 Arcane Jill		<Arcane_member@pathlink.com>

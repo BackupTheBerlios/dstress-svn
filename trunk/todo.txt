@@ -13,7 +13,6 @@ Benchmark:
 Test cases:
 * keyword: asm
 * keyword: in out body
-* keyword: in (associative array)
 * keyword: cent
 * keyword: cdouble
 * keyword: cfloat

@@ -4,7 +4,7 @@ FAIL:  compile/abstract_03
 FAIL:  compile/abstract_04
 PASS:  compile/alias_08
 PASS:  compile/align_04
-FAIL:  compile/bug_e2ir_1158_A
+PASS:  compile/bug_e2ir_1158_A
 FAIL:  compile/delegate_13
 PASS:  compile/empty_01
 ERROR: compile/enum_05 [35584]
@@ -18,32 +18,39 @@ PASS:  compile/forward_reference_02
 PASS:  compile/html_empty_01
 PASS:  compile/html_empty_02
 FAIL:  compile/mixin_01
-ERROR: compile/struct_16 [35584]
+PASS:  compile/struct_16
 PASS:  compile/struct_18
 PASS:  compile/template_struct_02
 PASS:  compile/typedef_05
 PASS:  compile/union_10
 PASS:  compile/unittest_02
 FAIL:  compile/version_09
+XFAIL: nocompile/InExpression_14
+XFAIL: nocompile/InExpression_15
+XFAIL: nocompile/InExpression_16
+XFAIL: nocompile/InExpression_17
+XFAIL: nocompile/InExpression_18
 XPASS: nocompile/alias_05
 XPASS: nocompile/align_01
 XFAIL: nocompile/align_02
 XPASS: nocompile/align_03
 XPASS: nocompile/align_05
-ERROR: nocompile/array_initialization_04 [35584]
+XFAIL: nocompile/array_initialization_04
 XFAIL: nocompile/assert_03
 XFAIL: nocompile/associative_array_01
+XFAIL: nocompile/associative_array_03
+XFAIL: nocompile/associative_array_04
 XFAIL: nocompile/bit_02
 XFAIL: nocompile/bounds_checking_01
 ERROR: nocompile/bug_20041016_A [35584]
 XPASS: nocompile/bug_20041016_B
-ERROR: nocompile/bug_20041203_A [35584]
+XFAIL: nocompile/bug_20041203_A
 XFAIL: nocompile/bug_20041203_B
 XFAIL: nocompile/bug_cgcod_1464
 XFAIL: nocompile/bug_cgcs_353
 XFAIL: nocompile/bug_cod4_352
 XFAIL: nocompile/bug_e2ir_814
-XFAIL: nocompile/bug_expression_1147
+ERROR: nocompile/bug_expression_1147 [35584]
 XFAIL: nocompile/bug_mtype_2576_B
 XFAIL: nocompile/bug_mtype_3154
 XFAIL: nocompile/bug_s2ir_458
@@ -90,7 +97,7 @@ XFAIL: nocompile/dchar_01
 XFAIL: nocompile/dchar_02
 XFAIL: nocompile/dchar_04
 XFAIL: nocompile/dchar_06
-ERROR: nocompile/default_argument_05 [35584]
+XFAIL: nocompile/default_argument_05
 XFAIL: nocompile/delegate_02
 XFAIL: nocompile/delegate_03
 XFAIL: nocompile/delegate_05
@@ -282,7 +289,7 @@ XFAIL: nocompile/struct_04
 XFAIL: nocompile/struct_05
 XFAIL: nocompile/struct_06
 XFAIL: nocompile/struct_17
-XFAIL: nocompile/super_03
+ERROR: nocompile/super_03 [35584]
 ERROR: nocompile/super_05 [34304]
 XFAIL: nocompile/switch_08
 XFAIL: nocompile/switch_09
@@ -353,6 +360,20 @@ PASS:  run/Alternate_Wysiwyg_String_13
 PASS:  run/Alternate_Wysiwyg_String_14
 PASS:  run/Alternate_Wysiwyg_String_15
 PASS:  run/Alternate_Wysiwyg_String_16
+FAIL:  run/InExpression_01
+FAIL:  run/InExpression_02
+FAIL:  run/InExpression_03
+FAIL:  run/InExpression_04
+FAIL:  run/InExpression_05
+FAIL:  run/InExpression_06
+FAIL:  run/InExpression_07
+FAIL:  run/InExpression_08
+FAIL:  run/InExpression_09
+FAIL:  run/InExpression_10
+PASS:  run/InExpression_11
+PASS:  run/InExpression_12
+PASS:  run/InExpression_13
+PASS:  run/InExpression_19
 PASS:  run/Wysiwyg_String_01
 PASS:  run/Wysiwyg_String_02
 PASS:  run/Wysiwyg_String_03
@@ -401,7 +422,7 @@ FAIL:  run/bug_20041103_C (compiling error)
 PASS:  run/bug_20041103_D
 PASS:  run/bug_20041103_E
 ERROR: run/bug_expression_661_A [34304]
-ERROR: run/bug_mangle_61_A [34304]
+FAIL:  run/bug_mangle_61_A (compiling error)
 PASS:  run/bug_mangle_61_B
 PASS:  run/bug_mtype_2576_A
 PASS:  run/byte_01
@@ -424,7 +445,10 @@ PASS:  run/class_01
 PASS:  run/class_02
 PASS:  run/class_03
 FAIL:  run/class_06 (compiling error)
-FAIL:  run/class_initialization_01
+PASS:  run/class_08
+PASS:  run/class_09
+PASS:  run/class_10
+PASS:  run/class_initialization_01
 PASS:  run/class_initialization_02
 PASS:  run/command_line_debug_01
 PASS:  run/command_line_debug_02
@@ -476,7 +500,7 @@ PASS:  run/creal_16
 PASS:  run/creal_17
 PASS:  run/creal_18
 PASS:  run/creal_19
-FAIL:  run/creal_20
+PASS:  run/creal_20
 PASS:  run/dchar_03
 PASS:  run/dchar_05
 PASS:  run/dchar_07

@@ -13,25 +13,25 @@ version(linux){
         const double CLOCKS_PER_SEC = 100.0;
 }
 
-double seconds(){
-        return (cast(double) clock()) / (cast(double)CLOCKS_PER_SEC);
+int ack(int M, int N) {
+	return (M ? (ack(M-1,N ? ack(M,(N-1)) : 1)) : N+1);
 }
-
-int ack(int M, int N) { return (M ? (ack(M-1,N ? ack(M,(N-1)) : 1)) : N+1); }
 
 int main(char[][] argv) {
 	if(argv.length!=3){
-		printf("%s%s",argv[0],": m n\n\twhere n and m are integers\n");
+		printf("%.*s%.*s",argv[0],": m n\n\twhere n and m are integers\n");
 		return 0;
 	}
 	int m = atoi(argv[1]);
 	int n = atoi(argv[2]);
 
 	printf("ack(%d,%d): ",m,n);
-	double start=seconds();
+	clock_t start=clock();
 	int back=ack(m,n);
-	double end=seconds();
-	printf("%d (%e seconds)\n",back,end-start);
+	clock_t end=clock();
+	double passed = end - start;
+	passed /= (cast(double)CLOCKS_PER_SEC);
+	printf("%d (%e seconds)\n", back, passed);
 	return 0;
 }
 

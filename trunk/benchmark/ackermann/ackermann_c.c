@@ -5,11 +5,9 @@
 #include <time.h>
 #include <stdio.h>
 
-double seconds(){
-        return ((double) clock()) / ((double)CLOCKS_PER_SEC);
+int ack(int M, int N) {
+	return (M ? (ack(M-1,N ? ack(M,(N-1)) : 1)) : N+1); 
 }
-
-int ack(int M, int N) { return (M ? (ack(M-1,N ? ack(M,(N-1)) : 1)) : N+1); }
 
 int main(int argc, char *argv[]) {
 	if(argc!=3){
@@ -20,10 +18,12 @@ int main(int argc, char *argv[]) {
 	int n = atoi(argv[2]);
 
 	printf("ack(%d,%d): ",m,n);
-	double start=seconds();
+	clock_t start=clock();
 	int back=ack(m,n);
-	double end=seconds();
-	printf("%d (%e seconds)\n",back,end-start);
+	clock_t end=clock();
+	double passed = end - start;
+	passed /= ((double)CLOCKS_PER_SEC);
+	printf("%d (%e seconds)\n", back, passed);
 	return(0);
 }
 

@@ -5,8 +5,8 @@
 // @uri@	<ckdc4r$re2$1@digitaldaemon.com>
 
 int main(){
-	real[10] array;
-	array[0]=real.max;
+	float[10] array;
+	array[0]=float.max;
 	array[1]=0.875;
 	array[2]=0.75;
 	array[3]=0.625;
@@ -15,13 +15,13 @@ int main(){
 	array[6]=0.25;
 	array[7]=0.125;
 	array[8]=0.0;
-	array[9]=real.min;
+	array[9]=float.min;
 
-	real[] sorted_copy = array.dup;
+	float[] sorted_copy = array.dup;
 	sorted_copy.sort;
 
 	assert(sorted_copy.length==10);
-	assert(sorted_copy[0]==real.min);
+	assert(sorted_copy[0]==float.min);
 	assert(sorted_copy[1]==0.0);
 	assert(sorted_copy[2]==0.125);
 	assert(sorted_copy[3]==0.25);
@@ -30,7 +30,7 @@ int main(){
 	assert(sorted_copy[6]==0.625);
 	assert(sorted_copy[7]==0.75);
 	assert(sorted_copy[8]==0.875);
-	assert(sorted_copy[9]==real.max);
+	assert(sorted_copy[9]==float.max);
 
 	return 0;
 }

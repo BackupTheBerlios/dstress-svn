@@ -75,6 +75,10 @@ char* getGeneralFlags(){
 #endif
 
 #ifdef USE_POSIX_LOAD
+
+#define RETURN_OK 0
+#define RETURN_FAIL 256
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -87,10 +91,10 @@ char* loadFile(char* filename){
 		if(0==fstat(file, &fileInfo)){
 			back=malloc(fileInfo.st_size+1);
 			fileInfo.st_size = read(file, back, fileInfo.st_size);
-			if(fileInfo.st_size != -1){
+			if(fileInfo.st_size>0){
 				*(back+fileInfo.st_size+1) = '\x00';
 			}else{
-				*back = '\x00';
+				back = "\x00";
 			}
 		}
 		close(file);
@@ -99,7 +103,39 @@ char* loadFile(char* filename){
 	return back;
 }
 #else
+
+#ifdef WIN32
+
+#define RETURN_OK 0
+#define RETURN_FAIL 1
+
+#include <windows.h>
+char* loadFile(char* filename){
+	char* back=NULL;
+	DWORD size, numread;
+	HANDLE file=CreateFile(filename, GENERIC_READ, FILE_SHARE_READ, NULL,
+		OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+	if (file != INVALID_HANDLE_VALUE){
+		size = GetFileSize(file, NULL);
+		if (size != INVALID_FILE_SIZE){
+			back=malloc((size+1)*sizeof(char));
+			if (ReadFile(file,back,size,&numread,NULL) == 0){
+				if (numread==size)
+					*(back+size+1) = '\x00';
+				else
+					back = "\x00";
+			}else
+				back = "\x00";
+		}
+		CloseHandle(file);
+	}
+	errno = 0;
+	return back;
+}
+#else
 #error no loadFile adaptation for this system available
+#endif
+
 #endif
 
 int main(int argc, char* arg[]){
@@ -189,17 +225,17 @@ err:		if(argc!=0)
 		if(strstr(cmd, "Internal error")!= NULL || strstr(cmd, "gcc.gnu.org/bugs")!=NULL){
 			printf("ERROR:\t%s (Internal compiler error)\n", arg[2]);
 		}else if(modus==COMPILE){
-			if(res==0){
+			if(res==RETURN_OK){
 				printf("PASS: \t%s\n", arg[2]);
-			}else if(res==256){
+			}else if(res==RETURN_FAIL){
 				printf("FAIL: \t%s [%d]\n", arg[2], res);
 			}else{
 				printf("ERROR:\t%s [%d]\n", arg[2], res);
 			}
 		}else{
-			if(res==256){
+			if(res==RETURN_FAIL){
 				printf("XFAIL:\t%s\n", arg[2]);
-			}else if(res==0){
+			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s\n", arg[2]);
 			}else{
 				printf("ERROR:\t%s [%d]\n", arg[2], res);
@@ -246,11 +282,11 @@ err:		if(argc!=0)
 			printf("ERROR:\t%s (Internal compiler error)\n", arg[2]);
 			fprintf(stderr, "\n--------\n");
 			return 0;
-		}else if(res==256){
+		}else if(res==RETURN_FAIL){
 			printf("FAIL: \t%s [%d]\n", arg[2], res);
 			fprintf(stderr, "\n--------\n");
 			return 0;
-		}else if(res!=0){
+		}else if(res!=RETURN_OK){
 			printf("ERROR:\t%s [%d]\n", arg[2], res);
 			fprintf(stderr, "\n--------\n");
 			return 0;
@@ -272,17 +308,17 @@ err:		if(argc!=0)
 		}
 		fprintf(stderr, "%s\n", cmd);
 		if(modus==RUN){
-			if(res==0){
+			if(res==RETURN_OK){
 				printf("PASS: \t%s\n", arg[2]);
-			}else if(res==256){
+			}else if(res==RETURN_FAIL){
 				printf("FAIL: \t%s [run: %d]\n", arg[2], res);
 			}else{
 				printf("ERROR:\t%s [run: %d]\n", arg[2], res);
 			}
 		}else{
-			if(res==256){
+			if(res==RETURN_FAIL){
 				printf("XFAIL:\t%s\n", arg[2]);
-			}else if(res==0){
+			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s [norun: %d]\n", arg[2], res);
 			}else{
 				printf("ERROR:\t%s [norun: %d]\n", arg[2], res);

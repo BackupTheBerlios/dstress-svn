@@ -2,7 +2,9 @@
 // @author@	Russ Lewis <spamhole-2001-07-16@deming-os.org>
 // @date@	2004-10-11
 // @url@	nttp://digitalmars.com/digitalmars.D.bugs:2068
-// @uri@	<ckdc4r$re2$1@digitaldaemon.com>
+// @uri@	news://ckdc4r$re2$1@digitaldaemon.com
+
+module dstress.run.sort_05;
 
 int main(){
 	double[10] array;

@@ -1,7 +1,9 @@
 
 // @author@	Ant <duitoolkit@yahoo.ca>
 // @date@	2004-08-21
-// @uri@	news://pan.2004.08.21.15.02.20.419085@yahoo.ca>
+// @uri@	news://pan.2004.08.21.15.02.20.419085@yahoo.ca
+
+module dstress.run.super_02;
 
 int status;
 

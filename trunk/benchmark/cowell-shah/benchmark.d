@@ -51,8 +51,8 @@ double intArithmetic(int intMax)
 	while (i < intMax)
 	{
 		intResult -= i++;
-		intResult += i++;
 		intResult *= i++;
+		intResult += i++;
 		intResult /= i++;
 	}
 

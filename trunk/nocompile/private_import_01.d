@@ -4,7 +4,10 @@ module dstress.nocompile.private_import_01;
 
 import dstress.addon.private_import_B;
 
+class Foo2 : Bar {
+
+}
+
 int main(){
-	int fooC = fooA;
 	return 0;
 }

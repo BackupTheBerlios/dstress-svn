@@ -3,6 +3,8 @@ Project:
 
 URL:
 	http://dmd.kuehne.cn/dstress.html
+	http://svn.kuehne.cn/dstress
+	svn://svn.kuehne.cn/dstress
 	mailto:dstress@kuehne.cn
 
 Description:

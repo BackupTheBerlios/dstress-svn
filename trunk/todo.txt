@@ -22,6 +22,7 @@ Test cases:
 * keyword: export
 * keyword: extern
 * keyword: function
+* keyword: goto (intervening finally clauses; mutexes)
 * keyword: idouble
 * keyword: ifloat
 * keyword: import

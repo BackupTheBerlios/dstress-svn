@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
  
-package cn.kuehne.dmd.dstress;
+//package cn.kuehne.dmd.dstress;
 
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -37,18 +37,24 @@ public class GenReport{
 
 	/** store all results of 1 test case */
 	protected static class TestResult{
-		
-		/** unexpected fail */
-		static final byte XFAIL=1;
-		
-		/** expected fail */
-		static final byte FAIL=2;
-		
-		/** expected pass */
-		static final byte PASS=3;
 
-		/** unexpected pass */
-		static final byte XPASS=4;
+		static final String typ[] = new String[]{
+			"ERROR", "PASS", "XPASS", "FAIL", "XFAIL"
+		};
+	
+		static String lower[];
+
+		static{
+			lower=new String[typ.length];
+			for(int index=0; index<lower.length; index++){
+				lower[index]=typ[index].toLowerCase();
+			}
+		}	
+		static final byte ERROR=0;
+		static final byte PASS=1;
+		static final byte XPASS=2;
+		static final byte FAIL=3;
+		static final byte XFAIL=4;
 
 		/** the test's name */
 		protected String name;
@@ -78,7 +84,7 @@ public class GenReport{
 				throw new Throwable("reader number: "+index,t);
 			}
 		}
-		write(out);
+		write(out, in.length);
 	}
 
 	/** interpretes input on a per Reader basis and updates the data
@@ -92,16 +98,13 @@ public class GenReport{
 				// pare result status
 				StringTokenizer nizer = new StringTokenizer(line," \n:",false);
 				String token=nizer.nextToken();
-				byte status=-9;
-				if(token.equals("PASS")){
-					status=TestResult.PASS;
-				}else if(token.equals("FAIL")){
-					status=TestResult.FAIL;
-				}else if(token.equals("XFAIL")){
-					status=TestResult.XFAIL;
-				}else if(token.equals("XPASS")){
-					status=TestResult.XPASS;
-				}else{
+				byte status=-1;
+				for(byte typeIndex=0; typeIndex<TestResult.typ.length; typeIndex++){
+					if(TestResult.typ[typeIndex].equals(token)){
+						status=typeIndex;
+					}
+				}
+				if(status<0){
 					throw new IOException("Unknown token \""+token+"\"");
 				}
 				// pares test name
@@ -111,7 +114,7 @@ public class GenReport{
 				// get
 				TestResult test=(TestResult)data.get(name);
 				if(test==null){
-					// no test by this name found
+					// no test found
 					test=new TestResult(name,max);
 				}
 				test.status[version]=status;
@@ -124,30 +127,32 @@ public class GenReport{
 	}
 
 	/** saves unsorted results as a html snipplet */	
-	private void write(Writer out) throws Exception{
+	private void write(Writer out, int compilerCount) throws Exception{
+		long[][] summary = new long[compilerCount][TestResult.typ.length];
+		// test cases:
 		for(Enumeration e=data.elements();e.hasMoreElements();){
 			TestResult result= (TestResult) e.nextElement();
 			out.write("<tr><th>"+result.name+"</th>");
 			for(int index=0; index<result.status.length; index++){
 				out.write("<td class='");
-				switch(result.status[index]){
-					case TestResult.PASS:{
-						out.write("A'>pass");
-						break;
-					}case TestResult.XPASS:{
-						out.write("B'>xpass");
-						break;
-					}case TestResult.FAIL:{
-						out.write("C'>fail");
-						break;
-					}case TestResult.XFAIL:{
-						out.write("D'>xfail");
-						break;
-					}default:{
-						throw new Exception("unhandled status "+result.status[index]+" for entry \""+result.name+"\" in input stream "+index);
-					}
+				try{
+					out.write((char)('A'+result.status[index]));
+					out.write("'>"+TestResult.lower[result.status[index]]);
+					summary[index][result.status[index]]++;
+				}catch(Exception ee){
+					throw new Exception("unhandled status "+result.status[index]+" for entry \""+result.name+"\" in input stream "+index);
 				}
 				out.write("</td>");
+			}
+			out.write("</tr>\n");
+		}
+		
+		// summary:
+		for(int type=0; type<TestResult.typ.length; type++){
+			out.write("<!-- summary --><tr><th class='"+(char)('A'+type)+"'>");
+			out.write("<a href='#symbol-"+TestResult.lower[type]+"' id='summary-"+TestResult.lower[type]+"' name='summary-"+TestResult.lower[type]+"'>"+TestResult.lower[type]+"</a></th>");
+			for(int compiler=0; compiler<summary.length; compiler++){
+				out.write("<td class='"+(char)('A'+type)+"'>"+summary[compiler][type]+"</td>");
 			}
 			out.write("</tr>\n");
 		}

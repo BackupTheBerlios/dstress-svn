@@ -60,7 +60,7 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 	@if $(DMD) $(z_arg) complex/command_line/dummy.$(ext_source) $(to_log); then \
 		$(ECHO) "PASS:  $(z_name)"; \
 	else \
-		$(ECHO) "XFAIL: $(z_name)"; \
+		$(ECHO) "FAIL: $(z_name)"; \
 	fi
 
 #
@@ -74,7 +74,7 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 	@if $(DMD) $(z_arg) complex/command_line/dummy.$(ext_source) $(to_log); then \
 		$(ECHO) "XPASS: $(z_name)"; \
 	else \
-		$(ECHO) "FAIL:  $(z_name)"; \
+		$(ECHO) "XFAIL:  $(z_name)"; \
 	fi
 
 #
@@ -88,7 +88,7 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 	@if $(CD) complex/command_line ; $(DMD) $(z_arg) $(to_log); then \
 		$(ECHO) "XPASS: $(z_name)"; \
 	else \
-		$(ECHO) "FAIL:  $(z_name)"; \
+		$(ECHO) "XFAIL:  $(z_name)"; \
 	fi	
 	
 # this will be called by root's "clean" target

@@ -18,11 +18,12 @@ Condition Failed:
 	3) wrong assertion
 	4) return value of main isn't 0 (zero)
 
-Output Synopsis:
-	FAIL:	expected failure
-	XFAIL:	unexpected failure
+Output Synopsis: (DejaGnu / POSIX 1003.3)
 	PASS:	expected pass
 	XPASS:	unexpected pass
+	FAIL:	unexpected fail
+	XFAIL:	expected fail
+	ERROR:	test error (compiler, linker or test case segfaulted)
 
 Source code comments:
 	@author@ 	reporter / author

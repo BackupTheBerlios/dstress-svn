@@ -35,7 +35,7 @@ complex/private_import/private_import_01.done : complex/private_import/a.$(ext_s
 	@if $(DMD) $(DFLAGS) -c -Icomplex/private_import/ -ofcomplex/private_import/c.$(ext_compile) complex/private_import/c.$(ext_source) $(to_log); then \
 		$(ECHO) "XPASS: $(z_name)"; \
 	else \
-		$(ECHO) "FAIL:  $(z_name)"; $(TOUCH) $@; \
+		$(ECHO) "XFAIL:  $(z_name)"; $(TOUCH) $@; \
 	fi
 
 #
@@ -46,7 +46,7 @@ complex/private_import/private_import_02.done : complex/private_import/a.$(ext_s
 	@if $(DMD) $(DFLAGS) -c -od$(OBJ_DIR) complex/private_import/a.$(ext_source) complex/private_import/b.$(ext_source) complex/private_import/c.$(ext_source) $(to_log); then \
 		$(ECHO) "XPASS: $(z_name)"; \
 	else \
-		$(ECHO) "FAIL:  $(z_name)"; $(TOUCH) $@; \
+		$(ECHO) "XFAIL:  $(z_name)"; $(TOUCH) $@; \
 	fi
 
 

@@ -33,10 +33,10 @@ complex/debug/debug_01.$(ext_run) :  complex/debug/debug_01.$(ext_source)
 		if $@ $(to_log); then \
 			$(ECHO) "PASS:  $(z_name)"; \
 		else \
-			$(ECHO) "XFAIL: $(z_name)"; $(RM) $@; \
+			$(ECHO) "FAIL: $(z_name)"; $(RM) $@; \
 		fi \
 	else \
-		$(ECHO) "XFAIL: $(z_name) (compiling error)"; \
+		$(ECHO) "FAIL: $(z_name) (compiling error)"; \
 	fi
 
 complex/debug/debug_02.$(ext_run) :  complex/debug/debug_02.$(ext_source) complex/debug/$(complex_todo)
@@ -45,10 +45,10 @@ complex/debug/debug_02.$(ext_run) :  complex/debug/debug_02.$(ext_source) comple
 		if $@ $(to_log); then \
 			$(ECHO) "PASS:  $(z_name)"; \
 		else \
-			$(ECHO) "XFAIL: $(z_name)"; $(RM) $@; \
+			$(ECHO) "FAIL: $(z_name)"; $(RM) $@; \
 		fi \
 	else \
-		$(ECHO) "XFAIL: debug_02 (compiling error)"; \
+		$(ECHO) "FAIL: debug_02 (compiling error)"; \
 	fi
 
 complex/debug/debug_03.$(ext_run) :  complex/debug/debug_03.$(ext_source) complex/debug/$(complex_todo)
@@ -57,10 +57,10 @@ complex/debug/debug_03.$(ext_run) :  complex/debug/debug_03.$(ext_source) comple
 		if $@ $(to_log); then \
 			$(ECHO) "PASS:  $(z_name)"; \
 		else \
-			$(ECHO) "XFAIL: $(z_name)"; $(RM) $@; \
+			$(ECHO) "FAIL: $(z_name)"; $(RM) $@; \
 		fi \
 	else \
-		$(ECHO) "XFAIL: $(z_name) (compiling error)"; \
+		$(ECHO) "FAIL: $(z_name) (compiling error)"; \
 	fi
 
 

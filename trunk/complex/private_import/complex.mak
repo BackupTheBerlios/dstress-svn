@@ -22,7 +22,7 @@
 	complex/private_import/clean
 
 complex/private_import/warning :
-	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex\" or \"all\""
+	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex/private_import/complex.done\", \"complex\" or \"all\""
 
 # the actual target, will be called by root's "all" / "complex" target
 complex/private_import/$(complex_done) : complex/private_import/private_import_01.done complex/private_import/private_import_02.done

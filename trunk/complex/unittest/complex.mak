@@ -23,10 +23,10 @@
 	complex/unittest/nocompile \
 	complex/unittest/clean 
 
-ext_unittest_run = unit.$(ext_run)
-
 complex/unittest/warning :
-	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex\" or \"all\""
+	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex/unittest/complex.done\", \"complex\" or \"all\""
+
+ext_unittest_run = unit.$(ext_run)
 
 # this will be called by root's "all" / "complex" target
 complex/unittest/$(complex_done) : complex/unittest/run complex/unittest/nocompile

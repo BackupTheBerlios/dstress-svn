@@ -22,12 +22,13 @@
 	complex/command_line/clean
 
 complex/command_line/warning :
-	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex\" or \"all\""
-
+	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"coplex/command_line/coplex.done\", \"complex\" or \"all\""
 
 #
-# name__command_line_arguments.cmdrun
-# name__command_line_arguments.cmdfail
+# name__command__line__arguments.cmdrun
+# name__command__line__arguments.cmdfail
+# name__command__line__arguments.cmdnullfail
+#
 # all double underscores in the arguments will be replaced by whitespace 
 #
 complex/command_line/raw = \
@@ -42,10 +43,16 @@ complex/command_line/raw = \
 	complex/command_line/command_line_null_source_02__.cmdnullfail \
 	complex/command_line/command_line_null_source_03__-c__"".cmdnullfail \
 	complex/command_line/command_line_null_source_04__"".cmdnullfail \
+	complex/command_line/command_line_null_source_05__-c__..d.cmdnullfail \
+	complex/command_line/command_line_null_source_06__..d.cmdnullfail
 
 # the actual target, will be called by root's "all" / "complex" target
 complex/command_line/$(complex_done) : $(complex/command_line/raw)
 
+#
+# try running with "dummy.d" as the source
+# (should succeed)
+# 
 %.cmdrun : complex/command_line/dummy.$(ext_source)
 	$(eval z_raw = $(subst __, ,$*))
 	$(eval z_name = $(word 1,$(z_raw)))
@@ -56,6 +63,10 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 		$(ECHO) "XFAIL: $(z_name)"; \
 	fi
 
+#
+# try running with "dummy.d" as the source
+# (should fail)
+#
 %.cmdfail : complex/command_line/dummy.$(ext_source)
 	$(eval z_raw = $(subst __, ,$*))
 	$(eval z_name = $(word 1,$(z_raw)))
@@ -66,7 +77,11 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 		$(ECHO) "FAIL:  $(z_name)"; \
 	fi
 
-%.cmdnullfail : complex/command_line/dummy.$(ext_source)
+#
+# try running without any additional source agruments
+# (should fail)
+#
+%.cmdnullfail : 
 	$(eval z_raw = $(subst __, ,$*))
 	$(eval z_name = $(word 1,$(z_raw)))
 	$(eval z_arg = $(subst $(z_name),,$(z_raw)))
@@ -78,5 +93,5 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 	
 # this will be called by root's "clean" target
 complex/command_line/clean :
-	$(RM) complex/command_line/*.done
+	$(RM) complex/command_line/*.done complex/command_line/*.xxxx complex/command_line/*.$(ext_compile)
 

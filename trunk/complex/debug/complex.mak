@@ -22,7 +22,7 @@
 	complex/debug/clean 
 
 complex/debug/warning :
-	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex\" or \"all\""
+	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex/debug/complex.done\" \"complex\" or \"all\""
 
 # this will be called by root's "all" / "complex" target
 complex/debug/$(complex_done) : complex/debug/debug_01.$(ext_run) complex/debug/debug_02.$(ext_run) complex/debug/debug_03.$(ext_run)

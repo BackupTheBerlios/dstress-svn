@@ -48,7 +48,7 @@ XFAIL: nocompile/char_04
 XPASS: nocompile/char_05
 XFAIL: nocompile/class_04
 XFAIL: nocompile/class_05
-XPASS: nocompile/command_line_debug_05
+XFAIL: nocompile/command_line_debug_05
 XFAIL: nocompile/command_line_debug_06
 XFAIL: nocompile/command_line_debug_07
 XFAIL: nocompile/command_line_debug_09
@@ -59,13 +59,16 @@ XFAIL: nocompile/command_line_version_07
 XFAIL: nocompile/command_line_version_08
 XFAIL: nocompile/command_line_version_09
 XFAIL: nocompile/command_line_version_10
-XPASS: nocompile/command_line_version_11
+XFAIL: nocompile/command_line_version_11
 XFAIL: nocompile/command_line_version_12
 XFAIL: nocompile/command_line_version_13
 XFAIL: nocompile/command_line_version_14
 XFAIL: nocompile/command_line_version_15
+XPASS: nocompile/command_line_version_16
+XFAIL: nocompile/command_line_version_17
 XFAIL: nocompile/comment_07
 XFAIL: nocompile/comment_08
+ERROR: nocompile/constructor_05 [35584]
 XFAIL: nocompile/dchar_01
 XFAIL: nocompile/dchar_02
 XFAIL: nocompile/deprecated_01
@@ -256,6 +259,12 @@ XPASS: nocompile/version_19
 XPASS: nocompile/version_20
 XPASS: nocompile/version_21
 XPASS: nocompile/version_22
+XPASS: nocompile/version_23
+XPASS: nocompile/version_24
+XPASS: nocompile/version_25
+XPASS: nocompile/version_26
+XPASS: nocompile/version_27
+XPASS: nocompile/version_28
 XFAIL: nocompile/wchar_01
 XFAIL: nocompile/wchar_02
 XFAIL: nocompile/with_05
@@ -372,6 +381,7 @@ PASS:  run/constructor_01
 PASS:  run/constructor_02
 PASS:  run/constructor_03
 FAIL:  run/constructor_04 (compiling error)
+PASS:  run/constructor_06
 PASS:  run/creal_01
 PASS:  run/creal_02
 PASS:  run/creal_03
@@ -454,6 +464,7 @@ PASS:  run/enum_03
 PASS:  run/enum_04
 PASS:  run/enum_07
 PASS:  run/enum_08
+PASS:  run/enum_09
 PASS:  run/escape_hex_01
 PASS:  run/escape_hex_string_01
 PASS:  run/escape_hex_string_02
@@ -566,6 +577,10 @@ PASS:  run/if_06
 PASS:  run/in_01
 PASS:  run/in_02
 PASS:  run/in_03
+PASS:  run/in_out_body_01
+FAIL:  run/in_out_body_02 (compiling error)
+FAIL:  run/in_out_body_03 (compiling error)
+PASS:  run/in_out_body_04
 PASS:  run/int_01
 PASS:  run/int_02
 PASS:  run/int_03
@@ -720,6 +735,8 @@ PASS:  run/static_12
 PASS:  run/static_14
 PASS:  run/static_15
 FAIL:  run/static_16
+PASS:  run/static_17
+FAIL:  run/static_18 (compiling error)
 PASS:  run/struct_01
 PASS:  run/struct_02
 PASS:  run/struct_03
@@ -755,6 +772,8 @@ FAIL:  run/template_class_05 (compiling error)
 PASS:  run/template_class_06
 PASS:  run/template_struct_01
 PASS:  run/throw_01
+FAIL:  run/throw_02 (compiling error)
+PASS:  run/throw_03
 PASS:  run/try_01
 PASS:  run/try_02
 PASS:  run/try_03
@@ -769,6 +788,80 @@ PASS:  run/typedef_04
 PASS:  run/typeid_01
 PASS:  run/typeid_02
 PASS:  run/typeid_03
+FAIL:  run/typeid_04 (compiling error)
+FAIL:  run/typeid_05 (compiling error)
+FAIL:  run/typeid_06 (compiling error)
+FAIL:  run/typeid_07 (compiling error)
+FAIL:  run/typeid_08 (compiling error)
+FAIL:  run/typeid_09 (compiling error)
+FAIL:  run/typeid_10 (compiling error)
+FAIL:  run/typeid_11 (compiling error)
+FAIL:  run/typeid_12 (compiling error)
+FAIL:  run/typeid_13 (compiling error)
+FAIL:  run/typeid_14 (compiling error)
+PASS:  run/typeid_15
+PASS:  run/typeid_16
+FAIL:  run/typeid_17 (compiling error)
+PASS:  run/typeid_18
+PASS:  run/typeid_19
+PASS:  run/typeid_20
+PASS:  run/typeid_21
+PASS:  run/typeid_22
+PASS:  run/typeid_23
+PASS:  run/typeid_24
+PASS:  run/typeid_25
+PASS:  run/typeid_26
+PASS:  run/typeid_27
+PASS:  run/typeid_28
+PASS:  run/typeid_29
+PASS:  run/typeid_30
+PASS:  run/typeid_31
+PASS:  run/typeid_32
+PASS:  run/typeid_33
+PASS:  run/typeid_34
+PASS:  run/typeid_35
+PASS:  run/typeid_36
+PASS:  run/typeid_37
+PASS:  run/typeid_38
+PASS:  run/typeid_39
+PASS:  run/typeid_40
+PASS:  run/typeid_41
+PASS:  run/typeid_42
+PASS:  run/typeid_43
+PASS:  run/typeid_44
+PASS:  run/typeid_45
+PASS:  run/typeid_46
+PASS:  run/typeid_47
+PASS:  run/typeid_48
+PASS:  run/typeid_49
+PASS:  run/typeid_50
+PASS:  run/typeid_51
+PASS:  run/typeid_52
+PASS:  run/typeid_53
+PASS:  run/typeid_54
+PASS:  run/typeid_55
+PASS:  run/typeid_56
+PASS:  run/typeid_57
+PASS:  run/typeid_58
+PASS:  run/typeid_59
+PASS:  run/typeid_60
+PASS:  run/typeid_61
+PASS:  run/typeid_62
+PASS:  run/typeid_63
+PASS:  run/typeid_64
+PASS:  run/typeid_65
+PASS:  run/typeid_66
+PASS:  run/typeid_67
+PASS:  run/typeid_68
+PASS:  run/typeid_69
+PASS:  run/typeid_70
+PASS:  run/typeid_71
+PASS:  run/typeid_72
+PASS:  run/typeid_73
+PASS:  run/typeid_74
+PASS:  run/typeid_75
+PASS:  run/typeid_76
+PASS:  run/typeid_77
 PASS:  run/typeof_01
 PASS:  run/typeof_02
 PASS:  run/typeof_03
@@ -803,8 +896,7 @@ PASS:  run/version_04
 PASS:  run/version_05
 PASS:  run/version_07
 PASS:  run/version_08
-PASS:  run/version_10
-FAIL:  run/version_16
+PASS:  run/version_28
 PASS:  run/while_01
 PASS:  run/while_02
 PASS:  run/while_03

@@ -83,6 +83,7 @@ XPASS:	nocompile/associative_array_05.d
 XFAIL:	nocompile/associative_array_06.d
 XFAIL:	nocompile/bit_02.d
 XFAIL:	nocompile/bounds_checking_01.d
+XFAIL:	nocompile/bounds_checking_02.d
 XFAIL:	nocompile/break_06.d
 XFAIL:	nocompile/break_07.d
 ERROR:	nocompile/bug_20041016_A.d [35584]
@@ -167,6 +168,10 @@ XFAIL:	nocompile/dchar_01.d
 XFAIL:	nocompile/dchar_02.d
 XPASS:	nocompile/dchar_04.d
 XPASS:	nocompile/dchar_06.d
+XFAIL:	nocompile/debug_04.d
+ERROR:	nocompile/debug_05.d [34304]
+XPASS:	nocompile/debug_info_01.d
+XPASS:	nocompile/debug_info_02.d
 XFAIL:	nocompile/default_argument_05.d
 XFAIL:	nocompile/delegate_02.d
 XFAIL:	nocompile/delegate_03.d
@@ -176,6 +181,9 @@ XFAIL:	nocompile/delegate_08.d
 XFAIL:	nocompile/delegate_09.d
 XFAIL:	nocompile/delegate_10.d
 XFAIL:	nocompile/delegate_11.d
+XFAIL:	nocompile/delete_06.d
+XFAIL:	nocompile/delete_07.d
+XFAIL:	nocompile/delete_08.d
 XFAIL:	nocompile/deprecated_01.d
 XPASS:	nocompile/deprecated_02.d
 XPASS:	nocompile/deprecated_03.d
@@ -289,8 +297,13 @@ FAIL: 	nocompile/goto_14.d
 XPASS:	nocompile/html_empty_entity_01.html
 XPASS:	nocompile/html_empty_entity_02.html
 FAIL: 	nocompile/html_empty_entity_03.html
-XFAIL:	nocompile/html_entity_10.html
-XFAIL:	nocompile/html_entity_11.html
+FAIL: 	nocompile/html_entity_10.html
+FAIL: 	nocompile/html_entity_11.html
+XFAIL:	nocompile/import_01.d
+XPASS:	nocompile/import_02.d
+XPASS:	nocompile/import_03.d
+XFAIL:	nocompile/import_04.d
+XPASS:	nocompile/import_05.d
 XFAIL:	nocompile/InExpression_14.d
 XFAIL:	nocompile/InExpression_15.d
 XFAIL:	nocompile/InExpression_16.d
@@ -367,6 +380,10 @@ XFAIL:	nocompile/invariant_08.d
 XFAIL:	nocompile/invariant_09.d
 XFAIL:	nocompile/invariant_16.d
 XPASS:	nocompile/invariant_17.d
+XPASS:	nocompile/invariant_26.d
+XPASS:	nocompile/invariant_29.d
+XPASS:	nocompile/invariant_30.d
+XPASS:	nocompile/invariant_31.d
 XFAIL:	nocompile/length_03.d
 ERROR:	nocompile/length_04.d [34304]
 XFAIL:	nocompile/__LINE__02.d
@@ -382,6 +399,19 @@ XPASS:	nocompile/mixin_04.d
 XFAIL:	nocompile/module_03.d
 XFAIL:	nocompile/named_entity_04.d
 XFAIL:	nocompile/named_entity_05.d
+XFAIL:	nocompile/new_02.d
+XFAIL:	nocompile/new_03.d
+XPASS:	nocompile/new_04.d
+XFAIL:	nocompile/new_05.d
+XFAIL:	nocompile/new_14.d
+XFAIL:	nocompile/new_15.d
+XFAIL:	nocompile/new_16.d
+XFAIL:	nocompile/new_17.d
+XFAIL:	nocompile/new_18.d
+XFAIL:	nocompile/new_19.d
+XFAIL:	nocompile/new_20.d
+XFAIL:	nocompile/new_21.d
+XFAIL:	nocompile/new_22.d
 XFAIL:	nocompile/offset_01.d
 XPASS:	nocompile/offset_02.d
 XFAIL:	nocompile/offset_03.d
@@ -469,7 +499,7 @@ XFAIL:	nocompile/struct_19.d
 XFAIL:	nocompile/struct_20.d
 XFAIL:	nocompile/super_03.d
 ERROR:	nocompile/super_05.d [34304]
-XFAIL:	nocompile/super_06.d
+FAIL: 	nocompile/super_06.d
 XFAIL:	nocompile/super_09.d
 XFAIL:	nocompile/super_11.d
 XFAIL:	nocompile/switch_08.d
@@ -528,6 +558,8 @@ XPASS:	nocompile/version_25.d
 XPASS:	nocompile/version_26.d
 XPASS:	nocompile/version_27.d
 XPASS:	nocompile/version_28.d
+XFAIL:	nocompile/version_29.d
+ERROR:	nocompile/version_30.d [34304]
 XFAIL:	nocompile/wchar_01.d
 XFAIL:	nocompile/wchar_02.d
 XPASS:	nocompile/wchar_04.d
@@ -618,6 +650,12 @@ PASS: 	run/bug_20041226_D.d
 PASS: 	run/bug_20041226_E.d
 FAIL: 	run/bug_20050128_A.d [run: 256]
 PASS: 	run/bug_20050128_B.d
+PASS: 	run/bug_20050405_01.d
+PASS: 	run/bug_20050405_02.d
+ERROR:	run/bug_20050405_03.d [run: 35584]
+PASS: 	run/bug_20050405_04.d
+PASS: 	run/bug_20050405_05.d
+PASS: 	run/bug_20050405_06.d
 ERROR:	run/bug_cg87_2393_A.d (Internal compiler error)
 ERROR:	run/bug_cg87_2393_B.d (Internal compiler error)
 ERROR:	run/bug_cg87_2393_C.d (Internal compiler error)
@@ -740,6 +778,7 @@ PASS: 	run/constructor_07.d
 FAIL: 	run/constructor_08.d [256]
 PASS: 	run/constructor_09.d
 PASS: 	run/constructor_10.d
+PASS: 	run/constructor_11.d
 PASS: 	run/creal_01.d
 PASS: 	run/creal_02.d
 PASS: 	run/creal_03.d
@@ -769,12 +808,11 @@ PASS: 	run/dchar_09.d
 PASS: 	run/debug_01.d
 PASS: 	run/debug_02.d
 PASS: 	run/debug_03.d
-PASS: 	run/debug_info_01.d
-PASS: 	run/debug_info_02.d
 PASS: 	run/debug_info_03.d
 PASS: 	run/debug_info_04.d
 PASS: 	run/debug_info_05.d
 PASS: 	run/debug_info_06.d
+PASS: 	run/debug_info_07.d
 PASS: 	run/default_argument_01.d
 PASS: 	run/default_argument_02.d
 PASS: 	run/default_argument_03.d
@@ -785,6 +823,9 @@ ERROR:	run/delegate_01.d (Internal compiler error)
 PASS: 	run/delegate_04.d
 PASS: 	run/delegate_06.d
 PASS: 	run/delegate_12.d
+PASS: 	run/delete_01.d
+FAIL: 	run/delete_02.d [run: 256]
+FAIL: 	run/delete_09.d [256]
 PASS: 	run/deprecated_09.d
 PASS: 	run/deprecated_10.d
 PASS: 	run/deprecated_12.d
@@ -805,6 +846,7 @@ PASS: 	run/double_10.d
 PASS: 	run/double_11.d
 PASS: 	run/double_12.d
 PASS: 	run/double_13.d
+PASS: 	run/double_22.d
 PASS: 	run/double_quoted_string_01.d
 PASS: 	run/double_quoted_string_02.d
 PASS: 	run/double_quoted_string_03.d
@@ -877,6 +919,7 @@ PASS: 	run/float_10.d
 PASS: 	run/float_11.d
 PASS: 	run/float_12.d
 PASS: 	run/float_13.d
+PASS: 	run/float_22.d
 PASS: 	run/float_litaeral_dec_01.d
 PASS: 	run/float_litaeral_dec_03.d
 PASS: 	run/float_litaeral_dec_05.d
@@ -901,6 +944,9 @@ PASS: 	run/foreach_15.d
 FAIL: 	run/foreach_16.d [run: 256]
 PASS: 	run/foreach_23.d
 PASS: 	run/foreach_24.d
+PASS: 	run/foreach_25.d
+ERROR:	run/foreach_26.d [run: 35584]
+PASS: 	run/foreach_27.d
 FAIL: 	run/forward_reference_07.d [256]
 FAIL: 	run/forward_reference_08.d [256]
 FAIL: 	run/forward_reference_09.d [256]
@@ -1057,6 +1103,9 @@ ERROR:	run/invariant_22.d [run: 35584]
 FAIL: 	run/invariant_23.d [run: 256]
 PASS: 	run/invariant_24.d
 FAIL: 	run/invariant_25.d [256]
+ERROR:	run/invariant_27.d [run: 35584]
+PASS: 	run/invariant_28.d
+PASS: 	run/invariant_32.d
 PASS: 	run/keys_01.d
 PASS: 	run/label_01.d
 ERROR:	run/label_02.d [35584]
@@ -1084,6 +1133,9 @@ PASS: 	run/main_02.d
 PASS: 	run/main_03.d
 ERROR:	run/main_06.d [run: 4352]
 PASS: 	run/many_functions_01.d
+PASS: 	run/memory_management_01.d
+PASS: 	run/memory_management_02.d
+PASS: 	run/memory_management_03.d
 PASS: 	run/mixin_02.d
 PASS: 	run/mixin_03.d
 FAIL: 	run/mixin_05.d [256]
@@ -1105,6 +1157,14 @@ FAIL: 	run/nested_function_04.d [run: 256]
 FAIL: 	run/nested_function_05.d [256]
 FAIL: 	run/nested_function_06.d [256]
 FAIL: 	run/new_01.d [256]
+PASS: 	run/new_06.d
+PASS: 	run/new_07.d
+PASS: 	run/new_08.d
+ERROR:	run/new_09.d [run: 35584]
+ERROR:	run/new_10.d [run: 35584]
+ERROR:	run/new_11.d [run: 35584]
+FAIL: 	run/new_12.d [run: 256]
+FAIL: 	run/new_13.d [run: 256]
 PASS: 	run/odd_bug_01.d
 PASS: 	run/odd_bug_02.d
 FAIL: 	run/offsetof_01.d [256]
@@ -1192,7 +1252,6 @@ FAIL: 	run/opCatAssign_08.d [256]
 FAIL: 	run/opCatAssign_09.d [run: 256]
 PASS: 	run/opCatAssign_10.d
 PASS: 	run/opCatAssign_11.d
-PASS: 	run/opCatAssign_12.d
 ERROR:	run/opCmp_01.d [35584]
 FAIL: 	run/opIdentity_01.d [run: 256]
 PASS: 	run/opIdentity_02.d
@@ -1246,6 +1305,7 @@ PASS: 	run/real_10.d
 PASS: 	run/real_11.d
 PASS: 	run/real_12.d
 PASS: 	run/real_13.d
+PASS: 	run/real_22.d
 PASS: 	run/rehash_01.d
 PASS: 	run/return_01.d
 PASS: 	run/return_02.d
@@ -1530,6 +1590,10 @@ find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dst
 chmod +x norun.sh
 ./norun.sh 2>> /tmp/dstress/log.txt
 XFAIL:	norun/auto_05.d
+XPASS:	norun/delete_03.d [norun: 0]
+XFAIL:	norun/delete_04.d
+XPASS:	norun/delete_05.d [norun: 0]
+ERROR:	norun/destructor_04.d [norun: 35584]
 FAIL: 	norun/main_05.d [256]
 XFAIL:	norun/slice_06.d
 XFAIL:	norun/slice_08.d

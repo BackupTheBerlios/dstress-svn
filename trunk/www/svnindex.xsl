@@ -20,7 +20,7 @@
 			<div class="svn">
 				<xsl:apply-templates/>
 			</div>
-			<div class="footer">
+			<div class="footer"><table border='0'><tr><td>
 				<a href="http://dstress.kuehne.cn/www/dstress.html">DStress</a>
 				<xsl:text> written by Thomas K&#252;hne and served by </xsl:text>
 				<xsl:element name="a">
@@ -30,7 +30,8 @@
 					<xsl:text>Subversion </xsl:text>
 				       	<xsl:value-of select="@version"/>
 				</xsl:element>
-			</div>
+				</td><td align='right'><a href="http://dstress.kuehne.cn/www/links.html">Links</a></td>
+			</tr></table></div>
 		</body>
 	</html>
 	</xsl:template>

@@ -284,6 +284,10 @@ nocompile: dmd-0.108   -c -odobj  nocompile/bounds_checking_01.d 1> log.tmp 2>&1
 nocompile/bounds_checking_01.d(11): array index [100] is outside array bounds [0 .. 5]
 
 --------
+nocompile: dmd-0.108   -c -odobj  nocompile/bounds_checking_02.d 1> log.tmp 2>&1
+nocompile/bounds_checking_02.d(11): array index [-1] is outside array bounds [0 .. 5]
+
+--------
 nocompile: dmd-0.108   -c -odobj  nocompile/break_06.d 1> log.tmp 2>&1
 nocompile/break_06.d(15): enclosing label 'blah' for break not found
 
@@ -626,6 +630,22 @@ nocompile: dmd-0.108   -c -odobj  nocompile/dchar_06.d 1> log.tmp 2>&1
 nocompile/dchar_06.d(9): cannot implicitly convert expression -1 of type int to wchar
 
 --------
+nocompile: dmd-0.108   -c -odobj  nocompile/debug_04.d 1> log.tmp 2>&1
+nocompile/debug_04.d(10): static assert  (0) is false
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/debug_05.d 1> log.tmp 2>&1
+dmd.bin: dsymbol.c:70: virtual Dsymbol* Dsymbol::syntaxCopy(Dsymbol*): Assertion `0' failed.
+A 0x8116430
+debug A
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/debug_info_01.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -g -c -odobj  nocompile/debug_info_02.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-0.108   -c -odobj  nocompile/default_argument_05.d 1> log.tmp 2>&1
 nocompile/default_argument_05.d(16): template 'Template(int L)' is not a variable
 
@@ -661,6 +681,24 @@ nocompile/delegate_10.d(20): cannot implicitly convert expression #*(#u + 0) of 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/delegate_11.d 1> log.tmp 2>&1
 nocompile/delegate_11.d(22): cannot implicitly convert expression #u , test of type int(*)() to int delegate()
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/delete_06.d 1> log.tmp 2>&1
+nocompile/delete_06.d(10): enum member expected
+nocompile/delete_06.d(10): enum member expected
+nocompile/delete_06.d(10): enum member expected
+nocompile/delete_06.d(10): enum member expected
+nocompile/delete_06.d(10): found ')' when expecting ','
+nocompile/delete_06.d(10): enum member expected
+nocompile/delete_06.d(12): unrecognized declaration
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/delete_07.d 1> log.tmp 2>&1
+nocompile/delete_07.d(10): deallocator dstress.nocompile.delete_07.MyClass.delete one argument of type void* expected, not int
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/delete_08.d 1> log.tmp 2>&1
+nocompile/delete_08.d(10): deallocator dstress.nocompile.delete_08.MyClass.delete one argument of type void* expected
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/deprecated_01.d 1> log.tmp 2>&1
@@ -1150,26 +1188,45 @@ nocompile: dmd-0.108   -c -odobj  nocompile/html_empty_entity_02.html 1> log.tmp
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/html_empty_entity_03.html 1> log.tmp 2>&1
-nocompile/html_empty_entity_03.html(12): unterminated string constant starting at nocompile/html_empty_entity_03.html(10)
-nocompile/html_empty_entity_03.html(12): semicolon expected, not 'EOF'
+nocompile/html_empty_entity_03.html(11): unterminated string constant starting at nocompile/html_empty_entity_03.html(9)
+nocompile/html_empty_entity_03.html(11): semicolon expected, not 'EOF'
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/html_entity_10.html 1> log.tmp 2>&1
-nocompile/html_entity_10.html(11): unterminated character constant
-nocompile/html_entity_10.html(11): #line integer ["filespec"]\n expected
-nocompile/html_entity_10.html(11): found ';' when expecting ')'
-nocompile/html_entity_10.html(11): unterminated character constant
-nocompile/html_entity_10.html(11): found '61U' when expecting ';' following 'statement'
-nocompile/html_entity_10.html(11): found '=' instead of statement
+nocompile/html_entity_10.html(10): unterminated character constant
+nocompile/html_entity_10.html(10): #line integer ["filespec"]\n expected
+nocompile/html_entity_10.html(10): found ';' when expecting ')'
+nocompile/html_entity_10.html(10): unterminated character constant
+nocompile/html_entity_10.html(10): found '61U' when expecting ';' following 'statement'
+nocompile/html_entity_10.html(10): found '=' instead of statement
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/html_entity_11.html 1> log.tmp 2>&1
-nocompile/html_entity_11.html(11): unterminated character constant
-nocompile/html_entity_11.html(11): #line integer ["filespec"]\n expected
-nocompile/html_entity_11.html(11): found ';' when expecting ')'
-nocompile/html_entity_11.html(11): unterminated character constant
-nocompile/html_entity_11.html(11): found '61U' when expecting ';' following 'statement'
-nocompile/html_entity_11.html(11): found '=' instead of statement
+nocompile/html_entity_11.html(10): unterminated character constant
+nocompile/html_entity_11.html(10): #line integer ["filespec"]\n expected
+nocompile/html_entity_11.html(10): found ';' when expecting ')'
+nocompile/html_entity_11.html(10): unterminated character constant
+nocompile/html_entity_11.html(10): found '61U' when expecting ';' following 'statement'
+nocompile/html_entity_11.html(10): found '=' instead of statement
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/import_01.d 1> log.tmp 2>&1
+nocompile/import_01.d(10): found 'import' instead of statement
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/import_02.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/import_03.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/import_04.d 1> log.tmp 2>&1
+nocompile/import_04.d(10): enum member expected
+nocompile/import_04.d(10): found '.' when expecting ','
+nocompile/import_04.d(10): found ';' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/import_05.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/InExpression_14.d 1> log.tmp 2>&1
@@ -1460,6 +1517,18 @@ nocompile/invariant_16.d(13): function dstress.nocompile.invariant_16.MyInterfac
 nocompile: dmd-0.108   -c -odobj  nocompile/invariant_17.d 1> log.tmp 2>&1
 
 --------
+nocompile: dmd-0.108   -c -odobj  nocompile/invariant_26.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/invariant_29.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/invariant_30.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/invariant_31.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-0.108   -c -odobj  nocompile/length_03.d 1> log.tmp 2>&1
 nocompile/length_03.d(11): array.length is not an lvalue
 
@@ -1566,6 +1635,198 @@ nocompile/named_entity_05.d(11): found 'EOF' instead of statement
 nocompile/named_entity_05.d(11): found 'EOF' instead of statement
 nocompile/named_entity_05.d(11): found 'EOF' instead of statement
 nocompile/named_entity_05.d(11): found 'EOF' instead of statement
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_02.d 1> log.tmp 2>&1
+nocompile/new_02.d(10): allocator dstress.nocompile.new_02.MyClass.new at least one argument of type uint expected
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_03.d 1> log.tmp 2>&1
+nocompile/new_03.d(10): no identifier for declarator
+nocompile/new_03.d(10): semicolon expected, not 'new'
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_05.d 1> log.tmp 2>&1
+nocompile/new_05.d(10): allocator dstress.nocompile.new_05.MyClass.new first argument must be type uint, not byte
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_14.d 1> log.tmp 2>&1
+nocompile/new_14.d(9): allocator dstress.nocompile.new_14.new new allocators only are for class or struct definitions
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_15.d 1> log.tmp 2>&1
+nocompile/new_15.d(10): found 's' when expecting ','
+nocompile/new_15.d(10): expression expected, not ')'
+nocompile/new_15.d(10): found '{' when expecting ','
+nocompile/new_15.d(11): found '*' when expecting '.' following 'void'
+nocompile/new_15.d(11): found ';' when expecting ','
+nocompile/new_15.d(12): expression expected, not 'return'
+nocompile/new_15.d(12): found 'v' when expecting ','
+nocompile/new_15.d(12): expression expected, not ';'
+nocompile/new_15.d(13): found '}' when expecting ','
+nocompile/new_15.d(14): expression expected, not '}'
+nocompile/new_15.d(15): found 'EOF' when expecting ','
+nocompile/new_15.d(15): expression expected, not 'EOF'
+nocompile/new_15.d(15): found 'EOF' when expecting ','
+nocompile/new_15.d(15): expression expected, not 'EOF'
+nocompile/new_15.d(15): found 'EOF' when expecting ','
+nocompile/new_15.d(15): expression expected, not 'EOF'
+nocompile/new_15.d(15): found 'EOF' when expecting ','
+nocompile/new_15.d(15): expression expected, not 'EOF'
+nocompile/new_15.d(15): found 'EOF' when expecting ','
+nocompile/new_15.d(15): expression expected, not 'EOF'
+nocompile/new_15.d(15): found 'EOF' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_16.d 1> log.tmp 2>&1
+nocompile/new_16.d(11): found 's' when expecting ','
+nocompile/new_16.d(11): expression expected, not ')'
+nocompile/new_16.d(11): found '{' when expecting ','
+nocompile/new_16.d(12): found '*' when expecting '.' following 'void'
+nocompile/new_16.d(12): found ';' when expecting ','
+nocompile/new_16.d(13): expression expected, not 'return'
+nocompile/new_16.d(13): found 'v' when expecting ','
+nocompile/new_16.d(13): expression expected, not ';'
+nocompile/new_16.d(14): found '}' when expecting ','
+nocompile/new_16.d(15): expression expected, not '}'
+nocompile/new_16.d(16): found '}' when expecting ','
+nocompile/new_16.d(17): expression expected, not 'EOF'
+nocompile/new_16.d(17): found 'EOF' when expecting ','
+nocompile/new_16.d(17): expression expected, not 'EOF'
+nocompile/new_16.d(17): found 'EOF' when expecting ','
+nocompile/new_16.d(17): expression expected, not 'EOF'
+nocompile/new_16.d(17): found 'EOF' when expecting ','
+nocompile/new_16.d(17): expression expected, not 'EOF'
+nocompile/new_16.d(17): found 'EOF' when expecting ','
+nocompile/new_16.d(17): expression expected, not 'EOF'
+nocompile/new_16.d(17): found 'EOF' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_17.d 1> log.tmp 2>&1
+nocompile/new_17.d(11): found 's' when expecting ','
+nocompile/new_17.d(11): expression expected, not ')'
+nocompile/new_17.d(11): found '{' when expecting ','
+nocompile/new_17.d(12): found '*' when expecting '.' following 'void'
+nocompile/new_17.d(12): found ';' when expecting ','
+nocompile/new_17.d(13): expression expected, not 'return'
+nocompile/new_17.d(13): found 'v' when expecting ','
+nocompile/new_17.d(13): expression expected, not ';'
+nocompile/new_17.d(14): found '}' when expecting ','
+nocompile/new_17.d(15): expression expected, not '}'
+nocompile/new_17.d(16): found '}' when expecting ','
+nocompile/new_17.d(17): expression expected, not 'EOF'
+nocompile/new_17.d(17): found 'EOF' when expecting ','
+nocompile/new_17.d(17): expression expected, not 'EOF'
+nocompile/new_17.d(17): found 'EOF' when expecting ','
+nocompile/new_17.d(17): expression expected, not 'EOF'
+nocompile/new_17.d(17): found 'EOF' when expecting ','
+nocompile/new_17.d(17): expression expected, not 'EOF'
+nocompile/new_17.d(17): found 'EOF' when expecting ','
+nocompile/new_17.d(17): expression expected, not 'EOF'
+nocompile/new_17.d(17): found 'EOF' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_18.d 1> log.tmp 2>&1
+nocompile/new_18.d(11): found 's' when expecting ','
+nocompile/new_18.d(11): expression expected, not ')'
+nocompile/new_18.d(11): found '{' when expecting ','
+nocompile/new_18.d(12): found '*' when expecting '.' following 'void'
+nocompile/new_18.d(12): found ';' when expecting ','
+nocompile/new_18.d(13): expression expected, not 'return'
+nocompile/new_18.d(13): found 'v' when expecting ','
+nocompile/new_18.d(13): expression expected, not ';'
+nocompile/new_18.d(14): found '}' when expecting ','
+nocompile/new_18.d(15): expression expected, not '}'
+nocompile/new_18.d(16): found '}' when expecting ','
+nocompile/new_18.d(17): expression expected, not 'EOF'
+nocompile/new_18.d(17): found 'EOF' when expecting ','
+nocompile/new_18.d(17): expression expected, not 'EOF'
+nocompile/new_18.d(17): found 'EOF' when expecting ','
+nocompile/new_18.d(17): expression expected, not 'EOF'
+nocompile/new_18.d(17): found 'EOF' when expecting ','
+nocompile/new_18.d(17): expression expected, not 'EOF'
+nocompile/new_18.d(17): found 'EOF' when expecting ','
+nocompile/new_18.d(17): expression expected, not 'EOF'
+nocompile/new_18.d(17): found 'EOF' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_19.d 1> log.tmp 2>&1
+nocompile/new_19.d(11): found 's' when expecting ','
+nocompile/new_19.d(11): expression expected, not ')'
+nocompile/new_19.d(11): found '{' when expecting ','
+nocompile/new_19.d(12): found '*' when expecting '.' following 'void'
+nocompile/new_19.d(12): found ';' when expecting ','
+nocompile/new_19.d(13): expression expected, not 'return'
+nocompile/new_19.d(13): found 'v' when expecting ','
+nocompile/new_19.d(13): expression expected, not ';'
+nocompile/new_19.d(14): found '}' when expecting ','
+nocompile/new_19.d(15): found '*' when expecting '.' following 'void'
+nocompile/new_19.d(15): found ';' when expecting ','
+nocompile/new_19.d(16): expression expected, not 'return'
+nocompile/new_19.d(16): found 'v' when expecting ','
+nocompile/new_19.d(16): expression expected, not ';'
+nocompile/new_19.d(17): found '}' when expecting ','
+nocompile/new_19.d(18): expression expected, not '}'
+nocompile/new_19.d(19): found 'EOF' when expecting ','
+nocompile/new_19.d(19): expression expected, not 'EOF'
+nocompile/new_19.d(19): found 'EOF' when expecting ','
+nocompile/new_19.d(19): expression expected, not 'EOF'
+nocompile/new_19.d(19): found 'EOF' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_20.d 1> log.tmp 2>&1
+nocompile/new_20.d(11): found 's' when expecting ','
+nocompile/new_20.d(11): expression expected, not ')'
+nocompile/new_20.d(11): found '{' when expecting ','
+nocompile/new_20.d(12): found '*' when expecting '.' following 'void'
+nocompile/new_20.d(12): found ';' when expecting ','
+nocompile/new_20.d(13): expression expected, not 'return'
+nocompile/new_20.d(13): found 'v' when expecting ','
+nocompile/new_20.d(13): expression expected, not ';'
+nocompile/new_20.d(14): found '}' when expecting ','
+nocompile/new_20.d(15): expression expected, not '}'
+nocompile/new_20.d(16): found '}' when expecting ','
+nocompile/new_20.d(17): expression expected, not 'EOF'
+nocompile/new_20.d(17): found 'EOF' when expecting ','
+nocompile/new_20.d(17): expression expected, not 'EOF'
+nocompile/new_20.d(17): found 'EOF' when expecting ','
+nocompile/new_20.d(17): expression expected, not 'EOF'
+nocompile/new_20.d(17): found 'EOF' when expecting ','
+nocompile/new_20.d(17): expression expected, not 'EOF'
+nocompile/new_20.d(17): found 'EOF' when expecting ','
+nocompile/new_20.d(17): expression expected, not 'EOF'
+nocompile/new_20.d(17): found 'EOF' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_21.d 1> log.tmp 2>&1
+nocompile/new_21.d(11): found 's' when expecting ','
+nocompile/new_21.d(11): expression expected, not ')'
+nocompile/new_21.d(11): found '{' when expecting ','
+nocompile/new_21.d(12): found '*' when expecting '.' following 'void'
+nocompile/new_21.d(12): found ';' when expecting ','
+nocompile/new_21.d(13): expression expected, not 'return'
+nocompile/new_21.d(13): found 'v' when expecting ','
+nocompile/new_21.d(13): expression expected, not ';'
+nocompile/new_21.d(14): found '}' when expecting ','
+nocompile/new_21.d(15): expression expected, not '}'
+nocompile/new_21.d(16): found '}' when expecting ','
+nocompile/new_21.d(17): expression expected, not 'EOF'
+nocompile/new_21.d(17): found 'EOF' when expecting ','
+nocompile/new_21.d(17): expression expected, not 'EOF'
+nocompile/new_21.d(17): found 'EOF' when expecting ','
+nocompile/new_21.d(17): expression expected, not 'EOF'
+nocompile/new_21.d(17): found 'EOF' when expecting ','
+nocompile/new_21.d(17): expression expected, not 'EOF'
+nocompile/new_21.d(17): found 'EOF' when expecting ','
+nocompile/new_21.d(17): expression expected, not 'EOF'
+nocompile/new_21.d(17): found 'EOF' when expecting ','
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/new_22.d 1> log.tmp 2>&1
+nocompile/new_22.d(9): allocator dstress.nocompile.new_22.new new allocators only are for class or struct definitions
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/offset_01.d 1> log.tmp 2>&1
@@ -1933,7 +2194,9 @@ dmd.bin: expression.c:1244: virtual Expression* SuperExp::semantic(Scope*): Asse
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/super_06.d 1> log.tmp 2>&1
-nocompile/super_06.d(18): no super class constructor for Object
+constructor dstress.nocompile.super_06.Parent.this (int i) does not match argument types ()
+Error: expected 1 arguments, not 0
+
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/super_09.d 1> log.tmp 2>&1
@@ -2176,6 +2439,16 @@ nocompile: dmd-0.108   -c -odobj  nocompile/version_27.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/version_28.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/version_29.d 1> log.tmp 2>&1
+nocompile/version_29.d(10): static assert  (0) is false
+
+--------
+nocompile: dmd-0.108   -c -odobj  nocompile/version_30.d 1> log.tmp 2>&1
+dmd.bin: dsymbol.c:70: virtual Dsymbol* Dsymbol::syntaxCopy(Dsymbol*): Assertion `0' failed.
+A 0x8116438
+kind A
 
 --------
 nocompile: dmd-0.108   -c -odobj  nocompile/wchar_01.d 1> log.tmp 2>&1
@@ -2601,6 +2874,36 @@ Error: AssertError Failure run/bug_20050128_A.d(16)
 run: dmd-0.108   -odobj  -ofrun/bug_20050128_B.d.exe run/bug_20050128_B.d 1> log.tmp 2>&1
 gcc obj/bug_20050128_B.o -o run/bug_20050128_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/bug_20050128_B.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/bug_20050405_01.d.exe run/bug_20050405_01.d 1> log.tmp 2>&1
+gcc obj/bug_20050405_01.o -o run/bug_20050405_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/bug_20050405_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/bug_20050405_02.d.exe run/bug_20050405_02.d 1> log.tmp 2>&1
+gcc obj/bug_20050405_02.o -o run/bug_20050405_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/bug_20050405_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -release -odobj  -ofrun/bug_20050405_03.d.exe run/bug_20050405_03.d 1> log.tmp 2>&1
+gcc obj/bug_20050405_03.o -o run/bug_20050405_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/bug_20050405_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -release -odobj  -ofrun/bug_20050405_04.d.exe run/bug_20050405_04.d 1> log.tmp 2>&1
+gcc obj/bug_20050405_04.o -o run/bug_20050405_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/bug_20050405_04.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/bug_20050405_05.d.exe run/bug_20050405_05.d 1> log.tmp 2>&1
+gcc obj/bug_20050405_05.o -o run/bug_20050405_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/bug_20050405_05.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -release -odobj  -ofrun/bug_20050405_06.d.exe run/bug_20050405_06.d 1> log.tmp 2>&1
+gcc obj/bug_20050405_06.o -o run/bug_20050405_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/bug_20050405_06.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.108   -O -inline -odobj  -ofrun/bug_cg87_2393_A.d.exe run/bug_cg87_2393_A.d 1> log.tmp 2>&1
@@ -3195,6 +3498,11 @@ gcc obj/constructor_10.o -o run/constructor_10.d.exe -lphobos -lpthread -lm -Xli
 run/constructor_10.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.108   -odobj  -ofrun/constructor_11.d.exe run/constructor_11.d 1> log.tmp 2>&1
+gcc obj/constructor_11.o -o run/constructor_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/constructor_11.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.108   -odobj  -ofrun/creal_01.d.exe run/creal_01.d 1> log.tmp 2>&1
 gcc obj/creal_01.o -o run/creal_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/creal_01.d.exe 1> log.tmp 2>&1
@@ -3342,14 +3650,6 @@ gcc obj/debug_03.o -o run/debug_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/debug_03.d.exe 1> log.tmp 2>&1
 
 --------
-run: dmd-0.108   -odobj  -ofrun/debug_info_01.d.exe run/debug_info_01.d 1> log.tmp 2>&1
-gcc obj/debug_info_01.o -o run/debug_info_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
-run/debug_info_01.d.exe 1> log.tmp 2>&1
-
---------
-run: dmd-0.108   -g -odobj  -ofrun/debug_info_02.d.exe run/debug_info_02.d 1> log.tmp 2>&1
-
---------
 run: dmd-0.108   -odobj  -ofrun/debug_info_03.d.exe run/debug_info_03.d 1> log.tmp 2>&1
 gcc obj/debug_info_03.o -o run/debug_info_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/debug_info_03.d.exe 1> log.tmp 2>&1
@@ -3368,6 +3668,11 @@ ty = 6
 run: dmd-0.108   -g -odobj  -ofrun/debug_info_06.d.exe run/debug_info_06.d 1> log.tmp 2>&1
 gcc obj/debug_info_06.o -o run/debug_info_06.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/debug_info_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -g -odobj  -ofrun/debug_info_07.d.exe run/debug_info_07.d 1> log.tmp 2>&1
+gcc obj/debug_info_07.o -o run/debug_info_07.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/debug_info_07.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.108   -odobj  -ofrun/default_argument_01.d.exe run/default_argument_01.d 1> log.tmp 2>&1
@@ -3421,6 +3726,22 @@ run/delegate_06.d.exe 1> log.tmp 2>&1
 run: dmd-0.108   -odobj  -ofrun/delegate_12.d.exe run/delegate_12.d 1> log.tmp 2>&1
 gcc obj/delegate_12.o -o run/delegate_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/delegate_12.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/delete_01.d.exe run/delete_01.d 1> log.tmp 2>&1
+gcc obj/delete_01.o -o run/delete_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/delete_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/delete_02.d.exe run/delete_02.d 1> log.tmp 2>&1
+gcc obj/delete_02.o -o run/delete_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/delete_02.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/delete_02.d(31)
+
+--------
+run: dmd-0.108   -odobj  -ofrun/delete_09.d.exe run/delete_09.d 1> log.tmp 2>&1
+gcc obj/delete_09.o -o run/delete_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/delete_09.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.108   -odobj  -ofrun/deprecated_09.d.exe run/deprecated_09.d 1> log.tmp 2>&1
@@ -3522,6 +3843,11 @@ run/double_12.d.exe 1> log.tmp 2>&1
 run: dmd-0.108   -odobj  -ofrun/double_13.d.exe run/double_13.d 1> log.tmp 2>&1
 gcc obj/double_13.o -o run/double_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/double_13.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/double_22.d.exe run/double_22.d 1> log.tmp 2>&1
+gcc obj/double_22.o -o run/double_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/double_22.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.108   -odobj  -ofrun/double_quoted_string_01.d.exe run/double_quoted_string_01.d 1> log.tmp 2>&1
@@ -3883,6 +4209,11 @@ gcc obj/float_13.o -o run/float_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/
 run/float_13.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.108   -odobj  -ofrun/float_22.d.exe run/float_22.d 1> log.tmp 2>&1
+gcc obj/float_22.o -o run/float_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/float_22.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.108   -odobj  -ofrun/float_litaeral_dec_01.d.exe run/float_litaeral_dec_01.d 1> log.tmp 2>&1
 gcc obj/float_litaeral_dec_01.o -o run/float_litaeral_dec_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/float_litaeral_dec_01.d.exe 1> log.tmp 2>&1
@@ -4002,6 +4333,21 @@ run/foreach_23.d.exe 1> log.tmp 2>&1
 run: dmd-0.108   -odobj  -ofrun/foreach_24.d.exe run/foreach_24.d 1> log.tmp 2>&1
 gcc obj/foreach_24.o -o run/foreach_24.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/foreach_24.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/foreach_25.d.exe run/foreach_25.d 1> log.tmp 2>&1
+gcc obj/foreach_25.o -o run/foreach_25.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/foreach_25.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/foreach_26.d.exe run/foreach_26.d 1> log.tmp 2>&1
+gcc obj/foreach_26.o -o run/foreach_26.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/foreach_26.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/foreach_27.d.exe run/foreach_27.d 1> log.tmp 2>&1
+gcc obj/foreach_27.o -o run/foreach_27.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/foreach_27.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.108   -odobj  -ofrun/forward_reference_07.d.exe run/forward_reference_07.d 1> log.tmp 2>&1
@@ -5109,6 +5455,21 @@ run: dmd-0.108   -odobj  -ofrun/invariant_25.d.exe run/invariant_25.d 1> log.tmp
 run/invariant_25.d(18): identifier 'InvariantException' is not defined
 
 --------
+run: dmd-0.108   -odobj  -ofrun/invariant_27.d.exe run/invariant_27.d 1> log.tmp 2>&1
+gcc obj/invariant_27.o -o run/invariant_27.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/invariant_27.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/invariant_28.d.exe run/invariant_28.d 1> log.tmp 2>&1
+gcc obj/invariant_28.o -o run/invariant_28.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/invariant_28.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/invariant_32.d.exe run/invariant_32.d 1> log.tmp 2>&1
+gcc obj/invariant_32.o -o run/invariant_32.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/invariant_32.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.108   -odobj  -ofrun/keys_01.d.exe run/keys_01.d 1> log.tmp 2>&1
 gcc obj/keys_01.o -o run/keys_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/keys_01.d.exe 1> log.tmp 2>&1
@@ -5260,6 +5621,21 @@ run/main_06.d(11): cannot implicitly convert expression 0 of type int to void
 run: dmd-0.108   -odobj  -ofrun/many_functions_01.d.exe run/many_functions_01.d 1> log.tmp 2>&1
 gcc obj/many_functions_01.o -o run/many_functions_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/many_functions_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/memory_management_01.d.exe run/memory_management_01.d 1> log.tmp 2>&1
+gcc obj/memory_management_01.o -o run/memory_management_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/memory_management_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/memory_management_02.d.exe run/memory_management_02.d 1> log.tmp 2>&1
+gcc obj/memory_management_02.o -o run/memory_management_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/memory_management_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/memory_management_03.d.exe run/memory_management_03.d 1> log.tmp 2>&1
+gcc obj/memory_management_03.o -o run/memory_management_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/memory_management_03.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.108   -odobj  -ofrun/mixin_02.d.exe run/mixin_02.d 1> log.tmp 2>&1
@@ -5430,6 +5806,48 @@ run/nested_function_06.d(15): function dstress.run.nested_function_06.check.main
 --------
 run: dmd-0.108   -odobj  -ofrun/new_01.d.exe run/new_01.d 1> log.tmp 2>&1
 run/new_01.d(20): cannot implicitly convert expression new VNode * of type VNode * to VNode *
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_06.d.exe run/new_06.d 1> log.tmp 2>&1
+gcc obj/new_06.o -o run/new_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_07.d.exe run/new_07.d 1> log.tmp 2>&1
+gcc obj/new_07.o -o run/new_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_07.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_08.d.exe run/new_08.d 1> log.tmp 2>&1
+gcc obj/new_08.o -o run/new_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_08.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_09.d.exe run/new_09.d 1> log.tmp 2>&1
+gcc obj/new_09.o -o run/new_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_09.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_10.d.exe run/new_10.d 1> log.tmp 2>&1
+gcc obj/new_10.o -o run/new_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_10.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_11.d.exe run/new_11.d 1> log.tmp 2>&1
+gcc obj/new_11.o -o run/new_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_11.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_12.d.exe run/new_12.d 1> log.tmp 2>&1
+gcc obj/new_12.o -o run/new_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_12.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/new_12.d(24)
+
+--------
+run: dmd-0.108   -odobj  -ofrun/new_13.d.exe run/new_13.d 1> log.tmp 2>&1
+gcc obj/new_13.o -o run/new_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/new_13.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/new_13.d(24)
 
 --------
 run: dmd-0.108   -odobj  -ofrun/odd_bug_01.d.exe run/odd_bug_01.d 1> log.tmp 2>&1
@@ -5849,11 +6267,6 @@ gcc obj/opCatAssign_11.o -o run/opCatAssign_11.d.exe -lphobos -lpthread -lm -Xli
 run/opCatAssign_11.d.exe 1> log.tmp 2>&1
 
 --------
-run: dmd-0.108   -odobj  -ofrun/opCatAssign_12.d.exe run/opCatAssign_12.d 1> log.tmp 2>&1
-gcc obj/opCatAssign_12.o -o run/opCatAssign_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
-run/opCatAssign_12.d.exe 1> log.tmp 2>&1
-
---------
 run: dmd-0.108   -odobj  -ofrun/opCmp_01.d.exe run/opCmp_01.d 1> log.tmp 2>&1
 
 --------
@@ -6117,6 +6530,11 @@ run/real_12.d.exe 1> log.tmp 2>&1
 run: dmd-0.108   -odobj  -ofrun/real_13.d.exe run/real_13.d 1> log.tmp 2>&1
 gcc obj/real_13.o -o run/real_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 run/real_13.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.108   -odobj  -ofrun/real_22.d.exe run/real_22.d 1> log.tmp 2>&1
+gcc obj/real_22.o -o run/real_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+run/real_22.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.108   -odobj  -ofrun/rehash_01.d.exe run/rehash_01.d 1> log.tmp 2>&1
@@ -7617,6 +8035,27 @@ collect2: ld gab 1 als Ende-Status zurück
 norun: dmd-0.108   -odobj  -ofnorun/auto_05.d.exe norun/auto_05.d 1> log.tmp 2>&1
 gcc obj/auto_05.o -o norun/auto_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
 norun/auto_05.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.108   -odobj  -ofnorun/delete_03.d.exe norun/delete_03.d 1> log.tmp 2>&1
+gcc obj/delete_03.o -o norun/delete_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+norun/delete_03.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.108   -odobj  -ofnorun/delete_04.d.exe norun/delete_04.d 1> log.tmp 2>&1
+gcc obj/delete_04.o -o norun/delete_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+norun/delete_04.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure norun/delete_04.d(15)
+
+--------
+norun: dmd-0.108   -odobj  -ofnorun/delete_05.d.exe norun/delete_05.d 1> log.tmp 2>&1
+gcc obj/delete_05.o -o norun/delete_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+norun/delete_05.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.108   -odobj  -ofnorun/destructor_04.d.exe norun/destructor_04.d 1> log.tmp 2>&1
+gcc obj/destructor_04.o -o norun/destructor_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/108/dmd/lib 
+norun/destructor_04.d.exe 1> log.tmp 2>&1
 
 --------
 norun: dmd-0.108   -odobj  -ofnorun/main_05.d.exe norun/main_05.d 1> log.tmp 2>&1

@@ -12,22 +12,12 @@ dstress.c:
 Benchmark:
 * integrate benchmark results: SciMark, cowell-shah, oopack, ackermann
 
-Meta data:
-* retag nocompile I-V
-* retag compile A-Z
-* retag run A-Z
-* retag norun A-Z
-
 Test cases:
 * keyword: asm
 * keyword: break (mutexes)
-* keyword: in out body
-* keyword: cent
 * keyword: cdouble
 * keyword: cfloat
-* keyword: char (test that it realy is unsigned)
 * keyword: continue
-* keyword: delete
 * keyword: export
 * keyword: extern
 * keyword: function
@@ -35,28 +25,20 @@ Test cases:
 * keyword: idouble
 * keyword: ifloat
 * keyword: import
-* keyword: invariant (when: public, export, destructor; circumvention with pointers possible?)
 * keyword: ireal
 * keyword: module
 * keyword: package
-* keyword: pragma(lib, "library name")
 * keyword: private
 * keyword: protected
 * keyword: public
 * keyword: return (synchronization objects/mutexes)
 * keyword: struct (anonymous)
 * keyword: synchronized
-* keyword: typeid (alias, typedef, union, ?functions, ?delegates)
 * keyword: ucent
 * keyword: union (anonymous)
-* keyword: unittest
 * keyword: volatile
 
-* extend tests for design by contract
-
 * extend tests for inner functions and closures
-
-* operators
 
 * custom operator implementations
 
@@ -65,8 +47,6 @@ Test cases:
 * floating literals
 
 * IEEE 754 tests
-
-* class and struct (de)allocators
 
 * module initializers & destructors
 

@@ -1,0 +1,169 @@
+diff -urN org/d/d-lang.cc neu/d/d-lang.cc
+--- org/d/d-lang.cc
++++ neu/d/d-lang.cc
+@@ -287,7 +287,8 @@
+     OPT_femit_templates,
+     OPT_femit_templates_,
+     OPT_nostdinc,
+-    OPT_Wsign_compare
++    OPT_Wsign_compare,
++    OPT_fdump_source,
+ };
+ 
+ #endif
+@@ -363,6 +364,9 @@
+       case OPT_Wsign_compare:
+ 	  gen.warnSignCompare = value;
+ 	  break;
++      case OPT_fdump_source:
++          global.params.dump_source=1;
++	  break;
+       default:
+ 	  break;
+       }
+@@ -420,6 +424,8 @@
+ 	    } else {
+ 		d_handle_option(OPT_femit_templates, NULL, value);
+ 	    }
++	else if (strcmp(p_arg, "dump_source") == 0)
++	   d_handle_option(OPT_fdump_source, NULL, value);
+ 	} else
+ 	    return 0;
+ 	return 1;
+diff -urN org/d/dmd/mars.h neu/d/dmd/mars.h
+--- org/d/dmd/mars.h
++++ neu/d/dmd/mars.h
+@@ -57,6 +57,8 @@
+     unsigned versionlevel;	// version level
+     Array *versionids;		// version identifiers
+ 
++    bool dump_source;
++    
+     // Hidden debug switches
+     char debuga;
+     char debugb;
+diff -urN org/d/dmd/module.c neu/d/dmd/module.c
+--- org/d/dmd/module.c
++++ neu/d/dmd/module.c
+@@ -215,7 +215,11 @@
+ 	(((unsigned char *)p)[1] << 16) |
+ 	(((unsigned char *)p)[0] << 24);
+ }
+-
++
++#ifdef IN_GCC
++#include "d-misc.h"
++#endif /* IN_GCC */
++
+ void Module::parse()
+ {   char *srcname;
+     unsigned char *buf;
+@@ -383,7 +392,13 @@
+ 	    // It's UTF-8
+ 	}
+     }
+-
++
++#ifdef IN_GCC
++	// dump utf-8 encoded source 
++	if(global.params.dump_source){
++		d_gcc_save_temps_dump(srcname, "utf-8", buf);
++	}
++#endif /* IN_GCC */
+     if (isHtml)
+     {
+ 	OutBuffer *dbuf = new OutBuffer();
+@@ -391,6 +406,12 @@
+ 	h.extractCode(dbuf);
+ 	buf = dbuf->data;
+ 	buflen = dbuf->offset;
++#ifdef IN_GCC
++	// dump extracted source
++	if(global.params.dump_source){
++		d_gcc_save_temps_dump(srcname, "d.utf-8", buf);
++	}
++#endif
+     }
+     Parser p(this, buf, buflen);
+     members = p.parseModule();
+diff -urN org/d/d-misc.h neu/d/d-misc.h
+--- org/d/d-misc.h
++++ neu/d/d-misc.h
+@@ -0,0 +1,66 @@
++/* GDC -- D front-end for GCC
++   Copyright (C) 2004 Thomas Kuehne
++   
++   This program is free software; you can redistribute it and/or modify
++   it under the terms of the GNU General Public License as published by
++   the Free Software Foundation; either version 2 of the License, or
++   (at your option) any later version.
++ 
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++   GNU General Public License for more details.
++ 
++   You should have received a copy of the GNU General Public License
++   along with this program; if not, write to the Free Software
++   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++*/
++
++/* %%FIX: find a place for this */
++
++/*  char* basename(char*) 
++ *  char* strcat(char* , const char*)
++ *  size_t strlen(const char*)
++ *  char* strcpy(char*, const char*) */
++#include <string.h>
++
++/* void* alloca(size_t) */
++#include <stdlib.h>
++
++/* FILE* fopen(char*, char*) */
++#include <stdio.h>
++
++/* int errno */
++#include <errno.h>
++
++/*
++ * used for dumping intermediate results
++ */
++static void d_gcc_save_temps_dump(const char* srcname, const char* ext,  const unsigned char* data)
++{
++	/* construct output name */
++	char* base = (char*) alloca(strlen(srcname)+1);
++	base = strcpy(base, srcname);
++	base = basename(base);
++
++	char* name = (char*) alloca(strlen(base)+strlen(ext)+2);
++	name = strcpy(name, base);
++	if(strlen(ext)>0){
++		name = strcat(name, ".");
++		name = strcat(name, ext);
++	}
++
++	/* output
++	 * ignores if the output file exists
++	 * ignores if the output fails
++	 */
++	FILE* output = fopen(name, "w");
++	if(output){
++		fprintf(output, "%s", (char*) data);
++		fclose(output);
++	}
++
++	/* cleanup */
++	errno=0;
++}
++
+diff -urN org/d/lang.opt neu/d/lang.opt
+--- org/d/lang.opt
++++ neu/d/lang.opt
+@@ -79,3 +79,7 @@
+ Wsign-compare
+ D
+ Warn about signed-unsigned comparisons
++
++fdump_source
++D
++Dump decoded and from HTML extracted sources

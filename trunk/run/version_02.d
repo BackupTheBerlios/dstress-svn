@@ -15,7 +15,15 @@ int main(){
 	}
 	
 	version(linux){
-		os++;
+		os=+3;
+	}
+
+	version(darwin){
+		os=+3;
+	}
+
+	version(Unix){
+		os=-2;
 	}
 	
 	assert(os == 1);

@@ -1,0 +1,176 @@
+diff -ur dmd-0.109-org/dmd/src/dmd/debcond.c dmd-0.109-neu/dmd/src/dmd/debcond.c
+--- dmd-0.109-org/dmd/src/dmd/debcond.c	2004-11-03 15:44:36.000000000 +0100
++++ dmd-0.109-neu/dmd/src/dmd/debcond.c	2004-12-09 18:06:29.812557848 +0100
+@@ -33,11 +33,12 @@
+ 
+ /* ============================================================ */
+ 
+-Condition::Condition(Module *mod, unsigned level, Identifier *ident)
++Condition::Condition(Module *mod, unsigned level, Identifier *ident, int inverse)
+ {
+     this->mod = mod;
+     this->level = level;
+     this->ident = ident;
++    this->inverseCondition = inverse;
+ }
+ 
+ int Condition::include()
+@@ -80,8 +81,8 @@
+ }
+ 
+ 
+-DebugCondition::DebugCondition(Module *mod, unsigned level, Identifier *ident)
+-    : Condition(mod, level, ident)
++DebugCondition::DebugCondition(Module *mod, unsigned level, Identifier *ident, int inverse)
++    : Condition(mod, level, ident, inverse)
+ {
+ }
+ 
+@@ -91,14 +92,14 @@
+     if (ident)
+     {
+ 	if (findCondition(mod->debugids, ident))
+-	    return TRUE;
++	    return !inverseCondition;
+ 
+ 	if (findCondition(global.params.debugids, ident))
+-	    return TRUE;
++	    return !inverseCondition;
+     }
+     else if (level <= global.params.debuglevel || level <= mod->debuglevel)
+-	return TRUE;
+-    return FALSE;
++	return !inverseCondition;
++    return inverseCondition;
+ }
+ 
+ /* ============================================================ */
+@@ -143,8 +144,8 @@
+ }
+ 
+ 
+-VersionCondition::VersionCondition(Module *mod, unsigned level, Identifier *ident)
+-    : Condition(mod, level, ident)
++VersionCondition::VersionCondition(Module *mod, unsigned level, Identifier *ident, int inverse)
++    : Condition(mod, level, ident, inverse)
+ {
+ }
+ 
+@@ -154,13 +155,13 @@
+     if (ident)
+     {
+ 	if (findCondition(mod->versionids, ident))
+-	    return TRUE;
++	    return !inverseCondition;
+ 
+ 	if (findCondition(global.params.versionids, ident))
+-	    return TRUE;
++	    return !inverseCondition;
+     }
+     else if (level <= global.params.versionlevel || level <= mod->versionlevel)
+-	return TRUE;
+-    return FALSE;
++	return !inverseCondition;
++    return inverseCondition;
+ }
+ 
+Nur in dmd-0.109-neu/dmd/src/dmd: debcond.c.orig.
+diff -ur dmd-0.109-org/dmd/src/dmd/debcond.h dmd-0.109-neu/dmd/src/dmd/debcond.h
+--- dmd-0.109-org/dmd/src/dmd/debcond.h	2004-11-03 15:44:36.000000000 +0100
++++ dmd-0.109-neu/dmd/src/dmd/debcond.h	2004-12-09 18:06:29.820556632 +0100
+@@ -20,8 +20,9 @@
+     unsigned level;
+     Identifier *ident;
+     Module *mod;
++    int inverseCondition;
+ 
+-    Condition(Module *mod, unsigned level, Identifier *ident);
++    Condition(Module *mod, unsigned level, Identifier *ident, int inverse);
+ 
+     virtual int include();
+     int isBool(int result);
+@@ -35,7 +36,7 @@
+     static void addGlobalIdent(char *ident);
+     static void addPredefinedGlobalIdent(char *ident);
+ 
+-    DebugCondition(Module *mod, unsigned level, Identifier *ident);
++    DebugCondition(Module *mod, unsigned level, Identifier *ident, int inverse);
+ 
+     int include();
+ };
+@@ -46,7 +47,7 @@
+     static void addGlobalIdent(char *ident);
+     static void addPredefinedGlobalIdent(char *ident);
+ 
+-    VersionCondition(Module *mod, unsigned level, Identifier *ident);
++    VersionCondition(Module *mod, unsigned level, Identifier *ident, int inverse);
+ 
+     int include();
+ };
+Nur in dmd-0.109-neu/dmd/src/dmd: debcond.h.orig.
+diff -ur dmd-0.109-org/dmd/src/dmd/parse.c dmd-0.109-neu/dmd/src/dmd/parse.c
+--- dmd-0.109-org/dmd/src/dmd/parse.c	2004-12-03 01:19:56.000000000 +0100
++++ dmd-0.109-neu/dmd/src/dmd/parse.c	2004-12-09 18:06:29.941538240 +0100
+@@ -420,7 +420,7 @@
+ 		    check(TOKrparen);
+ 		}
+ 		else
+-		    condition = new DebugCondition(mod, 1, NULL);
++		    condition = new DebugCondition(mod, 1, NULL, 0);
+ 		a = parseBlock();
+ 		aelse = NULL;
+ 		if (token.value == TOKelse)
+@@ -563,6 +563,12 @@
+ {
+     unsigned level = 1;
+     Identifier *id = NULL;
++    int inverseCondition = 0;
++
++    if(token.value == TOKnot){
++	    inverseCondition=1;
++	    nextToken();
++    }
+ 
+     if (token.value == TOKidentifier)
+ 	id = token.ident;
+@@ -572,7 +578,7 @@
+ 	error("identifier or integer expected, not %s", token.toChars());
+     nextToken();
+ 
+-    return new DebugCondition(mod, level, id);
++    return new DebugCondition(mod, level, id, inverseCondition);
+ }
+ 
+ /**************************************
+@@ -583,6 +589,12 @@
+ {
+     unsigned level = 1;
+     Identifier *id = NULL;
++    int inverseCondition = 0;
++
++    if(token.value == TOKnot){
++	    inverseCondition=1;
++	    nextToken();
++    }
+ 
+     if (token.value == TOKidentifier)
+ 	id = token.ident;
+@@ -592,7 +604,7 @@
+ 	error("identifier or integer expected, not %s", token.toChars());
+     nextToken();
+ 
+-    return new VersionCondition(mod, level, id);
++    return new VersionCondition(mod, level, id, inverseCondition);
+ }
+ 
+ /*****************************************
+@@ -2536,7 +2548,7 @@
+ 		check(TOKrparen);
+ 	    }
+ 	    else
+-		condition = new DebugCondition(mod, 1, NULL);
++		condition = new DebugCondition(mod, 1, NULL, 0);
+ 	    ifbody = parseStatement(PSsemi);
+ 	    if (token.value == TOKelse)
+ 	    {
+Nur in dmd-0.109-neu/dmd/src/dmd: parse.c.orig.

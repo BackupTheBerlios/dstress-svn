@@ -4,6 +4,6 @@ module stress.run.command_line_deprecated_01;
 
 int main(){
 	int[7] array;
-	assert(array.size == 7);
+	assert(array.size == array.sizeof);
 	return 0;
 }

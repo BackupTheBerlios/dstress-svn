@@ -25,6 +25,13 @@ PASS:  compile/typedef_05
 PASS:  compile/union_10
 PASS:  compile/unittest_02
 FAIL:  compile/version_09
+XPASS: nocompile/ExpressionStatement_01
+XPASS: nocompile/ExpressionStatement_02
+XFAIL: nocompile/InExpression_14
+XFAIL: nocompile/InExpression_15
+XFAIL: nocompile/InExpression_16
+XFAIL: nocompile/InExpression_17
+XFAIL: nocompile/InExpression_18
 XPASS: nocompile/alias_05
 XPASS: nocompile/align_01
 XFAIL: nocompile/align_02
@@ -33,8 +40,12 @@ XPASS: nocompile/align_05
 ERROR: nocompile/array_initialization_04 [35584]
 XFAIL: nocompile/assert_03
 XFAIL: nocompile/associative_array_01
+XFAIL: nocompile/associative_array_03
+XFAIL: nocompile/associative_array_04
 XFAIL: nocompile/bit_02
 XFAIL: nocompile/bounds_checking_01
+XFAIL: nocompile/break_06
+XFAIL: nocompile/break_07
 ERROR: nocompile/bug_20041016_A [35584]
 XPASS: nocompile/bug_20041016_B
 ERROR: nocompile/bug_20041203_A [35584]
@@ -62,6 +73,7 @@ XFAIL: nocompile/command_line_debug_05
 XFAIL: nocompile/command_line_debug_06
 XFAIL: nocompile/command_line_debug_07
 XFAIL: nocompile/command_line_debug_09
+XFAIL: nocompile/command_line_deprecated_02
 XFAIL: nocompile/command_line_version_04
 XFAIL: nocompile/command_line_version_05
 XFAIL: nocompile/command_line_version_06
@@ -169,6 +181,12 @@ XFAIL: nocompile/float_litaeral_dec_17
 XFAIL: nocompile/foreach_14
 XFAIL: nocompile/foreach_17
 XFAIL: nocompile/foreach_18
+XFAIL: nocompile/foreach_19
+XFAIL: nocompile/foreach_20
+ERROR: nocompile/foreach_21 [34304]
+ERROR: nocompile/foreach_22 [34304]
+XFAIL: nocompile/goto_04
+XFAIL: nocompile/goto_06
 XPASS: nocompile/html_empty_entity_01
 XPASS: nocompile/html_empty_entity_02
 XFAIL: nocompile/html_empty_entity_03
@@ -269,6 +287,9 @@ XFAIL: nocompile/real_18
 XFAIL: nocompile/real_19
 XFAIL: nocompile/real_20
 XFAIL: nocompile/real_21
+XFAIL: nocompile/return_05
+XPASS: nocompile/return_06
+XPASS: nocompile/return_07
 XFAIL: nocompile/short_02
 XFAIL: nocompile/short_03
 XPASS: nocompile/static_07
@@ -284,6 +305,7 @@ XFAIL: nocompile/struct_06
 XFAIL: nocompile/struct_17
 XFAIL: nocompile/super_03
 ERROR: nocompile/super_05 [34304]
+ERROR: nocompile/super_09 [35584]
 XFAIL: nocompile/switch_08
 XFAIL: nocompile/switch_09
 XFAIL: nocompile/switch_10
@@ -291,6 +313,7 @@ XFAIL: nocompile/switch_11
 XFAIL: nocompile/switch_12
 XFAIL: nocompile/switch_13
 XFAIL: nocompile/switch_15
+XFAIL: nocompile/switch_16
 XFAIL: nocompile/template_05
 XFAIL: nocompile/template_06
 XPASS: nocompile/try_05
@@ -353,6 +376,20 @@ PASS:  run/Alternate_Wysiwyg_String_13
 PASS:  run/Alternate_Wysiwyg_String_14
 PASS:  run/Alternate_Wysiwyg_String_15
 PASS:  run/Alternate_Wysiwyg_String_16
+FAIL:  run/InExpression_01
+FAIL:  run/InExpression_02
+FAIL:  run/InExpression_03
+FAIL:  run/InExpression_04
+FAIL:  run/InExpression_05
+FAIL:  run/InExpression_06
+FAIL:  run/InExpression_07
+FAIL:  run/InExpression_08
+FAIL:  run/InExpression_09
+FAIL:  run/InExpression_10
+PASS:  run/InExpression_11
+PASS:  run/InExpression_12
+PASS:  run/InExpression_13
+PASS:  run/InExpression_19
 PASS:  run/Wysiwyg_String_01
 PASS:  run/Wysiwyg_String_02
 PASS:  run/Wysiwyg_String_03
@@ -395,11 +432,16 @@ PASS:  run/bit_05
 PASS:  run/bit_06
 PASS:  run/break_01
 PASS:  run/break_02
+PASS:  run/break_03
+PASS:  run/break_04
+PASS:  run/break_05
 PASS:  run/bug_20041103_A
 PASS:  run/bug_20041103_B
 FAIL:  run/bug_20041103_C (compiling error)
 PASS:  run/bug_20041103_D
 PASS:  run/bug_20041103_E
+FAIL:  run/bug_elfobj_1251_A (compiling error)
+PASS:  run/bug_elfobj_1251_B
 ERROR: run/bug_expression_661_A [34304]
 ERROR: run/bug_mangle_61_A [34304]
 PASS:  run/bug_mangle_61_B
@@ -424,6 +466,9 @@ PASS:  run/class_01
 PASS:  run/class_02
 PASS:  run/class_03
 FAIL:  run/class_06 (compiling error)
+PASS:  run/class_08
+PASS:  run/class_09
+PASS:  run/class_10
 FAIL:  run/class_initialization_01
 PASS:  run/class_initialization_02
 PASS:  run/command_line_debug_01
@@ -431,6 +476,7 @@ PASS:  run/command_line_debug_02
 PASS:  run/command_line_debug_03
 PASS:  run/command_line_debug_04
 PASS:  run/command_line_debug_08
+PASS:  run/command_line_deprecated_01
 PASS:  run/command_line_version_01
 PASS:  run/command_line_version_02
 PASS:  run/command_line_version_03
@@ -601,8 +647,15 @@ PASS:  run/foreach_12
 PASS:  run/foreach_13
 PASS:  run/foreach_15
 FAIL:  run/foreach_16
+PASS:  run/foreach_23
 PASS:  run/function_01
 PASS:  run/goto_01
+PASS:  run/goto_02
+PASS:  run/goto_03
+FAIL:  run/goto_05 (compiling error)
+FAIL:  run/goto_07 (compiling error)
+PASS:  run/goto_08
+FAIL:  run/goto_09 (compiling error)
 PASS:  run/html_comment_01
 FAIL:  run/html_comment_02 (compiling error)
 PASS:  run/html_comment_03
@@ -792,6 +845,10 @@ PASS:  run/real_10
 PASS:  run/real_11
 PASS:  run/real_12
 PASS:  run/real_13
+FAIL:  run/return_01 (compiling error)
+PASS:  run/return_02
+PASS:  run/return_03
+PASS:  run/return_04
 PASS:  run/reverse_01
 PASS:  run/reverse_02
 PASS:  run/reverse_03
@@ -850,6 +907,9 @@ PASS:  run/struct_initialization_05
 PASS:  run/super_01
 PASS:  run/super_02
 PASS:  run/super_04
+ERROR: run/super_06 [35584]
+ERROR: run/super_07 [35584]
+ERROR: run/super_08 [35584]
 PASS:  run/switch_01
 PASS:  run/switch_02
 PASS:  run/switch_03
@@ -1025,3 +1085,8 @@ XFAIL: complex/command_line/command_line_null_source_03
 XFAIL: complex/command_line/command_line_null_source_04
 XFAIL: complex/command_line/command_line_null_source_05
 XFAIL: complex/command_line/command_line_null_source_06
+PASS:  complex/linking/linking_01
+PASS:  complex/linking/linking_02_A
+PASS:  complex/linking/linking_02_B
+PASS:  complex/linking/linking_02_C
+FAIL:  complex/linking/linking_02 (compiling error)

@@ -1,0 +1,36 @@
+diff -urN org/d/dmd/module.c neu/d/dmd/module.c
+--- org/d/dmd/module.c	
++++ neu/d/dmd/module.c
+@@ -241,6 +245,7 @@
+ 	 * EF BB BF	UTF-8
+ 	 */
+ 
++	int haveNoBom=0;
+ 	if (buf[0] == 0xFF && buf[1] == 0xFE)
+ 	{
+ 	    if (buflen >= 4 && buf[2] == 0 && buf[3] == 0)
+@@ -257,6 +262,7 @@
+ 		    fatal();
+ 		}
+ 
++		pu-=haveNoBom;
+ 		dbuf.reserve(buflen / 4);
+ 		while (++pu < pumax)
+ 		{   unsigned u;
+@@ -292,6 +298,7 @@
+ 		    fatal();
+ 		}
+ 
++		pu-=haveNoBom;
+ 		dbuf.reserve(buflen / 2);
+ 		while (++pu < pumax)
+ 		{   unsigned u;
+@@ -354,6 +361,8 @@
+ 	     * figure out the encoding.
+ 	     */
+ 
++            haveNoBom=1;
++
+ 	    if (buflen >= 4)
+ 	    {   if (buf[1] == 0 && buf[2] == 0 && buf[3] == 0)
+ 		{   // UTF-32LE

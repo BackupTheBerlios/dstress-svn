@@ -10,6 +10,14 @@ int main(){
 		cpu++;
 	}
 
+	version(IA64){
+		cpu++;
+	}
+
+	version(PPC){
+		cpu++;
+	}
+
 	assert(cpu==1);
 
 	return 0;

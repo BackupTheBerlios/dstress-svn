@@ -1,0 +1,398 @@
+diff -ur gdc-0.8b/d/dmd/html.c gdc-0.8c/d/dmd/html.c
+--- gdc-0.8b/d/dmd/html.c	2004-11-18 00:35:36.000000000 +0100
++++ gdc-0.8c/d/dmd/html.c	2004-11-18 12:32:04.070839328 +0100
+@@ -23,6 +23,7 @@
+ #include <stdarg.h>
+ #include <errno.h>
+ #include <wchar.h>
++#include <stdlib.h>
+ 
+ #include "root.h"
+ #include "html.h"
+@@ -257,7 +258,8 @@
+     }
+ 
+     // See if we parsed a <code> or </code> tag
+-    if (taglen && strncasecmp((const char *)tagstart, "CODE", taglen) == 0)
++    if (taglen && strncasecmp((const char *)tagstart, "CODE", taglen) == 0 
++		    && p-2>tagstart && *(p-2)!='/')
+     {
+ 	if (nottag)
+ 	{   inCode--;
+@@ -430,12 +432,12 @@
+ 		case '\r':
+ 		case '<':	// tag start
+ 		    // Termination is assumed
+-		    goto numeric_end;
++		    break;
+ 
+ 		case ';':
+ 		    // Termination is explicit
+ 		    p++;
+-		    goto numeric_end;
++		    break;
+ 
+ 		case '0': case '1': case '2': case '3': case '4':
+ 		case '5': case '6': case '7': case '8': case '9':
+@@ -470,6 +472,7 @@
+ 		    error("invalid numeric character reference");
+ 		    break;
+ 	    }
++	    break;
+ 	}
+     }
+     else
+@@ -506,7 +509,7 @@
+ 	    break;
+ 	}
+     }
+-numeric_end:
++    
+     // Kludge to convert non-breaking space to ascii space
+     if (c == 160)
+ 	c = 32;
+@@ -523,8 +526,7 @@
+     int value;
+ };
+ 
+-static NameId names[] =
+-{
++static NameId namesA[]={
+ 	"Aacgr", 	0x0386,
+ 	"aacgr", 	0x03AC,
+ 	"Aacute",	0x00C1,
+@@ -567,6 +569,10 @@
+ 	"atilde",	0x00E3,
+ 	"Auml",  	0x00C4,
+ 	"auml",  	0x00E4,
++	NULL,		0
++};
++
++static NameId namesB[]={
+ 	"barwed",	0x22BC,
+ 	"Barwed",	0x2306,
+ 	"bcong", 	0x224C,
+@@ -635,6 +641,10 @@
+ 	"bull",  	0x2022,
+ 	"bump",  	0x224E,
+ 	"bumpe", 	0x224F,
++	NULL,		0
++};
++
++static NameId namesC[]={
+ 	"Cacute",	0x0106,
+ 	"cacute",	0x0107,
+ 	"cap",   	0x2229,
+@@ -681,6 +691,10 @@
+ 	"curren",	0x00A4,
+ 	"cuvee", 	0x22CE,
+ 	"cuwed", 	0x22CF,
++	NULL,		0
++};
++
++static NameId namesD[]={
+ 	"dagger",	0x2020,
+ 	"Dagger",	0x2021,
+ 	"daleth",	0x2138,
+@@ -726,6 +740,10 @@
+ 	"dtrif", 	0x25BE,
+ 	"DZcy",  	0x040F,
+ 	"dzcy",  	0x045F,
++	NULL,		0
++};
++
++static NameId namesE[]={
+ 	"Eacgr", 	0x0388,
+ 	"eacgr", 	0x03AD,
+ 	"Eacute",	0x00C9,
+@@ -778,6 +796,10 @@
+ 	"euml",  	0x00EB,
+ 	"excl",  	0x0021,
+ 	"exist", 	0x2203,
++	NULL,		0
++};
++
++static NameId namesF[]={
+ 	"Fcy",   	0x0424,
+ 	"fcy",   	0x0444,
+ 	"female",	0x2640,
+@@ -806,6 +828,10 @@
+ 	"frac58",	0x215D,
+ 	"frac78",	0x215E,
+ 	"frown", 	0x2322,
++	NULL,		0
++};
++
++static NameId namesG[]={
+ 	"gacute",	0x01F5,
+ 	"Gamma", 	0x0393,
+ 	"gamma", 	0x03B3,
+@@ -842,6 +868,10 @@
+ 	"gt",    	0x003E,
+ 	"Gt",    	0x226B,
+ 	"gvnE",  	0x2269,
++	NULL,		0
++};
++
++static NameId namesH[]={
+ 	"hairsp",	0x200A,
+ 	"half",  	0x00BD,
+ 	"hamilt",	0x210B,
+@@ -859,6 +889,10 @@
+ 	"hstrok",	0x0127,
+ 	"hybull",	0x2043,
+ 	"hyphen",	0x002D,
++	NULL,		0
++};
++
++static NameId namesI[]={
+ 	"Iacgr", 	0x038A,
+ 	"iacgr", 	0x03AF,
+ 	"Iacute",	0x00CD,
+@@ -902,6 +936,10 @@
+ 	"iukcy", 	0x0456,
+ 	"Iuml",  	0x00CF,
+ 	"iuml",  	0x00EF,
++	NULL,		0
++};
++
++static NameId namesJ[]={
+ 	"Jcirc", 	0x0134,
+ 	"jcirc", 	0x0135,
+ 	"Jcy",   	0x0419,
+@@ -910,6 +948,10 @@
+ 	"jsercy",	0x0458,
+ 	"Jukcy", 	0x0404,
+ 	"jukcy", 	0x0454,
++	NULL,		0
++};
++
++static NameId namesK[]={
+ 	"kappa", 	0x03BA,
+ 	"kappav",	0x03F0,
+ 	"Kcedil",	0x0136,
+@@ -925,6 +967,10 @@
+ 	"khgr",  	0x03C7,
+ 	"KJcy",  	0x040C,
+ 	"kjcy",  	0x045C,
++	NULL,		0
++};
++
++static NameId namesL[]={
+ 	"lAarr", 	0x21DA,
+ 	"Lacute",	0x0139,
+ 	"lacute",	0x013A,
+@@ -995,6 +1041,10 @@
+ 	"ltrie", 	0x22B4,
+ 	"ltrif", 	0x25C2,
+ 	"lvnE",  	0x2268,
++	NULL,		0
++};
++
++static NameId namesM[]={
+ 	"macr",  	0x00AF,
+ 	"male",  	0x2642,
+ 	"malt",  	0x2720,
+@@ -1015,6 +1065,10 @@
+ 	"models",	0x22A7,
+ 	"mu",    	0x03BC,
+ 	"mumap", 	0x22B8,
++	NULL,		0
++};
++
++static NameId namesN[]={
+ 	"nabla", 	0x2207,
+ 	"Nacute",	0x0143,
+ 	"nacute",	0x0144,
+@@ -1087,6 +1141,10 @@
+ 	"nVdash",	0x22AE,
+ 	"nVDash",	0x22AF,
+ 	"nwarr", 	0x2196,
++	NULL,		0
++};
++
++static NameId namesO[]={
+ 	"Oacgr", 	0x038C,
+ 	"oacgr", 	0x03CC,
+ 	"Oacute",	0x00D3,
+@@ -1134,6 +1192,10 @@
+ 	"otimes",	0x2297,
+ 	"Ouml",  	0x00D6,
+ 	"ouml",  	0x00F6,
++	NULL,		0
++};
++
++static NameId namesP[]={
+ 	"par",   	0x2225,
+ 	"para",  	0x00B6,
+ 	"part",  	0x2202,
+@@ -1177,8 +1239,16 @@
+ 	"Psi",   	0x03A8,
+ 	"psi",   	0x03C8,
+ 	"puncsp",	0x2008,
++	NULL,		0
++};
++
++static NameId namesQ[]={
+ 	"quest", 	0x003F,
+ 	"quot",  	0x0022,
++	NULL,		0
++};
++
++static NameId namesR[]={
+ 	"rAarr", 	0x21DB,
+ 	"Racute",	0x0154,
+ 	"racute",	0x0155,
+@@ -1228,6 +1298,10 @@
+ 	"rtrie", 	0x22B5,
+ 	"rtrif", 	0x25B8,
+ 	"rx",    	0x211E,
++	NULL,		0
++};
++
++static NameId namesS[]={
+ 	"Sacute",	0x015A,
+ 	"sacute",	0x015B,
+ 	"samalg",	0x2210,
+@@ -1308,6 +1382,10 @@
+ 	"supne", 	0x228B,
+ 	"supnE", 	0x228B,
+ 	"szlig", 	0x00DF,
++	NULL,		0
++};
++
++static NameId namesT[]={
+ 	"target",	0x2316,
+ 	"tau",   	0x03C4,
+ 	"Tcaron",	0x0164,
+@@ -1345,6 +1423,10 @@
+ 	"Tstrok",	0x0166,
+ 	"tstrok",	0x0167,
+ 	"twixt", 	0x226C,
++	NULL,		0
++};
++
++static NameId namesU[]={
+ 	"Uacgr", 	0x038E,
+ 	"uacgr", 	0x03CD,
+ 	"Uacute",	0x00DA,
+@@ -1392,6 +1474,10 @@
+ 	"utrif", 	0x25B4,
+ 	"Uuml",  	0x00DC,
+ 	"uuml",  	0x00FC,
++	NULL,		0
++};
++
++static NameId namesV[]={
+ 	"varr",  	0x2195,
+ 	"vArr",  	0x21D5,
+ 	"Vcy",   	0x0412,
+@@ -1412,11 +1498,19 @@
+ 	"vsupne",	0x228B,
+ 	"vsupnE",	0x228B,
+ 	"Vvdash",	0x22AA,
++	NULL,		0
++};
++
++static NameId namesW[]={
+ 	"Wcirc", 	0x0174,
+ 	"wcirc", 	0x0175,
+ 	"wedgeq",	0x2259,
+ 	"weierp",	0x2118,
+ 	"wreath",	0x2240,
++	NULL,		0
++};
++
++static NameId namesX[]={
+ 	"xcirc", 	0x25CB,
+ 	"xdtri", 	0x25BD,
+ 	"Xgr",   	0x039E,
+@@ -1428,6 +1522,10 @@
+ 	"xlArr", 	0x21D0,
+ 	"xrArr", 	0x21D2,
+ 	"xutri", 	0x25B3,
++	NULL,		0
++};
++
++static NameId namesY[]={
+ 	"Yacute",	0x00DD,
+ 	"yacute",	0x00FD,
+ 	"YAcy",  	0x042F,
+@@ -1443,6 +1541,10 @@
+ 	"yucy",  	0x044E,
+ 	"yuml",  	0x00FF,
+ 	"Yuml",  	0x0178,
++	NULL,		0
++};
++
++static NameId namesZ[]={
+ 	"Zacute",	0x0179,
+ 	"zacute",	0x017A,
+ 	"Zcaron",	0x017D,
+@@ -1456,20 +1558,37 @@
+ 	"zgr",   	0x03B6,
+ 	"ZHcy",  	0x0416,
+ 	"zhcy",  	0x0436,
+-    NULL, 0
++	NULL, 0
++};
+ 
++// @todo@ order namesTable and names? by frequency
++static NameId* namesTable[] = { 
++	namesA, namesB, namesC, namesD, namesE, namesF, namesG, namesH, namesI,
++	namesJ, namesK, namesL, namesM, namesN, namesO, namesP, namesQ, namesR,
++	namesS, namesT, namesU, namesV, namesW, namesX, namesY, namesZ, NULL
+ };
+ 
+ int Html::namedEntity(unsigned char *p, int length)
+ {
+-    int i;
++	int tableIndex;
++	char key = tolower((char) p[0]);
++	for ( tableIndex = 0; namesTable[tableIndex]; tableIndex++ ){
++		if(tolower((*namesTable[tableIndex]).name[0])==key)
++		{
++			NameId* names = namesTable[tableIndex];
++			int i;
+ 
+-    // BUG: this is a dumb, slow linear search
+-    for (i = 0; names[i].name; i++)
+-    {
+-	if (strncmp(names[i].name, (char *)p, length) == 0)
+-	    return names[i].value;
+-    }
+-    error("unrecognized character entity");
+-    return 0;
++			for (i = 0; names[i].name; i++){
++				if (strncmp(names[i].name, (char *)p, length) == 0){
++					return names[i].value;
++				}
++			}
++			break;
++		}
++	}
++	char* entityName = (char*) malloc(length);
++	strncpy(entityName, (char*)p, length);
++	error("unrecognized character entity \"%s\"", entityName);
++	return 0;
+ }
++
+diff -ur gdc-0.8b/d/dmd/html.h gdc-0.8c/d/dmd/html.h
+--- gdc-0.8b/d/dmd/html.h	2004-04-18 04:14:33.000000000 +0200
++++ gdc-0.8c/d/dmd/html.h	2004-11-18 12:32:09.185061848 +0100
+@@ -7,6 +7,9 @@
+ // in artistic.txt, or the GNU General Public License in gnu.txt.
+ // See the included readme.txt for details.
+ 
++#ifndef DMD_HTML_D
++#define DMD_HTML_D
++
+ struct OutBuffer;
+ 
+ struct Html
+@@ -31,3 +34,5 @@
+     int charEntity();
+     int namedEntity(unsigned char *p, int length);
+ };
++
++#endif /* DMD_HTML_D */

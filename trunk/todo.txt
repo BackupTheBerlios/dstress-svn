@@ -9,7 +9,6 @@ Test cases:
 * keyword: cdouble
 * keyword: cfloat
 * keyword: char (test that it realy is unsigned)
-* keyword: creal
 * keyword: const
 * keyword: continue
 * keyword: dchar
@@ -31,6 +30,7 @@ Test cases:
 * keyword: synchronized
 * keyword: typeid
 * keyword: ucent
+* keyword: union (anonymous)
 * keyword: unittest
 * keyword: volatile
 * keyword: wchar

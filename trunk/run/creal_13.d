@@ -1,6 +1,6 @@
 module dstress.run.creal_13;
 
 int main(){
-	assert(creal.init == real.init + 1.0i*real.init);
+	assert(creal.init == real.init + ireal.init);
 	return 0;
 }

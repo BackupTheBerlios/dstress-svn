@@ -21,16 +21,26 @@ int main(){
 	sorted_copy.sort;
 
 	assert(sorted_copy.length==10);
-	assert(sorted_copy[0]==double.min);
-	assert(sorted_copy[1]==0.0);
-	assert(sorted_copy[2]==0.125);
-	assert(sorted_copy[3]==0.25);
-	assert(sorted_copy[4]==0.375);
-	assert(sorted_copy[5]==0.5);
-	assert(sorted_copy[6]==0.625);
-	assert(sorted_copy[7]==0.75);
-	assert(sorted_copy[8]==0.875);
-	assert(sorted_copy[9]==double.max);
+	double test = 0;
+	assert(sorted_copy[0]==test);
+	test = double.min;
+	assert(sorted_copy[1]==test);
+	test = 0.125;
+	assert(sorted_copy[2]==test);
+	test = 0.25;
+	assert(sorted_copy[3]==test);
+	test = 0.375;
+	assert(sorted_copy[4]==test);
+	test = 0.5;
+	assert(sorted_copy[5]==test);
+	test = 0.625;
+	assert(sorted_copy[6]==test);
+	test = 0.75;
+	assert(sorted_copy[7]==test);
+	test = 0.875;
+	assert(sorted_copy[8]==test);
+	test = double.max;
+	assert(sorted_copy[9]==test);
 
 	return 0;
 }

@@ -1,4 +1,8 @@
-/* destress's result generator
+/* $HeadURL$
+ * $Date$
+ * $Author$
+ *
+ *  destress's result generator
  * Copyright (C) 2004 Thomas Kuehne  dstress <a> kuehne.cn
  *
  * This program is free software; you can redistribute it and/or modify

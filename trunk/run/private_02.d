@@ -18,11 +18,12 @@ class Outer{
 	}
 
 	int test(){
-		return new Inner().i;
+		return (new Inner()).i;
 	}
 }
 
 int main(){
-	assert(new Outer().test()==3);
+	Outer o = new Outer();
+	assert(o.test()==3);
 	return 0;
 }

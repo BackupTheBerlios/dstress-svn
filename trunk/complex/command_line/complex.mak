@@ -93,5 +93,5 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 	
 # this will be called by root's "clean" target
 complex/command_line/clean :
-	$(RM) complex/command_line/*.done complex/command_line/*.xxxx complex/command_line/*.$(ext_compile)
+	$(RM) complex/command_line/*.done complex/command_line/*.xxxx complex/command_line/*.$(ext_compile) complex/command_line/.?*$(ext_compile)
 

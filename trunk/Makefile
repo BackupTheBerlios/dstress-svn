@@ -40,46 +40,45 @@ ext_compile = o
 ext_source = d
 ext_source_html = html
 
-all : compile nocompile run norun
+all : Makefile compile nocompile run norun
 
 .PHONY: all compile nocompile run norun clean distclean clean_log log
 
 
-nocompile : $(sort $(subst .$(ext_source),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source_html)" ) ) )
+nocompile : Makefile $(sort $(subst .$(ext_source),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source_html)" ) ) )
 
-%.$(ext_nocompile) : %.$(ext_source)
+%.$(ext_nocompile) : %.$(ext_source) Makefile
 	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
 
-%.$(ext_nocompile) : %.$(ext_source_html)
+%.$(ext_nocompile) : %.$(ext_source_html) Makefile
 	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log); then $(ECHO) "XPASS: $(subst .$(ext_nocompile),,$@)"; $(RM) $@; else $(ECHO) "FAIL:  $(subst .$(ext_nocompile),,$@)"; $(TOUCH) $@; fi
 
 
-compile : $(sort $(subst .$(ext_source),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source_html)" ) ) )
+compile : Makefile $(sort $(subst .$(ext_source),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source_html)" ) ) )
 
-%.$(ext_compile) : %.$(ext_source)
+%.$(ext_compile) : %.$(ext_source) Makefile
 	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log) ; then $(ECHO) "PASS:  $(subst .$(ext_compile),,$@)"; $(TOUCH) $@; else $(ECHO) "XFAIL: $(subst .$(ext_compile),,$@)"; $(RM) $@; fi
 
-%.$(ext_compile) : %.$(ext_source_html) 
+%.$(ext_compile) : %.$(ext_source_html) Makefile
 	@if $(DMD) $(DFLAGS) -c -of$@ $< $(to_log) ; then $(ECHO) "PASS:  $(subst .$(ext_compile),,$@)"; $(TOUCH) $@; else $(ECHO) "XFAIL: $(subst .$(ext_compile),,$@)"; $(RM) $@; fi
 
 
-run : $(sort $(subst .$(ext_source),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source_html)" ) ) )
+run : Makefile $(sort $(subst .$(ext_source),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source_html)" ) ) )
 
-%.$(ext_run) : %.$(ext_source)
+%.$(ext_run) : %.$(ext_source) Makefile
 	@if $(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log); then if $@ $(to_log); then $(ECHO) "PASS:  $(subst .$(ext_run),,$@)"; else $(ECHO) "XFAIL: $(subst .$(ext_run),,$@)"; $(RM) $@; fi else $(ECHO) "XFAIL: $(subst .$(ext_run),,$@) (compiling error)"; fi
 
-%.$(ext_run) : %.$(ext_source_html)
+%.$(ext_run) : %.$(ext_source_html) Makefile
 	@if $(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log); then if $@ $(to_log); then $(ECHO) "PASS:  $(subst .$(ext_run),,$@)"; else $(ECHO) "XFAIL: $(subst .$(ext_run),,$@)"; $(RM) $@; fi else $(ECHO) "XFAIL: $(subst .$(ext_run),,$@) (compiling error)"; fi
 
 
-norun : $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source_html)" ) ) )
+norun : Makefile $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source_html)" ) ) )
 
-%.$(ext_norun) : %.$(ext_source)
+%.$(ext_norun) : %.$(ext_source) Makefile
 	@if $(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log); then if $@ $(to_log); then $(ECHO) "XPASS:  $(subst .$(ext_norun),,$@)"; $(RM) $@; else $(ECHO) "FAIL: $(subst .$(ext_norun),,$@)"; fi else $(ECHO) "XFAIL: $(subst .$(ext_run),,$@) (compiling error)"; $(RM) $@; fi
 
-%.$(ext_norun) : %.$(ext_source_html)
+%.$(ext_norun) : %.$(ext_source_html) Makefile
 	@if $(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log); then if $@ $(to_log); then $(ECHO) "XPASS:  $(subst .$(ext_norun),,$@)"; $(RM) $@; else $(ECHO) "FAIL: $(subst .$(ext_norun),,$@)"; fi else $(ECHO) "XFAIL: $(subst .$(ext_run),,$@) (compiling error)"; $(RM) $@; fi
-
 
 
 log : distclean all

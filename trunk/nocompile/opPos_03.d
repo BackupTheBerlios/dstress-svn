@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.nocompile.opPos_03;
 
 struct MyStruct{
 }

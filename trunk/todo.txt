@@ -18,8 +18,8 @@ Test cases:
 * keyword: char (test that it realy is unsigned)
 * keyword: const
 * keyword: continue
-* keyword: dchar
 * keyword: delegate
+* keyword: delete
 * keyword: export
 * keyword: extern
 * keyword: function

@@ -2,13 +2,13 @@
 // $Date$
 // $Author$
 
-module dstress.nocompile.opPos_04;
+module dstress.run.class_01;
 
 class MyClass{
 }
 
 int main(){
-	MyClass c = new MyClass();
-	+c;
+	MyClass c;
 	return 0;
 }
+

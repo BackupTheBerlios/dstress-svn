@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.class_03;
 
 class MyClass{
 	int check( int x){

@@ -2,6 +2,11 @@
 // $Date$
 // $Author$
 
+// @author@	Thomas Kuehne <thomas-dloop@kuehne.thisisspam.cn>
+// @date@	2004-11-17
+// @uri@	news:l3hr62-qov.ln1@kuehne.cn
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2289
+
 // duplicate case "123" in switch statement
 
 module dstress.nocompile.switch_13;

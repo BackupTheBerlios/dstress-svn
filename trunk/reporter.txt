@@ -59,6 +59,7 @@ tetsuya
 teqDruid		<me@teqdruid.com>
 Thomas Kuehne 		<thomas-dloop@kuehne.thisisspam.cn>
 Tyro 			<ridimz_at@yahoo.dot.com>
+Valéry			<valery@freesurf.fr>
 van eeshan 		<vanee@hotmail.com>
 Vathix 			<vathixSpamFix@dprogramming.com>
 Walter 			<newshound@digitalmars.com>

@@ -12,7 +12,7 @@ module dstress.run.cast_10;
 class Parent{
 }
 
-class Child{
+class Child : Parent {
 }
 
 void test(inout Parent p){

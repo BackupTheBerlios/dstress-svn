@@ -33,8 +33,8 @@
 		<meta http-equiv="content-language" content="en" />
 		<meta name="DC.Language" content="en" />
 		<!-- date -->
-		<meta name="date" content="2005-01-09" />
-		<meta name="DC.Date" content="2005-01-09" />
+		<meta name="date" content="2005-01-20" />
+		<meta name="DC.Date" content="2005-01-20" />
 		<!-- struct -->
 		<link rel="start" href="http://dmd.kuehne.cn/index.html" title="Current Version" hreflang="en" />
 		<link rel="prev" href="http://dmd.kuehne.cn/archive.html" title="Archive" hreflang="en" />
@@ -99,9 +99,9 @@
 			<dt><strong>Processor</strong></dt>
 				<dd>i686</dd>
 			<dt><strong>DStress Revision</strong></dt>
-				<dd>288</dd>
+				<dd>298</dd>
 			<dt><strong>Test Date</strong></dt>
-				<dd>2005-01-09</dd>
+				<dd>2005-01-20</dd>
 		</dl>
 		Thanks to <a href='http://www.algonet.se/~afb/d/'>Anders F Bj&ouml;rklund</a> for providing gdc results on his MacOSX box.
 		</div></blockquote>
@@ -159,16 +159,18 @@
 				<th><a href='#note-dmd-0110' name='note-dmd-0110-src' id='note-dmd-0110-src' title='dmd 0.110 notes'>dmd 0.110</a></th>
 				<th><a href='#note-gdc-0.10-Mac' name='note-gdc-0.10-Mac-src' id='note-gdc-0.10-Mac-src' title='gdc 0.10 Mac notes'>gdc 0.10 Mac*</a></th>
 				<th><a href='#note-gdc-0.10' name='note-gdc-0.10-src' id='note-gdc-0.10-src' title='gdc 0.10 notes'>gdc 0.10</a></th>
+				<th><a href='#note-dmd-0111' name='note-dmd-0111-src' id='note-dmd-0111-src' title='dmd 0.111 notes'>dmd 0.111</a></th>
 				</tr>
 <!-- BEGIN: summary data -->
-<!-- summary --><tr><th><a href='#symbol-pass' id='summary-pass' name='summary-pass'>pass</a></th><td class='B'>595</td><td class='B'>607</td><td class='B'>615</td><td class='B'>621</td><td class='B'>619</td><td class='B'>621</td><td class='B'>622</td><td class='B'>624</td><td class='B'>486</td><td class='B'>623</td><td class='B'>612</td><td class='B'>583</td><td class='B'>626</td><td class='B'>626</td><td class='B'>640</td><td class='B'>644</td><td class='B'>629</td><td class='B'>645</td><td class='B'>694</td><td class='B'>689</td></tr>
-<!-- summary --><tr><th><a href='#symbol-xpass' id='summary-xpass' name='summary-xpass'>xpass</a></th><td class='C'>110</td><td class='C'>108</td><td class='C'>107</td><td class='C'>104</td><td class='C'>101</td><td class='C'>101</td><td class='C'>100</td><td class='C'>100</td><td class='C'>77</td><td class='C'>100</td><td class='C'>74</td><td class='C'>80</td><td class='C'>95</td><td class='C'>85</td><td class='C'>74</td><td class='C'>74</td><td class='C'>61</td><td class='C'>68</td><td class='C'>64</td><td class='C'>65</td></tr>
-<!-- summary --><tr><th><a href='#symbol-fail' id='summary-fail' name='summary-fail'>fail</a></th><td class='D'>143</td><td class='D'>185</td><td class='D'>177</td><td class='D'>167</td><td class='D'>167</td><td class='D'>165</td><td class='D'>165</td><td class='D'>165</td><td class='D'>193</td><td class='D'>166</td><td class='D'>130</td><td class='D'>95</td><td class='D'>166</td><td class='D'>166</td><td class='D'>152</td><td class='D'>150</td><td class='D'>146</td><td class='D'>145</td><td class='D'>112</td><td class='D'>117</td></tr>
-<!-- summary --><tr><th><a href='#symbol-xfail' id='summary-xfail' name='summary-xfail'>xfail</a></th><td class='E'>235</td><td class='E'>239</td><td class='E'>239</td><td class='E'>240</td><td class='E'>244</td><td class='E'>244</td><td class='E'>245</td><td class='E'>247</td><td class='E'>187</td><td class='E'>247</td><td class='E'>251</td><td class='E'>185</td><td class='E'>256</td><td class='E'>267</td><td class='E'>278</td><td class='E'>278</td><td class='E'>283</td><td class='E'>280</td><td class='E'>293</td><td class='E'>292</td></tr>
-<!-- summary --><tr><th><a href='#symbol-error' id='summary-error' name='summary-error'>error</a></th><td class='F'>88</td><td class='F'>32</td><td class='F'>33</td><td class='F'>39</td><td class='F'>40</td><td class='F'>40</td><td class='F'>39</td><td class='F'>35</td><td class='F'>10</td><td class='F'>35</td><td class='F'>22</td><td class='F'>18</td><td class='F'>28</td><td class='F'>27</td><td class='F'>27</td><td class='F'>25</td><td class='F'>21</td><td class='F'>22</td><td class='F'>11</td><td class='F'>11</td></tr>
-<!-- summary --><tr><th><a href='#symbol-untested' id='summary-untested' name='summary-untested'>untested</a></th><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>221</td><td class='A'>3</td><td class='A'>85</td><td class='A'>213</td><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>3</td><td class='A'>34</td><td class='A'>14</td><td class='A'>0</td><td class='A'>0</td></tr>
+<!-- summary --><tr><th><a href='#symbol-pass' id='summary-pass' name='summary-pass'>pass</a></th><td class='B'>606</td><td class='B'>618</td><td class='B'>626</td><td class='B'>632</td><td class='B'>630</td><td class='B'>632</td><td class='B'>633</td><td class='B'>635</td><td class='B'>486</td><td class='B'>634</td><td class='B'>612</td><td class='B'>583</td><td class='B'>637</td><td class='B'>637</td><td class='B'>651</td><td class='B'>655</td><td class='B'>629</td><td class='B'>661</td><td class='B'>694</td><td class='B'>703</td><td class='B'>665</td></tr>
+<!-- summary --><tr><th><a href='#symbol-xpass' id='summary-xpass' name='summary-xpass'>xpass</a></th><td class='C'>110</td><td class='C'>108</td><td class='C'>107</td><td class='C'>104</td><td class='C'>101</td><td class='C'>101</td><td class='C'>100</td><td class='C'>100</td><td class='C'>77</td><td class='C'>100</td><td class='C'>74</td><td class='C'>80</td><td class='C'>95</td><td class='C'>85</td><td class='C'>74</td><td class='C'>74</td><td class='C'>61</td><td class='C'>68</td><td class='C'>64</td><td class='C'>65</td><td class='C'>68</td></tr>
+<!-- summary --><tr><th><a href='#symbol-fail' id='summary-fail' name='summary-fail'>fail</a></th><td class='D'>154</td><td class='D'>196</td><td class='D'>188</td><td class='D'>178</td><td class='D'>178</td><td class='D'>176</td><td class='D'>176</td><td class='D'>176</td><td class='D'>193</td><td class='D'>177</td><td class='D'>130</td><td class='D'>95</td><td class='D'>177</td><td class='D'>177</td><td class='D'>163</td><td class='D'>161</td><td class='D'>146</td><td class='D'>152</td><td class='D'>112</td><td class='D'>124</td><td class='D'>148</td></tr>
+<!-- summary --><tr><th><a href='#symbol-xfail' id='summary-xfail' name='summary-xfail'>xfail</a></th><td class='E'>242</td><td class='E'>246</td><td class='E'>246</td><td class='E'>247</td><td class='E'>251</td><td class='E'>251</td><td class='E'>252</td><td class='E'>254</td><td class='E'>187</td><td class='E'>254</td><td class='E'>251</td><td class='E'>185</td><td class='E'>261</td><td class='E'>272</td><td class='E'>283</td><td class='E'>283</td><td class='E'>283</td><td class='E'>290</td><td class='E'>293</td><td class='E'>293</td><td class='E'>290</td></tr>
+<!-- summary --><tr><th><a href='#symbol-error' id='summary-error' name='summary-error'>error</a></th><td class='F'>88</td><td class='F'>32</td><td class='F'>33</td><td class='F'>39</td><td class='F'>40</td><td class='F'>40</td><td class='F'>39</td><td class='F'>35</td><td class='F'>10</td><td class='F'>35</td><td class='F'>22</td><td class='F'>18</td><td class='F'>30</td><td class='F'>29</td><td class='F'>29</td><td class='F'>27</td><td class='F'>21</td><td class='F'>29</td><td class='F'>11</td><td class='F'>15</td><td class='F'>29</td></tr>
+<!-- summary --><tr><th><a href='#symbol-untested' id='summary-untested' name='summary-untested'>untested</a></th><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>247</td><td class='A'>0</td><td class='A'>111</td><td class='A'>239</td><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>0</td><td class='A'>60</td><td class='A'>0</td><td class='A'>26</td><td class='A'>0</td><td class='A'>0</td></tr>
 <!-- END: summary data -->
 		</table>
+
 		<h3><a href='#top' name='results' id='results' title='page top'>^ Results</a></h3>
 		<blockquote><div>
 			<table border='0'>
@@ -201,6 +203,7 @@
 			<tr><th align='left'><a title='compiler results' href='#note-dmd-0110-src' name='note-dmd-0110' id='note-dmd-0110'>dmd 0.110</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0110'>2004-12-31</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-gdc-0.10-Mac-src' name='note-gdc-0.10-Mac' id='note-gdc-0.10-Mac'>gdc 0.10 (Mac*)</a></th><td><a title='view change log' href='http://home.earthlink.net/~dvdfrdmn/d/'>2005-01-09</a></td><td><a href='http://gcc.gnu.org/'>gcc backend</a> 3.3.5; MacOSX 10.3.7; <a name='mac-OS-X-10.3.7_gdc-0.10-patch' id='mac-OS-X-10.3.7_gdc-0.10-patch' href='../raw_results/mac-OS-X-10.3.7_gdc-0.10-patch/'>several patches</a></td></tr>
 			<tr><th align='left'><a title='compiler results' href='#note-gdc-0.10-src' name='note-gdc-0.10' id='note-gdc-0.10'>gdc 0.10</a></th><td><a title='view change log' href='http://home.earthlink.net/~dvdfrdmn/d/'>2004-01-09</a></td><td><a href='http://gcc.gnu.org/'>gcc backend</a> 3.4.3, <a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7;</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-0111-src' name='note-dmd-0111' id='note-dmd-0111'>dmd 0.111</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0111'>2005-01-15</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
 			</table>
 			<br />
 		</div></blockquote>
@@ -208,6 +211,7 @@
 		<blockquote><div>
 			The source of the test cases is accessible via anonymous <a href='http://subversion.tigris.org/' hreflang='en'>Subversion</a>.<br />
 			<pre>svn checkout <a href='http://dstress.kuehne.cn/' name='svn' id='svn'>http://dstress.kuehne.cn/</a></pre>
+			You might also point your browser to <a href='http://websvn.kuehne.cn/dstress/'>http://websvn.kuehne.cn/dstress/</a>.
 		</div></blockquote>
 		<h3><a href='#top' name='submit' id='submit' title='page top'>^ Submit</a></h3>
 				<blockquote><div><dl>
@@ -222,6 +226,6 @@
 					<dt><strong>Suggestions, Comments</strong></dt>
 					<dd>Thomas (at the host) kuehne.cn</dd>
 				</dl></div></blockquote>
-		<div><br /><br /><hr />[<a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/www/dstress.html</a>]&nbsp;&nbsp;<a href='mailto:webmastro@kuehne.THISISSPAM.cn'>Webmastro</a>; 2005-01-11</div>
+		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/www/dstress.html</a>;&nbsp;2005-01-20;&nbsp;<a href='mailto:webmastro@kuehne.THISISSPAM.cn'>Webmastro</a></div>
 	</body>
 </html>

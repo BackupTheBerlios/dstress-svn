@@ -6,6 +6,8 @@ PASS:  compile/alias_08
 PASS:  compile/align_04
 PASS:  compile/bug_dsymbol_611_C
 PASS:  compile/bug_e2ir_1158_A
+PASS:  compile/const_12
+FAIL:  compile/const_13
 FAIL:  compile/delegate_13
 PASS:  compile/empty_01
 ERROR: compile/enum_05 [35584]
@@ -29,6 +31,8 @@ FAIL:  compile/mixin_01
 PASS:  compile/sizeof_12
 PASS:  compile/struct_16
 PASS:  compile/struct_18
+PASS:  compile/struct_21
+PASS:  compile/struct_22
 PASS:  compile/template_struct_02
 PASS:  compile/typedef_05
 PASS:  compile/union_10
@@ -71,10 +75,13 @@ XFAIL: nocompile/bug_cgcs_353
 XFAIL: nocompile/bug_cod4_352
 ERROR: nocompile/bug_dsymbol_611_A [34304]
 XFAIL: nocompile/bug_dsymbol_611_B
+ERROR: nocompile/bug_dsymbol_611_D [34304]
 XFAIL: nocompile/bug_e2ir_814
 ERROR: nocompile/bug_expression_1147 [35584]
 XFAIL: nocompile/bug_mtype_2576_B
 XFAIL: nocompile/bug_mtype_3154
+ERROR: nocompile/bug_mtype_507_A [35584]
+XFAIL: nocompile/bug_mtype_507_B
 XFAIL: nocompile/bug_s2ir_458
 XFAIL: nocompile/byte_09
 XFAIL: nocompile/byte_10
@@ -281,6 +288,8 @@ XFAIL: nocompile/operator_13
 XFAIL: nocompile/operator_14
 XFAIL: nocompile/operator_15
 XFAIL: nocompile/operator_16
+XFAIL: nocompile/overload_11
+XFAIL: nocompile/overload_12
 XFAIL: nocompile/override_02
 XPASS: nocompile/override_03
 XFAIL: nocompile/override_04
@@ -329,6 +338,8 @@ XFAIL: nocompile/struct_04
 XFAIL: nocompile/struct_05
 XFAIL: nocompile/struct_06
 XFAIL: nocompile/struct_17
+XFAIL: nocompile/struct_19
+XFAIL: nocompile/struct_20
 ERROR: nocompile/super_03 [35584]
 ERROR: nocompile/super_05 [34304]
 ERROR: nocompile/super_09 [35584]
@@ -514,6 +525,16 @@ FAIL:  run/cast_02 (compiling error)
 FAIL:  run/cast_05
 PASS:  run/cast_06
 FAIL:  run/cast_07 (compiling error)
+PASS:  run/cast_08
+FAIL:  run/cast_10 (compiling error)
+PASS:  run/cast_11
+FAIL:  run/cast_12
+PASS:  run/cast_13
+FAIL:  run/cast_14
+PASS:  run/cast_15
+FAIL:  run/cast_16
+PASS:  run/cast_17
+PASS:  run/cast_18
 PASS:  run/char_03
 PASS:  run/class_01
 PASS:  run/class_02
@@ -706,6 +727,11 @@ PASS:  run/foreach_15
 FAIL:  run/foreach_16
 PASS:  run/foreach_23
 PASS:  run/foreach_24
+FAIL:  run/forward_reference_07 (compiling error)
+FAIL:  run/forward_reference_08 (compiling error)
+FAIL:  run/forward_reference_09 (compiling error)
+FAIL:  run/forward_reference_10 (compiling error)
+PASS:  run/forward_reference_11
 PASS:  run/function_01
 PASS:  run/goto_01
 PASS:  run/goto_02
@@ -862,6 +888,8 @@ FAIL:  run/opCat_01 (compiling error)
 PASS:  run/opCat_02
 FAIL:  run/opCat_03 (compiling error)
 ERROR: run/opCmp_01 [35584]
+FAIL:  run/opIdentity_01
+PASS:  run/opIdentity_02
 PASS:  run/opNeg_01
 PASS:  run/opNeg_02
 PASS:  run/opPos_01
@@ -882,7 +910,7 @@ FAIL:  run/overload_07 (compiling error)
 FAIL:  run/overload_08 (compiling error)
 FAIL:  run/overload_09 (compiling error)
 FAIL:  run/overload_10 (compiling error)
-FAIL:  run/overload_11 (compiling error)
+FAIL:  run/overload_13 (compiling error)
 PASS:  run/override_01
 PASS:  run/pragma_01
 PASS:  run/pragma_02

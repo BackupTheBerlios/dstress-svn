@@ -6,6 +6,9 @@
 // @date	2004-11-16
 // @uri@	news:cndnk4$17ld$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2283
+
+module dstress.run.finally_01;
+
 int main(){
 	int status=0;
 	try{

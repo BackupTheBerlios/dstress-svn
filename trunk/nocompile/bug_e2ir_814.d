@@ -3,6 +3,10 @@
 // @uri@	news://cmd9i4$16g5$1@digitaldaemon.com
 // @url@	nttp://digitalmars.com/digitalmars.D:12279
 
+// Note:
+// 	this crashs dmd-0.106 but results in the pseudo return code 1,
+// 	thus DStress can't detect this bug
+
 static void dummy(...){
 }
 

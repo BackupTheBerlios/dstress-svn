@@ -4,7 +4,7 @@
 int main(){
 	char[] array = new char[4];
 	char letter = 'a';
-	array[1..4]=letter;
+	array[0..4]=letter;
 	assert(array[0]=='a');
 	assert(array[1]=='a');
 	assert(array[2]=='a');

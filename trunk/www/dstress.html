@@ -4,6 +4,7 @@
 		<title>[dmd.kuehne.cn] DStress</title>
 		<!-- find -->
 		<meta name="keywords" lang="en" content="thomas, kuehne, kuehne.cn, dstress, dmd, gdc" xml:lang="en" />
+		<meta name="description" lang="en" content="DStress is a D-programming language compiler stress test suit." />
 		<meta name="DC.Title" content="[dmd.kuehne.cn] DStress" />
 		<meta name="DC.Subject" content="DStress" />
 		<meta name="distribution" content="Global" />
@@ -31,8 +32,8 @@
 		<meta http-equiv="content-language" content="en" />
 		<meta name="DC.Language" content="en" />
 		<!-- date -->
-		<meta name="date" content="2004-10-14" />
-		<meta name="DC.Date" content="2004-10-14" />
+		<meta name="date" content="2004-10-17" />
+		<meta name="DC.Date" content="2004-10-17" />
 		<!-- struct -->
 		<link rel="start" href="index.html" title="Current Version" hreflang="en" />
 		<link rel="prev" href="archive.html" title="Archive" hreflang="en" />
@@ -42,55 +43,66 @@
 		<style type="text/css">
 			/*<![CDATA[*/
 			<!--
-                                td { text-align: center}
-                                .A { background: #58c932; text-align: center }
-                                .B { background: #ea6b6b; text-align: center }
-                                .C { background: #98f47a; text-align: center }
-                                .D { background: #f43a3a; text-align: center }
-                        --> 
+				.A { background: #58c932; text-align: center }
+				.B { background: #ea6b6b; text-align: center }
+				.C { background: #98f47a; text-align: center }
+				.D { background: #f43a3a; text-align: center }
+			-->
 			/*]]>*/
 		</style>
 	</head>
-	<body lang='en' xml:lang='en'><center>
-		<table border='0' cellpadding='3' cellspacing='3'><tr>
-			<td>[<a href='index.html'>Current Version</a>]</td>
+	<body lang='en' xml:lang='en'>
+		<table border='0' summary='dmd.kuehne.cn navigation' align='center'><tr>
+			<td>[<a href='index.html' name='top' id='top'>Current Version</a>]</td>
 			<td>[<a href='archive.html'>Archive</a>]</td>
 			<td>[DStress]</td>
 			<td>[<a href='diverse.html'>Diverse</a>]</td>
 			<td>[<a href='links.html'>Links</a>]</td>
 			<td>[<a href='contact.html'>Contact</a>]</td>
 		</tr></table>
-		<br />
-		<table border='0' summary='link overview of this page'><tr>
-			<td>[<a href='#summary' name='top' id='top'>Summary</a>]</td>
-			<td>[<a href='#testbed'>Testbed</a>]</td>
-			<td>[<a href='#legend'>Legend</a>]</td>
-			<td>[<a href='#result'>Result</a>]</td>
-			<td>[<a href='#download'>Download</a>]</td>
-			<td>[<a href='#notes'>Notes</a>]</td>
-		</tr></table>
+		<h2 align='center'> DStress by Thomas K&uuml;hne</h2>
+		<table border='0' summary='link overview of this page' align='center'><tr>
+					<td>[<a href='#summary'>Summary</a>]</td>
+					<td>[<a href='#testbed'>Testbed</a>]</td>
+					<td>[<a href='#legend'>Legend</a>]</td>
+					<td>[<a href='#results'>Results</a>]</td>
+					<td>[<a href='#download'>Download</a>]</td>
+					<td>[<a href='#notes'>Notes</a>]</td></tr>
+		</table>
 		<h3><a href='#top' name='summary' id='summary' title='page top'>^ Summary</a></h3>
-		DStress is a collection of bug and language conformance[<a href='#note-bug' name='note-bug-src' id='note-bug-src'>#1</a>] test cases for the <a href='http://digitalmars.com/d' hreflang='en'>D programming language</a>. Currently the compilers <a href='http://digitalmars.com/d/dcompiler' hreflang='en'>dmd</a> and <a href='http://home.earthlink.net/~dvdfrdmn/d/' hreflang='en'>gdc</a> are being <q>dstressed</q>.
+		<blockquote><p>
+			DStress is a collection of bug and language conformance test cases for the <a href='http://digitalmars.com/d' hreflang='en'>D programming language</a>.
+			<br />
+			The unexpected output of a test case can have various reasons:
+			<ol>
+				<li>a bug in the test case</li>
+				<li>a failure of the build environment</li>
+				<li>an inconsistent D-language specification or misunderstanding thereof</li>
+				<li>a real compiler bug</li>
+				<li>a bug in the system libs</li>
+			</ol>
+			Currently the <a href='http://digitalmars.com/d/dcompiler' hreflang='en'>dmd</a> and <a href='http://home.earthlink.net/~dvdfrdmn/d/' hreflang='en'>gdc</a> compilers as well as my D knowledge are being <q>dstressed</q>.
+		</p></blockquote>
 		<h3><a href='#top' name='testbed' id='testbed' title='page top'>^ Testbed</a></h3>
-		<table border='0' summary='information on the testbed environment'>
+		<blockquote><table border='0' summary='information on the testbed environment'>
 			<tr><th>OS</th><td>Linux</td></tr>
-			<tr><th>OS version</th><td>2.6.8</td></tr>
-			<tr><th>Processor</th><td>generic i686</td></tr>
+			<tr><th>OS kernel</th><td>2.6.8</td></tr>
+			<tr><th>Processor</th><td>i686</td></tr>
 			<tr><th>Compiler Flags</th><td>(none)</td></tr>
-			<tr><th>DStress</th><td>$Rev$<br />$Date$</td></tr>
-	</table>
+			<tr><th>DStress Revision</th><td>$Rev$</td></tr>
+			<tr><th>Test date</th><td>$Date$</td></tr>
+		</table></blockquote>
 		<h3><a href='#top' name='legend' id='legend' title='page top'>^ Legend</a></h3>
-		<table border='0' summary='on left the symbols used in the result table and on the right their explanation'>
+		<blockquote><table border='0' summary='on left the symbols used in the result table and on the right their explanation'>
 			<tr><th>Symbol</th><th>Description</th></tr>
 			<tr class='A'><td>pass</td><td>expected: test passed</td></tr>
 			<tr class='C'><td>fail</td><td>expected: test failed</td></tr>
 			<tr class='D'><td>xfail</td><td>unexpected: test failed</td></tr>
 			<tr class='B'><td>xpass</td><td>unexpected: test passed</td></tr>
-		</table>
-		<br /><br />
-		<h3><a href='#top' name='result' id='result' title='page top'>^ Results</a></h3>
-		<table border='1' summary='on the very left are the names of the test cases and to their right the results orderd compiler version'>
-			<tr><td>&nbsp;</td><th>dmd 0.93</th><th>dmd 0.95</th><th>dmd 0.96</th><th>dmd 0.98</th><th>dmd 0.99</th><th>dmd 0.100</th><th>dmd 0.101</th><th>dmd 0.102</th><th>gdc 1f[<a href='#note-gdc' name='note-gdc-src' id='note-gdc-src'>#2</a>]</th></tr>
+		</table></blockquote>
+		<h3><a href='#top' name='results' id='results' title='page top'>^ Results</a></h3>
+		<table border='1' summary='on the very left are the names of the test cases and to their right the results ordered by compiler version'>
+			<tr><td>&nbsp;</td><th><a href='#note-dmd-093' name='note-dmd-093-src' id='note-dmd-093-src' title='dmd 0.93 notes'>dmd 0.93</a></th><th><a href='#note-dmd-095' name='note-dmd-095-src' id='note-dmd-095-src' title='dmd 0.95 notes'>dmd 0.95</a></th><th><a href='#note-dmd-096' name='note-dmd-096-src' id='note-dmd-096-src' title='dmd 0.96 notes'>dmd 0.96</a></th><th><a href='#note-dmd-098' name='note-dmd-098-src' id='note-dmd-098-src' title='dmd 0.98 notes'>dmd 0.98</a></th><th><a href='#note-dmd-099' name='note-dmd-099-src' id='note-dmd-099-src' title='dmd 0.99 notes'>dmd 0.99</a></th><th><a href='#note-dmd-0100' name='note-dmd-0100-src' id='note-dmd-0100-src' title='dmd 0.100 notes'>dmd 0.100</a></th><th><a href='#note-dmd-0101' name='note-dmd-0101-src' id='note-dmd-0101-src' title='dmd 0.101 notes'>dmd 0.101</a></th><th><a href='#note-dmd-0102' name='note-dmd-0102-src' id='note-dmd-0102-src' title='dmd 0.102 notes'>dmd 0.102</a></th><th><a href='#note-gdc-1g' name='note-gdc-1g-src' id='note-gdc-1g-src' title='gdc 1g notes'>gdc 1g</a></th></tr>
 <!-- BEGIN: result data -->
 <tr><th>abstract 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>abstract 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
@@ -170,6 +182,17 @@
 <tr><th>classes 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>classes 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>classes 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>command line debug 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>command line debug 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>command line debug 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>command line debug 04</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>command line debug 05</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td></tr>
+<tr><th>command line debug 06</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td></tr>
+<tr><th>command line debug 07</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td></tr>
+<tr><th>command line null source 01</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='B'>xpass</td></tr>
+<tr><th>command line null source 02</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>command line null source 03</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td></tr>
+<tr><th>command line null source 04</th><td class='B'>xpass</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>comment 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>comment 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>comment 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -192,6 +215,9 @@
 <tr><th>constructor 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>dchar 01</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>dchar 02</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>debug 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>debug 02</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>debug 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
 <tr><th>default argument 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>default argument 02</th><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>delegate 01</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -252,6 +278,7 @@
 <tr><th>dup 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>dup 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>dup 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>dup 04</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>empty 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>encoding utf 16be bom</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>encoding utf 16be</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
@@ -332,6 +359,15 @@
 <tr><th>float 19</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>float 20</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>float 21</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>float litaeral dec 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>float litaeral dec 02</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>float litaeral dec 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>float litaeral dec 04</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>float litaeral dec 05</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>float litaeral dec 06</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>float litaeral dec 07</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>float litaeral dec 08</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td></tr>
+<tr><th>float litaeral dec 09</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td></tr>
 <tr><th>for 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>for 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>for 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -353,64 +389,66 @@
 <tr><th>foreach 16</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>function 01</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>goto 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
-<tr><th>html comment 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html comment 02</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html comment 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html comment 04</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html comment 01.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html comment 02.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html comment 03.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html comment 04.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>html empty 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>html empty 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
-<tr><th>html encoding utf 16be bom</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 16be</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 16le bom</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 16le</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 32be bom</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 32be</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 32le bom</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 32le</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 8 bom</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html encoding utf 8</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 01</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 02</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 03</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 04</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 05</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 06</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 07</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 08</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity 09</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 16be bom.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 16be.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 16le bom.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 16le.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 32be bom.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 32be.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 32le bom.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 32le.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 8 bom.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html encoding utf 8.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 01.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 02.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 03.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 04.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 05.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 06.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 07.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 08.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity 09.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>html entity 10</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='B'>xpass</td></tr>
 <tr><th>html entity 11</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='B'>xpass</td></tr>
-<tr><th>html entity amsa</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity amsb</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity amsc</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity amsn</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity amso</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity amsr</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity box</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity cyr1</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity cyr2</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity dia</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity grk1</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity grk2</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity grk3</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity lat1</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity lat2</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity num</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity pub</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html entity tech</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html line ending dos</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html line ending linux</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html line ending mac</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html line ending unicode</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html tag case 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
-<tr><th>html tag case 02</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>html tag case 03</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity amsa.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity amsb.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity amsc.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity amsn.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity amso.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity amsr.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity box.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity cyr1.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity cyr2.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity dia.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity grk1.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity grk2.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity grk3.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity lat1.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity lat2.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity num.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity pub.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html entity tech.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html line ending dos.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html line ending linux.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html line ending mac.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html line ending unicode.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html tag case 01.exe</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>html tag case 02.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html tag case 03.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html tag space 01.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>html tag space 02.exe</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>if 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>if 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>if 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>if 04</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>if 05</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
-<tr><th>if 06</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
+<tr><th>if 06</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>in 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>in 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>in 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -432,6 +470,14 @@
 <tr><th>integer literal binary 08</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>integer literal binary 09</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>integer literal binary 10</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal binary 11</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal binary 12</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal binary 13</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal binary 14</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal dec 01</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td></tr>
+<tr><th>integer literal dec 02</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal dec 03</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal dec 04</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>integer literal hex 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>integer literal hex 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>integer literal hex 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -444,6 +490,7 @@
 <tr><th>integer literal hex 10</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>integer literal hex 11</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>integer literal hex 12</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>integer literal hex 13</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>interface 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>interface 02</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>interface 03</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
@@ -459,6 +506,14 @@
 <tr><th>line ending linux</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>line ending mac</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>line ending unicode</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>line token 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>line token 03</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>line token 04</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>line token 05</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>line token 06</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>line token 07</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>line token 08</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>line token 09</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>long 01</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>long 02</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>long 03</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
@@ -471,7 +526,7 @@
 <tr><th>mixin 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>mixin 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>odd bug 01</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
-<tr><th>odd bug 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td><td class='A'>pass</td></tr>
+<tr><th>odd bug 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>opCast 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>opCast 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>opCatAssign 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -533,6 +588,8 @@
 <tr><th>pragma 06</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>precondition 01</th><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='B'>xpass</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>private 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>private import 01</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>private import 02</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>real 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>real 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>real 03</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
@@ -576,7 +633,10 @@
 <tr><th>slice 08</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>slice 09</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>sort 01</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
-<tr><th>sort 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>sort 02</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>sort 03</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>sort 04</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>sort 05</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>static 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>static 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>static 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -598,7 +658,7 @@
 <tr><th>struct 08</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>struct 10</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>struct 12</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
-<tr><th>struct 13</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>struct 13</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td></tr>
 <tr><th>struct initialization 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>struct initialization 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>struct initialization 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -642,7 +702,7 @@
 <tr><th>typedef 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>typedef 03</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <tr><th>typedef 04</th><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
-<tr><th>typedef 05</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>typedef 05</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='A'>pass</td></tr>
 <tr><th>typeid 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>typeid 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>typeof 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -671,6 +731,7 @@
 <tr><th>union 05</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>union 06</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>union 07</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>unittest 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='D'>xfail</td></tr>
 <tr><th>ushort 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>ushort 02</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>ushort 03</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -685,6 +746,12 @@
 <tr><th>version 07</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>version 08</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>version 09</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>version 10</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>version 11</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
+<tr><th>version 12</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>version 13</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>version 14</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
+<tr><th>version 15</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>wchar 01</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>wchar 02</th><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td><td class='C'>fail</td></tr>
 <tr><th>while 01</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
@@ -716,25 +783,30 @@
 <tr><th>Wysiwyg String 13</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>Wysiwyg String 14</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
 <tr><th>Wysiwyg String 15</th><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td><td class='A'>pass</td></tr>
+<tr><th>xhtml tag 01</th><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td><td class='D'>xfail</td></tr>
 <!-- END: result data -->
-<tr><td>&nbsp;</td><th>dmd 0.93</th><th>dmd 0.95</th><th>dmd 0.96</th><th>dmd 0.98</th><th>dmd 0.99</th><th>dmd 0.100</th><th>dmd 0.101</th><th>dmd 0.102</th><th>gdc 1f[<a href='#note-gdc'>#2</a>]</th></tr>
+<tr><td>&nbsp;</td><th><a href='#note-dmd-093' title='dmd 0.93 notes'>dmd 0.93</a></th><th><a href='#note-dmd-095' title='dmd 0.95 notes'>dmd 0.95</a></th><th><a href='#note-dmd-096' title='dmd 0.96 notes'>dmd 0.96</a></th><th><a href='#note-dmd-098' title='dmd 0.98 notes'>dmd 0.98</a></th><th><a href='#note-dmd-099' title='dmd 0.99 notes'>dmd 0.99</a></th><th><a href='#note-dmd-0100' title='dmd 0.100 notes'>dmd 0.100</a></th><th><a href='#note-dmd-0101' title='dmd 0.101 notes'>dmd 0.101</a></th><th><a href='#note-dmd-0102' title='dmd 0.102 notes'>dmd 0.102</a></th><th><a href='#note-gdc-1g' title='gdc 1g notes'>gdc 1g</a></th></tr>
 		</table>
-		<br />
-		<br />
 		<h3><a href='#top' name='download' id='download' title='page top'>^ Download</a></h3>
-		<p>The source of the test cases is accessible via Subversion [<a href='http://subversion.tigris.org' hreflang='en'>http://subversion.tigris.org</a>].<br />
-		svn checkout <a href='svn://svn.kuehne.cn/dstress' name='svn' id='svn'>svn://svn.kuehne.cn/dstress</a>
-		</p>
+		<blockquote><p>The source of the test cases is accessible via anonymous <a href='http://subversion.tigris.org' hreflang='en'>Subversion</a>.<br />
+		<pre>svn checkout <a href='svn://svn.kuehne.cn/dstress' name='svn' id='svn'>svn://svn.kuehne.cn/dstress</a></pre>
+		</p></blockquote>
 		<h3><a href='#top' name='notes' id='notes' title='page top'>^ Notes</a></h3>
-		<p><dl>
-			<dt>[#1] <a name='note-bug' id='note-bug' href='#note-bug-src'>Language Conformance</a></dt>
-			<dd>Please note, that the D-Language specifications are in flux, thus a newly added features will show up as bugs in an earlyer compiler version. In addition DStress not only stresses the compiler but also DStress' maintainer with buggy test cases.</dd> 
-			<dt>[#2] <a name='note-gdc' id='note-gdc' href='#note-gdc-src'>GDC</a></dt>
-			<dd>GDC was compiled with the gcc-3.4.2 backend.</dd>
-		</dl></p>
-		</center>
-		<br />
-		<hr />
-		<small>2004-10-14; <a href='http://dmd.kuehne.cn/dstress.html'>http://dmd.kuehne.cn/dstress.html</a>;<a href='mailto:webmastro@kuehne.cn'>Webmastro</a></small>
+		<blockquote>
+			<table border='1' summary="the note name is on the left, the release date in the middle and the note's content on the right">
+			<tr><th>Name</th><th>Changelog</th><th>Tools</th></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-093-src' name='note-dmd-093' id='note-dmd-093'>dmd 0.93</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new093'>2004-06-24</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-095-src' name='note-dmd-095' id='note-dmd-095'>dmd 0.95</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new095'>2004-07-06</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-096-src' name='note-dmd-096' id='note-dmd-096'>dmd 0.96</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new096'>2004-07-21</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-098-src' name='note-dmd-098' id='note-dmd-098'>dmd 0.98</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new098'>2004-08-05</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-099-src' name='note-dmd-099' id='note-dmd-099'>dmd 0.99</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new099'>2004-08-19</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-0100-src' name='note-dmd-0100' id='note-dmd-0100'>dmd 0.100</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0100'>2004-08-20</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-0101-src' name='note-dmd-0101' id='note-dmd-0101'>dmd 0.101</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0101'>2004-08-30</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-dmd-0102-src' name='note-dmd-0102' id='note-dmd-0102'>dmd 0.102</a></th><td><a title='view change log' href='http://www.digitalmars.com/d/changelog.html#new0102'>2004-09-20</a></td><td><a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			<tr><th align='left'><a title='compiler results' href='#note-gdc-1g-src' name='note-gdc-1g' id='note-gdc-1g'>gdc 1g</a></th><td><a title='view change log' href='http://home.earthlink.net/~dvdfrdmn/d/'>2004-10-03</a></td><td><a href='http://gcc.gnu.org'>gcc backend</a> 3.4.2, <a href='http://directory.fsf.org/binutils.html'>binutils</a> 2.14.90.0.7</td></tr>
+			</table>
+		</blockquote>
+		<!--<ins><hr /></ins>-->
+		<small>2004-10-17; <a href='http://dmd.kuehne.cn/dstress.html'>http://dmd.kuehne.cn/dstress.html</a>;<a href='mailto:webmastro@kuehne.cn'>Webmastro</a></small>
 	</body>
 </html>

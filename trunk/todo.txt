@@ -34,6 +34,7 @@ Test cases:
 * keyword: ireal
 * keyword: module
 * keyword: package
+* keyword: pragma(lib, "library name")
 * keyword: private
 * keyword: protected
 * keyword: public

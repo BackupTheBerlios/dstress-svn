@@ -64,11 +64,11 @@ public:
         haveRange = false;
     }
 
-    this(int seed, double left, double right) 
+    this(int seed, double leftIn, double rightIn) 
     {
         initialize(seed);
-        left = left;
-        right = right;
+        left = leftIn;
+        right = rightIn;
         width = right - left;
         haveRange = true;
     }

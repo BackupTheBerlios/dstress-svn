@@ -2,13 +2,18 @@ Project:
 	DStress
 
 URL:
-	http://dmd.kuehne.cn/dstress.html
+	http://svn.kuehne.cn/dstress/www/dstress.html
 	http://svn.kuehne.cn/dstress
 	svn://svn.kuehne.cn/dstress
 	mailto:dstress@kuehne.cn
 
 Description:
 	stress tests and bug checks for D-language compilers
+
+Requirements:
+	1) a D compiler
+	2) GnuMake, at least 3.80(2002-10-03)
+		3.79(2000-04-11) does NOT support the eval function
 
 Condition Passed:
 	1) no assertion is thrown

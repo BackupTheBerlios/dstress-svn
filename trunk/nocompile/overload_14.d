@@ -7,6 +7,8 @@
 // @uri@	news:ctpknf$21se$1@digitaldaemon.com
 // @url@	nntp://news.digitmars.com/digitalmars.D.bugs
 
+// name resolution happens before overload resolution
+
 module dstress.run.overload_14;
 
 int status;

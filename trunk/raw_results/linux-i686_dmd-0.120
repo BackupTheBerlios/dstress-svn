@@ -91,8 +91,8 @@ XPASS:	nocompile/bug_20041016_B.d
 XFAIL:	nocompile/bug_20041103_C.d
 XFAIL:	nocompile/bug_20041203_A.d
 XFAIL:	nocompile/bug_20041203_B.d
-ERROR:	nocompile/bug_cgcod_1445_A.d (Internal compiler error)
-XFAIL:	nocompile/bug_cgcod_1445_B.d
+FAIL: 	nocompile/bug_cgcod_1445_A.d
+FAIL: 	nocompile/bug_cgcod_1445_B.d
 XFAIL:	nocompile/bug_cgcod_1464.d
 XFAIL:	nocompile/bug_cgcs_353.d
 XFAIL:	nocompile/bug_cod4_352_B.d
@@ -122,10 +122,10 @@ XFAIL:	nocompile/case_02.d
 XFAIL:	nocompile/cast_01.d
 XFAIL:	nocompile/cast_02.d
 XFAIL:	nocompile/cast_03.d
-XPASS:	nocompile/cast_04.d
+XFAIL:	nocompile/cast_04.d
 XFAIL:	nocompile/cast_10.d
 XFAIL:	nocompile/cast_19.d
-ERROR:	nocompile/cast_23.d [35584]
+XFAIL:	nocompile/cast_23.d
 XFAIL:	nocompile/cast_24.d
 XFAIL:	nocompile/cent_01.d
 XFAIL:	nocompile/char_01.d
@@ -171,8 +171,8 @@ XFAIL:	nocompile/dchar_04.d
 XFAIL:	nocompile/dchar_06.d
 XFAIL:	nocompile/debug_04.d
 ERROR:	nocompile/debug_05.d [34304]
-XPASS:	nocompile/debug_info_01.d
-ERROR:	nocompile/debug_info_02.d [35584]
+FAIL: 	nocompile/debug_info_01.d
+FAIL: 	nocompile/debug_info_02.d
 XFAIL:	nocompile/default_argument_05.d
 XFAIL:	nocompile/delegate_02.d
 XFAIL:	nocompile/delegate_03.d
@@ -187,7 +187,7 @@ XFAIL:	nocompile/delete_07.d
 XFAIL:	nocompile/delete_08.d
 XFAIL:	nocompile/deprecated_01.d
 XFAIL:	nocompile/deprecated_02.d
-XPASS:	nocompile/deprecated_03.d
+XFAIL:	nocompile/deprecated_03.d
 XFAIL:	nocompile/deprecated_04.d
 XFAIL:	nocompile/deprecated_05.d
 XFAIL:	nocompile/deprecated_11.d
@@ -262,7 +262,7 @@ XFAIL:	nocompile/finally_04.d
 XFAIL:	nocompile/finally_05.d
 XFAIL:	nocompile/finally_06.d
 XFAIL:	nocompile/finally_07.d
-ERROR:	nocompile/finally_08.d [35584]
+XFAIL:	nocompile/finally_08.d
 XFAIL:	nocompile/finally_09.d
 XFAIL:	nocompile/float_14.d
 XFAIL:	nocompile/float_15.d
@@ -290,9 +290,9 @@ XFAIL:	nocompile/foreach_21.d
 XFAIL:	nocompile/foreach_22.d
 XFAIL:	nocompile/goto_04.d
 XFAIL:	nocompile/goto_06.d
-ERROR:	nocompile/goto_12.d [35584]
-ERROR:	nocompile/goto_13.d [35584]
-ERROR:	nocompile/goto_14.d [35584]
+XFAIL:	nocompile/goto_12.d
+XFAIL:	nocompile/goto_13.d
+XFAIL:	nocompile/goto_14.d
 FAIL: 	nocompile/html_empty_entity_01.html
 FAIL: 	nocompile/html_empty_entity_02.html
 FAIL: 	nocompile/html_empty_entity_03.html
@@ -523,7 +523,7 @@ XFAIL:	nocompile/this_06.d
 XFAIL:	nocompile/__TIME__02.d
 XFAIL:	nocompile/__TIMESTAMP__02.d
 FAIL: 	nocompile/try_05.d
-ERROR:	nocompile/try_09.d [35584]
+XFAIL:	nocompile/try_09.d
 XFAIL:	nocompile/typeof_05.d
 XFAIL:	nocompile/typeof_06.d
 XFAIL:	nocompile/types_declaration_02.d
@@ -587,7 +587,7 @@ FAIL: 	run/alias_15.d [256]
 FAIL: 	run/alias_16.d [256]
 PASS: 	run/align_07.d
 PASS: 	run/align_08.d
-FAIL: 	run/align_09.d [run: 256]
+PASS: 	run/align_09.d
 PASS: 	run/align_10.d
 PASS: 	run/Alternate_Wysiwyg_String_01.d
 PASS: 	run/Alternate_Wysiwyg_String_02.d
@@ -613,19 +613,19 @@ PASS: 	run/assert_02.d
 PASS: 	run/associative_array_02.d
 PASS: 	run/associative_array_07.d
 PASS: 	run/associative_array_08.d
-FAIL: 	run/associative_array_09.d [run: 256]
-FAIL: 	run/associative_array_10.d [run: 256]
-FAIL: 	run/associative_array_11.d [run: 256]
+PASS: 	run/associative_array_09.d
+PASS: 	run/associative_array_10.d
+PASS: 	run/associative_array_11.d
 PASS: 	run/associative_array_12.d
 PASS: 	run/associative_array_13.d
-PASS: 	run/associative_array_14.d
-FAIL: 	run/associative_array_15.d [run: 256]
-FAIL: 	run/associative_array_16.d [run: 256]
-FAIL: 	run/associative_array_17.d [run: 256]
-ERROR:	run/auto_01.d [run: 35584]
+PASS: 	run/associative_array_14.d 
+PASS: 	run/associative_array_15.d
+PASS: 	run/associative_array_16.d
+PASS: 	run/associative_array_17.d
+FAIL: 	run/auto_01.d [run: 256]
 PASS: 	run/auto_02.d
-ERROR:	run/auto_03.d [run: 35584]
-ERROR:	run/auto_04.d [run: 35584]
+PASS: 	run/auto_03.d
+PASS: 	run/auto_04.d
 PASS: 	run/auto_06.d
 PASS: 	run/bit_01.d
 PASS: 	run/bit_03.d
@@ -646,7 +646,7 @@ PASS: 	run/bug_20041103_E.d
 PASS: 	run/bug_20041226_A.d
 PASS: 	run/bug_20041226_B.d
 PASS: 	run/bug_20041226_C.d
-ERROR:	run/bug_20041226_D.d (Internal compiler error)
+PASS: 	run/bug_20041226_D.d
 PASS: 	run/bug_20041226_E.d
 PASS: 	run/bug_20050128_A.d
 PASS: 	run/bug_20050128_B.d
@@ -656,18 +656,18 @@ ERROR:	run/bug_20050405_03.d [run: 35584]
 PASS: 	run/bug_20050405_04.d
 PASS: 	run/bug_20050405_05.d
 PASS: 	run/bug_20050405_06.d
-ERROR:	run/bug_cg87_2393_A.d (Internal compiler error)
-ERROR:	run/bug_cg87_2393_B.d (Internal compiler error)
-ERROR:	run/bug_cg87_2393_C.d (Internal compiler error)
+FAIL: 	run/bug_cg87_2393_A.d [run: 256]
+FAIL: 	run/bug_cg87_2393_B.d [run: 256]
+FAIL: 	run/bug_cg87_2393_C.d [run: 256]
 PASS: 	run/bug_cg87_2393_D.d
 FAIL: 	run/bug_cg87_2393_E.d [run: 256]
 PASS: 	run/bug_cg87_2393_F.d
-ERROR:	run/bug_cg87_279_A.d (Internal compiler error)
-ERROR:	run/bug_cg87_279_B.d (Internal compiler error)
-ERROR:	run/bug_cg87_279_C.d (Internal compiler error)
-ERROR:	run/bug_cg87_279_D.d (Internal compiler error)
-ERROR:	run/bug_cg87_279_E.d (Internal compiler error)
-ERROR:	run/bug_cg87_279_F.d (Internal compiler error)
+PASS: 	run/bug_cg87_279_A.d
+PASS: 	run/bug_cg87_279_B.d
+PASS: 	run/bug_cg87_279_C.d
+PASS: 	run/bug_cg87_279_D.d
+PASS: 	run/bug_cg87_279_E.d
+PASS: 	run/bug_cg87_279_F.d
 PASS: 	run/bug_cg87_279_G.d
 PASS: 	run/bug_cg87_279_H.d
 PASS: 	run/bug_cg87_279_I.d
@@ -679,9 +679,9 @@ PASS: 	run/bug_cgcod_1640_E.d
 PASS: 	run/bug_cgcod_1640_F.d
 PASS: 	run/bug_cgcod_1640_G.d
 PASS: 	run/bug_cgcs_353_B.d
-ERROR:	run/bug_cgcs_353_C.d (Internal compiler error)
+FAIL: 	run/bug_cgcs_353_C.d [run: 256]
 FAIL: 	run/bug_cgcs_353_D.d [run: 256]
-ERROR:	run/bug_cod1_1648_A.d (Internal compiler error)
+PASS: 	run/bug_cod1_1648_A.d
 PASS: 	run/bug_cod1_1648_B.d
 FAIL: 	run/bug_e2ir_141_A.d [run: 256]
 FAIL: 	run/bug_e2ir_141_B.d [run: 256]
@@ -710,7 +710,7 @@ PASS: 	run/byte_13.d
 PASS: 	run/byte_14.d
 PASS: 	run/cast_05.d
 PASS: 	run/cast_06.d
-FAIL: 	run/cast_07.d [256]
+PASS: 	run/cast_07.d
 PASS: 	run/cast_08.d
 PASS: 	run/cast_11.d
 PASS: 	run/cast_12.d
@@ -722,9 +722,9 @@ PASS: 	run/cast_17.d
 PASS: 	run/cast_18.d
 FAIL: 	run/cast_20.d [256]
 PASS: 	run/cast_21.d
-FAIL: 	run/cast_22.d [run: 256]
-ERROR:	run/catch_01.d [35584]
-ERROR:	run/catch_02.d [35584]
+PASS: 	run/cast_22.d
+PASS: 	run/catch_01.d
+PASS: 	run/catch_02.d
 PASS: 	run/catch_03.d
 PASS: 	run/catch_04.d
 PASS: 	run/char_03.d
@@ -786,7 +786,7 @@ PASS: 	run/creal_05.d
 PASS: 	run/creal_06.d
 PASS: 	run/creal_07.d
 PASS: 	run/creal_08.d
-PASS: 	run/creal_09.d
+FAIL: 	run/creal_09.d [256]
 PASS: 	run/creal_10.d
 PASS: 	run/creal_11.d
 PASS: 	run/creal_12.d
@@ -798,7 +798,7 @@ PASS: 	run/creal_17.d
 PASS: 	run/creal_18.d
 PASS: 	run/creal_19.d
 PASS: 	run/creal_20.d
-PASS: 	run/creal_21.d
+FAIL: 	run/creal_21.d [256]
 PASS: 	run/__DATE__01.d
 PASS: 	run/dchar_03.d
 PASS: 	run/dchar_05.d
@@ -809,8 +809,8 @@ PASS: 	run/debug_01.d
 PASS: 	run/debug_02.d
 PASS: 	run/debug_03.d
 PASS: 	run/debug_info_03.d
-ERROR:	run/debug_info_04.d [34304]
-ERROR:	run/debug_info_05.d [34304]
+FAIL: 	run/debug_info_04.d [256]
+FAIL: 	run/debug_info_05.d [256]
 PASS: 	run/debug_info_06.d
 PASS: 	run/debug_info_07.d
 PASS: 	run/default_argument_01.d
@@ -831,8 +831,8 @@ PASS: 	run/deprecated_10.d
 PASS: 	run/deprecated_12.d
 PASS: 	run/deprecated_13.d
 PASS: 	run/destructor_01.d
-FAIL: 	run/destructor_03.d [run: 256]
-ERROR:	run/destructor_04.d [run: 35584]
+PASS: 	run/destructor_03.d
+FAIL: 	run/destructor_04.d [run: 256]
 PASS: 	run/double_01.d
 PASS: 	run/double_02.d
 PASS: 	run/double_03.d
@@ -1086,7 +1086,7 @@ PASS: 	run/interface_06.d
 PASS: 	run/interface_07.d
 PASS: 	run/interface_10.d
 FAIL: 	run/interface_11.d [256]
-FAIL: 	run/interface_12.d [256]
+ERROR:	run/interface_12.d [run: 57344]
 PASS: 	run/invariant_01.d
 PASS: 	run/invariant_02.d
 PASS: 	run/invariant_04.d
@@ -1133,7 +1133,7 @@ PASS: 	run/long_char_65536.d
 PASS: 	run/long_char_65537.d
 PASS: 	run/main_02.d
 PASS: 	run/main_03.d
-PASS: 	run/main_06.d
+ERROR:	run/main_06.d [run: 4352]
 PASS: 	run/many_functions_01.d
 PASS: 	run/memory_management_01.d
 PASS: 	run/memory_management_02.d
@@ -1142,7 +1142,7 @@ PASS: 	run/mixin_02.d
 PASS: 	run/mixin_03.d
 FAIL: 	run/mixin_05.d [256]
 PASS: 	run/mixin_06.d
-ERROR:	run/mixin_07.d [35584]
+FAIL: 	run/mixin_07.d [256]
 PASS: 	run/mixin_08.d
 FAIL: 	run/mixin_09.d [256]
 FAIL: 	run/mixin_10.d [256]
@@ -1247,14 +1247,14 @@ PASS: 	run/opCatAssign_01.d
 PASS: 	run/opCatAssign_02.d
 PASS: 	run/opCatAssign_03.d
 PASS: 	run/opCatAssign_04.d
-FAIL: 	run/opCatAssign_05.d [run: 256]
+PASS: 	run/opCatAssign_05.d
 PASS: 	run/opCatAssign_06.d
 FAIL: 	run/opCatAssign_07.d [256]
 FAIL: 	run/opCatAssign_08.d [256]
-FAIL: 	run/opCatAssign_09.d [run: 256]
+PASS: 	run/opCatAssign_09.d
 PASS: 	run/opCatAssign_10.d
 PASS: 	run/opCatAssign_11.d
-FAIL: 	run/opCmp_01.d [256]
+PASS: 	run/opCmp_01.d
 FAIL: 	run/opIdentity_01.d [run: 256]
 PASS: 	run/opIdentity_02.d
 PASS: 	run/opNeg_01.d
@@ -1439,14 +1439,14 @@ PASS: 	run/typeid_09.d
 PASS: 	run/typeid_10.d
 PASS: 	run/typeid_11.d
 PASS: 	run/typeid_12.d
-FAIL: 	run/typeid_13.d [run: 256]
+PASS: 	run/typeid_13.d
 PASS: 	run/typeid_14.d
 FAIL: 	run/typeid_15.d [run: 256]
 PASS: 	run/typeid_16.d
 PASS: 	run/typeid_17.d
 FAIL: 	run/typeid_18.d [run: 256]
 PASS: 	run/typeid_19.d
-FAIL: 	run/typeid_20.d [run: 256]
+PASS: 	run/typeid_20.d
 FAIL: 	run/typeid_21.d [run: 256]
 PASS: 	run/typeid_22.d
 FAIL: 	run/typeid_23.d [run: 256]
@@ -1595,7 +1595,7 @@ XFAIL:	norun/auto_05.d
 XPASS:	norun/delete_03.d [norun: 0]
 XFAIL:	norun/delete_04.d
 XPASS:	norun/delete_05.d [norun: 0]
-ERROR:	norun/destructor_04.d [norun: 35584]
+XFAIL:	norun/destructor_04.d
 XFAIL:	norun/main_05.d
 XFAIL:	norun/slice_06.d
 XFAIL:	norun/slice_08.d

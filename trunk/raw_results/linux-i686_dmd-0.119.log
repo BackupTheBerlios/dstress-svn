@@ -541,7 +541,7 @@ nocompile: dmd-0.119   -versionabc -c -odobj  nocompile/command_line_version_07.
 Error: unrecognized switch '-versionabc'
 
 --------
-nocompile: dmd-0.119   -version=X86 -version=AMD64 -c -odobj  nocompile/command_line_version_08.d 1> log.tmp 2>&1
+nocompile: dmd-0.119   -version=X86 -version=X86_64 -c -odobj  nocompile/command_line_version_08.d 1> log.tmp 2>&1
 Error: version identifier 'X86' is reserved and cannot be set
 
 --------
@@ -2387,13 +2387,13 @@ nocompile/this_06.d(16): non-constant expression &i
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/__TIME__02.d 1> log.tmp 2>&1
-nocompile/__TIME__02.d(10): "20:52:36" is not an lvalue
-nocompile/__TIME__02.d(10): cannot assign to static array "20:52:36"
+nocompile/__TIME__02.d(10): "22:52:53" is not an lvalue
+nocompile/__TIME__02.d(10): cannot assign to static array "22:52:53"
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/__TIMESTAMP__02.d 1> log.tmp 2>&1
-nocompile/__TIMESTAMP__02.d(10): "Wed Apr  6 20:52:36 2005" is not an lvalue
-nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Wed Apr  6 20:52:36 2005"
+nocompile/__TIMESTAMP__02.d(10): "Wed Apr  6 22:52:53 2005" is not an lvalue
+nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Wed Apr  6 22:52:53 2005"
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/try_05.d 1> log.tmp 2>&1
@@ -2539,7 +2539,7 @@ Error: version identifier 'D_InlineAsm' is reserved and cannot be set
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/version_27.d 1> log.tmp 2>&1
-Error: version identifier 'AMD64' is reserved and cannot be set
+Error: version identifier 'X86' is reserved and cannot be set
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/version_28.d 1> log.tmp 2>&1
@@ -2871,6 +2871,11 @@ run/auto_03.d.exe 1> log.tmp 2>&1
 run: dmd-0.119   -odobj  -ofrun/auto_04.d.exe run/auto_04.d 1> log.tmp 2>&1
 gcc obj/auto_04.o -o run/auto_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
 run/auto_04.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.119   -odobj  -ofrun/auto_06.d.exe run/auto_06.d 1> log.tmp 2>&1
+gcc obj/auto_06.o -o run/auto_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/auto_06.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/bit_01.d.exe run/bit_01.d 1> log.tmp 2>&1
@@ -3715,6 +3720,11 @@ run/creal_19.d.exe 1> log.tmp 2>&1
 run: dmd-0.119   -odobj  -ofrun/creal_20.d.exe run/creal_20.d 1> log.tmp 2>&1
 gcc obj/creal_20.o -o run/creal_20.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
 run/creal_20.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.119   -odobj  -ofrun/creal_21.d.exe run/creal_21.d 1> log.tmp 2>&1
+gcc obj/creal_21.o -o run/creal_21.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/creal_21.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/__DATE__01.d.exe run/__DATE__01.d 1> log.tmp 2>&1
@@ -7934,93 +7944,67 @@ run/wchar_08.d.exe 1> log.tmp 2>&1
 --------
 run: dmd-0.119   -odobj  -ofrun/wchar_09.d.exe run/wchar_09.d 1> log.tmp 2>&1
 gcc obj/wchar_09.o -o run/wchar_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/wchar_09.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/while_01.d.exe run/while_01.d 1> log.tmp 2>&1
 gcc obj/while_01.o -o run/while_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/while_01.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/while_02.d.exe run/while_02.d 1> log.tmp 2>&1
 gcc obj/while_02.o -o run/while_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/while_02.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/while_03.d.exe run/while_03.d 1> log.tmp 2>&1
 gcc obj/while_03.o -o run/while_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/while_03.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_01.d.exe run/with_01.d 1> log.tmp 2>&1
 gcc obj/with_01.o -o run/with_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_01.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_02.d.exe run/with_02.d 1> log.tmp 2>&1
 gcc obj/with_02.o -o run/with_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_02.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_03.d.exe run/with_03.d 1> log.tmp 2>&1
 gcc obj/with_03.o -o run/with_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_03.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_04.d.exe run/with_04.d 1> log.tmp 2>&1
 gcc obj/with_04.o -o run/with_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_04.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_08.d.exe run/with_08.d 1> log.tmp 2>&1
 gcc obj/with_08.o -o run/with_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_08.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_09.d.exe run/with_09.d 1> log.tmp 2>&1
 gcc obj/with_09.o -o run/with_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_09.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_10.d.exe run/with_10.d 1> log.tmp 2>&1
 gcc obj/with_10.o -o run/with_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_10.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_11.d.exe run/with_11.d 1> log.tmp 2>&1
 gcc obj/with_11.o -o run/with_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_11.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_12.d.exe run/with_12.d 1> log.tmp 2>&1
 gcc obj/with_12.o -o run/with_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/with_12.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/with_13.d.exe run/with_13.d 1> log.tmp 2>&1
@@ -8029,78 +8013,81 @@ run/with_13.d(27): c.opIndex(1) is not an lvalue
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_01.d.exe run/Wysiwyg_String_01.d 1> log.tmp 2>&1
 gcc obj/Wysiwyg_String_01.o -o run/Wysiwyg_String_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/Wysiwyg_String_01.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_02.d.exe run/Wysiwyg_String_02.d 1> log.tmp 2>&1
 gcc obj/Wysiwyg_String_02.o -o run/Wysiwyg_String_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/Wysiwyg_String_02.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_03.d.exe run/Wysiwyg_String_03.d 1> log.tmp 2>&1
 gcc obj/Wysiwyg_String_03.o -o run/Wysiwyg_String_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/Wysiwyg_String_03.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_04.d.exe run/Wysiwyg_String_04.d 1> log.tmp 2>&1
 gcc obj/Wysiwyg_String_04.o -o run/Wysiwyg_String_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/Wysiwyg_String_04.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_05.d.exe run/Wysiwyg_String_05.d 1> log.tmp 2>&1
 gcc obj/Wysiwyg_String_05.o -o run/Wysiwyg_String_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/Wysiwyg_String_05.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_06.d.exe run/Wysiwyg_String_06.d 1> log.tmp 2>&1
 gcc obj/Wysiwyg_String_06.o -o run/Wysiwyg_String_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/Wysiwyg_String_06.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_07.d.exe run/Wysiwyg_String_07.d 1> log.tmp 2>&1
 gcc obj/Wysiwyg_String_07.o -o run/Wysiwyg_String_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+run/Wysiwyg_String_07.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_08.d.exe run/Wysiwyg_String_08.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_08.o -o run/Wysiwyg_String_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_08.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_09.d.exe run/Wysiwyg_String_09.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_09.o -o run/Wysiwyg_String_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_09.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_10.d.exe run/Wysiwyg_String_10.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_10.o -o run/Wysiwyg_String_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_10.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_11.d.exe run/Wysiwyg_String_11.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_11.o -o run/Wysiwyg_String_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_11.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_12.d.exe run/Wysiwyg_String_12.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_12.o -o run/Wysiwyg_String_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_12.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_13.d.exe run/Wysiwyg_String_13.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_13.o -o run/Wysiwyg_String_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_13.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_14.d.exe run/Wysiwyg_String_14.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_14.o -o run/Wysiwyg_String_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_14.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/Wysiwyg_String_15.d.exe run/Wysiwyg_String_15.d 1> log.tmp 2>&1
+gcc obj/Wysiwyg_String_15.o -o run/Wysiwyg_String_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+run/Wysiwyg_String_15.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.119   -odobj  -ofrun/xhtml_tag_01.html.exe run/xhtml_tag_01.html 1> log.tmp 2>&1
+run/xhtml_tag_01.html(11): static assert  (0) is false
 
 --------
 norun: dmd-0.119   -odobj  -ofnorun/auto_05.d.exe norun/auto_05.d 1> log.tmp 2>&1
@@ -8126,30 +8113,25 @@ norun/delete_05.d.exe 1> log.tmp 2>&1
 --------
 norun: dmd-0.119   -odobj  -ofnorun/destructor_04.d.exe norun/destructor_04.d 1> log.tmp 2>&1
 gcc obj/destructor_04.o -o norun/destructor_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+norun/destructor_04.d.exe 1> log.tmp 2>&1
 
 --------
 norun: dmd-0.119   -odobj  -ofnorun/main_05.d.exe norun/main_05.d 1> log.tmp 2>&1
 gcc obj/main_05.o -o norun/main_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+norun/main_05.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure norun/main_05.d(10)
 
 --------
 norun: dmd-0.119   -odobj  -ofnorun/slice_06.d.exe norun/slice_06.d 1> log.tmp 2>&1
 gcc obj/slice_06.o -o norun/slice_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+norun/slice_06.d.exe 1> log.tmp 2>&1
+Error: ArrayBoundsError norun/slice_06.d(21)
 
 --------
 norun: dmd-0.119   -odobj  -ofnorun/slice_08.d.exe norun/slice_08.d 1> log.tmp 2>&1
 gcc obj/slice_08.o -o norun/slice_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
+norun/slice_08.d.exe 1> log.tmp 2>&1
+Error: ArrayBoundsError norun/slice_08.d(21)
 
 --------
 Digital Mars D Compiler v0.119
@@ -8211,12 +8193,4 @@ Error: invalid file name ''
 Error: invalid file name '..d'
 Error: invalid file name '..d'
 gcc obj/a.o obj/b.o obj/c.o -o complex/linking/linking_01 -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
-sh: line 1: ./complex/linking/linking_01: No such file or directory
 gcc complex/linking/a.o complex/linking/b.o complex/linking/c.o -o complex/linking/linking_02 -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
-/usr/bin/ld: final link failed: No space left on device
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
-sh: line 1: ./complex/linking/linking_02: No such file or directory

@@ -35,11 +35,11 @@ ERROR: nocompile/bug_20041016_B [35584]
 XFAIL: nocompile/bug_cgcod_1464
 XFAIL: nocompile/bug_cgcs_353
 XFAIL: nocompile/bug_cod4_352
-XFAIL: nocompile/bug_e2ir_814
+ERROR: nocompile/bug_e2ir_814 [Internal compiler error]
 ERROR: nocompile/bug_expression_1147 [34304]
 ERROR: nocompile/bug_mtype_2576 [34304]
 XFAIL: nocompile/bug_mtype_3154
-XFAIL: nocompile/bug_s2ir_458
+ERROR: nocompile/bug_s2ir_458 [Internal compiler error]
 XFAIL: nocompile/byte_09
 XFAIL: nocompile/byte_10
 XFAIL: nocompile/cast_03
@@ -50,6 +50,7 @@ XFAIL: nocompile/char_04
 XPASS: nocompile/char_05
 XFAIL: nocompile/class_04
 XFAIL: nocompile/class_05
+XFAIL: nocompile/class_07
 XPASS: nocompile/command_line_debug_05
 XPASS: nocompile/command_line_debug_06
 XPASS: nocompile/command_line_debug_07
@@ -73,6 +74,9 @@ XFAIL: nocompile/comment_08
 ERROR: nocompile/constructor_05 [35584]
 XFAIL: nocompile/dchar_01
 XFAIL: nocompile/dchar_02
+XPASS: nocompile/dchar_04
+XPASS: nocompile/dchar_06
+ERROR: nocompile/default_argument_05 [35584]
 XFAIL: nocompile/deprecated_01
 XPASS: nocompile/deprecated_02
 XPASS: nocompile/deprecated_03
@@ -176,7 +180,7 @@ XFAIL: nocompile/long_02
 XFAIL: nocompile/long_03
 XFAIL: nocompile/main_05
 XFAIL: nocompile/main_06
-XFAIL: nocompile/opCmp_02
+ERROR: nocompile/opCmp_02 [Internal compiler error]
 XFAIL: nocompile/opNeg_03
 XFAIL: nocompile/opNeg_04
 XFAIL: nocompile/opPos_03
@@ -233,6 +237,13 @@ XFAIL: nocompile/struct_06
 XFAIL: nocompile/super_03
 ERROR: nocompile/super_04 [34304]
 XFAIL: nocompile/switch_08
+XPASS: nocompile/switch_09
+XPASS: nocompile/switch_10
+XFAIL: nocompile/switch_11
+XPASS: nocompile/switch_12
+ERROR: nocompile/switch_13 [34304]
+ERROR: nocompile/switch_14 [Internal compiler error]
+XFAIL: nocompile/switch_15
 XFAIL: nocompile/template_05
 XFAIL: nocompile/template_06
 XPASS: nocompile/try_05
@@ -269,6 +280,8 @@ XPASS: nocompile/version_27
 XPASS: nocompile/version_28
 XFAIL: nocompile/wchar_01
 XFAIL: nocompile/wchar_02
+XPASS: nocompile/wchar_04
+XPASS: nocompile/wchar_06
 XFAIL: nocompile/with_05
 XFAIL: nocompile/with_06
 XFAIL: nocompile/with_07
@@ -352,10 +365,10 @@ FAIL:  run/cast_01 (compiling error)
 FAIL:  run/cast_02 (compiling error)
 FAIL:  run/cast_05
 PASS:  run/char_03
+PASS:  run/class_01
+PASS:  run/class_02
+PASS:  run/class_03
 FAIL:  run/class_06 (compiling error)
-PASS:  run/classes_01
-PASS:  run/classes_02
-PASS:  run/classes_03
 PASS:  run/command_line_debug_01
 PASS:  run/command_line_debug_02
 PASS:  run/command_line_debug_03
@@ -403,6 +416,11 @@ PASS:  run/creal_16
 PASS:  run/creal_17
 PASS:  run/creal_18
 PASS:  run/creal_19
+PASS:  run/dchar_03
+PASS:  run/dchar_05
+PASS:  run/dchar_07
+PASS:  run/dchar_08
+PASS:  run/dchar_09
 PASS:  run/debug_01
 PASS:  run/debug_02
 PASS:  run/debug_03
@@ -410,6 +428,8 @@ PASS:  run/default_argument_01
 PASS:  run/default_argument_02
 PASS:  run/default_argument_03
 PASS:  run/default_argument_04
+PASS:  run/default_argument_06
+FAIL:  run/default_argument_07 (compiling error)
 PASS:  run/delegate_01
 PASS:  run/deprecated_09
 PASS:  run/deprecated_10
@@ -481,6 +501,7 @@ PASS:  run/final_02
 PASS:  run/final_03
 PASS:  run/final_05
 PASS:  run/final_06
+FAIL:  run/finally_01
 PASS:  run/float_01
 PASS:  run/float_02
 PASS:  run/float_03
@@ -908,6 +929,11 @@ PASS:  run/version_05
 PASS:  run/version_07
 PASS:  run/version_08
 FAIL:  run/version_28 (compiling error)
+PASS:  run/wchar_03
+PASS:  run/wchar_05
+PASS:  run/wchar_07
+PASS:  run/wchar_08
+PASS:  run/wchar_09
 PASS:  run/while_01
 PASS:  run/while_02
 PASS:  run/while_03
@@ -924,7 +950,7 @@ XFAIL: norun/slice_06
 XFAIL: norun/slice_08
 XFAIL: complex/command_line/command_line_null_source_01
 XFAIL: complex/command_line/command_line_null_source_02
-XPASS: complex/command_line/command_line_null_source_05
 XPASS: complex/command_line/command_line_null_source_03
-XFAIL: complex/command_line/command_line_null_source_06
 XFAIL: complex/command_line/command_line_null_source_04
+XPASS: complex/command_line/command_line_null_source_05
+XFAIL: complex/command_line/command_line_null_source_06

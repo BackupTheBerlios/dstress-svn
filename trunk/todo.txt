@@ -23,6 +23,10 @@
 
 * custom operator implementation
 
+* numeric literals
+
+* numeric literals
+
 * Embedded _ in numeric literals
 	18_446_744_073_709_551_615 / 18446744073709551615
 	
@@ -32,6 +36,3 @@
 	static this(){
 		... initialization code ...
 	}
-
-* comments
-	/* */ // /+ +/

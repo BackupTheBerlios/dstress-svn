@@ -7,6 +7,8 @@
 // @uri@	news:opsg7zgbjdaaezs2@ilya.tec.amursk.ru
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2238
 
+// __DSTRESS_ELINE__ 16
+
 module dstress.nocompile.constructor_05;
 
 class Class{

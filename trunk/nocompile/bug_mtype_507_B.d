@@ -7,6 +7,8 @@
 // @uri@	news:csvvet$2g4$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2741
 
+// __DSTRESS_ELINE__ 21
+
 module dstress.nocompile.bug_mtype_507_B;
 
 struct Struct{

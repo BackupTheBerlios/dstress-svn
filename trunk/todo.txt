@@ -6,11 +6,17 @@ Makefile:
 * update/check the Windows bat generator (./beta)
 
 dstress.c:
-* add line check for error messages
-* stop the pop-up for segfaulting test cases: use "createProcess" instead of "system" on MSWindows
+* check messages: compile->generic, runtime->spezific&generic
+* MSWindows: implement crashRun (stop pop-up for segfaulting test cases / createProcess)
 
 Benchmark:
 * integrate benchmark results: SciMark, cowell-shah, oopack, ackermann
+
+Meta data:
+* retag nocompile E-V
+* retag compile A-Z
+* retag run A-Z
+* retag norun A-Z
 
 Test cases:
 * keyword: asm
@@ -60,7 +66,7 @@ Test cases:
 
 * IEEE 754 tests
 
-* class (?struct?) allocators
+* class and struct (de)allocators
 
 * module initializers & destructors
 

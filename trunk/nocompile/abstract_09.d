@@ -7,6 +7,8 @@
 // @uri@	news:miglg2-ph5.ln1@lnews.kuehne.cn
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3196
 
+// __DSTRESS__ELINE__ 15
+
 module dstress.nocompile.abstract_09;
 
 class A{

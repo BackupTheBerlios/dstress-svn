@@ -7,7 +7,7 @@
 // @uri@	news:cm057b$13nu$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2165
 
-module dstress.run.static_16;
+module dstress.nocompile.static_16;
 
 class MyClass{
 	static {

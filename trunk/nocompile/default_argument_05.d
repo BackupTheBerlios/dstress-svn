@@ -7,6 +7,8 @@
 // @uri@	news:cnaidd$2rnr$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2275
 
+// __DSTRESS_ELINE__ 16
+
 module dstress.nocompile.default_argument_05;
 
 template Template(int L){

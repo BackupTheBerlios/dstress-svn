@@ -1,7 +1,13 @@
-// @author@	Anders F Björklund <afb@algonet.se>
+// $HeadURL$
+// $Date$
+// $Author$
+
+// @author@	Anders F Bjï¿½klund <afb@algonet.se>
 // @date@	2004-12-19
 // @uri@	news://cq2h5u$2n99$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D/13868
+
+// __DSTRESS_ELINE__ 19
 
 module dstress.nocompile.associative_array_05;
 

@@ -7,15 +7,12 @@
 // @uri@	news:cmd9i4$16g5$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D/12279
 
-// Note:
-// 	this crashs dmd-0.106 but results in the pseudo return code 1,
-// 	thus DStress can't detect this bug directly. Instead the compiler
-//	output is parsed for "Internal error"(dmd) and "gcc.gnu.org/bugs"(gdc/gcc)
+// __DSTRESS_ELINE__ 17
 
 static void dummy(...){
 }
 
-class Foo : Object{
+class Foo{
 	static this(){
 		Foo.display_name();
 	}

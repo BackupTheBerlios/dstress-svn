@@ -2,9 +2,10 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_ELINE__ 10
+
 module dstress.nocompile.break_07;
 
-int main(){
+void test(){
 	break;
-	return 0;
 }

@@ -5,6 +5,8 @@
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.thisisspam.cn>
 // @date@	2005-01-19
 
+// __DSTRESS_ELINE__ 19
+
 module dstress.nocompile.bug_dsymbol_611_D;
 
 struct Struct{

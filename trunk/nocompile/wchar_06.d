@@ -7,6 +7,8 @@
 // @uri@	news:olfr62-kjv.ln1@kuehne.cn
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2287
 
+// __DSTRESS_ELINE__ 15
+
 module dstress.nocompile.wchar_06;
 
 int main(){

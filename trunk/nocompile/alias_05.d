@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS__ELINE__ 12
+
 module dstress.nocompile.alias_05;
 
 alias int myint;

@@ -2,6 +2,8 @@
 // $Date$
 // $URL$
 
+// __DSTRESS_ELINE__ 14
+
 module dstress.nocompile.const_11;
 
 struct MyStruct{

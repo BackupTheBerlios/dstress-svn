@@ -7,6 +7,8 @@
 // @uri@	news:cvg5mn$19lb$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3035
 
+// __DSTRESS_ELINE__ 17
+
 module dstress.nocompile.bug_template_1455_A;
 
 class Foo(T) {

@@ -1,3 +1,13 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// has to be a class instance or struct reference
+
+// __DSTRESS_ELINE__ 14
+
+module dstress.nocompile.with_05;
+
 class MyClass{
 	void test(){
 		byte b;

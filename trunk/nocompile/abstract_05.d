@@ -7,6 +7,8 @@
 // @uri@	news:cqvnro$26ul$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2624
 
+// __DSTRESS__ELINE__ 15
+
 module dstress.nocompile.abstract_05;
 
 class Base{

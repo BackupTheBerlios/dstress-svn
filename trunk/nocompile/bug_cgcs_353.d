@@ -7,6 +7,8 @@
 // @uri@	news:opr9c6ny1b5a2sq9@digitalmars.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/438
 
+// __DSTRESS_ELINE__ 21
+
 module dstress.nocompile.bug_cgcs_353;
 
 struct Bug {

@@ -1,3 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 11
+
+module dstress.nocompile.deprecated_04;
 
 class MyClass{
 	this(int a){

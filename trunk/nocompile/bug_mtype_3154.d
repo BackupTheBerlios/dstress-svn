@@ -7,6 +7,8 @@
 // @uri@	news:c6ullo$104s$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/48
 
+// __DSTRESS_ELINE__ 51
+
 module dstress.nocompile.bug_mtype_3154;
 
 struct vec(VALUE, int size){
@@ -48,6 +50,5 @@ int main (char[][]args) {
 	a[1]=3;
 	b=a.T(float4).castTo();// <-- taking out this line stops the error
 
-//   printf ("%f\n",b[1000]);
 	return 0;
 }

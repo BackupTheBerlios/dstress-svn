@@ -1,3 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 20
+
+module dstress.nocompile.with_07;
+
 class MyClass{
 	int test(){
 		return 3;

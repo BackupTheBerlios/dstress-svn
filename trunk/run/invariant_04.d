@@ -7,23 +7,28 @@
 // @uri@	news:clbr09$uc6$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2140
 
-// invariant is only allowed in classes (dmd-0.104 documentation)
+// invariant for structs allowed since dmd-0.119
 
-module dstress.nocompile.invariant_04;
+module dstress.run.invariant_04;
+
+bool tested;
 
 struct MyStruct{
-	int i;
+	int i=1;
 
 	void test(){
 	}
 
 	invariant{
-		assert(0);
+		assert(i==1);
+		tested=true;
 	}
 }
 
 int main(){
 	MyStruct s;
+	assert(!tested);
 	s.test();
+	assert(tested);
 	return 0;
 }

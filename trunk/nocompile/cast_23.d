@@ -6,7 +6,7 @@
 // @date@	2005-03-18
 // @uri@	news:d1d4lc$25e2$1@digitaldaemon.com
 
-// __DSTRESS_ERROR__ 16
+// __DSTRESS_ELINE__ 16
 
 module dstress.nocompile.cast_23;
 

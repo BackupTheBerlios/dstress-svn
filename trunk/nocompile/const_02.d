@@ -4,6 +4,8 @@
 
 // altering a constant
 
+// __DSTRESS_ELINE__ 14
+
 module dstress.nocompile.const_02;
 
 const int i = 9;

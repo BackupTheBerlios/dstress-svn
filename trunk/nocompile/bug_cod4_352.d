@@ -7,6 +7,8 @@
 // @uri@	news:cc8qdr$oe8$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/700
 
+// __DSTRESS_ELINE__ 17
+
 module dstress.nocompile.bug_cod4_352;
 
 int main(){

@@ -7,6 +7,8 @@
 // @uri@	news:cunl9i$15r2$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2966
 
+// __DSTRESS_ELINE__ 21
+
 module dstress.nocompile.case_02;
 
 char[] getString(){

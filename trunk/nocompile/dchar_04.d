@@ -2,9 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_ELINE__ 9
+
 module dstress.nocompile.dchar_04;
 
-int main(){
-	wchar c = 0x110000; // dchar.max+1
-	return 0;
-}
+wchar c = 0x110000; // dchar.max+1

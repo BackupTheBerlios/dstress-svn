@@ -7,6 +7,8 @@
 // @uri@	news:opsdldgki75a2sq9@digitalmars.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/1685
 
+// __DSTRESS_ELINE__ 16
+
 module dstress.nocompile.bug_expression_1147;
 
 template A(Type : Type[]){

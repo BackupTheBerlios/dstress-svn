@@ -7,6 +7,8 @@
 // @uri@	news:opsl6xrbnaaaezs2@robingood
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2983
 
+// __DSTRESS__ELINE__ 18
+
 module dstress.nocompile.alias_17;
 
 void test(){

@@ -102,19 +102,29 @@ public class GenReport{
 		for(String line=liner.readLine(); line!=null; line=liner.readLine()){
 			try{
 				// pare result status
-				StringTokenizer nizer = new StringTokenizer(line," \n:",false);
+				StringTokenizer nizer = new StringTokenizer(line," \t\n:",false);
 				String token=nizer.nextToken();
-				byte status=TestResult.UNTESTED;
+				byte status=-1;
 				for(byte typeIndex=0; typeIndex<TestResult.typ.length; typeIndex++){
 					if(TestResult.typ[typeIndex].equals(token)){
 						status=typeIndex;
 					}
 				}
-				/*if(status<0){
-					throw new IOException("Unknown token \""+token+"\"");
-				}*/
+				if(status<0){
+					// Unknown token
+					continue;
+				}
 				// test name
 				String name=nizer.nextToken();
+				if(name.indexOf(".")==-1){
+					// support for the old log format
+					if(name.indexOf("html")>-1){
+						name+=".html";
+					}else{
+						name+=".d";
+					}
+				}
+
 				// get
 				TestResult test=(TestResult)data.get(name);
 				if(test==null){
@@ -138,21 +148,26 @@ public class GenReport{
 			TestResult result= (TestResult) e.nextElement();
 			String plainName=result.name;
 			plainName=plainName.substring(plainName.lastIndexOf('/')+1);
+			int end=plainName.lastIndexOf(".");
+			if(end>0){
+				plainName=plainName.substring(0, end);
+			}
 			String linkName=result.name;
-			if(linkName.startsWith("run") || linkName.startsWith("compile") || linkName.startsWith("nocompile") || linkName.startsWith("norun")){
-				linkName="../"+linkName;
+			if(linkName.indexOf(".")==-1){
 				if(linkName.indexOf("html")>-1){
 					linkName+=".html";
 				}else{
 					linkName+=".d";
 				}
-			}else if(linkName.startsWith("complex")){
+			}
+
+			if(linkName.startsWith("complex")){
 				linkName="../"+linkName.substring(0,linkName.lastIndexOf("/")+1);
 			}else{
-				linkName=null;
+				linkName="../"+linkName;
 			}
-			if(linkName==null || !new File(linkName).exists()){
-				// ignore test deprecated test cases
+			if(!new File(linkName).exists()){
+				// ignore deprecated test cases
 				continue;
 			}else{
 				// @todo@ fix linkName escape

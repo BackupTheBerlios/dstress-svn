@@ -1,6 +1,8 @@
+(priority)
 * general review / endian issues 
 * remove duplicated tests
 
+(unordered)
 * keyword: asm
 * keyword: body
 * keyword: cent
@@ -38,7 +40,7 @@
 
 * operators
 
-* custom operator implementation
+* custom operator implementations
 
 * octal and decimal integer literals
 
@@ -46,10 +48,10 @@
 
 * IEEE 754 tests
 
-* module initializers & ?destructors?
-	module foo;
-	
-	static this(){
-		... initialization code ...
-	}
+* module initializers & destructors
 
+* maximum possible size of source/name/arrays/strings
+
+* maximum possible amount of aliases / templates / vars / functions in a source file
+
+* howmany sourcefiles can be compiled in one go?

@@ -4,6 +4,6 @@ int main(){
 	float b = 10000.0;
 	float c = a/b;
 	assert(f == c);
-	assert(f == a/b);
+	assert(f == cast(float)a/b);
 	return 0;
 }

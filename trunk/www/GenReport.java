@@ -151,7 +151,7 @@ public class GenReport{
 			}else{
 				linkName=null;
 			}
-			if(linkName==null || new File(linkName).exists()){
+			if(linkName==null || !new File(linkName).exists()){
 				out.write("<tr><th>"+plainName+"</th>");
 			}else{
 				// @todo@ fix linkName escape

@@ -4,6 +4,7 @@ $Author$
 
 Makefile:
 * fix analyse_run (tries to execute the destination, even if compiling failed)
+* check the Windows bat generator
 
 Benchmark:
 * integrate benchmark results: SciMark, cowell-shah, oopack, ackermann
@@ -16,7 +17,6 @@ Test cases:
 * keyword: cdouble
 * keyword: cfloat
 * keyword: char (test that it realy is unsigned)
-* keyword: const
 * keyword: continue
 * keyword: delegate
 * keyword: delete

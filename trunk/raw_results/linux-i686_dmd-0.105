@@ -1,6 +1,6 @@
 cc  dstress.c -o dstress__
 rm -f compile/*.o compile/*.o
-find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ compile" > compile.sh
+find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ compile" > compile.sh
 chmod +x compile.sh
 ./compile.sh 2>> /tmp/dstress/log.txt
 FAIL: 	compile/abstract_01.d [256]
@@ -34,6 +34,8 @@ PASS: 	compile/forward_reference_05.d
 ERROR:	compile/forward_reference_06.d [35584]
 PASS: 	compile/html_empty_01.html
 PASS: 	compile/html_empty_02.html
+PASS: 	compile/inline_02.d
+FAIL: 	compile/inline_03.d [256]
 PASS: 	compile/interface_08.d
 PASS: 	compile/interface_09.d
 FAIL: 	compile/mixin_01.d [256]
@@ -50,7 +52,7 @@ PASS: 	compile/variadic_argument_02.d
 PASS: 	compile/variadic_argument_03.d
 FAIL: 	compile/version_09.d [256]
 rm -f nocompile/*.o nocompile/*.no
-find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ nocompile" > nocompile.sh
+find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
 chmod +x nocompile.sh
 ./nocompile.sh 2>> /tmp/dstress/log.txt
 XPASS:	nocompile/abstract_05.d
@@ -98,6 +100,8 @@ XFAIL:	nocompile/byte_09.d
 XFAIL:	nocompile/byte_10.d
 XFAIL:	nocompile/cast_03.d
 XPASS:	nocompile/cast_04.d
+ERROR:	nocompile/cast_19.d [34304]
+XPASS:	nocompile/cent_01.d
 XFAIL:	nocompile/char_01.d
 XFAIL:	nocompile/char_02.d
 XFAIL:	nocompile/char_04.d
@@ -436,10 +440,14 @@ XFAIL:	nocompile/template_06.d
 XPASS:	nocompile/template_09.d
 XFAIL:	nocompile/this_01.d
 XFAIL:	nocompile/this_02.d
+XFAIL:	nocompile/this_04.d
+ERROR:	nocompile/this_05.d [34304]
+ERROR:	nocompile/this_06.d [34304]
 XPASS:	nocompile/try_05.d
 XFAIL:	nocompile/types_declaration_02.d
 XFAIL:	nocompile/ubyte_02.d
 XFAIL:	nocompile/ubyte_03.d
+XPASS:	nocompile/ucent_01.d
 XFAIL:	nocompile/uint_02.d
 XFAIL:	nocompile/uint_03.d
 XFAIL:	nocompile/ulong_02.d
@@ -482,7 +490,7 @@ XFAIL:	nocompile/with_05.d
 XFAIL:	nocompile/with_06.d
 XFAIL:	nocompile/with_07.d
 rm -f run/*.exe run/*.exe
-find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ run" > run.sh
+find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
 ./run.sh 2>> /tmp/dstress/log.txt
 PASS: 	run/alias_01.d
@@ -686,6 +694,7 @@ PASS: 	run/deprecated_12.d
 PASS: 	run/deprecated_13.d
 PASS: 	run/destructor_01.d
 FAIL: 	run/destructor_03.d [run: 256]
+ERROR:	run/destructor_04.d [run: 35584]
 PASS: 	run/double_01.d
 PASS: 	run/double_02.d
 PASS: 	run/double_03.d
@@ -889,6 +898,10 @@ PASS: 	run/in_out_body_01.d
 FAIL: 	run/in_out_body_02.d [256]
 FAIL: 	run/in_out_body_03.d [256]
 PASS: 	run/in_out_body_04.d
+FAIL: 	run/in_out_body_05.d [256]
+PASS: 	run/in_out_body_06.d
+PASS: 	run/in_out_body_07.d
+FAIL: 	run/in_out_body_08.d [256]
 PASS: 	run/int_01.d
 PASS: 	run/int_02.d
 PASS: 	run/int_03.d
@@ -928,6 +941,13 @@ PASS: 	run/invariant_13.d
 FAIL: 	run/invariant_14.d [run: 256]
 FAIL: 	run/invariant_15.d [run: 256]
 FAIL: 	run/invariant_18.d [run: 256]
+ERROR:	run/invariant_19.d [run: 35584]
+PASS: 	run/invariant_20.d
+ERROR:	run/invariant_21.d [run: 35584]
+ERROR:	run/invariant_22.d [run: 35584]
+FAIL: 	run/invariant_23.d [run: 256]
+PASS: 	run/invariant_24.d
+FAIL: 	run/invariant_25.d [256]
 PASS: 	run/keys_01.d
 PASS: 	run/label_01.d
 ERROR:	run/label_02.d [35584]
@@ -960,6 +980,7 @@ PASS: 	run/nested_function_03.d
 PASS: 	run/nested_function_04.d
 PASS: 	run/nested_function_05.d
 FAIL: 	run/nested_function_06.d [256]
+FAIL: 	run/new_01.d [256]
 PASS: 	run/odd_bug_01.d
 FAIL: 	run/odd_bug_02.d [run: 256]
 FAIL: 	run/offsetof_01.d [256]
@@ -1003,6 +1024,8 @@ FAIL: 	run/overload_13.d [256]
 FAIL: 	run/overload_14.d [256]
 PASS: 	run/overload_15.d
 FAIL: 	run/overload_16.d [256]
+FAIL: 	run/overload_17.d [256]
+PASS: 	run/overload_18.d
 PASS: 	run/override_01.d
 PASS: 	run/pragma_01.d
 PASS: 	run/pragma_02.d
@@ -1282,6 +1305,8 @@ PASS: 	run/with_08.d
 PASS: 	run/with_09.d
 PASS: 	run/with_10.d
 FAIL: 	run/with_11.d [256]
+PASS: 	run/with_12.d
+FAIL: 	run/with_13.d [256]
 PASS: 	run/Wysiwyg_String_01.d
 PASS: 	run/Wysiwyg_String_02.d
 PASS: 	run/Wysiwyg_String_03.d
@@ -1299,7 +1324,7 @@ PASS: 	run/Wysiwyg_String_14.d
 PASS: 	run/Wysiwyg_String_15.d
 FAIL: 	run/xhtml_tag_01.html [256]
 rm -f norun/*.exe norun/*.bin
-find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs --max-procs=1 --max-lines=1 echo "./dstress__ norun" > norun.sh
+find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
 ./norun.sh 2>> /tmp/dstress/log.txt
 XFAIL:	norun/slice_06.d

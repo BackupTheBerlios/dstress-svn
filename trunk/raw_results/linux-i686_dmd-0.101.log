@@ -115,6 +115,13 @@ compile: dmd-101   -c -odobj  compile/html_empty_01.html 1> log.tmp 2>&1
 compile: dmd-101   -c -odobj  compile/html_empty_02.html 1> log.tmp 2>&1
 
 --------
+compile: dmd-101   -c -odobj  compile/inline_02.d 1> log.tmp 2>&1
+
+--------
+compile: dmd-101   -inline -c -odobj  compile/inline_03.d 1> log.tmp 2>&1
+compile/inline_03.d(26): bug() is not an lvalue
+
+--------
 compile: dmd-101   -c -odobj  compile/interface_08.d 1> log.tmp 2>&1
 
 --------
@@ -145,7 +152,7 @@ compile: dmd-101   -c -odobj  compile/template_struct_02.d 1> log.tmp 2>&1
 
 --------
 compile: dmd-101   -c -odobj  compile/typedef_05.d 1> log.tmp 2>&1
-String 0x8115110
+String 0x8115118
 Internal error: e2ir.c 447
 
 --------
@@ -350,6 +357,14 @@ nocompile/cast_03.d(24): cannot implicitly convert expression i of type MyInterf
 
 --------
 nocompile: dmd-101   -c -odobj  nocompile/cast_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-101   -c -odobj  nocompile/cast_19.d 1> log.tmp 2>&1
+nocompile/cast_19.d(17): cannot implicitly convert expression mc of type MyClass to void
+dmd.bin: statement.c:1447: virtual Statement* ReturnStatement::semantic(Scope*): Assertion `fdx->vresult' failed.
+
+--------
+nocompile: dmd-101   -c -odobj  nocompile/cent_01.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-101   -c -odobj  nocompile/char_01.d 1> log.tmp 2>&1
@@ -1738,6 +1753,19 @@ nocompile/this_02.d(12): found ';' when expecting ')'
 nocompile/this_02.d(13): semicolon expected following function declaration
 
 --------
+nocompile: dmd-101   -c -odobj  nocompile/this_04.d 1> log.tmp 2>&1
+nocompile/this_04.d(13): 'this' is only allowed in non-static member functions
+nocompile/this_04.d(13): cannot implicitly convert expression this of type int to MyStruct *
+
+--------
+nocompile: dmd-101   -c -odobj  nocompile/this_05.d 1> log.tmp 2>&1
+dmd.bin: tocsym.c:138: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
+
+--------
+nocompile: dmd-101   -c -odobj  nocompile/this_06.d 1> log.tmp 2>&1
+dmd.bin: tocsym.c:138: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
+
+--------
 nocompile: dmd-101   -c -odobj  nocompile/try_05.d 1> log.tmp 2>&1
 
 --------
@@ -1752,6 +1780,9 @@ nocompile/ubyte_02.d(4): .size property is deprecated, use .sizeof
 --------
 nocompile: dmd-101   -c -odobj  nocompile/ubyte_03.d 1> log.tmp 2>&1
 nocompile/ubyte_03.d(4): no property 'sign' for type 'ubyte'
+
+--------
+nocompile: dmd-101   -c -odobj  nocompile/ucent_01.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-101   -c -odobj  nocompile/uint_02.d 1> log.tmp 2>&1
@@ -2914,6 +2945,11 @@ run: dmd-101   -odobj  -ofrun/destructor_03.d.exe run/destructor_03.d 1> log.tmp
 gcc obj/destructor_03.o -o run/destructor_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
 run/destructor_03.d.exe 1> log.tmp 2>&1
 Error: E2
+
+--------
+run: dmd-101   -odobj  -ofrun/destructor_04.d.exe run/destructor_04.d 1> log.tmp 2>&1
+gcc obj/destructor_04.o -o run/destructor_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/destructor_04.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-101   -odobj  -ofrun/double_01.d.exe run/double_01.d 1> log.tmp 2>&1
@@ -4276,6 +4312,24 @@ gcc obj/in_out_body_04.o -o run/in_out_body_04.d.exe -lphobos -lpthread -lm -Xli
 run/in_out_body_04.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-101   -odobj  -ofrun/in_out_body_05.d.exe run/in_out_body_05.d 1> log.tmp 2>&1
+run/in_out_body_05.d(19): identifier 'InException' is not defined
+
+--------
+run: dmd-101   -odobj  -ofrun/in_out_body_06.d.exe run/in_out_body_06.d 1> log.tmp 2>&1
+gcc obj/in_out_body_06.o -o run/in_out_body_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/in_out_body_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/in_out_body_07.d.exe run/in_out_body_07.d 1> log.tmp 2>&1
+gcc obj/in_out_body_07.o -o run/in_out_body_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/in_out_body_07.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/in_out_body_08.d.exe run/in_out_body_08.d 1> log.tmp 2>&1
+run/in_out_body_08.d(19): identifier 'OutException' is not defined
+
+--------
 run: dmd-101   -odobj  -ofrun/int_01.d.exe run/int_01.d 1> log.tmp 2>&1
 gcc obj/int_01.o -o run/int_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
 run/int_01.d.exe 1> log.tmp 2>&1
@@ -4481,6 +4535,41 @@ run/invariant_18.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure run/invariant_18.d(24)
 
 --------
+run: dmd-101   -odobj  -ofrun/invariant_19.d.exe run/invariant_19.d 1> log.tmp 2>&1
+gcc obj/invariant_19.o -o run/invariant_19.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/invariant_19.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/invariant_20.d.exe run/invariant_20.d 1> log.tmp 2>&1
+gcc obj/invariant_20.o -o run/invariant_20.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/invariant_20.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/invariant_21.d.exe run/invariant_21.d 1> log.tmp 2>&1
+gcc obj/invariant_21.o -o run/invariant_21.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/invariant_21.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/invariant_22.d.exe run/invariant_22.d 1> log.tmp 2>&1
+gcc obj/invariant_22.o -o run/invariant_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/invariant_22.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/invariant_23.d.exe run/invariant_23.d 1> log.tmp 2>&1
+gcc obj/invariant_23.o -o run/invariant_23.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/invariant_23.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/invariant_23.d(23)
+
+--------
+run: dmd-101   -odobj  -ofrun/invariant_24.d.exe run/invariant_24.d 1> log.tmp 2>&1
+gcc obj/invariant_24.o -o run/invariant_24.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/invariant_24.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/invariant_25.d.exe run/invariant_25.d 1> log.tmp 2>&1
+run/invariant_25.d(18): identifier 'InvariantException' is not defined
+
+--------
 run: dmd-101   -odobj  -ofrun/keys_01.d.exe run/keys_01.d 1> log.tmp 2>&1
 gcc obj/keys_01.o -o run/keys_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
 run/keys_01.d.exe 1> log.tmp 2>&1
@@ -4620,8 +4709,8 @@ run/mixin_03.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-101   -odobj  -ofrun/module_01.d.exe run/module_01.d 1> log.tmp 2>&1
-run/module_01.d(13): undefined identifier dstress
-run/module_01.d(13): no property 'run' for type 'int'
+run/module_01.d(15): undefined identifier dstress
+run/module_01.d(15): no property 'run' for type 'int'
 
 --------
 run: dmd-101   -odobj  -ofrun/module_02.d.exe run/module_02.d 1> log.tmp 2>&1
@@ -4630,8 +4719,8 @@ run/module_02.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-101   -I. -odobj  -ofrun/module_04.d.exe run/module_04.d 1> log.tmp 2>&1
-run/module_04.d(15): undefined identifier run
-run/module_04.d(15): no property 'module_04' for type 'int'
+run/module_04.d(17): undefined identifier run
+run/module_04.d(17): no property 'module_04' for type 'int'
 
 --------
 run: dmd-101   -odobj  -ofrun/nested_function_01.d.exe run/nested_function_01.d 1> log.tmp 2>&1
@@ -4666,6 +4755,10 @@ collect2: ld gab 1 als Ende-Status zurück
 --------
 run: dmd-101   -odobj  -ofrun/nested_function_06.d.exe run/nested_function_06.d 1> log.tmp 2>&1
 run/nested_function_06.d(15): function main parameters must be main() or main(char[][] args)
+
+--------
+run: dmd-101   -odobj  -ofrun/new_01.d.exe run/new_01.d 1> log.tmp 2>&1
+run/new_01.d(20): cannot implicitly convert expression new VNode * of type VNode * to VNode *
 
 --------
 run: dmd-101   -odobj  -ofrun/odd_bug_01.d.exe run/odd_bug_01.d 1> log.tmp 2>&1
@@ -4872,6 +4965,15 @@ run: dmd-101   -odobj  -ofrun/overload_16.d.exe run/overload_16.d 1> log.tmp 2>&
 run/overload_16.d(23): function check (int x) does not match argument types ()
 run/overload_16.d(23): Error: expected 1 arguments, not 0
 
+
+--------
+run: dmd-101   -odobj  -ofrun/overload_17.d.exe run/overload_17.d 1> log.tmp 2>&1
+run/overload_17.d(19): function check overrides but is not covariant with check
+
+--------
+run: dmd-101   -odobj  -ofrun/overload_18.d.exe run/overload_18.d 1> log.tmp 2>&1
+gcc obj/overload_18.o -o run/overload_18.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/overload_18.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-101   -odobj  -ofrun/override_01.d.exe run/override_01.d 1> log.tmp 2>&1
@@ -6310,6 +6412,15 @@ run/with_10.d.exe 1> log.tmp 2>&1
 --------
 run: dmd-101   -odobj  -ofrun/with_11.d.exe run/with_11.d 1> log.tmp 2>&1
 run/with_11.d(18): variable __withSym reference to auto class must be auto
+
+--------
+run: dmd-101   -odobj  -ofrun/with_12.d.exe run/with_12.d 1> log.tmp 2>&1
+gcc obj/with_12.o -o run/with_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/101/dmd/lib 
+run/with_12.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-101   -odobj  -ofrun/with_13.d.exe run/with_13.d 1> log.tmp 2>&1
+run/with_13.d(27): c.opIndex(1) is not an lvalue
 
 --------
 run: dmd-101   -odobj  -ofrun/Wysiwyg_String_01.d.exe run/Wysiwyg_String_01.d 1> log.tmp 2>&1

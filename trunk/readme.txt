@@ -1,10 +1,12 @@
 Project:
 	DStress
 
+Copyright:
+	(c) 2004, 2005 Thomas Kühne; GNU General Public License 
+
 URL:
-	http://svn.kuehne.cn/dstress/www/dstress.html
-	http://websvn.kuehne.cn/dstress
-	http://svn.kuehne.cn/dstress (svn access)
+	http://dstress.kuehne.cn/www/dstress.html
+	http://dstress.kuehne.cn/ (svn access)
 	mailto:dstress@kuehne.cn
 
 Description:
@@ -26,11 +28,11 @@ Condition Failed:
 	4) return value of main isn't 0 (zero)
 
 Output Synopsis: (DejaGnu / POSIX 1003.3)
-	PASS:	expected pass
-	XPASS:	unexpected pass
-	FAIL:	unexpected fail
-	XFAIL:	expected fail
-	ERROR:	test error (compiler, linker or test case segfaulted)
+	PASS:	test case was expected to pass, and it did
+	XPASS:	test case was expected to fail, but passed
+	FAIL:	test case was expected to pass, but failed
+	XFAIL:	test case was expected to fail, and it did
+	ERROR:	compiler, linker or test case segfaulted
 
 Source code comments:
 	@author@ 		reporter / author
@@ -39,4 +41,5 @@ Source code comments:
 	@url@			message xRef
 	@WARNING@		external dependencies (e.g. Phobos)
 	@bugwatch@		marks glitches used to hide bugs in external dependencies
-	__DSTRESS_DFLAGS__	everything following in the same line will be interpreted as _additional_ compiler flags
+	__DSTRESS_DFLAGS__	everything following in the same line will be interpreted
+				as _additional_ compiler flags

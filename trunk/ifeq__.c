@@ -2,7 +2,7 @@
  *
  * compare the 2 input arguments (shell & OS independent)
  *
- * Copyright (C) 2004 Thomas Kuehne
+ * Copyright (C) 2004, 2005 Thomas Kuehne
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

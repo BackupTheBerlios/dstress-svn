@@ -8,11 +8,12 @@ import std.math;
 import std.c.stdio;
 
 // handle a bug in Phobos (dmd-0.105)
-version(Windows){
-        const double CLOCKS_PER_SEC = std.c.time.CLOCKS_PER_SEC;
-}else{
-        const double CLOCKS_PER_SEC = 1000000.0;
+version(linux){
+	const double CLOCKS_PER_SEC = 1000000.0;
+}else version(darwin){
+	const double CLOCKS_PER_SEC = 100.0;
 }
+
 
 int main()
 {

@@ -4,10 +4,10 @@ private import std.c.stdlib;
 private import std.c.time;
 
 // handle a bug in Phobos (dmd-0.105)
-version(Windows){
-	const double CLOCKS_PER_SEC_ = std.c.time.CLOCKS_PER_SEC;
-}else{
-	const double CLOCKS_PER_SEC_ = 1000000.0;
+version(linux){
+	const double CLOCKS_PER_SEC = 1000000.0;
+}else version(darwin){
+	const double CLOCKS_PER_SEC = 100.0;
 }
 
 struct Stopwatch_struct{
@@ -20,7 +20,7 @@ alias Stopwatch_struct* Stopwatch;
 
 double seconds()
 {
-        return (cast(double) clock()) / CLOCKS_PER_SEC_; 
+        return (cast(double) clock()) / CLOCKS_PER_SEC; 
 }
 
 void Stopwtach_reset(Stopwatch Q)

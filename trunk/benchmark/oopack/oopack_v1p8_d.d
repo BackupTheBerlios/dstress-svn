@@ -133,7 +133,12 @@
 //=============================================================================
 
 import std.c.time, std.ctype, std.string;
-extern (C) long strtol(char *nptr, char **endptr, int base);
+version (darwin) {
+	extern (C) int strtol(char *nptr, char **endptr, int base);
+} else {
+	extern (C) long strtol(char *nptr, char **endptr, int base);
+}
+
 
 //
 // The ``iterations'' argument is the number of times that the benchmark 
@@ -641,9 +646,11 @@ class ComplexBenchmark: public Benchmark {
 // End of benchmark computations.  
 //=============================================================================
 
-version(Windows){
-}else{
-	const double CLOCKS_PER_SEC = 1_000_000;	
+// handle a bug in Phobos (dmd-0.105)
+version(linux){
+	const double CLOCKS_PER_SEC = 1000000.0;
+}else version(darwin){
+	const double CLOCKS_PER_SEC = 100.0;
 }
 
 

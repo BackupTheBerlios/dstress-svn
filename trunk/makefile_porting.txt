@@ -1,3 +1,5 @@
+requires GnuMake, at least 3.80(2002-10-03)
+
 make run/command_line_debug_01.diagnose.exe
 
 = = = = = stdout = = = = =

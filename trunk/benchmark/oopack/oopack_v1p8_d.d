@@ -324,7 +324,7 @@ version(HAVE_MAX){
 // This benchmark is included because some compilers do not compile 
 // inline functions into conditional branches as well as they might.  
 //
-class MaxBenchmark : Benchmark {
+final class MaxBenchmark : Benchmark {
 
 	const int M = 1000;		// Dimension of vector
 	double U[M];			// The vector
@@ -382,7 +382,7 @@ version(HAVE_MATRIX){
 // processors, the benchmark requires that the compiler perform strength-reduction and 
 // constant-propagation in order to simplify the indexing calculations in the inner loop.
 //
-class MatrixBenchmark: public Benchmark {
+final class MatrixBenchmark : Benchmark {
 	/** Dimension of (square) matrices. */
 	const int L = 50;
 
@@ -407,7 +407,7 @@ class MatrixBenchmark: public Benchmark {
 	}
 
 	/** Class Matrix represents a matrix stored in row-major format (same as C). */
-	class Matrix {
+	final class Matrix {
 	private:
 		/** Pointer to matrix data */
 		double *data;
@@ -482,7 +482,7 @@ version(HAVE_ITERATOR){
 // conversely, good strength-reduction should convert the single index into 
 // two iterators!  
 //
-class IteratorBenchmark: public Benchmark {
+final class IteratorBenchmark : Benchmark {
 	double A[N];
 	double B[N];
 	double IteratorResult;
@@ -500,7 +500,7 @@ class IteratorBenchmark: public Benchmark {
 	}
 
 	 /** Iterator for iterating over array of double */
-	class Iterator {
+	final class Iterator {
 		/** Index of current element */
 		int index;
 		/** 1 + index of last element */
@@ -568,7 +568,7 @@ version(HAVE_COMPLEX){
 // The complex arithmetic is all inlined, so in principle the code should
 // run as fast as the version using explicit real and imaginary parts.
 //
-class ComplexBenchmark: public Benchmark {
+final class ComplexBenchmark : Benchmark {
 	private bool c_was_last;
 	char[] name(){
 		return "Complex";
@@ -587,7 +587,7 @@ class ComplexBenchmark: public Benchmark {
 		}
 	}
 
-	class Complex {
+	final class Complex {
 		double re, im;
 		this(){
 		}

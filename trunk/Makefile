@@ -68,10 +68,8 @@ endif
 # settings
 to_log = >> $(LOG) 2>&1
 ext_run = exe
-ext_unittest_run = unittest.$(ext_run)
 ext_norun = bin
 ext_nocompile = no
-ext_unittest_nocompile = unittest.$(ext_nocompile)
 ext_compile = o
 ext_source = d
 ext_source_html = html
@@ -110,140 +108,93 @@ include $(complex_makefiles)
 #
 nocompile : Makefile $(sort $(subst .$(ext_source),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_nocompile),$(shell $(FIND) nocompile -regex ".*\\.$(ext_source_html)" ) ) )
 
-%.$(ext_nocompile) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_nocompile),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+define analyse_nocompile
 	@if $(ifeq__) $(z_return) 0 ; then \
 		$(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
 	else \
 		if $(ifeq__) $(z_return) 256 ; then \
 			$(ECHO) "XFAIL: $(z_name)"; $(TOUCH) $@; \
 		else \
-			$(ECHO) "ERROR: $(z_name)"; $(RM) $@; \
+			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
 		fi \
 	fi
+endef
+
+%.$(ext_nocompile) : %.$(ext_source) basic_tools
+	$(eval z_name = $(subst .$(ext_nocompile),,$@))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+	$(analyse_nocompile)
 
 %.$(ext_nocompile) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_nocompile),,$@))
 	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
-	@if $(ifeq__) $(z_return) 0 ; then \
-		$(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
-	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "XFAIL: $(z_name)"; $(TOUCH) $@; \
-		else \
-			$(ECHO) "ERROR: $(z_name)"; $(RM) $@; \
-		fi \
-	fi
-
-%.$(ext_unittest_nocompile) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_unittest_nocompile),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) -unittest $(DFLAGS) -c -of$@ $< $(to_log)"))
-	@if $(ifeq__) $(z_return) 0 ; then \
-		$(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
-	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "XFAIL: $(z_name)"; $(TOUCH) $@; \
-		else \
-			$(ECHO) "ERROR: $(z_name)"; $(RM) $@; \
-		fi \
-	fi
+	$(analyse_nocompile)
 
 #
 # target should compile (excludes linking)
 #
 compile : Makefile $(sort $(subst .$(ext_source),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_compile),$(shell $(FIND) compile -regex ".*\\.$(ext_source_html)" ) ) )
 
-%.$(ext_compile) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_compile),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+define analyse_compile
 	@if $(ifeq__) $(z_return) 0 ; then \
 		$(ECHO) "PASS:  $(z_name)"; \
 	else \
 		if $(ifeq__) $(z_return) 256 ; then \
 			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
 		else \
-			$(ECHO) "ERROR: $(z_name)"; $(RM) $@; \
+			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
 		fi \
 	fi
+endef
+
+%.$(ext_compile) : %.$(ext_source) basic_tools
+	$(eval z_name = $(subst .$(ext_compile),,$@))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
+	$(analyse_compile)
+
 
 %.$(ext_compile) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_compile),,$@))
 	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -of$@ $< $(to_log)"))
-	@if $(ifeq__) $(z_return) 0 ; then \
-		$(ECHO) "PASS:  $(z_name)"; \
-	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
-		else \
-			$(ECHO) "ERROR: $(z_name)"; $(RM) $@; \
-		fi \
-	fi
+	$(analyse_compile)
 
 # 
 # target should compile, link and run
 # 
 run : Makefile $(sort $(subst .$(ext_source),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_run),$(shell $(FIND) run -regex ".*\\.$(ext_source_html)" ) ) )
 
+define analyse_run
+	@if $(ifeq__) $(z_return) 0 ; then \
+		if ./$@ $(to_log); then \
+			$(ECHO) "PASS:  $(z_name)"; \
+		else \
+			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
+		fi \
+	else \
+		if $(ifeq__) $(z_return) 256 ; then \
+			$(ECHO) "FAIL:  $(z_name) (compiling error)"; \
+		else \
+			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; \
+		fi \
+	fi
+endef
+
 %.$(ext_run) : %.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_run),,$@))
 	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	@if $(ifeq__) $(z_return) 0 ; then \
-		if ./$@ $(to_log); then \
-			$(ECHO) "PASS:  $(z_name)"; \
-		else \
-			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
-		fi \
-	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name) (compiling error)"; \
-		else \
-			$(ECHO) "ERROR: $(z_name)"; \
-		fi \
-	fi
-
-%.$(ext_unittest_run) :  %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_run),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -unittest -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	@if $(ifeq__) $(z_return) 0 ; then \
-		if ./$@ $(to_log); then \
-			$(ECHO) "PASS:  $(z_name)"; \
-		else \
-			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
-		fi \
-	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name) (compiling error)"; \
-		else \
-			$(ECHO) "ERROR: $(z_name)"; \
-		fi \
-	fi
+	$(analyse_run)
 
 %.$(ext_run) : %.$(ext_source_html) basic_tools
 	$(eval z_name = $(subst .$(ext_run),,$@))
 	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	@if $(ifeq__) $(z_return) 0 ; then \
-		if ./$@ $(to_log); then \
-			$(ECHO) "PASS:  $(z_name)"; \
-		else \
-			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
-		fi \
-	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name) (compiling error)"; \
-		else \
-			$(ECHO) "ERROR: $(z_name)"; \
-		fi \
-	fi
+	$(analyse_run)
 
 #
 # target should compile and link but fail to run
 # 
 norun : Makefile $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source)" ) ) $(subst .$(ext_source_html),.$(ext_norun),$(shell $(FIND) norun -regex ".*\\.$(ext_source_html)" ) ) )
 
-%.$(ext_norun) : %.$(ext_source) basic_tools
-	$(eval z_name = $(subst .$(ext_norun),,$@))
-	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+define analyse_norun
 	@if $(ifeq__) $(z_return) 0; then \
 		if ./$@ $(to_log); \
 			then $(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
@@ -254,26 +205,21 @@ norun : Makefile $(sort $(subst .$(ext_source),.$(ext_norun),$(shell $(FIND) nor
 		if $(ifeq__) $(z_return) 256 ; then \
 			$(ECHO) "FAIL:  $(z_name) (compiling error)"; $(RM) $@; \
 		else \
-			$(ECHO) "ERROR: $(z_name)"; \
+			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; \
 		fi \
 	fi
+endef
+
+%.$(ext_norun) : %.$(ext_source) basic_tools
+	$(eval z_name = $(subst .$(ext_norun),,$@))
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(analyse_norun)
 
 %.$(ext_norun) : %.$(ext_source_html) Makefile 
 	$(eval z_name = $(subst .$(ext_norun),,$@))
 	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) -of$@ $< $(to_log)"))
-	@if $(ifeq__) $(z_return) 0; then \
-		if ./$@ $(to_log); \
-			then $(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
-		else \
-			$(ECHO) "XFAIL: $(z_name)"; \
-		fi \
-	else \
-		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name) (compiling error)"; $(RM) $@; \
-		else \
-			$(ECHO) "ERROR: $(z_name)"; \
-		fi \
-	fi
+	$(analyse_norun)
+
 
 #
 # run all complex test cases

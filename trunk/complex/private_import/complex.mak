@@ -30,24 +30,18 @@ complex/private_import/$(complex_done) : complex/private_import/private_import_0
 #
 # compile only the 3rd file
 #
-complex/private_import/private_import_01.done : complex/private_import/a.$(ext_source) complex/private_import/b.$(ext_source) complex/private_import/c.$(ext_source) complex/private_import/$(complex_todo)
+complex/private_import/private_import_01.done : complex/private_import/a.$(ext_source) complex/private_import/b.$(ext_source) complex/private_import/c.$(ext_source) complex/private_import/$(complex_todo) basic_tools
 	$(eval z_name = $(subst .done,,$@))
-	@if $(DMD) $(DFLAGS) -c -Icomplex/private_import/ -ofcomplex/private_import/c.$(ext_compile) complex/private_import/c.$(ext_source) $(to_log); then \
-		$(ECHO) "XPASS: $(z_name)"; \
-	else \
-		$(ECHO) "XFAIL:  $(z_name)"; $(TOUCH) $@; \
-	fi
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -Icomplex/private_import/ -ofcomplex/private_import/c.$(ext_compile) complex/private_import/c.$(ext_source) $(to_log)"))
+	$(analyse_nocompile)
 
 #
 # compile all 3 files at the same time
 #
-complex/private_import/private_import_02.done : complex/private_import/a.$(ext_source) complex/private_import/b.$(ext_source) complex/private_import/c.$(ext_source) complex/private_import/$(complex_todo)
+complex/private_import/private_import_02.done : complex/private_import/a.$(ext_source) complex/private_import/b.$(ext_source) complex/private_import/c.$(ext_source) complex/private_import/$(complex_todo) basic_tools
 	$(eval z_name = $(subst .done,,$@))
-	@if $(DMD) $(DFLAGS) -c -od$(OBJ_DIR) complex/private_import/a.$(ext_source) complex/private_import/b.$(ext_source) complex/private_import/c.$(ext_source) $(to_log); then \
-		$(ECHO) "XPASS: $(z_name)"; \
-	else \
-		$(ECHO) "XFAIL:  $(z_name)"; $(TOUCH) $@; \
-	fi
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -c -od$(OBJ_DIR) complex/private_import/a.$(ext_source) complex/private_import/b.$(ext_source) complex/private_import/c.$(ext_source) $(to_log)"))
+	$(analyse_nocompile)
 
 
 # this will be called by root's "clean" target

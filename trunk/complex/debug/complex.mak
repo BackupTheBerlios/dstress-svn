@@ -27,41 +27,20 @@ complex/debug/warning :
 # this will be called by root's "all" / "complex" target
 complex/debug/$(complex_done) : complex/debug/debug_01.$(ext_run) complex/debug/debug_02.$(ext_run) complex/debug/debug_03.$(ext_run)
 	
-complex/debug/debug_01.$(ext_run) :  complex/debug/debug_01.$(ext_source)
+complex/debug/debug_01.$(ext_run) :  complex/debug/debug_01.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_run),,$@))
-	@if $(DMD) $(DFLAGS) -debug -od$(OBJ_DIR) -of$@ $< $(to_log); then \
-		if $@ $(to_log); then \
-			$(ECHO) "PASS:  $(z_name)"; \
-		else \
-			$(ECHO) "FAIL: $(z_name)"; $(RM) $@; \
-		fi \
-	else \
-		$(ECHO) "FAIL: $(z_name) (compiling error)"; \
-	fi
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -debug -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(analyse_run)
 
-complex/debug/debug_02.$(ext_run) :  complex/debug/debug_02.$(ext_source) complex/debug/$(complex_todo)
+complex/debug/debug_02.$(ext_run) :  complex/debug/debug_02.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_run),,$@))
-	@if $(DMD) $(DFLAGS) -debug=2 -od$(OBJ_DIR) -of$@ $< $(to_log); then \
-		if $@ $(to_log); then \
-			$(ECHO) "PASS:  $(z_name)"; \
-		else \
-			$(ECHO) "FAIL: $(z_name)"; $(RM) $@; \
-		fi \
-	else \
-		$(ECHO) "FAIL: debug_02 (compiling error)"; \
-	fi
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -debug=2 -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(analyse_run)
 
-complex/debug/debug_03.$(ext_run) :  complex/debug/debug_03.$(ext_source) complex/debug/$(complex_todo)
+complex/debug/debug_03.$(ext_run) :  complex/debug/debug_03.$(ext_source) basic_tools
 	$(eval z_name = $(subst .$(ext_run),,$@))
-	@if $(DMD) $(DFLAGS) -debug=a -od$(OBJ_DIR) -of$@ $< $(to_log); then \
-		if $@ $(to_log); then \
-			$(ECHO) "PASS:  $(z_name)"; \
-		else \
-			$(ECHO) "FAIL: $(z_name)"; $(RM) $@; \
-		fi \
-	else \
-		$(ECHO) "FAIL: $(z_name) (compiling error)"; \
-	fi
+	$(eval z_return = $(shell $(return__) "$(DMD) $(DFLAGS) -debug=a -od$(OBJ_DIR) -of$@ $< $(to_log)"))
+	$(analyse_run)
 
 
 # this will be called by root's "clean" target

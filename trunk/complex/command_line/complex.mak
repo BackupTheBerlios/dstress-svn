@@ -22,7 +22,7 @@
 	complex/command_line/clean
 
 complex/command_line/warning :
-	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"coplex/command_line/coplex.done\", \"complex\" or \"all\""
+	@echo "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex/command_line/complex.done\", \"complex\" or \"all\""
 
 #
 # name__command__line__arguments.cmdrun
@@ -53,29 +53,23 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 # try running with "dummy.d" as the source
 # (should succeed)
 # 
-%.cmdrun : complex/command_line/dummy.$(ext_source)
+%.cmdrun : complex/command_line/dummy.$(ext_source) basic_tools
 	$(eval z_raw = $(subst __, ,$*))
 	$(eval z_name = $(word 1,$(z_raw)))
 	$(eval z_arg = $(subst $(z_name),,$(z_raw)))
-	@if $(DMD) $(z_arg) complex/command_line/dummy.$(ext_source) $(to_log); then \
-		$(ECHO) "PASS:  $(z_name)"; \
-	else \
-		$(ECHO) "FAIL: $(z_name)"; \
-	fi
+	$(eval z_return = $(shell $(return__) "$(DMD) $(z_arg) complex/command_line/dummy.$(ext_source) $(to_log)"))
+	$(analyse_compile)
 
 #
 # try running with "dummy.d" as the source
 # (should fail)
 #
-%.cmdfail : complex/command_line/dummy.$(ext_source)
+%.cmdfail : complex/command_line/dummy.$(ext_source) basic_tools
 	$(eval z_raw = $(subst __, ,$*))
 	$(eval z_name = $(word 1,$(z_raw)))
 	$(eval z_arg = $(subst $(z_name),,$(z_raw)))
-	@if $(DMD) $(z_arg) complex/command_line/dummy.$(ext_source) $(to_log); then \
-		$(ECHO) "XPASS: $(z_name)"; \
-	else \
-		$(ECHO) "XFAIL:  $(z_name)"; \
-	fi
+	$(eval z_return = $(shell $(return__) "$(DMD) $(z_arg) complex/command_line/dummy.$(ext_source) $(to_log)"))
+	$(analyse_nocompile)
 
 #
 # try running without any additional source agruments
@@ -88,10 +82,10 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 	@if $(CD) complex/command_line ; $(DMD) $(z_arg) $(to_log); then \
 		$(ECHO) "XPASS: $(z_name)"; \
 	else \
-		$(ECHO) "XFAIL:  $(z_name)"; \
-	fi	
+		$(ECHO) "XFAIL: $(z_name)"; \
+	fi 
 	
 # this will be called by root's "clean" target
 complex/command_line/clean :
-	$(RM) complex/command_line/*.done complex/command_line/*.xxxx complex/command_line/*.$(ext_compile) complex/command_line/.?*$(ext_compile)
+	$(RM) complex/command_line/*.done complex/command_line/*.xxxx complex/command_line/*.$(ext_compile) complex/command_line/.?*$(ext_compile) complex/command_line/?*.cmdnullfail
 

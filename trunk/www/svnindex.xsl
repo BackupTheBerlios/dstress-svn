@@ -30,7 +30,7 @@
 				</xsl:element>
 				<xsl:text> </xsl:text>
 				<xsl:value-of select="@version"/>
-				<xsl:text>; Hosting by Thomas K&uuml;hne</xsl:text>
+				<xsl:text>; Hosting by Thomas K&#252;hne</xsl:text>
 			</div>
 		</body>
 	</html>

@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_ELINE__ 17
+
 module dstress.nocompile.goto_06;
 
 int main(){

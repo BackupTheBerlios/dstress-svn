@@ -6,9 +6,6 @@ int main(){
 	}catch(Exception e){
 		checkLineNumber(e);
 		return 0;
-	}catch(Error e){
-		checkLineNumber(e);
-		return 0;
 	}
 
 	assert(-1);

@@ -9,6 +9,9 @@
 
 module dstress.run.in_out_body_03;
 
+bool in_checked;
+bool out_checked;
+
 class MyClass{
 	int i;
 }
@@ -16,9 +19,10 @@ class MyClass{
 void outer(){
 	MyClass inner()
 	in{
-		assert(1);
+		in_checked=true;
 	}out (result){
 		assert(result.i==1);
+		out_checked=true;
 	}body{
 		MyClass s;
 		s.i = 1;
@@ -29,5 +33,7 @@ void outer(){
 
 int main(){
 	outer();
+	assert(in_checked);
+	assert(out_checked);
 	return 0;
 }

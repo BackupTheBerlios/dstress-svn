@@ -1,4 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 module dstress.run.invariant_12.d;
+
+bool checked;
 
 class Parent{
 	int x;
@@ -7,8 +13,10 @@ class Parent{
 	}
 	
 	invariant{
+		assert(!checked);
+		checked=true;
 		// even number
-		assert(x&1==0);
+		assert((x&1u)==0);
 	}
 }
 
@@ -23,8 +31,10 @@ class GrandChild : Child{
 
 int main(){
 	try{
+		assert(!checked);
 		GrandChild gc = new GrandChild();
 	}catch{
+		assert(checked);
 		return 0;
 	}
 	assert(0);

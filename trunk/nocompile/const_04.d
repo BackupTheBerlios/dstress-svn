@@ -4,7 +4,7 @@
 
 // constant loop
 
-// __DSTRESS_ELINE__ 11
+// __DSTRESS_ELINE__ 12
 
 module dstress.nocompile.const_04;
 

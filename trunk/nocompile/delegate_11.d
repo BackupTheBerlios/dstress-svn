@@ -10,7 +10,7 @@ module dstress.nocompile.delegate_11;
 
 union MyUnion{
 	static int test(){
-		return b;
+		return 0;
 	}
 	byte b;
 }

@@ -7,7 +7,9 @@
 // @uri@	news:cpk4vq$1m5a$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2546
 
-module dstress.run.template_08;
+// __DSTRESS_ELINE__ 18
+
+module dstress.nocompile.template_08;
 
 template T(){
 	A a;

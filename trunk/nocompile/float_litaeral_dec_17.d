@@ -7,6 +7,8 @@
 // @uri@	news:opshte92rnaaezs2@localhost
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2316
 
+// __DSTRESS_ELINE__ 14
+
 module dstress.nocompile.float_literal_dec_17;
 
 float a = 2..23;

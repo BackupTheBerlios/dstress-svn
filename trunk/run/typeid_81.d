@@ -13,6 +13,6 @@ enum {
 int main(){
 	TypeInfo ti = typeid(typeof(A));
 	assert(!(ti is null));
-	assert(ti.tsize==(A).sizeof);
+	assert(ti.tsize==(typeof(A)).sizeof);
 	return 0;
 }

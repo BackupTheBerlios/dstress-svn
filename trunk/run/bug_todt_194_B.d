@@ -9,7 +9,7 @@
 module dstress.run.bug_todt_194_B;
 
 int main(){
-	assert(new MyStruct!().i==int.sizeof);
+	assert((new MyStruct!()).i==int.sizeof);
 	return 0;
 }
 

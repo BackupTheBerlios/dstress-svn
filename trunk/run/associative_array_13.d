@@ -10,7 +10,7 @@ module dstress.run.associative_array_13;
 
 int main() {
 	int[cdouble] x;
-	cdouble d=22;
+	cdouble d=22.0+0.0i;
 	x[d] = 44;
 	assert( x[d] == 44 );
 	return 0;

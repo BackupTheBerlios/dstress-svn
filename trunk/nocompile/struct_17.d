@@ -7,7 +7,7 @@
 // @uri@	news:cn9vah$1shn$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2270
 
-module dstress.run.struct_17;
+module dstress.nocompile.struct_17;
 
 struct {
 	int dummy;

@@ -7,7 +7,7 @@
 // @uri@	news:cn9vah$1shn$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2270
 
-module dstress.run.union_11;
+module dstress.nocompile.union_11;
 
 union {
 	short s=1234;

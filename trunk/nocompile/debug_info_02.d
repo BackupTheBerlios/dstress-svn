@@ -7,8 +7,9 @@
 // @uri@	news:opsn61vgpg23k2f5@nrage.netwin.co.nz
 
 // __DSTRESS_DFLAGS__ -g
+// __DSTRESS_ELINE__ 14
 
-module dstress.run.debug_info_02;
+module dstress.nocompile.debug_info_02;
 
 typedef fn function() fn;
 

@@ -6,7 +6,9 @@
 // @date@	2005-03-25
 // @uri@	news:opsn61vgpg23k2f5@nrage.netwin.co.nz
 
-module dstress.run.debug_info_01;
+// __DSTRESS_ELINE__ 13
+
+module dstress.nocompile.debug_info_01;
 
 typedef fn function() fn;
 

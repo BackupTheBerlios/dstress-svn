@@ -8,8 +8,8 @@ int main(){
 	char[] string = x"F0 9D 83 93"; // utf-8 for U+1D0D3
 
 	int count=0;
-	wchar tmp;
-	foreach(wchar value ; string){
+	dchar tmp;
+	foreach(dchar value ; string){
 		tmp=value;
 		count++;
 	}

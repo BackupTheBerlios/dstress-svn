@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Derek Parnell <derek@psych.ward>
 // @date@	2004-10-12
-// @uri@	news://ckfav3$2gbv$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2080
+// @uri@	news:ckfav3$2gbv$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2080
 
 module dstress.nocompile.opCmp_02;
 

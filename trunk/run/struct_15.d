@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	shinichiro.h <s31552@mail.ecc.u-tokyo.ac.jp>
 // @date@	2004-10-30
-// @uri@	news://20041030030623.0497f385.s31552@mail.ecc.u-tokyo.ac.jp
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2163
+// @uri@	news:20041030030623.0497f385.s31552@mail.ecc.u-tokyo.ac.jp
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2163
 
 // __DSTRESS_DFLAGS__ -O
 

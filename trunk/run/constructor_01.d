@@ -1,7 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Stephan Wienczny <wienczny@web.de>
 // @date@	2004-04-30
-// @uri@	news://c6tkos$2a78$1@digitaldaemon.com
+// @uri@	news:c6tkos$2a78$1@digitaldaemon.com
 
 class ClassA{}
 

@@ -1,8 +1,11 @@
-// based on a report by:
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Russ Lewis <spamhole-2001-07-16@deming-os.org>
 // @date@	2004-10-11
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2068
-// @uri@	news://ckdc4r$re2$1@digitaldaemon.com
+// @uri@	news:ckdc4r$re2$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2068
 
 module dstress.run.sort_04;
 

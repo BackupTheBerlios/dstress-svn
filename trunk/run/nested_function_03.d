@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Charlie <Charlie_member@pathlink.com>
 // @date@	2004-07-17
-// @uri@	news://casnln$1oe1$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:551
+// @uri@	news:casnln$1oe1$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/551
 
 module dstress.run.nested_function_03;
 

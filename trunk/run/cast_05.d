@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Nick <Nick_member@pathlink.com>
 // @date@	2004-08-06
-// @uri@	news://cf0mo2$rfi$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:1296
+// @uri@	news:cf0mo2$rfi$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/1296
 
 module dstress.run.cast_05;
 

@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	heretic <heretic_member@pathlink.com>
 // @date@	2004-07-09
-// @uri@	news://ccl6ao$vd3$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:752
+// @uri@	news:ccl6ao$vd3$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/752
 
 module dstress.run.class_06;
 

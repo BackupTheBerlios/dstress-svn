@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	larrycowan <larrycowan_member@pathlink.com>
 // @date@	2004-11-04
-// @uri@	news://cmd9i4$16g5$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D:12279
+// @uri@	news:cmd9i4$16g5$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D/12279
 
 // Note:
 // 	this crashs dmd-0.106 but results in the pseudo return code 1,

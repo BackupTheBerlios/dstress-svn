@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Daniel Horn <hellcatv@hotmail.com>
 // @date@	2004-04-30
-// @uri@	news://c6ullo$104s$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:48
+// @uri@	news:c6ullo$104s$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/48
 
 module dstress.nocompile.bug_mtype_3154;
 

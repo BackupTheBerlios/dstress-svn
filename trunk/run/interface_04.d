@@ -1,7 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	van eeshan <vanee@hotmail.com>
 // @date@	2004-08-05
-// @uri@	news://ces67k$rgj$1@digitaldaemon.com
+// @uri@	news:ces67k$rgj$1@digitaldaemon.com
 
 int status;
 

@@ -1,7 +1,7 @@
 // @author@	Steward Gordon <smjg_1998@yahoo.com>
 // @date@	2004-09-15
-// @uri@	news://ci94i9$1352$2@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:1849
+// @uri@	news:ci94i9$1352$2@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/1849
 
 module dstress.run.slice_03;
 

@@ -1,7 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Paul Runde <prunde@consolidated.net>
 // @date@	2004-06-02
-// @uri@	news://c9jcpq$1fu$1@digitaldaemon.com
+// @uri@	news:c9jcpq$1fu$1@digitaldaemon.com
 
 int[2] x = 3;
 float y = 0.0f;

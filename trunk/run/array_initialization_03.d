@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	tetsuya <tetsuya_member@pathlink.com>
 // @date@	2004-10-29
-// @uri@	news://cltnob$2qnk$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2162
+// @uri@	news:cltnob$2qnk$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2162
 
 module dstress.run.array_initialization_03;
 

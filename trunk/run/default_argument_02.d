@@ -1,7 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Andy Friesen <andy@ikagames.com>
 // @date@	2004-06-25
-// @uri@	news://cbfp7c$2rcg$1@digitaldaemon.com
+// @uri@	news:cbfp7c$2rcg$1@digitaldaemon.com
 
 class MyClass{
 	static MyClass test(int i=0){

@@ -1,7 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Nick <Nick_member@pathlink.com>
 // @date@	2004-08-05
-// @uri@	news://cetp3r$1rrc$1@digitaldaemon.com 
+// @uri@	news:cetp3r$1rrc$1@digitaldaemon.com 
 
 template Bar(Y){
 	void Bar(Y param){

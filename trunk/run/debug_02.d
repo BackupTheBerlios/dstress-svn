@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Thomas Kuehne <eisvogel@users.sourceforge.net>
 // @date@	2004-10-16
-// @uri@	news://ckro4i$1b4l$2@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2119
+// @uri@	news:ckro4i$1b4l$2@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2119
 
 // __DSTRESS_DFLAGS__ -debug=2
 

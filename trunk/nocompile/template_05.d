@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	=?iso-8859-1?q?Knud_S=F8rensen?= <knud@NetRunner.all-technology.com>
 // @date@	2004-05-30
-// @uri@	news://pan.2004.05.30.19.54.44.280109@NetRunner.all-technology.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:329
+// @uri@	news:pan.2004.05.30.19.54.44.280109@NetRunner.all-technology.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/329
 
 module dstress.nocompile.template_05;
 

@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.cn>
 // @date@	2004-10-23
-// @uri@	news://cldaue$2gf4$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2144
+// @uri@	news:cldaue$2gf4$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2144
 
 module dstress.run.invariant_18;
 

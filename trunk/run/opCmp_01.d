@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	k2 <k2_member@pathlink.com>
 // @date@	2004-08-04
-// @uri@	news://ceq9g7$25mj$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:1248
+// @uri@	news:ceq9g7$25mj$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/1248
 
 module dstress.run.opCmp_01;
 

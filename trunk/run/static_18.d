@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@ 	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2004-11-09
-// @uri@	news://cmq61m$5rn$1@digitaldaemon.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2218
+// @uri@	news:cmq61m$5rn$1@digitaldaemon.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2218
 
 // __DSTRESS_DFLAGS__ -d
 

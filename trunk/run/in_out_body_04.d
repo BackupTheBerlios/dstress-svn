@@ -4,8 +4,8 @@
 
 // @author@	Buchan <kbuchan@xtra.co.nz>
 // @date@	2004-11-14
-// @uri@	news://opshfzxz0b44buww@simon.homenet
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:2262
+// @uri@	news:opshfzxz0b44buww@simon.homenet
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2262
 
 module dstress.run.in_out_body_04;
 

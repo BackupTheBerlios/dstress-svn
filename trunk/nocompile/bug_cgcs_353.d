@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Regan Heath <regan@netwin.co.nz>
 // @date@	2004-06-10
-// @uri@	news://opr9c6ny1b5a2sq9@digitalmars.com
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:438
+// @uri@	news:opr9c6ny1b5a2sq9@digitalmars.com
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/438
 
 module dstress.nocompile.bug_cgcs_353;
 

@@ -1,7 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Ilya Zaitseff <sark7@mail333.com>
 // @date@	2004-08-06
-// @uri@	news://opscahl7ddaaezs2@ilya.tec.amursk.ru
-// @url@	nttp://digitalmars.com/digitalmars.D.bugs:1284
+// @uri@	news:opscahl7ddaaezs2@ilya.tec.amursk.ru
+// @url@	nntp://digitalmars.com/digitalmars.D.bugs/1284
 
 module dstress.run.destructor_03;
 

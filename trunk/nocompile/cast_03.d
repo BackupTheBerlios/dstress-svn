@@ -1,7 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Walter <newshound@digitalmars.com>
 // @date@	2004-08-16
-// @uri@	news://cfpk7u$1qgs$1@digitaldaemon.com
+// @uri@	news:cfpk7u$1qgs$1@digitaldaemon.com
 
 
 interface MyInterface{

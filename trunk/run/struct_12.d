@@ -1,7 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Bent Rasmussen <exo@bent-rasmussen.info>
 // @date@	2004-06-21
-// @uri@	news://cb550t$1pon$1@digitaldaemon.com
+// @uri@	news:cb550t$1pon$1@digitaldaemon.com
 
 int status;
 

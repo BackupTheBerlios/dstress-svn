@@ -6,6 +6,8 @@
 // @date@	2005-03-06
 // @uri@	news:d0fg6a$dfa$1@digitaldaemon.com
 
+// __DSTRESS_ELINE__ 17
+
 module dstress.nocompile.slice_10;
 
 void test(){

@@ -7,6 +7,8 @@
 // @uri@	news:ckrq8e$1cnl$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2121
 
+// __DSTRESS_ELINE__ 30
+
 module dstress.nocompile.overload_11;
 
 int test(real a, real b){

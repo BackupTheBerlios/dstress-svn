@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 17
+// __DSTRESS_ELINE__ 11
 
 module dstress.nocompile.float_17;
 

@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // __DSTRESS_DFLAGS__ -debug=123456789
 
 module stress.run.command_line_debug_04;

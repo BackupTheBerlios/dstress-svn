@@ -6,6 +6,8 @@
 // @date@	2004-08-12
 // @uri@	news:cfe9vt$1btr$1@digitaldaemon.com
 
+module dstress.run.delegate_01;
+
 struct List(T){
 	T[] S;
 

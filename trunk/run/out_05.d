@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.out_05;
 
 int status;
 

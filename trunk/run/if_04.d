@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.if_04;
 
 int main(){
 	int value=6;

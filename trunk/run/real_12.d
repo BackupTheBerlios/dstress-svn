@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.real_12;
 
 int main(){
 	real r;

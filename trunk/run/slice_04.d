@@ -1,5 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2004-09-15
+
+module dstress.run.slice_04;
 
 int main(){
 	char[] array = new char[4];

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.alias_02;
 
 alias Object MyObject;
 

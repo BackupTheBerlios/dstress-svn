@@ -7,6 +7,8 @@
 // @uri@	news:crmrb6$2slf$1@digitaldaemon.com
 // @url@        nntp://news.digitalmars.com/digitalmars.D.bugs/2649
 
+// __DSTRESS_ELINE__ 26
+
 module dstress.nocompile.overload_12;
 
 class A{

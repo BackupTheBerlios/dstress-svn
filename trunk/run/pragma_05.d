@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.pragma_05;
 
 const char [] check = "compiling pragma";
 

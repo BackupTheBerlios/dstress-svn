@@ -1,5 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Ivan Senji <ivan.senji@public.srce.hr>
 // @date@	2004-05-06
+
+module dstress.run.template_struct_01;
 
 struct vec(int size){
 	float data[size];

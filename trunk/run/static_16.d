@@ -7,7 +7,7 @@
 // @uri@	news:cm057b$13nu$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2165
 
-module dstress.nocompile.static_16;
+module dstress.run.static_16;
 
 class MyClass{
 	static {
@@ -19,6 +19,6 @@ class MyClass{
 }
 
 int main(){
-	assert(MyClass.x==2);
+	assert(MyClass.x==0);
 	return 0;
 }

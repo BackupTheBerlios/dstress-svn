@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.alias_04;
 
 class A {
 	int foo(int a) { return 1; }

@@ -9,6 +9,8 @@
 
 // call to "this" before "super"
 
+// __DSTRESS_ELINE__  26
+
 module dstress.nocompile.super_09;
 
 size_t status;

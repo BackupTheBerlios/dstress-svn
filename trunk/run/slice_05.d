@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.slice_05;
+
 int main(){
 	byte[] a;
 	a.length=2;

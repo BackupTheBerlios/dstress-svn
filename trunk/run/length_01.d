@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.length_01;
 
 int main(){
 	byte[3] array;

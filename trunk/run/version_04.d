@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.version_04;
 
 int main(){
 	int cpu=0;

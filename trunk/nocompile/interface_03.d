@@ -1,3 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 14
+
+module dstress.nocompile.interface_03;
 
 interface MyInterface{
 	void one();

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.comment_13;
+
 int main(){
 	char[] string="
 //

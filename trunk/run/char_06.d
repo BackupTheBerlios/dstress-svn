@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// check that char realy is unsigned
+// check that char is unsigned
 
 module dstress.run.char_06;
 

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.types_declaration_01;
 
 int main(char[][] args){
 	int a;		// a is an int

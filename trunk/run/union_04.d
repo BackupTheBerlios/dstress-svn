@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.union_04;
+
 union MyUnion{
 	short s;
 	byte b;

@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // __DSTRESS_DFLAGS__ -d
 
 module dstress.run.deprecated_13;

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.alias_03;
 
 template Foo2(T) { alias T t; }
 alias Foo2!(int) t1;

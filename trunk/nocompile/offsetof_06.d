@@ -4,6 +4,8 @@
 
 // functions are no member fields
 
+// __DSTRESS_ELINE__ 21
+
 module dstress.nocompile.offsetof_06;
 
 class MyClass{

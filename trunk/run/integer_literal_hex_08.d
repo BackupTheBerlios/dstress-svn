@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.integer_literal_hex_08;
+
 int main(){
 	assert( 0x_1_0_U == 16);
 	assert( 0x_1_0_U.sizeof == uint.sizeof);

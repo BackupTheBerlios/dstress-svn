@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.line_token_03;
+
 int main(){
 	try{
 		#line 0 ""

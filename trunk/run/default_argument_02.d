@@ -6,6 +6,8 @@
 // @date@	2004-06-25
 // @uri@	news:cbfp7c$2rcg$1@digitaldaemon.com
 
+module dstress.run.default_argument_02;
+
 class MyClass{
 	static MyClass test(int i=0){
 		return new MyClass();

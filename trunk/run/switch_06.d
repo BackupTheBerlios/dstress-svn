@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.switch_06;
 
 int main(){
 	char[] test="eins";

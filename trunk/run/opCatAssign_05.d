@@ -1,4 +1,8 @@
-module dstress.run.opCatAsign_05;
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.opCatAssign_05;
 
 int main(){
 	bit[] a;

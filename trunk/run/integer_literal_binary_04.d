@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.integer_literal_binary_04;
+
 int main(){
 	assert( 0b101l == 5);
 	assert( 0b101l.sizeof == long.sizeof);

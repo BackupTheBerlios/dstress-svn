@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 module dstress.run.creal_04;
 
 int main(){

@@ -6,6 +6,8 @@
 // @date@	2004-08-05
 // @uri@	news:ces67k$rgj$1@digitaldaemon.com
 
+module dstress.run.interface_02;
+
 int status;
 
 interface Interface1{

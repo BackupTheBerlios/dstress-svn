@@ -1,5 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2004-09-01
+
+module dstress.run.interface_07;
 
 int status;
 

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.struct_initialization_05;
+
 struct MyStruct{
 	int a;
 	int b;

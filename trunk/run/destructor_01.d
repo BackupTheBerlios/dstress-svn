@@ -6,6 +6,8 @@
 // @date@	2004-05-01
 // @uri@	news:c6v105$1flg$1@digitaldaemon.com
 
+module dstress.run.destructor_01;
+
 int status;
 
 class ClassA{

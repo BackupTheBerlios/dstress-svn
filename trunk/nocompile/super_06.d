@@ -9,6 +9,8 @@
 
 // Object has no constructor
 
+// __DSTRESS_ELINE__  18
+
 module dstress.nocompile.super_06;
 
 class MyClass : Object{

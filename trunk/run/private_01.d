@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.private_01;
+
 class MyClass{
 	private int test(int i){
 		return i+1;

@@ -7,13 +7,10 @@
 // @uri@	news:cn9vah$1shn$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2270
 
+// __DSTRESS_ELINE__  14
+
 module dstress.nocompile.struct_17;
 
 struct {
 	int dummy;
-}
-
-int main(){
-	assert(dummy==0);
-	return 0;
 }

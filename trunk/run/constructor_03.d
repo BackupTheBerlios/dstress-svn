@@ -1,5 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Kris <someidiot@earthlink.dot.dot.dot.net>
 // @date@	2004-06-02
+
+module dstress.run.constructor_03;
 
 int status_static;
 int status_dyn;

@@ -4,6 +4,8 @@
 
 // only associative arrays support the InExpression
 
+// __DSTRESS_ELINE__ 18
+
 module dstress.nocompile.InExpression_16;
 
 struct MyStruct{

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.typeid_01;
+
 class MyClass{
 }
 

@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 module dstress.run.default_argument_04;
 
 int test(char[] a="abc"){

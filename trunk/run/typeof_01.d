@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.typeof_01;
 
 int main(){
 	int a = 1;

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.mixin_10;
+module dstress.run.with_10;
 
 MyClass dummyThis;
 

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.do_while_03;
 
 int main(){
 	int test=10;

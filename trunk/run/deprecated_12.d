@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 module dstress.run.deprecated_12;
 
 int a = 2;

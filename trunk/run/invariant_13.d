@@ -1,4 +1,8 @@
-module dstress.run.invariant_13.d;
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.invariant_13;
 
 class Parent{
 	int x;

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.escape_unicode32_03;
+
 int main(){
 	char[] a="\U0000ABCD";
 	char[] b="\U0000abcd";

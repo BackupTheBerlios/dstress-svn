@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.sizeof_04;
+
 int main(){
 	int[char[]] array;
 	assert(array.sizeof == 8);

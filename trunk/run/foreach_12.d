@@ -1,4 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
+module dstress.run.foreach_12;
 
 int main(){
 	char[] array="abc";

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.throw_01;
 
 int main(){
 	int status=0;

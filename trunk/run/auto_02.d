@@ -1,6 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2004-09-11
+
+module dstress.run.auto_02;
 
 int status;
 

@@ -1,4 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // it is an error if any Catch Parameter type T1 hides a subsequent Catch with type T2
+
+// __DSTRESS_ELINE__ 20
 
 module dstress.nocompile.try_05;
 

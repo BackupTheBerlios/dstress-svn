@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.Wysiwyg_String_07;
+
 int main(){
 	char[] string=r"\b";
 	assert(string.length==2);

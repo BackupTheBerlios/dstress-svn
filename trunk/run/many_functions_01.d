@@ -5,6 +5,8 @@
 // @author@	Daniel Horn <hellcatv@hotmail.com>
 // @date@	2004-05-07
 
+module dstress.run.many_functions_01;
+
 int main () {
   return 0;
 }

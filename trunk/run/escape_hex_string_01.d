@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.escape_hex_string_01;
+
 int main(){
 	char[] string=x"12af";
 	assert(string.length==2);

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.opCatAssign_03;
+
 int main(){
 	int[] a;
 	a.length=3;

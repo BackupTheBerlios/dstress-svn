@@ -6,6 +6,8 @@
 // @date@	2004-08-20
 // @uri@	news:cg41gm$2u2d$1@digitaldaemon.com
 
+module dstress.run.bit_06;
+
 union MyUnion{
 	bit check;
 }

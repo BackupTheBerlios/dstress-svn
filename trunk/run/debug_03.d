@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // __DSTRESS_DFLAGS__ -debug=a
 
 module dstress.run.debug_03;

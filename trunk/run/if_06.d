@@ -1,6 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Burton Radons <burton-radons@shaw.ca>
 // @date@	2004-09-19
+
+module dstress.run.if_01;
 
 int main(){
 	int x=1;

@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2004-09-15
 // @uri@	news:ci94i9$1352$2@digitaldaemon.com

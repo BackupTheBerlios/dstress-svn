@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // check that the compiler feature D_InlineAsm can't be set for a non-supporting compiler
 
 module dstress.nocompile.version_11;

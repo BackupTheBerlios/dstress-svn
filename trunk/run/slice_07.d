@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.slice_07;
+
 int main(){
 	bit[] a;
 	a.length=2;

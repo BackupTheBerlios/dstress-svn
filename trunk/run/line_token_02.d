@@ -1,8 +1,14 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.line_token_02;
+
 int main(){
 	try{
 		#line 0
 		assert(0);
-	}catch(Exception e){
+	}catch(Object e){
 		checkLineNumber(e);
 		return 0;
 	}

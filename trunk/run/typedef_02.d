@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.typedef_02;
 
 typedef int myint = 1;
 

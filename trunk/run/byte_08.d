@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.byte_08;
 
 int main(){
 	byte a, b, c;

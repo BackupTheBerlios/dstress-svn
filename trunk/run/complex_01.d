@@ -6,6 +6,8 @@
 // @date@	2004-05-01
 // @uri@	news:c71239$1dij$1@digitaldaemon.com
 
+module dstress.run.complex_01;
+
 int main(){
 	creal C, Cj;
 	real y, x;

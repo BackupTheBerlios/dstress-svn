@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_ELINE__ 19
+
 module dstress.nocompile.offsetof_04;
 
 union MyUnion{

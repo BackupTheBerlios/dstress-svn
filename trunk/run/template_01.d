@@ -6,6 +6,8 @@
 // @date@	2004-05-01
 // @uri@	news:c6uoje$14a1$1@digitaldaemon.com
 
+module dstress.run.template_01;
+
 template T(int size){
 	int vec[size];
 }

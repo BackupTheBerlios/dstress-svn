@@ -6,6 +6,8 @@
 // @date@	2004-08-20
 // @uri@	news:cg41gm$2u2d$1@digitaldaemon.com
 
+module dstress.run.bit_05;
+
 class MyClass{
 	bit check;
 }

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.with_09;
+
 struct MyStruct{
 	int test(){
 		return 3;

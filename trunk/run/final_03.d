@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.final_03;
+
 class Parent{
 	int test(){
 		return 3;

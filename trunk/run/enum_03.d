@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.enum_03;
 
 enum MyEnum : byte {
 	A,

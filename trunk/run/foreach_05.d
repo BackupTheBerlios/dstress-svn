@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.foreach_05;
 
 class MyClass{
 	int value;

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.static_06;
 
 struct MyStruct{
 	static int status;

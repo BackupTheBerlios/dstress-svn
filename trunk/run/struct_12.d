@@ -6,6 +6,8 @@
 // @date@	2004-06-21
 // @uri@	news:cb550t$1pon$1@digitaldaemon.com
 
+module dstress.run.struct_12;
+
 int status;
 
 struct MyStruct{

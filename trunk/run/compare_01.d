@@ -6,6 +6,8 @@
 // @date@	2004-08-07
 // @uri@	news:cf2tt5$2073$1@digitaldaemon.com
 
+module dstress.run.compare_01;
+
 class MyClass{
 }
 

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.escape_unicode32_01;
+
 int main(){
 	wchar[] string="\U000002AF1";
 	assert(string.length==2);

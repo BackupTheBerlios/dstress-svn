@@ -7,23 +7,32 @@
 // @uri@	news:clbr09$uc6$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2140
 
-// invariant is only allowed in classes (dmd-0.104 documentation)
+// invariants for Unions allowed since dmd-0.119
 
-module dstress.nocompile.invariant_06;
+module dstress.run.invariant_06;
+
+int status;
 
 union MyUnion{
 	int i;
 	
 	void test(){
+		i++;
 	}	
 	
 	invariant{
-		assert(0);
+		status++;
 	}
 }
 
 int main(){
 	MyUnion u;
+	assert(status==0);
 	u.test();
+	assert(status==1);
+	u.i=2;
+	assert(status==2);
+	assert(u);
+	assert(status==3);
 	return 0;
 }

@@ -6,6 +6,8 @@
 // @date@	2004-06-02
 // @uri@	news:c9jcpq$1fu$1@digitaldaemon.com
 
+module dstress.run.odd_bug_01;
+
 int[2] x = 3;
 float y = 0.0f;
 

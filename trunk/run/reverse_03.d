@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.reverse_03;
+
 int main(){
 	byte a[3];
 	a[0]=3;

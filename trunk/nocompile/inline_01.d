@@ -1,9 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
-inline int check(){
-	return 9;
-}
+// __DSTRESS_ELINE__ 9
 
-int main(){
-	check();
-	return 0;
+module dstress.nocompile.inline_01;
+
+inline void check(){
 }

@@ -1,4 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
+module dstress.run.foreach_08;
 
 int main(){
 	double[dchar[]] array;

@@ -1,5 +1,9 @@
-// encoding: utf-8
-// line ending: linux
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.line_ending_linux;
+
 int main(){
 	try{
 		assert(0);
@@ -35,5 +39,5 @@ void checkLineNumber(Object o){
 	}
 
 	assert(end-start==2);
-	assert(string[start+1]=='5');
+	assert(string[start+1]=='9');
 }

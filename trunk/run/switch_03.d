@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // SwitchError should be a sub-class of Error witch in turn is a sub-class of Exception
 
 module dstress.run.switch_03;

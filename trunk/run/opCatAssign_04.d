@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.opCatAssign_04;
+
 int main(){
 	bit[] a;
 	a.length=3;

@@ -6,6 +6,10 @@
 // @date@	2004-08-07
 // @uri@	news:cf2ivm$1qu0$1@digitaldaemon.com
 
+// __DSTRESS_ELINE__  22
+
+module dstress.nocompile.operator_08;
+
 class MyClass{
 }
 

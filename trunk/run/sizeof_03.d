@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.sizeof_03;
+
 int main(){
 	bit i[];
 	i.length=4;

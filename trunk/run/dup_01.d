@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.dup_01;
+
 int main(){
 	byte[] a;
 	a.length=3;

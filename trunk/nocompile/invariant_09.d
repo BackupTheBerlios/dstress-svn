@@ -1,4 +1,10 @@
-// invariant is only allowed in classes (dmd-0.104 documentation)
+// $HeadURL$
+// $Date$
+// $Author$
+
+// invariant is only allowed in class/union/struct (dmd-0.119 documentation)
+
+// __DSTRESS_ELINE__ 13
 
 module dstress.nocompile.invariant_09;
 

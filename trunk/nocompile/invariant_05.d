@@ -1,4 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // invariant is only allowed in classes (dmd-0.104 documentation)
+
+// __DSTRESS_ELINE__ 11
 
 module dstress.nocompile.invariant_05;
 

@@ -7,7 +7,7 @@
 // @uri@	news:clbr09$uc6$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2140
 
-module dstress.run.invariant_14.d;
+module dstress.run.invariant_14;
 
 class Parent{
 

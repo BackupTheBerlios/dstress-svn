@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.with_04;
+
 Child dummySuper;
 
 int value=1;

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.return_04;
+module dstress.run.goto_11;
 
 int status;
 

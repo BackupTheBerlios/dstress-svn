@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.Alternate_Wysiwyg_String_01;
+
 int main(){
 	char[] string=`hello`;
 	assert(string.length==5);

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.comment_11;
+
 int main(){
 	char[] string="/**/";
 	assert(string.length==4);

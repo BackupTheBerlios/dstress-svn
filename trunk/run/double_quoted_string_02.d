@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.double_quoted_string_02;
+
 int main(){
 	char[] string="
 	";

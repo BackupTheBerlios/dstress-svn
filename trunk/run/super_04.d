@@ -1,6 +1,11 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	J Anderson <REMOVEanderson@badmama.com.au>
 // @date@	2004-05-23
+
+module dstress.run.super_04;
 
 template MyTemplate(Type){
 	this(){

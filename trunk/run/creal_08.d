@@ -1,4 +1,8 @@
-module dstress.run.creal_06;
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.creal_08;
 
 int main(){
 	float re= 1/3;

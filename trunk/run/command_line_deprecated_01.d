@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // __DSTRESS_DFLAGS__ -d
 
 module stress.run.command_line_deprecated_01;

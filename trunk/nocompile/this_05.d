@@ -7,6 +7,8 @@
 // @uri@	news:cua2nm$11pg$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2888
 
+// __DSTRESS_ELINE__ 16
+
 module dstress.nocompile.this_05;
 
 struct MyStruct{

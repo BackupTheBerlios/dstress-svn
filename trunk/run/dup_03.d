@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.dup_03;
+
 int main(){
 	byte[] a= new byte[5];
 	byte[] b=a;

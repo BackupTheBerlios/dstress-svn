@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.in_01;
 
 void check(in int a){
 	assert(a==0);

@@ -9,6 +9,8 @@
 
 // name resolution happens before overload resolution
 
+// __DSTRESS_ELINE__ 25
+
 module dstress.run.overload_14;
 
 int status;

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.escape_octal_01;
+
 int main(){
 	char[] string="\012";
 	assert(string.length==1);

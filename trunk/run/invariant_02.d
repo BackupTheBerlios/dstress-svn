@@ -1,4 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 module dstress.run.invariant_02;
+
 int status;
 
 class MyClass{

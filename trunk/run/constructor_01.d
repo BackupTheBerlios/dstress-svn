@@ -6,6 +6,8 @@
 // @date@	2004-04-30
 // @uri@	news:c6tkos$2a78$1@digitaldaemon.com
 
+module dstress.run.constructor_01;
+
 class ClassA{}
 
 class ClassB{}

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.union_01;
+
 union MyUnion{
 	int a;
 	int b;

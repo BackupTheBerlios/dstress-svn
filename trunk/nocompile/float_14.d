@@ -8,5 +8,5 @@ module dstress.nocompile.float_14;
 
 int main(){
 	int i = float.size;
-	retrun 0;
+	return 0;
 }

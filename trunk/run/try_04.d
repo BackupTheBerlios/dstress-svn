@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.try_04;
 
 class MyException :  Exception{
 	this(char[] msg){

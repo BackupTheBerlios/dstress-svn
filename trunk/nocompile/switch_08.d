@@ -1,3 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__  19
+
+module dstress.nocompile.switch_08;
 
 int main(){
 	wchar[] test="eins";

@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.switch_01;
 
 int main(){
 	int test=10;

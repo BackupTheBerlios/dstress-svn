@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.struct_02;
 
 struct MyStruct{
 	int x;

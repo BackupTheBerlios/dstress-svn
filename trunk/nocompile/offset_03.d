@@ -4,6 +4,8 @@
 
 // .offset isn't supported for unions
 
+// __DSTRESS_ELINE__ 19
+
 module dstress.nocompile.offset_03;
 
 union MyUnion{

@@ -1,3 +1,7 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
 // copied from gcc-3.4.2/gcc/testsuite/gcc.c-torture/execute/align-2.c
 module dstress.run.align_07;
 

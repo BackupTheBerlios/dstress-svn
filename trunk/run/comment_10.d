@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.comment_10;
+
 int main(){
 	char[] a;
 	a = /+ "+/ "+/ 3";

@@ -1,4 +1,9 @@
-// override can only be applied to class functions
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 9
+
 module dstress.nocompile.override_08;
 
 override int check(){

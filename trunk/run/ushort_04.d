@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.ushort_04;
 
 int main(){
 	ushort u;

@@ -7,6 +7,8 @@
 // @uri@	news:cqcr0k$v56$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2591
 
+// __DSTRESS_ELINE__ 20
+
 module dstress.nocompile.mixin_04;
 
 struct Foo() {

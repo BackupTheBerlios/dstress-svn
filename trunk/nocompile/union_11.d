@@ -7,6 +7,8 @@
 // @uri@	news:cn9vah$1shn$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2270
 
+// __DSTRESS_ELINE__ 20
+
 module dstress.nocompile.union_11;
 
 union {

@@ -7,6 +7,8 @@
 // @uri@	news:cmsg75$rom$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2240
 
+module dstress.run.throw_02;
+
 class Class{
 }
 

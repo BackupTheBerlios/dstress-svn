@@ -1,4 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
 
+module dstress.run.foreach_07;
 
 int main(){
 	dchar[] array="\u2260";

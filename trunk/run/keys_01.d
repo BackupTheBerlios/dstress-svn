@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.keys_01;
+
 int main(){
 	int[char[]] array;
 	array["eins"]=1;

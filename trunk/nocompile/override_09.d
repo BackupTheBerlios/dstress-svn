@@ -1,4 +1,8 @@
-// only class member functions can be overridden
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 14
 
 module dstress.nocompile.override_09;
 

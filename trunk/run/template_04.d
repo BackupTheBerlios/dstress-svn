@@ -6,6 +6,8 @@
 // @date@	2004-08-05
 // @uri@	news:cetp3r$1rrc$1@digitaldaemon.com 
 
+module dstress.run.template_04;
+
 template Bar(Y){
 	void Bar(Y param){
 	}

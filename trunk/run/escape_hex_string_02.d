@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.escape_hex__string_02;
+
 int main(){
 	char[] string=x" 1 2
 a

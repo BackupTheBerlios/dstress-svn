@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.unicode_01;
+
 int main(){
 	char[] a="\u00C4";
 	char[] b="\u0041\u0308";

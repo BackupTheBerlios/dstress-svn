@@ -8,6 +8,7 @@
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3017
 
 // __DSTRESS_DFLAGS__ -inline
+// __DSTRESS_ELINE__ 22
 
 module dstress.nocompile.inline_07;
 

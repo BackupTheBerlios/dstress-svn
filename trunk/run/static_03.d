@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.static_03;
 
 class MyClass{
 	static int status;

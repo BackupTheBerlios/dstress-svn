@@ -1,3 +1,10 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 12
+
+module dstress.nocompile.static_08;
 
 class MyClass{
 	int status;

@@ -1,3 +1,9 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.length_02;
+
 int main(){
 	int[char[]] array;
 	assert(array.length == 0);

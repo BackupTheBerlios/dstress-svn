@@ -1,3 +1,8 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.opCatAssign_01;
 
 int main(){
 	char[] string;

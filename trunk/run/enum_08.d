@@ -14,7 +14,7 @@ int main(){
 		A=-1,
 		AA,
 		B
-	};
+	}
 	MyEnum e = -MyEnum.B;
 	assert(MyEnum.B>0);
 	assert(e<0);

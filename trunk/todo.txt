@@ -13,7 +13,7 @@ Benchmark:
 * integrate benchmark results: SciMark, cowell-shah, oopack, ackermann
 
 Meta data:
-* retag nocompile E-V
+* retag nocompile I-V
 * retag compile A-Z
 * retag run A-Z
 * retag norun A-Z

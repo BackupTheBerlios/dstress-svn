@@ -125,7 +125,8 @@ char* loadFile(char* filename){
 
 #else 
 #error no loadFile adaptation for this system available
-#error no crashRun adaptation for this system available
+#error no crashRun adaptation for this system available /* like system(char*) but has to return without human intervention even if the application segfaults */
+
 #endif /* WIN32 else */
 #endif /* USE_POSIX else */
 
@@ -396,8 +397,12 @@ err:		if(argc!=0)
 				printf("ERROR:\t%s [%d]\n", arg[2], res);
 			}
 		}else{
-			if(res==RETURN_FAIL && good_error){
-				printf("XFAIL:\t%s\n", arg[2]);
+			if(res==RETURN_FAIL){
+				if(good_error){
+					printf("XFAIL:\t%s\n", arg[2]);
+				}else{
+					printf("FAIL: \t%s\n", arg[2]);
+				}
 			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s\n", arg[2]);
 			}else{
@@ -482,8 +487,12 @@ err:		if(argc!=0)
 				printf("ERROR:\t%s [run: %d]\n", arg[2], res);
 			}
 		}else{
-			if(res==RETURN_FAIL && good_error){
-				printf("XFAIL:\t%s\n", arg[2]);
+			if(res==RETURN_FAIL){
+				if(good_error){
+					printf("XFAIL:\t%s\n", arg[2]);
+				}else{
+					printf("FAIL: \t%s\n", arg[2]);
+				}
 			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s [norun: %d]\n", arg[2], res);
 			}else{

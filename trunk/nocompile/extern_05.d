@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// this feature is as of dmd-0.106 undocumented
+// this feature is - as of dmd-0.106 - undocumented
 
 module dstress.nocompile.extern_05;
 

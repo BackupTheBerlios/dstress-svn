@@ -48,6 +48,7 @@
 			       	.D { background: #f43a3a; text-align: center }
 				.C { background: #ea6b6b; text-align: center }
 				.E { background: #98f47a; text-align: center }
+				td { text-align: center }
 			-->
 			/*]]>*/
 		</style>
@@ -86,36 +87,40 @@
 			Currently the <a href='http://digitalmars.com/d/dcompiler.html' hreflang='en'>dmd</a> and <a href='http://home.earthlink.net/~dvdfrdmn/d/' hreflang='en'>gdc</a> compilers are being tested.
 		</p></blockquote>
 		<h3><a href='#top' name='testbed' id='testbed' title='page top'>^ Testbed</a></h3>
-		<blockquote><table border='0' summary='information on the testbed environment'>
-			<tr><th>OS</th><td>Linux</td></tr>
-			<tr><th>OS kernel</th><td>2.6.8</td></tr>
-			<tr><th>Processor</th><td>i686</td></tr>
-			<tr><th>Compiler Flags</th><td>(none)</td></tr>
-			<tr><th>DStress Revision</th><td>$Rev$</td></tr>
-			<tr><th>Test date</th><td>$Date$</td></tr>
-		</table></blockquote>
+		<blockquote><dl>
+			<dt><strong>OS / Kernel</strong></dt>
+				<dd>Linux 2.6.8</dd>
+			<dt><strong>Processor</strong></dt>
+				<dd>i686</dd>
+			<dt><strong>Compiler Flags</strong></dt>
+				<dd>(none)</dd>
+			<dt><strong>DStress Revision</strong></dt>
+				<dd>$Rev$</dd>
+			<dt><strong>Test Date</strong></dt>
+				<dd>$Date$</dd>
+		</dl></blockquote>
 		<h3><a href='#top' name='legend' id='legend' title='page top'>^ Legend</a></h3>
 		<blockquote>
 			The symbols are the same as those used by the <a href='http://www.gnu.org/software/dejagnu'>DejaGnu</a> test framework.
-			<table border='0' summary='on left the symbols used in the result table and on the right their explanation'>
+			<table border='1' summary='on left the symbols used in the result table and on the right their explanation'>
 			<tr><th>Symbol</th><th>Description</th></tr>
-			<tr class='B'><td><a href='#summary-pass' id='symbol-pass' name='symbol-pass'>pass</a></td><td>expected: test passed</td></tr>
-			<tr class='C'><td><a href='#summary-xpass' id='symbol-xpass' name='symbol-xpass'>xpass</a></td><td>unexpected: test passed</td></tr>
-			<tr class='D'><td><a href='#summary-fail' id='symbol-fail' name='symbol-fail'>fail</a></td><td>unexpected: test failed</td></tr>
-			<tr class='E'><td><a href='#summary-xfail' id='symbol-xfail' name='symbol-xfail'>xfail</a></td><td>expected: test failed</td></tr>
-			<tr class='A'><td><a href='#summary-error' id='symbol-error' name='symbol-error'>error</a></td><td>compiler, linker or test case segfaulted</td></tr>
+			<tr><td><a href='#summary-pass' id='symbol-pass' name='symbol-pass'>pass</a></td><td class='B'>expected: test passed</td></tr>
+			<tr><td><a href='#summary-xpass' id='symbol-xpass' name='symbol-xpass'>xpass</a></td><td class='C'>unexpected: test passed</td></tr>
+			<tr><td><a href='#summary-fail' id='symbol-fail' name='symbol-fail'>fail</a></td><td class='D'>unexpected: test failed</td></tr>
+			<tr><td><a href='#summary-xfail' id='symbol-xfail' name='symbol-xfail'>xfail</a></td><td class='E'>expected: test failed</td></tr>
+			<tr><td><a href='#summary-error' id='symbol-error' name='symbol-error'>error</a></td><td class='A'>compiler, linker or test case segfaulted</td></tr>
 		</table></blockquote>
 		<h3><a href='#top' name='summary' id='summary' title='page top'>^Summary</a></h3>
-		<blockquote><table border='1' summary='sums of test results sorted by compiler'>
+		<table border='1' summary='sums of test results sorted by compiler'>
 			<tr><td>&nbsp;</td><th><a href='#note-dmd-093' name='note-dmd-093-src' id='note-dmd-093-src' title='dmd 0.93 notes'>dmd 0.93</a></th><th><a href='#note-dmd-095' name='note-dmd-095-src' id='note-dmd-095-src' title='dmd 0.95 notes'>dmd 0.95</a></th><th><a href='#note-dmd-096' name='note-dmd-096-src' id='note-dmd-096-src' title='dmd 0.96 notes'>dmd 0.96</a></th><th><a href='#note-dmd-098' name='note-dmd-098-src' id='note-dmd-098-src' title='dmd 0.98 notes'>dmd 0.98</a></th><th><a href='#note-dmd-099' name='note-dmd-099-src' id='note-dmd-099-src' title='dmd 0.99 notes'>dmd 0.99</a></th><th><a href='#note-dmd-0100' name='note-dmd-0100-src' id='note-dmd-0100-src' title='dmd 0.100 notes'>dmd 0.100</a></th><th><a href='#note-dmd-0101' name='note-dmd-0101-src' id='note-dmd-0101-src' title='dmd 0.101 notes'>dmd 0.101</a></th><th><a href='#note-dmd-0102' name='note-dmd-0102-src' id='note-dmd-0102-src' title='dmd 0.102 notes'>dmd 0.102</a></th><th><a href='#note-gdc-1g' name='note-gdc-1g-src' id='note-gdc-1g-src' title='gdc 1g notes'>gdc 1g</a></th><th><a href='#note-dmd-0104' name='note-dmd-0104-src' id='note-dmd-0104-src' title='dmd 0.104 notes'>dmd 0.104</a></th><!--<th><a href='#note-gdc-08' name='note-gdc-08-src' id='note-gdc-08-src' title='gdc 0.8 notes'>gdc 0.8</a></th>--></tr>
 <!-- BEGIN: summary data -->
-<!-- summary --><tr><th class='B'><a href='#symbol-pass' id='summary-pass' name='summary-pass'>pass</a></th><td class='B'>404</td><td class='B'>408</td><td class='B'>414</td><td class='B'>420</td><td class='B'>420</td><td class='B'>422</td><td class='B'>421</td><td class='B'>423</td><td class='B'>369</td><td class='B'>423</td></tr>
-<!-- summary --><tr><th class='C'><a href='#symbol-xpass' id='summary-xpass' name='summary-xpass'>xpass</a></th><td class='C'>47</td><td class='C'>45</td><td class='C'>45</td><td class='C'>42</td><td class='C'>39</td><td class='C'>39</td><td class='C'>38</td><td class='C'>38</td><td class='C'>41</td><td class='C'>38</td></tr>
-<!-- summary --><tr><th class='D'><a href='#symbol-fail' id='summary-fail' name='summary-fail'>fail</a></th><td class='D'>73</td><td class='D'>109</td><td class='D'>103</td><td class='D'>96</td><td class='D'>94</td><td class='D'>92</td><td class='D'>94</td><td class='D'>94</td><td class='D'>158</td><td class='D'>94</td></tr>
-<!-- summary --><tr><th class='E'><a href='#symbol-xfail' id='summary-xfail' name='summary-xfail'>xfail</a></th><td class='E'>149</td><td class='E'>151</td><td class='E'>151</td><td class='E'>154</td><td class='E'>157</td><td class='E'>157</td><td class='E'>158</td><td class='E'>158</td><td class='E'>159</td><td class='E'>158</td></tr>
-<!-- summary --><tr><th class='A'><a href='#symbol-error' id='summary-error' name='summary-error'>error</a></th><td class='A'>55</td><td class='A'>15</td><td class='A'>15</td><td class='A'>16</td><td class='A'>18</td><td class='A'>18</td><td class='A'>17</td><td class='A'>15</td><td class='A'>1</td><td class='A'>15</td></tr>
+<!-- summary --><tr><td><a href='#symbol-fail' id='summary-fail' name='summary-fail'>fail</a></td><td class='D'>73</td><td class='D'>109</td><td class='D'>103</td><td class='D'>96</td><td class='D'>94</td><td class='D'>92</td><td class='D'>94</td><td class='D'>94</td><td class='D'>158</td><td class='D'>94</td></tr>
+<!-- summary --><tr><td><a href='#symbol-pass' id='summary-pass' name='summary-pass'>pass</a></td><td class='B'>406</td><td class='B'>410</td><td class='B'>416</td><td class='B'>422</td><td class='B'>422</td><td class='B'>424</td><td class='B'>423</td><td class='B'>425</td><td class='B'>371</td><td class='B'>425</td></tr>
+<!-- summary --><tr><td><a href='#symbol-xfail' id='summary-xfail' name='summary-xfail'>xfail</a></td><td class='E'>149</td><td class='E'>151</td><td class='E'>151</td><td class='E'>154</td><td class='E'>157</td><td class='E'>157</td><td class='E'>158</td><td class='E'>158</td><td class='E'>159</td><td class='E'>158</td></tr>
+<!-- summary --><tr><td><a href='#symbol-xpass' id='summary-xpass' name='summary-xpass'>xpass</a></td><td class='C'>48</td><td class='C'>46</td><td class='C'>46</td><td class='C'>43</td><td class='C'>40</td><td class='C'>40</td><td class='C'>39</td><td class='C'>39</td><td class='C'>42</td><td class='C'>39</td></tr>
+<!-- summary --><tr><td><a href='#symbol-error' id='summary-error' name='summary-error'>error</a></td><td class='A'>55</td><td class='A'>15</td><td class='A'>15</td><td class='A'>16</td><td class='A'>18</td><td class='A'>18</td><td class='A'>17</td><td class='A'>15</td><td class='A'>1</td><td class='A'>15</td></tr>
 <!-- END: summary data -->
-		</table></blockquote>
+		</table>
 		<h3><a href='#top' name='results' id='results' title='page top'>^ Results</a></h3>
 		<table border='1' summary='on the very left are the names of the test cases and to their right the results ordered by compiler version'>
 			<tr><td>&nbsp;</td><th><a href='#note-dmd-093' title='dmd 0.93 notes'>dmd 0.93</a></th><th><a href='#note-dmd-095' title='dmd 0.95 notes'>dmd 0.95</a></th><th><a href='#note-dmd-096' title='dmd 0.96 notes'>dmd 0.96</a></th><th><a href='#note-dmd-098' title='dmd 0.98 notes'>dmd 0.98</a></th><th><a href='#note-dmd-099' title='dmd 0.99 notes'>dmd 0.99</a></th><th><a href='#note-dmd-0100' title='dmd 0.100 notes'>dmd 0.100</a></th><th><a href='#note-dmd-0101' title='dmd 0.101 notes'>dmd 0.101</a></th><th><a href='#note-dmd-0102' title='dmd 0.102 notes'>dmd 0.102</a></th><th><a href='#note-gdc-1g' title='gdc 1g notes'>gdc 1g</a></th><th><a href='#note-dmd-0104' title='dmd 0.104 notes'>dmd 0.104</a></th><!--<th><a href='#note-gdc-08' title='gdc 0.8 notes'>gdc 0.8</a></th>--></tr>
@@ -242,6 +247,7 @@
 <tr><th>debug 01</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='D'>fail</td><td class='B'>pass</td></tr>
 <tr><th>debug 02</th><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td></tr>
 <tr><th>debug 03</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='D'>fail</td><td class='B'>pass</td></tr>
+<tr><th>debug info 01</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td></tr>
 <tr><th>default argument 01</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td></tr>
 <tr><th>default argument 02</th><td class='A'>error</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td></tr>
 <tr><th>default argument 03</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td></tr>
@@ -254,6 +260,8 @@
 <tr><th>deprecated 05</th><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td></tr>
 <tr><th>deprecated 09</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td></tr>
 <tr><th>deprecated 10</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='D'>fail</td><td class='B'>pass</td></tr>
+<tr><th>deprecated 11</th><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td><td class='C'>xpass</td></tr>
+<tr><th>deprecated 12</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td></tr>
 <tr><th>destructor 01</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='D'>fail</td><td class='B'>pass</td></tr>
 <tr><th>destructor 03</th><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td><td class='D'>fail</td></tr>
 <tr><th>double 01</th><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td><td class='B'>pass</td></tr>

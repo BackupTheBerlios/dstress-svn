@@ -31,7 +31,6 @@ import java.util.StringTokenizer;
 
 /** HTML snipplet generator for <a href='http://dmd.kuehne.cn/dstress.html'>dstress</a> results 
  * @author Thomas Kuehne dstress&lt;a&gt;kuehne.cn
- * @version $Date$
  **/ 
 public class GenReport{
 
@@ -149,7 +148,7 @@ public class GenReport{
 		
 		// summary:
 		for(int type=0; type<TestResult.typ.length; type++){
-			out.write("<!-- summary --><tr><th class='"+(char)('A'+type)+"'>");
+			out.write("<!-- summary --><tr><th>");
 			out.write("<a href='#symbol-"+TestResult.lower[type]+"' id='summary-"+TestResult.lower[type]+"' name='summary-"+TestResult.lower[type]+"'>"+TestResult.lower[type]+"</a></th>");
 			for(int compiler=0; compiler<summary.length; compiler++){
 				out.write("<td class='"+(char)('A'+type)+"'>"+summary[compiler][type]+"</td>");
@@ -202,7 +201,7 @@ public class GenReport{
 	}	
 
 	/** the help message */
-	public static final String HELP="GenReport $Rev$ by Thomas Kuehne <dstress@kuehne.cn>\nINFO:\tgenerates snipplet HTML containing a result overview from dstress' output\nUSAGE:\tGenReport input [input2] [input3] [...] > output";
+	public static final String HELP="GenReport by Thomas Kuehne <dstress@kuehne.cn>\nINFO:\tgenerates snipplet HTML containing a result overview from dstress' output\nUSAGE:\tGenReport input [input2] [input3] [...] > output";
 	
 	/** check if the given argument indicates a help request */
 	private static boolean requiresHelp(String[] arg){

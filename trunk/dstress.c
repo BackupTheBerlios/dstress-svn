@@ -332,7 +332,6 @@ err:		if(argc!=0)
 	error_line = getCaseFlag(buffer, "__DSTRESS_ELINE__");
 	error_file = getCaseFlag(buffer, "__DSTRESS_EFILE__");
 
-printf("@DEBUG1@ -%s-\n", error_line);
 	/* strip spaces */
 	while(error_line[0]==' '){
 		error_line++;

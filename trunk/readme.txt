@@ -32,11 +32,11 @@ Output Synopsis: (DejaGnu / POSIX 1003.3)
 	XPASS:	test case was expected to fail, but passed
 	FAIL:	test case was expected to pass, but failed
 	XFAIL:	test case was expected to fail, and it did
-	ERROR:	compiler, linker or test case segfaulted
+	ERROR:	compiler, linker or test case segfaulted; inapropiate error messages 
 
 Testing:
 	1) the environment variable $DMD / %DMD% is used to detect the compiler executeable
-	2) the environment variable $LOG / %LOG% is used for the detailed log file
+	2) the environment variable $DFLAGS / %DFLAGS% is used for additional compiler arguments
 	3) run as "make distclean all"
 	4) for manual tests used the "dstress.c" source, e.g.
 		./dstress nocompile ./the_source_file.d
@@ -51,3 +51,5 @@ Source code comments:
 	@bugwatch@		marks glitches used to hide bugs in external dependencies
 	__DSTRESS_DFLAGS__	everything following in the same line will be interpreted
 				as _additional_ compiler flags
+	__DSTRESS_ELINE__	offending source line (error line)
+	__DSTRESS_EFILE__	offending source file (error file)

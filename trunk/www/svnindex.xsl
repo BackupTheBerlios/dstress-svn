@@ -20,7 +20,7 @@
 			<div class="svn">
 				<xsl:apply-templates/>
 			</div>
-			<div class="footer"><table border='0'><tr><td>
+			<div class="footer"><table border='0' witdh="100%"><tr><td>
 				<a href="http://dstress.kuehne.cn/www/dstress.html">DStress</a>
 				<xsl:text> written by Thomas K&#252;hne and served by </xsl:text>
 				<xsl:element name="a">

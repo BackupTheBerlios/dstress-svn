@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// Author$
+// $Author$
 
 // .offset isn't supported for unions
 

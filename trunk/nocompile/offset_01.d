@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// Author$
+// $Author$
 
 // .offset is depricated, use .offsetof
 

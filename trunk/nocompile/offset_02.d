@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// Author$
+// $Author$
 
 module dstress.nocompile.offset_02;
 

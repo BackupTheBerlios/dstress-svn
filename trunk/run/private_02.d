@@ -18,7 +18,8 @@ class Outer{
 	}
 
 	int test(){
-		return (new Inner()).i;
+		Inner io = new Inner();
+		return io.i;
 	}
 }
 

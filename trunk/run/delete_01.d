@@ -30,7 +30,8 @@ void test(){
 int main(){
 	test();
 	assert(status<=-1);
-	std.gc.fullCollect();	
+	std.gc.fullCollect();
+	std.gc.minimize();
 	assert(status==-2);
 	return 0;
 }

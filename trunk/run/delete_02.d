@@ -27,6 +27,7 @@ int test(){
 int main(){
 	test();
 	std.gc.fullCollect();
+	std.gc.minimize();
 	assert(status==-1);
 	return 0;
 }

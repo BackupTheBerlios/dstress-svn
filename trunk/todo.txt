@@ -34,6 +34,7 @@ Test cases:
 * keyword: private
 * keyword: protected
 * keyword: public
+* keyword: return (enclosing finally clauses, synchronization objects)
 * keyword: struct (anonymous)
 * keyword: synchronized
 * keyword: typeid (alias, typedef, union, ?functions, ?delegates)

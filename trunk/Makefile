@@ -22,53 +22,53 @@
 
 # dir: temp objects will be placed there
 ifndef OBJ_DIR
-OBJ_DIR = obj
+OBJ_DIR := obj
 endif
 
 # file: append compiler messages and runtime assertions
 # NOTE: this has to be an absolut path (required for some complex.mak files)
 ifndef LOG
-LOG	= $(PWD)/log.txt
+LOG	:= $(PWD)/log.txt
 endif
 
 # executeable: the compiler
 ifndef DMD
-DMD	= dmd
+DMD	:= dmd
 endif
 
 # executeable: a GNU findutils compatible find (e.g.: find path -regex "?\\.*something")
 ifndef FIND
-FIND	= find 
+FIND	:= find 
 endif 
 
 # executeable: remove zero or more files (e.g.: rm -f a b c)
 ifndef RM
-RM	= rm -f
+RM	:= rm -f
 endif
 
 # executeable: change to a given dir (e.g. cd some/other/dir)
 ifndef CD
-CD	= cd
+CD	:= cd
 endif
 
 # executeable: display a message test (e.g. echo "something to say)
 ifndef ECHO
-ECHO	= echo
+ECHO	:= echo
 endif
 
 # executeable: update the timestamp of an existing file or create a new empty file
 ifndef TOUCH
-TOUCH	= touch
+TOUCH	:= touch
 endif
 
 # executeable: detect if stdin contains "Internal error" (dmd) or "gcc.gnu.org/bugs" (gcd)
 ifndef GREP
-GREP = grep -s '\(Internal error\)\|\(gcc.gnu.org/bugs\)' > /dev/null 2>&1
+GREP := grep -s '\(Internal error\)\|\(gcc.gnu.org/bugs\)' > /dev/null 2>&1
 endif
 
 # executeable: used to concat files 
 ifndef CAT
-CAT = cat
+CAT := cat
 endif
 
 ###############################################################################
@@ -80,24 +80,26 @@ endif
 ###############################################################################
 
 # tools
-return__	= ./return__
-ifeq__		= ./ifeq__
-extract__	= ./extract__
+return__	:= ./return__
+ifeq__		:= ./ifeq__
+extract__	:= ./extract__
 
 # settings
-to_log = >> $(LOG) 2>&1
-ext_run = exe
-ext_norun = bin
-ext_nocompile = no
-ext_compile = o
-ext_source = d
-ext_source_html = html
-ext_log = log
-complex_todo = complex.mak
-complex_done = complex.done
-flag_pattern = __DSTRESS_DFLAGS__
+to_log 		:= >> $(LOG) 2>&1
+ext_run 	:= exe
+ext_norun 	:= bin
+ext_nocompile 	:= no
+ext_compile 	:= o
+ext_source 	:= d
+ext_source_html := html
+ext_log 	:= log
+complex_todo 	:= complex.mak
+complex_done 	:= complex.done
+flag_pattern 	:= __DSTRESS_DFLAGS__
 
 .PHONY: all basic_tools compile nocompile run norun complex clean distclean clean_log log
+
+.SUFFIXES: $(ext_run) $(ext_norun) $(ext_nocompile) $(ext_compile) 
 #
 # test everything
 #
@@ -121,7 +123,7 @@ basic_tools : $(ifeq__) $(return__) $(extract__)
 #
 # include complex test cases
 #
-complex_makefiles = $(sort $(shell $(FIND) complex -regex ".*$(complex_todo)"))
+complex_makefiles := $(sort $(shell $(FIND) complex -regex ".*$(complex_todo)"))
 include $(complex_makefiles)
 
 # 

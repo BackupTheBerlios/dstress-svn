@@ -22,6 +22,7 @@
 
 package cn.kuehne.dmd.dstress;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -150,7 +151,7 @@ public class GenReport{
 			}else{
 				linkName=null;
 			}
-			if(linkName==null){
+			if(linkName==null || new File(linkName).exists()){
 				out.write("<tr><th>"+plainName+"</th>");
 			}else{
 				// @todo@ fix linkName escape

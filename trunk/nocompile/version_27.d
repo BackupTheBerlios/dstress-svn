@@ -6,5 +6,5 @@
 
 module dstress.nocompile.version_27;
 
-version=AMD64;
+version=X86_64;
 version=X86;

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_DFLAGS__ -version=X86 -version=AMD64
+// __DSTRESS_DFLAGS__ -version=X86 -version=X86_64
 
 module dstress.nocompile.command_line_version_08;
 

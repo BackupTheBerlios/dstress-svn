@@ -11,7 +11,7 @@ int main(){
 		cpu++;
 	}
 
-	version(AMD64){
+	version(X86_64){
 		cpu++;
 	}
 

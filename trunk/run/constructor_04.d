@@ -5,7 +5,7 @@
 
 // see also dstress.addon.constructor_04_A
 
-// __DSTRESS_DFLAGS__ addon/constructor_04_A.d
+// __DSTRESS_DFLAGS__ -I..  addon/constructor_04_A.d 
 
 module dstress.run.constructor_04;
 import dstress.addon.constructor_04_A;

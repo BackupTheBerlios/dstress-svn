@@ -179,7 +179,7 @@ double io(int ioMax)
 	stopTime = clock();
 	elapsedTime = (stopTime - startTime) / (CLOCKS_PER_SEC / cast(double) 1000.0);
 	printf("I/O elapsed time: %1.0f ms with max of %d\n", elapsedTime, ioMax);
-	printf(" last line: %s", readLine);
+	printf(" last line: %.*s", readLine);
 
 	return elapsedTime;
 }

@@ -16,7 +16,7 @@ int main(){
 }
 
 /* 
- * WARNING: this code depends on the phobos implementation.
+ * @WARNING@ this code depends on the phobos implementation.
  * char[]s returned by wrong assertions have to look like:
  *	 "blah blah (linenumber) blah blah"
  */

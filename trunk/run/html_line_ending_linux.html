@@ -16,14 +16,14 @@ int main(){
 	return 1;
 }
 
-/* 
- * WARNING: this code depends on the phobos implementation.
+/*
+ * @WARNING@ this code depends on the phobos implementation.
  * char[]s returned by wrong assertions have to look like:
  *	 "blah blah (linenumber) blah blah"
  */
 void checkLineNumber(Object o){
 	char[] string=o.toString();
-	
+
 	int start;
 	for(start=0; start&lt;string.length; start++){if(string[start]=='('){break;}
 	}

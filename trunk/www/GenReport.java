@@ -1,6 +1,6 @@
 /* destress's result generator
  * Copyright (C) 2004 Thomas Kuehne  dstress <a> kuehne.cn
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
- 
+
 package cn.kuehne.dmd.dstress;
 
 import java.io.FileInputStream;
@@ -29,9 +29,10 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/** HTML snipplet generator for <a href='http://dmd.kuehne.cn/dstress.html'>dstress</a> results 
+/** HTML snipplet generator for <a href='http://dmd.kuehne.cn/dstress.html'>dstress</a> results
  * @author Thomas Kuehne dstress&lt;a&gt;kuehne.cn
- **/ 
+ * @version $Date$
+ **/
 public class GenReport{
 
 	/** store all results of 1 test case */
@@ -40,7 +41,7 @@ public class GenReport{
 		static final String typ[] = new String[]{
 			"ERROR", "PASS", "XPASS", "FAIL", "XFAIL"
 		};
-	
+
 		static String lower[];
 
 		static{
@@ -48,7 +49,7 @@ public class GenReport{
 			for(int index=0; index<lower.length; index++){
 				lower[index]=typ[index].toLowerCase();
 			}
-		}	
+		}
 		static final byte ERROR=0;
 		static final byte PASS=1;
 		static final byte XPASS=2;
@@ -57,13 +58,13 @@ public class GenReport{
 
 		/** the test's name */
 		protected String name;
-		
+
 		/** test status by reader id*/
 		protected byte[] status;
 
-		/** 
-		 * @param name name of the test 
-		 * @param count total number of status values 
+		/**
+		 * @param name name of the test
+		 * @param count total number of status values
 		 **/
 		protected TestResult(String name, int count){
 			this.name=name;
@@ -71,7 +72,7 @@ public class GenReport{
 		}
 	}
 
-	/** stores the TestResults by name */	
+	/** stores the TestResults by name */
 	private Hashtable data;
 
 	public GenReport(Reader[] in, Writer out) throws Throwable{
@@ -117,7 +118,7 @@ public class GenReport{
 					test=new TestResult(name,max);
 				}
 				test.status[version]=status;
-				// save 
+				// save
 				data.put(name,test);
 			}catch(Throwable t){
 				throw new Throwable("linenumber: "+liner.getLineNumber(),t);
@@ -125,7 +126,7 @@ public class GenReport{
 		}
 	}
 
-	/** saves unsorted results as a html snipplet */	
+	/** saves unsorted results as a html snipplet */
 	private void write(Writer out, int compilerCount) throws Exception{
 		long[][] summary = new long[compilerCount][TestResult.typ.length];
 		// test cases:
@@ -145,7 +146,7 @@ public class GenReport{
 			}
 			out.write("</tr>\n");
 		}
-		
+
 		// summary:
 		for(int type=0; type<TestResult.typ.length; type++){
 			out.write("<!-- summary --><tr><th>");
@@ -198,11 +199,11 @@ public class GenReport{
 		if(exception!=null){
 			throw new Throwable(exception);
 		}
-	}	
+	}
 
 	/** the help message */
 	public static final String HELP="GenReport by Thomas Kuehne <dstress@kuehne.cn>\nINFO:\tgenerates snipplet HTML containing a result overview from dstress' output\nUSAGE:\tGenReport input [input2] [input3] [...] > output";
-	
+
 	/** check if the given argument indicates a help request */
 	private static boolean requiresHelp(String[] arg){
 		if(arg==null || arg.length<1){

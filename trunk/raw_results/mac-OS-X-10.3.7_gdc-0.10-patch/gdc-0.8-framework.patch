@@ -1,0 +1,11 @@
+--- d/d-spec.c.orig	Sat Oct  2 19:19:31 2004
++++ d/d-spec.c	Thu Nov 11 17:53:21 2004
+@@ -251,6 +251,8 @@
+ 			    output_parents_option = 1;
+ 			    fprintf(stderr, "** output parents\n");
+ 			}
++		    else if (strcmp (argv[i], "-framework") == 0)
++			i++;
+ 		    else if (DEFAULT_WORD_SWITCH_TAKES_ARG (&argv[i][1]))
+ 			i++;
+ 		    else

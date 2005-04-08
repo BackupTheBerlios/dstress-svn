@@ -8,8 +8,8 @@
 
 module dstress.run.bug_tocsym_285_02;
 
-class Iterator(T){
-	T* m_ptr;
+class Iterator{
+	size_t* m_ptr;
 
 	int opEquals(Iterator iter){
 		return (m_ptr == iter.m_ptr);
@@ -21,11 +21,11 @@ class Iterator(T){
 }
 
 int main(char[][] args){
-	Iterator!(int) a=new Iterator!(int);
-	Iterator!(int) b=new Iterator!(int);
+	Iterator a=new Iterator;
+	Iterator b=new Iterator;
 
 	assert(a==b);	
-	int i;
+	size_t i;
 	a.m_ptr=&i;
 	assert(a!=b);
 

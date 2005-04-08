@@ -220,7 +220,7 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 			strcat(dmd, file);
 			strcat(dmd, "(");
 			strcat(dmd, line);
-			strcat(dmd, "): ");
+			strcat(dmd, ")");
 			gdc = malloc(strlen(file)+strlen(line)+4);
 			gdc[0]='\x00';
 			strcat(gdc, file);

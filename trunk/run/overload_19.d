@@ -13,7 +13,7 @@ class Foo{
 		return 0;
 	}
 
-	static void init (long y) {
+	static int init (long y) {
 		return 1;
 	}
 }

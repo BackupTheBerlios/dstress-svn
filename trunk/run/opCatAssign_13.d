@@ -2,8 +2,6 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__
-
 module dstress.run.opCatAssign_13;
 
 static ~this(){

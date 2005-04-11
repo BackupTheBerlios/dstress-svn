@@ -11,7 +11,7 @@
 
 // __DSTRESS_ELINE__ 25
 
-module dstress.run.overload_14;
+module dstress.nocompile.overload_14;
 
 int status;
 

@@ -47,7 +47,7 @@ int main(){
 	assert(c[4]==0);
 	assert(c[5]==1);
 	assert(c[6]==0);
-	assert(c[6]==0);
+	assert(c[7]==0);
 	assert(c[8]==1);
 
 	return 0;

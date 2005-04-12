@@ -85,9 +85,27 @@ char* loadFile(char* filename){
 		}
 		close(file);
 	}
-	errno = 0;
 	return back;
 }
+
+void *xmalloc(size_t size)
+{
+	void *p;
+	if (p < 0)
+	{
+		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
+		exit(1);			
+	}
+	p = malloc(size);
+	if (p == NULL)
+	{
+		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
+		exit(1);			
+	}
+	return p;
+}
+
+#define malloc xmalloc
 
 #else
 
@@ -180,7 +198,7 @@ char* getCaseFlag(const char* data, const char* tag){
 		}
 	}
 
-	return "";
+	return calloc(1,1);
 }
 
 

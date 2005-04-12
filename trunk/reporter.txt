@@ -5,7 +5,7 @@ Andy Friesen		<andy@ikagames.com>
 Ant			<duitoolkit@yahoo.ca>
 Arcane Jill
 Bastiaan Veelo		<Bastiaan.N.Veelo@ntnu.no>
-Ben Hinkle 		<bhinkle4@juno.com>, <bhinkle@mathworks.com>
+Ben Hinkle 		<bhinkle4@juno.com>, <bhinkle@mathworks.com>, <ben.hinkle@gmail.com>
 Bent Rasmussen 		<exo@bent-rasmussen.info>
 berupon 		<yu@3dcg.ne.jp>
 Brian Gardner		<briangr@friberg.us>

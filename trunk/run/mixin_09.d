@@ -8,6 +8,9 @@
 
 module dstress.run.mixin_09;
 
+void writefln(...){
+}
+
 class A {
         template ctor(Type)
         {

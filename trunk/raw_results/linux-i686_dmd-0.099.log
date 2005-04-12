@@ -456,6 +456,10 @@ nocompile/cast_03.d(27): cannot implicitly convert expression i of type MyInterf
 nocompile: dmd-0.099   -c -odobj  nocompile/cast_04.d 1> log.tmp 2>&1
 
 --------
+nocompile: dmd-0.099   -c -odobj  nocompile/cast_10.d 1> log.tmp 2>&1
+nocompile/cast_10.d(25): cast(Parent )(c) is not an lvalue
+
+--------
 nocompile: dmd-0.099   -c -odobj  nocompile/cast_19.d 1> log.tmp 2>&1
 nocompile/cast_19.d(19): cannot implicitly convert expression mc of type MyClass to void
 dmd.bin: statement.c:1447: virtual Statement* ReturnStatement::semantic(Scope*): Assertion `fdx->vresult' failed.
@@ -532,7 +536,7 @@ nocompile: dmd-0.099   -versionabc -c -odobj  nocompile/command_line_version_07.
 Error: unrecognized switch '-versionabc'
 
 --------
-nocompile: dmd-0.099   -version=X86 -version=AMD64 -c -odobj  nocompile/command_line_version_08.d 1> log.tmp 2>&1
+nocompile: dmd-0.099   -version=X86 -version=X86_64 -c -odobj  nocompile/command_line_version_08.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.099   -version=linux -version=Windows -c -odobj  nocompile/command_line_version_09.d 1> log.tmp 2>&1
@@ -712,6 +716,22 @@ nocompile: dmd-0.099   -c -odobj  nocompile/deprecated_05.d 1> log.tmp 2>&1
 nocompile: dmd-0.099   -c -odobj  nocompile/deprecated_11.d 1> log.tmp 2>&1
 
 --------
+nocompile: dmd-0.099   -c -odobj  nocompile/deprecated_14.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/deprecated_15.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/deprecated_16.d 1> log.tmp 2>&1
+nocompile/deprecated_16.d(15): variable i is deprecated
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/deprecated_17.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/deprecated_18.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-0.099   -c -odobj  nocompile/double_14.d 1> log.tmp 2>&1
 nocompile/double_14.d(10): .size property is deprecated, use .sizeof
 
@@ -742,6 +762,12 @@ nocompile/double_20.d(11): no property 'mantissa' for type 'double'
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/double_21.d 1> log.tmp 2>&1
 nocompile/double_21.d(11): no property 'maxExp' for type 'double'
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/double_22.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/double_23.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/double_quoted_string_12.d 1> log.tmp 2>&1
@@ -1066,6 +1092,12 @@ nocompile: dmd-0.099   -c -odobj  nocompile/float_21.d 1> log.tmp 2>&1
 nocompile/float_21.d(11): no property 'maxExp' for type 'float'
 
 --------
+nocompile: dmd-0.099   -c -odobj  nocompile/float_23.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/float_24.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-0.099   -c -odobj  nocompile/float_litaeral_dec_04.d 1> log.tmp 2>&1
 
 --------
@@ -1075,12 +1107,6 @@ nocompile/float_litaeral_dec_06.d(10): semicolon expected, not 'A'
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/float_litaeral_dec_07.d 1> log.tmp 2>&1
 nocompile/float_litaeral_dec_07.d(10): semicolon expected, not 'A2e'
-
---------
-nocompile: dmd-0.099   -c -odobj  nocompile/float_litaeral_dec_08.d 1> log.tmp 2>&1
-
---------
-nocompile: dmd-0.099   -c -odobj  nocompile/float_litaeral_dec_09.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/float_litaeral_dec_12.d 1> log.tmp 2>&1
@@ -1198,6 +1224,18 @@ nocompile/html_entity_11.html(10): found ';' when expecting ')'
 nocompile/html_entity_11.html(10): unterminated character constant
 nocompile/html_entity_11.html(10): found '61U' when expecting ';' following 'statement'
 nocompile/html_entity_11.html(10): found '=' instead of statement
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/idouble_01.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/idouble_02.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/ifloat_01.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/ifloat_02.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/import_01.d 1> log.tmp 2>&1
@@ -1517,6 +1555,12 @@ nocompile: dmd-0.099   -c -odobj  nocompile/invariant_30.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/invariant_31.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/ireal_01.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/ireal_02.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/length_03.d 1> log.tmp 2>&1
@@ -1855,6 +1899,12 @@ nocompile: dmd-0.099   -c -odobj  nocompile/opCmp_02.d 1> log.tmp 2>&1
 Internal error: ../ztc/cod3.c 736
 
 --------
+nocompile: dmd-0.099   -c -odobj  nocompile/opCmp_04.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/opEquals_03.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-0.099   -c -odobj  nocompile/operator_01.d 1> log.tmp 2>&1
 nocompile/operator_01.d(24): incompatible types for ((a) + (b)): 'MyClass' and 'MyClass'
 
@@ -2092,6 +2142,12 @@ nocompile: dmd-0.099   -c -odobj  nocompile/real_21.d 1> log.tmp 2>&1
 nocompile/real_21.d(11): no property 'maxExp' for type 'real'
 
 --------
+nocompile: dmd-0.099   -c -odobj  nocompile/real_23.d 1> log.tmp 2>&1
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/real_24.d 1> log.tmp 2>&1
+
+--------
 nocompile: dmd-0.099   -c -odobj  nocompile/scope_01.d 1> log.tmp 2>&1
 
 --------
@@ -2187,7 +2243,10 @@ Error: expected 1 arguments, not 0
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/super_09.d 1> log.tmp 2>&1
-nocompile/super_09.d(26): no super class constructor for Object
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/super_10.d 1> log.tmp 2>&1
+nocompile/super_10.d(15): super class constructor call must be in a constructor
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/super_11.d 1> log.tmp 2>&1
@@ -2271,6 +2330,11 @@ dmd.bin: tocsym.c:138: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!n
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/this_06.d 1> log.tmp 2>&1
 dmd.bin: tocsym.c:138: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/this_07.d 1> log.tmp 2>&1
+nocompile/this_07.d(25): 'this' is only allowed in non-static member functions
+dmd.bin: expression.c:1147: virtual Expression* ThisExp::semantic(Scope*): Assertion `var' failed.
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/__TIME__02.d 1> log.tmp 2>&1
@@ -2359,6 +2423,9 @@ nocompile: dmd-0.099   -c -odobj  nocompile/unittest_06.d 1> log.tmp 2>&1
 nocompile/unittest_06.d(13): enum member expected
 nocompile/unittest_06.d(13): enum member expected
 nocompile/unittest_06.d(15): unrecognized declaration
+
+--------
+nocompile: dmd-0.099   -c -odobj  nocompile/unittest_07.d 1> log.tmp 2>&1
 
 --------
 nocompile: dmd-0.099   -c -odobj  nocompile/ushort_02.d 1> log.tmp 2>&1
@@ -2658,6 +2725,16 @@ gcc obj/assert_02.o -o run/assert_02.d.exe -lphobos -lpthread -lm -Xlinker -L/op
 run/assert_02.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.099   -odobj  -ofrun/assert_06.d.exe run/assert_06.d 1> log.tmp 2>&1
+gcc obj/assert_06.o -o run/assert_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/assert_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/assert_07.d.exe run/assert_07.d 1> log.tmp 2>&1
+gcc obj/assert_07.o -o run/assert_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/assert_07.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.099   -odobj  -ofrun/associative_array_02.d.exe run/associative_array_02.d 1> log.tmp 2>&1
 gcc obj/associative_array_02.o -o run/associative_array_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/associative_array_02.d.exe 1> log.tmp 2>&1
@@ -2736,6 +2813,11 @@ run/auto_03.d.exe 1> log.tmp 2>&1
 run: dmd-0.099   -odobj  -ofrun/auto_04.d.exe run/auto_04.d 1> log.tmp 2>&1
 gcc obj/auto_04.o -o run/auto_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/auto_04.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/auto_06.d.exe run/auto_06.d 1> log.tmp 2>&1
+gcc obj/auto_06.o -o run/auto_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/auto_06.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/bit_01.d.exe run/bit_01.d 1> log.tmp 2>&1
@@ -2883,6 +2965,21 @@ run/bug_20050405_05.d.exe 1> log.tmp 2>&1
 run: dmd-0.099   -release -odobj  -ofrun/bug_20050405_06.d.exe run/bug_20050405_06.d 1> log.tmp 2>&1
 gcc obj/bug_20050405_06.o -o run/bug_20050405_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/bug_20050405_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_20050407_01.d.exe run/bug_20050407_01.d 1> log.tmp 2>&1
+gcc obj/bug_20050407_01.o -o run/bug_20050407_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_20050407_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_20050407_02.d.exe run/bug_20050407_02.d 1> log.tmp 2>&1
+gcc obj/bug_20050407_02.o -o run/bug_20050407_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_20050407_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_20050407_03.d.exe run/bug_20050407_03.d 1> log.tmp 2>&1
+gcc obj/bug_20050407_03.o -o run/bug_20050407_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_20050407_03.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -O -inline -odobj  -ofrun/bug_cg87_2393_A.d.exe run/bug_cg87_2393_A.d 1> log.tmp 2>&1
@@ -3063,6 +3160,46 @@ gcc obj/bug_mtype_2576_A.o -o run/bug_mtype_2576_A.d.exe -lphobos -lpthread -lm 
 run/bug_mtype_2576_A.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_217_01.d.exe run/bug_tocsym_217_01.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_217_01.o -o run/bug_tocsym_217_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_217_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_217_02.d.exe run/bug_tocsym_217_02.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_217_02.o -o run/bug_tocsym_217_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_217_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_217_03.d.exe run/bug_tocsym_217_03.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_217_03.o -o run/bug_tocsym_217_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_217_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_217_04.d.exe run/bug_tocsym_217_04.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_217_04.o -o run/bug_tocsym_217_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_217_04.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_285_01.d.exe run/bug_tocsym_285_01.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_285_01.o -o run/bug_tocsym_285_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_285_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_285_02.d.exe run/bug_tocsym_285_02.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_285_02.o -o run/bug_tocsym_285_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_285_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_285_03.d.exe run/bug_tocsym_285_03.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_285_03.o -o run/bug_tocsym_285_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_285_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/bug_tocsym_285_04.d.exe run/bug_tocsym_285_04.d 1> log.tmp 2>&1
+gcc obj/bug_tocsym_285_04.o -o run/bug_tocsym_285_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/bug_tocsym_285_04.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.099   -odobj  -ofrun/bug_todt_194_A.d.exe run/bug_todt_194_A.d 1> log.tmp 2>&1
 
 --------
@@ -3150,10 +3287,6 @@ gcc obj/cast_08.o -o run/cast_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/di
 run/cast_08.d.exe 1> log.tmp 2>&1
 
 --------
-run: dmd-0.099   -odobj  -ofrun/cast_10.d.exe run/cast_10.d 1> log.tmp 2>&1
-run/cast_10.d(23): cast(Parent )(c) is not an lvalue
-
---------
 run: dmd-0.099   -odobj  -ofrun/cast_11.d.exe run/cast_11.d 1> log.tmp 2>&1
 gcc obj/cast_11.o -o run/cast_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/cast_11.d.exe 1> log.tmp 2>&1
@@ -3208,6 +3341,19 @@ run/cast_21.d(13): cannot implicitly convert expression !a || !b ? !a && !b : ca
 run: dmd-0.099   -odobj  -ofrun/cast_22.d.exe run/cast_22.d 1> log.tmp 2>&1
 gcc obj/cast_22.o -o run/cast_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/cast_22.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/cast_25.d.exe run/cast_25.d 1> log.tmp 2>&1
+run/cast_25.d(15): cannot implicitly convert expression args.length > 0 ? null : cast(void*)(t) of type void* to char[]
+
+--------
+run: dmd-0.099   -odobj  -ofrun/cast_26.d.exe run/cast_26.d 1> log.tmp 2>&1
+run/cast_26.d(15): cannot implicitly convert expression args.length > 0 ? cast(void*)(t) : null of type void* to char[]
+
+--------
+run: dmd-0.099   -odobj  -ofrun/cast_27.d.exe run/cast_27.d 1> log.tmp 2>&1
+gcc obj/cast_27.o -o run/cast_27.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/cast_27.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/catch_01.d.exe run/catch_01.d 1> log.tmp 2>&1
@@ -3522,8 +3668,10 @@ run/creal_08.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/creal_09.d.exe run/creal_09.d 1> log.tmp 2>&1
-gcc obj/creal_09.o -o run/creal_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
-run/creal_09.d.exe 1> log.tmp 2>&1
+run/creal_09.d(8): undefined identifier a
+run/creal_09.d(8): cannot implicitly convert expression 1.3 + 9.7i of type creal to int
+run/creal_09.d(9): undefined identifier a
+run/creal_09.d(9): no property 're' for type 'int'
 
 --------
 run: dmd-0.099   -odobj  -ofrun/creal_10.d.exe run/creal_10.d 1> log.tmp 2>&1
@@ -3579,6 +3727,16 @@ run/creal_19.d.exe 1> log.tmp 2>&1
 run: dmd-0.099   -odobj  -ofrun/creal_20.d.exe run/creal_20.d 1> log.tmp 2>&1
 gcc obj/creal_20.o -o run/creal_20.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/creal_20.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/creal_21.d.exe run/creal_21.d 1> log.tmp 2>&1
+gcc obj/creal_21.o -o run/creal_21.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/creal_21.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/creal_22.d.exe run/creal_22.d 1> log.tmp 2>&1
+gcc obj/creal_22.o -o run/creal_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/creal_22.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/__DATE__01.d.exe run/__DATE__01.d 1> log.tmp 2>&1
@@ -3682,6 +3840,15 @@ obj/default_argument_07.o(.gnu.linkonce.t_Dmain+0x5): In function `_Dmain':
 : undefined reference to `_D7dstress3run19default_argument_0711Template__91ii'
 collect2: ld gab 1 als Ende-Status zurück
 --- errorlevel 1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/default_argument_08.d.exe run/default_argument_08.d 1> log.tmp 2>&1
+run/default_argument_08.d(11): cannot implicitly convert expression BAR of type char[] to char[]
+
+--------
+run: dmd-0.099   -odobj  -ofrun/default_argument_09.d.exe run/default_argument_09.d 1> log.tmp 2>&1
+gcc obj/default_argument_09.o -o run/default_argument_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/default_argument_09.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/delegate_01.d.exe run/delegate_01.d 1> log.tmp 2>&1
@@ -4265,6 +4432,16 @@ gcc obj/float_litaeral_dec_05.o -o run/float_litaeral_dec_05.d.exe -lphobos -lpt
 run/float_litaeral_dec_05.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.099   -odobj  -ofrun/float_litaeral_dec_08.d.exe run/float_litaeral_dec_08.d 1> log.tmp 2>&1
+gcc obj/float_litaeral_dec_08.o -o run/float_litaeral_dec_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/float_litaeral_dec_08.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/float_litaeral_dec_09.d.exe run/float_litaeral_dec_09.d 1> log.tmp 2>&1
+gcc obj/float_litaeral_dec_09.o -o run/float_litaeral_dec_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/float_litaeral_dec_09.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.099   -odobj  -ofrun/float_litaeral_dec_10.d.exe run/float_litaeral_dec_10.d 1> log.tmp 2>&1
 gcc obj/float_litaeral_dec_10.o -o run/float_litaeral_dec_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/float_litaeral_dec_10.d.exe 1> log.tmp 2>&1
@@ -4358,7 +4535,6 @@ run/foreach_15.d.exe 1> log.tmp 2>&1
 run: dmd-0.099   -odobj  -ofrun/foreach_16.d.exe run/foreach_16.d 1> log.tmp 2>&1
 gcc obj/foreach_16.o -o run/foreach_16.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/foreach_16.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/foreach_16.d(16)
 
 --------
 run: dmd-0.099   -odobj  -ofrun/foreach_23.d.exe run/foreach_23.d 1> log.tmp 2>&1
@@ -4414,6 +4590,11 @@ obj/function_01.o(.gnu.linkonce.t_D7dstress3run11function_014test0FiZi+0x10): In
 obj/function_01.o(.gnu.linkonce.t_D7dstress3run11function_014test0FiZi+0x0): first defined here
 collect2: ld gab 1 als Ende-Status zurück
 --- errorlevel 1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/function_02.d.exe run/function_02.d 1> log.tmp 2>&1
+run/function_02.d(26): 'this' is only allowed in non-static member functions
+dmd.bin: expression.c:1147: virtual Expression* ThisExp::semantic(Scope*): Assertion `var' failed.
 
 --------
 run: dmd-0.099   -odobj  -ofrun/goto_01.d.exe run/goto_01.d 1> log.tmp 2>&1
@@ -6188,6 +6369,20 @@ run: dmd-0.099   -odobj  -ofrun/opCat_03.d.exe run/opCat_03.d 1> log.tmp 2>&1
 run/opCat_03.d(10): incompatible types for ((a) ~ ("d")): 'wchar[]' and 'char[]'
 
 --------
+run: dmd-0.099   -odobj  -ofrun/opCat_04.d.exe run/opCat_04.d 1> log.tmp 2>&1
+gcc obj/opCat_04.o -o run/opCat_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opCat_04.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/opCat_04.d(48)
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opCat_05.d.exe run/opCat_05.d 1> log.tmp 2>&1
+run/opCat_05.d(20): incompatible types for ((a) ~ (cast(int)(1))): 'bit[]' and 'int'
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opCat_06.d.exe run/opCat_06.d 1> log.tmp 2>&1
+run/opCat_06.d(20): incompatible types for ((a) ~ (cast(int)(0))): 'bit[]' and 'int'
+
+--------
 run: dmd-0.099   -odobj  -ofrun/opCatAssign_01.d.exe run/opCatAssign_01.d 1> log.tmp 2>&1
 gcc obj/opCatAssign_01.o -o run/opCatAssign_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/opCatAssign_01.d.exe 1> log.tmp 2>&1
@@ -6243,7 +6438,33 @@ gcc obj/opCatAssign_11.o -o run/opCatAssign_11.d.exe -lphobos -lpthread -lm -Xli
 run/opCatAssign_11.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.099   -odobj  -ofrun/opCatAssign_12.d.exe run/opCatAssign_12.d 1> log.tmp 2>&1
+gcc obj/opCatAssign_12.o -o run/opCatAssign_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opCatAssign_12.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opCatAssign_13.d.exe run/opCatAssign_13.d 1> log.tmp 2>&1
+gcc obj/opCatAssign_13.o -o run/opCatAssign_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opCatAssign_13.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opCatAssign_14.d.exe run/opCatAssign_14.d 1> log.tmp 2>&1
+gcc obj/opCatAssign_14.o -o run/opCatAssign_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opCatAssign_14.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/opCatAssign_14.d(52)
+
+--------
 run: dmd-0.099   -odobj  -ofrun/opCmp_01.d.exe run/opCmp_01.d 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opCmp_03.d.exe run/opCmp_03.d 1> log.tmp 2>&1
+gcc obj/opCmp_03.o -o run/opCmp_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opCmp_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opEquals_01.d.exe run/opEquals_01.d 1> log.tmp 2>&1
+gcc obj/opEquals_01.o -o run/opEquals_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opEquals_01.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/opIdentity_01.d.exe run/opIdentity_01.d 1> log.tmp 2>&1
@@ -6275,6 +6496,46 @@ run/opPos_01.d.exe 1> log.tmp 2>&1
 run: dmd-0.099   -odobj  -ofrun/opPos_02.d.exe run/opPos_02.d 1> log.tmp 2>&1
 gcc obj/opPos_02.o -o run/opPos_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/opPos_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShr_01.d.exe run/opShr_01.d 1> log.tmp 2>&1
+gcc obj/opShr_01.o -o run/opShr_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShr_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShr_02.d.exe run/opShr_02.d 1> log.tmp 2>&1
+gcc obj/opShr_02.o -o run/opShr_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShr_02.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShr_03.d.exe run/opShr_03.d 1> log.tmp 2>&1
+gcc obj/opShr_03.o -o run/opShr_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShr_03.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShr_04.d.exe run/opShr_04.d 1> log.tmp 2>&1
+gcc obj/opShr_04.o -o run/opShr_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShr_04.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShr_05.d.exe run/opShr_05.d 1> log.tmp 2>&1
+gcc obj/opShr_05.o -o run/opShr_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShr_05.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShr_06.d.exe run/opShr_06.d 1> log.tmp 2>&1
+gcc obj/opShr_06.o -o run/opShr_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShr_06.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShrAssign_01.d.exe run/opShrAssign_01.d 1> log.tmp 2>&1
+gcc obj/opShrAssign_01.o -o run/opShrAssign_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShrAssign_01.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/opShrAssign_02.d.exe run/opShrAssign_02.d 1> log.tmp 2>&1
+gcc obj/opShrAssign_02.o -o run/opShrAssign_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/opShrAssign_02.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/out_01.d.exe run/out_01.d 1> log.tmp 2>&1
@@ -6382,6 +6643,24 @@ gcc obj/overload_18.o -o run/overload_18.d.exe -lphobos -lpthread -lm -Xlinker -
 run/overload_18.d.exe 1> log.tmp 2>&1
 
 --------
+run: dmd-0.099   -odobj  -ofrun/overload_19.d.exe run/overload_19.d 1> log.tmp 2>&1
+run/overload_19.d(22): 'this' is only allowed in non-static member functions
+run/overload_19.d(24): 'this' is only allowed in non-static member functions
+
+--------
+run: dmd-0.099   -odobj  -ofrun/overload_20.d.exe run/overload_20.d 1> log.tmp 2>&1
+run/overload_20.d(23): cannot implicitly convert expression new Foo * of type Foo * to Foo
+
+--------
+run: dmd-0.099   -odobj  -ofrun/overload_21.d.exe run/overload_21.d 1> log.tmp 2>&1
+run/overload_21.d(23): cannot implicitly convert expression new Foo * of type Foo * to Foo
+
+--------
+run: dmd-0.099   -odobj  -ofrun/overload_22.d.exe run/overload_22.d 1> log.tmp 2>&1
+gcc obj/overload_22.o -o run/overload_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/overload_22.d.exe 1> log.tmp 2>&1
+
+--------
 run: dmd-0.099   -odobj  -ofrun/override_01.d.exe run/override_01.d 1> log.tmp 2>&1
 gcc obj/override_01.o -o run/override_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 run/override_01.d.exe 1> log.tmp 2>&1
@@ -6424,6 +6703,10 @@ run/private_02.d(22): class Inner member i is not accessible
 --------
 run: dmd-0.099   -odobj  -ofrun/private_03.d.exe run/private_03.d 1> log.tmp 2>&1
 run/private_03.d(24): class Inner member i is not accessible
+
+--------
+run: dmd-0.099   -odobj  -ofrun/private_04.d.exe run/private_04.d 1> log.tmp 2>&1
+run/private_04.d(22): class Bar member doSomething is not accessible
 
 --------
 run: dmd-0.099   -odobj  -ofrun/ptr_01.d.exe run/ptr_01.d 1> log.tmp 2>&1
@@ -6956,6 +7239,21 @@ run/switch_07.d.exe 1> log.tmp 2>&1
 --------
 run: dmd-0.099   -odobj  -ofrun/switch_14.d.exe run/switch_14.d 1> log.tmp 2>&1
 Internal error: s2ir.c 669
+
+--------
+run: dmd-0.099   -odobj  -ofrun/switch_19.d.exe run/switch_19.d 1> log.tmp 2>&1
+gcc obj/switch_19.o -o run/switch_19.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/switch_19.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/switch_20.d.exe run/switch_20.d 1> log.tmp 2>&1
+gcc obj/switch_20.o -o run/switch_20.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/switch_20.d.exe 1> log.tmp 2>&1
+
+--------
+run: dmd-0.099   -odobj  -ofrun/switch_21.d.exe run/switch_21.d 1> log.tmp 2>&1
+gcc obj/switch_21.o -o run/switch_21.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+run/switch_21.d.exe 1> log.tmp 2>&1
 
 --------
 run: dmd-0.099   -odobj  -ofrun/template_01.d.exe run/template_01.d 1> log.tmp 2>&1
@@ -7996,9 +8294,31 @@ collect2: ld gab 1 als Ende-Status zurück
 --- errorlevel 1
 
 --------
+norun: dmd-0.099   -odobj  -ofnorun/assert_04.d.exe norun/assert_04.d 1> log.tmp 2>&1
+gcc obj/assert_04.o -o norun/assert_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/assert_04.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.099   -odobj  -ofnorun/assert_05.d.exe norun/assert_05.d 1> log.tmp 2>&1
+gcc obj/assert_05.o -o norun/assert_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/assert_05.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure assert_05(10)
+
+--------
 norun: dmd-0.099   -odobj  -ofnorun/auto_05.d.exe norun/auto_05.d 1> log.tmp 2>&1
 gcc obj/auto_05.o -o norun/auto_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 norun/auto_05.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.099   -odobj  -ofnorun/bounds_checking_02.d.exe norun/bounds_checking_02.d 1> log.tmp 2>&1
+gcc obj/bounds_checking_02.o -o norun/bounds_checking_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/bounds_checking_02.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.099   -odobj  -ofnorun/bounds_checking_03.d.exe norun/bounds_checking_03.d 1> log.tmp 2>&1
+gcc obj/bounds_checking_03.o -o norun/bounds_checking_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/bounds_checking_03.d.exe 1> log.tmp 2>&1
+Error: ArrayBoundsError bounds_checking_03(12)
 
 --------
 norun: dmd-0.099   -odobj  -ofnorun/delete_03.d.exe norun/delete_03.d 1> log.tmp 2>&1
@@ -8036,6 +8356,27 @@ norun: dmd-0.099   -odobj  -ofnorun/slice_08.d.exe norun/slice_08.d 1> log.tmp 2
 gcc obj/slice_08.o -o norun/slice_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
 norun/slice_08.d.exe 1> log.tmp 2>&1
 Error: ArrayBoundsError norun/slice_08.d(21)
+
+--------
+norun: dmd-0.099   -odobj  -ofnorun/switch_17.d.exe norun/switch_17.d 1> log.tmp 2>&1
+gcc obj/switch_17.o -o norun/switch_17.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/switch_17.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.099   -odobj  -ofnorun/switch_18.d.exe norun/switch_18.d 1> log.tmp 2>&1
+gcc obj/switch_18.o -o norun/switch_18.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/switch_18.d.exe 1> log.tmp 2>&1
+Error: Switch Default switch_18(12)
+
+--------
+norun: dmd-0.099   -odobj  -ofnorun/throw_04.d.exe norun/throw_04.d 1> log.tmp 2>&1
+gcc obj/throw_04.o -o norun/throw_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/throw_04.d.exe 1> log.tmp 2>&1
+
+--------
+norun: dmd-0.099   -odobj  -ofnorun/throw_05.d.exe norun/throw_05.d 1> log.tmp 2>&1
+gcc obj/throw_05.o -o norun/throw_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/99/dmd/lib 
+norun/throw_05.d.exe 1> log.tmp 2>&1
 
 --------
 Digital Mars D Compiler v0.99

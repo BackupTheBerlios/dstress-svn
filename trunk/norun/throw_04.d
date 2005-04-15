@@ -2,8 +2,6 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__
-
 module dstress.norun.throw_04;
 
 static ~this(){

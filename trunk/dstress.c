@@ -24,6 +24,8 @@
  *
  */                                             
 
+// Beware: the code doesn't care about freeing allocated memory
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -166,7 +168,7 @@ char* getGeneralFlags(){
 	if(back == NULL){
 		back = getenv("dflags");
 		if(back==NULL){
-			back = "";
+			 back = calloc(1,1);
 		}
 	}
 	return back;
@@ -267,8 +269,7 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 		strcat(gdc, line);
 		strcat(gdc, ": ");
 	}else{
-		dmd=NULL;
-		gdc=NULL;
+		return 1;
 	}
 
 	/* fix filenames */
@@ -300,12 +301,126 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 		back=1;
 	}
 
-	/* @todo@ check format of all other messages */
 	return back;
 }
 
-int checkRuntimeErrorMessage(const char* file, const char* line, const char* buffer){
-	/* @todo@ */
+int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* buffer){
+	// Phobos(dmd & gdc): dir/file.d(2)
+
+	char* file;
+	char* line;
+	char* phobos;
+	char* phobosLong;
+
+	char* begin;
+	char* end1;
+	char* end2;
+
+	int back=0;
+
+	/* clean arguments */
+	if(strcmp(file_, "")!=0){
+		file = malloc(strlen(file_)+1);
+		strcpy(file, file_);
+	}else{
+		file=NULL;
+	}
+	
+	if(strcmp(line_, "")!=0){
+		line = malloc(strlen(line_)+1);
+		strcpy(line, line_);
+	}else{
+		line=NULL;
+	}
+	
+	/* gen patterns*/
+	if(file!=NULL){
+		if(line!=NULL){
+			phobos = malloc(strlen(file)+strlen(line)+5);
+			phobos[0]='\x00';
+			if(begin=rindex(file,'/')){
+				begin++;
+			}else if(begin=rindex(file,'\\')){
+				begin++;
+			}else{
+				begin=file;
+			}
+			end1=rindex(file,'.');
+			strncat(phobos, begin, end1-begin);
+			strcat(phobos, "(");
+			strcat(phobos, line);
+			strcat(phobos, ")");
+
+			phobosLong = malloc(strlen(file)+strlen(line)+5);
+			phobosLong[0]='\x00';
+			strcat(phobosLong, file);
+			strcat(phobosLong, "(");
+			strcat(phobosLong, line);
+			strcat(phobosLong, ")");
+
+		}else{
+			phobos = malloc(strlen(file)+2);
+			phobos[0]='\x00';
+			if(begin=rindex(file,'/')){
+				begin++;
+			}else if(begin=rindex(file,'\\')){
+				begin++;
+			}else{
+				begin=file;
+			}
+			end1=rindex(file,'.');
+			strncat(phobos, begin, end1-begin);
+			strcat(phobos, "(");
+
+			phobosLong = malloc(strlen(file)+2);
+			phobosLong[0]='\x00';
+			strcat(phobosLong, file);
+			strcat(phobosLong, "(");
+		}
+	}else if(line!=NULL){
+		phobos = malloc(strlen(line)+3);
+		phobos[0]='\x00';
+		strcat(phobos, "(");
+		strcat(phobos, line);
+		strcat(phobos, ")");
+		
+		phobosLong=NULL;
+	}else{
+		return 1;
+	}
+
+	/* fix filenames */
+#ifdef WIN32
+	end1="/";
+	end2="\\";
+#else
+	end1="\\";
+	end2="/";
+#endif
+
+	if(phobos){
+		while( (begin=strchr(phobos, end1[0])) ){
+			begin[0]=end2[0];
+		}
+	}
+
+	if(phobosLong){
+		while( (begin=strchr(phobosLong, end1[0])) ){
+			begin[0]=end2[0];
+		}
+		while(phobosLong[0]==end2[0]){
+			phobosLong++;
+		}
+	}
+	/* specific error messages */
+		
+	if( (phobos && strstr(buffer, phobos))
+		|| (phobosLong && strstr(buffer, phobosLong)))
+	{
+		back=1;
+	}
+ 
+	return back;	
 	return 1;
 }
 
@@ -524,6 +639,7 @@ err:		if(argc!=0)
 		fprintf(stderr, "--------\n");
 	}else{
 		printf("@bug@ %d (%s)\n", modus, arg[2]);
+		return -1;
 	}
 	return 0;
 }

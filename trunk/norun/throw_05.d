@@ -2,11 +2,9 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__
+module dstress.norun.throw_05;
 
-module dstress.norun.throw_04;
-
-static ~this(){
+static this(){
 	throw new Exception("Message\n");
 }
 

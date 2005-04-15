@@ -6,7 +6,6 @@ Makefile:
 * update/check the Windows bat generator (./beta)
 
 dstress.c:
-* check messages: compile->generic, runtime->spezific&generic
 * MSWindows: implement crashRun (stop pop-up for segfaulting test cases / createProcess)
 
 Benchmark:

@@ -82,12 +82,18 @@ char* loadFile(char* filename){
 			if(fileInfo.st_size>0){
 				*(back+fileInfo.st_size+1) = '\x00';
 			}else{
-				back = "\x00";
+				back = NULL;
 			}
 		}
 		close(file);
 	}
-	return back;
+
+	if(back){
+		return back;
+	}
+
+	fprintf(stderr, "File not found \"%s\"\n", filename);
+	exit(EXIT_FAILURE);
 }
 
 void *xmalloc(size_t size)
@@ -639,7 +645,7 @@ err:		if(argc!=0)
 		fprintf(stderr, "--------\n");
 	}else{
 		printf("@bug@ %d (%s)\n", modus, arg[2]);
-		return -1;
+		return EXIT_FAILURE;
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }

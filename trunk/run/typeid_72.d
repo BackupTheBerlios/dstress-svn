@@ -13,6 +13,6 @@ int main(){
 	TypeInfo ti = typeid(MyStruct*);
 	assert(!(ti is null));
 	assert(ti.tsize==(MyStruct*).sizeof);
-	assert(ti.toString()=="MyStruct*");
+	assert(ti.toString()=="dstress.run.typeid_72.MyStruct*");
 	return 0;
 }

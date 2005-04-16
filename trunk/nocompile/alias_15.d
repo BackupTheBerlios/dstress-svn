@@ -7,7 +7,9 @@
 // @uri@	news:opsl6xo4fhaaezs2@robingood
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2982
 
-module dstress.run.alias_16;
+// __DSTRESS_ELINE__ 26
+
+module dstress.nocompile.alias_15;
 
 class A{
 	int foo;
@@ -20,7 +22,7 @@ class B{
 int main(){
 	B b=new B();
 	assert(b.a.foo==0);
-	{
+	with(b){
 		alias b.a.foo bar;
 		bar++;
 	}

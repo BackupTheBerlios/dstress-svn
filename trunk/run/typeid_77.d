@@ -14,6 +14,6 @@ int main(){
 	TypeInfo ti = typeid(MyEnum*);
 	assert(!(ti is null));
 	assert(ti.tsize==(MyEnum*).sizeof);
-	assert(ti.toString()=="MyEnum*");
+	assert(ti.toString()=="dstress.run.typeid_77.MyEnum*");
 	return 0;
 }

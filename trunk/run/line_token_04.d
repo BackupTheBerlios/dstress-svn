@@ -19,24 +19,17 @@ int main(){
 /*
  * @WARNING@: this code depends on the phobos implementation.
  * char[]s returned by wrong assertions have to look like:
- *       "blah blah \"filename\" blah blah"
+ *       "blah blah filename(123) blah blah"
  */
 void checkFileSpec(Object o){
 	char[] string=o.toString();
 
 	int start;
 	for(start=0; start<string.length; start++){
-		if(string[start]=='"'){
+		if(string[start]=='('){
 			break;
 		}
 	}
 
-	int end;
-	for(end=start+1; end<string.length; end++){
-		if(string[end]=='"'){
-			break;
-		}
-	}
-
-	assert(string[start .. end]=="\"a");                           
+	assert(string[start-2 .. start+3]==" a(0)");                           
 }

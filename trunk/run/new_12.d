@@ -19,7 +19,7 @@ struct MyStruct{
 
 int main(){
 	assert(counter==0);
-	MyStruct m;
+	MyStruct m=new MyStruct;
 	m.x=1;
 	assert(counter==1);
 	return 0;

@@ -15,7 +15,7 @@ struct StructA{
 const int i = 15;
 
 const StructA s1 = { i+1 };
-const StructA s2 = { s1 };
+const StructA s2 = s1;
 
 int main(){
 	assert(s1.a == 16);

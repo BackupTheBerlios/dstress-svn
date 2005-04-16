@@ -19,9 +19,9 @@ struct MyStruct{
 	}
 }
 
-int test(){
+void test(){
 	MyStruct t;
-	return t.i;
+	delete t;
 }
 
 int main(){

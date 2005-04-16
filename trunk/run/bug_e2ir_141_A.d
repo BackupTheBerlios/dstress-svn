@@ -14,12 +14,14 @@ struct MyStruct{
 }
 
 class MyClass{
+	static MyStruct _s;
+
 	static MyStruct prop(){
-		MyStruct s;
-		return s;
+		return _s;
 	}
 
 	static void prop(MyStruct s){
+		_s=s;
 	}
 }
 
@@ -27,7 +29,7 @@ int main(){
 	MyClass c = new MyClass();
 	c.prop = true ? MyClass.prop : MyClass.prop;
 	assert(c.prop.i == 0);
-	c.prop.i == 7;
+	c.prop.i = 7;
 	assert(c.prop.i == 7);
 	return 0;
 }

@@ -27,6 +27,6 @@ int main() {
 	MyStruct a;
 	MyStruct b;
 	assert(a==b);
-	assert(!(a===b));
+	assert(&a!=&b);
 	return 0;
 }

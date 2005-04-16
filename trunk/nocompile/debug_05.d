@@ -2,6 +2,8 @@
 // $Date$
 // $Auhtor$
 
+// __DSTRESS_ELINE__ 13
+
 module dstress.nocompile.debug_05;
 
 template T(){

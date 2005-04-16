@@ -16,15 +16,15 @@ union MyUnion{
 
 class MyClass{
 	static MyUnion prop(){
-		MyUnion u;
-		return u;
+		return dummy;
 	}
 
 	static void prop(MyUnion u){
+		dummy=u;
 	}
 }
 
-MyClass dummy;
+MyUnion dummy;
 
 int main(){
 	MyClass c = new MyClass();

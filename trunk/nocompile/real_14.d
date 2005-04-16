@@ -8,5 +8,5 @@ module dstress.nocompile.real_14;
 
 int main(){
 	int i = real.size;
-	retrun 0;
+	return 0;
 }

@@ -26,18 +26,10 @@ void checkFileSpec(Object o){
 
 	int start;
 	for(start=0; start<string.length; start++){
-		if(string[start]=='"'){
+		if(string[start]=='('){
 			break;
 		}
 	}
 
-	int end;
-	for(end=start+1; end<string.length; end++){
-		if(string[end]=='"'){
-			break;
-		}
-	}
-
-	assert(end<string.length);                           
-        assert(end-start==1);
+	assert(string[start-1 .. start+3]==" (0)");
 }

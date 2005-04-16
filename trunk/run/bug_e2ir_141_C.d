@@ -15,6 +15,7 @@ class MyClass{
 	}
 
 	static void prop(MyClass o){
+		dummy=o;
 	}
 }
 

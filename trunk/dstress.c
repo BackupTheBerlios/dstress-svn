@@ -24,7 +24,7 @@
  *
  */                                             
 
-// Beware: the code doesn't care about freeing allocated memory
+/* Beware: the code doesn't care about freeing allocated memory */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -102,13 +102,13 @@ void *xmalloc(size_t size)
 	if (p < 0)
 	{
 		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
-		exit(1);			
+		exit(EXIT_FAILURE);			
 	}
 	p = malloc(size);
 	if (p == NULL)
 	{
 		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
-		exit(1);			
+		exit(EXIT_FAILURE);			
 	}
 	return p;
 }
@@ -311,7 +311,7 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 }
 
 int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* buffer){
-	// Phobos(dmd & gdc): dir/file.d(2)
+	/* Phobos(dmd & gdc): dir/file.d(2) */
 
 	char* file;
 	char* line;
@@ -427,7 +427,6 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 	}
  
 	return back;	
-	return 1;
 }
 
 
@@ -534,17 +533,19 @@ err:		if(argc!=0)
 				if(checkErrorMessage(arg[2], "", buffer)){
 					printf("FAIL: \t%s [%d]\n", arg[2], res);
 				}else{
-					printf("ERROR:\t%s [%d]\n", arg[2], res);
+					printf("ERROR:\t%s [%d] [bad error message]\n", arg[2], res);
 				}
-			}else{
+			}else if(good_error){
 				printf("ERROR:\t%s [%d]\n", arg[2], res);
+			}else{
+				printf("ERROR:\t%s [%d] [bad error message]\n", arg[2], res); 
 			}
 		}else{
 			if(res==RETURN_FAIL){
 				if(good_error){
 					printf("XFAIL:\t%s\n", arg[2]);
 				}else{
-					printf("FAIL: \t%s\n", arg[2]);
+					printf("FAIL: \t%s [bad error message]\n", arg[2]);
 				}
 			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s\n", arg[2]);
@@ -593,15 +594,19 @@ err:		if(argc!=0)
 		if(strstr(buffer, "Internal error")!= NULL || strstr(buffer, "gcc.gnu.org/bugs")!=NULL){
 			printf("ERROR:\t%s (Internal compiler error)\n", arg[2]);
 			fprintf(stderr, "\n--------\n");
-			return 0;
+			return  EXIT_SUCCESS;
 		}else if(res==RETURN_FAIL && good_error){
 			printf("FAIL: \t%s [%d]\n", arg[2], res);
 			fprintf(stderr, "\n--------\n");
-			return 0;
+			return  EXIT_SUCCESS;
 		}else if(res!=RETURN_OK){
-			printf("ERROR:\t%s [%d]\n", arg[2], res);
+			if(good_error){
+				printf("ERROR:\t%s [%d]\n", arg[2], res);
+			}else{
+				printf("ERROR:\t%s [%d] [bad error message]\n", arg[2], res);
+			}
 			fprintf(stderr, "\n--------\n");
-			return 0;
+			return  EXIT_SUCCESS;
 		}
 		
 		/* test 2/2 */
@@ -616,9 +621,6 @@ err:		if(argc!=0)
 		
 		/* diagnostic 2/2 */
 		buffer = loadFile(TLOG);
-		if(buffer==NULL || strlen(buffer)<2){
-			buffer="";
-		}
 		fprintf(stderr, "%s\n", buffer);
 		good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
 		if(modus==RUN){
@@ -627,14 +629,18 @@ err:		if(argc!=0)
 			}else if(res==RETURN_FAIL && good_error){
 				printf("FAIL: \t%s [run: %d]\n", arg[2], res);
 			}else{
-				printf("ERROR:\t%s [run: %d]\n", arg[2], res);
+				if(good_error){
+					printf("ERROR:\t%s [run: %d]\n", arg[2], res);
+				}else{
+					printf("ERROR:\t%s [run: %d] [bad error message]\n", arg[2], res); 
+				}
 			}
 		}else{
 			if(res==RETURN_FAIL){
 				if(good_error){
 					printf("XFAIL:\t%s\n", arg[2]);
 				}else{
-					printf("FAIL: \t%s\n", arg[2]);
+					printf("FAIL: \t%s [bad errror message]\n", arg[2]);
 				}
 			}else if(res==RETURN_OK){
 				printf("XPASS:\t%s [norun: %d]\n", arg[2], res);

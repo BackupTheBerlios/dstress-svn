@@ -1,5 +1,5 @@
-/* 
- * core test tool for the DStress test suite 
+/*
+ * core test tool for the DStress test suite
  * http://dstress.kuehne.cn
  *
  * Copyright (C) 2005 Thomas Kuehne <thomas@kuehne.cn>
@@ -22,9 +22,9 @@
  * $Date$
  * $Author$
  *
- */                                             
+ */
 
-/* Beware: the code doesn't care about freeing allocated memory */
+/* Beware: the code doesn't care about freeing allocated memory etc... */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -63,8 +63,8 @@
 
 #ifdef USE_POSIX
 
-#define RETURN_OK 0
-#define RETURN_FAIL 256
+#define SHELL_RETURN_OK 0
+#define SHELL_RETURN_FAIL 256
 #define crashRun system
 
 #include <sys/types.h>
@@ -102,13 +102,13 @@ void *xmalloc(size_t size)
 	if (p < 0)
 	{
 		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
-		exit(EXIT_FAILURE);			
+		exit(EXIT_FAILURE);
 	}
 	p = malloc(size);
 	if (p == NULL)
 	{
 		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
-		exit(EXIT_FAILURE);			
+		exit(EXIT_FAILURE);
 	}
 	return p;
 }
@@ -119,8 +119,8 @@ void *xmalloc(size_t size)
 
 #ifdef WIN32
 
-#define RETURN_OK 0
-#define RETURN_FAIL 1
+#define SHELL_RETURN_OK 0
+#define SHELL_RETURN_FAIL 1
 
 #include <windows.h>
 char* loadFile(char* filename){
@@ -136,25 +136,49 @@ char* loadFile(char* filename){
 				if (numread==size){
 					*(back+size+1) = '\x00';
 				}else{
-					back = "\x00";
+					back = NULL;
 				}
 			}else{
-				back = "\x00";
+				back = NULL;
 			}
 		}
 		CloseHandle(file);
 	}
-	errno = 0;
-	return back;
-}
-#error no crashRun adaptation for this system available
+	if(back){
+		errno = 0;
+		return back;
+	}
 
-#else 
-#error no loadFile adaptation for this system available
-#error no crashRun adaptation for this system available /* like system(char*) but has to return without human intervention even if the application segfaults */
+	fprintf(stderr, "File not found \"%s\"\n", filename);
+	exit(EXIT_FAILURE);
+}
+//#error no crashRun adaptation available for this system
+
+#else
+#error no loadFile adaptation available for this system
+
+/* like system(char*) but has to return without human intervention even if the application segfaults */
+#error no crashRun adaptation available for this system
 
 #endif /* WIN32 else */
 #endif /* USE_POSIX else */
+
+/* cleanup "/" versus "\" in filenames */
+char* cleanPathSeperator(char* filename){
+	char* pos;
+#ifdef USE_POSIX
+	for(pos=strchr(filename, '\\'); pos; pos=strchr(filename, '\\')){
+		*pos='/';
+	}
+#else if WIN32
+	for(pos=strchr(filename, '/'); pos; pos=strchr(filename, '/')){
+		*pos='\\';
+	}
+#else
+#error no cleanPathseperator adaptation available for this system
+#endif
+	return filename;
+}
 
 /* Query the environment for the compiler name */
 char* getCompiler(){
@@ -165,7 +189,7 @@ char* getCompiler(){
 			back = "dmd";
 		}
 	}
-	return back;
+	return cleanPathSeperator(back);
 }
 
 /* Query the environment for general flags */
@@ -177,7 +201,7 @@ char* getGeneralFlags(){
 			 back = calloc(1,1);
 		}
 	}
-	return back;
+	return cleanPathSeperator(back);
 }
 
 /* extract the FIRST occurance of a given FLAG until the next linebreak */
@@ -186,7 +210,7 @@ char* getCaseFlag(const char* data, const char* tag){
 	char* end1;
 	char* end2;
 	char* back;
-	
+
 	if(data!=NULL && tag!=NULL){
 		begin = strstr(data, tag);
 		if(begin!=NULL){
@@ -202,7 +226,7 @@ char* getCaseFlag(const char* data, const char* tag){
 			back = malloc(end1-begin+1);
 			strncpy(back, begin, end1-begin);
 			back[end1-begin+1]='\x00';
-			return back;
+			return cleanPathSeperator(back);
 		}
 	}
 
@@ -230,14 +254,14 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	}else{
 		file=NULL;
 	}
-	
+
 	if(strcmp(line_, "")!=0){
 		line = malloc(strlen(line_)+1);
 		strcpy(line, line_);
 	}else{
 		line=NULL;
 	}
-	
+
 	/* gen patterns*/
 	if(file!=NULL){
 		if(line!=NULL){
@@ -278,29 +302,8 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 		return 1;
 	}
 
-	/* fix filenames */
-#ifdef WIN32
-	end1="/";
-	end2="\\";
-#else
-	end1="\\";
-	end2="/";
-#endif
-
-	if(dmd!=NULL){
-		while( (begin=strchr(dmd, end1[0])) ){
-			begin[0]=end2[0];
-		}
-	}
-
-	if(gdc!=NULL){
-		while( (begin=strchr(gdc, end1[0])) ){
-			begin[0]=end2[0];
-		}
-	}
-
 	/* specific error messages */
-		
+
 	if( (dmd!=NULL && strstr(buffer, dmd))
 			|| (gdc!=NULL && strstr(buffer, gdc))
 			|| (dmd==NULL && gdc==NULL)){
@@ -311,7 +314,9 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 }
 
 int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* buffer){
-	/* Phobos(dmd & gdc): dir/file.d(2) */
+	/* PhobosLong	dir/file.d(2)
+	 * Phobos		package.module(2)
+	 */
 
 	char* file;
 	char* line;
@@ -331,27 +336,31 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 	}else{
 		file=NULL;
 	}
-	
+
 	if(strcmp(line_, "")!=0){
 		line = malloc(strlen(line_)+1);
 		strcpy(line, line_);
 	}else{
 		line=NULL;
 	}
-	
+
 	/* gen patterns*/
 	if(file!=NULL){
 		if(line!=NULL){
 			phobos = malloc(strlen(file)+strlen(line)+5);
 			phobos[0]='\x00';
-			if(begin=rindex(file,'/')){
-				begin++;
-			}else if(begin=rindex(file,'\\')){
+			begin=strrchr(file,'/');
+			if(begin){
 				begin++;
 			}else{
-				begin=file;
+				begin=strrchr(file,'\\');
+				if(begin){
+					begin++;
+				}else{
+					begin=file;
+				}
 			}
-			end1=rindex(file,'.');
+			end1=strrchr(file,'.');
 			strncat(phobos, begin, end1-begin);
 			strcat(phobos, "(");
 			strcat(phobos, line);
@@ -367,14 +376,18 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 		}else{
 			phobos = malloc(strlen(file)+2);
 			phobos[0]='\x00';
-			if(begin=rindex(file,'/')){
-				begin++;
-			}else if(begin=rindex(file,'\\')){
+			begin=strrchr(file,'/');
+			if(begin){
 				begin++;
 			}else{
-				begin=file;
+				begin=strrchr(file,'\\');
+				if(begin){
+					begin++;
+				}else{
+					begin=file;
+				}
 			}
-			end1=rindex(file,'.');
+			end1=strrchr(file,'.');
 			strncat(phobos, begin, end1-begin);
 			strcat(phobos, "(");
 
@@ -389,67 +402,46 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 		strcat(phobos, "(");
 		strcat(phobos, line);
 		strcat(phobos, ")");
-		
+
 		phobosLong=NULL;
 	}else{
 		return 1;
 	}
 
-	/* fix filenames */
-#ifdef WIN32
-	end1="/";
-	end2="\\";
-#else
-	end1="\\";
-	end2="/";
-#endif
-
-	if(phobos){
-		while( (begin=strchr(phobos, end1[0])) ){
-			begin[0]=end2[0];
-		}
-	}
-
-	if(phobosLong){
-		while( (begin=strchr(phobosLong, end1[0])) ){
-			begin[0]=end2[0];
-		}
-		while(phobosLong[0]==end2[0]){
-			phobosLong++;
-		}
-	}
 	/* specific error messages */
-		
+
 	if( (phobos && strstr(buffer, phobos))
 		|| (phobosLong && strstr(buffer, phobosLong)))
 	{
 		back=1;
 	}
- 
-	return back;	
+
+	return back;
 }
 
 
 int main(int argc, char* arg[]){
-	char* compiler;		/* the compiler */
+	char* compiler;		/* the compiler - from enviroment flag "DMD" */
 	char* cmd_arg_general;	/* additional arguments - from enviroment flag "DFLAGS" */
 	char* cmd_arg_case;	/* additional arguments - from the testcase file */
 	char* buffer;		/* general purpos buffer */
-	int modus;		/* test modus: RUN NORUN COMPILE NOCOMPILE */	
-	int res;		/* return code from external executions */ 
+	int modus;		/* test modus: RUN NORUN COMPILE NOCOMPILE */
+	int res;		/* return code from external executions */
+	char* case_file;
 	char* error_file;	/* expected sourcefile containing the error */
 	char* error_line;	/* expected error line */
 	int good_error;		/* error contained file and line and matched the expectations */
-	
+
 	/* check arguments */
 	if(argc != 3){
-err:		if(argc!=0)		
+err:
+		if(argc!=0)
 			fprintf(stderr,"%s <run|norun|compile|nocompile> <source>\n", arg[0]);
 		else
-			fprintf(stderr,"dstress.exe <run|norun|compile|nocompile> <source>\n");
-		exit(-1);
+			fprintf(stderr,"dstress <run|norun|compile|nocompile> <source>\n");
+		exit(EXIT_FAILURE);
 	}
-	
+
 	if(0==strcmp(arg[1], "run") || 0==strcmp(arg[1], "RUN")){
 		modus = RUN;
 	}else if(0==strcmp(arg[1], "norun") || 0==strcmp(arg[1], "NORUN")){
@@ -463,38 +455,48 @@ err:		if(argc!=0)
 	}
 
 	/* gen flags */
+	case_file = cleanPathSeperator(strdup(arg[2]));
 	compiler = getCompiler();
 	cmd_arg_general = getGeneralFlags();
-	buffer = loadFile(arg[2]);
-	
+	buffer = loadFile(case_file);
+
 	cmd_arg_case = getCaseFlag(buffer, "__DSTRESS_DFLAGS__");
 	error_line = getCaseFlag(buffer, "__DSTRESS_ELINE__");
 	error_file = getCaseFlag(buffer, "__DSTRESS_EFILE__");
+
+#if 0
+	fprintf(stderr, "case:     \"%s\"\n", case_file);
+	fprintf(stderr, "compiler: \"%s\"\n", compiler);
+	fprintf(stderr, "DFLAGS G: \"%s\"\n", cmd_arg_general);
+	fprintf(stderr, "DFLAGS C: \"%s\"\n", cmd_arg_case);
+	fprintf(stderr, "ELINE   : \"%s\"\n", error_line);
+	fprintf(stderr, "EFILE   : \"%s\"\n", error_file);
+#endif
 
 	/* strip spaces */
 	while(error_line[0]==' '){
 		error_line++;
 	}
 	for(buffer=error_line+strlen(error_line)-1; buffer && buffer[0]==' '; buffer=error_line+strlen(error_line)-1){
-		buffer[0]='\x00';	
+		buffer[0]='\x00';
 	}
 	while(error_file[0]==' '){
 		error_file++;
 	}
 	for(buffer=error_file+strlen(error_file)-1; buffer && buffer[0]==' '; buffer=error_file+strlen(error_file)-1){
-		buffer[0]='\x00';	
+		buffer[0]='\x00';
 	}
 
 	/* set implicit source file */
 	if(strcmp(error_line, "")!=0 && strcmp(error_file, "")==0){
-		error_file=arg[2];
+		error_file=case_file;
 	}
-	
+
 	/* start working */
 	if(modus==COMPILE || modus==NOCOMPILE){
 		/* gen command */
 		buffer = malloc(strlen(compiler)+strlen(cmd_arg_general)+strlen(cmd_arg_case)+strlen(OBJ)
-			+strlen(arg[2])+strlen(TLOG)+64);
+			+strlen(case_file)+strlen(TLOG)+64);
 		buffer[0]='\x00';
 		strcat(buffer, compiler);
 		strcat(buffer, " ");
@@ -506,7 +508,7 @@ err:		if(argc!=0)
 			strcat(buffer, OBJ);
 			strcat(buffer, " ");
 		}
-		strcat(buffer, arg[2]);
+		strcat(buffer, case_file);
 		strcat(buffer, " 1> ");
 		strcat(buffer, TLOG);
 		strcat(buffer, " 2>&1");
@@ -522,42 +524,42 @@ err:		if(argc!=0)
 		/* diagnostic */
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s\n", buffer);
-		good_error = checkErrorMessage(error_file, error_line, buffer); 
+		good_error = checkErrorMessage(error_file, error_line, buffer);
 
 		if(strstr(buffer, "Internal error")!= NULL || strstr(buffer, "gcc.gnu.org/bugs")!=NULL){
-			printf("ERROR:\t%s (Internal compiler error)\n", arg[2]);
+			printf("ERROR:\t%s (Internal compiler error)\n", case_file);
 		}else if(modus==COMPILE){
-			if(res==RETURN_OK){
-				printf("PASS: \t%s\n", arg[2]);
-			}else if(res==RETURN_FAIL && good_error){
-				if(checkErrorMessage(arg[2], "", buffer)){
-					printf("FAIL: \t%s [%d]\n", arg[2], res);
+			if(res==SHELL_RETURN_OK){
+				printf("PASS: \t%s\n", case_file);
+			}else if(res==SHELL_RETURN_FAIL && good_error){
+				if(checkErrorMessage(case_file, "", buffer)){
+					printf("FAIL: \t%s [%d]\n", case_file, res);
 				}else{
-					printf("ERROR:\t%s [%d] [bad error message]\n", arg[2], res);
+					printf("ERROR:\t%s [%d] [bad error message]\n", case_file, res);
 				}
 			}else if(good_error){
-				printf("ERROR:\t%s [%d]\n", arg[2], res);
+				printf("ERROR:\t%s [%d]\n", case_file, res);
 			}else{
-				printf("ERROR:\t%s [%d] [bad error message]\n", arg[2], res); 
+				printf("ERROR:\t%s [%d] [bad error message]\n", case_file, res);
 			}
 		}else{
-			if(res==RETURN_FAIL){
+			if(res==SHELL_RETURN_FAIL){
 				if(good_error){
-					printf("XFAIL:\t%s\n", arg[2]);
+					printf("XFAIL:\t%s\n", case_file);
 				}else{
-					printf("FAIL: \t%s [bad error message]\n", arg[2]);
+					printf("FAIL: \t%s [bad error message]\n", case_file);
 				}
-			}else if(res==RETURN_OK){
-				printf("XPASS:\t%s\n", arg[2]);
+			}else if(res==SHELL_RETURN_OK){
+				printf("XPASS:\t%s\n", case_file);
 			}else{
-				printf("ERROR:\t%s [%d]\n", arg[2], res);
+				printf("ERROR:\t%s [%d]\n", case_file, res);
 			}
 		}
 		fprintf(stderr,"--------\n");
 	}else if(modus==RUN || modus==NORUN){
 		/* gen command */
 		buffer = malloc(strlen(compiler)+strlen(cmd_arg_general)+strlen(cmd_arg_case)+strlen(OBJ)
-			+strlen(arg[2])*2+strlen(TLOG)+64);
+			+strlen(case_file)*2+strlen(TLOG)+64);
 		buffer[0]='\x00';
 		strcat(buffer, compiler);
 		strcat(buffer, " ");
@@ -571,10 +573,10 @@ err:		if(argc!=0)
 		}
 		if(NULL==strstr(buffer, "-of")){
 			strcat(buffer, "-of");
-			strcat(buffer, arg[2]);
+			strcat(buffer, case_file);
 			strcat(buffer, ".exe ");
 		}
-		strcat(buffer, arg[2]);
+		strcat(buffer, case_file);
 		strcat(buffer, " 1> ");
 		strcat(buffer, TLOG);
 		strcat(buffer, " 2>&1");
@@ -586,71 +588,71 @@ err:		if(argc!=0)
 			fprintf(stderr, "norun: %s\n", buffer);
 		}
 		res = crashRun(buffer);
-		
+
 		/* diagnostic 1/2 */
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s", buffer);
 		good_error = checkErrorMessage(error_file, error_line, buffer);
 		if(strstr(buffer, "Internal error")!= NULL || strstr(buffer, "gcc.gnu.org/bugs")!=NULL){
-			printf("ERROR:\t%s (Internal compiler error)\n", arg[2]);
+			printf("ERROR:\t%s (Internal compiler error)\n", case_file);
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
-		}else if(res==RETURN_FAIL && good_error){
-			printf("FAIL: \t%s [%d]\n", arg[2], res);
+		}else if(res==SHELL_RETURN_FAIL && good_error){
+			printf("FAIL: \t%s [%d]\n", case_file, res);
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
-		}else if(res!=RETURN_OK){
+		}else if(res!=SHELL_RETURN_OK){
 			if(good_error){
-				printf("ERROR:\t%s [%d]\n", arg[2], res);
+				printf("ERROR:\t%s [%d]\n", case_file, res);
 			}else{
-				printf("ERROR:\t%s [%d] [bad error message]\n", arg[2], res);
+				printf("ERROR:\t%s [%d] [bad error message]\n", case_file, res);
 			}
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}
-		
+
 		/* test 2/2 */
-		buffer = malloc(strlen(arg[2]) + strlen(TLOG) + 24);
+		buffer = malloc(strlen(case_file) + strlen(TLOG) + 24);
 		*buffer = '\x00';
-		strcat(buffer, arg[2]);
+		strcat(buffer, case_file);
 		strcat(buffer, ".exe 1> ");
 		strcat(buffer, TLOG);
 		strcat(buffer, " 2>&1");
 		fprintf(stderr, "%s\n", buffer);
 		res=crashRun(buffer);
-		
+
 		/* diagnostic 2/2 */
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s\n", buffer);
 		good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
 		if(modus==RUN){
-			if(res==RETURN_OK){
-				printf("PASS: \t%s\n", arg[2]);
-			}else if(res==RETURN_FAIL && good_error){
-				printf("FAIL: \t%s [run: %d]\n", arg[2], res);
+			if(res==SHELL_RETURN_OK){
+				printf("PASS: \t%s\n", case_file);
+			}else if(res==SHELL_RETURN_FAIL && good_error){
+				printf("FAIL: \t%s [run: %d]\n", case_file, res);
 			}else{
 				if(good_error){
-					printf("ERROR:\t%s [run: %d]\n", arg[2], res);
+					printf("ERROR:\t%s [run: %d]\n", case_file, res);
 				}else{
-					printf("ERROR:\t%s [run: %d] [bad error message]\n", arg[2], res); 
+					printf("ERROR:\t%s [run: %d] [bad error message]\n", case_file, res);
 				}
 			}
 		}else{
-			if(res==RETURN_FAIL){
+			if(res==SHELL_RETURN_FAIL){
 				if(good_error){
-					printf("XFAIL:\t%s\n", arg[2]);
+					printf("XFAIL:\t%s\n", case_file);
 				}else{
-					printf("FAIL: \t%s [bad errror message]\n", arg[2]);
+					printf("FAIL: \t%s [bad errror message]\n", case_file);
 				}
-			}else if(res==RETURN_OK){
-				printf("XPASS:\t%s [norun: %d]\n", arg[2], res);
+			}else if(res==SHELL_RETURN_OK){
+				printf("XPASS:\t%s [norun: %d]\n", case_file, res);
 			}else{
-				printf("ERROR:\t%s [norun: %d]\n", arg[2], res);
+				printf("ERROR:\t%s [norun: %d]\n", case_file, res);
 			}
 		}
 		fprintf(stderr, "--------\n");
 	}else{
-		printf("@bug@ %d (%s)\n", modus, arg[2]);
+		printf("@bug@ %d (%s)\n", modus, case_file);
 		return EXIT_FAILURE;
 	}
 	return EXIT_SUCCESS;

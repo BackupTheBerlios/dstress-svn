@@ -101,13 +101,13 @@ void *xmalloc(size_t size)
 	void *p;
 	if (p < 0)
 	{
-		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
+		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
 		exit(EXIT_FAILURE);
 	}
 	p = malloc(size);
 	if (p == NULL)
 	{
-		fprintf(stderr,"Failed to allocate %ld bytes!\n", size);
+		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
 		exit(EXIT_FAILURE);
 	}
 	return p;
@@ -170,13 +170,15 @@ char* cleanPathSeperator(char* filename){
 	for(pos=strchr(filename, '\\'); pos; pos=strchr(filename, '\\')){
 		*pos='/';
 	}
-#else if WIN32
+#else
+#if WIN32
 	for(pos=strchr(filename, '/'); pos; pos=strchr(filename, '/')){
 		*pos='\\';
 	}
 #else
-#error no cleanPathseperator adaptation available for this system
-#endif
+#error no cleanPathSeperator available for this system
+#endif /* WIN32 else */
+#endif /* USE_POSIX else */
 	return filename;
 }
 
@@ -240,10 +242,6 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	char* line;
 	char* dmd;
 	char* gdc;
-
-	char* begin;
-	char* end1;
-	char* end2;
 
 	int back=0;
 
@@ -324,8 +322,7 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 	char* phobosLong;
 
 	char* begin;
-	char* end1;
-	char* end2;
+	char* end;
 
 	int back=0;
 
@@ -360,8 +357,8 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 					begin=file;
 				}
 			}
-			end1=strrchr(file,'.');
-			strncat(phobos, begin, end1-begin);
+			end=strrchr(file,'.');
+			strncat(phobos, begin, end-begin);
 			strcat(phobos, "(");
 			strcat(phobos, line);
 			strcat(phobos, ")");
@@ -387,8 +384,8 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 					begin=file;
 				}
 			}
-			end1=strrchr(file,'.');
-			strncat(phobos, begin, end1-begin);
+			end=strrchr(file,'.');
+			strncat(phobos, begin, end-begin);
 			strcat(phobos, "(");
 
 			phobosLong = malloc(strlen(file)+2);

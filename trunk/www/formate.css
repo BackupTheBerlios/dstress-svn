@@ -1,3 +1,13 @@
 body  { background-color:#ffe28c; }
 a { color:#370be5; }
 a:hover { background-color:#fff7b7; }
+
+.A { text-align: center; font-size:small }
+.B { background: #58c932; text-align: center; font-size:small }
+.D { background: #f43a3a; text-align: center; font-size:small }
+.C { background: #ea6b6b; text-align: center; font-size:small }
+.E { background: #98f47a; text-align: center; font-size:small }
+.F { background: #5793ed; text-align: center; font-size:small }
+
+.P { background: #f43a3a; text-align: center; font-size: small; text-decoration: overline }
+.R { background: #5793ed; text-align: center; font-size: small; text-decoration: overline }

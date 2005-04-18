@@ -1,6 +1,39 @@
+>>>> VERSION <<<<
+Sun, 17 Apr 2005 22:02:15 +0200
+2.6.10-B i686 GNU/Linux
+Digital Mars D Compiler v0.114
+Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
+Documentation: www.digitalmars.com/d/index.html
+Usage:
+  dmd files.d ... { -switch }
+
+  files.d        D source files
+  -c             do not link
+  -d             allow deprecated features
+  -g             add symbolic debug info
+  -gt            add trace profiling hooks
+  -v             verbose
+  -O             optimize
+  -odobjdir      write object files to directory objdir
+  -offilename	 name output file to filename
+  -op            do not strip paths from source file
+  -Ipath         where to look for imports
+  -Llinkerflag   pass linkerflag to link
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
+  -inline        do function inlining
+  -release	 compile release version
+  -unittest      compile in unit tests
+  -version=level compile in version code >= level
+  -version=ident compile in version code identified by ident
+make: [version] Fehler 1 (ignoriert)
+Error: unrecognized switch '--version'
+make: [version] Fehler 1 (ignoriert)
+<<<< VERSION >>>>
 cc  dstress.c -o dstress__
 rm -f compile/*.o compile/*.o
-find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ compile" > compile.sh
+find compile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ compile" > compile.sh
 chmod +x compile.sh
 ./compile.sh 2>> /tmp/dstress/log.txt
 PASS: 	compile/alias_08.d
@@ -26,9 +59,9 @@ PASS: 	compile/for_03.d
 PASS: 	compile/forward_reference_01.d
 PASS: 	compile/forward_reference_02.d
 PASS: 	compile/forward_reference_03.d
-ERROR:	compile/forward_reference_04.d [256]
+ERROR:	compile/forward_reference_04.d [256] [bad error message]
 PASS: 	compile/forward_reference_05.d
-ERROR:	compile/forward_reference_06.d [256]
+ERROR:	compile/forward_reference_06.d [256] [bad error message]
 PASS: 	compile/html_empty_01.html
 PASS: 	compile/html_empty_02.html
 PASS: 	compile/inline_02.d
@@ -36,9 +69,9 @@ FAIL: 	compile/inline_03.d [256]
 PASS: 	compile/interface_08.d
 PASS: 	compile/interface_09.d
 FAIL: 	compile/mixin_01.d [256]
-ERROR:	compile/pragma_lib_08.d [256]
+ERROR:	compile/pragma_lib_08.d [256] [bad error message]
 FAIL: 	compile/pragma_lib_09.d [256]
-ERROR:	compile/pragma_lib_10.d [256]
+ERROR:	compile/pragma_lib_10.d [256] [bad error message]
 PASS: 	compile/sizeof_12.d
 PASS: 	compile/struct_16.d
 PASS: 	compile/struct_18.d
@@ -53,7 +86,7 @@ PASS: 	compile/variadic_argument_02.d
 PASS: 	compile/variadic_argument_03.d
 FAIL: 	compile/version_09.d [256]
 rm -f nocompile/*.o nocompile/*.no
-find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
+find nocompile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
 chmod +x nocompile.sh
 ./nocompile.sh 2>> /tmp/dstress/log.txt
 XFAIL:	nocompile/abstract_01.d
@@ -67,6 +100,8 @@ XPASS:	nocompile/abstract_09.d
 XPASS:	nocompile/abstract_11.d
 XPASS:	nocompile/abstract_12.d
 XPASS:	nocompile/alias_05.d
+XFAIL:	nocompile/alias_15.d
+XFAIL:	nocompile/alias_16.d
 XFAIL:	nocompile/alias_17.d
 XFAIL:	nocompile/align_02.d
 XFAIL:	nocompile/argument_01.d
@@ -97,10 +132,10 @@ XFAIL:	nocompile/bug_cgcod_1464.d
 XFAIL:	nocompile/bug_cgcs_353.d
 XFAIL:	nocompile/bug_cod4_352_B.d
 XFAIL:	nocompile/bug_cod4_352.d
-FAIL: 	nocompile/bug_dsymbol_611_A.d
+FAIL: 	nocompile/bug_dsymbol_611_A.d [bad error message]
 XFAIL:	nocompile/bug_dsymbol_611_B.d
 XFAIL:	nocompile/bug_dsymbol_611_D.d
-FAIL: 	nocompile/bug_e2ir_299_A.d
+FAIL: 	nocompile/bug_e2ir_299_A.d [bad error message]
 XFAIL:	nocompile/bug_e2ir_814.d
 XFAIL:	nocompile/bug_expression_1147.d
 XFAIL:	nocompile/bug_expression_661_A.d
@@ -171,6 +206,8 @@ XFAIL:	nocompile/dchar_04.d
 XFAIL:	nocompile/dchar_06.d
 XFAIL:	nocompile/debug_04.d
 ERROR:	nocompile/debug_05.d [34304]
+XPASS:	nocompile/debug_06.d
+XFAIL:	nocompile/debug_07.d
 XPASS:	nocompile/debug_info_01.d
 ERROR:	nocompile/debug_info_02.d [35584]
 XFAIL:	nocompile/default_argument_05.d
@@ -263,13 +300,13 @@ XFAIL:	nocompile/final_08.d
 XPASS:	nocompile/final_09.d
 XPASS:	nocompile/final_10.d
 XPASS:	nocompile/final_11.d
-FAIL: 	nocompile/finally_02.d
+FAIL: 	nocompile/finally_02.d [bad error message]
 XPASS:	nocompile/finally_03.d
 XPASS:	nocompile/finally_04.d
 XPASS:	nocompile/finally_05.d
 XPASS:	nocompile/finally_06.d
 XPASS:	nocompile/finally_07.d
-FAIL: 	nocompile/finally_08.d
+FAIL: 	nocompile/finally_08.d [bad error message]
 XPASS:	nocompile/finally_09.d
 XFAIL:	nocompile/float_14.d
 XFAIL:	nocompile/float_15.d
@@ -299,14 +336,16 @@ ERROR:	nocompile/foreach_21.d [34304]
 ERROR:	nocompile/foreach_22.d [34304]
 XFAIL:	nocompile/goto_04.d
 XFAIL:	nocompile/goto_06.d
-FAIL: 	nocompile/goto_12.d
-FAIL: 	nocompile/goto_13.d
-FAIL: 	nocompile/goto_14.d
+FAIL: 	nocompile/goto_12.d [bad error message]
+FAIL: 	nocompile/goto_13.d [bad error message]
+FAIL: 	nocompile/goto_14.d [bad error message]
 XPASS:	nocompile/html_empty_entity_01.html
 XPASS:	nocompile/html_empty_entity_02.html
-FAIL: 	nocompile/html_empty_entity_03.html
-FAIL: 	nocompile/html_entity_10.html
-FAIL: 	nocompile/html_entity_11.html
+FAIL: 	nocompile/html_empty_entity_03.html [bad error message]
+FAIL: 	nocompile/html_entity_10.html [bad error message]
+FAIL: 	nocompile/html_entity_11.html [bad error message]
+XFAIL:	nocompile/html_htm_02.HTM
+ERROR:	nocompile/html_html_02.HTML [35584]
 XPASS:	nocompile/idouble_01.d
 XPASS:	nocompile/idouble_02.d
 XPASS:	nocompile/ifloat_01.d
@@ -326,6 +365,7 @@ XFAIL:	nocompile/inline_07.d
 XFAIL:	nocompile/inline_08.d
 XFAIL:	nocompile/int_05.d
 XFAIL:	nocompile/int_06.d
+ERROR:	nocompile/int_08.d [34816]
 XFAIL:	nocompile/integer_literal_binary_09.d
 XFAIL:	nocompile/integer_literal_binary_10.d
 XFAIL:	nocompile/integer_literal_binary_11.d
@@ -400,13 +440,14 @@ XPASS:	nocompile/ireal_01.d
 XPASS:	nocompile/ireal_02.d
 XFAIL:	nocompile/length_03.d
 XFAIL:	nocompile/length_04.d
+FAIL: 	nocompile/length_07.d [bad error message]
 XFAIL:	nocompile/__LINE__02.d
 XFAIL:	nocompile/line_token_05.d
 XFAIL:	nocompile/line_token_06.d
-FAIL: 	nocompile/line_token_07.d
-FAIL: 	nocompile/line_token_08.d
-FAIL: 	nocompile/line_token_09.d
-FAIL: 	nocompile/line_token_10.d
+FAIL: 	nocompile/line_token_07.d [bad error message]
+FAIL: 	nocompile/line_token_08.d [bad error message]
+FAIL: 	nocompile/line_token_09.d [bad error message]
+FAIL: 	nocompile/line_token_10.d [bad error message]
 XFAIL:	nocompile/long_02.d
 XFAIL:	nocompile/long_03.d
 XPASS:	nocompile/mixin_04.d
@@ -471,10 +512,10 @@ XPASS:	nocompile/override_08.d
 XFAIL:	nocompile/override_09.d
 XFAIL:	nocompile/pragma_03.d
 XFAIL:	nocompile/pragma_04.d
-FAIL: 	nocompile/pragma_lib_01.d
-FAIL: 	nocompile/pragma_lib_02.d
-FAIL: 	nocompile/pragma_lib_03.d
-FAIL: 	nocompile/pragma_lib_04.d
+FAIL: 	nocompile/pragma_lib_01.d [bad error message]
+FAIL: 	nocompile/pragma_lib_02.d [bad error message]
+FAIL: 	nocompile/pragma_lib_03.d [bad error message]
+FAIL: 	nocompile/pragma_lib_04.d [bad error message]
 XFAIL:	nocompile/pragma_lib_05.d
 XFAIL:	nocompile/pragma_lib_06.d
 XFAIL:	nocompile/pragma_lib_07.d
@@ -486,7 +527,7 @@ XFAIL:	nocompile/ptr_06.d
 XFAIL:	nocompile/ptr_07.d
 XFAIL:	nocompile/ptr_08.d
 XFAIL:	nocompile/ptr_09.d
-FAIL: 	nocompile/real_14.d
+XFAIL:	nocompile/real_14.d
 XFAIL:	nocompile/real_15.d
 XFAIL:	nocompile/real_16.d
 XFAIL:	nocompile/real_17.d
@@ -512,12 +553,12 @@ XFAIL:	nocompile/static_10.d
 XFAIL:	nocompile/struct_04.d
 XFAIL:	nocompile/struct_05.d
 XFAIL:	nocompile/struct_06.d
-FAIL: 	nocompile/struct_17.d
+FAIL: 	nocompile/struct_17.d [bad error message]
 XFAIL:	nocompile/struct_19.d
 XFAIL:	nocompile/struct_20.d
 XFAIL:	nocompile/super_03.d
 ERROR:	nocompile/super_05.d [34304]
-FAIL: 	nocompile/super_06.d
+XFAIL:	nocompile/super_06.d
 XPASS:	nocompile/super_09.d
 ERROR:	nocompile/super_10.d [35584]
 ERROR:	nocompile/super_11.d [35584]
@@ -544,7 +585,7 @@ XFAIL:	nocompile/this_07.d
 XFAIL:	nocompile/__TIME__02.d
 XFAIL:	nocompile/__TIMESTAMP__02.d
 XPASS:	nocompile/try_05.d
-FAIL: 	nocompile/try_09.d
+FAIL: 	nocompile/try_09.d [bad error message]
 XFAIL:	nocompile/typeof_05.d
 XFAIL:	nocompile/typeof_06.d
 XFAIL:	nocompile/types_declaration_02.d
@@ -555,14 +596,11 @@ XFAIL:	nocompile/uint_02.d
 XFAIL:	nocompile/uint_03.d
 XFAIL:	nocompile/ulong_02.d
 XFAIL:	nocompile/ulong_03.d
-FAIL: 	nocompile/union_11.d
+FAIL: 	nocompile/union_11.d [bad error message]
 XPASS:	nocompile/union_12.d
 XPASS:	nocompile/union_13.d
 XPASS:	nocompile/union_14.d
 XFAIL:	nocompile/union_15.d
-XPASS:	nocompile/unittest_03.d
-FAIL: 	nocompile/unittest_05.d
-XFAIL:	nocompile/unittest_06.d
 ERROR:	nocompile/unittest_07.d [35584]
 XFAIL:	nocompile/ushort_02.d
 XFAIL:	nocompile/ushort_03.d
@@ -581,6 +619,8 @@ XPASS:	nocompile/version_27.d
 XPASS:	nocompile/version_28.d
 XFAIL:	nocompile/version_29.d
 ERROR:	nocompile/version_30.d [34304]
+XFAIL:	nocompile/version_31.d
+XPASS:	nocompile/version_32.d
 XFAIL:	nocompile/wchar_01.d
 XFAIL:	nocompile/wchar_02.d
 XFAIL:	nocompile/wchar_04.d
@@ -589,7 +629,7 @@ XFAIL:	nocompile/with_05.d
 XFAIL:	nocompile/with_06.d
 XFAIL:	nocompile/with_07.d
 rm -f run/*.exe run/*.exe
-find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ run" > run.sh
+find run -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
 ./run.sh 2>> /tmp/dstress/log.txt
 PASS: 	run/abstract_07.d
@@ -605,8 +645,6 @@ PASS: 	run/alias_11.d
 PASS: 	run/alias_12.d
 FAIL: 	run/alias_13.d [256]
 PASS: 	run/alias_14.d
-FAIL: 	run/alias_15.d [256]
-FAIL: 	run/alias_16.d [256]
 PASS: 	run/align_07.d
 PASS: 	run/align_08.d
 FAIL: 	run/align_09.d [run: 256]
@@ -630,6 +668,8 @@ PASS: 	run/Alternate_Wysiwyg_String_16.d
 PASS: 	run/array_initialization_02.d
 PASS: 	run/array_initialization_03.d
 PASS: 	run/array_initialization_05.d
+FAIL: 	run/array_initialization_06.d [256]
+FAIL: 	run/array_initialization_07.d [256]
 PASS: 	run/assert_01.d
 PASS: 	run/assert_02.d
 PASS: 	run/assert_06.d
@@ -651,6 +691,8 @@ PASS: 	run/auto_02.d
 ERROR:	run/auto_03.d [run: 35584]
 ERROR:	run/auto_04.d [run: 35584]
 PASS: 	run/auto_06.d
+FAIL: 	run/auto_07.d [run: 256]
+PASS: 	run/auto_08.d
 PASS: 	run/bit_01.d
 PASS: 	run/bit_03.d
 PASS: 	run/bit_04.d
@@ -707,11 +749,11 @@ PASS: 	run/bug_cgcod_1640_F.d
 PASS: 	run/bug_cgcod_1640_G.d
 PASS: 	run/bug_cgcs_353_B.d
 ERROR:	run/bug_cgcs_353_C.d (Internal compiler error)
-FAIL: 	run/bug_cgcs_353_D.d [run: 256]
+PASS: 	run/bug_cgcs_353_D.d
 ERROR:	run/bug_cod1_1648_A.d (Internal compiler error)
 PASS: 	run/bug_cod1_1648_B.d
 FAIL: 	run/bug_e2ir_141_A.d [run: 256]
-FAIL: 	run/bug_e2ir_141_B.d [run: 256]
+PASS: 	run/bug_e2ir_141_B.d
 PASS: 	run/bug_e2ir_141_C.d
 FAIL: 	run/bug_e2ir_141_D.d [run: 256]
 PASS: 	run/bug_e2ir_299_B.d
@@ -819,12 +861,11 @@ PASS: 	run/constructor_11.d
 PASS: 	run/creal_01.d
 PASS: 	run/creal_02.d
 PASS: 	run/creal_03.d
-FAIL: 	run/creal_04.d [run: 256]
 PASS: 	run/creal_05.d
 PASS: 	run/creal_06.d
 PASS: 	run/creal_07.d
 PASS: 	run/creal_08.d
-FAIL: 	run/creal_09.d [256]
+PASS: 	run/creal_09.d
 PASS: 	run/creal_10.d
 PASS: 	run/creal_11.d
 PASS: 	run/creal_12.d
@@ -961,6 +1002,8 @@ PASS: 	run/float_11.d
 PASS: 	run/float_12.d
 PASS: 	run/float_13.d
 PASS: 	run/float_22.d
+PASS: 	run/float_25.d
+PASS: 	run/float_26.d
 PASS: 	run/float_litaeral_dec_01.d
 PASS: 	run/float_litaeral_dec_03.d
 PASS: 	run/float_litaeral_dec_05.d
@@ -1050,9 +1093,7 @@ FAIL: 	run/html_entity_num.html [256]
 FAIL: 	run/html_entity_pub.html [256]
 FAIL: 	run/html_entity_tech.html [256]
 FAIL: 	run/html_htm_01.htm [256]
-FAIL: 	run/html_htm_02.HTM [256]
 PASS: 	run/html_html_01.html
-ERROR:	run/html_html_02.HTML [35584]
 PASS: 	run/html_line_ending_dos.html
 PASS: 	run/html_line_ending_linux.html
 FAIL: 	run/html_line_ending_mac.html [256]
@@ -1086,6 +1127,8 @@ PASS: 	run/InExpression_20.d
 PASS: 	run/init_01.d
 PASS: 	run/init_02.d
 FAIL: 	run/init_03.d [256]
+FAIL: 	run/init_04.d [run: 256]
+FAIL: 	run/init_05.d [run: 256]
 FAIL: 	run/inline_04.d [256]
 PASS: 	run/inline_05.d
 PASS: 	run/inline_06.d
@@ -1186,8 +1229,9 @@ FAIL: 	run/mixin_05.d [256]
 PASS: 	run/mixin_06.d
 PASS: 	run/mixin_07.d
 PASS: 	run/mixin_08.d
-FAIL: 	run/mixin_09.d [256]
+PASS: 	run/mixin_09.d
 FAIL: 	run/mixin_10.d [256]
+PASS: 	run/mixin_11.d
 FAIL: 	run/module_01.d [256]
 PASS: 	run/module_02.d
 FAIL: 	run/module_04.d [256]
@@ -1207,7 +1251,7 @@ PASS: 	run/new_08.d
 ERROR:	run/new_09.d [run: 35584]
 ERROR:	run/new_10.d [run: 35584]
 ERROR:	run/new_11.d [run: 35584]
-FAIL: 	run/new_12.d [run: 256]
+FAIL: 	run/new_12.d [256]
 FAIL: 	run/new_13.d [run: 256]
 PASS: 	run/odd_bug_01.d
 FAIL: 	run/odd_bug_02.d [run: 256]
@@ -1547,7 +1591,7 @@ PASS: 	run/typeid_51.d
 FAIL: 	run/typeid_52.d [run: 256]
 PASS: 	run/typeid_53.d
 FAIL: 	run/typeid_54.d [run: 256]
-FAIL: 	run/typeid_55.d [run: 256]
+PASS: 	run/typeid_55.d
 FAIL: 	run/typeid_56.d [run: 256]
 PASS: 	run/typeid_57.d
 FAIL: 	run/typeid_58.d [run: 256]
@@ -1562,15 +1606,15 @@ FAIL: 	run/typeid_66.d [run: 256]
 PASS: 	run/typeid_67.d
 PASS: 	run/typeid_68.d
 FAIL: 	run/typeid_69.d [run: 256]
-FAIL: 	run/typeid_70.d [run: 256]
+PASS: 	run/typeid_70.d
 FAIL: 	run/typeid_71.d [run: 256]
 FAIL: 	run/typeid_72.d [run: 256]
-FAIL: 	run/typeid_73.d [run: 256]
+PASS: 	run/typeid_73.d
 FAIL: 	run/typeid_74.d [run: 256]
 FAIL: 	run/typeid_75.d [run: 256]
 FAIL: 	run/typeid_76.d [run: 256]
 FAIL: 	run/typeid_77.d [run: 256]
-FAIL: 	run/typeid_78.d [run: 256]
+PASS: 	run/typeid_78.d
 FAIL: 	run/typeid_79.d [run: 256]
 FAIL: 	run/typeid_80.d [run: 256]
 PASS: 	run/typeid_81.d
@@ -1605,7 +1649,11 @@ PASS: 	run/union_05.d
 PASS: 	run/union_06.d
 PASS: 	run/union_07.d
 PASS: 	run/unittest_01.d
+FAIL: 	run/unittest_03.d [run: 256]
 FAIL: 	run/unittest_04.d [256]
+FAIL: 	run/unittest_05.d [256]
+FAIL: 	run/unittest_06.d [256]
+FAIL: 	run/unittest_08.d [run: 256]
 PASS: 	run/ushort_01.d
 PASS: 	run/ushort_04.d
 PASS: 	run/ushort_05.d
@@ -1654,28 +1702,26 @@ PASS: 	run/Wysiwyg_String_14.d
 PASS: 	run/Wysiwyg_String_15.d
 FAIL: 	run/xhtml_tag_01.html [256]
 rm -f norun/*.exe norun/*.bin
-find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ norun" > norun.sh
+find norun -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
 ./norun.sh 2>> /tmp/dstress/log.txt
 ERROR:	norun/assert_04.d [norun: 35584]
 XFAIL:	norun/assert_05.d
-XFAIL:	norun/auto_05.d
+XPASS:	norun/auto_05.d [norun: 0]
 ERROR:	norun/bounds_checking_02.d [norun: 35584]
 XFAIL:	norun/bounds_checking_03.d
 XPASS:	norun/delete_03.d [norun: 0]
 XFAIL:	norun/delete_04.d
 XPASS:	norun/delete_05.d [norun: 0]
 ERROR:	norun/destructor_04.d [norun: 35584]
-FAIL: 	norun/main_05.d [256]
+ERROR:	norun/int_09.d [norun: 34816]
+ERROR:	norun/main_05.d [256] [bad error message]
 XFAIL:	norun/slice_06.d
 XFAIL:	norun/slice_08.d
 XPASS:	norun/switch_17.d [norun: 0]
 XFAIL:	norun/switch_18.d
 XPASS:	norun/throw_04.d [norun: 0]
-XPASS:	norun/throw_05.d [norun: 0]
-cc  ifeq__.c -o ifeq__
-cc  return__.c -o return__
-cc  extract__.c -o extract__
+XFAIL:	norun/throw_05.d
 XFAIL: complex/command_line/command_line_null_source_01
 XFAIL: complex/command_line/command_line_null_source_02
 XFAIL: complex/command_line/command_line_null_source_03

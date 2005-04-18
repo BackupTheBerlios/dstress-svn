@@ -67,6 +67,7 @@ public class GenReport{
 
 		/** test status by reader id*/
 		protected byte[] status;
+		protected boolean[] bad_message;
 
 		/**
 		 * @param name name of the test
@@ -75,13 +76,14 @@ public class GenReport{
 		protected TestResult(String name, int count){
 			this.name=name;
 			status=new byte[count];
+			bad_message=new boolean[count];
 		}
 	}
 
 	/** stores the TestResults by name */
 	private Hashtable data;
 
-	public GenReport(Reader[] in, Writer out) throws Throwable{
+	public GenReport(Reader[] in, Writer out, Writer todo) throws Throwable{
 		data=new Hashtable();
 		for(int index=0; index<in.length; index++){
 			try{
@@ -90,7 +92,7 @@ public class GenReport{
 				throw new Throwable("reader number: "+index,t);
 			}
 		}
-		write(out, in.length);
+		write(out, in.length, todo);
 	}
 
 	/** interpretes input on a per Reader basis and updates the data
@@ -100,49 +102,55 @@ public class GenReport{
 	 **/
 	private void read(LineNumberReader liner, int version, int max) throws Throwable{
 		for(String line=liner.readLine(); line!=null; line=liner.readLine()){
-			try{
-				// pare result status
-				StringTokenizer nizer = new StringTokenizer(line," \t\n:",false);
-				String token=nizer.nextToken();
-				byte status=-1;
-				for(byte typeIndex=0; typeIndex<TestResult.typ.length; typeIndex++){
-					if(TestResult.typ[typeIndex].equals(token)){
-						status=typeIndex;
+			if(line.length()>0){
+				try{
+					// pare result status
+					StringTokenizer nizer = new StringTokenizer(line," \t\n:",false);
+					String token=nizer.nextToken();
+					byte status=-1;
+					for(byte typeIndex=0; typeIndex<TestResult.typ.length; typeIndex++){
+						if(TestResult.typ[typeIndex].equals(token)){
+							status=typeIndex;
+						}
 					}
-				}
-				if(status<0){
+					if(status<0){
 					// Unknown token
-					continue;
-				}
-				// test name
-				String name=nizer.nextToken();
-				if(name.indexOf(".")==-1){
-					// support for the old log format
-					if(name.indexOf("html")>-1){
-						name+=".html";
-					}else{
-						name+=".d";
+						continue;
 					}
-				}
+					// test name
+					String name=nizer.nextToken();
+					if(name.indexOf(".")==-1){
+						// support for the old log format
+						if(name.indexOf("html")>-1){
+							name+=".html";
+						}else{
+							name+=".d";
+						}
+					}
 
-				// get
-				TestResult test=(TestResult)data.get(name);
-				if(test==null){
-					// no test found
-					test=new TestResult(name,max);
+					// get
+					TestResult test=(TestResult)data.get(name);
+					if(test==null){
+						// no test found
+						test=new TestResult(name,max);
+					}
+					if(-1<line.indexOf("[bad error message]")){
+						test.bad_message[version]=true;
+					}
+					test.status[version]=status;
+					// save
+					data.put(name,test);
+				}catch(Throwable t){
+					throw new Throwable("linenumber: "+liner.getLineNumber(),t);
 				}
-				test.status[version]=status;
-				// save
-				data.put(name,test);
-			}catch(Throwable t){
-				throw new Throwable("linenumber: "+liner.getLineNumber(),t);
 			}
 		}
 	}
 
 	/** saves unsorted results as a html snipplet */
-	private void write(Writer out, int compilerCount) throws Exception{
+	private void write(Writer out, int compilerCount, Writer todo) throws Exception{
 		long[][] summary = new long[compilerCount][TestResult.typ.length];
+		StringBuffer buffer;
 		// test cases:
 		for(Enumeration e=data.elements();e.hasMoreElements();){
 			TestResult result= (TestResult) e.nextElement();
@@ -169,22 +177,39 @@ public class GenReport{
 			if(!new File(linkName).exists()){
 				// ignore deprecated test cases
 				continue;
-			}else{
-				// @todo@ fix linkName escape
-				out.write("<tr><th><a name='"+plainName+"' href='"+linkName+"'>"+plainName.replace('_',' ')+"</a></th>");
 			}
+
+			buffer=new StringBuffer();
+			// @todo@ fix linkName escape
+			buffer.append("<tr><th><a name='");
+			buffer.append(plainName);
+			buffer.append("' href='");
+			buffer.append(linkName);
+			buffer.append("'>");
+			buffer.append(plainName.replace('_',' '));
+			buffer.append("</a></th>");
+			
 			for(int index=0; index<result.status.length; index++){
-				out.write("<td class='");
+				buffer.append("<td class='");
 				try{
-					out.write((char)('A'+result.status[index]));
-					out.write("'>"+TestResult.lower[result.status[index]]);
+					if(result.bad_message[index]){
+						buffer.append((char)('M'+result.status[index]));
+					}else{
+						buffer.append((char)('A'+result.status[index]));
+					}
+					buffer.append("'>");
+					buffer.append(TestResult.lower[result.status[index]]);
 					summary[index][result.status[index]]++;
 				}catch(Exception ee){
 					throw new Exception("unhandled status "+result.status[index]+" for entry \""+result.name+"\" in input stream "+index);
 				}
-				out.write("</td>");
+				buffer.append("</td>");
 			}
-			out.write("</tr>\n");
+			buffer.append("</tr>\n");
+			out.write(buffer.toString());
+			if(result.status[0]!=result.PASS && result.status[0]!=result.XFAIL){
+				todo.write(buffer.toString());
+			}
 		}
 
 		// summary:
@@ -221,6 +246,7 @@ public class GenReport{
 		Throwable exception=null;
 		Reader[] in=null;
 		Writer out=null;
+		Writer todo=null;
 		try{
 			// setup
 			in=new Reader[arg.length];
@@ -228,7 +254,8 @@ public class GenReport{
 				in[index]=new InputStreamReader(new FileInputStream(arg[index]));
 			}
 			out=new OutputStreamWriter(System.out);
-			new GenReport(in,out);
+			todo=new OutputStreamWriter(System.err);
+			new GenReport(in,out, todo);
 		}catch(Throwable t){
 			// save error
 			exception=t;
@@ -240,6 +267,8 @@ public class GenReport{
 			// close output
 			try{out.flush();}catch(Exception e){}
 			try{out.close();}catch(Exception e){}
+			try{todo.flush();}catch(Exception e){}
+			try{todo.close();}catch(Exception e){}
 		}
 
 		// handle errors

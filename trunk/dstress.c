@@ -79,7 +79,7 @@ char* loadFile(char* filename){
 		if(0==fstat(file, &fileInfo)){
 			back=malloc(fileInfo.st_size+1);
 			fileInfo.st_size = read(file, back, fileInfo.st_size);
-			if(fileInfo.st_size>0){
+			if(fileInfo.st_size>=0){
 				*(back+fileInfo.st_size+1) = '\x00';
 			}else{
 				back = NULL;
@@ -90,6 +90,9 @@ char* loadFile(char* filename){
 
 	if(back){
 		return back;
+	}
+	if(0==strcmp(filename, TLOG)){
+		return calloc(1,sizeof(char));
 	}
 
 	fprintf(stderr, "File not found \"%s\"\n", filename);

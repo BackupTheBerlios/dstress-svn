@@ -98,13 +98,13 @@ complex_todo 	:= complex.mak
 complex_done 	:= complex.done
 flag_pattern 	:= __DSTRESS_DFLAGS__
 
-.PHONY: all basic_tools compile nocompile run norun complex clean distclean clean_log
+.PHONY: all version basic_tools compile nocompile run norun complex clean distclean clean_log
 
 .SUFFIXES: $(ext_run) $(ext_norun) $(ext_nocompile) $(ext_compile) 
 #
 # test everything
 #
-all : Makefile compile nocompile run norun complex
+all : Makefile version compile nocompile run norun complex
 
 #
 # the tools
@@ -122,7 +122,17 @@ $(dstress__) : dstress.c Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
 basic_tools : $(ifeq__) $(return__) $(extract__) $(dstress__)
-	
+
+#
+# kludge to get version information from DMD and GDC's dmd wraper
+#
+version:
+	@$(ECHO) ">>>> VERSION <<<<"
+	@date -R
+	@uname -o -m -r
+	-@$(DMD)
+	-@$(DMD) --version version_dummy.d	
+	@$(ECHO) "<<<< VERSION >>>>"
 
 #
 # include complex test cases
@@ -142,7 +152,7 @@ endef
 #
 nocompile : $(dstress__)
 	rm -f nocompile/*.o nocompile/*.$(ext_nocompile)
-	find nocompile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) nocompile" > nocompile.sh
+	find nocompile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) nocompile" > nocompile.sh
 	chmod +x nocompile.sh
 	./nocompile.sh 2>> $(LOG)
 
@@ -168,7 +178,7 @@ endef
 #
 compile : $(dstress__)
 	rm -f compile/*.o compile/*.$(ext_compile)
-	find compile/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) compile" > compile.sh
+	find compile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) compile" > compile.sh
 	chmod +x compile.sh
 	./compile.sh 2>> $(LOG)
 
@@ -190,7 +200,7 @@ endef
 # 
 run : $(dstress__)
 	rm -f run/*.exe run/*.$(ext_run)
-	find run/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) run" > run.sh
+	find run -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) run" > run.sh
 	chmod +x run.sh
 	./run.sh 2>> $(LOG)
 
@@ -255,7 +265,7 @@ endef
 # 
 norun : $(dstress__)
 	rm -f norun/*.exe norun/*.$(ext_norun)
-	find norun/ -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) norun" > norun.sh
+	find norun -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "$(dstress__) norun" > norun.sh
 	chmod +x norun.sh
 	./norun.sh 2>> $(LOG)
 

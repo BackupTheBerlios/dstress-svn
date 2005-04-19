@@ -4,7 +4,7 @@
 
 // __DSTRESS_ELINE__ 10
 
-module dstress.nocompile.version_29;
+module dstress.nocompile.version_36;
 
 version(A){
 	static assert(0);

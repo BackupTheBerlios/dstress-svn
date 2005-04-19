@@ -4,7 +4,7 @@
 
 // __DSTRESS_ELINE__ 12
 
-module dstress.norun.bounds_checking_02;
+module dstress.norun.bounds_checking_06;
 
 static ~this(){
 	int[] arr;

@@ -12,7 +12,8 @@ int main(){
 
 	assert(array.length==3);
 	
-	array.rehash;
+	int[char[]] rehashed=array.rehash;
+	assert(&rehashed==&array);
 
 	char[][] key = array.keys;
 	assert(key.length==3);

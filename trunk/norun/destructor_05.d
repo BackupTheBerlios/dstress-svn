@@ -4,7 +4,7 @@
 
 // __DSTRESS_ELINE__ 10
 
-module dstress.norun.destructor_04;
+module dstress.norun.destructor_05;
 
 static ~this(){
 	assert(0);

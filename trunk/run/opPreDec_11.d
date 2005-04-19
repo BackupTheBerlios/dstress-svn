@@ -6,16 +6,16 @@
 // @date@	2005-04-18
 // @uri@	news:d402bj$nc0$6@digitaldaemon.com
 
-// @WARNING@ direct use of Phobos
+module dstress.run.opPreDec_11;
 
-module dstress.run.opPreInc_11;
-
-import std.stdio;
+void dummy(...){
+}
 
 int main() {
 	real x = 9l;
-	writefln(x);
-	writefln(--x);
+	dummy(x);
+	real y=--x;
+	assert(y==8l);
 	assert(x==8l);
 	return 0;
 }

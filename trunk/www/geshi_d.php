@@ -4,22 +4,24 @@
  * --------
  * Author: Thomas Kuehne (thomas@kuehne.cn)
  * Copyright: (c) 2005 Thomas Kuehne (http://thomas.kuehne.cn/)
- * Release Version: 0.0.1
+ * Release Version: 0.0.2
  * CVS Revision Version: $Revision$
- * Date Started: 2005/04/20
+ * Date Started: 2005/04/22
  * Last Modified: $Date$
  *
  * D language file for GeSHi.
  *
  * CHANGES
  * -------
+ * 2005/04/22 (0.0.2)
+ *  -  added _d_* and sizeof/ptrdiff_t
  * 2005/04/20 (0.0.1)
  *  -  First release
  *
- * TODO (updated 2005/04/20)
+ * TODO (updated 2005/04/22)
  * -------------------------
  * * nested comments
- * * correct handling of r"\"
+ * * correct handling of r"" and ``
  * * correct handling of ... and ..
  *
  *************************************************************************************
@@ -112,7 +114,57 @@ $language_data = array (
 				'Error',
 				'ClassInfo',
 				'ArrayBoundsError',
-				'AssertError'
+				'AssertError',
+				'_d_throw',
+				'_d_switch_ustring',
+				'_d_switch_string',
+				'_d_switch_dstring',
+				'_d_OutOfMemory',
+				'_d_obj_eq',
+				'_d_obj_cmp',
+				'_d_newclass',
+				'_d_newbitarray',
+				'_d_newarrayi',
+				'_d_new',
+				'_d_monitorrelease',
+				'_d_monitor_prolog',
+				'_d_monitor_handler',
+				'_d_monitorexit',
+				'_d_monitor_epilog',
+				'_d_monitorenter',
+				'_d_local_unwind',
+				'_d_isbaseof2',
+				'_d_isbaseof',
+				'_d_invariant',
+				'_d_interface_vtbl',
+				'_d_interface_cast',
+				'_d_framehandler',
+				'_d_exception_filter',
+				'_d_exception',
+				'_d_dynamic_cast',
+				'_d_delmemory',
+				'_d_delinterface',
+				'_d_delclass',
+				'_d_delarray',
+				'_d_criticalexit',
+				'_d_criticalenter',
+				'_d_create_exception_object',
+				'_d_callfinalizer',
+				'_d_arraysetlengthb',
+				'_d_arraysetlength',
+				'_d_arraysetbit2',
+				'_d_arraysetbit',
+				'_d_arraycopybit',
+				'_d_arraycopy',
+				'_d_arraycatn',
+				'_d_arraycatb',
+				'_d_arraycat',
+				'_d_arraycast_frombit',
+				'_d_arraycast',
+				'_d_arrayappendcb',
+				'_d_arrayappendc',
+				'_d_arrayappendb',
+				'_d_arrayappend',
 			),
 		4 => array(
 				'wchar',
@@ -129,11 +181,13 @@ $language_data = array (
 				'struct',
 				'static',
 				'synchronized',
+				'size_t',
 				'short',
 				'real',
 				'public',
 				'protected',
 				'private',
+				'ptrdiff_t',
 				'package',
 				'override',
 				'long',

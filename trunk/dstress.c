@@ -155,7 +155,7 @@ char* loadFile(char* filename){
 	fprintf(stderr, "File not found \"%s\"\n", filename);
 	exit(EXIT_FAILURE);
 }
-//#error no crashRun adaptation available for this system
+#error no crashRun adaptation available for this system
 
 #else
 #error no loadFile adaptation available for this system

@@ -118,7 +118,7 @@ public class GenReport{
 						continue;
 					}
 					// test name
-					String name=nizer.nextToken();
+					String name=nizer.nextToken().replace('\\','/');
 					if(name.indexOf(".")==-1){
 						// support for the old log format
 						if(name.indexOf("html")>-1){

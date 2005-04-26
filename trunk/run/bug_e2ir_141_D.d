@@ -17,12 +17,12 @@ union MyUnion{
 class MyClass{
 	static MyUnion dummy;
 
-	static MyUnion prop(){
-		return dummy;
+	static MyUnion* prop(){
+		return &dummy;
 	}
 
-	static void prop(MyUnion u){
-		dummy=u;
+	static void prop(MyUnion* u){
+		dummy=*u;
 	}
 }
 

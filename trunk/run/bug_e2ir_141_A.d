@@ -16,12 +16,12 @@ struct MyStruct{
 class MyClass{
 	static MyStruct _s;
 
-	static MyStruct prop(){
-		return _s;
+	static MyStruct* prop(){
+		return &_s;
 	}
 
-	static void prop(MyStruct s){
-		_s=s;
+	static void prop(MyStruct* s){
+		_s=*s;
 	}
 }
 

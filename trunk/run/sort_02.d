@@ -36,6 +36,7 @@ int main(){
 	assert(b[6]==byte.max);
 
 	assert(&a != &b);
+	assert(a.ptr === b.ptr);
 	
 	return 0;
 }

@@ -2,7 +2,6 @@
 // $Date$
 // $Author$
 
-// sort is documented as a general array property
 module dstress.run.sort_01;
 
 int main(){
@@ -25,6 +24,7 @@ int main(){
 	assert(b[2]);
 	
 	assert(&a != &b);
+	assert(a.ptr === b.ptr);
 
 	return 0;
 }

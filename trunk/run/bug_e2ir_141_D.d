@@ -15,6 +15,8 @@ union MyUnion{
 }
 
 class MyClass{
+	static MyUnion dummy;
+
 	static MyUnion prop(){
 		return dummy;
 	}
@@ -23,8 +25,6 @@ class MyClass{
 		dummy=u;
 	}
 }
-
-MyUnion dummy;
 
 int main(){
 	MyClass c = new MyClass();

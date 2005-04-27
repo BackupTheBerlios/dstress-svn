@@ -34,11 +34,28 @@
 #define TAG 		"__DSTRESS_DFLAGS__"
 #define OBJ		"-odobj "
 #define TLOG		"log.tmp"
+#define CRASH_RUN	"./crashRun__"
 
 #define RUN		1
 #define NORUN		2
 #define COMPILE		4
 #define NOCOMPILE	8
+
+/* secure malloc */
+void *xmalloc(size_t size){
+	void *p;
+	if (p < 0){
+		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
+		exit(EXIT_FAILURE);
+	}
+	p = malloc(size);
+	if (p == NULL){
+		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
+		exit(EXIT_FAILURE);
+	}
+	return p;
+}
+#define malloc xmalloc
 
 #ifdef __GNU_LIBRARY__
 #define USE_POSIX
@@ -63,15 +80,22 @@
 
 #ifdef USE_POSIX
 
-#define SHELL_RETURN_OK 0
-#define SHELL_RETURN_FAIL 256
-#define crashRun system
-
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+
+#else
+#ifdef WIN32
+
+#include <windows.h>
+
+#endif /* WIN 32 */
+#endif /* USE_POSIX else */
+
+
 char* loadFile(char* filename){
+#ifdef USE_POSIX
 	char* back = NULL;
 	struct stat fileInfo;
 	int file = open(filename, O_RDONLY);
@@ -97,36 +121,9 @@ char* loadFile(char* filename){
 
 	fprintf(stderr, "File not found \"%s\"\n", filename);
 	exit(EXIT_FAILURE);
-}
-
-void *xmalloc(size_t size)
-{
-	void *p;
-	if (p < 0)
-	{
-		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
-		exit(EXIT_FAILURE);
-	}
-	p = malloc(size);
-	if (p == NULL)
-	{
-		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
-		exit(EXIT_FAILURE);
-	}
-	return p;
-}
-
-#define malloc xmalloc
-
-#else
-
+#else 
 #ifdef WIN32
 
-#define SHELL_RETURN_OK 0
-#define SHELL_RETURN_FAIL 1
-
-#include <windows.h>
-char* loadFile(char* filename){
 	char* back=NULL;
 	DWORD size, numread;
 	HANDLE file=CreateFile(filename, GENERIC_READ, FILE_SHARE_READ, NULL,
@@ -154,17 +151,13 @@ char* loadFile(char* filename){
 
 	fprintf(stderr, "File not found \"%s\"\n", filename);
 	exit(EXIT_FAILURE);
-}
-#error no crashRun adaptation available for this system
-
 #else
-#error no loadFile adaptation available for this system
 
-/* like system(char*) but has to return without human intervention even if the application segfaults */
-#error no crashRun adaptation available for this system
+#error "no loadFile implementation present"
 
 #endif /* WIN32 else */
 #endif /* USE_POSIX else */
+}
 
 /* cleanup "/" versus "\" in filenames */
 char* cleanPathSeperator(char* filename){
@@ -184,6 +177,7 @@ char* cleanPathSeperator(char* filename){
 #endif /* USE_POSIX else */
 	return filename;
 }
+
 
 /* Query the environment for the compiler name */
 char* getCompiler(){
@@ -208,6 +202,7 @@ char* getGeneralFlags(){
 	}
 	return cleanPathSeperator(back);
 }
+
 
 /* extract the FIRST occurance of a given FLAG until the next linebreak */
 char* getCaseFlag(const char* data, const char* tag){
@@ -316,7 +311,7 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 
 int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* buffer){
 	/* PhobosLong	dir/file.d(2)
-	 * Phobos		package.module(2)
+	 * Phobos	package.module(2)
 	 */
 
 	char* file;
@@ -417,6 +412,44 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 	}
 
 	return back;
+}
+
+int hadExecCrash(const char* buffer){
+	if(strstr(buffer, "Segmentation fault")!=NULL 
+			|| strstr(buffer, "Internal error")!= NULL 
+			|| strstr(buffer, "gcc.gnu.org/bugs")!=NULL)
+	{
+		return 1;
+	}
+	return 0;
+}
+
+/* segfault resitant system call with time out */
+int crashRun(const char* cmd){
+#ifdef USE_POSIX
+	char* buffer=malloc(4+strlen(CRASH_RUN)+strlen(cmd));
+	buffer[0]='\x00';
+	strcat(buffer, "\"");
+	strcat(buffer, CRASH_RUN);
+	strcat(buffer, "\" ");
+	strcat(buffer, cmd);
+	system(buffer);
+	buffer=loadFile(TLOG);
+
+	if(strstr(buffer, "EXIT CODE: 0")){
+		return EXIT_SUCCESS;
+	}else if(strstr(buffer, "EXIT CODE: 256")
+			|| strstr(buffer, "EXIT CODE: timeout"))
+	{
+		return EXIT_FAILURE;
+	}else{
+		return RAND_MAX;
+	}
+#else
+
+#error no crashRun implementation present
+	
+#endif /* USE_POSIX else */
 }
 
 
@@ -526,12 +559,12 @@ err:
 		fprintf(stderr, "%s\n", buffer);
 		good_error = checkErrorMessage(error_file, error_line, buffer);
 
-		if(strstr(buffer, "Internal error")!= NULL || strstr(buffer, "gcc.gnu.org/bugs")!=NULL){
+		if(hadExecCrash(buffer)){
 			printf("ERROR:\t%s (Internal compiler error)\n", case_file);
 		}else if(modus==COMPILE){
-			if(res==SHELL_RETURN_OK){
+			if(res==EXIT_SUCCESS){
 				printf("PASS: \t%s\n", case_file);
-			}else if(res==SHELL_RETURN_FAIL && good_error){
+			}else if(res==EXIT_FAILURE && good_error){
 				if(checkErrorMessage(case_file, "", buffer)){
 					printf("FAIL: \t%s [%d]\n", case_file, res);
 				}else{
@@ -543,13 +576,13 @@ err:
 				printf("ERROR:\t%s [%d] [bad error message]\n", case_file, res);
 			}
 		}else{
-			if(res==SHELL_RETURN_FAIL){
+			if(res==EXIT_FAILURE){
 				if(good_error){
 					printf("XFAIL:\t%s\n", case_file);
 				}else{
 					printf("FAIL: \t%s [bad error message]\n", case_file);
 				}
-			}else if(res==SHELL_RETURN_OK){
+			}else if(res==EXIT_SUCCESS){
 				printf("XPASS:\t%s\n", case_file);
 			}else{
 				printf("ERROR:\t%s [%d]\n", case_file, res);
@@ -593,15 +626,15 @@ err:
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s", buffer);
 		good_error = checkErrorMessage(error_file, error_line, buffer);
-		if(strstr(buffer, "Internal error")!= NULL || strstr(buffer, "gcc.gnu.org/bugs")!=NULL){
+		if(hadExecCrash(buffer)){
 			printf("ERROR:\t%s (Internal compiler error)\n", case_file);
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
-		}else if(res==SHELL_RETURN_FAIL && good_error){
+		}else if(res==EXIT_FAILURE && good_error){
 			printf("FAIL: \t%s [%d]\n", case_file, res);
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
-		}else if(res!=SHELL_RETURN_OK){
+		}else if(res!=EXIT_SUCCESS){
 			if(good_error){
 				printf("ERROR:\t%s [%d]\n", case_file, res);
 			}else{
@@ -626,9 +659,9 @@ err:
 		fprintf(stderr, "%s\n", buffer);
 		good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
 		if(modus==RUN){
-			if(res==SHELL_RETURN_OK){
+			if(res==EXIT_SUCCESS){
 				printf("PASS: \t%s\n", case_file);
-			}else if(res==SHELL_RETURN_FAIL && good_error){
+			}else if(res==EXIT_FAILURE && good_error){
 				printf("FAIL: \t%s [run: %d]\n", case_file, res);
 			}else{
 				if(good_error){
@@ -638,13 +671,13 @@ err:
 				}
 			}
 		}else{
-			if(res==SHELL_RETURN_FAIL){
+			if(res==EXIT_FAILURE){
 				if(good_error){
 					printf("XFAIL:\t%s\n", case_file);
 				}else{
 					printf("FAIL: \t%s [bad errror message]\n", case_file);
 				}
-			}else if(res==SHELL_RETURN_OK){
+			}else if(res==EXIT_SUCCESS){
 				printf("XPASS:\t%s [norun: %d]\n", case_file, res);
 			}else{
 				printf("ERROR:\t%s [norun: %d]\n", case_file, res);

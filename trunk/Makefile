@@ -84,6 +84,7 @@ return__	:= ./return__
 ifeq__		:= ./ifeq__
 extract__	:= ./extract__
 dstress__	:= ./dstress__
+crashRun__	:= ./crashRun__
 
 # settings
 to_log 		:= >> $(LOG) 2>&1
@@ -118,7 +119,10 @@ $(ifeq__) : ifeq__.c Makefile
 $(extract__) : extract__.c Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
-$(dstress__) : dstress.c Makefile
+$(dstress__) : dstress.c $(crashRun__) Makefile
+	$(CC) $(CFLAGS) $< -o $@
+
+$(crashRun__) : crashRun.c Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
 basic_tools : $(ifeq__) $(return__) $(extract__) $(dstress__)
@@ -296,7 +300,7 @@ complex : basic_tools $(sort $(subst $(complex_todo),$(complex_done),$(complex_m
 #
 distclean : clean_log clean
 	$(RM) $(shell $(FIND) . -regex ".*~") $(shell $(FIND) . -regex "\\..*\\.swp") $(shell $(FIND) . -regex "#.*#")
-	$(RM) $(return__) $(ifeq__) $(extract__) $(dstress__) www/*.class
+	$(RM) $(crashRun__) $(return__) $(ifeq__) $(extract__) $(dstress__) www/*.class
 
 #
 # remove compiler and assertion messages

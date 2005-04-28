@@ -46,18 +46,23 @@
 /* timeout in seconds */
 const int TIME_OUT=480;
 
+static pid_t pID;
+
 void onTimeOut(){
 	printf("EXIT CODE: timeout (%d sec)\n", TIME_OUT);
 	fflush(stdout);
 	fflush(stderr);
-	kill(0, SIGKILL);
+	kill(-pID, SIGKILL);
 
-	exit(EXIT_FAILURE); // never called
+	exit(EXIT_SUCCESS); 
 }
 
 int main(int argc, char** arg){
-	pid_t pID = fork();
+	pID = fork();
 	if (pID == 0){
+		// new process session leader
+		pID=setsid();
+
 		/* child: construct cmd */
 		int cmdLen=1;
 		int i;
@@ -84,7 +89,7 @@ int main(int argc, char** arg){
         	fprintf(stderr, "failed to fork\n");
 		return EXIT_FAILURE;
 	}else{
-      		/* parent : timeout */
+		/* parent : timeout */
 		struct sigaction acti;
 		acti.sa_handler = &onTimeOut;
 		if(0!=sigaction(SIGALRM, &acti, NULL)){

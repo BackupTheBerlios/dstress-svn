@@ -497,7 +497,7 @@ err:
 	error_line = getCaseFlag(buffer, "__DSTRESS_ELINE__");
 	error_file = getCaseFlag(buffer, "__DSTRESS_EFILE__");
 
-#if 0
+#ifdef DEBUG
 	fprintf(stderr, "case:     \"%s\"\n", case_file);
 	fprintf(stderr, "compiler: \"%s\"\n", compiler);
 	fprintf(stderr, "DFLAGS G: \"%s\"\n", cmd_arg_general);

@@ -74,7 +74,11 @@ int main(int argc, char** arg){
 			strcat(cmd, arg[i]);
 			strcat(cmd, "\" ");
 		}
+#ifdef DEBUG
 		printf("cmd[%i s]: %s\n", TIME_OUT, cmd);
+#endif
+		fflush(stdout);
+		fflush(stderr);
 		printf("EXIT CODE: %i\n", system(cmd));
 	}else if (pID < 0){
         	fprintf(stderr, "failed to fork\n");

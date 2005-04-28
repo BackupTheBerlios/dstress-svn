@@ -132,8 +132,8 @@ basic_tools : $(ifeq__) $(return__) $(extract__) $(dstress__)
 #
 version:
 	@$(ECHO) ">>>> VERSION <<<<"
-	@date -R
-	@uname -o -m -r
+	@date +"%a, %e %b %Y %T %z"
+	@uname -s -m -r
 	-@$(DMD)
 	-@$(DMD) --version version_dummy.d	
 	@$(ECHO) "<<<< VERSION >>>>"

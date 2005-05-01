@@ -23,6 +23,18 @@
  *
  */
 
+#include <errno.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+/* time-out in seconds */
+#define TIME_OUT 480
+
+#if defined(__GNU_LIBRARY__) || defined(__GLIBC__)
+#define USE_POSIX
+#endif
+
 #ifdef linux
 #define USE_POSIX
 #endif
@@ -35,35 +47,43 @@
 #define USE_POSIX
 #endif
 
+
 #ifdef USE_POSIX
 
 #include <unistd.h>
 #include <sys/wait.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-
-/* timeout in seconds */
-const int TIME_OUT=480;
 
 static pid_t pID;
 
-void onTimeOut(){
-	printf("EXIT CODE: timeout (%d sec)\n", TIME_OUT);
+void resourceLimit(int signalID){
+#ifdef SIGXCPU
+	if(signalID==SIGALRM || signalID==SIGXCPU){
+#else
+	if(signalID==SIGALRM){
+#endif
+		printf("EXIT CODE: signal %d (time-out after %d seconds)", signalID, TIME_OUT);
+	}else{
+		printf("EXIT CODE: signal %d\n", signalID);
+	}
+
 	fflush(stdout);
 	fflush(stderr);
 	kill(-pID, SIGKILL);
 
-	exit(EXIT_SUCCESS); 
+	if(signalID==SIGUSR1 || signalID==SIGUSR2){
+		exit(EXIT_FAILURE);
+	}else{
+		exit(EXIT_SUCCESS);
+	}
 }
 
 int main(int argc, char** arg){
 	pID = fork();
 	if (pID == 0){
-		// new process session leader
+		/* child: resource management */
 		pID=setsid();
 
-		/* child: construct cmd */
+		/* child: execute args */
 		int cmdLen=1;
 		int i;
 		for(i=1; i<argc; i++){
@@ -84,18 +104,25 @@ int main(int argc, char** arg){
 #endif
 		fflush(stdout);
 		fflush(stderr);
-		printf("EXIT CODE: %i\n", system(cmd));
+		printf("EXIT CODE: %d\n", system(cmd));
 	}else if (pID < 0){
         	fprintf(stderr, "failed to fork\n");
 		return EXIT_FAILURE;
 	}else{
-		/* parent : timeout */
+		/* parent : clean kill */
 		struct sigaction acti;
-		acti.sa_handler = &onTimeOut;
+		acti.sa_handler = &resourceLimit;
+		sigaction(SIGHUP, &acti, NULL);
+		sigaction(SIGINT, &acti, NULL);
+		sigaction(SIGQUIT, &acti, NULL);
+		sigaction(SIGABRT, &acti, NULL);	
+		sigaction(SIGTERM, &acti, NULL);
+
+		/* parent : timeout */
 		if(0!=sigaction(SIGALRM, &acti, NULL)){
-			fprintf(stderr, "failed to set timeout\n");
-			onTimeOut();
-			return EXIT_FAILURE;
+			fprintf(stderr, "failed to set timeout (%d)\n", errno);
+			resourceLimit(SIGUSR1);
+			return EXIT_FAILURE; /* never executed */
 		}	
 		alarm(TIME_OUT);
 		wait(NULL);
@@ -103,8 +130,8 @@ int main(int argc, char** arg){
 
 	return EXIT_SUCCESS;
 }
-#else
+#else /* USE_POSIX */
 
-#error "no implementation for your OS present"
+#error "no implementation present for your OS"
 
 #endif /* USE_POSIX else */

@@ -31,7 +31,6 @@
 #include <string.h>
 #include <errno.h>
 
-#define TAG 		"__DSTRESS_DFLAGS__"
 #define OBJ		"-odobj "
 #define TLOG		"log.tmp"
 #define CRASH_RUN	"./crashRun__"
@@ -57,11 +56,7 @@ void *xmalloc(size_t size){
 }
 #define malloc xmalloc
 
-#ifdef __GNU_LIBRARY__
-#define USE_POSIX
-#endif
-
-#ifdef __GLIBC__
+#if defined(__GNU_LIBRARY__) || defined(__GLIBC__)
 #define USE_POSIX
 #endif
 
@@ -121,7 +116,7 @@ char* loadFile(char* filename){
 
 	fprintf(stderr, "File not found \"%s\"\n", filename);
 	exit(EXIT_FAILURE);
-#else 
+#else /* USE_POSIX */ 
 #ifdef WIN32
 
 	char* back=NULL;
@@ -151,7 +146,7 @@ char* loadFile(char* filename){
 
 	fprintf(stderr, "File not found \"%s\"\n", filename);
 	exit(EXIT_FAILURE);
-#else
+#else /* WIN32 */
 
 #error "no loadFile implementation present"
 
@@ -172,14 +167,16 @@ char* cleanPathSeperator(char* filename){
 		*pos='\\';
 	}
 #else
+
 #error no cleanPathSeperator available for this system
+
 #endif /* WIN32 else */
 #endif /* USE_POSIX else */
 	return filename;
 }
 
 
-/* Query the environment for the compiler name */
+/* query the environment for the compiler name */
 char* getCompiler(){
 	char* back = getenv("DMD");
 	if(back == NULL){
@@ -191,7 +188,7 @@ char* getCompiler(){
 	return cleanPathSeperator(back);
 }
 
-/* Query the environment for general flags */
+/* query the environment for general flags */
 char* getGeneralFlags(){
 	char* back = getenv("DFLAGS");
 	if(back == NULL){
@@ -204,7 +201,7 @@ char* getGeneralFlags(){
 }
 
 
-/* extract the FIRST occurance of a given FLAG until the next linebreak */
+/* extract the FIRST occurance of a given TAG until the next linebreak */
 char* getCaseFlag(const char* data, const char* tag){
 	char* begin;
 	char* end1;
@@ -233,7 +230,7 @@ char* getCaseFlag(const char* data, const char* tag){
 	return calloc(1,1);
 }
 
-
+/* check compile-time error messages */
 int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 
 	char* file;
@@ -415,16 +412,17 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 }
 
 int hadExecCrash(const char* buffer){
-	if(strstr(buffer, "Segmentation fault")!=NULL 
-			|| strstr(buffer, "Internal error")!= NULL 
-			|| strstr(buffer, "gcc.gnu.org/bugs")!=NULL)
+	if(strstr(buffer, "Segmentation fault") 
+			|| strstr(buffer, "Internal error") 
+			|| strstr(buffer, "gcc.gnu.org/bugs")
+			|| strstr(buffer, "EXIT CODE: signal"))
 	{
 		return 1;
 	}
 	return 0;
 }
 
-/* segfault resitant system call with time out */
+/* system call with time-out */
 int crashRun(const char* cmd){
 #ifdef USE_POSIX
 	char* buffer=malloc(4+strlen(CRASH_RUN)+strlen(cmd));
@@ -560,20 +558,20 @@ err:
 		good_error = checkErrorMessage(error_file, error_line, buffer);
 
 		if(hadExecCrash(buffer)){
-			printf("ERROR:\t%s (Internal compiler error)\n", case_file);
+			printf("ERROR:\t%s [internal compiler error]\n", case_file);
 		}else if(modus==COMPILE){
 			if(res==EXIT_SUCCESS){
 				printf("PASS: \t%s\n", case_file);
 			}else if(res==EXIT_FAILURE && good_error){
 				if(checkErrorMessage(case_file, "", buffer)){
-					printf("FAIL: \t%s [%d]\n", case_file, res);
+					printf("FAIL: \t%s\n", case_file);
 				}else{
-					printf("ERROR:\t%s [%d] [bad error message]\n", case_file, res);
+					printf("ERROR:\t%s [bad error message]\n", case_file);
 				}
 			}else if(good_error){
-				printf("ERROR:\t%s [%d]\n", case_file, res);
+				printf("ERROR:\t%s\n", case_file);
 			}else{
-				printf("ERROR:\t%s [%d] [bad error message]\n", case_file, res);
+				printf("ERROR:\t%s [bad error message]\n", case_file);
 			}
 		}else{
 			if(res==EXIT_FAILURE){
@@ -585,7 +583,7 @@ err:
 			}else if(res==EXIT_SUCCESS){
 				printf("XPASS:\t%s\n", case_file);
 			}else{
-				printf("ERROR:\t%s [%d]\n", case_file, res);
+				printf("ERROR:\t%s\n", case_file);
 			}
 		}
 		fprintf(stderr,"--------\n");
@@ -627,18 +625,18 @@ err:
 		fprintf(stderr, "%s", buffer);
 		good_error = checkErrorMessage(error_file, error_line, buffer);
 		if(hadExecCrash(buffer)){
-			printf("ERROR:\t%s (Internal compiler error)\n", case_file);
+			printf("ERROR:\t%s [internal compiler error]\n", case_file);
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}else if(res==EXIT_FAILURE && good_error){
-			printf("FAIL: \t%s [%d]\n", case_file, res);
+			printf("FAIL: \t%s\n", case_file);
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}else if(res!=EXIT_SUCCESS){
 			if(good_error){
-				printf("ERROR:\t%s [%d]\n", case_file, res);
+				printf("ERROR:\t%s\n", case_file);
 			}else{
-				printf("ERROR:\t%s [%d] [bad error message]\n", case_file, res);
+				printf("ERROR:\t%s [bad error message]\n", case_file);
 			}
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
@@ -659,15 +657,21 @@ err:
 		fprintf(stderr, "%s\n", buffer);
 		good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
 		if(modus==RUN){
-			if(res==EXIT_SUCCESS){
+			if(hadExecCrash(buffer)){
+				if(good_error){
+					printf("ERROR:\t%s [test case crash]\"", case_file);
+				}else{
+					printf("ERROR:\t%s [test case crash] [bad error message]\"", case_file);
+				}
+			}else if(res==EXIT_SUCCESS){
 				printf("PASS: \t%s\n", case_file);
 			}else if(res==EXIT_FAILURE && good_error){
-				printf("FAIL: \t%s [run: %d]\n", case_file, res);
+				printf("FAIL: \t%s\n", case_file);
 			}else{
 				if(good_error){
-					printf("ERROR:\t%s [run: %d]\n", case_file, res);
+					printf("ERROR:\t%s\n", case_file);
 				}else{
-					printf("ERROR:\t%s [run: %d] [bad error message]\n", case_file, res);
+					printf("ERROR:\t%s [bad error message]\n", case_file);
 				}
 			}
 		}else{
@@ -678,9 +682,9 @@ err:
 					printf("FAIL: \t%s [bad errror message]\n", case_file);
 				}
 			}else if(res==EXIT_SUCCESS){
-				printf("XPASS:\t%s [norun: %d]\n", case_file, res);
+				printf("XPASS:\t%s\n", case_file);
 			}else{
-				printf("ERROR:\t%s [norun: %d]\n", case_file, res);
+				printf("ERROR:\t%s\n", case_file);
 			}
 		}
 		fprintf(stderr, "--------\n");

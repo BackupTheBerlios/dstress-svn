@@ -28,11 +28,13 @@ Condition Failed:
 	4) return value of main isn't 0 (zero)
 
 Output Synopsis: (DejaGnu / POSIX 1003.3)
-	PASS:	test case was expected to pass, and it did
-	XPASS:	test case was expected to fail, but passed
-	FAIL:	test case was expected to pass, but failed
-	XFAIL:	test case was expected to fail, and it did
-	ERROR:	compiler, linker or test case segfaulted; inapropiate error messages 
+	PASS:	- test case was expected to pass, and it did
+	XPASS:	- test case was expected to fail, but passed
+	FAIL:	- test case was expected to pass, but failed
+	XFAIL:	- test case was expected to fail, and it did
+	ERROR:	- compiler, linker or test case segfaulted; 
+		- resource limit (480 seconds per test case)
+		- inapropiate error messages 
 
 Testing:
 	1) the environment variable $DMD / %DMD% is used to detect the compiler executeable

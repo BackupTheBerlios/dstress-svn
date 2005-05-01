@@ -82,9 +82,12 @@ public class GenReport{
 
 	/** stores the TestResults by name */
 	private Hashtable data;
+	/** each name should only have one path */
+	private Hashtable doppel;
 
-	public GenReport(Reader[] in, Writer out, Writer todo) throws Throwable{
+	public GenReport(Reader[] in, Writer out) throws Throwable{
 		data=new Hashtable();
+		doppel=new Hashtable();
 		for(int index=0; index<in.length; index++){
 			try{
 				read(new LineNumberReader(in[index]),index,in.length);
@@ -92,7 +95,7 @@ public class GenReport{
 				throw new Throwable("reader number: "+index,t);
 			}
 		}
-		write(out, in.length, todo);
+		write(out, in.length);
 	}
 
 	/** interpretes input on a per Reader basis and updates the data
@@ -118,7 +121,7 @@ public class GenReport{
 						continue;
 					}
 					// test name
-					String name=nizer.nextToken().replace('\\','/');
+					String name=nizer.nextToken().replace('\\','/').replace("//","/");
 					if(name.indexOf(".")==-1){
 						// support for the old log format
 						if(name.indexOf("html")>-1){
@@ -128,11 +131,35 @@ public class GenReport{
 						}
 					}
 
+					if(name.indexOf("complex")==-1 && !new File("../"+name).exists()){
+						// test case doesn't exist any more
+						continue;
+					}
+						
 					// get
 					TestResult test=(TestResult)data.get(name);
 					if(test==null){
 						// no test found
 						test=new TestResult(name,max);
+						// doppel
+						String clean=name;
+						int index=clean.lastIndexOf('/');
+						if(index>-1){
+							clean=clean.substring(index+1);
+						}
+						index=clean.lastIndexOf('\\');
+						if(index>-1){
+							clean=clean.substring(index+1);
+						}
+						index=clean.indexOf('.');
+						if(index>-1){
+							clean=clean.substring(0, index);
+						}
+						if(doppel.contains(clean)){
+							throw new Exception("re-used name \""+clean+"\" ("+name+")");
+						}else{
+							doppel.put(clean,clean);
+						}
 					}
 					if(-1<line.indexOf("[bad error message]")){
 						test.bad_message[version]=true;
@@ -148,7 +175,7 @@ public class GenReport{
 	}
 
 	/** saves unsorted results as a html snipplet */
-	private void write(Writer out, int compilerCount, Writer todo) throws Exception{
+	private void write(Writer out, int compilerCount) throws Exception{
 		long[][] summary = new long[compilerCount][TestResult.typ.length];
 		StringBuffer buffer;
 		// test cases:
@@ -173,10 +200,6 @@ public class GenReport{
 				linkName="../"+linkName.substring(0,linkName.lastIndexOf("/")+1);
 			}else{
 				linkName="../"+linkName;
-			}
-			if(!new File(linkName).exists()){
-				// ignore deprecated test cases
-				continue;
 			}
 
 			buffer=new StringBuffer();
@@ -205,11 +228,13 @@ public class GenReport{
 				}
 				buffer.append("</td>");
 			}
-			buffer.append("</tr>\n");
-			out.write(buffer.toString());
 			if(result.status[0]!=result.PASS && result.status[0]!=result.XFAIL){
-				todo.write(buffer.toString());
+				buffer.append("</tr><!-- P! -->\n");
+				buffer.append(buffer.toString());
+			}else{
+				buffer.append("</tr>\n");
 			}
+			out.write(buffer.toString());
 		}
 
 		// summary:
@@ -246,7 +271,6 @@ public class GenReport{
 		Throwable exception=null;
 		Reader[] in=null;
 		Writer out=null;
-		Writer todo=null;
 		try{
 			// setup
 			in=new Reader[arg.length];
@@ -254,8 +278,7 @@ public class GenReport{
 				in[index]=new InputStreamReader(new FileInputStream(arg[index]));
 			}
 			out=new OutputStreamWriter(System.out);
-			todo=new OutputStreamWriter(System.err);
-			new GenReport(in,out, todo);
+			new GenReport(in,out);
 		}catch(Throwable t){
 			// save error
 			exception=t;
@@ -267,8 +290,6 @@ public class GenReport{
 			// close output
 			try{out.flush();}catch(Exception e){}
 			try{out.close();}catch(Exception e){}
-			try{todo.flush();}catch(Exception e){}
-			try{todo.close();}catch(Exception e){}
 		}
 
 		// handle errors

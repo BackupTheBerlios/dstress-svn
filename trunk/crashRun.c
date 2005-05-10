@@ -1,7 +1,9 @@
 /*
- * crashRun - execute command with timeout limit and catch segfaults 
+ * crashRun - execute command with restricted CPU time and memory usage 
  *
- * Copyright (C) 2005 Thomas Kuehne <thomas@kuehne.cn>
+ * Copyright (C)
+ * 		2005 Thomas Kuehne <thomas@kuehne.cn>
+ *		2005 Anders F Björklund <afb@algonet.se>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,8 +30,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/* time-out in seconds */
-#define TIME_OUT 480
+/* time-out in minutes (cpu or system time)*/
+const int TIME_OUT=5;
 
 #if defined(__GNU_LIBRARY__) || defined(__GLIBC__)
 #define USE_POSIX
@@ -38,7 +40,7 @@
 #ifdef linux
 #define USE_POSIX
 #endif
-     
+
 #if defined(__APPLE__) && defined(__MACH__)
 #define USE_POSIX
 #endif
@@ -49,9 +51,19 @@
 
 
 #ifdef USE_POSIX
+#define USE_LIMIT
 
 #include <unistd.h>
 #include <sys/wait.h>
+
+#ifdef USE_LIMIT
+#include <sys/types.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+
+const int PROC_LIMIT = 256; /* no processes */ 
+const int MEM_LIMIT = 200;  /* mem megabytes */
+#endif
 
 static pid_t pID;
 
@@ -61,13 +73,15 @@ void resourceLimit(int signalID){
 #else
 	if(signalID==SIGALRM){
 #endif
-		printf("EXIT CODE: signal %d (time-out after %d seconds)", signalID, TIME_OUT);
+		printf("EXIT CODE: signal %d (time-out after %d minutes)", signalID, TIME_OUT);
 	}else{
 		printf("EXIT CODE: signal %d\n", signalID);
 	}
 
 	fflush(stdout);
 	fflush(stderr);
+	kill(-pID, SIGTERM);
+	sleep(1);
 	kill(-pID, SIGKILL);
 
 	if(signalID==SIGUSR1 || signalID==SIGUSR2){
@@ -78,6 +92,50 @@ void resourceLimit(int signalID){
 }
 
 int main(int argc, char** arg){
+#ifdef USE_LIMIT
+	{
+		struct rlimit	limit;
+	
+		limit.rlim_cur = TIME_OUT * 60;
+		limit.rlim_max = TIME_OUT * 60;
+		if(0!=setrlimit(RLIMIT_CPU, &limit)){
+			fprintf(stderr, "failed to set cpu limit [%d]\n", errno);
+			return EXIT_FAILURE;
+		}
+	
+		limit.rlim_cur = PROC_LIMIT;
+		limit.rlim_max = PROC_LIMIT;
+		if(0!=setrlimit(RLIMIT_NPROC, &limit)){
+			fprintf(stderr, "failed to set proc limit [%d]\n", errno);
+			return EXIT_FAILURE;
+		}
+	
+		limit.rlim_cur = MEM_LIMIT * 1024L * 1024L;
+		limit.rlim_max = MEM_LIMIT * 1024L * 1024L;
+#ifdef RLIMIT_AS
+		if(0!=setrlimit(RLIMIT_AS, &limit)){
+			fprintf(stderr, "failed to set mem limit (AS) [%d]\n", errno);
+			return EXIT_FAILURE;
+		}
+#endif /* RLIMIT_AS */
+		
+		if(0!=setrlimit(RLIMIT_DATA, &limit)){
+			fprintf(stderr, "failed to set mem limit (DATA) [%d]\n", errno);
+			return EXIT_FAILURE;
+		}
+
+		if(0!=setrlimit(RLIMIT_RSS, &limit)){
+			fprintf(stderr, "failed to set mem limit (RSS) [%d]\n", errno);
+			return EXIT_FAILURE;
+		}
+#if defined(RLIMIT_MEMLOCK) && !defined(linux) 
+		if(0!=setrlimit(RLIMIT_MEMLOCK, &limit)){
+			fprintf(stderr, "failed to set mem limit (MEMLOCK) [%d]\n", errno);
+			return EXIT_FAILURE;
+		}
+#endif /* RLIMIT_MEMLOCK */
+	}
+#endif /* USE_LIMIT */
 	pID = fork();
 	if (pID == 0){
 		/* child: resource management */
@@ -100,10 +158,8 @@ int main(int argc, char** arg){
 			strcat(cmd, "\" ");
 		}
 #ifdef DEBUG
-		printf("cmd[%i s]: %s\n", TIME_OUT, cmd);
+		printf("cmd[%i min]: %s\n", TIME_OUT, cmd);
 #endif
-		fflush(stdout);
-		fflush(stderr);
 		printf("EXIT CODE: %d\n", system(cmd));
 	}else if (pID < 0){
         	fprintf(stderr, "failed to fork\n");
@@ -120,11 +176,13 @@ int main(int argc, char** arg){
 
 		/* parent : timeout */
 		if(0!=sigaction(SIGALRM, &acti, NULL)){
-			fprintf(stderr, "failed to set timeout (%d)\n", errno);
+			fprintf(stderr, "failed to set timeout [%d]\n", errno);
 			resourceLimit(SIGUSR1);
 			return EXIT_FAILURE; /* never executed */
-		}	
-		alarm(TIME_OUT);
+		}
+#ifndef USE_LIMITS	
+		alarm(TIME_OUT * 60);
+#endif
 		wait(NULL);
 	}
 

@@ -20,7 +20,7 @@ int main(){
 	a[]=1.0fi;
 	b[]=3.0fi;
 
-	float[] arr=concat();
+	ifloat[] arr=concat();
 
 	assert(arr.length==2);
 	assert(arr[0]==1.0fi);

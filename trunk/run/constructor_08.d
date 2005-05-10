@@ -15,7 +15,7 @@ class A{
 
 class B : A {
 	int foo;
-	this {}
+	this() {}
 }
 
 class C : B {

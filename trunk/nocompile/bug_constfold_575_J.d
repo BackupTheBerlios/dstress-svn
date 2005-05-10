@@ -6,11 +6,13 @@
 // @date@	2005-04-24
 // @uri@	news:d4deen$1j8c$1@digitaldaemon.com
 
-module dstress.run.bug_constfold_575_O;
+// __DSTRESS_ELINE__ 16
+
+module dstress.nocompile.bug_constfold_575_J;
 
 int main(){
-	cdouble a=cdouble.min;
-	cdouble b=cdouble.max;
+	cfloat a=cfloat.min;
+	cfloat b=cfloat.max;
 	if (a > b){
 		assert(0);
 	}

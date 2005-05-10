@@ -11,7 +11,7 @@
 module dstress.nocompile.array_initialization_09;
 
 int main(){
-	char a[int.max/32];
+	version(X86){char a[int.max+1];}else{static assert(0);}
 	return 0;
 }
 

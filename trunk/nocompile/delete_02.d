@@ -4,7 +4,9 @@
 
 // @WARNING@ direct usage of Phobos's GC
 
-module dstress.run.delete_02;
+// __DSTRESS_ELINE__ 26
+
+module dstress.nocompile.delete_02;
 
 import std.gc;
 

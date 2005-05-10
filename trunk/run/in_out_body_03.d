@@ -24,7 +24,7 @@ void outer(){
 		assert(result.i==1);
 		out_checked=true;
 	}body{
-		MyClass s;
+		MyClass s=new MyClass;
 		s.i = 1;
 		return s;
 	}

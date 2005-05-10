@@ -6,7 +6,9 @@
 // @date@	2005-04-24
 // @uri@	news:d4deen$1j8c$1@digitaldaemon.com
 
-module dstress.run.bug_constfold_575_R;
+// __DSTRESS_ELINE__ 16
+
+module dstress.nocompile.bug_constfold_575_R;
 
 int main(){
 	creal a=creal.min;

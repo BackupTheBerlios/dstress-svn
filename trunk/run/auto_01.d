@@ -23,6 +23,6 @@ int main(){
 	try{
 		auto AutoClass ac = new AutoClass();
 	}catch{
+		return 0;
 	}
-	return 0;
 }

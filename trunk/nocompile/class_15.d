@@ -6,7 +6,7 @@
 // @date@	2005-04-20
 // @uri@	news:d452oo$2km6$1@digitaldaemon.com
 
-// __DSTRESS_ELINE__ 17
+// __DSTRESS_ELINE__ 13
 
 module dstress.nocompile.class_15;
 

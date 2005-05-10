@@ -1,5 +1,5 @@
 >>>> VERSION <<<<
-Sa, 30 Apr 2005 03:45:16 +0200
+Fr,  6 Mai 2005 13:23:44 +0200
 Linux 2.6.10-B i686
 Digital Mars D Compiler v0.120
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
@@ -35,11 +35,12 @@ make: [version] Fehler 1 (ignoriert)
 cc  crashRun.c -o crashRun__
 cc  dstress.c -o dstress__
 rm -f compile/*.o compile/*.o
-find compile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ compile" > compile.sh
+find compile -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ compile" > compile.sh
 chmod +x compile.sh
 ./compile.sh 2>> /tmp/dstress/log.txt
 PASS: 	compile/alias_08.d
 PASS: 	compile/align_04.d
+PASS: 	compile/bug_cgcod_1445_C.d
 PASS: 	compile/bug_dsymbol_611_C.d
 PASS: 	compile/bug_e2ir_1158_A.d
 PASS: 	compile/const_12.d
@@ -70,6 +71,9 @@ PASS: 	compile/inline_02.d
 FAIL: 	compile/inline_03.d
 PASS: 	compile/interface_08.d
 PASS: 	compile/interface_09.d
+PASS: 	compile/interface_19.d
+PASS: 	compile/interface_20.d
+PASS: 	compile/interface_21.d
 PASS: 	compile/mixin_01.d
 PASS: 	compile/pragma_lib_08.d
 FAIL: 	compile/pragma_lib_09.d
@@ -88,7 +92,7 @@ PASS: 	compile/variadic_argument_02.d
 PASS: 	compile/variadic_argument_03.d
 FAIL: 	compile/version_09.d
 rm -f nocompile/*.o nocompile/*.no
-find nocompile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
+find nocompile -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
 chmod +x nocompile.sh
 ./nocompile.sh 2>> /tmp/dstress/log.txt
 XFAIL:	nocompile/abstract_01.d
@@ -117,6 +121,7 @@ ERROR:	nocompile/argument_03.d
 XFAIL:	nocompile/argument_04.d
 XFAIL:	nocompile/argument_05.d
 XFAIL:	nocompile/array_initialization_04.d
+ERROR:	nocompile/array_initialization_08.d
 XPASS:	nocompile/array_initialization_09.d
 XFAIL:	nocompile/array_initialization_11.d
 ERROR:	nocompile/array_initialization_12.d
@@ -279,6 +284,30 @@ XFAIL:	nocompile/double_quoted_string_16.d
 XPASS:	nocompile/double_quoted_string_19.d
 XPASS:	nocompile/double_quoted_string_20.d
 XFAIL:	nocompile/enum_06.d
+XFAIL:	nocompile/enum_26_A.d
+XFAIL:	nocompile/enum_26_B.d
+XFAIL:	nocompile/enum_27_A.d
+XFAIL:	nocompile/enum_27_B.d
+XFAIL:	nocompile/enum_28_A.d
+XFAIL:	nocompile/enum_28_B.d
+XFAIL:	nocompile/enum_29_A.d
+XFAIL:	nocompile/enum_29_B.d
+XFAIL:	nocompile/enum_30_A.d
+XFAIL:	nocompile/enum_30_B.d
+XFAIL:	nocompile/enum_31_A.d
+XFAIL:	nocompile/enum_31_B.d
+FAIL: 	nocompile/enum_32_A.d [bad error message]
+FAIL: 	nocompile/enum_32_B.d [bad error message]
+FAIL: 	nocompile/enum_32_C.d [bad error message]
+FAIL: 	nocompile/enum_33_A.d [bad error message]
+FAIL: 	nocompile/enum_33_B.d [bad error message]
+FAIL: 	nocompile/enum_33_C.d [bad error message]
+FAIL: 	nocompile/enum_34_A.d [bad error message]
+FAIL: 	nocompile/enum_34_B.d [bad error message]
+FAIL: 	nocompile/enum_34_C.d [bad error message]
+FAIL: 	nocompile/enum_35.d [bad error message]
+FAIL: 	nocompile/enum_36.d [bad error message]
+XFAIL:	nocompile/enum_37.d
 XFAIL:	nocompile/eol_comment_01.d
 XFAIL:	nocompile/eol_comment_02.d
 XFAIL:	nocompile/eol_comment_03.d
@@ -418,6 +447,7 @@ FAIL: 	nocompile/interface_14.d [bad error message]
 ERROR:	nocompile/interface_15.d
 ERROR:	nocompile/interface_16.d
 ERROR:	nocompile/interface_17.d
+ERROR:	nocompile/interface_18.d
 XFAIL:	nocompile/invalid_utf_01.d
 XFAIL:	nocompile/invalid_utf_02.d
 XFAIL:	nocompile/invalid_utf_03.d
@@ -723,7 +753,7 @@ XFAIL:	nocompile/with_05.d
 XFAIL:	nocompile/with_06.d
 XFAIL:	nocompile/with_07.d
 rm -f run/*.exe run/*.exe
-find run -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ run" > run.sh
+find run -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
 ./run.sh 2>> /tmp/dstress/log.txt
 PASS: 	run/abstract_07.d
@@ -1009,6 +1039,18 @@ PASS: 	run/const_16.d
 PASS: 	run/const_17.d
 FAIL: 	run/const_18.d
 PASS: 	run/const_19.d
+FAIL: 	run/const_20_A.d
+PASS: 	run/const_20_B.d
+PASS: 	run/const_20_C.d
+PASS: 	run/const_20_D.d
+FAIL: 	run/const_21_A.d
+PASS: 	run/const_21_B.d
+PASS: 	run/const_21_C.d
+PASS: 	run/const_21_D.d
+FAIL: 	run/const_22_A.d
+PASS: 	run/const_22_B.d
+PASS: 	run/const_22_C.d
+PASS: 	run/const_22_D.d
 PASS: 	run/constructor_01.d
 PASS: 	run/constructor_02.d
 PASS: 	run/constructor_03.d
@@ -1144,6 +1186,21 @@ FAIL: 	run/enum_13.d
 FAIL: 	run/enum_14.d
 FAIL: 	run/enum_15.d
 FAIL: 	run/enum_16.d
+FAIL: 	run/enum_17_A.d
+FAIL: 	run/enum_17_B.d
+FAIL: 	run/enum_18_A.d
+FAIL: 	run/enum_18_B.d
+FAIL: 	run/enum_19_A.d
+FAIL: 	run/enum_19_B.d
+FAIL: 	run/enum_20_A.d
+FAIL: 	run/enum_20_B.d
+FAIL: 	run/enum_21_A.d
+FAIL: 	run/enum_21_B.d
+FAIL: 	run/enum_22.d
+FAIL: 	run/enum_23.d
+FAIL: 	run/enum_24.d
+FAIL: 	run/enum_25.d
+PASS: 	run/enum_38.d
 PASS: 	run/eol_01.d
 PASS: 	run/eol_02.d
 PASS: 	run/eol_03.d
@@ -1675,7 +1732,6 @@ PASS: 	run/overload_07.d
 FAIL: 	run/overload_08.d
 FAIL: 	run/overload_09.d
 FAIL: 	run/overload_10.d
-FAIL: 	run/overload_13.d
 PASS: 	run/overload_15.d
 FAIL: 	run/overload_17.d
 PASS: 	run/overload_18.d
@@ -1809,6 +1865,7 @@ PASS: 	run/switch_14.d
 FAIL: 	run/switch_19.d
 PASS: 	run/switch_20.d
 PASS: 	run/switch_21.d
+FAIL: 	run/switch_22.d
 PASS: 	run/template_01.d
 PASS: 	run/template_03.d
 PASS: 	run/template_04.d
@@ -2012,7 +2069,7 @@ PASS: 	run/Wysiwyg_String_14.d
 PASS: 	run/Wysiwyg_String_15.d
 FAIL: 	run/xhtml_tag_01.html
 rm -f norun/*.exe norun/*.bin
-find norun -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ norun" > norun.sh
+find norun -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
 ./norun.sh 2>> /tmp/dstress/log.txt
 XFAIL:	norun/assert_04.d

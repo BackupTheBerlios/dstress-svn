@@ -1,5 +1,5 @@
 >>>> VERSION <<<<
-Sa, 30 Apr 2005 03:12:25 +0200
+Fr,  6 Mai 2005 13:47:51 +0200
 Linux 2.6.10-B i686
 Digital Mars D Compiler v0.119
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
@@ -35,11 +35,12 @@ make: [version] Fehler 1 (ignoriert)
 cc  crashRun.c -o crashRun__
 cc  dstress.c -o dstress__
 rm -f compile/*.o compile/*.o
-find compile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ compile" > compile.sh
+find compile -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ compile" > compile.sh
 chmod +x compile.sh
 ./compile.sh 2>> /tmp/dstress/log.txt
 PASS: 	compile/alias_08.d
 PASS: 	compile/align_04.d
+ERROR:	compile/bug_cgcod_1445_C.d [internal compiler error]
 PASS: 	compile/bug_dsymbol_611_C.d
 PASS: 	compile/bug_e2ir_1158_A.d
 PASS: 	compile/const_12.d
@@ -70,6 +71,9 @@ PASS: 	compile/inline_02.d
 FAIL: 	compile/inline_03.d
 PASS: 	compile/interface_08.d
 PASS: 	compile/interface_09.d
+PASS: 	compile/interface_19.d
+PASS: 	compile/interface_20.d
+PASS: 	compile/interface_21.d
 PASS: 	compile/mixin_01.d
 PASS: 	compile/pragma_lib_08.d
 FAIL: 	compile/pragma_lib_09.d
@@ -88,7 +92,7 @@ PASS: 	compile/variadic_argument_02.d
 PASS: 	compile/variadic_argument_03.d
 FAIL: 	compile/version_09.d
 rm -f nocompile/*.o nocompile/*.no
-find nocompile -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
+find nocompile -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
 chmod +x nocompile.sh
 ./nocompile.sh 2>> /tmp/dstress/log.txt
 XFAIL:	nocompile/abstract_01.d
@@ -117,6 +121,7 @@ ERROR:	nocompile/argument_03.d
 XFAIL:	nocompile/argument_04.d
 XFAIL:	nocompile/argument_05.d
 XFAIL:	nocompile/array_initialization_04.d
+ERROR:	nocompile/array_initialization_08.d
 XPASS:	nocompile/array_initialization_09.d
 XFAIL:	nocompile/array_initialization_11.d
 ERROR:	nocompile/array_initialization_12.d
@@ -279,6 +284,30 @@ XFAIL:	nocompile/double_quoted_string_16.d
 XPASS:	nocompile/double_quoted_string_19.d
 XPASS:	nocompile/double_quoted_string_20.d
 XFAIL:	nocompile/enum_06.d
+XFAIL:	nocompile/enum_26_A.d
+XFAIL:	nocompile/enum_26_B.d
+XFAIL:	nocompile/enum_27_A.d
+XFAIL:	nocompile/enum_27_B.d
+XFAIL:	nocompile/enum_28_A.d
+XFAIL:	nocompile/enum_28_B.d
+XFAIL:	nocompile/enum_29_A.d
+XFAIL:	nocompile/enum_29_B.d
+XFAIL:	nocompile/enum_30_A.d
+XFAIL:	nocompile/enum_30_B.d
+XFAIL:	nocompile/enum_31_A.d
+XFAIL:	nocompile/enum_31_B.d
+FAIL: 	nocompile/enum_32_A.d [bad error message]
+FAIL: 	nocompile/enum_32_B.d [bad error message]
+FAIL: 	nocompile/enum_32_C.d [bad error message]
+FAIL: 	nocompile/enum_33_A.d [bad error message]
+FAIL: 	nocompile/enum_33_B.d [bad error message]
+FAIL: 	nocompile/enum_33_C.d [bad error message]
+FAIL: 	nocompile/enum_34_A.d [bad error message]
+FAIL: 	nocompile/enum_34_B.d [bad error message]
+FAIL: 	nocompile/enum_34_C.d [bad error message]
+FAIL: 	nocompile/enum_35.d [bad error message]
+FAIL: 	nocompile/enum_36.d [bad error message]
+XFAIL:	nocompile/enum_37.d
 XFAIL:	nocompile/eol_comment_01.d
 XFAIL:	nocompile/eol_comment_02.d
 XFAIL:	nocompile/eol_comment_03.d
@@ -418,6 +447,7 @@ FAIL: 	nocompile/interface_14.d [bad error message]
 ERROR:	nocompile/interface_15.d
 ERROR:	nocompile/interface_16.d
 ERROR:	nocompile/interface_17.d
+ERROR:	nocompile/interface_18.d
 XFAIL:	nocompile/invalid_utf_01.d
 XFAIL:	nocompile/invalid_utf_02.d
 XFAIL:	nocompile/invalid_utf_03.d
@@ -587,6 +617,7 @@ XPASS:	nocompile/opSubAssign_16.d
 XPASS:	nocompile/opSubAssign_17.d
 XFAIL:	nocompile/overload_11.d
 XFAIL:	nocompile/overload_12.d
+XFAIL:	nocompile/overload_13.d
 XFAIL:	nocompile/overload_14.d
 XFAIL:	nocompile/overload_16.d
 XFAIL:	nocompile/override_02.d
@@ -723,7 +754,7 @@ XFAIL:	nocompile/with_05.d
 XFAIL:	nocompile/with_06.d
 XFAIL:	nocompile/with_07.d
 rm -f run/*.exe run/*.exe
-find run -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ run" > run.sh
+find run -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
 ./run.sh 2>> /tmp/dstress/log.txt
 PASS: 	run/abstract_07.d
@@ -979,14 +1010,176 @@ PASS: 	run/class_initialization_02.d
 PASS: 	run/command_line_debug_01.d
 PASS: 	run/command_line_debug_02.d
 PASS: 	run/command_line_debug_03.d
-PASS: 	run/comma        x;Ø        ¬   Ì   Ø        °1                Ø       X   `   h                            Ø    <   	   Ì   Ø        H0                Ø       ð   ø           H0                Ø       0   <   L        À0                Ø       x   „   ”        À0                Ø       À	   Ð   Ü        H0                Ø       ô              t1                ¤§   «      /   m   ÿÿÿÿ$          H0üÿÿÿ¨           8   P2                        ´3     2Ø    0   <
-   l   x        H0                Ø       Ì   Ü   ì        t1                Ø             ,        t1                0123456789ABCDEF0123456789  01234567abcdefghijklmnopqrstuvwxyz  ABCDEFGHIJKLMNOPQRSTUVWXYZ  ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 	
-                         ä           ä3                Ô2    ´3         (((((                  H„„„„„„„„„„‚‚‚‚‚‚            ë                                    p4Ø           -   A        °1                Ø       a   y   …        °1                           ¡           P5                ä4     5Ø       Õ   é   õ        °1                                      È5                \5    ˜5Ø       $
-   ,   8        À0                       €>@  Ø       d   l   t        H0                @æ   &     '     ÿÿÿÿ    Wçè   ç      M   Ö   ÿÿÿÿ    ÷è\é   :      !   )   ÿÿÿÿ    Šé ê   <         +   ÿÿÿÿ    0êHê   <         +   ÿÿÿÿ    xêê   ?         .   ÿÿÿÿ    ÃêØê   <         +   ÿÿÿÿ    ë ë   9         (   ÿÿÿÿ    Më|ë   9         (   ÿÿÿÿ    ©ëÄë   D         3   ÿÿÿÿ    üëì   7         &   ÿÿÿÿ    ?ìTì   7         &   ÿÿÿÿ    ì”ì   Ù      2   ±   ÿÿÿÿ    Jí       @   €                              ðÿÿÿàÿÿÿÀÿÿÿ€ÿÿÿ ÿÿÿ þÿÿ üÿÿ øÿÿ ðÿÿ                                 h   È8                        ´3    ˜8ÿÿÿÿ ?Ø       _   g   s        H0                Ø       Ë   ß   ë        °1                @   õ      4   ‚   ÿÿÿÿ    Ç   ˆ      !   f   ÿÿÿÿ    {   t   t         )   ÿÿÿÿ$          H0üÿÿÿŸð    %     ^   u   ÿÿÿÿ    jØ    0   ;    k    s         H0                           ¯                     Ô            8:         *     C     &     ¬‰   à   H   T…   ”‚
-   H                  €;   8           tˆ   dˆ            þÿÿoô‡ÿÿÿo   ðÿÿoœ‡                                                ÿÿÿÿ®ŽÑŽ½œÑœ¡Ÿ    ÿÿÿÿ        p:        Ú‰ê‰ú‰
-ŠŠ*Š:ŠJŠZŠjŠzŠŠŠšŠªŠºŠÊŠÚŠêŠúŠ
-‹‹*‹:‹J‹Z‹j‹z‹Š‹š‹ª‹º‹Ê‹Ú‹ê‹ú‹
-ŒŒ*Œ:Œ                         GCC: (GNU) 3.3.2 (Mandrake Linux 10.0 3.3.2-4mdk)  GCC: (GNU) 3.3.2 (Mandrake Linux 10.0 3.3.2-4mdk)  GCC: (GNU) 3.4.4 20050422 (prerelease)  GCC: (GNU) 3.2.2 20030222 (Red Hat Linux 3.2.2-5)  GCC: (GNU) 3.2.2 20030222 (Red Hat Linux 3.2.2-5)  GCC: (GNU) 3.4.4 20050422 (prerelease)  GCC: (GNU) 3.3.2 (Mandrake Linux 10.0 3.3.2-4mdk)               PŒ"           ,    	       à   ¬‰   tŒ!           $    ‹	       ö   Á‰           !    l   œ  „  _IO_stdin_used     h            PŒrŒ../sysdeps/i386/elf/start.S /home/gb/rpm/BUILD/glibc-2.3.3/csu GNU AS 2.14.90.0.7 €˜      q   tŒtŒ.  Û  l  Ï  Õ0   3  ¸  "B   ¢   ?  #T      ¬  $0   Z  %q   .  6  (ƒ   ¤      )B   ™  *    í  O  +T   ­  ,½   int ¥  -0   þ  2Ú   ÿ  à  3ì   )  Q  ;Ú   a  <ì   ÷  ˆì   @  ‰0   ™  Š0     ‹q     Œì   S  0   b  Ž0     a     	run/enum_08.d
+PASS: 	run/command_line_debug_04.d
+PASS: 	run/command_line_debug_08.d
+PASS: 	run/command_line_deprecated_01.d
+PASS: 	run/command_line_version_01.d
+PASS: 	run/command_line_version_02.d
+PASS: 	run/command_line_version_03.d
+PASS: 	run/comment_01.d
+PASS: 	run/comment_02.d
+PASS: 	run/comment_03.d
+PASS: 	run/comment_04.d
+PASS: 	run/comment_05.d
+PASS: 	run/comment_06.d
+PASS: 	run/comment_09.d
+PASS: 	run/comment_10.d
+PASS: 	run/comment_11.d
+PASS: 	run/comment_12.d
+PASS: 	run/comment_13.d
+PASS: 	run/compare_01.d
+PASS: 	run/compare_02.d
+PASS: 	run/complex_01.d
+PASS: 	run/const_01.d
+PASS: 	run/const_05.d
+PASS: 	run/const_06.d
+PASS: 	run/const_10.d
+PASS: 	run/const_14.d
+FAIL: 	run/const_15.d
+PASS: 	run/const_16.d
+PASS: 	run/const_17.d
+FAIL: 	run/const_18.d
+PASS: 	run/const_19.d
+PASS: 	run/const_20_A.d
+PASS: 	run/const_20_B.d
+PASS: 	run/const_20_C.d
+PASS: 	run/const_20_D.d
+PASS: 	run/const_21_A.d
+PASS: 	run/const_21_B.d
+PASS: 	run/const_21_C.d
+PASS: 	run/const_21_D.d
+PASS: 	run/const_22_A.d
+PASS: 	run/const_22_B.d
+PASS: 	run/const_22_C.d
+PASS: 	run/const_22_D.d
+PASS: 	run/constructor_01.d
+PASS: 	run/constructor_02.d
+PASS: 	run/constructor_03.d
+PASS: 	run/constructor_04.d
+PASS: 	run/constructor_06.d
+PASS: 	run/constructor_07.d
+FAIL: 	run/constructor_08.d
+PASS: 	run/constructor_09.d
+PASS: 	run/constructor_10.d
+PASS: 	run/constructor_11.d
+PASS: 	run/creal_01.d
+PASS: 	run/creal_02.d
+PASS: 	run/creal_03.d
+PASS: 	run/creal_05.d
+PASS: 	run/creal_06.d
+PASS: 	run/creal_07.d
+PASS: 	run/creal_08.d
+PASS: 	run/creal_09.d
+PASS: 	run/creal_10.d
+PASS: 	run/creal_11.d
+PASS: 	run/creal_12.d
+PASS: 	run/creal_13.d
+PASS: 	run/creal_14.d
+PASS: 	run/creal_15.d
+PASS: 	run/creal_16.d
+PASS: 	run/creal_17.d
+PASS: 	run/creal_18.d
+PASS: 	run/creal_19.d
+PASS: 	run/creal_20.d
+PASS: 	run/creal_21.d
+PASS: 	run/creal_22.d
+PASS: 	run/creal_23.d
+FAIL: 	run/creal_24.d
+FAIL: 	run/creal_25.d
+PASS: 	run/__DATE__01.d
+PASS: 	run/dchar_03.d
+PASS: 	run/dchar_05.d
+PASS: 	run/dchar_07.d
+PASS: 	run/dchar_08.d
+PASS: 	run/dchar_09.d
+PASS: 	run/debug_01.d
+PASS: 	run/debug_02.d
+PASS: 	run/debug_03.d
+PASS: 	run/debug_08.d
+FAIL: 	run/debug_09.d
+FAIL: 	run/debug_10.d
+PASS: 	run/debug_info_03.d
+ERROR:	run/debug_info_04.d
+ERROR:	run/debug_info_05.d
+PASS: 	run/debug_info_06.d
+PASS: 	run/debug_info_07.d
+PASS: 	run/default_argument_01.d
+PASS: 	run/default_argument_02.d
+PASS: 	run/default_argument_03.d
+PASS: 	run/default_argument_04.d
+PASS: 	run/default_argument_06.d
+PASS: 	run/default_argument_07.d
+FAIL: 	run/default_argument_08.d
+PASS: 	run/default_argument_09.d
+PASS: 	run/delegate_01.d
+PASS: 	run/delegate_04.d
+PASS: 	run/delegate_06.d
+PASS: 	run/delegate_12.d
+PASS: 	run/delete_01.d
+FAIL: 	run/delete_02.d
+PASS: 	run/delete_09.d
+PASS: 	run/deprecated_09.d
+PASS: 	run/deprecated_10.d
+PASS: 	run/deprecated_12.d
+PASS: 	run/deprecated_13.d
+PASS: 	run/destructor_01.d
+FAIL: 	run/destructor_03.d
+ERROR:	run/destructor_04.d
+PASS: 	run/double_01.d
+PASS: 	run/double_02.d
+PASS: 	run/double_03.d
+PASS: 	run/double_04.d
+PASS: 	run/double_05.d
+PASS: 	run/double_06.d
+PASS: 	run/double_07.d
+PASS: 	run/double_08.d
+PASS: 	run/double_09.d
+PASS: 	run/double_10.d
+PASS: 	run/double_11.d
+PASS: 	run/double_12.d
+PASS: 	run/double_13.d
+PASS: 	run/double_22.d
+PASS: 	run/double_quoted_string_01.d
+PASS: 	run/double_quoted_string_02.d
+PASS: 	run/double_quoted_string_03.d
+PASS: 	run/double_quoted_string_04.d
+PASS: 	run/double_quoted_string_05.d
+PASS: 	run/double_quoted_string_06.d
+PASS: 	run/double_quoted_string_07.d
+PASS: 	run/double_quoted_string_08.d
+PASS: 	run/double_quoted_string_09.d
+PASS: 	run/double_quoted_string_10.d
+PASS: 	run/double_quoted_string_11.d
+PASS: 	run/double_quoted_string_17.d
+PASS: 	run/double_quoted_string_18.d
+PASS: 	run/do_while_01.d
+PASS: 	run/do_while_02.d
+PASS: 	run/do_while_03.d
+PASS: 	run/do_while_04.d
+PASS: 	run/do_while_05.d
+PASS: 	run/dup_01.d
+PASS: 	run/dup_02.d
+PASS: 	run/dup_03.d
+PASS: 	run/dup_04.d
+PASS: 	run/dup_05.d
+PASS: 	run/else_01.d
+PASS: 	run/else_02.d
+PASS: 	run/encoding_utf_16be_bom.d
+PASS: 	run/encoding_utf_16be.d
+PASS: 	run/encoding_utf_16le_bom.d
+PASS: 	run/encoding_utf_16le.d
+PASS: 	run/encoding_utf_32be_bom.d
+PASS: 	run/encoding_utf_32be.d
+PASS: 	run/encoding_utf_32le_bom.d
+PASS: 	run/encoding_utf_32le.d
+PASS: 	run/encoding_utf_8_bom.d
+PASS: 	run/encoding_utf_8.d
+PASS: 	run/enum_01.d
+PASS: 	run/enum_02.d
+PASS: 	run/enum_03.d
+PASS: 	run/enum_04.d
+PASS: 	run/enum_07.d
+PASS: 	run/enum_08.d
 PASS: 	run/enum_09.d
 FAIL: 	run/enum_10.d
 PASS: 	run/enum_11.d
@@ -994,6 +1187,21 @@ FAIL: 	run/enum_13.d
 FAIL: 	run/enum_14.d
 FAIL: 	run/enum_15.d
 FAIL: 	run/enum_16.d
+FAIL: 	run/enum_17_A.d
+FAIL: 	run/enum_17_B.d
+FAIL: 	run/enum_18_A.d
+FAIL: 	run/enum_18_B.d
+FAIL: 	run/enum_19_A.d
+FAIL: 	run/enum_19_B.d
+FAIL: 	run/enum_20_A.d
+FAIL: 	run/enum_20_B.d
+FAIL: 	run/enum_21_A.d
+FAIL: 	run/enum_21_B.d
+FAIL: 	run/enum_22.d
+FAIL: 	run/enum_23.d
+FAIL: 	run/enum_24.d
+FAIL: 	run/enum_25.d
+PASS: 	run/enum_38.d
 PASS: 	run/eol_01.d
 PASS: 	run/eol_02.d
 PASS: 	run/eol_03.d
@@ -1525,7 +1733,6 @@ PASS: 	run/overload_07.d
 FAIL: 	run/overload_08.d
 FAIL: 	run/overload_09.d
 FAIL: 	run/overload_10.d
-FAIL: 	run/overload_13.d
 PASS: 	run/overload_15.d
 FAIL: 	run/overload_17.d
 PASS: 	run/overload_18.d
@@ -1659,6 +1866,7 @@ PASS: 	run/switch_14.d
 PASS: 	run/switch_19.d
 PASS: 	run/switch_20.d
 PASS: 	run/switch_21.d
+FAIL: 	run/switch_22.d
 PASS: 	run/template_01.d
 PASS: 	run/template_03.d
 PASS: 	run/template_04.d
@@ -1862,7 +2070,7 @@ PASS: 	run/Wysiwyg_String_14.d
 PASS: 	run/Wysiwyg_String_15.d
 FAIL: 	run/xhtml_tag_01.html
 rm -f norun/*.exe norun/*.bin
-find norun -maxdepth 1 -name "?*.?*" | grep "." | sort | xargs -n 1 echo "./dstress__ norun" > norun.sh
+find norun -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
 ./norun.sh 2>> /tmp/dstress/log.txt
 ERROR:	norun/assert_04.d

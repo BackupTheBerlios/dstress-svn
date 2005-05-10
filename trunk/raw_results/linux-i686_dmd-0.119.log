@@ -1,5 +1,5 @@
 >>>> VERSION <<<<
-Sa, 30 Apr 2005 03:12:25 +0200
+Fr,  6 Mai 2005 13:47:52 +0200
 Linux 2.6.10-B i686
 Digital Mars D Compiler v0.119
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
@@ -38,6 +38,11 @@ EXIT CODE: 0
 --------
 compile: dmd-0.119   -c -odobj  compile/align_04.d 1> log.tmp 2>&1
 EXIT CODE: 0
+
+--------
+compile: dmd-0.119   -c -odobj  compile/bug_cgcod_1445_C.d 1> log.tmp 2>&1
+Internal error: ../ztc/cgcod.c 1445
+EXIT CODE: 256
 
 --------
 compile: dmd-0.119   -c -odobj  compile/bug_dsymbol_611_C.d 1> log.tmp 2>&1
@@ -175,6 +180,18 @@ EXIT CODE: 0
 
 --------
 compile: dmd-0.119   -c -odobj  compile/interface_09.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+compile: dmd-0.119   -c -odobj  compile/interface_19.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+compile: dmd-0.119   -c -odobj  compile/interface_20.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+compile: dmd-0.119   -c -odobj  compile/interface_21.d 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
@@ -386,6 +403,10 @@ nocompile/array_initialization_04.d(19): Integer constant expression expected in
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.119   -c -odobj  nocompile/array_initialization_08.d 1> log.tmp 2>&1
+EXIT CODE: 11
+
+--------
 nocompile: dmd-0.119   -c -odobj  nocompile/array_initialization_09.d 1> log.tmp 2>&1
 EXIT CODE: 0
 
@@ -508,7 +529,7 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/bug_20050330_A.d 1> log.tmp 2>&1
-EXIT CODE: signal 14 (time-out after 480 seconds)
+EXIT CODE: signal 14 (time-out after 5 seconds)
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/bug_cg87_1240_A.d 1> log.tmp 2>&1
 Internal error: ../ztc/cg87.c 1238
@@ -948,8 +969,8 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/__DATE__02.d 1> log.tmp 2>&1
-nocompile/__DATE__02.d(10): "Apr 30 2005" is not an lvalue
-nocompile/__DATE__02.d(10): cannot assign to static array "Apr 30 2005"
+nocompile/__DATE__02.d(10): "May  6 2005" is not an lvalue
+nocompile/__DATE__02.d(10): cannot assign to static array "May  6 2005"
 EXIT CODE: 256
 
 --------
@@ -1209,6 +1230,128 @@ EXIT CODE: 0
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/enum_06.d 1> log.tmp 2>&1
 nocompile/enum_06.d: enum dstress.nocompile.enum_06.__anonymous enum __anonymous must have at least one member
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_26_A.d 1> log.tmp 2>&1
+nocompile/enum_26_A.d(10): cannot implicitly convert expression (128) of type int to byte
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_26_B.d 1> log.tmp 2>&1
+nocompile/enum_26_B.d(10): cannot implicitly convert expression (-129) of type int to byte
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_27_A.d 1> log.tmp 2>&1
+nocompile/enum_27_A.d(10): cannot implicitly convert expression (-1) of type int to ubyte
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_27_B.d 1> log.tmp 2>&1
+nocompile/enum_27_B.d(10): cannot implicitly convert expression (256) of type int to ubyte
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_28_A.d 1> log.tmp 2>&1
+nocompile/enum_28_A.d(10): cannot implicitly convert expression (32768) of type int to short
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_28_B.d 1> log.tmp 2>&1
+nocompile/enum_28_B.d(10): cannot implicitly convert expression (-32769) of type int to short
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_29_A.d 1> log.tmp 2>&1
+nocompile/enum_29_A.d(10): cannot implicitly convert expression (65536) of type int to ushort
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_29_B.d 1> log.tmp 2>&1
+nocompile/enum_29_B.d(10): cannot implicitly convert expression (-1) of type int to ushort
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_30_A.d 1> log.tmp 2>&1
+nocompile/enum_30_A.d(10): cannot implicitly convert expression (2147483648) of type long to int
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_30_B.d 1> log.tmp 2>&1
+nocompile/enum_30_B.d(10): cannot implicitly convert expression (-2147483649) of type long to int
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_31_A.d 1> log.tmp 2>&1
+nocompile/enum_31_A.d(10): cannot implicitly convert expression (2) of type int to bit
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_31_B.d 1> log.tmp 2>&1
+nocompile/enum_31_B.d(10): cannot implicitly convert expression (-1) of type int to bit
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_32_A.d 1> log.tmp 2>&1
+nocompile/enum_32_A.d: enum dstress.nocompile.enum_32_A.Enum EnumBaseType must be integral type, not float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_32_B.d 1> log.tmp 2>&1
+nocompile/enum_32_B.d: enum dstress.nocompile.enum_32_B.Enum EnumBaseType must be integral type, not ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_32_C.d 1> log.tmp 2>&1
+nocompile/enum_32_C.d: enum dstress.nocompile.enum_32_C.Enum EnumBaseType must be integral type, not cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_33_A.d 1> log.tmp 2>&1
+nocompile/enum_33_A.d: enum dstress.nocompile.enum_33_A.Enum EnumBaseType must be integral type, not double
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_33_B.d 1> log.tmp 2>&1
+nocompile/enum_33_B.d: enum dstress.nocompile.enum_33_B.Enum EnumBaseType must be integral type, not idouble
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_33_C.d 1> log.tmp 2>&1
+nocompile/enum_33_C.d: enum dstress.nocompile.enum_33_C.Enum EnumBaseType must be integral type, not cdouble
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_34_A.d 1> log.tmp 2>&1
+nocompile/enum_34_A.d: enum dstress.nocompile.enum_34_A.Enum EnumBaseType must be integral type, not real
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_34_B.d 1> log.tmp 2>&1
+nocompile/enum_34_B.d: enum dstress.nocompile.enum_34_B.Enum EnumBaseType must be integral type, not ireal
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_34_C.d 1> log.tmp 2>&1
+nocompile/enum_34_C.d: enum dstress.nocompile.enum_34_C.Enum EnumBaseType must be integral type, not creal
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_35.d 1> log.tmp 2>&1
+nocompile/enum_35.d: enum dstress.nocompile.enum_35.Enum EnumBaseType must be integral type, not object.Object
+nocompile/enum_35.d(10): Integer constant expression expected instead of new Object 
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_36.d 1> log.tmp 2>&1
+nocompile/enum_36.d: enum dstress.nocompile.enum_36.Enum EnumBaseType must be integral type, not S
+nocompile/enum_36.d(15): Integer constant expression expected instead of _init_7dstress9nocompile7enum_361S
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/enum_37.d 1> log.tmp 2>&1
+nocompile/enum_37.d(16): Integer constant expression expected instead of e
 EXIT CODE: 256
 
 --------
@@ -1963,6 +2106,10 @@ EXIT CODE: 11
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/interface_17.d 1> log.tmp 2>&1
+EXIT CODE: 11
+
+--------
+nocompile: dmd-0.119   -c -odobj  nocompile/interface_18.d 1> log.tmp 2>&1
 EXIT CODE: 11
 
 --------
@@ -2993,6 +3140,13 @@ nocompile/overload_12.d(26): Error: expected 0 arguments, not 1
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.119   -c -odobj  nocompile/overload_13.d 1> log.tmp 2>&1
+nocompile/overload_13.d(25): function dstress.nocompile.overload_13.B.test (int) does not match argument types ()
+nocompile/overload_13.d(25): Error: expected 1 arguments, not 0
+
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.119   -c -odobj  nocompile/overload_14.d 1> log.tmp 2>&1
 nocompile/overload_14.d(25): function dstress.nocompile.overload_14.MyClass.check () does not match argument types (int)
 nocompile/overload_14.d(25): Error: expected 0 arguments, not 1
@@ -3459,14 +3613,14 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/__TIME__02.d 1> log.tmp 2>&1
-nocompile/__TIME__02.d(10): "03:22:28" is not an lvalue
-nocompile/__TIME__02.d(10): cannot assign to static array "03:22:28"
+nocompile/__TIME__02.d(10): "13:54:34" is not an lvalue
+nocompile/__TIME__02.d(10): cannot assign to static array "13:54:34"
 EXIT CODE: 256
 
 --------
 nocompile: dmd-0.119   -c -odobj  nocompile/__TIMESTAMP__02.d 1> log.tmp 2>&1
-nocompile/__TIMESTAMP__02.d(10): "Sat Apr 30 03:22:28 2005" is not an lvalue
-nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Sat Apr 30 03:22:28 2005"
+nocompile/__TIMESTAMP__02.d(10): "Fri May  6 13:54:35 2005" is not an lvalue
+nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Fri May  6 13:54:35 2005"
 EXIT CODE: 256
 
 --------
@@ -5573,6 +5727,90 @@ run/const_19.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.119   -odobj  -ofrun/const_20_A.d.exe run/const_20_A.d 1> log.tmp 2>&1
+gcc obj/const_20_A.o -o run/const_20_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_20_A.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_20_B.d.exe run/const_20_B.d 1> log.tmp 2>&1
+gcc obj/const_20_B.o -o run/const_20_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_20_B.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_20_C.d.exe run/const_20_C.d 1> log.tmp 2>&1
+gcc obj/const_20_C.o -o run/const_20_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_20_C.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_20_D.d.exe run/const_20_D.d 1> log.tmp 2>&1
+gcc obj/const_20_D.o -o run/const_20_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_20_D.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_21_A.d.exe run/const_21_A.d 1> log.tmp 2>&1
+gcc obj/const_21_A.o -o run/const_21_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_21_A.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_21_B.d.exe run/const_21_B.d 1> log.tmp 2>&1
+gcc obj/const_21_B.o -o run/const_21_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_21_B.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_21_C.d.exe run/const_21_C.d 1> log.tmp 2>&1
+gcc obj/const_21_C.o -o run/const_21_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_21_C.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_21_D.d.exe run/const_21_D.d 1> log.tmp 2>&1
+gcc obj/const_21_D.o -o run/const_21_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_21_D.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_22_A.d.exe run/const_22_A.d 1> log.tmp 2>&1
+gcc obj/const_22_A.o -o run/const_22_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_22_A.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_22_B.d.exe run/const_22_B.d 1> log.tmp 2>&1
+gcc obj/const_22_B.o -o run/const_22_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_22_B.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_22_C.d.exe run/const_22_C.d 1> log.tmp 2>&1
+gcc obj/const_22_C.o -o run/const_22_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_22_C.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/const_22_D.d.exe run/const_22_D.d 1> log.tmp 2>&1
+gcc obj/const_22_D.o -o run/const_22_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/const_22_D.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
 run: dmd-0.119   -odobj  -ofrun/constructor_01.d.exe run/constructor_01.d 1> log.tmp 2>&1
 gcc obj/constructor_01.o -o run/constructor_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
 EXIT CODE: 0
@@ -6536,6 +6774,125 @@ EXIT CODE: 0
 run/enum_16.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure run/enum_16.d(19)
 EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_17_A.d.exe run/enum_17_A.d 1> log.tmp 2>&1
+gcc obj/enum_17_A.o -o run/enum_17_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_17_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_17_A.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_17_B.d.exe run/enum_17_B.d 1> log.tmp 2>&1
+gcc obj/enum_17_B.o -o run/enum_17_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_17_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_17_B.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_18_A.d.exe run/enum_18_A.d 1> log.tmp 2>&1
+gcc obj/enum_18_A.o -o run/enum_18_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_18_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_18_A.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_18_B.d.exe run/enum_18_B.d 1> log.tmp 2>&1
+gcc obj/enum_18_B.o -o run/enum_18_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_18_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_18_B.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_19_A.d.exe run/enum_19_A.d 1> log.tmp 2>&1
+gcc obj/enum_19_A.o -o run/enum_19_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_19_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_19_A.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_19_B.d.exe run/enum_19_B.d 1> log.tmp 2>&1
+gcc obj/enum_19_B.o -o run/enum_19_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_19_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_19_B.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_20_A.d.exe run/enum_20_A.d 1> log.tmp 2>&1
+gcc obj/enum_20_A.o -o run/enum_20_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_20_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_20_A.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_20_B.d.exe run/enum_20_B.d 1> log.tmp 2>&1
+gcc obj/enum_20_B.o -o run/enum_20_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_20_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_20_B.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_21_A.d.exe run/enum_21_A.d 1> log.tmp 2>&1
+gcc obj/enum_21_A.o -o run/enum_21_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_21_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_21_A.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_21_B.d.exe run/enum_21_B.d 1> log.tmp 2>&1
+gcc obj/enum_21_B.o -o run/enum_21_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_21_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_21_B.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_22.d.exe run/enum_22.d 1> log.tmp 2>&1
+gcc obj/enum_22.o -o run/enum_22.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_22.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_22.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_23.d.exe run/enum_23.d 1> log.tmp 2>&1
+gcc obj/enum_23.o -o run/enum_23.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_23.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_23.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_24.d.exe run/enum_24.d 1> log.tmp 2>&1
+gcc obj/enum_24.o -o run/enum_24.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_24.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_24.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_25.d.exe run/enum_25.d 1> log.tmp 2>&1
+gcc obj/enum_25.o -o run/enum_25.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_25.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/enum_25.d(18)
+EXIT CODE: 256
+
+--------
+run: dmd-0.119   -odobj  -ofrun/enum_38.d.exe run/enum_38.d 1> log.tmp 2>&1
+gcc obj/enum_38.o -o run/enum_38.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
+EXIT CODE: 0
+run/enum_38.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.119   -odobj  -ofrun/eol_01.d.exe run/eol_01.d 1> log.tmp 2>&1
@@ -10540,13 +10897,6 @@ and:
 EXIT CODE: 256
 
 --------
-run: dmd-0.119   -odobj  -ofrun/overload_13.d.exe run/overload_13.d 1> log.tmp 2>&1
-run/overload_13.d(25): function dstress.run.overload_13.B.test (int) does not match argument types ()
-run/overload_13.d(25): Error: expected 1 arguments, not 0
-
-EXIT CODE: 256
-
---------
 run: dmd-0.119   -odobj  -ofrun/overload_15.d.exe run/overload_15.d 1> log.tmp 2>&1
 gcc obj/overload_15.o -o run/overload_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/119/dmd/lib 
 EXIT CODE: 0
@@ -11472,6 +11822,11 @@ gcc obj/switch_21.o -o run/switch_21.d.exe -lphobos -lpthread -lm -Xlinker -L/op
 EXIT CODE: 0
 run/switch_21.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
+
+--------
+run: dmd-0.119   -odobj  -ofrun/switch_22.d.exe run/switch_22.d 1> log.tmp 2>&1
+run/switch_22.d(20): case must be a string or an integral constant, not c
+EXIT CODE: 256
 
 --------
 run: dmd-0.119   -odobj  -ofrun/template_01.d.exe run/template_01.d 1> log.tmp 2>&1

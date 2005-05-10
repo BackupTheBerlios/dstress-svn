@@ -20,7 +20,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-package cn.kuehne.dmd.dstress;
+//package cn.kuehne.dmd.dstress;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,7 +34,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/** HTML snipplet generator for <a href='http://dmd.kuehne.cn/dstress.html'>dstress</a> results
+/** HTML snipplet generator for <a href='http://dstress.kuehne.cn/www/dstress.html'>dstress</a> results
  * @author Thomas Kuehne dstress&lt;a&gt;kuehne.cn
  * @version $Date$
  **/
@@ -228,12 +228,18 @@ public class GenReport{
 				}
 				buffer.append("</td>");
 			}
-			if(result.status[0]!=result.PASS && result.status[0]!=result.XFAIL){
-				buffer.append("</tr><!-- P! -->\n");
-				buffer.append(buffer.toString());
-			}else{
-				buffer.append("</tr>\n");
+			buffer.append("</tr>");
+			for(int border=0; border<4 && border<result.status.length; border++){
+				if(result.status[border]==result.XPASS 
+					|| result.status[border]==result.FAIL 
+					|| result.status[border]==result.ERROR)
+				{
+					buffer.append("<!-- P! -->");
+					break;
+				}
 			}
+			
+			buffer.append("\n");
 			out.write(buffer.toString());
 		}
 

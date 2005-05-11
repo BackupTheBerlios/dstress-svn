@@ -6,9 +6,7 @@
 // @date@	2005-03-25
 // @uri@	news:d2175a$2u8h$1@digitaldaemon.com
 
-// __DSTRESS_ELINE__ 23
-
-module dstress.norun.auto_05;
+module dstress.undefined.auto_05;
 
 class AutoClass{
 	int test() {
@@ -20,11 +18,11 @@ AutoClass b;
 
 void autotest(){
 	auto AutoClass c = new AutoClass();
- 	b = c;   // this should be forbidden
+ 	b = c;
 }
 
 int main(){
 	autotest();
- 	b.test();   // "access violation"
+ 	b.test();   // *undefined*
  	return 0;
 }

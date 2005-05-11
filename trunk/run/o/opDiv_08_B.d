@@ -9,11 +9,11 @@
 module dstress.run.o.opDiv_08_B;
 
 int main(){
-	idouble a = -1.0i / 0.0i;
+	double a = -1.0i / 0.0i;
 
 	idouble b = -1.0i;
 	idouble c = 0.0i;
-	idouble d;
+	double d;
 
 	void* X = &a;
 

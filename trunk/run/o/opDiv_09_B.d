@@ -9,11 +9,11 @@
 module dstress.run.o.opDiv_09_B;
 
 int main(){
-	ireal a = -1.0Li / 0.0Li;
+	real a = -1.0Li / 0.0Li;
 
 	ireal b = -1.0Li;
 	ireal c = 0.0Li;
-	ireal d;
+	real d;
 
 	byte* X = cast(byte*) (cast(void*) &a);
 

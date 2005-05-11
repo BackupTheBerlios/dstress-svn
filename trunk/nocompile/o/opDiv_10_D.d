@@ -6,10 +6,14 @@
 // @date@	2005-05-11
 // @uri@	news:rit129-at3.ln1@lnews.kuehne.cn
 
-module dstress.run.o.opMul_07_B;
+// __DSTRESS_ELINE__ 16
+
+module dstress.run.o.opDiv_10_D;
 
 int main(){
-	idouble a = 4.0i * 2.0i;
-	assert(a==8.0i);
+	ifloat a = 4.0fi;
+	ifloat b = 2.0fi;
+	a = a / b;
+	assert(a==2.0fi);
 	return 0;
 }

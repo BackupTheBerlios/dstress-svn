@@ -9,11 +9,11 @@
 module dstress.run.o.opDiv_07_B;
 
 int main(){
-	ifloat a = -1.0fi / 0.0fi;
+	float a = -1.0fi / 0.0fi;
 
 	ifloat b = -1.0fi;
 	ifloat c = 0.0fi;
-	ifloat d;
+	float d;
 
 	void* X = &a;
 

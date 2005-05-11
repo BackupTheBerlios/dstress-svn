@@ -33,7 +33,7 @@ Output Synopsis: (DejaGnu / POSIX 1003.3)
 	FAIL:	- test case was expected to pass, but failed
 	XFAIL:	- test case was expected to fail, and it did
 	ERROR:	- compiler, linker or test case segfaulted; 
-		- resource limit (480 seconds per test case)
+		- resource limit (480 seconds per test case / 500MB)
 		- inapropiate error messages 
 
 Testing:

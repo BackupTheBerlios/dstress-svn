@@ -11,7 +11,7 @@
 module dstress.run.bug_20050330_B;
 
 template Blah(int a, alias B){
-	mixin Blah!(a-1, alias B);
+	mixin Blah!(a-1, B);
 }
 
 template Blah(int a:0, alias B){

@@ -10,35 +10,40 @@
 module dstress.run.unittest_08;
 
 int status;
+int mixinCount;
 
 static this(){
 	assert(status==0);
-	status=1;
+	status++;
 }
 
 unittest{
 	assert(status==1);
-	status==2;
+	status++;
 }
 
 template Templ(T){
 	int dummy;
 	unittest{
-		assert(status==2);
-		status==3;
+		assert(status==3+(mixinCount++));
+		status++;
 	}
 }
 
 class MyClass{
 	unittest{
-		assert(status==3);
-		status==4;
+		assert(status==2);
+		status++;
 	}
 
 	mixin Templ!(int);	
 }
 
+mixin Templ!(int);
+
+mixin Templ!(void);
+
 int main(){
-	assert(status==4);
+	assert(status==6);
 	return 0;
 }

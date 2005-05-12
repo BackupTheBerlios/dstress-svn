@@ -17,9 +17,9 @@ static ~this(){
 	a~=b;
 	
 	assert(a.length==3);
-	assert(a[0]==0);
-	assert(a[1]==1);
-	assert(a[2]==2);
+	assert(a[0]==1);
+	assert(a[1]==2);
+	assert(a[2]==3);
 	
 	assert(b.length==1);
 	assert(b[0]==3);

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 11
+// __DSTRESS_ELINE__ 12
 
 module dstress.nocompile.bounds_checking_05;
 

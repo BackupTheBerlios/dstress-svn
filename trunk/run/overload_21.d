@@ -20,10 +20,10 @@ union Foo{
 
 int main(){
 	assert(Foo.init(2L)==1);
-	Foo f = new Foo;
+	Foo* f = new Foo;
 	assert(Foo.init(3L)==1);
-	assert(f.init(4L)==1);
-	assert(f.init(5)==0);
+	assert((*f).init(4L)==1);
+	assert((*f).init(5)==0);
 	return 0;
 }
 

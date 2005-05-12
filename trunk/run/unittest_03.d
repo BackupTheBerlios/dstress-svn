@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_DFLAGS__ -unittest
+
 module dstress.run.unittest_03;
 
 int status;

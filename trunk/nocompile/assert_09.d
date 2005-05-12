@@ -10,6 +10,6 @@
 
 module dstress.nocompile.assert_09;
 
-struct A (T){
+struct A{
 	static assert(0);
 }	

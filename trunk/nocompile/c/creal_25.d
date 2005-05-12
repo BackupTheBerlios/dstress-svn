@@ -6,11 +6,10 @@
 // @date@	2005-04-26
 // @uri@	news:pln1k2-5f3.ln1@lnews.kuehne.cn
 
-module dstress.run.creal_25;
+// __DSTRESS_ELINE__ 14 
 
-int main(){
+module dstress.nocompile.c.creal_25;
+
+void test{
 	creal c = 27Li;
-	assert(c.re==0.0L);
-	assert(c.im==27.0Li);
-	return 0;
 }

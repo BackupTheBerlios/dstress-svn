@@ -6,17 +6,12 @@
 // @date@	2005-04-18
 // @uri@	news:d402bj$nc0$6@digitaldaemon.com
 
-module dstress.run.opSubAssign_10;
+// __DSTRESS_ELINE__ 15
 
-void dummy(...){
-}
+module dstress.nocompile.o.opAddAssign_01;
 
-int main() {
-	double x = 9;
-	dummy(x);
-	double y-=x;
-	assert(y==8);
-	assert(x==9);
-	return 0;
+void test() {
+	byte x = 9;
+	byte y+=x;
 }
 

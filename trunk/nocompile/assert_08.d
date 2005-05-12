@@ -10,6 +10,6 @@
 
 module dstress.nocompile.assert_08;
 
-class A (T){
+class A{
 	static assert(0);
 }	

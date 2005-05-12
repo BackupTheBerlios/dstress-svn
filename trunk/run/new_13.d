@@ -19,7 +19,7 @@ union MyUnion{
 
 int main(){
 	assert(counter==0);
-	MyUnion m;
+	MyUnion* m = new MyUnion;
 	m.x=1;
 	assert(counter==1);
 	return 0;

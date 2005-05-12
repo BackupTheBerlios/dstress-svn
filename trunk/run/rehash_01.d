@@ -13,7 +13,7 @@ int main(){
 	assert(array.length==3);
 	
 	int[char[]] rehashed=array.rehash;
-	assert(&rehashed==&array);
+	assert(rehashed is array);
 
 	char[][] key = array.keys;
 	assert(key.length==3);

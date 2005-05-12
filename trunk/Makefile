@@ -154,11 +154,13 @@ endef
 #
 # target should fail to compile
 #
-nocompile : $(dstress__)
-	rm -f nocompile/*.o nocompile/*.$(ext_nocompile)
-	find nocompile -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "$(dstress__) nocompile" > nocompile.sh
+nocompile : $(dstress__) nocompile_clean
+	find nocompile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "$(dstress__) nocompile" > nocompile.sh
 	chmod +x nocompile.sh
 	./nocompile.sh 2>> $(LOG)
+
+nocompile_clean :
+	$(eval z_rm = $(shell find nocompile -type f  -name "*\\.o" | grep -v ".svn"))
 
 # used in some complex test cases
 define analyse_nocompile
@@ -180,11 +182,13 @@ endef
 #
 # target should compile (excludes linking)
 #
-compile : $(dstress__)
-	rm -f compile/*.o compile/*.$(ext_compile)
-	find compile -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "$(dstress__) compile" > compile.sh
+compile : $(dstress__) compile_clean
+	find compile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "$(dstress__) compile" > compile.sh
 	chmod +x compile.sh
 	./compile.sh 2>> $(LOG)
+
+compile_clean :
+	$(eval z_rm = $(shell find compile -type f  -name "*\\.o" | grep -v ".svn"))
 
 # used in some complex test cases
 define analyse_compile
@@ -202,11 +206,14 @@ endef
 # 
 # target should compile, link and run
 # 
-run : $(dstress__)
-	rm -f run/*.exe run/*.$(ext_run)
-	find run -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "$(dstress__) run" > run.sh
+run : $(dstress__) run_clean
+	find run -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "$(dstress__) run" > run.sh
 	chmod +x run.sh
 	./run.sh 2>> $(LOG)
+
+run_clean :
+	$(eval z_rm = $(shell find run -type f  -name "*\\.exe" | grep -v ".svn"))
+	$(RM) $(z_rm)
 
 # used in some complex testcases
 define analyse_run
@@ -267,11 +274,14 @@ endef
 #
 # target should compile and link but fail to run
 # 
-norun : $(dstress__)
-	rm -f norun/*.exe norun/*.$(ext_norun)
-	find norun -maxdepth 1 -name "?*.?*" | grep "." | sort --ignore-case | xargs -n 1 echo "$(dstress__) norun" > norun.sh
+norun : $(dstress__) norun_clean
+	find norun -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "$(dstress__) norun" > norun.sh
 	chmod +x norun.sh
 	./norun.sh 2>> $(LOG)
+
+norun_clean :
+	$(eval z_rm = $(shell find norun -type f  -name "*\\.exe" | grep -v ".svn"))
+	$(RM) $(z_rm)
 
 # used in some complex test cases
 define analyse_norun
@@ -311,9 +321,8 @@ clean_log :
 #
 # remove targets and all temp objects
 #
-clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles)))
-	$(RM) $(OBJ_DIR)/?*.?* nocompile/?*.$(ext_log)
-	$(RM) run/?*.$(ext_run) norun/?*.$(ext_norun) compile/?*.$(ext_compile) nocompile/?*.$(ext_nocompile)
+clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles))) nocompile_clean compile_clean norun_clean run_clean
+	$(RM) $(z_rm) $(OBJ_DIR)/?*\\..*
 	$(RM) run.sh norun.sh compile.sh nocompile.sh
 
 # the empty line above has to remain, otherwise some weired problems can arise

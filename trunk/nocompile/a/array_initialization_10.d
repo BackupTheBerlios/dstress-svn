@@ -6,8 +6,9 @@
 // @date@	2005-04-17
 // @uri@	news:d3sq2j$1086$1@digitaldaemon.com
 
+// __DSTRESS_ELINE__ 14
 
-module dstress.run.array_initialization_10;
+module dstress.nocompile.a.array_initialization_10;
 
 int main(){
 	static char a[int.max/32]= [0];

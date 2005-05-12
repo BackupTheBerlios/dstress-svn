@@ -9,7 +9,7 @@
 module dstress.run.b.bug_cod1_2433_C;
 
 ireal test(){
-	return 1.0L;
+	return 1.0Li;
 }
 
 int main(){

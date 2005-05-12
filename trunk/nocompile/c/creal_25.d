@@ -10,6 +10,6 @@
 
 module dstress.nocompile.c.creal_25;
 
-void test{
+void test(){
 	creal c = 27Li;
 }

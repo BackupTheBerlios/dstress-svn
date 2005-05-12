@@ -7,7 +7,7 @@
 // @uri@	news:cqml2m$1ujj$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2604
 
-// __DSTRESS_ELINE__ 18
+// __DSTRESS_ELINE__ 21
 
 module dstress.nocompile.bug_dsymbol_611_A;
 

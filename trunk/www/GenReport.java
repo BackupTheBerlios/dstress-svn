@@ -20,11 +20,10 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-//package cn.kuehne.dmd.dstress;
+package cn.kuehne.dmd.dstress;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.OutputStreamWriter;
@@ -85,14 +84,14 @@ public class GenReport{
 	/** each name should only have one path */
 	private Hashtable doppel;
 
-	public GenReport(Reader[] in, Writer out) throws Throwable{
+	public GenReport(File[] in, Writer out) throws Throwable{
 		data=new Hashtable();
 		doppel=new Hashtable();
 		for(int index=0; index<in.length; index++){
 			try{
-				read(new LineNumberReader(in[index]),index,in.length);
+				read(in[index],index,in.length);
 			}catch(Throwable t){
-				throw new Throwable("reader number: "+index,t);
+				throw new Throwable("source: "+in[index],t);
 			}
 		}
 		write(out, in.length);
@@ -103,10 +102,12 @@ public class GenReport{
 	 * @param version the id of the input
 	 * @param max total number of input readers
 	 **/
-	private void read(LineNumberReader liner, int version, int max) throws Throwable{
-		for(String line=liner.readLine(); line!=null; line=liner.readLine()){
-			if(line.length()>0){
-				try{
+	private void read(File source, int version, int max) throws Throwable{
+		LineNumberReader liner = new LineNumberReader(new FileReader(source));
+		long lastModified  = source.lastModified();
+		try{
+			for(String line=liner.readLine(); line!=null; line=liner.readLine()){
+				if(line.length()>0){
 					// pare result status
 					StringTokenizer nizer = new StringTokenizer(line," \t\n:",false);
 					String token=nizer.nextToken();
@@ -131,9 +132,15 @@ public class GenReport{
 						}
 					}
 
-					if(name.indexOf("complex")==-1 && !new File("../"+name).exists()){
-						// test case doesn't exist any more
-						continue;
+					if(name.indexOf("complex")==-1){
+						File f = new File(".."+File.separator+name);
+						if(!f.exists()){
+							// test case is no more
+							continue;
+						}else if(f.lastModified()>lastModified){
+							// test case changed after data recording
+							continue;
+						}
 					}
 						
 					// get
@@ -167,10 +174,12 @@ public class GenReport{
 					test.status[version]=status;
 					// save
 					data.put(name,test);
-				}catch(Throwable t){
-					throw new Throwable("linenumber: "+liner.getLineNumber(),t);
 				}
 			}
+		}catch(Throwable t){
+			throw new Throwable("linenumber: "+liner.getLineNumber(),t);
+		}finally{
+			try{liner.close();}catch(Exception e){}
 		}
 	}
 
@@ -275,13 +284,13 @@ public class GenReport{
 		}
 
 		Throwable exception=null;
-		Reader[] in=null;
+		File[] in=null;
 		Writer out=null;
 		try{
 			// setup
-			in=new Reader[arg.length];
+			in=new File[arg.length];
 			for(int index=0; index<in.length; index++){
-				in[index]=new InputStreamReader(new FileInputStream(arg[index]));
+				in[index]=new File(arg[index]);
 			}
 			out=new OutputStreamWriter(System.out);
 			new GenReport(in,out);
@@ -289,10 +298,6 @@ public class GenReport{
 			// save error
 			exception=t;
 		}finally{
-			// close input
-			for(int index=0; index<in.length; index++){
-				try{in[index].close();}catch(Exception e){}
-			}
 			// close output
 			try{out.flush();}catch(Exception e){}
 			try{out.close();}catch(Exception e){}

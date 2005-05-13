@@ -1,6 +1,6 @@
 >>>> VERSION <<<<
-Fr,  6 Mai 2005 12:58:58 +0200
-Linux 2.6.10-B i686
+五, 13  5月 2005 20:07:42 +0200
+Linux 2.6.11.8-A-B i686
 Digital Mars D Compiler v0.121
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
@@ -28,10 +28,14 @@ Usage:
   -version=level compile in version code >= level
   -version=ident compile in version code identified by ident
   -w             enable warnings
-make: [version] Fehler 1 (ignoriert)
+make: [version] 错误 1 (忽略)
 Error: unrecognized switch '--version'
-make: [version] Fehler 1 (ignoriert)
+make: [version] 错误 1 (忽略)
 <<<< VERSION >>>>
+compile: dmd-0.121   -c -odobj  compile/a/abstract_13.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
 compile: dmd-0.121   -c -odobj  compile/alias_08.d 1> log.tmp 2>&1
 EXIT CODE: 0
 
@@ -263,6 +267,34 @@ compile/version_09.d(11): variable dstress.compile.version_09.test conflicts wit
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.121   -c -odobj  nocompile/a/alias_18.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/a/alias_19.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/a/alias_20.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/a/alias_21.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/a/alias_22.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/a/alias_23.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/a/array_initialization_10.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
 nocompile: dmd-0.121   -c -odobj  nocompile/abstract_01.d 1> log.tmp 2>&1
 nocompile/abstract_01.d(18): missing body { ... } after in or out
 EXIT CODE: 256
@@ -311,10 +343,6 @@ EXIT CODE: 256
 nocompile: dmd-0.121   -c -odobj  nocompile/abstract_12.d 1> log.tmp 2>&1
 nocompile/abstract_12.d(14): struct dstress.nocompile.abstract_12.MyStruct structs, unions cannot be abstract
 EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/abstract_13.d 1> log.tmp 2>&1
-EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/alias_05.d 1> log.tmp 2>&1
@@ -411,11 +439,13 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/array_initialization_08.d 1> log.tmp 2>&1
-EXIT CODE: 11
+Fatal error: out of memory
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/array_initialization_09.d 1> log.tmp 2>&1
-EXIT CODE: 0
+nocompile/array_initialization_09.d(14): index -2147483648 overflow for static array
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/array_initialization_11.d 1> log.tmp 2>&1
@@ -443,11 +473,13 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/assert_08.d 1> log.tmp 2>&1
-EXIT CODE: 0
+nocompile/assert_08.d(14): static assert  (0) is false
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/assert_09.d 1> log.tmp 2>&1
-EXIT CODE: 0
+nocompile/assert_09.d(14): static assert  (0) is false
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/associative_array_01.d 1> log.tmp 2>&1
@@ -536,34 +568,7 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/bug_20050330_A.d 1> log.tmp 2>&1
-EXIT CODE: signal 14 (time-out after 5 minutes)
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/bug_cg87_1240_A.d 1> log.tmp 2>&1
-Internal error: ../ztc/cg87.c 1240
-EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/bug_cg87_1240_B.d 1> log.tmp 2>&1
-Internal error: ../ztc/cg87.c 1240
-EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/bug_cg87_1240_C.d 1> log.tmp 2>&1
-Internal error: ../ztc/cg87.c 1240
-EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/bug_cg87_1240_D.d 1> log.tmp 2>&1
-Internal error: ../ztc/cg87.c 1240
-EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/bug_cg87_1240_E.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/bug_cg87_1240_F.d 1> log.tmp 2>&1
-EXIT CODE: 0
+EXIT CODE: 9
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/bug_cgcod_1445_A.d 1> log.tmp 2>&1
@@ -595,6 +600,33 @@ EXIT CODE: 256
 nocompile: dmd-0.121   -c -odobj  nocompile/bug_cod4_352.d 1> log.tmp 2>&1
 nocompile/bug_cod4_352.d(17): cannot implicitly convert expression (1) of type int to void
 EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/bug_constfold_575_A.d 1> log.tmp 2>&1
+dmd.bin: constfold.c:575: virtual Expression* CmpExp::constFold(): Assertion `0' failed.
+EXIT CODE: 6
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/bug_constfold_575_B.d 1> log.tmp 2>&1
+dmd.bin: constfold.c:575: virtual Expression* CmpExp::constFold(): Assertion `0' failed.
+EXIT CODE: 6
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/bug_constfold_575_C.d 1> log.tmp 2>&1
+dmd.bin: constfold.c:575: virtual Expression* CmpExp::constFold(): Assertion `0' failed.
+EXIT CODE: 6
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/bug_constfold_575_J.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/bug_constfold_575_O.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/bug_constfold_575_R.d 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/bug_dsymbol_611_A.d 1> log.tmp 2>&1
@@ -764,6 +796,11 @@ nocompile/cast_24.d(16): incompatible types for -
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.121   -c -odobj  nocompile/c/creal_25.d 1> log.tmp 2>&1
+nocompile/c/creal_25.d(14): semicolon expected, not 'i'
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.121   -c -odobj  nocompile/cent_01.d 1> log.tmp 2>&1
 nocompile/cent_01.d(11): no identifier for declarator int
 nocompile/cent_01.d(11): semicolon expected, not 'cent'
@@ -814,7 +851,7 @@ EXIT CODE: 11
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/class_12.d 1> log.tmp 2>&1
-nocompile/class_12.d(14): anonymous classes not allowed
+nocompile/class_12.d(13): anonymous classes not allowed
 EXIT CODE: 11
 
 --------
@@ -980,8 +1017,8 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/__DATE__02.d 1> log.tmp 2>&1
-nocompile/__DATE__02.d(10): "May  6 2005" is not an lvalue
-nocompile/__DATE__02.d(10): cannot assign to static array "May  6 2005"
+nocompile/__DATE__02.d(10): "May 13 2005" is not an lvalue
+nocompile/__DATE__02.d(10): cannot assign to static array "May 13 2005"
 EXIT CODE: 256
 
 --------
@@ -1003,6 +1040,35 @@ EXIT CODE: 256
 nocompile: dmd-0.121   -c -odobj  nocompile/dchar_06.d 1> log.tmp 2>&1
 nocompile/dchar_06.d(9): cannot implicitly convert expression (-1) of type int to wchar
 EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/d/delegate_14_A.d 1> log.tmp 2>&1
+nocompile/d/delegate_14_A.d(15): found '}' when expecting ';' following 'statement'
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+nocompile/d/delegate_14_A.d(17): found 'EOF' instead of statement
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/d/delegate_14_B.d 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/debug_04.d 1> log.tmp 2>&1
@@ -1079,6 +1145,10 @@ EXIT CODE: 256
 nocompile: dmd-0.121   -c -odobj  nocompile/delegate_11.d 1> log.tmp 2>&1
 nocompile/delegate_11.d(22): cannot implicitly convert expression (#u , test) of type int(*)() to int delegate()
 EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/delete_02.d 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/delete_06.d 1> log.tmp 2>&1
@@ -1861,20 +1931,6 @@ nocompile/goto_14.d(10): label no_label is undefined
 EXIT CODE: 256
 
 --------
-nocompile: dmd-0.121   -c -odobj  nocompile/html_empty_entity_01.html 1> log.tmp 2>&1
-nocompile/html_empty_entity_01.html(10) : HTML Error: invalid numeric character reference
-EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/html_empty_entity_02.html 1> log.tmp 2>&1
-nocompile/html_empty_entity_02.html(9) : HTML Error: invalid numeric character reference
-EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/html_empty_entity_03.html 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
 nocompile: dmd-0.121   -c -odobj  nocompile/html_entity_10.html 1> log.tmp 2>&1
 nocompile/html_entity_10.html(10) : HTML Error: invalid numeric character reference
 nocompile/html_entity_10.html(10): unterminated character constant
@@ -1924,6 +1980,15 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/ifloat_02.d 1> log.tmp 2>&1
 nocompile/ifloat_02.d(7): cannot implicitly convert expression (2 + 0.3) of type double to ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/i/interface_11.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/i/ireal_03.d 1> log.tmp 2>&1
+nocompile/i/ireal_03.d(14): semicolon expected, not 'i'
 EXIT CODE: 256
 
 --------
@@ -2119,7 +2184,7 @@ EXIT CODE: 11
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/interface_14.d 1> log.tmp 2>&1
-nocompile/interface_14.d(14): anonymous classes not allowed
+nocompile/interface_14.d(13): anonymous classes not allowed
 EXIT CODE: 11
 
 --------
@@ -2835,6 +2900,83 @@ nocompile: dmd-0.121   -c -odobj  nocompile/offsetof_77.d 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opAddAssign_01.d 1> log.tmp 2>&1
+nocompile/o/opAddAssign_01.d(15): semicolon expected, not '+='
+nocompile/o/opAddAssign_01.d(15): found '+=' instead of statement
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opDiv_10_A.d 1> log.tmp 2>&1
+nocompile/o/opDiv_10_A.d(14): cannot implicitly convert expression (4i / 2i) of type float to ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opDiv_10_B.d 1> log.tmp 2>&1
+nocompile/o/opDiv_10_B.d(14): cannot implicitly convert expression (4i / 2i) of type double to idouble
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opDiv_10_C.d 1> log.tmp 2>&1
+nocompile/o/opDiv_10_C.d(14): cannot implicitly convert expression (4i / 2i) of type real to ireal
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opDiv_10_D.d 1> log.tmp 2>&1
+nocompile/o/opDiv_10_D.d(16): cannot implicitly convert expression (a / b) of type float to ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opDiv_10_E.d 1> log.tmp 2>&1
+nocompile/o/opDiv_10_E.d(16): cannot implicitly convert expression (a / b) of type double to idouble
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opDiv_10_F.d 1> log.tmp 2>&1
+nocompile/o/opDiv_10_F.d(16): cannot implicitly convert expression (a / b) of type real to ireal
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opMul_07_A.d 1> log.tmp 2>&1
+nocompile/o/opMul_07_A.d(14): cannot implicitly convert expression (-0) of type float to ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opMul_07_B.d 1> log.tmp 2>&1
+nocompile/o/opMul_07_B.d(14): cannot implicitly convert expression (-0) of type double to idouble
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opMul_07_C.d 1> log.tmp 2>&1
+nocompile/o/opMul_07_C.d(14): cannot implicitly convert expression (-0) of type real to ireal
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opMul_07_D.d 1> log.tmp 2>&1
+nocompile/o/opMul_07_D.d(16): cannot implicitly convert expression (-a * b) of type float to ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opMul_07_E.d 1> log.tmp 2>&1
+nocompile/o/opMul_07_E.d(16): cannot implicitly convert expression (-a * b) of type double to idouble
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opMul_07_F.d 1> log.tmp 2>&1
+nocompile/o/opMul_07_F.d(16): cannot implicitly convert expression (-a * b) of type real to ireal
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/opSubAssign_01.d 1> log.tmp 2>&1
+nocompile/o/opSubAssign_01.d(17): semicolon expected, not '-='
+nocompile/o/opSubAssign_01.d(17): found '-=' instead of statement
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   -c -odobj  nocompile/o/override_10.d 1> log.tmp 2>&1
+nocompile/o/override_10.d(18): function dstress.nocompile.o.override_10.D.fn!() fn_.fn function fn does not override any
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.121   -c -odobj  nocompile/opAdd_01.d 1> log.tmp 2>&1
 nocompile/opAdd_01.d(11): cannot implicitly convert expression (i + 2.2) of type cdouble to idouble
 EXIT CODE: 256
@@ -2895,7 +3037,9 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/opCmp_04.d 1> log.tmp 2>&1
-EXIT CODE: 0
+nocompile/opCmp_04.d(21): function dstress.nocompile.opCmp_04.TestStruct.opCmp (TestStruct []) does not match argument types (TestStruct )
+nocompile/opCmp_04.d(21): cannot implicitly convert expression (b) of type TestStruct to TestStruct []
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/opDiv_01.d 1> log.tmp 2>&1
@@ -2911,30 +3055,6 @@ EXIT CODE: 256
 nocompile: dmd-0.121   -c -odobj  nocompile/opDiv_03.d 1> log.tmp 2>&1
 nocompile/opDiv_03.d(11): cannot implicitly convert expression (-i / 0) of type ireal to real
 EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opDiv_04.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opDiv_05.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opDiv_06.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opDivAssign_12.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opDivAssign_13.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opDivAssign_14.d 1> log.tmp 2>&1
-EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/opDivAssign_15.d 1> log.tmp 2>&1
@@ -2953,7 +3073,9 @@ EXIT CODE: 6
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/opEquals_03.d 1> log.tmp 2>&1
-EXIT CODE: 0
+nocompile/opEquals_03.d(21): function dstress.nocompile.opEquals_03.TestStruct.opEquals (TestStruct []) does not match argument types (TestStruct )
+nocompile/opEquals_03.d(21): cannot implicitly convert expression (b) of type TestStruct to TestStruct []
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/operator_01.d 1> log.tmp 2>&1
@@ -3049,42 +3171,19 @@ nocompile/operator_16.d(24): 'b' is not of integral type, it is a dstress.nocomp
 EXIT CODE: 256
 
 --------
-nocompile: dmd-0.121   -c -odobj  nocompile/opMul_01.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opMul_02.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opMul_03.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
 nocompile: dmd-0.121   -c -odobj  nocompile/opMul_04.d 1> log.tmp 2>&1
 nocompile/opMul_04.d(11): cannot implicitly convert expression (i * 2.2i) of type ifloat to float
 EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/opMul_05.d 1> log.tmp 2>&1
-EXIT CODE: 0
+nocompile/opMul_05.d(11): cannot implicitly convert expression (i * 2.2i) of type idouble to double
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/opMul_06.d 1> log.tmp 2>&1
 nocompile/opMul_06.d(11): cannot implicitly convert expression (i * 2.2i) of type ireal to real
 EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opMulAssign_12.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opMulAssign_13.d 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/opMulAssign_14.d 1> log.tmp 2>&1
-EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/opMulAssign_15.d 1> log.tmp 2>&1
@@ -3190,6 +3289,13 @@ nocompile/overload_12.d(26): Error: expected 0 arguments, not 1
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.121   -c -odobj  nocompile/overload_13.d 1> log.tmp 2>&1
+nocompile/overload_13.d(25): function dstress.nocompile.overload_13.B.test (int) does not match argument types ()
+nocompile/overload_13.d(25): Error: expected 1 arguments, not 0
+
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.121   -c -odobj  nocompile/overload_14.d 1> log.tmp 2>&1
 nocompile/overload_14.d(25): function dstress.nocompile.overload_14.MyClass.check () does not match argument types (int)
 nocompile/overload_14.d(25): Error: expected 0 arguments, not 1
@@ -3242,10 +3348,6 @@ EXIT CODE: 256
 nocompile: dmd-0.121   -c -odobj  nocompile/override_09.d 1> log.tmp 2>&1
 nocompile/override_09.d(14): function dstress.nocompile.override_09.Child.test function test does not override any
 EXIT CODE: 256
-
---------
-nocompile: dmd-0.121   -c -odobj  nocompile/override_10.d 1> log.tmp 2>&1
-EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   addon/package_01_A.d -c -odobj  nocompile/package_01.d 1> log.tmp 2>&1
@@ -3659,14 +3761,14 @@ EXIT CODE: 0
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/__TIME__02.d 1> log.tmp 2>&1
-nocompile/__TIME__02.d(10): "13:05:41" is not an lvalue
-nocompile/__TIME__02.d(10): cannot assign to static array "13:05:41"
+nocompile/__TIME__02.d(10): "20:14:17" is not an lvalue
+nocompile/__TIME__02.d(10): cannot assign to static array "20:14:17"
 EXIT CODE: 256
 
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/__TIMESTAMP__02.d 1> log.tmp 2>&1
-nocompile/__TIMESTAMP__02.d(10): "Fri May  6 13:05:41 2005" is not an lvalue
-nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Fri May  6 13:05:41 2005"
+nocompile/__TIMESTAMP__02.d(10): "Fri May 13 20:14:17 2005" is not an lvalue
+nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Fri May 13 20:14:17 2005"
 EXIT CODE: 256
 
 --------
@@ -3771,6 +3873,12 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.121   -c -odobj  nocompile/ushort_03.d 1> log.tmp 2>&1
 nocompile/ushort_03.d(11): .size property is deprecated, use .sizeof
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.121   13 -c -odobj  nocompile/u/unittest_06.d 1> log.tmp 2>&1
+Error: Error reading file '13.d'
+
 EXIT CODE: 256
 
 --------
@@ -4019,6 +4127,61 @@ run/align_10.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.121   -odobj  -ofrun/align_11.d.exe run/align_11.d 1> log.tmp 2>&1
+gcc obj/align_11.o -o run/align_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/align_11.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/align_12.d.exe run/align_12.d 1> log.tmp 2>&1
+gcc obj/align_12.o -o run/align_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/align_12.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/align_12.d(23)
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/align_13.d.exe run/align_13.d 1> log.tmp 2>&1
+gcc obj/align_13.o -o run/align_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/align_13.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/align_13.d(23)
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/align_14.d.exe run/align_14.d 1> log.tmp 2>&1
+gcc obj/align_14.o -o run/align_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/align_14.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/align_14.d(23)
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/align_15.d.exe run/align_15.d 1> log.tmp 2>&1
+gcc obj/align_15.o -o run/align_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/align_15.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/align_15.d(23)
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/align_16.d.exe run/align_16.d 1> log.tmp 2>&1
+gcc obj/align_16.o -o run/align_16.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/align_16.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/align_16.d(23)
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/align_17.d.exe run/align_17.d 1> log.tmp 2>&1
+gcc obj/align_17.o -o run/align_17.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/align_17.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/align_17.d(23)
+EXIT CODE: 256
+
+--------
 run: dmd-0.121   -odobj  -ofrun/Alternate_Wysiwyg_String_01.d.exe run/Alternate_Wysiwyg_String_01.d 1> log.tmp 2>&1
 gcc obj/Alternate_Wysiwyg_String_01.o -o run/Alternate_Wysiwyg_String_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -4166,13 +4329,6 @@ EXIT CODE: 0
 run/array_initialization_07.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure run/array_initialization_07.d(16)
 EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/array_initialization_10.d.exe run/array_initialization_10.d 1> log.tmp 2>&1
-gcc obj/array_initialization_10.o -o run/array_initialization_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-run/array_initialization_10.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/assert_01.d.exe run/assert_01.d 1> log.tmp 2>&1
@@ -4338,6 +4494,70 @@ run/auto_08.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cg87_1240_A.d.exe run/b/bug_cg87_1240_A.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 1240
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cg87_1240_B.d.exe run/b/bug_cg87_1240_B.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 1240
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cg87_1240_C.d.exe run/b/bug_cg87_1240_C.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 1240
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cg87_1240_D.d.exe run/b/bug_cg87_1240_D.d 1> log.tmp 2>&1
+Internal error: ../ztc/cg87.c 1240
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cg87_1240_E.d.exe run/b/bug_cg87_1240_E.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_1240_E.o -o run/b/bug_cg87_1240_E.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/b/bug_cg87_1240_E.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cg87_1240_F.d.exe run/b/bug_cg87_1240_F.d 1> log.tmp 2>&1
+gcc obj/bug_cg87_1240_F.o -o run/b/bug_cg87_1240_F.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/b/bug_cg87_1240_F.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cod1_2433_A.d.exe run/b/bug_cod1_2433_A.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2433
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cod1_2433_B.d.exe run/b/bug_cod1_2433_B.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2433
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cod1_2433_C.d.exe run/b/bug_cod1_2433_C.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2433
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cod1_2433_D.d.exe run/b/bug_cod1_2433_D.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2433
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cod1_2433_E.d.exe run/b/bug_cod1_2433_E.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2433
+EXIT CODE: 256
+
+--------
+run: dmd-0.121   -odobj  -ofrun/b/bug_cod1_2433_F.d.exe run/b/bug_cod1_2433_F.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2433
+EXIT CODE: 256
+
+--------
 run: dmd-0.121   -odobj  -ofrun/bit_01.d.exe run/bit_01.d 1> log.tmp 2>&1
 gcc obj/bit_01.o -o run/bit_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -4500,10 +4720,10 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/bug_20050330_B.d.exe run/bug_20050330_B.d 1> log.tmp 2>&1
-run/bug_20050330_B.d(14): expression expected, not 'alias'
-run/bug_20050330_B.d(14): found 'B' when expecting ')' following 'template argument list'
-run/bug_20050330_B.d(14): ';' expected after mixin
-EXIT CODE: 256
+gcc obj/bug_20050330_B.o -o run/bug_20050330_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/bug_20050330_B.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/bug_20050405_01.d.exe run/bug_20050405_01.d 1> log.tmp 2>&1
@@ -4818,7 +5038,7 @@ EXIT CODE: 256
 
 --------
 run: dmd-0.121   -odobj  -ofrun/bug_cgcs_353_J.d.exe run/bug_cgcs_353_J.d 1> log.tmp 2>&1
-run/bug_cgcs_353_J.d(23): cannot implicitly convert expression (concat()) of type ifloat[] to float[]
+Internal error: ../ztc/cgcs.c 353
 EXIT CODE: 256
 
 --------
@@ -4942,7 +5162,7 @@ EXIT CODE: 256
 
 --------
 run: dmd-0.121   -O -odobj  -ofrun/bug_cod2_4211_J.d.exe run/bug_cod2_4211_J.d 1> log.tmp 2>&1
-run/bug_cod2_4211_J.d(24): cannot implicitly convert expression (concat()) of type ifloat[] to float[]
+Internal error: ../ztc/cod2.c 4211
 EXIT CODE: 256
 
 --------
@@ -4984,21 +5204,6 @@ EXIT CODE: 256
 run: dmd-0.121   -O -odobj  -ofrun/bug_cod2_4211_R.d.exe run/bug_cod2_4211_R.d 1> log.tmp 2>&1
 Internal error: ../ztc/cod2.c 4211
 EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_A.d.exe run/bug_constfold_575_A.d 1> log.tmp 2>&1
-dmd.bin: constfold.c:575: virtual Expression* CmpExp::constFold(): Assertion `0' failed.
-EXIT CODE: 6
-
---------
-run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_B.d.exe run/bug_constfold_575_B.d 1> log.tmp 2>&1
-dmd.bin: constfold.c:575: virtual Expression* CmpExp::constFold(): Assertion `0' failed.
-EXIT CODE: 6
-
---------
-run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_C.d.exe run/bug_constfold_575_C.d 1> log.tmp 2>&1
-dmd.bin: constfold.c:575: virtual Expression* CmpExp::constFold(): Assertion `0' failed.
-EXIT CODE: 6
 
 --------
 run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_D.d.exe run/bug_constfold_575_D.d 1> log.tmp 2>&1
@@ -5043,14 +5248,6 @@ run/bug_constfold_575_I.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_J.d.exe run/bug_constfold_575_J.d 1> log.tmp 2>&1
-gcc obj/bug_constfold_575_J.o -o run/bug_constfold_575_J.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-run/bug_constfold_575_J.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/bug_constfold_575_J.d(15)
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_K.d.exe run/bug_constfold_575_K.d 1> log.tmp 2>&1
 gcc obj/bug_constfold_575_K.o -o run/bug_constfold_575_K.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -5079,14 +5276,6 @@ run/bug_constfold_575_N.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_O.d.exe run/bug_constfold_575_O.d 1> log.tmp 2>&1
-gcc obj/bug_constfold_575_O.o -o run/bug_constfold_575_O.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-run/bug_constfold_575_O.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/bug_constfold_575_O.d(15)
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_P.d.exe run/bug_constfold_575_P.d 1> log.tmp 2>&1
 gcc obj/bug_constfold_575_P.o -o run/bug_constfold_575_P.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -5099,14 +5288,6 @@ gcc obj/bug_constfold_575_Q.o -o run/bug_constfold_575_Q.d.exe -lphobos -lpthrea
 EXIT CODE: 0
 run/bug_constfold_575_Q.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
-
---------
-run: dmd-0.121   -odobj  -ofrun/bug_constfold_575_R.d.exe run/bug_constfold_575_R.d 1> log.tmp 2>&1
-gcc obj/bug_constfold_575_R.o -o run/bug_constfold_575_R.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-run/bug_constfold_575_R.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/bug_constfold_575_R.d(15)
-EXIT CODE: 256
 
 --------
 run: dmd-0.121   -odobj  -ofrun/bug_e2ir_141_A.d.exe run/bug_e2ir_141_A.d 1> log.tmp 2>&1
@@ -5933,11 +6114,10 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/constructor_08.d.exe run/constructor_08.d 1> log.tmp 2>&1
-run/constructor_08.d(18): found '{' when expecting '('
-run/constructor_08.d(18): basic type expected, not }
-run/constructor_08.d(18): found '}' when expecting ')'
-run/constructor_08.d(19): semicolon expected following function declaration
-EXIT CODE: 256
+gcc obj/constructor_08.o -o run/constructor_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/constructor_08.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/constructor_09.d.exe run/constructor_09.d 1> log.tmp 2>&1
@@ -6110,19 +6290,6 @@ EXIT CODE: 0
 --------
 run: dmd-0.121   -odobj  -ofrun/creal_23.d.exe run/creal_23.d 1> log.tmp 2>&1
 run/creal_23.d(12): Floating point constant expression expected instead of 27
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/creal_24.d.exe run/creal_24.d 1> log.tmp 2>&1
-gcc obj/creal_24.o -o run/creal_24.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-run/creal_24.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/creal_24.d(14)
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/creal_25.d.exe run/creal_25.d 1> log.tmp 2>&1
-run/creal_25.d(12): semicolon expected, not 'i'
 EXIT CODE: 256
 
 --------
@@ -6350,18 +6517,17 @@ run/delete_01.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/delete_02.d.exe run/delete_02.d 1> log.tmp 2>&1
-gcc obj/delete_02.o -o run/delete_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-run/delete_02.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/delete_02.d(31)
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/delete_09.d.exe run/delete_09.d 1> log.tmp 2>&1
 gcc obj/delete_09.o -o run/delete_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/delete_09.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/delete_10.d.exe run/delete_10.d 1> log.tmp 2>&1
+gcc obj/delete_10.o -o run/delete_10.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/delete_10.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
@@ -8175,28 +8341,10 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/html_line_ending_mac.html.exe run/html_line_ending_mac.html 1> log.tmp 2>&1
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-run/html_line_ending_mac.html(34): found 'EOF' instead of statement
-EXIT CODE: 256
+gcc obj/html_line_ending_mac.o -o run/html_line_ending_mac.html.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/html_line_ending_mac.html.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/html_line_ending_unicode.html.exe run/html_line_ending_unicode.html 1> log.tmp 2>&1
@@ -8527,16 +8675,14 @@ run: dmd-0.121   -odobj  -ofrun/init_04.d.exe run/init_04.d 1> log.tmp 2>&1
 gcc obj/init_04.o -o run/init_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/init_04.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/init_04.d(9)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/init_05.d.exe run/init_05.d 1> log.tmp 2>&1
 gcc obj/init_05.o -o run/init_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/init_05.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/init_05.d(9)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -inline -odobj  -ofrun/inline_04.d.exe run/inline_04.d 1> log.tmp 2>&1
@@ -8583,7 +8729,7 @@ run: dmd-0.121   -odobj  -ofrun/in_out_body_03.d.exe run/in_out_body_03.d 1> log
 gcc obj/in_out_body_03.o -o run/in_out_body_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/in_out_body_03.d.exe 1> log.tmp 2>&1
-EXIT CODE: 11
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/in_out_body_04.d.exe run/in_out_body_04.d 1> log.tmp 2>&1
@@ -8822,15 +8968,6 @@ run/interface_10.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/interface_11.d.exe run/interface_11.d 1> log.tmp 2>&1
-gcc obj/interface_11.o -o run/interface_11.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-obj/interface_11.o(.gnu.linkonce.t_Dmain+0x1a): In function `_Dmain':
-: undefined reference to `_D7dstress3run12interface_115ITest5dummyFZi'
-collect2: ld gab 1 als Ende-Status zurück
---- errorlevel 1
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/interface_12.d.exe run/interface_12.d 1> log.tmp 2>&1
 gcc obj/interface_12.o -o run/interface_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -8985,11 +9122,6 @@ run/invariant_32.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/ireal_03.d.exe run/ireal_03.d 1> log.tmp 2>&1
-run/ireal_03.d(12): semicolon expected, not 'i'
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/keys_01.d.exe run/keys_01.d 1> log.tmp 2>&1
 gcc obj/keys_01.o -o run/keys_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -9082,10 +9214,28 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/line_token_02.d.exe run/line_token_02.d 1> log.tmp 2>&1
-gcc obj/line_token_02.o -o run/line_token_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-run/line_token_02.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
+run/line_token_02.d(34): found 'EOF' when expecting ';' following 'statement'
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+run/line_token_02.d(34): found 'EOF' instead of statement
+EXIT CODE: 256
 
 --------
 run: dmd-0.121   -odobj  -ofrun/line_token_03.d.exe run/line_token_03.d 1> log.tmp 2>&1
@@ -9418,16 +9568,17 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/new_12.d.exe run/new_12.d 1> log.tmp 2>&1
-run/new_12.d(22): cannot implicitly convert expression (new(4)) of type MyStruct * to MyStruct
-EXIT CODE: 256
+gcc obj/new_12.o -o run/new_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/new_12.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/new_13.d.exe run/new_13.d 1> log.tmp 2>&1
 gcc obj/new_13.o -o run/new_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/new_13.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/new_13.d(24)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/odd_bug_01.d.exe run/odd_bug_01.d 1> log.tmp 2>&1
@@ -9938,70 +10089,132 @@ run/offsetof_80.d(19): no property 'offsetof' for type 'float'
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_01.d.exe run/opAddAssign_01.d 1> log.tmp 2>&1
-run/opAddAssign_01.d(17): semicolon expected, not '+='
-run/opAddAssign_01.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_04.d.exe run/o/opDiv_04.d 1> log.tmp 2>&1
+gcc obj/opDiv_04.o -o run/o/opDiv_04.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_04.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_05.d.exe run/o/opDiv_05.d 1> log.tmp 2>&1
+gcc obj/opDiv_05.o -o run/o/opDiv_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_05.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_06.d.exe run/o/opDiv_06.d 1> log.tmp 2>&1
+gcc obj/opDiv_06.o -o run/o/opDiv_06.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_06.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_07_A.d.exe run/o/opDiv_07_A.d 1> log.tmp 2>&1
+gcc obj/opDiv_07_A.o -o run/o/opDiv_07_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_07_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opDiv_07_A.d(23)
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_02.d.exe run/opAddAssign_02.d 1> log.tmp 2>&1
-run/opAddAssign_02.d(17): semicolon expected, not '+='
-run/opAddAssign_02.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_07_B.d.exe run/o/opDiv_07_B.d 1> log.tmp 2>&1
+gcc obj/opDiv_07_B.o -o run/o/opDiv_07_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_07_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opDiv_07_B.d(23)
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_03.d.exe run/opAddAssign_03.d 1> log.tmp 2>&1
-run/opAddAssign_03.d(17): semicolon expected, not '+='
-run/opAddAssign_03.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_08_A.d.exe run/o/opDiv_08_A.d 1> log.tmp 2>&1
+gcc obj/opDiv_08_A.o -o run/o/opDiv_08_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_08_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opDiv_08_A.d(24)
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_04.d.exe run/opAddAssign_04.d 1> log.tmp 2>&1
-run/opAddAssign_04.d(17): semicolon expected, not '+='
-run/opAddAssign_04.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_08_B.d.exe run/o/opDiv_08_B.d 1> log.tmp 2>&1
+gcc obj/opDiv_08_B.o -o run/o/opDiv_08_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_08_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opDiv_08_B.d(24)
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_05.d.exe run/opAddAssign_05.d 1> log.tmp 2>&1
-run/opAddAssign_05.d(17): semicolon expected, not '+='
-run/opAddAssign_05.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_09_A.d.exe run/o/opDiv_09_A.d 1> log.tmp 2>&1
+gcc obj/opDiv_09_A.o -o run/o/opDiv_09_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_09_A.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opDiv_09_A.d(24)
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_06.d.exe run/opAddAssign_06.d 1> log.tmp 2>&1
-run/opAddAssign_06.d(17): semicolon expected, not '+='
-run/opAddAssign_06.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opDiv_09_B.d.exe run/o/opDiv_09_B.d 1> log.tmp 2>&1
+gcc obj/opDiv_09_B.o -o run/o/opDiv_09_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDiv_09_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opDiv_09_B.d(24)
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_07.d.exe run/opAddAssign_07.d 1> log.tmp 2>&1
-run/opAddAssign_07.d(17): semicolon expected, not '+='
-run/opAddAssign_07.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opDivAssign_12.d.exe run/o/opDivAssign_12.d 1> log.tmp 2>&1
+gcc obj/opDivAssign_12.o -o run/o/opDivAssign_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDivAssign_12.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/o/opDivAssign_13.d.exe run/o/opDivAssign_13.d 1> log.tmp 2>&1
+gcc obj/opDivAssign_13.o -o run/o/opDivAssign_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDivAssign_13.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/o/opDivAssign_14.d.exe run/o/opDivAssign_14.d 1> log.tmp 2>&1
+gcc obj/opDivAssign_14.o -o run/o/opDivAssign_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opDivAssign_14.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/o/opMul_01.d.exe run/o/opMul_01.d 1> log.tmp 2>&1
+run/o/opMul_01.d(10): found ':' when expecting ';' following 'statement'
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_08.d.exe run/opAddAssign_08.d 1> log.tmp 2>&1
-run/opAddAssign_08.d(17): semicolon expected, not '+='
-run/opAddAssign_08.d(17): found '+=' instead of statement
+run: dmd-0.121   -odobj  -ofrun/o/opMul_02.d.exe run/o/opMul_02.d 1> log.tmp 2>&1
+gcc obj/opMul_02.o -o run/o/opMul_02.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opMul_02.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.121   -odobj  -ofrun/o/opMul_03.d.exe run/o/opMul_03.d 1> log.tmp 2>&1
+run/o/opMul_03.d(9): cannot implicitly convert expression (-i * 4i) of type real to ireal
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_09.d.exe run/opAddAssign_09.d 1> log.tmp 2>&1
-run/opAddAssign_09.d(17): semicolon expected, not '+='
-run/opAddAssign_09.d(17): found '+=' instead of statement
-EXIT CODE: 256
+run: dmd-0.121   -odobj  -ofrun/o/opMulAssign_12.d.exe run/o/opMulAssign_12.d 1> log.tmp 2>&1
+gcc obj/opMulAssign_12.o -o run/o/opMulAssign_12.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opMulAssign_12.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_10.d.exe run/opAddAssign_10.d 1> log.tmp 2>&1
-run/opAddAssign_10.d(17): semicolon expected, not '+='
-run/opAddAssign_10.d(17): found '+=' instead of statement
-EXIT CODE: 256
+run: dmd-0.121   -odobj  -ofrun/o/opMulAssign_13.d.exe run/o/opMulAssign_13.d 1> log.tmp 2>&1
+gcc obj/opMulAssign_13.o -o run/o/opMulAssign_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opMulAssign_13.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opAddAssign_11.d.exe run/opAddAssign_11.d 1> log.tmp 2>&1
-run/opAddAssign_11.d(17): semicolon expected, not '+='
-run/opAddAssign_11.d(17): found '+=' instead of statement
-EXIT CODE: 256
+run: dmd-0.121   -odobj  -ofrun/o/opMulAssign_14.d.exe run/o/opMulAssign_14.d 1> log.tmp 2>&1
+gcc obj/opMulAssign_14.o -o run/o/opMulAssign_14.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/o/opMulAssign_14.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/opCast_01.d.exe run/opCast_01.d 1> log.tmp 2>&1
@@ -10152,8 +10365,7 @@ run: dmd-0.121   -odobj  -ofrun/opCatAssign_13.d.exe run/opCatAssign_13.d 1> log
 gcc obj/opCatAssign_13.o -o run/opCatAssign_13.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/opCatAssign_13.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure opCatAssign_13(20)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/opCatAssign_14.d.exe run/opCatAssign_14.d 1> log.tmp 2>&1
@@ -10781,72 +10993,6 @@ run/opShrAssign_02.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_01.d.exe run/opSubAssign_01.d 1> log.tmp 2>&1
-run/opSubAssign_01.d(17): semicolon expected, not '-='
-run/opSubAssign_01.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_02.d.exe run/opSubAssign_02.d 1> log.tmp 2>&1
-run/opSubAssign_02.d(17): semicolon expected, not '-='
-run/opSubAssign_02.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_03.d.exe run/opSubAssign_03.d 1> log.tmp 2>&1
-run/opSubAssign_03.d(17): semicolon expected, not '-='
-run/opSubAssign_03.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_04.d.exe run/opSubAssign_04.d 1> log.tmp 2>&1
-run/opSubAssign_04.d(17): semicolon expected, not '-='
-run/opSubAssign_04.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_05.d.exe run/opSubAssign_05.d 1> log.tmp 2>&1
-run/opSubAssign_05.d(17): semicolon expected, not '-='
-run/opSubAssign_05.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_06.d.exe run/opSubAssign_06.d 1> log.tmp 2>&1
-run/opSubAssign_06.d(17): semicolon expected, not '-='
-run/opSubAssign_06.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_07.d.exe run/opSubAssign_07.d 1> log.tmp 2>&1
-run/opSubAssign_07.d(17): semicolon expected, not '-='
-run/opSubAssign_07.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_08.d.exe run/opSubAssign_08.d 1> log.tmp 2>&1
-run/opSubAssign_08.d(17): semicolon expected, not '-='
-run/opSubAssign_08.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_09.d.exe run/opSubAssign_09.d 1> log.tmp 2>&1
-run/opSubAssign_09.d(17): semicolon expected, not '-='
-run/opSubAssign_09.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_10.d.exe run/opSubAssign_10.d 1> log.tmp 2>&1
-run/opSubAssign_10.d(17): semicolon expected, not '-='
-run/opSubAssign_10.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
-run: dmd-0.121   -odobj  -ofrun/opSubAssign_11.d.exe run/opSubAssign_11.d 1> log.tmp 2>&1
-run/opSubAssign_11.d(17): semicolon expected, not '-='
-run/opSubAssign_11.d(17): found '-=' instead of statement
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/out_01.d.exe run/out_01.d 1> log.tmp 2>&1
 gcc obj/out_01.o -o run/out_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -11005,13 +11151,6 @@ and:
 EXIT CODE: 256
 
 --------
-run: dmd-0.121   -odobj  -ofrun/overload_13.d.exe run/overload_13.d 1> log.tmp 2>&1
-run/overload_13.d(25): function dstress.run.overload_13.B.test (int) does not match argument types ()
-run/overload_13.d(25): Error: expected 1 arguments, not 0
-
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/overload_15.d.exe run/overload_15.d 1> log.tmp 2>&1
 gcc obj/overload_15.o -o run/overload_15.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -11040,13 +11179,17 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/overload_20.d.exe run/overload_20.d 1> log.tmp 2>&1
-run/overload_20.d(23): cannot implicitly convert expression (new Foo *) of type Foo * to Foo
-EXIT CODE: 256
+gcc obj/overload_20.o -o run/overload_20.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/overload_20.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/overload_21.d.exe run/overload_21.d 1> log.tmp 2>&1
-run/overload_21.d(23): cannot implicitly convert expression (new Foo *) of type Foo * to Foo
-EXIT CODE: 256
+gcc obj/overload_21.o -o run/overload_21.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
+EXIT CODE: 0
+run/overload_21.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/overload_22.d.exe run/overload_22.d 1> log.tmp 2>&1
@@ -11263,8 +11406,7 @@ run: dmd-0.121   -odobj  -ofrun/rehash_01.d.exe run/rehash_01.d 1> log.tmp 2>&1
 gcc obj/rehash_01.o -o run/rehash_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/rehash_01.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/rehash_01.d(16)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/return_01.d.exe run/return_01.d 1> log.tmp 2>&1
@@ -11939,11 +12081,6 @@ run/switch_21.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/switch_22.d.exe run/switch_22.d 1> log.tmp 2>&1
-run/switch_22.d(20): case must be a string or an integral constant, not c
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -odobj  -ofrun/template_01.d.exe run/template_01.d 1> log.tmp 2>&1
 gcc obj/template_01.o -o run/template_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -12585,8 +12722,7 @@ run: dmd-0.121   -odobj  -ofrun/typeid_61.d.exe run/typeid_61.d 1> log.tmp 2>&1
 gcc obj/typeid_61.o -o run/typeid_61.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/typeid_61.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure run/typeid_61.d(11)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/typeid_62.d.exe run/typeid_62.d 1> log.tmp 2>&1
@@ -12946,12 +13082,11 @@ run/unittest_01.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -odobj  -ofrun/unittest_03.d.exe run/unittest_03.d 1> log.tmp 2>&1
+run: dmd-0.121   -unittest -odobj  -ofrun/unittest_03.d.exe run/unittest_03.d 1> log.tmp 2>&1
 gcc obj/unittest_03.o -o run/unittest_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/unittest_03.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure unittest_03(14)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -unittest -odobj  -ofrun/unittest_04.d.exe run/unittest_04.d 1> log.tmp 2>&1
@@ -12968,21 +13103,11 @@ run/unittest_05.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.121   -unittest -odobj  -ofrun/unittest_06.d.exe run/unittest_06.d 1> log.tmp 2>&1
-run/unittest_06.d(13): enum member expected
-run/unittest_06.d(13): enum member expected
-run/unittest_06.d(14): found '++' when expecting ','
-run/unittest_06.d(14): enum member expected
-run/unittest_06.d(16): unrecognized declaration
-EXIT CODE: 256
-
---------
 run: dmd-0.121   -unittest -odobj  -ofrun/unittest_08.d.exe run/unittest_08.d 1> log.tmp 2>&1
 gcc obj/unittest_08.o -o run/unittest_08.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 run/unittest_08.d.exe 1> log.tmp 2>&1
-Error: AssertError Failure unittest_08(34)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.121   -odobj  -ofrun/ushort_01.d.exe run/ushort_01.d 1> log.tmp 2>&1
@@ -13396,13 +13521,6 @@ Error: AssertError Failure assert_05(10)
 EXIT CODE: 256
 
 --------
-norun: dmd-0.121   -odobj  -ofnorun/auto_05.d.exe norun/auto_05.d 1> log.tmp 2>&1
-gcc obj/auto_05.o -o norun/auto_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
-EXIT CODE: 0
-norun/auto_05.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
 norun: dmd-0.121   -odobj  -ofnorun/bounds_checking_03.d.exe norun/bounds_checking_03.d 1> log.tmp 2>&1
 gcc obj/bounds_checking_03.o -o norun/bounds_checking_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
@@ -13423,7 +13541,8 @@ norun: dmd-0.121   -odobj  -ofnorun/delete_03.d.exe norun/delete_03.d 1> log.tmp
 gcc obj/delete_03.o -o norun/delete_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 norun/delete_03.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
+Error: AssertError Failure norun/delete_03.d(11)
+EXIT CODE: 256
 
 --------
 norun: dmd-0.121   -odobj  -ofnorun/delete_04.d.exe norun/delete_04.d 1> log.tmp 2>&1
@@ -13438,7 +13557,8 @@ norun: dmd-0.121   -odobj  -ofnorun/delete_05.d.exe norun/delete_05.d 1> log.tmp
 gcc obj/delete_05.o -o norun/delete_05.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/121/dmd/lib 
 EXIT CODE: 0
 norun/delete_05.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
+Error: AssertError Failure norun/delete_05.d(11)
+EXIT CODE: 256
 
 --------
 norun: dmd-0.121   -odobj  -ofnorun/destructor_05.d.exe norun/destructor_05.d 1> log.tmp 2>&1

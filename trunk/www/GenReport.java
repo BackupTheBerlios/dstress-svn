@@ -84,7 +84,7 @@ public class GenReport{
 	/** each name should only have one path */
 	private Hashtable doppel;
 
-	public GenReport(File[] in, Writer out) throws Throwable{
+	public GenReport(File[] in, Writer out, boolean[] todoSelection) throws Throwable{
 		data=new Hashtable();
 		doppel=new Hashtable();
 		for(int index=0; index<in.length; index++){
@@ -94,7 +94,7 @@ public class GenReport{
 				throw new Throwable("source: "+in[index],t);
 			}
 		}
-		write(out, in.length);
+		write(out, in.length, todoSelection);
 	}
 
 	/** interpretes input on a per Reader basis and updates the data
@@ -184,7 +184,10 @@ public class GenReport{
 	}
 
 	/** saves unsorted results as a html snipplet */
-	private void write(Writer out, int compilerCount) throws Exception{
+	private void write(Writer out, int compilerCount, boolean[] todoSelection) throws Exception{
+		if(todoSelection==null || compilerCount!=todoSelection.length){
+			throw new IllegalArgumentException("bad todoSelection");
+		}
 		long[][] summary = new long[compilerCount][TestResult.typ.length];
 		StringBuffer buffer;
 		// test cases:
@@ -233,15 +236,17 @@ public class GenReport{
 					buffer.append(TestResult.lower[result.status[index]]);
 					summary[index][result.status[index]]++;
 				}catch(Exception ee){
-					throw new Exception("unhandled status "+result.status[index]+" for entry \""+result.name+"\" in input stream "+index);
+					throw new Exception("unhandled status "+result.status[index]
+							+" for entry \""+result.name+"\" in input stream "+index);
 				}
 				buffer.append("</td>");
 			}
 			buffer.append("</tr>");
-			for(int border=0; border<4 && border<result.status.length; border++){
-				if(result.status[border]==result.XPASS 
-					|| result.status[border]==result.FAIL 
-					|| result.status[border]==result.ERROR)
+			for(int i=0; i<todoSelection.length; i++){
+				if(todoSelection[i] && (result.status[i]==result.XPASS 
+							|| result.status[i]==result.FAIL
+							|| result.status[i]==result.ERROR)
+						)
 				{
 					buffer.append("<!-- P! -->");
 					break;
@@ -262,9 +267,11 @@ public class GenReport{
 			}else{
 				lowerCase="untested";
 			}
-			out.write(lowerCase+"' id='summary-"+lowerCase+"' name='summary-"+lowerCase+"'>"+lowerCase+"</a></th>");
+			out.write(lowerCase+"' id='summary-"+lowerCase+"' name='summary-"+lowerCase+"'>"+lowerCase
+					+"</a></th>");
 			for(int compiler=0; compiler<summary.length; compiler++){
-				out.write("<td class='"+(char)('A'+type)+"' style=\"font-size:medium\">"+summary[compiler][type]+"</td>");
+				out.write("<td class='"+(char)('A'+type)+"' style=\"font-size:medium\">"
+						+summary[compiler][type]+"</td>");
 			}
 			out.write("</tr>\n");
 		}
@@ -284,33 +291,35 @@ public class GenReport{
 		}
 
 		Throwable exception=null;
-		File[] in=null;
 		Writer out=null;
 		try{
 			// setup
-			in=new File[arg.length];
+			File[] in=new File[arg.length];
+			boolean[] todo=new boolean[arg.length];
 			for(int index=0; index<in.length; index++){
+				// handle todo markers
+				if(arg[index].startsWith("...")){
+					todo[index]=true;
+					arg[index]=arg[index].substring(3);
+				}
 				in[index]=new File(arg[index]);
 			}
 			out=new OutputStreamWriter(System.out);
-			new GenReport(in,out);
+			new GenReport(in, out, todo);
 		}catch(Throwable t){
-			// save error
 			exception=t;
 		}finally{
-			// close output
 			try{out.flush();}catch(Exception e){}
 			try{out.close();}catch(Exception e){}
 		}
 
-		// handle errors
 		if(exception!=null){
 			throw new Throwable(exception);
 		}
 	}
 
 	/** the help message */
-	public static final String HELP="GenReport by Thomas Kuehne <dstress@kuehne.cn>\nINFO:\tgenerates snipplet HTML containing a result overview from dstress' output\nUSAGE:\tGenReport input [input2] [input3] [...] > output";
+	public static final String HELP="GenReport by Thomas Kuehne <dstress@kuehne.cn>\nINFO:\tgenerates snipplet HTML containing a result overview from dstress' output\nUSAGE:\tGenReport input [input2] [input3] [...] > output\n\"...\" infront of the file name enables the todo selection";
 
 	/** check if the given argument indicates a help request */
 	private static boolean requiresHelp(String[] arg){

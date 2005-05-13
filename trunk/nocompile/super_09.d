@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// $Base$
+// $Author$
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.thisisspam.cn>
 // @date@	2004-12-10

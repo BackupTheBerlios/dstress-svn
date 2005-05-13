@@ -76,7 +76,7 @@ int main(){
 	assert('&#x2019;'=='&rsquo;');
 	assert('&#x201C;'=='&ldquo;');
 	assert('&#x201D;'=='&rdquo;');
-	assert('&#x00A0;'=='&nbsp;');
+	assert(0xA0=='&nbsp;');
 	assert('&#x00AD;'=='&shy;');
 	return 0;
 }

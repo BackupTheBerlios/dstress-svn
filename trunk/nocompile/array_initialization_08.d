@@ -6,6 +6,8 @@
 // @date@	2005-04-17
 // @uri@	news:d3sq2j$1086$1@digitaldaemon.com
 
+// __DSTRESS_ELINE__ 14
+
 module dstress.nocompile.array_initialization_08;
 
 int main(){

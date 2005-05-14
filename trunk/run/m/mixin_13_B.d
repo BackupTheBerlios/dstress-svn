@@ -6,7 +6,7 @@
 // @date@	2005-05-04
 // @uri@	news:d595ii$lqr$1@digitaldaemon.com
 
-module dstress.run.m.mixin_13;
+module dstress.run.m.mixin_13_B;
 
 int status;
 
@@ -22,10 +22,11 @@ class C {
 		assert(status++==1);
 	}
 
-	void run() {
+	mixin T!(test) x;
+	
+	void run(){
 		assert(status++==0);
-		mixin T!(test) x;
-		x.check();
+		check();
 		assert(status++==3);
 	}
 }

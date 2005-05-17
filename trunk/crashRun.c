@@ -1,8 +1,8 @@
 /*
- * crashRun - execute command with restricted CPU time and memory usage 
+ * crashRun - execute command with restricted CPU time and memory usage
  *
  * Copyright (C)
- * 		2005 Thomas Kuehne <thomas@kuehne.cn>
+ *		2005 Thomas Kuehne <thomas@kuehne.cn>
  *		2005 Anders F Björklund <afb@algonet.se>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,11 +29,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <signal.h>
 
-/* time-out in minutes (cpu or system time)*/
-const int TIME_OUT=5;
+const int TIME_OUT= 5*60; /* time-out in seconds (might be cpu or system time)*/
+const int MEM_LIMIT = 200;  /* mem megabytes */
 
-#if defined(__GNU_LIBRARY__) || defined(__GLIBC__)
+/* try to cope with -ansi and other threads */
+#if defined(__GNU_LIBRARY__) || defined(__GLIBC__) || defined(__USE_POSIX)
 #define USE_POSIX
 #endif
 
@@ -49,147 +51,224 @@ const int TIME_OUT=5;
 #define USE_POSIX
 #endif
 
+#if !defined(USE_POSIX) && \
+	(defined(WINDOWS) || defined(WIN) || defined(WINVER) || defined(WIN32))
+#define USE_WINDOWS
+#endif
 
+
+/* is the environment sane? */
+#if defined(USE_POSIX) && defined(USE_WINDOWS)
+#error USE_WINDOWS and USE_POSIX are defined
+#endif
+
+#if !defined(USE_POSIX) && !defined(USE_WINDOWS)
+#error neither USE_POSIX nor USE_WINDOWS are defined
+#endif
+
+
+/* API inludes and config */
 #ifdef USE_POSIX
-#define USE_LIMIT
-
+#define USE_POSIX_LIMITS
+#include <sys/types.h>
 #include <unistd.h>
 #include <sys/wait.h>
-
-#ifdef USE_LIMIT
-#include <sys/types.h>
-#include <sys/time.h>
-#include <sys/resource.h>
-
-const int PROC_LIMIT = 256; /* no processes */ 
-const int MEM_LIMIT = 200;  /* mem megabytes */
-#endif
-
 static pid_t pID;
-
-void resourceLimit(int signalID){
-#ifdef SIGXCPU
-	if(signalID==SIGALRM || signalID==SIGXCPU){
-#else
-	if(signalID==SIGALRM){
 #endif
-		printf("EXIT CODE: signal %d (time-out after %d minutes)", signalID, TIME_OUT);
-	}else{
-		printf("EXIT CODE: signal %d\n", signalID);
-	}
+
+#ifdef USE_POSIX_LIMITS
+#ifndef USE_POSIX
+#error USE_POSIX_LIMITS requires USE_POSIX
+#endif
+#include <sys/resource.h>
+#include <sys/types.h>
+#endif
+
+
+/* let's start implementing :) */
+
+void handleSignal(int signalID){
+#ifdef SIGALARM
+	if( signalID==SIGALRM
+#ifdef SIGXCPU
+		|| signalID==SIGXCPU
+#endif
+	)
+		printf("EXIT CODE: signal %d (time-out after %d seconds)", signalID, TIME_OUT);
+	else
+#endif
+	printf("EXIT CODE: signal %d, errno %d\n", signalID, errno);
 
 	fflush(stdout);
 	fflush(stderr);
+
+#ifdef USE_POSIX
 	kill(-pID, SIGTERM);
 	sleep(1);
 	kill(-pID, SIGKILL);
+#else
+#error sub processes have to be killed
+#endif
 
-	if(signalID==SIGUSR1 || signalID==SIGUSR2){
-		exit(EXIT_FAILURE);
-	}else{
+#ifdef SIGUSR1
+	if(signalID==SIGUSR1 || signalID==SIGUSR2)
 		exit(EXIT_SUCCESS);
-	}
+	else
+#endif
+	exit(EXIT_FAILURE);
 }
 
-int main(int argc, char** arg){
-#ifdef USE_LIMIT
-	{
-		struct rlimit	limit;
-	
-		limit.rlim_cur = TIME_OUT * 60;
-		limit.rlim_max = TIME_OUT * 60;
-		if(0!=setrlimit(RLIMIT_CPU, &limit)){
-			fprintf(stderr, "failed to set cpu limit [%d]\n", errno);
-			return EXIT_FAILURE;
-		}
-	
-		limit.rlim_cur = PROC_LIMIT;
-		limit.rlim_max = PROC_LIMIT;
-		if(0!=setrlimit(RLIMIT_NPROC, &limit)){
-			fprintf(stderr, "failed to set proc limit [%d]\n", errno);
-			return EXIT_FAILURE;
-		}
-	
-		limit.rlim_cur = MEM_LIMIT * 1024L * 1024L;
-		limit.rlim_max = MEM_LIMIT * 1024L * 1024L;
-#ifdef RLIMIT_AS
-		if(0!=setrlimit(RLIMIT_AS, &limit)){
-			fprintf(stderr, "failed to set mem limit (AS) [%d]\n", errno);
-			return EXIT_FAILURE;
-		}
-#endif /* RLIMIT_AS */
-		
-		if(0!=setrlimit(RLIMIT_DATA, &limit)){
-			fprintf(stderr, "failed to set mem limit (DATA) [%d]\n", errno);
-			return EXIT_FAILURE;
-		}
+void setupLimits(){
+#ifdef USE_POSIX_LIMITS
+	struct rlimit limit;
 
-		if(0!=setrlimit(RLIMIT_RSS, &limit)){
-			fprintf(stderr, "failed to set mem limit (RSS) [%d]\n", errno);
-			return EXIT_FAILURE;
-		}
-#if defined(RLIMIT_MEMLOCK) && !defined(linux) 
-		if(0!=setrlimit(RLIMIT_MEMLOCK, &limit)){
-			fprintf(stderr, "failed to set mem limit (MEMLOCK) [%d]\n", errno);
-			return EXIT_FAILURE;
-		}
-#endif /* RLIMIT_MEMLOCK */
+	limit.rlim_cur = TIME_OUT;
+	limit.rlim_max = TIME_OUT;
+	if(0!=setrlimit(RLIMIT_CPU, &limit)){
+		fprintf(stderr, "failed to set cpu limit [%d]\n", errno);
+		exit(EXIT_FAILURE);
 	}
-#endif /* USE_LIMIT */
+
+	limit.rlim_cur = MEM_LIMIT * 1024L * 1024L;
+	limit.rlim_max = MEM_LIMIT * 1024L * 1024L;
+#ifdef RLIMIT_AS
+	if(0!=setrlimit(RLIMIT_AS, &limit)){
+		fprintf(stderr, "failed to set mem limit (AS) [%d]\n", errno);
+		exit(EXIT_FAILURE);
+	}
+#endif
+
+	if(0!=setrlimit(RLIMIT_DATA, &limit)){
+		fprintf(stderr, "failed to set mem limit (DATA) [%d]\n", errno);
+		exit(EXIT_FAILURE);
+	}
+
+	if(0!=setrlimit(RLIMIT_RSS, &limit)){
+		fprintf(stderr, "failed to set mem limit (RSS) [%d]\n", errno);
+		exit(EXIT_FAILURE);
+	}
+#if defined(RLIMIT_MEMLOCK) && !defined(linux)
+	if(0!=setrlimit(RLIMIT_MEMLOCK, &limit)){
+		fprintf(stderr, "failed to set mem limit (MEMLOCK) [%d]\n", errno);
+		exit(EXIT_FAILURE);
+	}
+#endif
+#endif /* USE_POSIX_LIMITS */
+}
+
+void setupHandlers(){
+#ifdef USE_POSIX
+#ifdef SIGHUP
+	signal(SIGHUP, &handleSignal);
+#endif
+	signal(SIGINT, &handleSignal);
+#ifdef SIGQUIT
+	signal(SIGQUIT, &handleSignal);
+#endif
+	signal(SIGILL, &handleSignal);
+#ifdef SIGTRAP
+	signal(SIGTRAP, &handleSignal);
+#endif
+	signal(SIGABRT, &handleSignal);
+#ifdef SIGIOT
+	signal(SIGIOT, &handleSignal);
+#endif
+#ifdef SIGBUS
+	signal(SIGBUS, &handleSignal);
+#endif
+	signal(SIGFPE, &handleSignal);
+#ifdef SIGKILL
+	signal(SIGKILL, &handleSignal);
+#endif
+#ifdef SIGUSR1
+	signal(SIGUSR1, &handleSignal);
+#endif
+	signal(SIGSEGV, &handleSignal);
+#ifdef SIGUSR2
+	signal(SIGUSR2, &handleSignal);
+#endif
+#ifdef SIGPIPE
+	signal(SIGPIPE, &handleSignal);
+#endif
+#ifdef SIGALRM
+	signal(SIGALRM, &handleSignal);
+#endif
+	signal(SIGTERM, &handleSignal);
+#ifdef SIGSTKFLT
+	signal(SIGSTKFLT, &handleSignal);
+#endif
+#ifdef SIGTSTP
+	signal(SIGTSTP, &handleSignal);
+#endif
+#ifdef SIGXCPU
+	signal(SIGXCPU, &handleSignal);
+#endif
+#ifdef SIGXFSZ
+	signal(SIGXFSZ, &handleSignal);
+#endif
+#ifdef SIGVTALRM
+	signal(SIGVTALRM, &handleSignal);
+#endif
+#ifdef SIGSYS
+	signal(SIGSYS, &handleSignal);
+#endif
+#endif /* USE_POSIX */
+}
+
+char* reconstructCmd(int argc, char** argv){
+	int cmdLen=1;
+	int i;
+	char* cmd;
+
+	for(i=0; i<argc; i++){
+		cmdLen+=strlen(argv[i]);
+		cmdLen+=3;
+	}
+
+	cmd = (char*)malloc(cmdLen);
+	*cmd = '\x00';
+
+	for(i=0; i<argc; i++){
+		strcat(cmd, "\"");
+		strcat(cmd, argv[i]);
+		strcat(cmd, "\" ");
+	}
+	return cmd;
+}
+
+int main(int argc, char** argv){
+	char* cmd;
+	if(argc<2){
+		fprintf(stderr, "name of command to call required\n");
+		return EXIT_FAILURE;
+	}
+	cmd = reconstructCmd(argc-1, argv+1);
+
+#ifdef USE_POSIX
+	setupLimits();
 	pID = fork();
-	if (pID == 0){
-		/* child: resource management */
+	if(pID == 0){
+		/* child */
 		pID=setsid();
-
-		/* child: execute args */
-		int cmdLen=1;
-		int i;
-		for(i=1; i<argc; i++){
-			cmdLen+=strlen(arg[i]);
-			cmdLen+=3;
-		}
-
-		char* cmd = malloc(cmdLen);
-		*cmd='\x00';
-	
-		for(i=1; i<argc; i++){
-			strcat(cmd, "\"");
-			strcat(cmd, arg[i]);
-			strcat(cmd, "\" ");
-		}
 #ifdef DEBUG
-		printf("cmd[%i min]: %s\n", TIME_OUT, cmd);
+		printf("cmd[%i sec]: %s \n", TIME_OUT, cmd);
 #endif
 		printf("EXIT CODE: %d\n", system(cmd));
-	}else if (pID < 0){
-        	fprintf(stderr, "failed to fork\n");
+	}else if(pID < 0){
+		fprintf(stderr, "failed to fork\n");
 		return EXIT_FAILURE;
 	}else{
-		/* parent : clean kill */
-		struct sigaction acti;
-		acti.sa_handler = &resourceLimit;
-		sigaction(SIGHUP, &acti, NULL);
-		sigaction(SIGINT, &acti, NULL);
-		sigaction(SIGQUIT, &acti, NULL);
-		sigaction(SIGABRT, &acti, NULL);	
-		sigaction(SIGTERM, &acti, NULL);
-
-		/* parent : timeout */
-		if(0!=sigaction(SIGALRM, &acti, NULL)){
-			fprintf(stderr, "failed to set timeout [%d]\n", errno);
-			resourceLimit(SIGUSR1);
-			return EXIT_FAILURE; /* never executed */
-		}
-#ifndef USE_LIMITS	
-		alarm(TIME_OUT * 60);
+		/* parent */
+		setupHandlers();
+#if !(defined(USE_POSIX_LIMITS) && defined(SIGXCPU))
+		alarm(TIME_OUT);
 #endif
 		wait(NULL);
 	}
-
 	return EXIT_SUCCESS;
-}
 #else /* USE_POSIX */
 
-#error "no implementation present for your OS"
+#error no test run implmentation present for your system
 
 #endif /* USE_POSIX else */
+}

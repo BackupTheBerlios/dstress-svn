@@ -40,6 +40,7 @@ larrycowan
 Lars Ivar Igesund	<larsivar@igesund.net>
 Lionello Lunesu		<lionello.lunesu@crystalinter.remove.com>
 Lukas Pinkowski		<Lukas.Pinkowski@web.de>
+Michael Butscher	<mbutscher@gmx.de>
 Miguel Ferreira Simões	<Kobold@netcabo.pt>
 Mike Swieton		<mike@swieton.net>
 Mike Parker		<aldacron71@yahoo.com>

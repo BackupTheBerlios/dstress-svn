@@ -24,15 +24,15 @@ int main(){
 	}
 
 	version(darwin){
-		assert(0); // this isn't yet part of the standard (v0.111)
+		assert(0); // this isn't yet part of the standard (v0.124)
 	}
 
 	version(Unix){
-		assert(0); // this isn't yet part of the standard (v0.111)
+		assert(0); // this isn't yet part of the standard (v0.124)
 	}
 
 	version(solaris){
-		assert(0); // this isn't yet part of the standard (v0.111)
+		assert(0); // this isn't yet part of the standard (v0.124)
 	}
 	
 	assert(os == 1);

@@ -16,15 +16,15 @@ int main(){
 	}
 
 	version(IA64){
-		cpu++;
+		static assert(0); // this isn't yet part of the standard (v0.124)
 	}
 
 	version(PPC){
-		cpu++;
+		static assert(0); // this isn't yet part of the standard (v0.124)
 	}
 
 	version(Sparc){
-		assert(0); // this isn't yet part of the standard (v0.111)
+		static assert(0); // this isn't yet part of the standard (v0.124)
 	}
 
 	assert(cpu==1);

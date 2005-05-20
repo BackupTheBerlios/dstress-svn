@@ -6,17 +6,22 @@
 // @date@	2005-04-18
 // @uri@	news:d3v03l$2oag$1@digitaldaemon.com
 
-module dstress.run.version_33;
+// __DSTRESS_ELINE__ 27
 
-version(b){
+module dstress.nocompile.v.version_35;
+
+debug(c){
 	int main(){
 		return 0;
 	}
 }
 
-version (a){
-	version = b;
+version(b){
+	debug=c;
+}
+
+version(a){
+	version= b;
 }
 
 version = a;
-

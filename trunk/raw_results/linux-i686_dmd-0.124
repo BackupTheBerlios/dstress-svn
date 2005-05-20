@@ -1,7 +1,7 @@
 >>>> VERSION <<<<
-五, 20  5月 2005 23:19:14 +0200
+五, 20  5月 2005 22:42:42 +0200
 Linux 2.6.11.8-A-B i686
-Digital Mars D Compiler v0.123
+Digital Mars D Compiler v0.124
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
 Usage:
@@ -10,21 +10,22 @@ Usage:
   files.d        D source files
   -c             do not link
   -d             allow deprecated features
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
   -g             add symbolic debug info
-  -v             verbose
+  -Ipath         where to look for imports
+  -inline        do function inlining
+  -Llinkerflag   pass linkerflag to link
   -O             optimize
   -odobjdir      write object files to directory objdir
   -offilename	 name output file to filename
   -op            do not strip paths from source file
-  -Ipath         where to look for imports
-  -Llinkerflag   pass linkerflag to link
-  -debug         compile in debug code
-  -debug=level   compile in debug code <= level
-  -debug=ident   compile in debug code identified by ident
-  -inline        do function inlining
   -profile	 profile runtime performance of generated code
+  -quiet         suppress unnecessary messages
   -release	 compile release version
   -unittest      compile in unit tests
+  -v             verbose
   -version=level compile in version code >= level
   -version=ident compile in version code identified by ident
   -w             enable warnings
@@ -164,12 +165,12 @@ XFAIL:	nocompile/bug_cgcod_1464.d
 XFAIL:	nocompile/bug_cgcs_353.d
 XFAIL:	nocompile/bug_cod4_352_B.d
 XFAIL:	nocompile/bug_cod4_352.d
-ERROR:	nocompile/bug_constfold_575_A.d
-ERROR:	nocompile/bug_constfold_575_B.d
-ERROR:	nocompile/bug_constfold_575_C.d
-XPASS:	nocompile/bug_constfold_575_J.d
-XPASS:	nocompile/bug_constfold_575_O.d
-XPASS:	nocompile/bug_constfold_575_R.d
+XFAIL:	nocompile/bug_constfold_575_A.d
+XFAIL:	nocompile/bug_constfold_575_B.d
+XFAIL:	nocompile/bug_constfold_575_C.d
+XFAIL:	nocompile/bug_constfold_575_J.d
+XFAIL:	nocompile/bug_constfold_575_O.d
+XFAIL:	nocompile/bug_constfold_575_R.d
 XFAIL:	nocompile/bug_dsymbol_611_A.d
 XFAIL:	nocompile/bug_dsymbol_611_B.d
 XFAIL:	nocompile/bug_dsymbol_611_D.d
@@ -253,7 +254,7 @@ XPASS:	nocompile/d/debug_09.d
 XPASS:	nocompile/d/debug_10.d
 XFAIL:	nocompile/d/delegate_14_A.d
 XPASS:	nocompile/d/delegate_14_B.d
-XFAIL:	nocompile/debug_04.d
+XPASS:	nocompile/debug_04.d
 XFAIL:	nocompile/debug_05.d
 XPASS:	nocompile/debug_06.d
 XFAIL:	nocompile/debug_07.d
@@ -568,14 +569,14 @@ XFAIL:	nocompile/o/opDiv_10_C.d
 XFAIL:	nocompile/o/opDiv_10_D.d
 XFAIL:	nocompile/o/opDiv_10_E.d
 XFAIL:	nocompile/o/opDiv_10_F.d
-ERROR:	nocompile/o/opMod_01_A.d
-ERROR:	nocompile/o/opMod_01_B.d
-ERROR:	nocompile/o/opMod_01_C.d
-ERROR:	nocompile/o/opMod_01_D.d
-ERROR:	nocompile/o/opMod_01_E.d
-ERROR:	nocompile/o/opMod_01_F.d
-ERROR:	nocompile/o/opMod_01_G.d
-ERROR:	nocompile/o/opMod_01_H.d
+XFAIL:	nocompile/o/opMod_01_A.d
+XFAIL:	nocompile/o/opMod_01_B.d
+XFAIL:	nocompile/o/opMod_01_C.d
+XFAIL:	nocompile/o/opMod_01_D.d
+XFAIL:	nocompile/o/opMod_01_E.d
+XFAIL:	nocompile/o/opMod_01_F.d
+XFAIL:	nocompile/o/opMod_01_G.d
+XFAIL:	nocompile/o/opMod_01_H.d
 XFAIL:	nocompile/o/opMul_07_A.d
 XFAIL:	nocompile/o/opMul_07_B.d
 XFAIL:	nocompile/o/opMul_07_C.d
@@ -772,7 +773,7 @@ XFAIL:	nocompile/version_28.d
 XFAIL:	nocompile/version_30.d
 XFAIL:	nocompile/version_31.d
 XPASS:	nocompile/version_32.d
-XFAIL:	nocompile/version_36.d
+XPASS:	nocompile/version_36.d
 XPASS:	nocompile/v/version_33.d
 XPASS:	nocompile/v/version_34.d
 XPASS:	nocompile/v/version_35.d
@@ -787,8 +788,8 @@ rm -f
 find run -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
 ./run.sh 2>> /tmp/4/127.0.0.1/log.txt
-FAIL: 	run/a/array_initialization_15.d
-ERROR:	run/a/array_initialization_16.d
+PASS: 	run/a/array_initialization_15.d
+PASS: 	run/a/array_initialization_16.d
 PASS: 	run/abstract_07.d
 PASS: 	run/abstract_10.d
 PASS: 	run/alias_01.d
@@ -899,7 +900,7 @@ PASS: 	run/bug_20050128_B.d
 PASS: 	run/bug_20050330_B.d
 PASS: 	run/bug_20050405_01.d
 PASS: 	run/bug_20050405_02.d
-PASS: 	run/bug_20050405_03.d
+ERROR:	run/bug_20050405_03.d
 PASS: 	run/bug_20050405_04.d
 PASS: 	run/bug_20050405_05.d
 PASS: 	run/bug_20050405_06.d
@@ -1060,7 +1061,7 @@ PASS: 	run/command_line_debug_02.d
 PASS: 	run/command_line_debug_03.d
 PASS: 	run/command_line_debug_04.d
 PASS: 	run/command_line_debug_08.d
-PASS: 	run/command_line_deprecated_01.d
+FAIL: 	run/command_line_deprecated_01.d
 PASS: 	run/command_line_version_01.d
 PASS: 	run/command_line_version_02.d
 PASS: 	run/command_line_version_03.d
@@ -1112,7 +1113,7 @@ PASS: 	run/constructor_10.d
 PASS: 	run/constructor_11.d
 PASS: 	run/creal_01.d
 PASS: 	run/creal_02.d
-FAIL: 	run/creal_03.d
+PASS: 	run/creal_03.d
 PASS: 	run/creal_05.d
 PASS: 	run/creal_06.d
 PASS: 	run/creal_07.d
@@ -1500,9 +1501,9 @@ PASS: 	run/line_ending_dos.d
 PASS: 	run/line_ending_linux.d
 PASS: 	run/line_ending_mac.d
 PASS: 	run/line_ending_unicode.d
-FAIL: 	run/line_token_02.d
-FAIL: 	run/line_token_03.d
-FAIL: 	run/line_token_04.d
+PASS: 	run/line_token_02.d
+PASS: 	run/line_token_03.d
+PASS: 	run/line_token_04.d
 FAIL: 	run/line_token_11.d
 FAIL: 	run/line_token_12.d
 PASS: 	run/long_01.d
@@ -2077,8 +2078,8 @@ PASS: 	run/ushort_04.d
 PASS: 	run/ushort_05.d
 PASS: 	run/ushort_06.d
 PASS: 	run/u/unicode_08_A.d
-FAIL: 	run/u/unicode_08_B.d
-FAIL: 	run/u/unicode_08_C.d
+PASS: 	run/u/unicode_08_B.d
+PASS: 	run/u/unicode_08_C.d
 PASS: 	run/u/unicode_08_D.d
 PASS: 	run/values_01.d
 FAIL: 	run/variadic_argument_04.d

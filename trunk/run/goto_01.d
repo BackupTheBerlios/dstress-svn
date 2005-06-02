@@ -3,7 +3,8 @@
 // $Author$
 
 // @author@	Stephan Wienczny <Stephan@Wienczny.de>
-// @data@	2004-09-20
+// @date@	2004-09-20
+// @uri@	irc:irc.freenode.net#D
 
 module dstress.run.goto_01;
 

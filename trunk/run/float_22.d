@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @auhtor@	Derek Parnell <derek@psych.ward>
+// @author@	Derek Parnell <derek@psych.ward>
 // @date@	2005-04-02
 // @uri@	news:5efpfwr0e1l5$.ks45nx0xz2zf$.dlg@40tude.net
 

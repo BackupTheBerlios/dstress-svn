@@ -3,7 +3,7 @@
 // $Author$
 
 // @author@	Manfred Nowak <svv1999@hotmail.com>
-// @date@	2005-04-023
+// @date@	2005-04-23
 // @uri@	news:d4a8b9$1rr3$1@digitaldaemon.com
 
 module dstress.run.OutOfMemory_03;

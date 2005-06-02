@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @auhtor@	Stewart Gordon <smjg_1998@yahoo.com>
+// @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-04-07
 // @uri@	news:d33938$212r$1@digitaldaemon.com
 

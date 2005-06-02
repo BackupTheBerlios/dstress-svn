@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @autor@	tetsuya <tetsuya_member@pathlink.com>
+// @author@	tetsuya <tetsuya_member@pathlink.com>
 // @date@	2004-11-15
 // @uri@	news:cnaidd$2rnr$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2275

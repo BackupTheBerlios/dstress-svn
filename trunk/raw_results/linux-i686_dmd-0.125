@@ -1,7 +1,7 @@
 >>>> VERSION <<<<
-四,  2  6月 2005 13:43:15 +0200
+四,  2  6月 2005 14:11:09 +0200
 Linux 2.6.11.8-A-B i686
-Digital Mars D Compiler v0.124
+Digital Mars D Compiler v0.125
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
 Usage:
@@ -922,7 +922,7 @@ PASS: 	run/bug_20050128_B.d
 PASS: 	run/bug_20050330_B.d
 PASS: 	run/bug_20050405_01.d
 PASS: 	run/bug_20050405_02.d
-ERROR:	run/bug_20050405_03.d
+PASS: 	run/bug_20050405_03.d
 PASS: 	run/bug_20050405_04.d
 PASS: 	run/bug_20050405_05.d
 PASS: 	run/bug_20050405_06.d
@@ -1066,12 +1066,12 @@ PASS: 	run/catch_01.d
 PASS: 	run/catch_02.d
 PASS: 	run/catch_03.d
 PASS: 	run/catch_04.d
-PASS: 	run/c/cdouble_01_A.d
+FAIL: 	run/c/cdouble_01_A.d
 FAIL: 	run/c/cdouble_01_B.d
-PASS: 	run/c/cfloat_02_A.d
+FAIL: 	run/c/cfloat_02_A.d
 FAIL: 	run/c/cfloat_02_B.d
-PASS: 	run/c/creal_26_A.d
-PASS: 	run/c/creal_26_B.d
+FAIL: 	run/c/creal_26_A.d
+FAIL: 	run/c/creal_26_B.d
 FAIL: 	run/cfloat_01.d
 PASS: 	run/char_03.d
 PASS: 	run/char_06.d
@@ -1141,7 +1141,7 @@ PASS: 	run/constructor_10.d
 PASS: 	run/constructor_11.d
 PASS: 	run/creal_01.d
 PASS: 	run/creal_02.d
-PASS: 	run/creal_03.d
+FAIL: 	run/creal_03.d
 PASS: 	run/creal_05.d
 PASS: 	run/creal_06.d
 PASS: 	run/creal_07.d

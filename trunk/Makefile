@@ -322,7 +322,7 @@ clean_log :
 # remove targets and all temp objects
 #
 clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles))) nocompile_clean compile_clean norun_clean run_clean
-	$(RM) $(z_rm) $(OBJ_DIR)/?*\\..*
+	$(RM) $(z_rm) $(OBJ_DIR)/?*.*
 	$(RM) run.sh norun.sh compile.sh nocompile.sh
 
 # the empty line above has to remain, otherwise some weired problems can arise

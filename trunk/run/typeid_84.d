@@ -9,9 +9,10 @@
 module dstress.run.typeid_84;
 
 int main(){
-	alias void function() func;
+	alias byte function(int) func;
 	TypeInfo ti = typeid(func);
 	assert(ti !== null);
 	assert(ti.tsize == func.sizeof);
+	assert(ti.toString() == "byte(int)*");
 	return 0;
 }

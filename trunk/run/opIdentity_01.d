@@ -41,6 +41,6 @@ int main() {
  	J a = new B;
 	J b = new B;
 	a.addChild(b);
-	assert(b.parent === a);
+	assert(b.parent is a);
 	return 0;
 }

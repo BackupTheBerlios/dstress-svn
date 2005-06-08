@@ -17,7 +17,7 @@ int main(){
 	array[key]=value;
 	MyClass* ptr = "zwei" in array;
 	
-	assert(ptr === null);
+	assert(ptr is null);
 
 	return 0;
 }

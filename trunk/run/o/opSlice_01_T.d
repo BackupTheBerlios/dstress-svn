@@ -22,14 +22,14 @@ int main(){
 	
 	arr[1..2] = arr[0];
 	
-	assert(null===arr[0][0]);
-	assert(null!==arr[0][1]);
-	assert(null===arr[1][0]);
-	assert(null!==arr[1][1]);
-	assert(null===arr[2][0]);
-	assert(null!==arr[2][1]);
-	assert(null===arr[3][0]);
-	assert(null===arr[3][1]);
+	assert(null is arr[0][0]);
+	assert(!(null is arr[0][1]));
+	assert(null is arr[1][0]);
+	assert(!(null is arr[1][1]));
+	assert(null is arr[2][0]);
+	assert(!(null is arr[2][1]));
+	assert(null is arr[3][0]);
+	assert(null is arr[3][1]);
 
 	return 0;
 }

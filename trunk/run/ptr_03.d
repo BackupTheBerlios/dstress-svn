@@ -8,7 +8,7 @@ int main(){
 	Object[] array;
 	array.length=0;
 
-	assert(array.ptr === null);
+	assert(array.ptr is null);
 
 	return 0;
 }

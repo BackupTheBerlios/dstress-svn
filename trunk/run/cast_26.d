@@ -13,6 +13,6 @@ int main(char[][] args){
 	char[] t="a";
 
 	s = (args.length>0) ? t : null;
-	assert(s===t);
+	assert(s is t);
 	return 0;
 }

@@ -23,7 +23,7 @@ int main(char[][] argv)
     double res[6];
     Random R = new Random(constants.RANDOM_SEED);
 
-    if(argv === null || argv.length > 1) {
+    if(argv is null || argv.length > 1) {
         int current_arg = 1;
 
         if(argv[1]=="-help" || argv[1]=="-h") {

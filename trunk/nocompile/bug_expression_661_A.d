@@ -14,6 +14,6 @@ module dstress.nocompile.bug_expression_661_A;
 ulong[cast(uint)((cast(float)byte.sizeof/ulong.sizeof)-int.max>>2)+int.max>>2] hexarray;
 
 int main(){
-	assert(!(hexarray === null));
+	assert(!(hexarray is null));
 	return 0;
 }

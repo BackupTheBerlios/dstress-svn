@@ -11,7 +11,7 @@ module dstress.run.typeid_85;
 int main(){
 	alias byte delegate(int) del;
 	TypeInfo ti = typeid(del);
-	assert(ti !== null);
+	assert(!(ti is null));
 	assert(ti.tsize == del.sizeof);
 	assert(ti.toString()=="byte delegate(int)");
 	return 0;

@@ -9,7 +9,7 @@ module dstress.nocompile.ptr_05;
 int main(){
 	Object[char[]] array;
 
-	assert(array.ptr === null);
+	assert(array.ptr is null);
 
 	return 0;
 }

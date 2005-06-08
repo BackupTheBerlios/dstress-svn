@@ -18,7 +18,7 @@ interface INode{
 class BasicNode : INode{
 	INode findNode(){
 		foreach(INode c ; m_children){
-			if(c.owner !== this)
+			if(!(c.owner is this))
 				continue;
 			return null;
 		}

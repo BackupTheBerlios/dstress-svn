@@ -7,7 +7,7 @@ module dstress.run.ptr_04;
 int main(){
 	Object[0] array;
 
-	assert(!(array.ptr === null));
+	assert(!(array.ptr is null));
 
 	return 0;
 }

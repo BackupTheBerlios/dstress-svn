@@ -24,7 +24,7 @@ int main(){
 	assert(b[2]);
 	
 	assert(&a != &b);
-	assert(a.ptr === b.ptr);
+	assert(a.ptr is b.ptr);
 
 	return 0;
 }

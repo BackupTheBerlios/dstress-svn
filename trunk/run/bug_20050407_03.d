@@ -18,6 +18,6 @@ int main(){
 	VecStack vm = new VecStack;
 	double[16] M;
 	vm.quat_to_matrix(M);
-	assert(vm!==null);
+	assert(!(vm is null));
 	return 0;
 }

@@ -25,6 +25,6 @@ int main(){
 	dummy = new MyClass();
 	MyClass c = new MyClass();
 	c.prop = true ? MyClass.prop : MyClass.prop;
-	assert(c.prop === dummy);
+	assert(c.prop is dummy);
 	return 0;
 }

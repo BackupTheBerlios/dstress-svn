@@ -11,7 +11,7 @@ module dstress.run.bug_cgcs_353_C;
 
 struct MyStruct {
 	int opEquals(MyStruct x) {
-		return this.normalize === x.normalize;
+		return this.normalize is x.normalize;
 	}
 	
 	MyStruct normalize() {

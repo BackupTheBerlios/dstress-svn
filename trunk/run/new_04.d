@@ -17,7 +17,7 @@ class MyClass{
 
 	new(size_t size, byte blah){
 		void* v=malloc(size);
-		if(v===null){
+		if(v is null){
 			throw new Exception(null);
 		}
 		a=blah;

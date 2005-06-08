@@ -736,7 +736,7 @@ Send this output, along with:
 			char[] test_name=token[0];
 			int test_count = cast(int) strtol(std.string.toStringz(token[1]), null, 0);
     			Benchmark b = Benchmark.find( test_name );
-			if( b===null ) {
+			if( b is null ) {
 				printf("skipping non-existent test = '%.*s'\n", test_name );
 			} else {
 				b.time_both( test_count );

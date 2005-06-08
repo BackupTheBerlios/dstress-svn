@@ -12,7 +12,7 @@ int main(){
 	array[key]=value;
 	int* ptr = "zwei" in array;
 	
-	assert(ptr === null);
+	assert(ptr is null);
 
 	return 0;
 }

@@ -9,7 +9,7 @@ int main(){
 
 	void* ptr = "key" in array;
 
-	assert(ptr===null);
+	assert(ptr is null);
 
 	return 0;
 }

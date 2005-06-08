@@ -15,6 +15,6 @@ int main(){
 	assert(!(t1 is null));
 	TypeInfo t2 = typeid(MyEnum);
 	assert(!(t2 is null));
-	assert(t1 === t2);
+	assert(t1 is t2);
 	return 0;
 }

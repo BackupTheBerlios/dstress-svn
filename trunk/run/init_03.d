@@ -11,7 +11,7 @@ module dstress.run.init_03;
 int main(){
         static int[4] array2 = [5,6,7,8];
         TypeInfo i = typeid(typeof(array2.init));
-	assert(i !== null);
+	assert(!(i is null));
 	return 0;
 }
 

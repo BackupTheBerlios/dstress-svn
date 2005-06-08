@@ -22,6 +22,6 @@ int main(){
 	VecStack vm = new VecStack;
 	double[] M;
 	vm.euler_to_matrix(M);
-	assert(vm!==null);
+	assert(!(vm is null));
 	return 0;
 }

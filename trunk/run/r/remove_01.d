@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.delete_09;
+module dstress.run.r.remove_01;
 
 class Int{
 	this(int i){
@@ -22,12 +22,12 @@ int main(){
 	Int c = new Int(3);
 	array["drei"]=c;
 
-	assert(("zwei" in array)!==null);
+	assert(("zwei" in array) !is null);
 
-	delete array["zwei"];
+	array.remove("zwei");
 	
-	assert(("zwei" in array)===null);
-	assert(b!==null);
+	assert(("zwei" in array) is null);
+	assert(b !is null);
 
 	return 0;
 }

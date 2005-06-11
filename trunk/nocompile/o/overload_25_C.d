@@ -6,6 +6,8 @@
 // @date@	2005-06-10
 // @uri@	news:opsr4tl4lz23k2f5@nrage.netwin.co.nz
 
+// __DSTRESS_ELINE__ 23
+
 module dstress.nocompile.o.overload_25_C;
 
 template testT(T){

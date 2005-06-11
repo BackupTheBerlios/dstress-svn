@@ -7,13 +7,15 @@
 // @uri@	news:oouon2-li3.ln1@lnews.kuehne.cn
 // @desc@	mixing "static if" and "if"
 
-module dstress.undefined.static_of_05_A;
+module dstress.run.s.static_of_05_B;
 
 int main(){
-	const int i=1;
-	static if(i==1){
-		return 0;
-	}else if(i==2){
+	const int i=3;
+	if(i==1){
+		return 2;
+	}else static if(i==2){
 		return 1;
+	}else if(i==3){
+		return 0;
 	}
 }

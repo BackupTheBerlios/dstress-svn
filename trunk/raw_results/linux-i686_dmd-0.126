@@ -1,7 +1,7 @@
 >>>> VERSION <<<<
-Fr, 17 Jun 2005 22:03:52 +0200
+Fr, 17 Jun 2005 19:59:18 +0200
 Linux 2.6.11.8-A-B i686
-Digital Mars D Compiler v0.124
+Digital Mars D Compiler v0.126
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
 Usage:
@@ -106,9 +106,6 @@ XPASS:	nocompile/a/alias_20.d
 XPASS:	nocompile/a/alias_21.d
 XPASS:	nocompile/a/alias_22.d
 XPASS:	nocompile/a/alias_23.d
-XPASS:	nocompile/a/alias_25_A.d
-XPASS:	nocompile/a/alias_25_B.d
-FAIL: 	nocompile/a/alias_25_C.d [bad error message]
 XFAIL:	nocompile/a/array_initialization_10.d
 XFAIL:	nocompile/abstract_01.d
 XFAIL:	nocompile/abstract_02.d
@@ -177,7 +174,7 @@ XFAIL:	nocompile/bug_constfold_575_R.d
 XFAIL:	nocompile/bug_dsymbol_611_A.d
 XFAIL:	nocompile/bug_dsymbol_611_B.d
 XFAIL:	nocompile/bug_dsymbol_611_D.d
-XFAIL:	nocompile/bug_e2ir_299_A.d
+FAIL: 	nocompile/bug_e2ir_299_A.d [bad error message]
 XFAIL:	nocompile/bug_e2ir_814.d
 XFAIL:	nocompile/bug_expression_1147.d
 XFAIL:	nocompile/bug_expression_661_A.d
@@ -259,9 +256,9 @@ XPASS:	nocompile/d/debug_10.d
 XFAIL:	nocompile/d/delegate_14_A.d
 XPASS:	nocompile/d/delegate_14_B.d
 XPASS:	nocompile/d/delete_09_A.d
-XPASS:	nocompile/d/delete_09_B.d
+XFAIL:	nocompile/d/delete_09_B.d
 XPASS:	nocompile/d/delete_09_C.d
-XPASS:	nocompile/d/delete_09_D.d
+XFAIL:	nocompile/d/delete_09_D.d
 XPASS:	nocompile/debug_04.d
 XFAIL:	nocompile/debug_05.d
 XPASS:	nocompile/debug_06.d
@@ -557,11 +554,8 @@ XFAIL:	nocompile/new_19.d
 XFAIL:	nocompile/new_20.d
 XFAIL:	nocompile/new_21.d
 XFAIL:	nocompile/new_22.d
-XPASS:	nocompile/n/nested_class_01_C.d
-XFAIL:	nocompile/n/nested_class_01_D.d
-XFAIL:	nocompile/n/nested_class_02_C.d
-FAIL: 	nocompile/n/nested_class_02_D.d [bad error message]
-XFAIL:	nocompile/n/new_23.d
+XFAIL:	nocompile/n/nested_class_01_C.d
+ERROR:	nocompile/n/new_23.d
 XFAIL:	nocompile/n/new_24.d
 XFAIL:	nocompile/offset_01.d
 XFAIL:	nocompile/offset_02.d
@@ -577,8 +571,8 @@ XFAIL:	nocompile/offsetof_76.d
 XFAIL:	nocompile/offsetof_77.d
 XFAIL:	nocompile/o/offsetof_01.d
 XFAIL:	nocompile/o/opAddAssign_01.d
-ERROR:	nocompile/o/opCat_07_A.d [internal compiler error]
-ERROR:	nocompile/o/opCat_07_B.d [internal compiler error]
+XPASS:	nocompile/o/opCat_07_A.d
+XPASS:	nocompile/o/opCat_07_B.d
 XFAIL:	nocompile/o/opDiv_10_A.d
 XFAIL:	nocompile/o/opDiv_10_B.d
 XFAIL:	nocompile/o/opDiv_10_C.d
@@ -713,7 +707,7 @@ XFAIL:	nocompile/r/remove_03.d
 XFAIL:	nocompile/r/remove_04.d
 XFAIL:	nocompile/r/remove_05.d
 XFAIL:	nocompile/scope_01.d
-XPASS:	nocompile/scope_02.d
+XFAIL:	nocompile/scope_02.d
 XFAIL:	nocompile/short_02.d
 XFAIL:	nocompile/short_03.d
 XFAIL:	nocompile/sizeof_05.d
@@ -758,7 +752,7 @@ XFAIL:	nocompile/switch_16.d
 XFAIL:	nocompile/template_05.d
 XFAIL:	nocompile/template_06.d
 XFAIL:	nocompile/template_07.d
-XFAIL:	nocompile/template_08.d
+XPASS:	nocompile/template_08.d
 XFAIL:	nocompile/template_13.d
 XFAIL:	nocompile/template_15.d
 XFAIL:	nocompile/template_class_07.d
@@ -826,7 +820,6 @@ chmod +x run.sh
 ./run.sh 2>> /tmp2/dstress/log.txt
 FAIL: 	run/a/alias_24_A.d
 PASS: 	run/a/alias_24_B.d
-PASS: 	run/a/alias_25_D.d
 PASS: 	run/a/array_initialization_15.d
 PASS: 	run/a/array_initialization_16.d
 PASS: 	run/abstract_07.d
@@ -944,7 +937,7 @@ PASS: 	run/bug_20050128_B.d
 PASS: 	run/bug_20050330_B.d
 PASS: 	run/bug_20050405_01.d
 PASS: 	run/bug_20050405_02.d
-ERROR:	run/bug_20050405_03.d
+PASS: 	run/bug_20050405_03.d
 PASS: 	run/bug_20050405_04.d
 PASS: 	run/bug_20050405_05.d
 PASS: 	run/bug_20050405_06.d
@@ -1314,7 +1307,7 @@ PASS: 	run/f/float_27_B.d
 PASS: 	run/f/forward_reference_12_A.d
 FAIL: 	run/f/forward_reference_12_B.d
 FAIL: 	run/f/forward_reference_12_C.d
-PASS: 	run/f/forward_reference_12_D.d
+FAIL: 	run/f/forward_reference_12_D.d
 PASS: 	run/f/forward_reference_12_E.d
 FAIL: 	run/f/forward_reference_12_F.d
 PASS: 	run/__FILE__01.d
@@ -1618,12 +1611,10 @@ PASS: 	run/new_10.d
 PASS: 	run/new_11.d
 PASS: 	run/new_12.d
 PASS: 	run/new_13.d
-FAIL: 	run/n/nested_class_01_A.d
-FAIL: 	run/n/nested_class_01_B.d
-PASS: 	run/n/nested_class_01_E.d
-FAIL: 	run/n/nested_class_02_A.d
-FAIL: 	run/n/nested_class_02_B.d
-FAIL: 	run/n/nested_class_02_E.d
+PASS: 	run/n/nested_class_01_A.d
+PASS: 	run/n/nested_class_01_B.d
+PASS: 	run/n/nested_class_02_A.d
+PASS: 	run/n/nested_class_02_B.d
 PASS: 	run/odd_bug_01.d
 PASS: 	run/odd_bug_02.d
 PASS: 	run/offsetof_02.d
@@ -1744,8 +1735,8 @@ PASS: 	run/opCat_01.d
 PASS: 	run/opCat_02.d
 PASS: 	run/opCat_03.d
 PASS: 	run/opCat_04.d
-FAIL: 	run/opCat_05.d
-FAIL: 	run/opCat_06.d
+ERROR:	run/opCat_05.d [internal compiler error]
+ERROR:	run/opCat_06.d [internal compiler error]
 PASS: 	run/opCatAssign_01.d
 PASS: 	run/opCatAssign_02.d
 PASS: 	run/opCatAssign_03.d
@@ -1918,7 +1909,7 @@ PASS: 	run/reverse_06.d
 PASS: 	run/reverse_07.d
 PASS: 	run/r/real_23_A.d
 PASS: 	run/r/real_23_B.d
-FAIL: 	run/r/remove_01.d
+PASS: 	run/r/remove_01.d
 PASS: 	run/short_01.d
 PASS: 	run/sizeof_01.d
 PASS: 	run/sizeof_02.d
@@ -2045,13 +2036,13 @@ PASS: 	run/try_06.d
 PASS: 	run/try_07.d
 PASS: 	run/try_08.d
 FAIL: 	run/t/typedef_06_A.d
-PASS: 	run/t/typedef_06_B.d
+FAIL: 	run/t/typedef_06_B.d
 PASS: 	run/t/typedef_06_C.d
 PASS: 	run/t/typedef_07_A.d
-PASS: 	run/t/typedef_07_B.d
+FAIL: 	run/t/typedef_07_B.d
 PASS: 	run/t/typedef_07_C.d
 PASS: 	run/t/typedef_08_A.d
-PASS: 	run/t/typedef_08_B.d
+FAIL: 	run/t/typedef_08_B.d
 PASS: 	run/t/typedef_08_C.d
 FAIL: 	run/t/typeid_86_A.d
 FAIL: 	run/t/typeid_86_B.d
@@ -2198,7 +2189,7 @@ PASS: 	run/version_05.d
 PASS: 	run/version_07.d
 PASS: 	run/version_08.d
 PASS: 	run/version_29.d
-PASS: 	run/v/void_01.d
+FAIL: 	run/v/void_01.d
 PASS: 	run/wchar_03.d
 PASS: 	run/wchar_05.d
 PASS: 	run/wchar_07.d
@@ -2241,7 +2232,7 @@ chmod +x norun.sh
 ./norun.sh 2>> /tmp2/dstress/log.txt
 XFAIL:	norun/a/assert_10_A.d
 XFAIL:	norun/a/assert_10_B.d
-XPASS:	norun/a/assert_10_C.d
+XFAIL:	norun/a/assert_10_C.d
 XFAIL:	norun/a/assert_10_D.d
 XFAIL:	norun/assert_04.d
 XFAIL:	norun/assert_05.d

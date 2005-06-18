@@ -1,6 +1,6 @@
 >>>> VERSION <<<<
-五, 13  5月 2005 14:42:20 +0200
-Linux 2.6.10-B i686
+Sa, 18 Jun 2005 00:14:48 +0200
+Linux 2.6.11.8-A-B i686
 Digital Mars D Compiler v0.122
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
@@ -28,18 +28,21 @@ Usage:
   -version=level compile in version code >= level
   -version=ident compile in version code identified by ident
   -w             enable warnings
-make: [version] 错误 1 (忽略)
+make: [version] Fehler 1 (ignoriert)
 Error: unrecognized switch '--version'
-make: [version] 错误 1 (忽略)
+make: [version] Fehler 1 (ignoriert)
 <<<< VERSION >>>>
 cc  crashRun.c -o crashRun__
 cc  dstress.c -o dstress__
 find compile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ compile" > compile.sh
 chmod +x compile.sh
-./compile.sh 2>> /tmp/dstress/log.txt
+./compile.sh 2>> /tmp2/dstress/log.txt
 PASS: 	compile/a/abstract_13.d
 PASS: 	compile/alias_08.d
 PASS: 	compile/align_04.d
+PASS: 	compile/b/bug_20050510_A1.d
+PASS: 	compile/b/bug_20050510_B1.d
+PASS: 	compile/b/bug_20050510_C1.d
 PASS: 	compile/bug_cgcod_1445_C.d
 PASS: 	compile/bug_dsymbol_611_C.d
 PASS: 	compile/bug_e2ir_1158_A.d
@@ -58,6 +61,8 @@ PASS: 	compile/extern_03.d
 PASS: 	compile/extern_04.d
 FAIL: 	compile/extern_07.d
 PASS: 	compile/extern_08.d
+ERROR:	compile/f/foreach_30_A.d [bad error message]
+PASS: 	compile/f/foreach_30_B.d
 PASS: 	compile/for_03.d
 PASS: 	compile/forward_reference_01.d
 PASS: 	compile/forward_reference_02.d
@@ -93,13 +98,16 @@ PASS: 	compile/variadic_argument_03.d
 FAIL: 	compile/version_09.d
 find nocompile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
 chmod +x nocompile.sh
-./nocompile.sh 2>> /tmp/dstress/log.txt
+./nocompile.sh 2>> /tmp2/dstress/log.txt
 XPASS:	nocompile/a/alias_18.d
 XPASS:	nocompile/a/alias_19.d
 XPASS:	nocompile/a/alias_20.d
 XPASS:	nocompile/a/alias_21.d
 XPASS:	nocompile/a/alias_22.d
 XPASS:	nocompile/a/alias_23.d
+XPASS:	nocompile/a/alias_25_A.d
+XPASS:	nocompile/a/alias_25_B.d
+FAIL: 	nocompile/a/alias_25_C.d [bad error message]
 XPASS:	nocompile/a/array_initialization_10.d
 XFAIL:	nocompile/abstract_01.d
 XFAIL:	nocompile/abstract_02.d
@@ -126,7 +134,7 @@ XFAIL:	nocompile/argument_03.d
 XFAIL:	nocompile/argument_04.d
 XFAIL:	nocompile/argument_05.d
 XFAIL:	nocompile/array_initialization_04.d
-ERROR:	nocompile/array_initialization_08.d
+FAIL: 	nocompile/array_initialization_08.d [bad error message]
 XFAIL:	nocompile/array_initialization_09.d
 XFAIL:	nocompile/array_initialization_11.d
 XFAIL:	nocompile/array_initialization_12.d
@@ -152,7 +160,7 @@ XPASS:	nocompile/bug_20041016_B.d
 XFAIL:	nocompile/bug_20041103_C.d
 XFAIL:	nocompile/bug_20041203_A.d
 XFAIL:	nocompile/bug_20041203_B.d
-ERROR:	nocompile/bug_20050330_A.d [internal compiler error]
+ERROR:	nocompile/bug_20050330_A.d
 XFAIL:	nocompile/bug_cgcod_1445_A.d
 XFAIL:	nocompile/bug_cgcod_1445_B.d
 XFAIL:	nocompile/bug_cgcod_1464.d
@@ -195,6 +203,7 @@ XFAIL:	nocompile/cast_10.d
 XFAIL:	nocompile/cast_19.d
 XFAIL:	nocompile/cast_23.d
 XFAIL:	nocompile/cast_24.d
+XFAIL:	nocompile/c/class_16.d
 XFAIL:	nocompile/c/creal_25.d
 XFAIL:	nocompile/cent_01.d
 XFAIL:	nocompile/char_01.d
@@ -243,8 +252,15 @@ XFAIL:	nocompile/dchar_01.d
 XFAIL:	nocompile/dchar_02.d
 XFAIL:	nocompile/dchar_04.d
 XFAIL:	nocompile/dchar_06.d
+XPASS:	nocompile/d/debug_08.d
+XPASS:	nocompile/d/debug_09.d
+XPASS:	nocompile/d/debug_10.d
 XFAIL:	nocompile/d/delegate_14_A.d
 XPASS:	nocompile/d/delegate_14_B.d
+XPASS:	nocompile/d/delete_09_A.d
+XPASS:	nocompile/d/delete_09_B.d
+XPASS:	nocompile/d/delete_09_C.d
+XPASS:	nocompile/d/delete_09_D.d
 XFAIL:	nocompile/debug_04.d
 XFAIL:	nocompile/debug_05.d
 XPASS:	nocompile/debug_06.d
@@ -540,6 +556,12 @@ XFAIL:	nocompile/new_19.d
 XFAIL:	nocompile/new_20.d
 XFAIL:	nocompile/new_21.d
 XFAIL:	nocompile/new_22.d
+XPASS:	nocompile/n/nested_class_01_C.d
+XFAIL:	nocompile/n/nested_class_01_D.d
+XFAIL:	nocompile/n/nested_class_02_C.d
+FAIL: 	nocompile/n/nested_class_02_D.d [bad error message]
+XFAIL:	nocompile/n/new_23.d
+XFAIL:	nocompile/n/new_24.d
 XFAIL:	nocompile/offset_01.d
 XFAIL:	nocompile/offset_02.d
 XFAIL:	nocompile/offset_03.d
@@ -552,13 +574,24 @@ XPASS:	nocompile/offsetof_74.d
 XPASS:	nocompile/offsetof_75.d
 XPASS:	nocompile/offsetof_76.d
 XPASS:	nocompile/offsetof_77.d
+XFAIL:	nocompile/o/offsetof_01.d
 XFAIL:	nocompile/o/opAddAssign_01.d
+ERROR:	nocompile/o/opCat_07_A.d
+XFAIL:	nocompile/o/opCat_07_B.d
 XFAIL:	nocompile/o/opDiv_10_A.d
 XFAIL:	nocompile/o/opDiv_10_B.d
 XFAIL:	nocompile/o/opDiv_10_C.d
 XFAIL:	nocompile/o/opDiv_10_D.d
 XFAIL:	nocompile/o/opDiv_10_E.d
 XFAIL:	nocompile/o/opDiv_10_F.d
+ERROR:	nocompile/o/opMod_01_A.d
+ERROR:	nocompile/o/opMod_01_B.d
+ERROR:	nocompile/o/opMod_01_C.d
+ERROR:	nocompile/o/opMod_01_D.d
+ERROR:	nocompile/o/opMod_01_E.d
+ERROR:	nocompile/o/opMod_01_F.d
+ERROR:	nocompile/o/opMod_01_G.d
+ERROR:	nocompile/o/opMod_01_H.d
 XFAIL:	nocompile/o/opMul_07_A.d
 XFAIL:	nocompile/o/opMul_07_B.d
 XFAIL:	nocompile/o/opMul_07_C.d
@@ -566,6 +599,7 @@ XFAIL:	nocompile/o/opMul_07_D.d
 XFAIL:	nocompile/o/opMul_07_E.d
 XFAIL:	nocompile/o/opMul_07_F.d
 XFAIL:	nocompile/o/opSubAssign_01.d
+XPASS:	nocompile/o/overload_25_C.d
 FAIL: 	nocompile/o/override_10.d [bad error message]
 XFAIL:	nocompile/opAdd_01.d
 XFAIL:	nocompile/opAdd_02.d
@@ -628,7 +662,6 @@ XPASS:	nocompile/opSubAssign_16.d
 XPASS:	nocompile/opSubAssign_17.d
 XFAIL:	nocompile/overload_11.d
 ERROR:	nocompile/overload_12.d
-ERROR:	nocompile/overload_13.d
 ERROR:	nocompile/overload_14.d
 ERROR:	nocompile/overload_16.d
 XFAIL:	nocompile/override_02.d
@@ -641,6 +674,10 @@ XFAIL:	nocompile/override_08.d
 XFAIL:	nocompile/override_09.d
 XPASS:	nocompile/package_01.d
 XFAIL:	nocompile/package_02.d
+XPASS:	nocompile/p/protected_02_A.d
+XPASS:	nocompile/p/protected_02_B.d
+XPASS:	nocompile/p/protected_02_C.d
+XPASS:	nocompile/p/protected_02_D.d
 XFAIL:	nocompile/pragma_03.d
 XFAIL:	nocompile/pragma_04.d
 XFAIL:	nocompile/pragma_lib_01.d
@@ -670,6 +707,10 @@ XFAIL:	nocompile/real_20.d
 XFAIL:	nocompile/real_21.d
 XFAIL:	nocompile/real_23.d
 XFAIL:	nocompile/real_24.d
+XFAIL:	nocompile/r/remove_02.d
+XFAIL:	nocompile/r/remove_03.d
+XFAIL:	nocompile/r/remove_04.d
+XFAIL:	nocompile/r/remove_05.d
 XFAIL:	nocompile/scope_01.d
 XPASS:	nocompile/scope_02.d
 XFAIL:	nocompile/short_02.d
@@ -681,6 +722,15 @@ XFAIL:	nocompile/sizeof_08.d
 XFAIL:	nocompile/sizeof_09.d
 XFAIL:	nocompile/sizeof_10.d
 XFAIL:	nocompile/slice_10.d
+XFAIL:	nocompile/s/static_if_01_A.d
+XFAIL:	nocompile/s/static_if_01_B.d
+XFAIL:	nocompile/s/static_if_01_C.d
+XFAIL:	nocompile/s/static_if_01_D.d
+XFAIL:	nocompile/s/static_if_02_A.d
+XFAIL:	nocompile/s/static_if_02_B.d
+XFAIL:	nocompile/s/static_if_02_C.d
+FAIL: 	nocompile/s/static_if_03_A.d [bad error message]
+FAIL: 	nocompile/s/static_if_03_B.d [bad error message]
 XFAIL:	nocompile/static_08.d
 XFAIL:	nocompile/static_09.d
 XFAIL:	nocompile/static_10.d
@@ -721,6 +771,8 @@ XFAIL:	nocompile/__TIME__02.d
 XFAIL:	nocompile/__TIMESTAMP__02.d
 XFAIL:	nocompile/try_05.d
 XFAIL:	nocompile/try_09.d
+ERROR:	nocompile/t/template_16.d
+ERROR:	nocompile/t/template_class_09.d
 XFAIL:	nocompile/typeof_05.d
 XFAIL:	nocompile/typeof_06.d
 XFAIL:	nocompile/types_declaration_02.d
@@ -757,6 +809,9 @@ XFAIL:	nocompile/version_30.d
 XFAIL:	nocompile/version_31.d
 XPASS:	nocompile/version_32.d
 XFAIL:	nocompile/version_36.d
+XPASS:	nocompile/v/version_33.d
+XPASS:	nocompile/v/version_34.d
+XPASS:	nocompile/v/version_35.d
 XFAIL:	nocompile/wchar_01.d
 XFAIL:	nocompile/wchar_02.d
 XFAIL:	nocompile/wchar_04.d
@@ -767,7 +822,12 @@ XFAIL:	nocompile/with_07.d
 rm -f 
 find run -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
-./run.sh 2>> /tmp/dstress/log.txt
+./run.sh 2>> /tmp2/dstress/log.txt
+FAIL: 	run/a/alias_24_A.d
+PASS: 	run/a/alias_24_B.d
+PASS: 	run/a/alias_25_D.d
+FAIL: 	run/a/array_initialization_15.d
+PASS: 	run/a/array_initialization_16.d
 PASS: 	run/abstract_07.d
 PASS: 	run/abstract_10.d
 PASS: 	run/alias_01.d
@@ -836,6 +896,10 @@ PASS: 	run/auto_04.d
 PASS: 	run/auto_06.d
 FAIL: 	run/auto_07.d
 PASS: 	run/auto_08.d
+ERROR:	run/b/bug_20050510_A2.d
+PASS: 	run/b/bug_20050510_B2.d
+PASS: 	run/b/bug_20050510_C2.d
+PASS: 	run/b/bug_20050510_D2.d
 PASS: 	run/b/bug_cg87_1240_A.d
 PASS: 	run/b/bug_cg87_1240_B.d
 PASS: 	run/b/bug_cg87_1240_C.d
@@ -848,6 +912,11 @@ ERROR:	run/b/bug_cod1_2433_C.d [internal compiler error]
 ERROR:	run/b/bug_cod1_2433_D.d [internal compiler error]
 ERROR:	run/b/bug_cod1_2433_E.d [internal compiler error]
 ERROR:	run/b/bug_cod1_2433_F.d [internal compiler error]
+PASS: 	run/b/bug_evalu8_174_A.d
+PASS: 	run/b/bug_evalu8_174_B.d
+PASS: 	run/b/bug_evalu8_174_C.d
+ERROR:	run/b/bug_evalu8_174_D.d [internal compiler error]
+PASS: 	run/b/bug_evalu8_174_E.d
 PASS: 	run/bit_01.d
 PASS: 	run/bit_03.d
 PASS: 	run/bit_04.d
@@ -1018,6 +1087,12 @@ PASS: 	run/catch_01.d
 PASS: 	run/catch_02.d
 PASS: 	run/catch_03.d
 PASS: 	run/catch_04.d
+FAIL: 	run/c/cdouble_01_A.d
+FAIL: 	run/c/cdouble_01_B.d
+FAIL: 	run/c/cfloat_02_A.d
+FAIL: 	run/c/cfloat_02_B.d
+FAIL: 	run/c/creal_26_A.d
+FAIL: 	run/c/creal_26_B.d
 FAIL: 	run/cfloat_01.d
 PASS: 	run/char_03.d
 PASS: 	run/char_06.d
@@ -1113,12 +1188,11 @@ PASS: 	run/dchar_05.d
 PASS: 	run/dchar_07.d
 PASS: 	run/dchar_08.d
 PASS: 	run/dchar_09.d
+PASS: 	run/d/double_25_A.d
+PASS: 	run/d/double_25_B.d
 PASS: 	run/debug_01.d
 PASS: 	run/debug_02.d
 PASS: 	run/debug_03.d
-PASS: 	run/debug_08.d
-FAIL: 	run/debug_09.d
-FAIL: 	run/debug_10.d
 PASS: 	run/debug_info_03.d
 FAIL: 	run/debug_info_04.d
 FAIL: 	run/debug_info_05.d
@@ -1137,8 +1211,6 @@ PASS: 	run/delegate_04.d
 PASS: 	run/delegate_06.d
 PASS: 	run/delegate_12.d
 PASS: 	run/delete_01.d
-PASS: 	run/delete_09.d
-PASS: 	run/delete_10.d
 PASS: 	run/deprecated_09.d
 PASS: 	run/deprecated_10.d
 PASS: 	run/deprecated_12.d
@@ -1236,6 +1308,14 @@ PASS: 	run/escape_unicode16_07.d
 PASS: 	run/escape_unicode32_01.d
 PASS: 	run/escape_unicode32_02.d
 PASS: 	run/escape_unicode32_03.d
+PASS: 	run/f/float_27_A.d
+PASS: 	run/f/float_27_B.d
+PASS: 	run/f/forward_reference_12_A.d
+FAIL: 	run/f/forward_reference_12_B.d
+FAIL: 	run/f/forward_reference_12_C.d
+PASS: 	run/f/forward_reference_12_D.d
+PASS: 	run/f/forward_reference_12_E.d
+FAIL: 	run/f/forward_reference_12_F.d
 PASS: 	run/__FILE__01.d
 PASS: 	run/final_02.d
 PASS: 	run/final_03.d
@@ -1383,6 +1463,11 @@ PASS: 	run/if_06.d
 PASS: 	run/if_07.d
 PASS: 	run/if_08.d
 PASS: 	run/ifloat_03.d
+PASS: 	run/i/inline_10_A.d
+FAIL: 	run/i/inline_10_B.d
+PASS: 	run/i/inline_10_C.d
+PASS: 	run/i/int_09_A.d
+PASS: 	run/i/int_09_B.d
 PASS: 	run/in_01.d
 PASS: 	run/in_02.d
 PASS: 	run/in_03.d
@@ -1479,11 +1564,13 @@ PASS: 	run/line_ending_dos.d
 PASS: 	run/line_ending_linux.d
 PASS: 	run/line_ending_mac.d
 PASS: 	run/line_ending_unicode.d
-FAIL: 	run/line_token_02.d
+PASS: 	run/line_token_02.d
 PASS: 	run/line_token_03.d
 PASS: 	run/line_token_04.d
 FAIL: 	run/line_token_11.d
 FAIL: 	run/line_token_12.d
+PASS: 	run/l/long_04_A.d
+PASS: 	run/l/long_04_B.d
 PASS: 	run/long_01.d
 PASS: 	run/long_char_1025.d
 PASS: 	run/long_char_2049.d
@@ -1506,6 +1593,8 @@ PASS: 	run/mixin_09.d
 FAIL: 	run/mixin_10.d
 PASS: 	run/mixin_11.d
 FAIL: 	run/mixin_12.d
+FAIL: 	run/m/mixin_13_A.d
+PASS: 	run/m/mixin_13_B.d
 PASS: 	run/module_01.d
 PASS: 	run/module_02.d
 FAIL: 	run/module_04.d
@@ -1528,9 +1617,14 @@ PASS: 	run/new_10.d
 PASS: 	run/new_11.d
 PASS: 	run/new_12.d
 PASS: 	run/new_13.d
+FAIL: 	run/n/nested_class_01_A.d
+FAIL: 	run/n/nested_class_01_B.d
+PASS: 	run/n/nested_class_01_E.d
+FAIL: 	run/n/nested_class_02_A.d
+FAIL: 	run/n/nested_class_02_B.d
+FAIL: 	run/n/nested_class_02_E.d
 PASS: 	run/odd_bug_01.d
 PASS: 	run/odd_bug_02.d
-FAIL: 	run/offsetof_01.d
 PASS: 	run/offsetof_02.d
 PASS: 	run/offsetof_07.d
 PASS: 	run/offsetof_09.d
@@ -1599,8 +1693,6 @@ PASS: 	run/offsetof_71.d
 PASS: 	run/offsetof_72.d
 PASS: 	run/offsetof_73.d
 FAIL: 	run/offsetof_78.d
-PASS: 	run/offsetof_79.d
-FAIL: 	run/offsetof_80.d
 PASS: 	run/o/opDiv_04.d
 PASS: 	run/o/opDiv_05.d
 PASS: 	run/o/opDiv_06.d
@@ -1619,6 +1711,31 @@ FAIL: 	run/o/opMul_03.d
 PASS: 	run/o/opMulAssign_12.d
 PASS: 	run/o/opMulAssign_13.d
 PASS: 	run/o/opMulAssign_14.d
+ERROR:	run/o/opSlice_01_A.d [internal compiler error]
+ERROR:	run/o/opSlice_01_B.d [internal compiler error]
+ERROR:	run/o/opSlice_01_C.d [internal compiler error]
+ERROR:	run/o/opSlice_01_D.d [internal compiler error]
+ERROR:	run/o/opSlice_01_E.d [internal compiler error]
+ERROR:	run/o/opSlice_01_F.d [internal compiler error]
+ERROR:	run/o/opSlice_01_G.d [internal compiler error]
+FAIL: 	run/o/opSlice_01_H.d
+FAIL: 	run/o/opSlice_01_I.d
+ERROR:	run/o/opSlice_01_J.d [internal compiler error]
+FAIL: 	run/o/opSlice_01_K.d
+FAIL: 	run/o/opSlice_01_L.d
+ERROR:	run/o/opSlice_01_M.d [internal compiler error]
+FAIL: 	run/o/opSlice_01_N.d
+FAIL: 	run/o/opSlice_01_O.d
+FAIL: 	run/o/opSlice_01_P.d
+ERROR:	run/o/opSlice_01_Q.d [internal compiler error]
+ERROR:	run/o/opSlice_01_R.d [internal compiler error]
+ERROR:	run/o/opSlice_01_S.d [internal compiler error]
+ERROR:	run/o/opSlice_01_T.d [internal compiler error]
+ERROR:	run/o/opSlice_01_U.d [internal compiler error]
+FAIL: 	run/o/overload_23.d
+FAIL: 	run/o/overload_24.d
+FAIL: 	run/o/overload_25_A.d
+FAIL: 	run/o/overload_25_B.d
 PASS: 	run/opCast_01.d
 PASS: 	run/opCast_02.d
 FAIL: 	run/opCast_03.d
@@ -1748,6 +1865,7 @@ PASS: 	run/overload_07.d
 FAIL: 	run/overload_08.d
 FAIL: 	run/overload_09.d
 FAIL: 	run/overload_10.d
+ERROR:	run/overload_13.d
 PASS: 	run/overload_15.d
 FAIL: 	run/overload_17.d
 PASS: 	run/overload_18.d
@@ -1797,6 +1915,9 @@ PASS: 	run/reverse_04.d
 ERROR:	run/reverse_05.d
 FAIL: 	run/reverse_06.d
 PASS: 	run/reverse_07.d
+PASS: 	run/r/real_23_A.d
+PASS: 	run/r/real_23_B.d
+FAIL: 	run/r/remove_01.d
 PASS: 	run/short_01.d
 PASS: 	run/sizeof_01.d
 PASS: 	run/sizeof_02.d
@@ -1828,6 +1949,20 @@ PASS: 	run/sort_12.d
 PASS: 	run/sort_13.d
 PASS: 	run/sort_14.d
 PASS: 	run/sort_15.d
+PASS: 	run/s/short_04_A.d
+PASS: 	run/s/short_04_B.d
+FAIL: 	run/s/static_30_A.d
+PASS: 	run/s/static_30_B.d
+PASS: 	run/s/static_30_C.d
+PASS: 	run/s/static_31.d
+FAIL: 	run/s/static_if_04_A.d
+FAIL: 	run/s/static_if_04_B.d
+FAIL: 	run/s/static_if_04_C.d
+FAIL: 	run/s/static_if_04_D.d
+FAIL: 	run/s/static_if_05_A.d
+FAIL: 	run/s/static_if_05_B.d
+PASS: 	run/s/struct_initialization_07_B.d
+PASS: 	run/s/struct_initialization_07.d
 PASS: 	run/static_01.d
 PASS: 	run/static_02.d
 PASS: 	run/static_03.d
@@ -1895,7 +2030,7 @@ FAIL: 	run/template_class_04.d
 FAIL: 	run/template_class_05.d
 PASS: 	run/template_class_06.d
 PASS: 	run/template_struct_01.d
-PASS: 	run/this_03.d
+FAIL: 	run/this_03.d
 PASS: 	run/throw_01.d
 PASS: 	run/throw_02.d
 PASS: 	run/throw_03.d
@@ -1908,12 +2043,27 @@ PASS: 	run/try_04.d
 PASS: 	run/try_06.d
 PASS: 	run/try_07.d
 PASS: 	run/try_08.d
+FAIL: 	run/t/typedef_06_A.d
+PASS: 	run/t/typedef_06_B.d
+PASS: 	run/t/typedef_06_C.d
+PASS: 	run/t/typedef_07_A.d
+PASS: 	run/t/typedef_07_B.d
+PASS: 	run/t/typedef_07_C.d
+PASS: 	run/t/typedef_08_A.d
+PASS: 	run/t/typedef_08_B.d
+PASS: 	run/t/typedef_08_C.d
+FAIL: 	run/t/typeid_86_A.d
+FAIL: 	run/t/typeid_86_B.d
+FAIL: 	run/t/typeid_86_C.d
+FAIL: 	run/t/typeid_86_D.d
+FAIL: 	run/t/typeid_86_E.d
+FAIL: 	run/t/typeid_87.d
 PASS: 	run/typedef_01.d
 PASS: 	run/typedef_02.d
 PASS: 	run/typedef_03.d
 PASS: 	run/typedef_04.d
-PASS: 	run/typeid_01.d
-PASS: 	run/typeid_02.d
+FAIL: 	run/typeid_01.d
+FAIL: 	run/typeid_02.d
 PASS: 	run/typeid_03.d
 PASS: 	run/typeid_04.d
 PASS: 	run/typeid_05.d
@@ -1925,34 +2075,34 @@ PASS: 	run/typeid_10.d
 PASS: 	run/typeid_11.d
 PASS: 	run/typeid_12.d
 ERROR:	run/typeid_13.d
-PASS: 	run/typeid_14.d
+FAIL: 	run/typeid_14.d
 PASS: 	run/typeid_15.d
 PASS: 	run/typeid_16.d
-PASS: 	run/typeid_17.d
+FAIL: 	run/typeid_17.d
 PASS: 	run/typeid_18.d
 PASS: 	run/typeid_19.d
-PASS: 	run/typeid_20.d
+FAIL: 	run/typeid_20.d
 PASS: 	run/typeid_21.d
 PASS: 	run/typeid_22.d
-PASS: 	run/typeid_23.d
+FAIL: 	run/typeid_23.d
 PASS: 	run/typeid_24.d
 PASS: 	run/typeid_25.d
-PASS: 	run/typeid_26.d
+FAIL: 	run/typeid_26.d
 PASS: 	run/typeid_27.d
 PASS: 	run/typeid_28.d
-PASS: 	run/typeid_29.d
+FAIL: 	run/typeid_29.d
 PASS: 	run/typeid_30.d
 PASS: 	run/typeid_31.d
-PASS: 	run/typeid_32.d
+FAIL: 	run/typeid_32.d
 PASS: 	run/typeid_33.d
 PASS: 	run/typeid_34.d
-PASS: 	run/typeid_35.d
+FAIL: 	run/typeid_35.d
 PASS: 	run/typeid_36.d
 PASS: 	run/typeid_37.d
-PASS: 	run/typeid_38.d
+FAIL: 	run/typeid_38.d
 PASS: 	run/typeid_39.d
 PASS: 	run/typeid_40.d
-PASS: 	run/typeid_41.d
+FAIL: 	run/typeid_41.d
 PASS: 	run/typeid_42.d
 PASS: 	run/typeid_43.d
 PASS: 	run/typeid_44.d
@@ -1973,13 +2123,13 @@ PASS: 	run/typeid_58.d
 PASS: 	run/typeid_59.d
 PASS: 	run/typeid_60.d
 PASS: 	run/typeid_61.d
-PASS: 	run/typeid_62.d
+FAIL: 	run/typeid_62.d
 PASS: 	run/typeid_63.d
 PASS: 	run/typeid_64.d
-PASS: 	run/typeid_65.d
+FAIL: 	run/typeid_65.d
 PASS: 	run/typeid_66.d
 PASS: 	run/typeid_67.d
-PASS: 	run/typeid_68.d
+FAIL: 	run/typeid_68.d
 PASS: 	run/typeid_69.d
 PASS: 	run/typeid_70.d
 PASS: 	run/typeid_71.d
@@ -1995,8 +2145,8 @@ PASS: 	run/typeid_80.d
 PASS: 	run/typeid_81.d
 PASS: 	run/typeid_82.d
 PASS: 	run/typeid_83.d
-PASS: 	run/typeid_84.d
-PASS: 	run/typeid_85.d
+FAIL: 	run/typeid_84.d
+FAIL: 	run/typeid_85.d
 PASS: 	run/typeof_01.d
 PASS: 	run/typeof_02.d
 PASS: 	run/typeof_03.d
@@ -2032,6 +2182,10 @@ PASS: 	run/ushort_01.d
 PASS: 	run/ushort_04.d
 PASS: 	run/ushort_05.d
 PASS: 	run/ushort_06.d
+PASS: 	run/u/unicode_08_A.d
+FAIL: 	run/u/unicode_08_B.d
+FAIL: 	run/u/unicode_08_C.d
+PASS: 	run/u/unicode_08_D.d
 PASS: 	run/values_01.d
 FAIL: 	run/variadic_argument_04.d
 PASS: 	run/variadic_argument_05.d
@@ -2043,9 +2197,7 @@ PASS: 	run/version_05.d
 PASS: 	run/version_07.d
 PASS: 	run/version_08.d
 PASS: 	run/version_29.d
-FAIL: 	run/version_33.d
-PASS: 	run/version_34.d
-FAIL: 	run/version_35.d
+PASS: 	run/v/void_01.d
 PASS: 	run/wchar_03.d
 PASS: 	run/wchar_05.d
 PASS: 	run/wchar_07.d
@@ -2085,16 +2237,19 @@ FAIL: 	run/xhtml_tag_01.html
 rm -f 
 find norun -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
-./norun.sh 2>> /tmp/dstress/log.txt
+./norun.sh 2>> /tmp2/dstress/log.txt
+XFAIL:	norun/a/assert_10_A.d
+XFAIL:	norun/a/assert_10_B.d
+XPASS:	norun/a/assert_10_C.d
+XFAIL:	norun/a/assert_10_D.d
 XFAIL:	norun/assert_04.d
 XFAIL:	norun/assert_05.d
 XFAIL:	norun/bounds_checking_03.d
 XFAIL:	norun/bounds_checking_06.d
-XFAIL:	norun/delete_03.d
+XPASS:	norun/delete_03.d
 XFAIL:	norun/delete_04.d
-XFAIL:	norun/delete_05.d
+XPASS:	norun/delete_05.d
 XFAIL:	norun/destructor_05.d
-ERROR:	norun/int_09.d
 XFAIL:	norun/main_05.d
 XFAIL:	norun/slice_06.d
 XFAIL:	norun/slice_08.d

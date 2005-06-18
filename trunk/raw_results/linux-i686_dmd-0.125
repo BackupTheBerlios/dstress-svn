@@ -1,5 +1,5 @@
 >>>> VERSION <<<<
-四,  2  6月 2005 14:11:09 +0200
+Fr, 17 Jun 2005 21:00:37 +0200
 Linux 2.6.11.8-A-B i686
 Digital Mars D Compiler v0.125
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
@@ -29,15 +29,15 @@ Usage:
   -version=level compile in version code >= level
   -version=ident compile in version code identified by ident
   -w             enable warnings
-make: [version] 错误 1 (忽略)
+make: [version] Fehler 1 (ignoriert)
 Error: unrecognized switch '--version'
-make: [version] 错误 1 (忽略)
+make: [version] Fehler 1 (ignoriert)
 <<<< VERSION >>>>
 cc  crashRun.c -o crashRun__
 cc  dstress.c -o dstress__
 find compile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ compile" > compile.sh
 chmod +x compile.sh
-./compile.sh 2>> /tmp/4/127.0.0.1/log.txt
+./compile.sh 2>> /tmp2/dstress/log.txt
 PASS: 	compile/a/abstract_13.d
 PASS: 	compile/alias_08.d
 PASS: 	compile/align_04.d
@@ -99,7 +99,7 @@ PASS: 	compile/variadic_argument_03.d
 FAIL: 	compile/version_09.d
 find nocompile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ nocompile" > nocompile.sh
 chmod +x nocompile.sh
-./nocompile.sh 2>> /tmp/4/127.0.0.1/log.txt
+./nocompile.sh 2>> /tmp2/dstress/log.txt
 XFAIL:	nocompile/a/alias_18.d
 XPASS:	nocompile/a/alias_19.d
 XPASS:	nocompile/a/alias_20.d
@@ -201,6 +201,7 @@ XFAIL:	nocompile/cast_10.d
 XFAIL:	nocompile/cast_19.d
 XFAIL:	nocompile/cast_23.d
 XFAIL:	nocompile/cast_24.d
+XFAIL:	nocompile/c/class_16.d
 XFAIL:	nocompile/c/creal_25.d
 XFAIL:	nocompile/cent_01.d
 XFAIL:	nocompile/char_01.d
@@ -254,6 +255,10 @@ XPASS:	nocompile/d/debug_09.d
 XPASS:	nocompile/d/debug_10.d
 XFAIL:	nocompile/d/delegate_14_A.d
 XPASS:	nocompile/d/delegate_14_B.d
+XPASS:	nocompile/d/delete_09_A.d
+XPASS:	nocompile/d/delete_09_B.d
+XPASS:	nocompile/d/delete_09_C.d
+XPASS:	nocompile/d/delete_09_D.d
 XPASS:	nocompile/debug_04.d
 XFAIL:	nocompile/debug_05.d
 XPASS:	nocompile/debug_06.d
@@ -549,6 +554,12 @@ XFAIL:	nocompile/new_19.d
 XFAIL:	nocompile/new_20.d
 XFAIL:	nocompile/new_21.d
 XFAIL:	nocompile/new_22.d
+XPASS:	nocompile/n/nested_class_01_C.d
+XFAIL:	nocompile/n/nested_class_01_D.d
+XFAIL:	nocompile/n/nested_class_02_C.d
+FAIL: 	nocompile/n/nested_class_02_D.d [bad error message]
+XFAIL:	nocompile/n/new_23.d
+XFAIL:	nocompile/n/new_24.d
 XFAIL:	nocompile/offset_01.d
 XFAIL:	nocompile/offset_02.d
 XFAIL:	nocompile/offset_03.d
@@ -586,6 +597,7 @@ XFAIL:	nocompile/o/opMul_07_D.d
 XFAIL:	nocompile/o/opMul_07_E.d
 XFAIL:	nocompile/o/opMul_07_F.d
 XFAIL:	nocompile/o/opSubAssign_01.d
+XPASS:	nocompile/o/overload_25_C.d
 FAIL: 	nocompile/o/override_10.d [bad error message]
 XFAIL:	nocompile/opAdd_01.d
 XFAIL:	nocompile/opAdd_02.d
@@ -693,6 +705,10 @@ XFAIL:	nocompile/real_20.d
 XFAIL:	nocompile/real_21.d
 XFAIL:	nocompile/real_23.d
 XFAIL:	nocompile/real_24.d
+XFAIL:	nocompile/r/remove_02.d
+XFAIL:	nocompile/r/remove_03.d
+XFAIL:	nocompile/r/remove_04.d
+XFAIL:	nocompile/r/remove_05.d
 XFAIL:	nocompile/scope_01.d
 XPASS:	nocompile/scope_02.d
 XFAIL:	nocompile/short_02.d
@@ -753,6 +769,8 @@ XFAIL:	nocompile/__TIME__02.d
 XFAIL:	nocompile/__TIMESTAMP__02.d
 XFAIL:	nocompile/try_05.d
 XFAIL:	nocompile/try_09.d
+ERROR:	nocompile/t/template_16.d
+ERROR:	nocompile/t/template_class_09.d
 XFAIL:	nocompile/typeof_05.d
 XFAIL:	nocompile/typeof_06.d
 XFAIL:	nocompile/types_declaration_02.d
@@ -802,7 +820,7 @@ XFAIL:	nocompile/with_07.d
 rm -f 
 find run -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ run" > run.sh
 chmod +x run.sh
-./run.sh 2>> /tmp/4/127.0.0.1/log.txt
+./run.sh 2>> /tmp2/dstress/log.txt
 FAIL: 	run/a/alias_24_A.d
 PASS: 	run/a/alias_24_B.d
 PASS: 	run/a/array_initialization_15.d
@@ -1190,7 +1208,6 @@ PASS: 	run/delegate_04.d
 PASS: 	run/delegate_06.d
 PASS: 	run/delegate_12.d
 PASS: 	run/delete_01.d
-PASS: 	run/delete_09.d
 PASS: 	run/deprecated_09.d
 PASS: 	run/deprecated_10.d
 PASS: 	run/deprecated_12.d
@@ -1597,6 +1614,12 @@ PASS: 	run/new_10.d
 PASS: 	run/new_11.d
 PASS: 	run/new_12.d
 PASS: 	run/new_13.d
+FAIL: 	run/n/nested_class_01_A.d
+FAIL: 	run/n/nested_class_01_B.d
+PASS: 	run/n/nested_class_01_E.d
+FAIL: 	run/n/nested_class_02_A.d
+FAIL: 	run/n/nested_class_02_B.d
+FAIL: 	run/n/nested_class_02_E.d
 PASS: 	run/odd_bug_01.d
 PASS: 	run/odd_bug_02.d
 PASS: 	run/offsetof_02.d
@@ -1685,8 +1708,31 @@ FAIL: 	run/o/opMul_03.d
 PASS: 	run/o/opMulAssign_12.d
 PASS: 	run/o/opMulAssign_13.d
 PASS: 	run/o/opMulAssign_14.d
+ERROR:	run/o/opSlice_01_A.d [internal compiler error]
+ERROR:	run/o/opSlice_01_B.d [internal compiler error]
+ERROR:	run/o/opSlice_01_C.d [internal compiler error]
+ERROR:	run/o/opSlice_01_D.d [internal compiler error]
+ERROR:	run/o/opSlice_01_E.d [internal compiler error]
+ERROR:	run/o/opSlice_01_F.d [internal compiler error]
+ERROR:	run/o/opSlice_01_G.d [internal compiler error]
+ERROR:	run/o/opSlice_01_H.d [internal compiler error]
+ERROR:	run/o/opSlice_01_I.d [internal compiler error]
+ERROR:	run/o/opSlice_01_J.d [internal compiler error]
+ERROR:	run/o/opSlice_01_K.d [internal compiler error]
+ERROR:	run/o/opSlice_01_L.d [internal compiler error]
+ERROR:	run/o/opSlice_01_M.d [internal compiler error]
+ERROR:	run/o/opSlice_01_N.d [internal compiler error]
+ERROR:	run/o/opSlice_01_O.d [internal compiler error]
+ERROR:	run/o/opSlice_01_P.d [internal compiler error]
+FAIL: 	run/o/opSlice_01_Q.d
+FAIL: 	run/o/opSlice_01_R.d
+ERROR:	run/o/opSlice_01_S.d [internal compiler error]
+ERROR:	run/o/opSlice_01_T.d [internal compiler error]
+ERROR:	run/o/opSlice_01_U.d [internal compiler error]
 FAIL: 	run/o/overload_23.d
 FAIL: 	run/o/overload_24.d
+FAIL: 	run/o/overload_25_A.d
+FAIL: 	run/o/overload_25_B.d
 PASS: 	run/opCast_01.d
 PASS: 	run/opCast_02.d
 FAIL: 	run/opCast_03.d
@@ -1868,6 +1914,7 @@ PASS: 	run/reverse_06.d
 PASS: 	run/reverse_07.d
 PASS: 	run/r/real_23_A.d
 PASS: 	run/r/real_23_B.d
+FAIL: 	run/r/remove_01.d
 PASS: 	run/short_01.d
 PASS: 	run/sizeof_01.d
 PASS: 	run/sizeof_02.d
@@ -1905,6 +1952,12 @@ FAIL: 	run/s/static_30_A.d
 PASS: 	run/s/static_30_B.d
 PASS: 	run/s/static_30_C.d
 PASS: 	run/s/static_31.d
+PASS: 	run/s/static_if_04_A.d
+PASS: 	run/s/static_if_04_B.d
+PASS: 	run/s/static_if_04_C.d
+PASS: 	run/s/static_if_04_D.d
+PASS: 	run/s/static_if_05_A.d
+PASS: 	run/s/static_if_05_B.d
 PASS: 	run/s/struct_initialization_07_B.d
 PASS: 	run/s/struct_initialization_07.d
 PASS: 	run/static_01.d
@@ -1974,7 +2027,7 @@ FAIL: 	run/template_class_04.d
 FAIL: 	run/template_class_05.d
 PASS: 	run/template_class_06.d
 PASS: 	run/template_struct_01.d
-PASS: 	run/this_03.d
+FAIL: 	run/this_03.d
 PASS: 	run/throw_01.d
 PASS: 	run/throw_02.d
 PASS: 	run/throw_03.d
@@ -2089,8 +2142,8 @@ PASS: 	run/typeid_80.d
 PASS: 	run/typeid_81.d
 PASS: 	run/typeid_82.d
 PASS: 	run/typeid_83.d
-PASS: 	run/typeid_84.d
-PASS: 	run/typeid_85.d
+FAIL: 	run/typeid_84.d
+FAIL: 	run/typeid_85.d
 PASS: 	run/typeof_01.d
 PASS: 	run/typeof_02.d
 PASS: 	run/typeof_03.d
@@ -2141,6 +2194,7 @@ PASS: 	run/version_05.d
 PASS: 	run/version_07.d
 PASS: 	run/version_08.d
 PASS: 	run/version_29.d
+PASS: 	run/v/void_01.d
 PASS: 	run/wchar_03.d
 PASS: 	run/wchar_05.d
 PASS: 	run/wchar_07.d
@@ -2180,7 +2234,7 @@ FAIL: 	run/xhtml_tag_01.html
 rm -f 
 find norun -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
-./norun.sh 2>> /tmp/4/127.0.0.1/log.txt
+./norun.sh 2>> /tmp2/dstress/log.txt
 XFAIL:	norun/a/assert_10_A.d
 XFAIL:	norun/a/assert_10_B.d
 XPASS:	norun/a/assert_10_C.d
@@ -2211,6 +2265,6 @@ XFAIL: complex/command_line/command_line_null_source_05
 XFAIL: complex/command_line/command_line_null_source_06
 PASS:  complex/linking/linking_01
 PASS:  complex/linking/linking_02_A
-FAIL:  complex/linking/linking_02_B
-FAIL:  complex/linking/linking_02_C
-FAIL:  complex/linking/linking_02 (compiling error)
+PASS:  complex/linking/linking_02_B
+PASS:  complex/linking/linking_02_C
+PASS:  complex/linking/linking_02

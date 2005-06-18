@@ -1,5 +1,5 @@
 >>>> VERSION <<<<
-四,  2  6月 2005 13:43:15 +0200
+Fr, 17 Jun 2005 22:03:52 +0200
 Linux 2.6.11.8-A-B i686
 Digital Mars D Compiler v0.124
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
@@ -29,9 +29,9 @@ Usage:
   -version=level compile in version code >= level
   -version=ident compile in version code identified by ident
   -w             enable warnings
-make: [version] 错误 1 (忽略)
+make: [version] Fehler 1 (ignoriert)
 Error: unrecognized switch '--version'
-make: [version] 错误 1 (忽略)
+make: [version] Fehler 1 (ignoriert)
 <<<< VERSION >>>>
 compile: dmd-0.124   -c -odobj  compile/a/abstract_13.d 1> log.tmp 2>&1
 EXIT CODE: 0
@@ -312,6 +312,19 @@ EXIT CODE: 0
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/a/alias_23.d 1> log.tmp 2>&1
 EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/a/alias_25_A.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/a/alias_25_B.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/a/alias_25_C.d 1> log.tmp 2>&1
+nocompile/a/alias_25_C.d(18): alias addon.alias_25_Z.iDeprecated is deprecated
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/a/array_initialization_10.d 1> log.tmp 2>&1
@@ -829,6 +842,11 @@ nocompile/cast_24.d(16): incompatible types for -
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.124   -c -odobj  nocompile/c/class_16.d 1> log.tmp 2>&1
+nocompile/c/class_16.d(9): class dstress.nocompile.c.class_16.A circular inheritance
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.124   -c -odobj  nocompile/c/creal_25.d 1> log.tmp 2>&1
 nocompile/c/creal_25.d(14): semicolon expected, not 'i'
 EXIT CODE: 256
@@ -1061,8 +1079,8 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/__DATE__02.d 1> log.tmp 2>&1
-nocompile/__DATE__02.d(10): "Jun  2 2005" is not an lvalue
-nocompile/__DATE__02.d(10): cannot assign to static array "Jun  2 2005"
+nocompile/__DATE__02.d(10): "Jun 17 2005" is not an lvalue
+nocompile/__DATE__02.d(10): cannot assign to static array "Jun 17 2005"
 EXIT CODE: 256
 
 --------
@@ -1124,6 +1142,22 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/d/delegate_14_B.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/d/delete_09_A.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/d/delete_09_B.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/d/delete_09_C.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/d/delete_09_D.d 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
@@ -2889,6 +2923,38 @@ nocompile/new_22.d(9): allocator dstress.nocompile.new_22.new new allocators onl
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.124   -c -odobj  nocompile/n/nested_class_01_C.d 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/n/nested_class_01_D.d 1> log.tmp 2>&1
+nocompile/n/nested_class_01_D.d(14): this for i needs to be type Outer not type dstress.nocompile.n.nested_class_01_D.Outer.Inner
+nocompile/n/nested_class_01_D.d(14): class dstress.nocompile.n.nested_class_01_D.Outer.Inner member i is not accessible
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/n/nested_class_02_C.d 1> log.tmp 2>&1
+nocompile/n/nested_class_02_C.d(12): undefined identifier m
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/n/nested_class_02_D.d 1> log.tmp 2>&1
+nocompile/n/nested_class_02_D.d(12): basic type expected, not class
+nocompile/n/nested_class_02_D.d(12): no identifier for declarator int
+nocompile/n/nested_class_02_D.d(12): semicolon expected, not 'class'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/n/new_23.d 1> log.tmp 2>&1
+nocompile/n/new_23.d(19): non-constant expression new B 
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/n/new_24.d 1> log.tmp 2>&1
+nocompile/n/new_24.d(19): non-constant expression new B 
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.124   -c -odobj  nocompile/offset_01.d 1> log.tmp 2>&1
 nocompile/offset_01.d(19): no property 'offset' for type 'int'
 nocompile/offset_01.d(20): no property 'offset' for type 'int'
@@ -3099,6 +3165,10 @@ nocompile: dmd-0.124   -c -odobj  nocompile/o/opSubAssign_01.d 1> log.tmp 2>&1
 nocompile/o/opSubAssign_01.d(17): semicolon expected, not '-='
 nocompile/o/opSubAssign_01.d(17): found '-=' instead of statement
 EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/o/overload_25_C.d 1> log.tmp 2>&1
+EXIT CODE: 0
 
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/o/override_10.d 1> log.tmp 2>&1
@@ -3642,6 +3712,31 @@ nocompile/real_24.d(9): cannot implicitly convert expression (2 + 0.1i) of type 
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.124   -c -odobj  nocompile/r/remove_02.d 1> log.tmp 2>&1
+nocompile/r/remove_02.d(11): no property 'remove' for type 'object.Object'
+nocompile/r/remove_02.d(11): function expected before (), not 'int'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/r/remove_03.d 1> log.tmp 2>&1
+nocompile/r/remove_03.d(13): found 's' when expecting ';' following 'statement'
+nocompile/r/remove_03.d(13): expression expected, not ';'
+nocompile/r/remove_03.d(14): found 's' when expecting ';' following 'statement'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/r/remove_04.d 1> log.tmp 2>&1
+nocompile/r/remove_04.d(11): undefined identifier remove
+nocompile/r/remove_04.d(11): function expected before (), not 'int'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/r/remove_05.d 1> log.tmp 2>&1
+nocompile/r/remove_05.d(11): undefined identifier remove
+nocompile/r/remove_05.d(11): function expected before (), not 'int'
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.124   -c -odobj  nocompile/scope_01.d 1> log.tmp 2>&1
 nocompile/scope_01.d(18): this for status needs to be type MyClass not type MyStruct *
 EXIT CODE: 256
@@ -3943,14 +4038,14 @@ EXIT CODE: 0
 
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/__TIME__02.d 1> log.tmp 2>&1
-nocompile/__TIME__02.d(10): "13:45:04" is not an lvalue
-nocompile/__TIME__02.d(10): cannot assign to static array "13:45:04"
+nocompile/__TIME__02.d(10): "22:07:13" is not an lvalue
+nocompile/__TIME__02.d(10): cannot assign to static array "22:07:13"
 EXIT CODE: 256
 
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/__TIMESTAMP__02.d 1> log.tmp 2>&1
-nocompile/__TIMESTAMP__02.d(10): "Thu Jun  2 13:45:04 2005" is not an lvalue
-nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Thu Jun  2 13:45:04 2005"
+nocompile/__TIMESTAMP__02.d(10): "Fri Jun 17 22:07:13 2005" is not an lvalue
+nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Fri Jun 17 22:07:13 2005"
 EXIT CODE: 256
 
 --------
@@ -3962,6 +4057,14 @@ EXIT CODE: 256
 nocompile: dmd-0.124   -c -odobj  nocompile/try_09.d 1> log.tmp 2>&1
 nocompile/try_09.d(11): label no_label is undefined
 EXIT CODE: 256
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/t/template_16.d 1> log.tmp 2>&1
+EXIT CODE: 9
+
+--------
+nocompile: dmd-0.124   -c -odobj  nocompile/t/template_class_09.d 1> log.tmp 2>&1
+EXIT CODE: 9
 
 --------
 nocompile: dmd-0.124   -c -odobj  nocompile/typeof_05.d 1> log.tmp 2>&1
@@ -4212,6 +4315,13 @@ run: dmd-0.124   -odobj  -ofrun/a/alias_24_B.d.exe run/a/alias_24_B.d 1> log.tmp
 gcc obj/alias_24_B.o -o run/a/alias_24_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
 run/a/alias_24_B.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   addon/alias_25_Z.d -odobj  -ofrun/a/alias_25_D.d.exe run/a/alias_25_D.d 1> log.tmp 2>&1
+gcc obj/alias_25_Z.o obj/alias_25_D.o -o run/a/alias_25_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/a/alias_25_D.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
@@ -6901,13 +7011,6 @@ run: dmd-0.124   -odobj  -ofrun/delete_01.d.exe run/delete_01.d 1> log.tmp 2>&1
 gcc obj/delete_01.o -o run/delete_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
 run/delete_01.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
-
---------
-run: dmd-0.124   -odobj  -ofrun/delete_09.d.exe run/delete_09.d 1> log.tmp 2>&1
-gcc obj/delete_09.o -o run/delete_09.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
-EXIT CODE: 0
-run/delete_09.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
@@ -10073,6 +10176,42 @@ run/new_13.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.124   -odobj  -ofrun/n/nested_class_01_A.d.exe run/n/nested_class_01_A.d 1> log.tmp 2>&1
+run/n/nested_class_01_A.d(17): this for value needs to be type Outer not type dstress.run.n.nested_class_01_A.Outer.Inner
+run/n/nested_class_01_A.d(17): class dstress.run.n.nested_class_01_A.Outer.Inner member value is not accessible
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/n/nested_class_01_B.d.exe run/n/nested_class_01_B.d 1> log.tmp 2>&1
+run/n/nested_class_01_B.d(18): this for value needs to be type Outer not type dstress.run.n.nested_class_01_B.Outer.Inner
+run/n/nested_class_01_B.d(18): class dstress.run.n.nested_class_01_B.Outer.Inner member value is not accessible
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/n/nested_class_01_E.d.exe run/n/nested_class_01_E.d 1> log.tmp 2>&1
+gcc obj/nested_class_01_E.o -o run/n/nested_class_01_E.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/n/nested_class_01_E.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/n/nested_class_02_A.d.exe run/n/nested_class_02_A.d 1> log.tmp 2>&1
+run/n/nested_class_02_A.d(12): function dstress.run.n.nested_class_02_A.func.Inner.test cannot access frame of function func
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/n/nested_class_02_B.d.exe run/n/nested_class_02_B.d 1> log.tmp 2>&1
+run/n/nested_class_02_B.d(12): function dstress.run.n.nested_class_02_B.func.Inner.test cannot access frame of function func
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/n/nested_class_02_E.d.exe run/n/nested_class_02_E.d 1> log.tmp 2>&1
+run/n/nested_class_02_E.d(10): basic type expected, not class
+run/n/nested_class_02_E.d(10): no identifier for declarator int
+run/n/nested_class_02_E.d(10): semicolon expected, not 'class'
+EXIT CODE: 256
+
+--------
 run: dmd-0.124   -odobj  -ofrun/odd_bug_01.d.exe run/odd_bug_01.d 1> log.tmp 2>&1
 gcc obj/odd_bug_01.o -o run/odd_bug_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
@@ -10689,6 +10828,117 @@ run/o/opMulAssign_14.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_A.d.exe run/o/opSlice_01_A.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_B.d.exe run/o/opSlice_01_B.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_C.d.exe run/o/opSlice_01_C.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_D.d.exe run/o/opSlice_01_D.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_E.d.exe run/o/opSlice_01_E.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_F.d.exe run/o/opSlice_01_F.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_G.d.exe run/o/opSlice_01_G.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_H.d.exe run/o/opSlice_01_H.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_I.d.exe run/o/opSlice_01_I.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_J.d.exe run/o/opSlice_01_J.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_K.d.exe run/o/opSlice_01_K.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_L.d.exe run/o/opSlice_01_L.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_M.d.exe run/o/opSlice_01_M.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_N.d.exe run/o/opSlice_01_N.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_O.d.exe run/o/opSlice_01_O.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_P.d.exe run/o/opSlice_01_P.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_Q.d.exe run/o/opSlice_01_Q.d 1> log.tmp 2>&1
+gcc obj/opSlice_01_Q.o -o run/o/opSlice_01_Q.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/o/opSlice_01_Q.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opSlice_01_Q.d(24)
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_R.d.exe run/o/opSlice_01_R.d 1> log.tmp 2>&1
+gcc obj/opSlice_01_R.o -o run/o/opSlice_01_R.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/o/opSlice_01_R.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/opSlice_01_R.d(24)
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_S.d.exe run/o/opSlice_01_S.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_T.d.exe run/o/opSlice_01_T.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/opSlice_01_U.d.exe run/o/opSlice_01_U.d 1> log.tmp 2>&1
+Internal error: ../ztc/cod1.c 2503
+EXIT CODE: 256
+
+--------
 run: dmd-0.124   -odobj  -ofrun/o/overload_23.d.exe run/o/overload_23.d 1> log.tmp 2>&1
 gcc obj/overload_23.o -o run/o/overload_23.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
@@ -10702,6 +10952,19 @@ gcc obj/overload_24.o -o run/o/overload_24.d.exe -lphobos -lpthread -lm -Xlinker
 EXIT CODE: 0
 run/o/overload_24.d.exe 1> log.tmp 2>&1
 Error: AssertError Failure run/o/overload_24.d(32)
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/overload_25_A.d.exe run/o/overload_25_A.d 1> log.tmp 2>&1
+run/o/overload_25_A.d(12): function dstress.run.o.overload_25_A.testT!(byte) testT_g.test conflicts with dstress.run.o.overload_25_A.testT!(ubyte) testT_h.test at run/o/overload_25_A.d(12)
+EXIT CODE: 256
+
+--------
+run: dmd-0.124   -odobj  -ofrun/o/overload_25_B.d.exe run/o/overload_25_B.d 1> log.tmp 2>&1
+gcc obj/overload_25_B.o -o run/o/overload_25_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/o/overload_25_B.d.exe 1> log.tmp 2>&1
+Error: AssertError Failure run/o/overload_25_B.d(26)
 EXIT CODE: 256
 
 --------
@@ -11988,6 +12251,13 @@ run/r/real_23_B.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.124   -odobj  -ofrun/r/remove_01.d.exe run/r/remove_01.d 1> log.tmp 2>&1
+run/r/remove_01.d(25): found '!' when expecting ')'
+run/r/remove_01.d(25): found ')' when expecting ';' following 'statement'
+run/r/remove_01.d(30): !(TemplateArgumentList) expected following TemplateIdentifier
+EXIT CODE: 256
+
+--------
 run: dmd-0.124   -odobj  -ofrun/short_01.d.exe run/short_01.d 1> log.tmp 2>&1
 gcc obj/short_01.o -o run/short_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
@@ -12241,6 +12511,48 @@ run: dmd-0.124   addon/static_31_Z.d -odobj  -ofrun/s/static_31.d.exe run/s/stat
 gcc obj/static_31_Z.o obj/static_31.o -o run/s/static_31.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
 run/s/static_31.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/s/static_if_04_A.d.exe run/s/static_if_04_A.d 1> log.tmp 2>&1
+gcc obj/static_if_04_A.o -o run/s/static_if_04_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/s/static_if_04_A.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/s/static_if_04_B.d.exe run/s/static_if_04_B.d 1> log.tmp 2>&1
+gcc obj/static_if_04_B.o -o run/s/static_if_04_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/s/static_if_04_B.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/s/static_if_04_C.d.exe run/s/static_if_04_C.d 1> log.tmp 2>&1
+gcc obj/static_if_04_C.o -o run/s/static_if_04_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/s/static_if_04_C.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/s/static_if_04_D.d.exe run/s/static_if_04_D.d 1> log.tmp 2>&1
+gcc obj/static_if_04_D.o -o run/s/static_if_04_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/s/static_if_04_D.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/s/static_if_05_A.d.exe run/s/static_if_05_A.d 1> log.tmp 2>&1
+gcc obj/static_if_05_A.o -o run/s/static_if_05_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/s/static_if_05_A.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/s/static_if_05_B.d.exe run/s/static_if_05_B.d 1> log.tmp 2>&1
+gcc obj/static_if_05_B.o -o run/s/static_if_05_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/s/static_if_05_B.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
@@ -12729,10 +13041,13 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.124   -odobj  -ofrun/this_03.d.exe run/this_03.d 1> log.tmp 2>&1
-gcc obj/this_03.o -o run/this_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
-EXIT CODE: 0
-run/this_03.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
+run/this_03.d(20): identifier 'remove' is not defined
+run/this_03.d(20): remove is used as a type
+run/this_03.d(20): Integer constant expression expected instead of this
+run/this_03.d(20): Integer constant expression expected instead of this
+integral constant must be scalar type, not void
+cannot implicitly convert expression (0) of type int to void
+EXIT CODE: 256
 
 --------
 run: dmd-0.124   -odobj  -ofrun/throw_01.d.exe run/throw_01.d 1> log.tmp 2>&1
@@ -13555,14 +13870,16 @@ run: dmd-0.124   -odobj  -ofrun/typeid_84.d.exe run/typeid_84.d 1> log.tmp 2>&1
 gcc obj/typeid_84.o -o run/typeid_84.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
 run/typeid_84.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
+Error: AssertError Failure run/typeid_84.d(16)
+EXIT CODE: 256
 
 --------
 run: dmd-0.124   -odobj  -ofrun/typeid_85.d.exe run/typeid_85.d 1> log.tmp 2>&1
 gcc obj/typeid_85.o -o run/typeid_85.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
 run/typeid_85.d.exe 1> log.tmp 2>&1
-EXIT CODE: 0
+Error: AssertError Failure run/typeid_85.d(16)
+EXIT CODE: 256
 
 --------
 run: dmd-0.124   -odobj  -ofrun/typeof_01.d.exe run/typeof_01.d 1> log.tmp 2>&1
@@ -13913,6 +14230,13 @@ run: dmd-0.124   -odobj  -ofrun/version_29.d.exe run/version_29.d 1> log.tmp 2>&
 gcc obj/version_29.o -o run/version_29.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
 EXIT CODE: 0
 run/version_29.d.exe 1> log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+run: dmd-0.124   -odobj  -ofrun/v/void_01.d.exe run/v/void_01.d 1> log.tmp 2>&1
+gcc obj/void_01.o -o run/v/void_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
+EXIT CODE: 0
+run/v/void_01.d.exe 1> log.tmp 2>&1
 EXIT CODE: 0
 
 --------
@@ -14376,10 +14700,4 @@ Error: invalid file name ''
 Error: invalid file name '..d'
 Error: invalid file name '..d'
 gcc obj/a.o obj/b.o obj/c.o -o complex/linking/linking_01 -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
-complex/linking/b.d(12): module a cannot read file 'dstress/complex/linking/a.d'
-complex/linking/c.d(12): module a cannot read file 'dstress/complex/linking/a.d'
 gcc complex/linking/a.o complex/linking/b.o complex/linking/c.o -o complex/linking/linking_02 -lphobos -lpthread -lm -Xlinker -L/opt/digitalmars/124/dmd/lib 
-gcc: complex/linking/b.o: No such file or directory
-gcc: complex/linking/c.o: No such file or directory
---- errorlevel 1
-sh: line 1: ./complex/linking/linking_02: No such file or directory

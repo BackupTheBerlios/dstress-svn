@@ -78,5 +78,6 @@ Uwe Salomon		<post@uwesalomon.de>
 Valéry			<valery@freesurf.fr>
 van eeshan 		<vanee@hotmail.com>
 Vathix 			<vathixSpamFix@dprogramming.com>, <vathix@dprogramming.com>
+Victor Nakoryakov	<nail-mail@mail.ru>
 Walter Bright		<newshound@digitalmars.com>
 zwang			<nehzgnaw@gmail.com>

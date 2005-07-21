@@ -7,7 +7,7 @@
 // @uri@	news:dajn75$1hfl$1@digitaldaemon.com
 // @desc@	Internal error: ../ztc/cod2.c 4211
 
-module dstress.run.b.bug_cod2_4211_A;
+module dstress.run.b.bug_cod2_4211_S;
 
 struct Foo{
 	ubyte a, b, c;

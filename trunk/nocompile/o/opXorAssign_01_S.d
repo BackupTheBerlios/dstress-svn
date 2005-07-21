@@ -9,7 +9,7 @@
 
 // __DSTRESS_ELINE__ 16
 
-module dstress.nocompile.o.opXorAssign_01_J;
+module dstress.nocompile.o.opXorAssign_01_S;
 
 void main(){
 	float[1] f=8f;

@@ -7,14 +7,14 @@
 // @uri@	news:dajn75$1hfl$1@digitaldaemon.com
 // @desc@	Internal error: ../ztc/cod2.c 4211
 
-module dstress.run.b.bug_cod2_4211_E;
+module dstress.run.b.bug_cod2_4211_U;
 
 struct Foo{
-	char a, b, c;
+	byte a, b, c;
 }
 
 int bar(Foo e){
-	return e.a*1 + e.b*2 + e.c*3;
+	return e.a + e.b + e.c;
 }
 
 int main() {
@@ -22,6 +22,6 @@ int main() {
 	d.a=1;
 	d.b=2;
 	d.c=3;
-	assert(bar(d)==14);
+	assert(bar(d)==3);
         return 0;
 }

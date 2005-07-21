@@ -8,6 +8,6 @@
 
 // __DSTRESS_ELINE__ 13
 
-module dstress.nocompile.a.array_initialization_17_B;
+module dstress.nocompile.a.array_initialization_18_A;
 
-int[3] qwert = [ 3:666 ];
+int[3] qwert = [ 13, 42, 105, 666 ]; 

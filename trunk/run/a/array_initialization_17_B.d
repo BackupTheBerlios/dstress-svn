@@ -3,7 +3,7 @@
 // $Author$
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
-// @date@	20005-06-14
+// @date@	2005-06-14
 // @uri@	news:d8m7rs$mtv$2@digitaldaemon.com
 // @desc@	misplaced initialisers in static rectangular array
 

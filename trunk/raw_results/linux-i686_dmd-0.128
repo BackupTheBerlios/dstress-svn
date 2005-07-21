@@ -1,7 +1,7 @@
 >>>> VERSION <<<<
-Do, 21 Jul 2005 18:45:35 +0200
+Do, 21 Jul 2005 17:40:50 +0200
 Linux 2.6.11.8-A-B i686
-Digital Mars D Compiler v0.127
+Digital Mars D Compiler v0.128
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
 Usage:
@@ -74,7 +74,7 @@ ERROR:	compile/forward_reference_06.d [bad error message]
 PASS: 	compile/html_empty_01.html
 PASS: 	compile/html_empty_02.html
 PASS: 	compile/inline_02.d
-FAIL: 	compile/inline_03.d
+PASS: 	compile/inline_03.d
 PASS: 	compile/interface_08.d
 PASS: 	compile/interface_09.d
 PASS: 	compile/interface_19.d
@@ -119,8 +119,8 @@ XFAIL:	nocompile/abstract_09.d
 XFAIL:	nocompile/abstract_11.d
 XFAIL:	nocompile/abstract_12.d
 XPASS:	nocompile/alias_05.d
-XFAIL:	nocompile/alias_15.d
-XFAIL:	nocompile/alias_16.d
+ERROR:	nocompile/alias_15.d
+ERROR:	nocompile/alias_16.d
 XFAIL:	nocompile/alias_17.d
 XFAIL:	nocompile/align_02.d
 XFAIL:	nocompile/alignof_01.d
@@ -142,7 +142,7 @@ XFAIL:	nocompile/array_initialization_14.d
 XFAIL:	nocompile/assert_03.d
 XFAIL:	nocompile/assert_08.d
 XFAIL:	nocompile/assert_09.d
-XFAIL:	nocompile/associative_array_01.d
+ERROR:	nocompile/associative_array_01.d
 XFAIL:	nocompile/associative_array_03.d
 XFAIL:	nocompile/associative_array_04.d
 XPASS:	nocompile/associative_array_05.d
@@ -198,7 +198,7 @@ XFAIL:	nocompile/cast_01.d
 XFAIL:	nocompile/cast_02.d
 XFAIL:	nocompile/cast_03.d
 XFAIL:	nocompile/cast_04.d
-XFAIL:	nocompile/cast_10.d
+ERROR:	nocompile/cast_10.d
 XFAIL:	nocompile/cast_19.d
 XFAIL:	nocompile/cast_23.d
 XFAIL:	nocompile/cast_24.d
@@ -248,7 +248,7 @@ XFAIL:	nocompile/const_08.d
 XFAIL:	nocompile/const_09.d
 XFAIL:	nocompile/const_11.d
 XFAIL:	nocompile/constructor_05.d
-XFAIL:	nocompile/__DATE__02.d
+ERROR:	nocompile/__DATE__02.d
 XFAIL:	nocompile/dchar_01.d
 XFAIL:	nocompile/dchar_02.d
 XFAIL:	nocompile/dchar_04.d
@@ -258,7 +258,7 @@ XFAIL:	nocompile/d/debug_09.d
 XFAIL:	nocompile/d/debug_10.d
 XFAIL:	nocompile/d/delegate_14_A.d
 XPASS:	nocompile/d/delegate_14_B.d
-XFAIL:	nocompile/d/delegate_15.d
+ERROR:	nocompile/d/delegate_15.d
 XFAIL:	nocompile/d/delete_09_A.d
 XFAIL:	nocompile/d/delete_09_B.d
 XFAIL:	nocompile/d/delete_09_C.d
@@ -377,8 +377,8 @@ XPASS:	nocompile/evaluation_order_03.d
 XPASS:	nocompile/ExpressionStatement_01.d
 XPASS:	nocompile/ExpressionStatement_02.d
 XFAIL:	nocompile/extern_06.d
-XFAIL:	nocompile/f/function_03.d
-XFAIL:	nocompile/__FILE__02.d
+ERROR:	nocompile/f/function_03.d
+ERROR:	nocompile/__FILE__02.d
 XFAIL:	nocompile/final_01.d
 XPASS:	nocompile/final_04.d
 XPASS:	nocompile/final_07.d
@@ -435,11 +435,11 @@ XFAIL:	nocompile/ifloat_01.d
 XFAIL:	nocompile/ifloat_02.d
 XPASS:	nocompile/i/interface_11.d
 XFAIL:	nocompile/i/ireal_03.d
-ERROR:	nocompile/i/is_01_A.d
-ERROR:	nocompile/i/is_01_B.d
-ERROR:	nocompile/i/is_01_C.d
-ERROR:	nocompile/i/is_01_D.d
-ERROR:	nocompile/i/is_01_E.d
+XFAIL:	nocompile/i/is_01_A.d
+FAIL: 	nocompile/i/is_01_B.d [bad error message]
+XFAIL:	nocompile/i/is_01_C.d
+XFAIL:	nocompile/i/is_01_D.d
+XFAIL:	nocompile/i/is_01_E.d
 XFAIL:	nocompile/import_01.d
 XPASS:	nocompile/import_02.d
 XPASS:	nocompile/import_03.d
@@ -537,7 +537,7 @@ XFAIL:	nocompile/invariant_30.d
 XFAIL:	nocompile/invariant_31.d
 XFAIL:	nocompile/ireal_01.d
 XFAIL:	nocompile/ireal_02.d
-XFAIL:	nocompile/length_03.d
+ERROR:	nocompile/length_03.d
 XFAIL:	nocompile/length_04.d
 XFAIL:	nocompile/length_07.d
 XFAIL:	nocompile/__LINE__02.d
@@ -571,7 +571,7 @@ XFAIL:	nocompile/n/nested_class_02_C.d
 XFAIL:	nocompile/n/nested_class_02_D.d
 XFAIL:	nocompile/n/new_23.d
 XFAIL:	nocompile/n/new_24.d
-XFAIL:	nocompile/o/cast_28.d
+ERROR:	nocompile/o/cast_28.d
 XFAIL:	nocompile/offset_01.d
 XFAIL:	nocompile/offset_02.d
 XFAIL:	nocompile/offset_03.d
@@ -595,13 +595,13 @@ XFAIL:	nocompile/o/opAndAssign_01_O.d
 XFAIL:	nocompile/o/opAndAssign_01_P.d
 XFAIL:	nocompile/o/opAndAssign_01_Q.d
 XFAIL:	nocompile/o/opAndAssign_01_R.d
-XFAIL:	nocompile/o/opAssign_01_A.d
-XFAIL:	nocompile/o/opAssign_01_B.d
-XFAIL:	nocompile/o/opAssign_02_A.d
-XFAIL:	nocompile/o/opAssign_02_B.d
+ERROR:	nocompile/o/opAssign_01_A.d
+ERROR:	nocompile/o/opAssign_01_B.d
+ERROR:	nocompile/o/opAssign_02_A.d
+ERROR:	nocompile/o/opAssign_02_B.d
 XFAIL:	nocompile/o/opAssign_02_C.d
-FAIL: 	nocompile/o/opAssign_02_D.d [bad error message]
-XFAIL:	nocompile/o/opAssign_03_A.d
+ERROR:	nocompile/o/opAssign_02_D.d
+ERROR:	nocompile/o/opAssign_03_A.d
 XFAIL:	nocompile/o/opAssign_03_B.d
 XFAIL:	nocompile/o/opDiv_10_A.d
 XFAIL:	nocompile/o/opDiv_10_B.d
@@ -811,8 +811,8 @@ XFAIL:	nocompile/this_04.d
 XFAIL:	nocompile/this_05.d
 XFAIL:	nocompile/this_06.d
 XPASS:	nocompile/this_07.d
-XFAIL:	nocompile/__TIME__02.d
-XFAIL:	nocompile/__TIMESTAMP__02.d
+ERROR:	nocompile/__TIME__02.d
+ERROR:	nocompile/__TIMESTAMP__02.d
 XFAIL:	nocompile/try_05.d
 XFAIL:	nocompile/try_09.d
 ERROR:	nocompile/t/template_16.d
@@ -853,7 +853,7 @@ XFAIL:	nocompile/version_30.d
 XFAIL:	nocompile/version_31.d
 XPASS:	nocompile/version_32.d
 FAIL: 	nocompile/version_36.d [bad error message]
-ERROR:	nocompile/v/variadic_argument_06_A.d
+XFAIL:	nocompile/v/variadic_argument_06_A.d
 XPASS:	nocompile/v/variadic_argument_06_B.d
 XFAIL:	nocompile/v/version_33.d
 XFAIL:	nocompile/v/version_34.d
@@ -955,20 +955,20 @@ PASS: 	run/b/bug_cg87_1240_C.d
 PASS: 	run/b/bug_cg87_1240_D.d
 PASS: 	run/b/bug_cg87_1240_E.d
 PASS: 	run/b/bug_cg87_1240_F.d
-ERROR:	run/b/bug_cgcs_353_E2.d [internal compiler error]
+PASS: 	run/b/bug_cgcs_353_E2.d
 FAIL: 	run/b/bug_cgcs_353_F2.d
 FAIL: 	run/b/bug_cgcs_353_G2.d
 FAIL: 	run/b/bug_cgcs_353_H2.d
-ERROR:	run/b/bug_cgcs_353_I2.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_J2.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_K2.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_L2.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_M2.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_N2.d [internal compiler error]
+PASS: 	run/b/bug_cgcs_353_I2.d
+PASS: 	run/b/bug_cgcs_353_J2.d
+PASS: 	run/b/bug_cgcs_353_K2.d
+PASS: 	run/b/bug_cgcs_353_L2.d
+PASS: 	run/b/bug_cgcs_353_M2.d
+PASS: 	run/b/bug_cgcs_353_N2.d
 FAIL: 	run/b/bug_cgcs_353_O2.d
 FAIL: 	run/b/bug_cgcs_353_P2.d
 FAIL: 	run/b/bug_cgcs_353_Q2.d
-ERROR:	run/b/bug_cgcs_353_R2.d [internal compiler error]
+PASS: 	run/b/bug_cgcs_353_R2.d
 FAIL: 	run/b/bug_cgcs_353_S2.d
 FAIL: 	run/b/bug_cgcs_353_T2.d
 FAIL: 	run/b/bug_cgcs_353_U2.d
@@ -979,19 +979,19 @@ PASS: 	run/b/bug_cod1_2433_C.d
 PASS: 	run/b/bug_cod1_2433_D.d
 PASS: 	run/b/bug_cod1_2433_E.d
 PASS: 	run/b/bug_cod1_2433_F.d
-ERROR:	run/b/bug_cod2_4211_S.d [internal compiler error]
+PASS: 	run/b/bug_cod2_4211_S.d
 PASS: 	run/b/bug_cod2_4211_T.d
-ERROR:	run/b/bug_cod2_4211_U.d [internal compiler error]
-ERROR:	run/b/bug_cod2_4211_V.d [internal compiler error]
-ERROR:	run/b/bug_cod2_4211_W.d [internal compiler error]
-ERROR:	run/b/bug_cod3_736_A.d [internal compiler error]
+FAIL: 	run/b/bug_cod2_4211_U.d
+PASS: 	run/b/bug_cod2_4211_V.d
+PASS: 	run/b/bug_cod2_4211_W.d
+PASS: 	run/b/bug_cod3_736_A.d
 PASS: 	run/b/bug_cod3_736_B.d
 PASS: 	run/b/bug_evalu8_174_A.d
 PASS: 	run/b/bug_evalu8_174_B.d
 PASS: 	run/b/bug_evalu8_174_C.d
 PASS: 	run/b/bug_evalu8_174_D.d
 PASS: 	run/b/bug_evalu8_174_E.d
-ERROR:	run/b/bug_toobj_191_A.d
+PASS: 	run/b/bug_toobj_191_A.d
 PASS: 	run/b/bug_toobj_191_B.d
 PASS: 	run/b/bug_toobj_191_C.d
 ERROR:	run/b/bug_toobj_191_D.d
@@ -1406,7 +1406,7 @@ FAIL: 	run/f/forward_reference_12_F.d
 PASS: 	run/__FILE__01.d
 PASS: 	run/final_02.d
 PASS: 	run/final_03.d
-ERROR:	run/final_05.d
+PASS: 	run/final_05.d
 PASS: 	run/final_06.d
 PASS: 	run/finally_01.d
 PASS: 	run/float_01.d
@@ -1554,14 +1554,12 @@ PASS: 	run/i/inline_10_A.d
 FAIL: 	run/i/inline_10_B.d
 PASS: 	run/i/inline_10_C.d
 PASS: 	run/i/inline_11_A.d
-FAIL: 	run/i/inline_11_B.d
+PASS: 	run/i/inline_11_B.d
 PASS: 	run/i/inline_11_C.d
 PASS: 	run/i/inline_11_D.d
 PASS: 	run/i/inline_12_A.d
-FAIL: 	run/i/inline_12_B.d
+PASS: 	run/i/inline_12_B.d
 PASS: 	run/i/inline_12_C.d
-PASS: 	run/i/inline_13_A.d
-FAIL: 	run/i/inline_13_B.d
 PASS: 	run/i/int_09_A.d
 PASS: 	run/i/int_09_B.d
 PASS: 	run/in_01.d
@@ -1584,7 +1582,7 @@ PASS: 	run/init_02.d
 FAIL: 	run/init_03.d
 PASS: 	run/init_04.d
 PASS: 	run/init_05.d
-FAIL: 	run/inline_04.d
+PASS: 	run/inline_04.d
 PASS: 	run/inline_05.d
 PASS: 	run/inline_06.d
 PASS: 	run/inline_09.d
@@ -1805,23 +1803,23 @@ PASS: 	run/o/opAndAssign_01_I.d
 FAIL: 	run/o/opCat_07_A.d
 PASS: 	run/o/opCat_07_B.d
 FAIL: 	run/o/opCat_15_A.d
-FAIL: 	run/o/opCat_15_B.d
-FAIL: 	run/o/opCat_15_C.d
-FAIL: 	run/o/opCat_15_D.d
-FAIL: 	run/o/opCat_15_E.d
-FAIL: 	run/o/opCat_15_F.d
-FAIL: 	run/o/opCat_15_G.d
-FAIL: 	run/o/opCat_15_H.d
-FAIL: 	run/o/opCat_15_I.d
-FAIL: 	run/o/opCat_15_J.d
-FAIL: 	run/o/opCat_15_K.d
-FAIL: 	run/o/opCat_15_L.d
-FAIL: 	run/o/opCat_15_M.d
-FAIL: 	run/o/opCat_15_N.d
-FAIL: 	run/o/opCat_15_O.d
-FAIL: 	run/o/opCat_15_P.d
-FAIL: 	run/o/opCat_15_Q.d
-FAIL: 	run/o/opCat_15_R.d
+PASS: 	run/o/opCat_15_B.d
+PASS: 	run/o/opCat_15_C.d
+PASS: 	run/o/opCat_15_D.d
+PASS: 	run/o/opCat_15_E.d
+PASS: 	run/o/opCat_15_F.d
+PASS: 	run/o/opCat_15_G.d
+PASS: 	run/o/opCat_15_H.d
+PASS: 	run/o/opCat_15_I.d
+PASS: 	run/o/opCat_15_J.d
+PASS: 	run/o/opCat_15_K.d
+PASS: 	run/o/opCat_15_L.d
+PASS: 	run/o/opCat_15_M.d
+PASS: 	run/o/opCat_15_N.d
+PASS: 	run/o/opCat_15_O.d
+PASS: 	run/o/opCat_15_P.d
+PASS: 	run/o/opCat_15_Q.d
+PASS: 	run/o/opCat_15_R.d
 FAIL: 	run/o/opCat_15_S.d
 FAIL: 	run/o/opCat_15_T.d
 FAIL: 	run/o/opCat_15_U.d
@@ -1894,8 +1892,8 @@ PASS: 	run/opCat_01.d
 PASS: 	run/opCat_02.d
 PASS: 	run/opCat_03.d
 PASS: 	run/opCat_04.d
-ERROR:	run/opCat_05.d [internal compiler error]
-ERROR:	run/opCat_06.d [internal compiler error]
+PASS: 	run/opCat_05.d
+PASS: 	run/opCat_06.d
 PASS: 	run/opCatAssign_01.d
 PASS: 	run/opCatAssign_02.d
 PASS: 	run/opCatAssign_03.d
@@ -1926,7 +1924,7 @@ PASS: 	run/opDivAssign_11.d
 PASS: 	run/opEquals_01.d
 FAIL: 	run/opIdentity_01.d
 PASS: 	run/opIdentity_02.d
-FAIL: 	run/opIndex_01.d
+PASS: 	run/opIndex_01.d
 PASS: 	run/opIndex_02.d
 PASS: 	run/opIndex_03.d
 PASS: 	run/opIndex_04.d
@@ -2122,7 +2120,6 @@ PASS: 	run/s/static_if_05_A.d
 PASS: 	run/s/static_if_05_B.d
 PASS: 	run/s/struct_initialization_07_B.d
 PASS: 	run/s/struct_initialization_07.d
-PASS: 	run/s/synchronized_01_B.d
 PASS: 	run/static_01.d
 PASS: 	run/static_02.d
 PASS: 	run/static_03.d
@@ -2377,7 +2374,7 @@ PASS: 	run/with_09.d
 PASS: 	run/with_10.d
 PASS: 	run/with_11.d
 PASS: 	run/with_12.d
-FAIL: 	run/with_13.d
+ERROR:	run/with_13.d
 PASS: 	run/Wysiwyg_String_01.d
 PASS: 	run/Wysiwyg_String_02.d
 PASS: 	run/Wysiwyg_String_03.d
@@ -2394,8 +2391,6 @@ PASS: 	run/Wysiwyg_String_13.d
 PASS: 	run/Wysiwyg_String_14.d
 PASS: 	run/Wysiwyg_String_15.d
 FAIL: 	run/xhtml_tag_01.html
-cc  crashRun.c -o crashRun__
-cc  dstress.c -o dstress__
 rm -f 
 find norun -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress__ norun" > norun.sh
 chmod +x norun.sh
@@ -2435,7 +2430,3 @@ PASS:  complex/linking/linking_02_A
 PASS:  complex/linking/linking_02_B
 PASS:  complex/linking/linking_02_C
 PASS:  complex/linking/linking_02
-PASS:  complex/typeinfo_init/typeinfo_init_01
-PASS:  complex/typeinfo_init/typeinfo_init_02_A
-PASS:  complex/typeinfo_init/typeinfo_init_02_B
-FAIL:  complex/typeinfo_init/typeinfo_init_02 (compiling error)

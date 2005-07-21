@@ -20,7 +20,7 @@
 # NOTE: almost all tests can be written using __DSTRESS_DFLAGS__
 #
 
-.PHONY: \
+.PHONY:: \
 	complex/command_line/warning \
 	complex/command_line/$(complex_done) \
 	complex/command_line/clean

@@ -20,7 +20,7 @@
 # NOTE: almost all tests can be written using __DSTRESS_DFLAGS__
 #
 
-.PHONY: \
+.PHONY:: \
 	complex/linking/warning \
 	complex/linking/$(complex_done) \
 	complex/linking/clean \

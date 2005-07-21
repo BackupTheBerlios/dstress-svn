@@ -99,7 +99,7 @@ complex_todo 	:= complex.mak
 complex_done 	:= complex.done
 flag_pattern 	:= __DSTRESS_DFLAGS__
 
-.PHONY: all version basic_tools compile nocompile run norun complex clean distclean clean_log
+.PHONY:: all version basic_tools compile nocompile run norun complex clean distclean clean_log
 
 .SUFFIXES: $(ext_run) $(ext_norun) $(ext_nocompile) $(ext_compile) 
 #
@@ -321,7 +321,9 @@ clean_log :
 #
 # remove targets and all temp objects
 #
-clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles))) nocompile_clean compile_clean norun_clean run_clean
+complex_clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles)))
+	
+clean : complex_clean nocompile_clean compile_clean norun_clean run_clean
 	$(RM) $(z_rm) $(OBJ_DIR)/?*.*
 	$(RM) run.sh norun.sh compile.sh nocompile.sh
 

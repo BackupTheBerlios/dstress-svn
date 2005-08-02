@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// $Autor$
+// $Author$
 
 // @author@	zwang <nehzgnaw@gmail.com>
 // @date@	2005-08-01

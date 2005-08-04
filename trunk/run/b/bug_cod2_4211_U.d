@@ -22,6 +22,6 @@ int main() {
 	d.a=1;
 	d.b=2;
 	d.c=3;
-	assert(bar(d)==3);
+	assert(bar(d)==6);
         return 0;
 }

@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// $Autor$
+// $Author$
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2005-07-31

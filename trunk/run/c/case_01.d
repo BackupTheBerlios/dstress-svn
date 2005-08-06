@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// $Autor$
+// $Author$
 
 // @author@	Paul Guerra <Paul_member@pathlink.com>
 // @date@	2005-07-29

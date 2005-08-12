@@ -24,7 +24,7 @@
  *
  */
 
-/* Beware: the code doesn't care about freeing allocated memory etc... */
+/* Beware: the code doesn't care about freeing allocated memory etc. . .. */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -105,7 +105,7 @@ char* strip(char* buffer){
 		}
 
 		char* tmp;
-		for(tmp=buffer+strlen(buffer); isspace(tmp[0]); tmp=buffer+strlen(buffer)){
+		for(tmp=buffer+strlen(buffer)-1; isspace(tmp[0]); tmp=buffer+strlen(buffer)-1){
 			tmp[0]='\x00';
 		}
 	}
@@ -313,38 +313,23 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	if(file!=NULL){
 		if(line!=NULL){
 			dmd = malloc(strlen(file)+strlen(line)+5);
-			dmd[0]='\x00';
-			strcat(dmd, file);
-			strcat(dmd, "(");
-			strcat(dmd, line);
-			strcat(dmd, ")");
+			sprintf(dmd, "%s(%s)", file, line);
+
 			gdc = malloc(strlen(file)+strlen(line)+4);
-			gdc[0]='\x00';
-			strcat(gdc, file);
-			strcat(gdc, ":");
-			strcat(gdc, line);
-			strcat(gdc, ": ");
+			sprintf(gdc, "%s:%s: ", file, line);
 		}else{
 			dmd = malloc(strlen(file)+2);
-			dmd[0]='\x00';
-			strcat(dmd, file);
-			strcat(dmd, "(");
+			sprintf(dmd, "%s(", file);
+
 			gdc = malloc(strlen(file)+2);
-			gdc[0]='\x00';
-			strcat(gdc, file);
-			strcat(gdc, ":");
+			sprintf(gdc, "%s:", file);
 		}
 	}else if(line!=NULL){
 		dmd = malloc(strlen(line)+5);
-		dmd[0]='\x00';
-		strcat(dmd, "(");
-		strcat(dmd, line);
-		strcat(dmd, "): ");
+		sprintf(dmd, "(%s): ", line);
+
 		gdc = malloc(strlen(line)+4);
-		gdc[0]='\x00';
-		strcat(gdc, ":");
-		strcat(gdc, line);
-		strcat(gdc, ": ");
+		sprintf(gdc, ":%s: ", line);
 	}else{
 		return 1;
 	}
@@ -413,12 +398,7 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 			strcat(phobos, ")");
 
 			phobosLong = malloc(strlen(file)+strlen(line)+5);
-			phobosLong[0]='\x00';
-			strcat(phobosLong, file);
-			strcat(phobosLong, "(");
-			strcat(phobosLong, line);
-			strcat(phobosLong, ")");
-
+			sprintf(phobosLong, "%s(%s)", file, line);
 		}else{
 			phobos = malloc(strlen(file)+2);
 			phobos[0]='\x00';
@@ -438,16 +418,11 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 			strcat(phobos, "(");
 
 			phobosLong = malloc(strlen(file)+2);
-			phobosLong[0]='\x00';
-			strcat(phobosLong, file);
-			strcat(phobosLong, "(");
+			sprintf(phobosLong, "%s(", file);
 		}
 	}else if(line!=NULL){
 		phobos = malloc(strlen(line)+3);
-		phobos[0]='\x00';
-		strcat(phobos, "(");
-		strcat(phobos, line);
-		strcat(phobos, ")");
+		sprintf(phobos, "(%s)", line);
 
 		phobosLong=NULL;
 	}else{
@@ -480,11 +455,7 @@ int hadExecCrash(const char* buffer){
 int crashRun(const char* cmd){
 #ifdef USE_POSIX
 	char* buffer=malloc(4+strlen(CRASH_RUN)+strlen(cmd));
-	buffer[0]='\x00';
-	strcat(buffer, "\"");
-	strcat(buffer, CRASH_RUN);
-	strcat(buffer, "\" ");
-	strcat(buffer, cmd);
+	sprintf(buffer, "\"%s\" %s", CRASH_RUN, cmd);
 	system(buffer);
 	buffer=loadFile(TLOG);
 
@@ -499,7 +470,7 @@ int crashRun(const char* cmd){
 	}
 #else
 
-#error comment me out, if your test cases produce neither eternal loops nor Access Violations
+//#error comment me out, if your test cases produce neither eternal loops nor Access Violations
 	return system(cmd);
 
 #endif /* USE_POSIX else */
@@ -610,7 +581,7 @@ err:
 
 #else
 
-	if(gdb_script && gdb_pattern_raw){
+	if(gdb_script && strlen(gdb_script) && gdb_pattern_raw && strlen(gdb_pattern_raw)){
 		fprintf(stderr, "WARNING: regex support inactive\n");
 	}else if(gdb_script && strlen(gdb_script)){
 		fprintf(stderr, "GDB script without GDB pattern\n");
@@ -678,19 +649,17 @@ err:
 				if(checkErrorMessage(case_file, "", buffer)){
 					printf("FAIL: \t%s\n", case_file);
 				}else{
-					printf("ERROR:\t%s [bad error message]\n", case_file);
+					printf("ERROR:\t%s%s\n", case_file, errorMsg(good_error));
 				}
-			}else if(good_error){
-				printf("ERROR:\t%s\n", case_file);
 			}else{
-				printf("ERROR:\t%s [bad error message]\n", case_file);
+				printf("ERROR:\t%s%s\n", case_file, errorMsg(good_error));
 			}
 		}else{
 			if(res==EXIT_FAILURE){
 				if(good_error){
 					printf("XFAIL:\t%s\n", case_file);
 				}else{
-					printf("FAIL: \t%s [bad error message]\n", case_file);
+					printf("FAIL: \t%s%s\n", case_file, errorMsg(good_error));
 				}
 			}else if(res==EXIT_SUCCESS){
 				printf("XPASS:\t%s\n", case_file);
@@ -744,11 +713,7 @@ err:
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}else if(res!=EXIT_SUCCESS){
-			if(good_error){
-				printf("ERROR:\t%s\n", case_file);
-			}else{
-				printf("ERROR:\t%s [bad error message]\n", case_file);
-			}
+			printf("ERROR:\t%s%s\n", case_file, errorMsg(good_error));
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}
@@ -765,7 +730,7 @@ err:
 		good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
 
 #ifdef REG_EXTENDED
-		if(good_error && !good_gdb){
+		if(!good_gdb){
 			/* test 3/3 - gdb */
 			writeFile(GDB_SCRIPTER, gdb_script);
 			buffer = malloc(strlen(gdb) + strlen(case_file) + strlen(GDB_SCRIPTER) + strlen(TLOG) + 20);
@@ -791,16 +756,12 @@ err:
 				printf("ERROR:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
 			}
 		}else{
-			if(res==EXIT_FAILURE){
-				if(good_error && good_gdb){
-					printf("XFAIL:\t%s\n", case_file);
-				}else{
-					printf("FAIL:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
-				}
-			}else if(res==EXIT_SUCCESS && good_error && good_gdb){
-				printf("XPASS:\t%s\n", case_file);
+			if(res==EXIT_SUCCESS && good_gdb){
+				printf("XPASS:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
+			}else if(good_error && good_gdb){
+				printf("XFAIL:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
 			}else{
-				printf("ERROR:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
+				printf("FAIL:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
 			}
 		}
 		fprintf(stderr, "--------\n");

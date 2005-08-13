@@ -11,5 +11,5 @@
 module dstress.nocompile.offsetof_74;
 
 class A{
-	size_t alignof;
+	size_t offsetof;
 }

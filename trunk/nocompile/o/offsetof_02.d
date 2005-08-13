@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_ELINE__ 17
+
 module dstress.run.offsetof_02;
 
 class MyClass{

@@ -9,7 +9,7 @@
 
 // __DSTRESS_ELINE__ 22
 
-module dstress.nocompile.case_01;
+module dstress.nocompile.c.case_03;
 
 char[] getString(){
 	return "i";

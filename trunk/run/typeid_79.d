@@ -1,9 +1,8 @@
-/* $HeadURL$
- * $Date$
- * $Author$
- */
+// $HeadURL$
+// $Date$
+// $Author$
 
-module dstress.run.typeid_78;
+module dstress.run.typeid_79;
 
 union MyUnion{
 	int i;

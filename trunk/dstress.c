@@ -31,11 +31,6 @@
 #include <string.h>
 #include <errno.h>
 
-#define OBJ		"-odobj "
-#define TLOG		"log.tmp"
-#define CRASH_RUN	"./crashRun__"
-#define GDB_SCRIPTER	"./gdb.txt"
-
 #define RUN		1
 #define NORUN		2
 #define COMPILE		4
@@ -70,9 +65,12 @@ void *xmalloc(size_t size){
 #endif
 
 #ifdef __FreeBSD__
-#define USE_POSIX
+#define USE_POSIX 1
 #endif
 
+#if defined(WIN) || defined(WIN32)
+#define USE_WINDOWS 1
+#endif
 
 #ifdef USE_POSIX
 
@@ -83,12 +81,27 @@ void *xmalloc(size_t size){
 #include <regex.h>
 
 #else
-#ifdef WIN32
+#ifdef USE_WINDOWS
 
 #include <windows.h>
 
-#endif /* WIN 32 */
+#else
+#error neither POSIX nor MSWindows detected
+#endif /* USE_WINDOWS else */
 #endif /* USE_POSIX else */
+
+#define OBJ		"-odobj "
+#ifdef USE_WINDOWS
+#define TLOG			".\\obj\\log.tmp"
+#define CRASH_RUN		".\\crashRun__"
+#define GDB_SCRIPTER	".\\obj\\gdb.tmp"
+#else
+#ifdef USE_POSIX
+#define TLOG			"./obj/log.tmp"
+#define CRASH_RUN		"./crashRun__"
+#define GDB_SCRIPTER	"./obj/gdb.tmp"
+#endif
+#endif
 
 char* errorMsg(int good_error){
 	return (good_error) ? ("") : " [bad error message]";
@@ -120,7 +133,7 @@ char* cleanPathSeperator(char* filename){
 		*pos='/';
 	}
 #else
-#if WIN32
+#if USE_WINDOWS
 	for(pos=strchr(filename, '/'); pos; pos=strchr(filename, '/')){
 		*pos='\\';
 	}
@@ -128,7 +141,7 @@ char* cleanPathSeperator(char* filename){
 
 #error no cleanPathSeperator available for this system
 
-#endif /* WIN32 else */
+#endif /* USE_WINDOWS else */
 #endif /* USE_POSIX else */
 	return filename;
 }
@@ -161,7 +174,7 @@ char* loadFile(char* filename){
 	fprintf(stderr, "File not found \"%s\" (%s)\n", filename, strerror(errno));
 	exit(EXIT_FAILURE);
 #else /* USE_POSIX */
-#ifdef WIN32
+#ifdef USE_WINDOWS
 
 	char* back=NULL;
 	DWORD size, numread;
@@ -190,11 +203,11 @@ char* loadFile(char* filename){
 
 	fprintf(stderr, "File not found \"%s\"\n", filename);
 	exit(EXIT_FAILURE);
-#else /* WIN32 */
+#else /* USE_WINDOWS */
 
 #error "no loadFile implementation present"
 
-#endif /* WIN32 else */
+#endif /* USE_WINDOWS */
 #endif /* USE_POSIX else */
 }
 

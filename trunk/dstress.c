@@ -93,12 +93,12 @@ void *xmalloc(size_t size){
 #define OBJ		"-odobj "
 #ifdef USE_WINDOWS
 #define TLOG			".\\obj\\log.tmp"
-#define CRASH_RUN		".\\crashRun__"
+#define CRASH_RUN		".\\crashRun"
 #define GDB_SCRIPTER	".\\obj\\gdb.tmp"
 #else
 #ifdef USE_POSIX
 #define TLOG			"./obj/log.tmp"
-#define CRASH_RUN		"./crashRun__"
+#define CRASH_RUN		"./crashRun"
 #define GDB_SCRIPTER	"./obj/gdb.tmp"
 #endif
 #endif
@@ -254,19 +254,6 @@ char* getGDB(){
 	}
 	return strip(cleanPathSeperator(back));
 }
-
-/* query the environment for general flags */
-char* getGeneralFlags(){
-	char* back = getenv("DFLAGS");
-	if(back == NULL){
-		back = getenv("dflags");
-		if(back==NULL){
-			 back = calloc(1,1);
-		}
-	}
-	return strip(cleanPathSeperator(back));
-}
-
 
 /* extract the FIRST occurance of a given TAG until the next linebreak */
 char* getCaseFlag(const char* data, const char* tag){
@@ -483,7 +470,7 @@ int crashRun(const char* cmd){
 	}
 #else
 
-//#error comment me out, if your test cases produce neither eternal loops nor Access Violations
+#error comment me out, if your test cases produce neither eternal loops nor Access Violations
 	return system(cmd);
 
 #endif /* USE_POSIX else */
@@ -492,7 +479,6 @@ int crashRun(const char* cmd){
 
 int main(int argc, char* arg[]){
 	char* compiler;		/* the compiler - from enviroment flag "DMD" */
-	char* cmd_arg_general;	/* additional arguments - from enviroment flag "DFLAGS" */
 	char* cmd_arg_case;	/* additional arguments - from the testcase file */
 	char* buffer;		/* general purpose buffer */
 	int modus;		/* test modus: RUN NORUN COMPILE NOCOMPILE */
@@ -534,7 +520,6 @@ err:
 	/* gen flags */
 	case_file = cleanPathSeperator(strdup(arg[2]));
 	compiler = getCompiler();
-	cmd_arg_general = getGeneralFlags();
 	gdb = getGDB();
 	buffer = loadFile(case_file);
 
@@ -611,7 +596,6 @@ err:
 #ifdef DEBUG
 	fprintf(stderr, "case:     \"%s\"\n", case_file);
 	fprintf(stderr, "compiler: \"%s\"\n", compiler);
-	fprintf(stderr, "DFLAGS G: \"%s\"\n", cmd_arg_general);
 	fprintf(stderr, "DFLAGS C: \"%s\"\n", cmd_arg_case);
 	fprintf(stderr, "ELINE   : \"%s\"\n", error_line);
 	fprintf(stderr, "EFILE   : \"%s\"\n", error_file);
@@ -622,12 +606,10 @@ err:
 	/* start working */
 	if(modus==COMPILE || modus==NOCOMPILE){
 		/* gen command */
-		buffer = malloc(strlen(compiler)+strlen(cmd_arg_general)+strlen(cmd_arg_case)+strlen(OBJ)
+		buffer = malloc(strlen(compiler)+strlen(cmd_arg_case)+strlen(OBJ)
 			+strlen(case_file)+strlen(TLOG)+64);
 		buffer[0]='\x00';
 		strcat(buffer, compiler);
-		strcat(buffer, " ");
-		strcat(buffer, cmd_arg_general);
 		strcat(buffer, " ");
 		strcat(buffer, cmd_arg_case);
 		strcat(buffer, " -c ");
@@ -683,11 +665,9 @@ err:
 		fprintf(stderr,"--------\n");
 	}else if(modus==RUN || modus==NORUN){
 		/* gen command */
-		buffer = malloc(strlen(compiler)+strlen(cmd_arg_general)+strlen(cmd_arg_case)+strlen(OBJ)
+		buffer = malloc(strlen(compiler)+strlen(cmd_arg_case)+strlen(OBJ)
 			+strlen(case_file)*2+strlen(TLOG)+64);
 		strcpy(buffer, compiler);
-		strcat(buffer, " ");
-		strcat(buffer, cmd_arg_general);
 		strcat(buffer, " ");
 		strcat(buffer, cmd_arg_case);
 		strcat(buffer, " ");

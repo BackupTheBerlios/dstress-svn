@@ -1,0 +1,244 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+		<meta http-equiv="content-language" content="en" />
+		<meta http-equiv="pics-label" content='(pics-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://kuehne.cn")' />
+		<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.classify.org/safesurf/" L gen true for "http://dstress.kuehne.cn" r (SS~~000 1))' />
+		<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://vancouver-webpages.com/VWP1.0/" l gen true comment "VWP1.0" by "webmastro@kuehne.cn" on "2004.09.21T01:30-0700" for "dstress.kuehne.cn" r (P 0 S 0 V 0 Com 0 Tol 0 Env 0 SF 0 Edu 0 Can 0 MC 0 Gam -1 ))' />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<title>DStress - D compiler test suite</title>
+		<meta name="DC.Identifier" content="http://dstress.kuehne.cn/readme.html" />
+		<link rel="stylesheet" type="text/css" href="./www/formate.css" />
+		<meta name="distribution" content="Global" />
+		<meta name="DC.Format" content="text/html" />
+		<meta name="DC.Type" content="Software" />
+		<meta name="generator" content="Thomas Kuehne &lt;webmastro@kuehne.cn&gt;" />
+		<meta name="author" content="Thomas Kuehne &lt;webmastro@kuehne.cn&gt;" />
+		<meta name="DC.Creator" content="Thomas Kuehne &lt;webmastro@kuehne.cn&gt;" />
+		<meta name="DC.Publisher" content="Thomas Kuehne &lt;webmastro@kuehne.cn&gt;" />
+		<meta name="robots" content="index,follow" />
+		<meta name="DOCUMENT-STATE" content="STATIC" />
+		<meta name="DC.Language" content="en" />
+		<meta name="date" content="2005-08-14" />
+		<meta name="DC.Date" content="2005-08-14" />
+		<link rel="Report" href="./www/dstress.html" title="Report" />
+		<link rel="Results" href="./www/results.html"/>
+		<link rel="copyright" href="./license.txt"/>
+		<link rel="author" href="./authors.txt">
+	</head>
+	<body>
+
+		<center><h2><a id="top" name="top"></a>DStress - a D compiler test suite</h2><p>&#169; 2004, 2005 Thomas K&uuml;hne &lt;thomas [at] kuehne.cn&gt;</p></center>
+
+
+		<h3><a name="abstract" id="abstract" href="#top">^</a> Abstract</h3>
+		<blockquote>
+			 DStress is a collection of bug tracking and language conformance test cases for the <a href="http://digitalmars.com/d/">D programming language</a>. This document describes the use of the testing framework. The test summary can be found at <a href="./www/dstress.html">http://dstress.kuehne.cn/www/dstress.html</a> and a complete listing at <a href="./www/results.html">http://dstress.kuehne.cn/www/results.html</a>.
+		</blockquote>
+
+		<h3><a name="index" id="index" href="#top">^</a> Index</h3>
+		<blockquote>
+			<ol>
+				<li><a href="#conditions">Conditions</a></li>
+				<li><a href="#symbols">Symbols</a></li>
+				<li><a href="#environment-settings">Environment Settings</a></li>
+				<li><a href="#testcase-settings">Testcase Settings</a></li>
+				<li><a href="#testing">Testing</a></li>
+				<li><a href="#report-generation">Report Generation</a></li>
+				<li><a href="#sourcecode-metadata">Sourcecode Metadata</a></li>
+			</ol>
+		</blockquote>
+
+		<h3><a name="conditions" id="conditions" href="#top">^</a> Conditions</h3>
+		<blockquote>
+			<dl>
+				<dt>Passed</dt>
+				<dd><ol>
+					<li>compiler return code zero</li>
+					<li>no assertion was thrown</li>
+					<li>return code of main is zero (applies only to the runtime tests)</li>
+				</ol></dd>
+				<dt>Failed</dt>
+				<dd><ol>
+					<li>compiler return code unequal zero</li>
+					<li>linker return code unequal zero</li>
+					<li>assertion was thrown</li>
+					<li>return code of main isn't zero (applies only to the runtime tests)</li>
+				</ol></dd>
+				<dt>Error</dt>
+				<dd><ol>
+					<li>compiler segfaulted</li>
+					<li>test case segfaulted</li>
+					<li>unexpected compiler failure without source indication</li>
+				</ol></dd>
+			</dl>
+		</blockquote>
+
+		<h3><a name="symbols" id="symbols" href="#top">^</a> Symbols</h3>
+		<blockquote>
+			 The symbols are the same as those used by the <a href="http://www.gnu.org/software/dejagnu/">DejaGnu</a> test framework.
+			<dl>
+				<dt>PASS</dt>
+					<dd>test case was expected to pass, and it did</dd>
+				<dt>XPASS</dt>
+					<dd>test case was expected to fail, but passed</dd>
+				<dt>FAIL</dt>
+					<dd>test case was expected to pass, but failed</dd>
+				<dt>XFAIL</dt>
+					<dd>test case was expected to fail, and it did</dd>
+				<dt>ERROR</dt>
+					<dd>compiler, linker or test case segfaulted</dd>
+			</dl>
+		</blockquote>
+
+		<h3><a name="environment-settings" id="environment-settings" href="#top">^</a> Environment Settings</h3>
+		<blockquote>
+			<dl>
+				<dd>
+					<dt>DMD / dmd</dt>
+						<dd>the D compiler, e.g.: <i>c:\dmd\bin\dmd.exe</i></dd>
+						<dd>use the wrapper <i>gdmd</i> for the GDC compiler</dd>
+						<dd>default value: <i>dmd</i></dd>
+					<dt>GDB / gdb</dt>
+						<dd>a debugger with gdb-like commands, e.g.: <i>/usr/local/bin/gdb</i></dd>
+						<dd>default value: <i>gdb</i></dd>
+				</dd>
+			</dl>
+		</blockquote>
+
+		<h3><a name="testcase-settings" id="testcase-settings" href="#top">^</a> Testcase Settings</h3>
+		<blockquote>
+			The settings starts with the end of one of the markers listed below and continues until the end of the line.
+			<dl>
+				<dt>__DSTRESS_DFLAGS__</dt>
+					<dd>additional compiler arguments</dd>
+					<dd>default: <i>empty</i></dd>
+				<dt>__DSTRESS_EFILE__</dd>
+					<dd>expected failing source file</dd>
+					<dd>default: if __DSTRESS_ELINE__ isn't empty <i>current source file</i>, else <i>empty</i></dd>
+				<dt>__DSTRESS_ELINE__</dt>
+					<dd>expected failing source line</dd>
+					<dd>default: <i>empty</i></dd>
+				<dt>__GDB_PATTERN__</dd>
+					<dd>expected regular expression in GDB's output</dd>
+					<dd>default: <i>empty</i></dd>
+				<dt>__GDB_SCRIPT__</dd>
+					<dd>GDB command sequence</dd>
+					<dd>note: replace linebreaks by <i>\n</i></dd>
+					<dd>default: <i>empty</i></dd>
+			</dl>
+		</blockquote>
+
+		<h3><a name="testing" id="testing" href="#top">^</a> Testing</h3>
+		<blockquote>
+			Testcases that are newer than the result file are ignored.
+			<dl>
+				<dt>Posix Systems: AIX, Apple, BSD, Linux, Unix</dt>
+				<dd>
+					<dl>
+						<dt>Requirements</dt>
+							<dd>a C compiler</dd>
+							<dd><a href="./dstress.c">dstress.c</a></dd>
+							<dd><a href="./crashRun.c">crashRun.c</a></dd>
+							<dd>a D compiler</dd>
+							<dd>GnuMake version 3.80 or later (optional)</dd>
+						<dt>Step-by-Step (without GnuMake)</dt>
+							<dd>
+								<ol>
+									<li>compile <i>dstress.c</i><blockquote><pre><span class="cmd">gcc -o dstress dstress.c</span></pre></blockquote></li>
+									<li>compile <i>crashRun.c</i><blockquote><pre><span class="cmd">gcc -o crashRun crashRun.c</span></pre></blockquote></li>
+									<li>test D compiler:<blockquote><pre><span class="cmd">./dstress compile compile/const_12.d</span></pre></blockquote></li>
+									<li>test linker and shell:<blockquote><pre><span class="cmd">./dstress run run/main_02.d</span></pre></blockquote></li>
+									<li>start testing:<blockquote><pre><span class="cmd">./dstress [compile|nocompile|run|norun] testfile.d 2&gt;&gt; log.txt &gt;&gt; results.txt</span></pre></blockquote></li>
+								</ol>
+							</dd>
+						<dt>Step-by-Step (with GnuMake)</dt>
+							<dd>
+								<ol>
+									<li>clean-up:<blockquote><pre><span class="cmd">make distclean</span></pre></blockquote></li>
+									<li>start testing:<blockquote><pre><span class="cmd">make all > results</span></pre></blockquote></li>
+								</ol>
+							</dd>
+					</dl>
+				</dd>
+				<dt>Windows Systems</dt>
+				<dd>
+					<dl>
+						<dt>Requirements</dt>
+							<dd>a C compiler</dd>
+							<dd><a href="./dstress.c">dstress.c</a></dd>
+							<dd>a D compiler</dd>
+						<dt><a name="windows-restrictions" id="windows-restrictions"></a>Restrictions</dt>
+							<dd>no eternal-loop protection</dd>
+							<dd>no proper Access Violation detection</dd>
+							<dd>Access Violations might cause pop-ups requiring human interaction</dd>
+						<dt>Step-by-Step</dt>
+							<dd>
+								<ol>
+									<li>make sure you understand the <a href="#windows-restrictions"> restrictions</a></li>
+									<li>open dstress.c, search for <i>#error comment me out</i> and follow the instruction</li>
+									<li>compile <i>dstress.c</i><blockquote><pre><span class="cmd">dmc -o dstress dstress.c</span></pre></blockquote></li>
+									<li>test D compiler:<blockquote><pre><span class="cmd">dstress compile compile\const_12.d</span></pre></blockquote></li>
+									<li>test linker and shell:<blockquote><pre><span class="cmd">dstress run run\main_02.d</span></pre></blockquote></li>
+									<li>start testing:<blockquote><pre><span class="cmd">dstress [compile|nocompile|run|norun] testfile.d 2&gt;&gt; log.txt &gt;&gt; results.txt</span></pre></blockquote></li>
+								</ol>
+							</dd>
+				</dd>
+			</dl>
+		</blockquote>
+
+		<h3><a name="report-generation" id="report-generation" href="#top">^</a> Report Generation</h3>
+		<blockquote>
+			<dl>
+				<dt>Requirements</dt>
+				<dd>
+					<ul>
+						<li>a Java compiler</li>
+						<li><a href="./www/GenReport.java">GenReport.java</a></li>
+						<li>at least one logfile</li>
+					</ul>
+				</dd>
+				<dt>Step-by-Step</dt>
+				<dd>
+					<ol>
+						<li>compile the reporter class<blockquote><pre><span class="cmd">javac GenReporter.java</span></pre></blockquote></li>
+						<li>feed the logfile(s) to the reporter class<blockquote><pre><span class="cmd">java cn.kuehne.dmd.dstress.GenReport results1 results2 &gt; report.raw</span></pre></blockquote></li>
+						<li>sort and insert <i>report.raw</i> with apropiate HTML tags into a HTML file</li>
+					</ol>
+				</dd>
+				<dt>Notes</dt>
+				<dd>
+					<ul>
+						<li>the output is unsorted</li>
+						<li>one or more result-files can be feed to the reporter class</li>
+						<li>lines containing statistic data are marked by <i>&lt;!-- summary --&gt;</i></li>
+						<li>use <i>...resultfile</i> instead of <i>resultfile</i> to mark all FAIL, XPASS, ERROR testcases of this logfile by <i>&lt;!-- P! --&gt;</i></li>
+						<li>more than one resultfile can be marked</li>
+					</ul>
+				</dd>
+			</dl>
+		</blockquote>
+
+		<h3><a name="sourcecode-metadata" id="sourcecode-metadata" href="#top">^</a> Sourcecode Metadata</h3>
+		<blockquote>
+			Metadata starts with one of the markers listed below and continues until the end of the line.
+			<dl>
+				<dt>@author@</dt>
+					<dd>the bug/testcase reporter</dd>
+					<dd>common format: <i>Name &lt;email@host&gt;</i></dd>
+				<dt>@date@</dt>
+					<dd>first report date</dd>
+					<dd>common format: <i>year-month-day</i>
+				<dt>@uri@</dt>
+					<dd>the message id of the email/newsgroup message or the webpage</dd>
+					<dd>common format: <i>news:msg-id@host</i> or <i>http://host/page</i></dd>
+				<dt>@WARNING@</dt>
+					<dd>marks testcases with external dependencies or architecture/compiler specific data</dd>
+					<dd>common format: <i>descriptive text</i></dd>
+			</dl>
+		</blockquote>
+
+		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/readme.html</a>; 2005-08-21; <a href="mailto:webmastro@kuehne.cn">Webmaster</a></div>
+	</body>
+</html>

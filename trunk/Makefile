@@ -83,8 +83,8 @@ endif
 return__	:= ./return__
 ifeq__		:= ./ifeq__
 extract__	:= ./extract__
-dstress__	:= ./dstress__
-crashRun__	:= ./crashRun__
+dstress__	:= ./dstress
+crashRun__	:= ./crashRun
 
 # settings
 to_log 		:= >> $(LOG) 2>&1

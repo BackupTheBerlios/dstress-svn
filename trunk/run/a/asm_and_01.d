@@ -6,7 +6,9 @@ module dstress.run.a.asm_and_01;
 
 int test(int i){
 	asm{
+		mov	EAX, i;
 		and	EAX, EAX;
+		mov 	i, EAX;
 	}
 }
 

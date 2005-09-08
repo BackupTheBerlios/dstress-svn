@@ -16,10 +16,10 @@ int main(){
 		asm{
 			mov EAX, i;
 			mov AX, s;
+			cwde;
 			mov i, EAX;
 		}
 	
-		printf("%x\n", i);
 		assert(i==0xFF_FF_FF_80u);
 		
 

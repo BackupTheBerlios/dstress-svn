@@ -15,7 +15,7 @@ int main(){
 		asm{
 			mov ESI, 0;
 			mov SI, s;
-			mov i, SDI;
+			mov i, ESI;
 		}
 	
 		assert(i==0x12_34);

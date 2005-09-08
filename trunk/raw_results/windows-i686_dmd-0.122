@@ -386,7 +386,7 @@ XPASS:	nocompile\html_empty_entity_03.html
 XFAIL:	nocompile\html_entity_10.html
 XFAIL:	nocompile\html_entity_11.html
 XPASS:	nocompile\html_htm_02.HTM
-XPASS:	nocompile\html_html_02.html
+XPASS:	nocompile\html_html_02.HTML
 XFAIL:	nocompile\idouble_01.d
 XFAIL:	nocompile\idouble_02.d
 XFAIL:	nocompile\ifloat_01.d

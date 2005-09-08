@@ -7,7 +7,7 @@
 // @uri@	news:dehc8m$1nk5$1@digitaldaemon.com
 // @uri@	http://f17.aaa.livedoor.jp/~labamba/?BugTrack%2F19
 
-module dstress.run.o.opDiv_10_B;
+module dstress.run.o.opDiv_11_B;
 
 int main(){
 	assert(1 == 3/3);

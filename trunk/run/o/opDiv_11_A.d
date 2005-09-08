@@ -7,7 +7,7 @@
 // @uri@	news:dehc8m$1nk5$1@digitaldaemon.com
 // @uri@	http://f17.aaa.livedoor.jp/~labamba/?BugTrack%2F19
 
-module dstress.run.o.opDiv_10_A;
+module dstress.run.o.opDiv_11_A;
 
 void test_A(int i){
 	assert(i==1);

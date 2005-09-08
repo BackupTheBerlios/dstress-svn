@@ -11,7 +11,7 @@
 
 module dstress.nocompile.package_02;
 
-import dstress.addon.package_01_A;
+import addon.package_01_A;
 
 void test(){
 	MyClass c=new MyClass;

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 10
+// __DSTRESS_ELINE__ 12
 
 module dstress.nocompile.version_36;
 

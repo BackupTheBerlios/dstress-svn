@@ -9,7 +9,7 @@
 module dstress.run.o.opCat_15_S;
 
 int main(){
-	char x = 'a'
+	char x = 'a';
 	char[] arr;
 
 	arr = arr ~ x;

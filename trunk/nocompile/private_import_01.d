@@ -4,7 +4,7 @@
 
 module dstress.nocompile.private_import_01;
 
-import addon.private_import_B;
+import addon.private_import_A;
 
 class Foo2 : Bar {
 

@@ -6,8 +6,7 @@
 // @date@	2005-04-20
 // @uri@	news:d45a07$2qit$1@digitaldaemon.com
 
-module dstress.addon.private_05_A;
-
+module addon.private_05_A;
 
 class MyClass{
 	private static int dummy;

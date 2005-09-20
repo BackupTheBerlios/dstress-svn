@@ -11,7 +11,7 @@
 
 module dstress.nocompile.private_05;
 
-import dstress.addon.private_05_A;
+import addon.private_05_A;
 
 void test(){
 	int i=MyClass.dummy;

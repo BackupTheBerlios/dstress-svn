@@ -8,7 +8,7 @@ module dstress.nocompile.private_import_01;
 
 import addon.private_import_B;
 
-class Foo2 : Bar {
+class Foo2 : FooA {
 
 }
 

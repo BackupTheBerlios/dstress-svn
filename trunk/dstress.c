@@ -335,6 +335,10 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	}
 
 	/* specific error messages */
+#ifdef DEBUG
+	fprintf(stderr, "pattern(dmd):\t%s\n", dmd);
+	fprintf(stderr, "pattern(gdc):\t%s\n", gdc);
+#endif
 
 	if( (dmd!=NULL && strstr(buffer, dmd))
 			|| (gdc!=NULL && strstr(buffer, gdc))
@@ -430,6 +434,11 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 	}
 
 	/* specific error messages */
+
+#ifdef DEBUG
+	fprintf(stderr, "pattern(phobosShort):\t%s\n", phobos);
+	fprintf(stderr, "pattern(phobosLong):\t%s\n", phobosLong);
+#endif
 
 	if( (phobos && strstr(buffer, phobos))
 		|| (phobosLong && strstr(buffer, phobosLong)))
@@ -696,7 +705,11 @@ err:
 		/* diagnostic 1/3 */
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s", buffer);
-		good_error = checkErrorMessage(error_file, error_line, buffer);
+		if(modus==RUN){
+			good_error = checkErrorMessage(error_file, error_line, buffer);
+		}else{
+			good_error = 1;
+		}
 		if(hadExecCrash(buffer)){
 			printf("ERROR:\t%s [internal compiler error]\n", case_file);
 			fprintf(stderr, "\n--------\n");

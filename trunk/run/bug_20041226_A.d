@@ -11,11 +11,7 @@
 
 module dstress.run.bug_20041226_A;
 
-version(none){
-	import std.stdio;
-}else{
-	void writefln(...){
-	}
+void dummy(...){
 }
 
 struct vec3{
@@ -70,12 +66,13 @@ int main(){
 		AseLoader al = new AseLoader;
 	
 		foreach(GeomObject go; al.geomObjects){
-			writefln("processing ", go.name);
+			dummy("processing ", go.name);
 			extractTriangles(go);
 		}
 	}catch(Object err){
-		writefln("Exception caught:", err);
+		dummy("Exception caught:", err);
 	}
 	
 	return 0;
 }
+

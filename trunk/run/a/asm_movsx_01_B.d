@@ -4,8 +4,6 @@
 
 module dstress.run.a.asm_movsx_01_B;
 
-import std.stdio;
-
 int main(){
 	version(D_InlineAsm){
 		uint i=0x12_3F_FF_FFu;
@@ -28,3 +26,4 @@ int main(){
 		static assert(0);
 	}
 }
+

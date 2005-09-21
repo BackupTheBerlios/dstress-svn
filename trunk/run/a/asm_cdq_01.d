@@ -4,8 +4,6 @@
 
 module dstress.run.a.asm_cdq_01;
 
-import std.stdio;
-
 int main(){
 	version(D_InlineAsm){
 		int x = -128;
@@ -29,3 +27,4 @@ int main(){
 		static assert(0);
 	}
 }
+

@@ -8,7 +8,7 @@
 
 module dstress.run.mixin_09;
 
-void writefln(...){
+void dummy(...){
 }
 
 class A {
@@ -16,7 +16,7 @@ class A {
         {
                 this(Type[] arr)
                 {
-                        foreach(Type v; arr) writefln(typeid(typeof(v)));
+                        foreach(Type v; arr) dummy(typeid(typeof(v)));
                 }
         }
 

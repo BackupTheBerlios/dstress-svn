@@ -27,7 +27,6 @@ class Class{
 	}
 }
 
-import std.stdio;
 int main(){
 	Struct s;
 	assert(s * 1 == 2);

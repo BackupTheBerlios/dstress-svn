@@ -11,11 +11,7 @@
 
 module dstress.run.bug_20041226_B;
 
-version(none){
-	import std.stdio;
-}else{
-	void writefln(...){
-	}
+void dummy(...){
 }
 
 struct vec3{
@@ -53,7 +49,7 @@ class AseLoader{
 void extractTriangles(GeomObject geomObj){
 	void foobar(){
 		try{
-			writefln("name: ", geomObj.name);
+			dummy("name: ", geomObj.name);
 
 			return;  // avoid accessing the array with 0 elements in the next line			
 			geomObj.mesh.faces[0].a - geomObj.xlate;  // when this line is removed, the bug doesn't appear
@@ -70,12 +66,13 @@ int main(){
 		AseLoader al = new AseLoader;
 	
 		foreach(GeomObject go; al.geomObjects){
-			writefln("processing ", go.name);
+			dummy("processing ", go.name);
 			extractTriangles(go);
 		}
 	}catch(Object err){
-		writefln("Exception caught:", err);
+		dummy("Exception caught:", err);
 	}
 	
 	return 0;
 }
+

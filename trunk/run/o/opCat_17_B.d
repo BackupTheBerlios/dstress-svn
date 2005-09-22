@@ -6,11 +6,11 @@
 // @date@	2005-09-18
 // @uri@	news:dgj92k$226p$1@digitaldaemon.com
 
-module dstress.run.o.opCat_16_A;
+module dstress.run.o.opCat_17_B;
 
 int main(){
-	const static char[][] strings = ["Foo"];
-	const static char[] test = "Bar";
+	static char[][] strings = ["Foo"];
+	static char[] test = "Bar";
 	assert((strings ~  test).length==2);
 	assert((strings ~  test)[0] == "Foo");
 	assert((strings ~  test)[1] == "Bar");

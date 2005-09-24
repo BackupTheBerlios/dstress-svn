@@ -30,6 +30,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+#include <ctype.h>
 
 #define RUN		1
 #define NORUN		2
@@ -726,7 +727,7 @@ err:
 
 		/* test 2/3 - run */
 		buffer = malloc(strlen(case_file) + strlen(TLOG) + 30);
-		sprintf(buffer, "%s.exe 1> %s 2>&1\x00\n", case_file, TLOG);
+		sprintf(buffer, "%s.exe 1> %s 2>&1\n", case_file, TLOG);
 		fprintf(stderr, "%s\n", buffer);
 		res=crashRun(buffer);
 

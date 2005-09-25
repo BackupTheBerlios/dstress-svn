@@ -3,7 +3,7 @@
  *
  * Copyright (C)
  *		2005 Thomas Kuehne <thomas@kuehne.cn>
- *		2005 Anders F BjÃ¶rklund <afb@algonet.se>
+ *		2005 Anders F Björklund <afb@algonet.se>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,15 +39,11 @@ const int MEM_LIMIT = 200;  /* mem megabytes */
 #define USE_POSIX
 #endif
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBsd__) || defined(__OpenBSD__)
 #define USE_POSIX
 #endif
 
 #if defined(__APPLE__) && defined(__MACH__)
-#define USE_POSIX
-#endif
-
-#ifdef __FreeBSD__
 #define USE_POSIX
 #endif
 
@@ -216,9 +212,11 @@ void setupHandlers(){
 }
 
 char* reconstructCmd(int argc, char** argv){
-	int cmdLen=1;
-	int i;
+	size_t cmdLen=1;
+	size_t tmpLen;
+	size_t i;
 	char* cmd;
+	char* tmp;
 
 	for(i=0; i<argc; i++){
 		cmdLen+=strlen(argv[i]);
@@ -227,11 +225,12 @@ char* reconstructCmd(int argc, char** argv){
 
 	cmd = (char*)malloc(cmdLen);
 	*cmd = '\x00';
+	tmp = cmd;
 
 	for(i=0; i<argc; i++){
-		strcat(cmd, "\"");
-		strcat(cmd, argv[i]);
-		strcat(cmd, "\" ");
+		tmpLen = snprintf(tmp, cmdLen, "\"%s\" ", argv[i]);
+		tmp += tmpLen;
+		cmdLen -= tmpLen;
 	}
 	return cmd;
 }

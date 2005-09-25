@@ -57,16 +57,12 @@ void *xmalloc(size_t size){
 #define USE_POSIX
 #endif
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__) || defined(__OpenBSD__)
 #define USE_POSIX
 #endif
 
 #if defined(__APPLE__) && defined(__MACH__)
 #define USE_POSIX
-#endif
-
-#ifdef __FreeBSD__
-#define USE_POSIX 1
 #endif
 
 #if defined(WIN) || defined(WIN32)
@@ -85,22 +81,23 @@ void *xmalloc(size_t size){
 #ifdef USE_WINDOWS
 
 #include <windows.h>
+#define snprintf _snprintf
 
 #else
 #error neither POSIX nor MSWindows detected
 #endif /* USE_WINDOWS else */
 #endif /* USE_POSIX else */
 
-#define OBJ		"-odobj "
+#define OBJ			"obj "
 #ifdef USE_WINDOWS
 #define TLOG			".\\obj\\log.tmp"
 #define CRASH_RUN		".\\crashRun"
-#define GDB_SCRIPTER	".\\obj\\gdb.tmp"
+#define GDB_SCRIPTER		".\\obj\\gdb.tmp"
 #else
 #ifdef USE_POSIX
 #define TLOG			"./obj/log.tmp"
 #define CRASH_RUN		"./crashRun"
-#define GDB_SCRIPTER	"./obj/gdb.tmp"
+#define GDB_SCRIPTER		"./obj/gdb.tmp"
 #endif
 #endif
 
@@ -113,12 +110,13 @@ char* gdbMsg(int good_gdb){
 }
 
 char* strip(char* buffer){
+	char* tmp;
+
 	if(buffer!=NULL){
 		while(isspace(buffer[0])){
 			buffer++;
 		}
 
-		char* tmp;
 		for(tmp=buffer+strlen(buffer)-1; isspace(tmp[0]); tmp=buffer+strlen(buffer)-1){
 			tmp[0]='\x00';
 		}
@@ -294,18 +292,21 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	char* gdc;
 
 	int back=0;
+	size_t len;
 
 	/* clean arguments */
 	if(strcmp(file_, "")!=0){
-		file = malloc(strlen(file_)+1);
-		strcpy(file, file_);
+		len = strlen(file_)+1;
+		file = malloc(len);
+		strncpy(file, file_, len);
 	}else{
 		file=NULL;
 	}
 
 	if(strcmp(line_, "")!=0){
-		line = malloc(strlen(line_)+1);
-		strcpy(line, line_);
+		len = strlen(line_)+1;
+		line = malloc(len);
+		strncpy(line, line_, len);
 	}else{
 		line=NULL;
 	}
@@ -313,24 +314,28 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	/* gen patterns*/
 	if(file!=NULL){
 		if(line!=NULL){
-			dmd = malloc(strlen(file)+strlen(line)+5);
-			sprintf(dmd, "%s(%s)", file, line);
 
-			gdc = malloc(strlen(file)+strlen(line)+4);
-			sprintf(gdc, "%s:%s: ", file, line);
+			len = strlen(file)+strlen(line)+5;
+			dmd = malloc(len);
+			snprintf(dmd, len, "%s(%s)", file, line);
+
+			gdc = malloc(len);
+			snprintf(gdc, len, "%s:%s: ", file, line);
 		}else{
-			dmd = malloc(strlen(file)+2);
-			sprintf(dmd, "%s(", file);
+			len = strlen(file)+2;
+			dmd = malloc(len);
+			snprintf(dmd, len, "%s(", file);
 
-			gdc = malloc(strlen(file)+2);
-			sprintf(gdc, "%s:", file);
+			gdc = malloc(len);
+			snprintf(gdc, len, "%s:", file);
 		}
 	}else if(line!=NULL){
-		dmd = malloc(strlen(line)+5);
-		sprintf(dmd, "(%s): ", line);
+		len = strlen(line)+5;
+		dmd = malloc(len);
+		snprintf(dmd, len, "(%s): ", line);
 
-		gdc = malloc(strlen(line)+4);
-		sprintf(gdc, ":%s: ", line);
+		gdc = malloc(len);
+		snprintf(gdc, len, ":%s: ", line);
 	}else{
 		return 1;
 	}
@@ -362,20 +367,23 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 
 	char* begin;
 	char* end;
+	size_t len;
 
 	int back=0;
 
 	/* clean arguments */
 	if(strcmp(file_, "")!=0){
-		file = malloc(strlen(file_)+1);
-		strcpy(file, file_);
+		len = strlen(file_)+1;
+		file = malloc(len);
+		strncpy(file, file_, len);
 	}else{
 		file=NULL;
 	}
 
 	if(strcmp(line_, "")!=0){
-		line = malloc(strlen(line_)+1);
-		strcpy(line, line_);
+		len = strlen(line_)+1;
+		line = malloc(len);
+		strncpy(line, line_, len);
 	}else{
 		line=NULL;
 	}
@@ -383,8 +391,8 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 	/* gen patterns*/
 	if(file!=NULL){
 		if(line!=NULL){
-			phobos = malloc(strlen(file)+strlen(line)+5);
-			phobos[0]='\x00';
+			len = strlen(file)+strlen(line)+5;
+			phobos = malloc(len);
 			begin=strrchr(file,'/');
 			if(begin){
 				begin++;
@@ -398,15 +406,15 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 			}
 			end=strrchr(file,'.');
 			strncat(phobos, begin, end-begin);
-			strcat(phobos, "(");
-			strcat(phobos, line);
-			strcat(phobos, ")");
+			snprintf(phobos, len, "%.*s(%s)",
+				(int)(end-begin), begin,
+				line);
 
-			phobosLong = malloc(strlen(file)+strlen(line)+5);
-			sprintf(phobosLong, "%s(%s)", file, line);
+			phobosLong = malloc(len);
+			snprintf(phobosLong, len, "%s(%s)", file, line);
 		}else{
-			phobos = malloc(strlen(file)+2);
-			phobos[0]='\x00';
+			len = strlen(file)+2;
+			phobos = malloc(len);
 			begin=strrchr(file,'/');
 			if(begin){
 				begin++;
@@ -419,15 +427,15 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 				}
 			}
 			end=strrchr(file,'.');
-			strncat(phobos, begin, end-begin);
-			strcat(phobos, "(");
+			snprintf(phobos, len, "%.*s(", (int)(end-begin), begin);
 
-			phobosLong = malloc(strlen(file)+2);
-			sprintf(phobosLong, "%s(", file);
+			phobosLong = malloc(len);
+			snprintf(phobosLong, len, "%s(", file);
 		}
 	}else if(line!=NULL){
-		phobos = malloc(strlen(line)+3);
-		sprintf(phobos, "(%s)", line);
+		len = strlen(line)+3;
+		phobos = malloc(len);
+		snprintf(phobos, len, "(%s)", line);
 
 		phobosLong=NULL;
 	}else{
@@ -464,8 +472,9 @@ int hadExecCrash(const char* buffer){
 /* system call with time-out */
 int crashRun(const char* cmd){
 #ifdef USE_POSIX
-	char* buffer=malloc(4+strlen(CRASH_RUN)+strlen(cmd));
-	sprintf(buffer, "\"%s\" %s", CRASH_RUN, cmd);
+	size_t len = 4 + strlen(CRASH_RUN) + strlen(cmd);
+	char* buffer=malloc(len);
+	snprintf(buffer, len, "\"%s\" %s", CRASH_RUN, cmd);
 	system(buffer);
 	buffer=loadFile(TLOG);
 
@@ -491,6 +500,7 @@ int main(int argc, char* arg[]){
 	char* compiler;		/* the compiler - from enviroment flag "DMD" */
 	char* cmd_arg_case;	/* additional arguments - from the testcase file */
 	char* buffer;		/* general purpose buffer */
+	size_t bufferLen;
 	int modus;		/* test modus: RUN NORUN COMPILE NOCOMPILE */
 	int res;		/* return code from external executions */
 	char* case_file;
@@ -578,9 +588,10 @@ err:
 			}
 		}
 
-		buffer=malloc(strlen(gdb_script)+10);
-		strcpy(buffer, gdb_script);
-		gdb_script=strcat(buffer, "\n\nquit\ny\n\n");
+		bufferLen = strlen(gdb_script)+11;
+		buffer=malloc(bufferLen);
+		snprintf(buffer, bufferLen, "%s\n\nquit\ny\n\n", gdb_script);
+		gdb_script=buffer;
 		good_gdb = 0;
 	}else{
 	    good_gdb = 1;
@@ -618,19 +629,16 @@ err:
 		/* gen command */
 		buffer = malloc(strlen(compiler)+strlen(cmd_arg_case)+strlen(OBJ)
 			+strlen(case_file)+strlen(TLOG)+64);
-		buffer[0]='\x00';
-		strcat(buffer, compiler);
-		strcat(buffer, " ");
-		strcat(buffer, cmd_arg_case);
-		strcat(buffer, " -c ");
+		snprintf(buffer, bufferLen, "%s %s ", compiler, cmd_arg_case);
+
 		if(NULL==strstr(buffer, "-od")){
-			strcat(buffer, OBJ);
-			strcat(buffer, " ");
+			snprintf(buffer, bufferLen,
+				"%s %s -od%s -c %s 1> %s 2>&1",
+				compiler, cmd_arg_case, OBJ, case_file, TLOG);
+		}else{
+			snprintf(buffer, bufferLen, "%s %s -c %s 1> %s 2>&1",
+				compiler, cmd_arg_case, case_file, TLOG);
 		}
-		strcat(buffer, case_file);
-		strcat(buffer, " 1> ");
-		strcat(buffer, TLOG);
-		strcat(buffer, " 2>&1");
 
 		/* test */
 		if(modus==COMPILE){
@@ -675,25 +683,34 @@ err:
 		fprintf(stderr,"--------\n");
 	}else if(modus==RUN || modus==NORUN){
 		/* gen command */
-		buffer = malloc(strlen(compiler)+strlen(cmd_arg_case)+strlen(OBJ)
-			+strlen(case_file)*2+strlen(TLOG)+64);
-		strcpy(buffer, compiler);
-		strcat(buffer, " ");
-		strcat(buffer, cmd_arg_case);
-		strcat(buffer, " ");
+
+		bufferLen = strlen(compiler)+strlen(cmd_arg_case)
+			+strlen(OBJ)
+			+strlen(case_file)*2+strlen(TLOG)+64;
+		buffer = malloc(bufferLen);
+		snprintf(buffer, bufferLen, "%s %s ", compiler, cmd_arg_case);
+
 		if(NULL==strstr(buffer, "-od")){
-			strcat(buffer, OBJ);
-			strcat(buffer, " ");
+			if(NULL==strstr(buffer, "-of")){
+				snprintf(buffer, bufferLen,
+					"%s %s -od%s -of%s.exe %s 1> %s 2>&1",
+					compiler, cmd_arg_case, OBJ, case_file,
+					case_file, TLOG);
+			}else{
+				snprintf(buffer, bufferLen,
+					"%s %s -od%s %s 1> %s 2>&1",
+					compiler, cmd_arg_case, OBJ, case_file,
+					TLOG);
+			}
+		}else if(NULL==strstr(buffer, "-of")){
+			snprintf(buffer, bufferLen,
+				"%s %s -of%s.exe %s 1> %s 2>&1",
+				compiler, cmd_arg_case, case_file, case_file,
+				TLOG);
+		}else{
+			snprintf(buffer, bufferLen, "%s %s %s 1> %s 2>&1",
+				compiler, cmd_arg_case, case_file, TLOG);
 		}
-		if(NULL==strstr(buffer, "-of")){
-			strcat(buffer, "-of");
-			strcat(buffer, case_file);
-			strcat(buffer, ".exe ");
-		}
-		strcat(buffer, case_file);
-		strcat(buffer, " 1> ");
-		strcat(buffer, TLOG);
-		strcat(buffer, " 2>&1");
 
 		/* test 1/3 - compile */
 		if(modus==RUN){
@@ -726,22 +743,30 @@ err:
 		}
 
 		/* test 2/3 - run */
-		buffer = malloc(strlen(case_file) + strlen(TLOG) + 30);
-		sprintf(buffer, "%s.exe 1> %s 2>&1\n", case_file, TLOG);
+		bufferLen = strlen(case_file) + strlen(TLOG) + 30;
+		buffer = malloc(bufferLen);
+		snprintf(buffer, bufferLen, "%s.exe 1> %s 2>&1\n", case_file,
+			TLOG);
 		fprintf(stderr, "%s\n", buffer);
 		res=crashRun(buffer);
 
 		/* diagnostic 2/3 */
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s\n", buffer);
-		good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
+		if(modus==NORUN){
+			good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
+		}else{
+			good_error = 1;
+		}
 
 #ifdef REG_EXTENDED
 		if(!good_gdb){
 			/* test 3/3 - gdb */
 			writeFile(GDB_SCRIPTER, gdb_script);
-			buffer = malloc(strlen(gdb) + strlen(case_file) + strlen(GDB_SCRIPTER) + strlen(TLOG) + 20);
-			sprintf(buffer, "%s %s.exe < %s > %s 2>&1", gdb, case_file, GDB_SCRIPTER, TLOG);
+			bufferLen = strlen(gdb) + strlen(case_file)
+				+ strlen(GDB_SCRIPTER) + strlen(TLOG) + 20;
+			snprintf(buffer, bufferLen, "%s %s.exe < %s > %s 2>&1",
+				gdb, case_file, GDB_SCRIPTER, TLOG);
 			fprintf(stderr, "%s\n", buffer);
 			if(EXIT_SUCCESS==crashRun(buffer)){
 				/* diagnostic 3/3 */

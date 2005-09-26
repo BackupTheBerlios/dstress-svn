@@ -1,0 +1,23 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+module dstress.run.t.try_10_B;
+
+void foo(){
+	try{
+		if(0){
+			void bar(int d){
+				assert(0);
+			}
+			bar(0);
+		}
+	}catch{
+	}finally{
+	}
+}
+
+int main(){
+	foo();
+	return 0;
+}

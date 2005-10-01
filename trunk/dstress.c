@@ -627,8 +627,9 @@ err:
 	/* start working */
 	if(modus==COMPILE || modus==NOCOMPILE){
 		/* gen command */
-		buffer = malloc(strlen(compiler)+strlen(cmd_arg_case)+strlen(OBJ)
-			+strlen(case_file)+strlen(TLOG)+64);
+		bufferLen = strlen(compiler)+strlen(cmd_arg_case)
+			+strlen(OBJ)+strlen(case_file)+strlen(TLOG)+64;
+		buffer = malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s ", compiler, cmd_arg_case);
 
 		if(NULL==strstr(buffer, "-od")){

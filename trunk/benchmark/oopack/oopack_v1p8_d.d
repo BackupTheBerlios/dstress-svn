@@ -590,7 +590,7 @@ final class ComplexBenchmark : Benchmark {
 		}
 	}
 
-	final class Complex {
+	static final class Complex {
 		double re, im;
 		this(){
 		}

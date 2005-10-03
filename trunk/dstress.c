@@ -39,12 +39,7 @@
 
 /* secure malloc */
 void *xmalloc(size_t size){
-	void *p;
-	if (p < 0){
-		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
-		exit(EXIT_FAILURE);
-	}
-	p = malloc(size);
+	void *p = malloc(size);
 	if (p == NULL){
 		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
 		exit(EXIT_FAILURE);
@@ -54,15 +49,15 @@ void *xmalloc(size_t size){
 #define malloc xmalloc
 
 #if defined(__GNU_LIBRARY__) || defined(__GLIBC__)
-#define USE_POSIX
+#define USE_POSIX 1
 #endif
 
 #if defined(linux) || defined(__FreeBSD__) || defined(__OpenBSD__)
-#define USE_POSIX
+#define USE_POSIX 1
 #endif
 
 #if defined(__APPLE__) && defined(__MACH__)
-#define USE_POSIX
+#define USE_POSIX 1
 #endif
 
 #if defined(WIN) || defined(WIN32)
@@ -82,6 +77,9 @@ void *xmalloc(size_t size){
 
 #include <windows.h>
 #define snprintf _snprintf
+#ifndef INVALID_FILE_SIZE
+#define INVALID_FILE_SIZE -1
+#endif
 
 #else
 #error neither POSIX nor MSWindows detected
@@ -89,15 +87,16 @@ void *xmalloc(size_t size){
 #endif /* USE_POSIX else */
 
 #define OBJ			"obj "
+
 #ifdef USE_WINDOWS
-#define TLOG			".\\obj\\log.tmp"
-#define CRASH_RUN		".\\crashRun"
-#define GDB_SCRIPTER		".\\obj\\gdb.tmp"
+#define		TLOG		".\\obj\\log.tmp"
+#define		CRASH_RUN	".\\crashRun"
+#define		GDB_SCRIPTER	".\\obj\\gdb.tmp"
 #else
 #ifdef USE_POSIX
-#define TLOG			"./obj/log.tmp"
-#define CRASH_RUN		"./crashRun"
-#define GDB_SCRIPTER		"./obj/gdb.tmp"
+#define		TLOG		"./obj/log.tmp"
+#define		CRASH_RUN	"./crashRun"
+#define		GDB_SCRIPTER	"./obj/gdb.tmp"
 #endif
 #endif
 
@@ -110,7 +109,7 @@ char* gdbMsg(int good_gdb){
 }
 
 char* strip(char* buffer){
-	char* tmp;
+	char* tmp = NULL;
 
 	if(buffer!=NULL){
 		while(isspace(buffer[0])){
@@ -126,7 +125,7 @@ char* strip(char* buffer){
 
 /* cleanup "/" versus "\" in filenames */
 char* cleanPathSeperator(char* filename){
-	char* pos;
+	char* pos = NULL;
 #ifdef USE_POSIX
 	for(pos=strchr(filename, '\\'); pos; pos=strchr(filename, '\\')){
 		*pos='/';
@@ -147,15 +146,18 @@ char* cleanPathSeperator(char* filename){
 
 char* loadFile(char* filename){
 #ifdef USE_POSIX
-	char* back = NULL;
+	char* back;
 	struct stat fileInfo;
 	int file = open(filename, O_RDONLY);
+
+	back = NULL;
+
 	if(errno == 0 && file != 0 && file != -1){
 		if(0==fstat(file, &fileInfo)){
 			back=malloc(fileInfo.st_size+1);
 			fileInfo.st_size = read(file, back, fileInfo.st_size);
 			if(fileInfo.st_size>=0){
-				*(back+fileInfo.st_size+1) = '\x00';
+				*(back+fileInfo.st_size) = '\x00';
 			}else{
 				back = NULL;
 			}
@@ -174,18 +176,22 @@ char* loadFile(char* filename){
 	exit(EXIT_FAILURE);
 #else /* USE_POSIX */
 #ifdef USE_WINDOWS
-
-	char* back=NULL;
+	// @todo@ check for 32bit/64bit
+	char* back;
 	DWORD size, numread;
 	HANDLE file=CreateFile(filename, GENERIC_READ, FILE_SHARE_READ, NULL,
 		OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+
+	back = NULL;
+	size = 0;
+	numread = 0;
 	if (file != INVALID_HANDLE_VALUE){
 		size = GetFileSize(file, NULL);
 		if (size != INVALID_FILE_SIZE){
 			back=malloc((size+1)*sizeof(char));
 			if (ReadFile(file,back,size,&numread,NULL) == 1){
 				if (numread==size){
-					*(back+size+1) = '\x00';
+					*(back+size) = '\x00';
 				}else{
 					back = NULL;
 				}
@@ -211,8 +217,12 @@ char* loadFile(char* filename){
 }
 
 void writeFile(const char* filename, const char* content){
-	size_t len = strlen(content);
-	FILE* file = fopen(filename, "w+");
+	size_t len;
+	FILE* file;
+
+	len = strlen(content);
+	errno = 0;
+	file = fopen(filename, "w+");
 
 	if(errno == 0 && file != NULL){
 		if((fwrite(content, sizeof(char), len, file) != len) || (errno != 0)){
@@ -231,7 +241,7 @@ void writeFile(const char* filename, const char* content){
 }
 
 /* query the environment for the compiler name */
-char* getCompiler(){
+char* getCompiler(void){
 	char* back = getenv("DMD");
 	if(back == NULL){
 		back = getenv("dmd");
@@ -243,7 +253,7 @@ char* getCompiler(){
 }
 
 /* query the environment for the debugger name */
-char* getGDB(){
+char* getGDB(void){
 	char* back = getenv("GDB");
 	if(back == NULL){
 		back = getenv("gdb");
@@ -261,6 +271,11 @@ char* getCaseFlag(const char* data, const char* tag){
 	char* end2;
 	char* back;
 
+	begin = NULL;
+	end1 = NULL;
+	end2 = NULL;
+	back = NULL;
+
 	if(data!=NULL && tag!=NULL){
 		begin = strstr(data, tag);
 		if(begin!=NULL){
@@ -275,7 +290,7 @@ char* getCaseFlag(const char* data, const char* tag){
 			}
 			back = malloc(end1-begin+1);
 			strncpy(back, begin, end1-begin);
-			back[end1-begin+1]='\x00';
+			back[end1-begin]='\x00';
 			return strip(cleanPathSeperator(back));
 		}
 	}
@@ -290,31 +305,32 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	char* line;
 	char* dmd;
 	char* gdc;
-
-	int back=0;
 	size_t len;
+	int back;
+
+	file = NULL;
+	line = NULL;
+	dmd = NULL;
+	gdc = NULL;
+	len = 0;
+	back = 0;
 
 	/* clean arguments */
 	if(strcmp(file_, "")!=0){
 		len = strlen(file_)+1;
 		file = malloc(len);
 		strncpy(file, file_, len);
-	}else{
-		file=NULL;
 	}
 
 	if(strcmp(line_, "")!=0){
 		len = strlen(line_)+1;
 		line = malloc(len);
 		strncpy(line, line_, len);
-	}else{
-		line=NULL;
 	}
 
 	/* gen patterns*/
 	if(file!=NULL){
 		if(line!=NULL){
-
 			len = strlen(file)+strlen(line)+5;
 			dmd = malloc(len);
 			snprintf(dmd, len, "%s(%s)", file, line);
@@ -371,21 +387,26 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 
 	int back=0;
 
+	file = NULL;
+	line = NULL;
+	phobos = NULL;
+	phobosLong = NULL;
+
+	begin = NULL;
+	end = NULL;
+	len = 0;
+
 	/* clean arguments */
 	if(strcmp(file_, "")!=0){
 		len = strlen(file_)+1;
 		file = malloc(len);
 		strncpy(file, file_, len);
-	}else{
-		file=NULL;
 	}
 
 	if(strcmp(line_, "")!=0){
 		len = strlen(line_)+1;
 		line = malloc(len);
 		strncpy(line, line_, len);
-	}else{
-		line=NULL;
 	}
 
 	/* gen patterns*/
@@ -472,9 +493,14 @@ int hadExecCrash(const char* buffer){
 /* system call with time-out */
 int crashRun(const char* cmd){
 #ifdef USE_POSIX
-	size_t len = 4 + strlen(CRASH_RUN) + strlen(cmd);
-	char* buffer=malloc(len);
+	size_t len;
+	char* buffer;
+
+	len = = 4 + strlen(CRASH_RUN) + strlen(cmd);
+	buffer = malloc(len);
+
 	snprintf(buffer, len, "\"%s\" %s", CRASH_RUN, cmd);
+
 	system(buffer);
 	buffer=loadFile(TLOG);
 
@@ -490,7 +516,9 @@ int crashRun(const char* cmd){
 #else
 
 #error comment me out, if your test cases produce neither eternal loops nor Access Violations
-	return system(cmd);
+	int i = system(cmd);
+	printf("EXIT CODE: %i\n", i);
+	return i;
 
 #endif /* USE_POSIX else */
 }
@@ -514,6 +542,24 @@ int main(int argc, char* arg[]){
 	regex_t* gdb_pattern;
 #endif
 	int good_gdb;		/* (gdb test and positive) or (no gdb test)*/
+
+	compiler	= NULL;
+	cmd_arg_case	= NULL;
+	buffer		= NULL;
+	bufferLen 	= 0;
+	modus 		= -1;
+	res 		= -1;
+	case_file 	= NULL;
+	error_file 	= NULL;
+	error_line 	= NULL;
+	good_error 	= -1;
+	gdb		= NULL;
+	gdb_script	= NULL;
+	gdb_pattern_raw = NULL;
+#ifdef REG_EXTENDED
+	gdb_pattern 	= NULL;
+#endif
+	good_gdb 	= -1;
 
 	/* check arguments */
 	if(argc != 3){
@@ -628,7 +674,7 @@ err:
 	if(modus==COMPILE || modus==NOCOMPILE){
 		/* gen command */
 		bufferLen = strlen(compiler)+strlen(cmd_arg_case)
-			+strlen(OBJ)+strlen(case_file)+strlen(TLOG)+64;
+			+strlen(OBJ)+strlen(case_file)+strlen(TLOG)+21;
 		buffer = malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s ", compiler, cmd_arg_case);
 
@@ -724,6 +770,7 @@ err:
 		/* diagnostic 1/3 */
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s", buffer);
+
 		if(modus==RUN){
 			good_error = checkErrorMessage(error_file, error_line, buffer);
 		}else{
@@ -790,7 +837,7 @@ err:
 			}
 		}else{
 			if(res==EXIT_SUCCESS && good_gdb){
-				printf("XPASS:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
+				printf("XPASS:\t%s%s\n", case_file, gdbMsg(good_gdb));
 			}else if(good_error && good_gdb){
 				printf("XFAIL:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
 			}else{

@@ -22,7 +22,7 @@ int main(){
 	assert(counter==0);
  
 	foreach(int i; bb){
-		dummy(...);
+		dummy(i);
 	}
 
 	assert(counter==0);

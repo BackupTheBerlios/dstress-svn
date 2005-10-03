@@ -16,6 +16,7 @@ int main(){
 	foos[] = foos[] ~ 3;
 	
 	assert(foos.length==1);
+	assert(foos[0]==3);
 	
 	return 0;
 }

@@ -25,4 +25,5 @@ int main(){
 	}catch{
 		return 0;
 	}
+	assert(0);
 }

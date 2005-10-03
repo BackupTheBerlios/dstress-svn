@@ -8,15 +8,8 @@
  */
 
 import std.string;
-import std.c.stdio;
+import std.stdio;
 import std.c.time;
-
-// @bugwatch@ handle a bug in Phobos versions prior to dmd-0.106
-version(linux){
-        const double CLOCKS_PER_SEC = 1000000.0;
-}else version(darwin){
-        const double CLOCKS_PER_SEC = 100.0;
-}
 
 static const char[] trigraph_map = [
   '|', 0, 0, 0, 0, 0, '^',
@@ -37,9 +30,9 @@ int main(char[][] argv) {
 		printf("%.*s%.*s",argv[0],": n\n\tn - number of times to repeat the loop\n");
 		return 0;
 	}
-	int n = atoi(argv[1]);
+	long n = atoi(argv[1]);
 	char dummy= cast(char)n;
-	printf("common_subexpression_01(%d)\n",n);
+	writef("common_subexpression_01(%s)\n",n);
 	clock_t start=clock();
 	while(n--){
 		dummy = map(dummy);

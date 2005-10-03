@@ -16,7 +16,10 @@ class A {
         {
                 this(Type[] arr)
                 {
-                        foreach(Type v; arr) writefln(typeid(typeof(v)));
+                        foreach(Type v; arr)
+                        {
+                        	writefln("%s", typeid(typeof(v)));
+                        }
                 }
         }
 

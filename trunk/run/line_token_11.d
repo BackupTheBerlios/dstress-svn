@@ -24,7 +24,7 @@ int main(){
  *	 "blah blah (linenumber) blah blah"
  */
 void checkLineNumber(Object o){
-	char[] sring=o.toString();
+	char[] string=o.toString();
 	
 	int start;
 	for(start=0; start<string.length; start++){

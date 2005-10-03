@@ -10,6 +10,7 @@ module dstress.run.align_16;
 
 version(X86){
 	version(linux) version=testA; // c compiler: gcc
+	version(Windows) version(DigitalMars) version=testA; // c compiler: dmc
 }
 
 align(64) struct S{

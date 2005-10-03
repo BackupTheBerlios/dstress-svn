@@ -17,7 +17,8 @@ struct MyStruct{
 }
 
 void test(){
-	MyStruct t;
+	MyStruct* t = new MyStruct();
+	assert(t);
 }
 
 int main(){

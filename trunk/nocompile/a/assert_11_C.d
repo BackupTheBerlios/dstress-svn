@@ -6,7 +6,7 @@
 // @date@	2005-09-02
 // @uri@	news:df86a5$248l$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ 14
+// __DSTRESS_ELINE__ 14
 
 module dstress.nocompile.a.assert_11_C;
 

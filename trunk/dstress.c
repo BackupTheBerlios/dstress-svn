@@ -496,7 +496,7 @@ int crashRun(const char* cmd){
 	size_t len;
 	char* buffer;
 
-	len = = 4 + strlen(CRASH_RUN) + strlen(cmd);
+	len = 4 + strlen(CRASH_RUN) + strlen(cmd);
 	buffer = malloc(len);
 
 	snprintf(buffer, len, "\"%s\" %s", CRASH_RUN, cmd);
@@ -515,9 +515,9 @@ int crashRun(const char* cmd){
 	}
 #else
 
-#error comment me out, if your test cases produce neither eternal loops nor Access Violations
+//#error comment me out, if your test cases produce neither eternal loops nor Access Violations
 	int i = system(cmd);
-	printf("EXIT CODE: %i\n", i);
+	fprintf(stderr, "EXIT CODE: %i\n", i);
 	return i;
 
 #endif /* USE_POSIX else */

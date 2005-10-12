@@ -4,12 +4,6 @@ private import std.file;
 private import std.stdio;
 private import std.path;
 
-version(verbose){
-	FILE* msgStream = stderr;
-}else{
-	FILE* msgStream = stdout;
-}
-
 private char[][char[]] known;
 private uint doppelgaenger;
 
@@ -43,7 +37,7 @@ private void add(char[] file){
 	if(isfile(file)){
 		char[]* tmp = base in known;
 		if(tmp){
-			fwritef(msgStream, "%s :\n\t%s\n\t%s\n", base, file, *tmp);
+			fwritef(stdout, "%s :\n\t%s\n\t%s\n", base, file, *tmp);
 			doppelgaenger++;
 		}else{
 			known[base] = file;
@@ -74,11 +68,11 @@ int main(char[][] args){
 
 	version(verbose){
 		foreach(char[] entry; known.keys.sort){
-			writef("\t%s\n", entry);
+			fwritef(stderr, "\t%s\n", entry);
 		}
 	}
 	
-	fwritef(msgStream, "hits : %s\n", doppelgaenger);
+	fwritef(stdout, "hits : %s\n", doppelgaenger);
 
 	return doppelgaenger > 0;
 }

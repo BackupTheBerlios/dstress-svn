@@ -11,8 +11,8 @@ int main(){
 		float b = 2.8L;
 		
 		asm{
-			movsd XMM0, a;
-			movsd b, XMM0;
+			movss XMM0, a;
+			movss b, XMM0;
 		}
 		
 		assert(a==b);

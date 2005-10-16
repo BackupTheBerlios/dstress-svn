@@ -24,7 +24,7 @@
  *
  */
 
-/* Beware: the code doesn't care about freeing allocated memory etc. . .. */
+/* Beware: the code doesn't care about freeing allocated memory etc. ... */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -64,6 +64,7 @@ void *xmalloc(size_t size){
 #define USE_WINDOWS 1
 #endif
 
+/* prefere USE_POSIX over USE_WINDOWS if both APIs are detected */
 #ifdef USE_POSIX
 
 #include <sys/types.h>
@@ -78,25 +79,27 @@ void *xmalloc(size_t size){
 #include <windows.h>
 #define snprintf _snprintf
 #ifndef INVALID_FILE_SIZE
-#define INVALID_FILE_SIZE -1
+#define INVALID_FILE_SIZE (-1)
 #endif
 
 #else
-#error neither POSIX nor MSWindows detected
+#error neither POSIX nor MSWindows API detected
 #endif /* USE_WINDOWS else */
 #endif /* USE_POSIX else */
 
 #define OBJ			"obj "
 
+#ifdef USE_POSIX
+#define		TLOG		"./obj/log.tmp"
+#define		CRASH_RUN	"./crashRun"
+#define		GDB_SCRIPTER	"./obj/gdb.tmp"
+#else
 #ifdef USE_WINDOWS
 #define		TLOG		".\\obj\\log.tmp"
 #define		CRASH_RUN	".\\crashRun"
 #define		GDB_SCRIPTER	".\\obj\\gdb.tmp"
 #else
-#ifdef USE_POSIX
-#define		TLOG		"./obj/log.tmp"
-#define		CRASH_RUN	"./crashRun"
-#define		GDB_SCRIPTER	"./obj/gdb.tmp"
+#error OS dependent file names not defined
 #endif
 #endif
 
@@ -243,24 +246,32 @@ void writeFile(const char* filename, const char* content){
 /* query the environment for the compiler name */
 char* getCompiler(void){
 	char* back = getenv("DMD");
+
+#ifdef USE_WINDOWS
 	if(back == NULL){
 		back = getenv("dmd");
-		if(back==NULL){
-			back = "dmd";
-		}
 	}
+#endif
+	if(back==NULL){
+		back = "dmd";
+	}
+
 	return strip(cleanPathSeperator(back));
 }
 
 /* query the environment for the debugger name */
 char* getGDB(void){
 	char* back = getenv("GDB");
+
+#ifdef USE_WINDOWS
 	if(back == NULL){
 		back = getenv("gdb");
-		if(back == NULL){
-			back = "gdb";
-		}
 	}
+#endif
+	if(back==NULL){
+		back = "gdb";
+	}
+
 	return strip(cleanPathSeperator(back));
 }
 
@@ -515,7 +526,7 @@ int crashRun(const char* cmd){
 	}
 #else
 
-//#error comment me out, if your test cases produce neither eternal loops nor Access Violations
+#error comment me out, if your test cases produce neither eternal loops nor Access Violations
 	int i = system(cmd);
 	fprintf(stderr, "EXIT CODE: %i\n", i);
 	return i;
@@ -564,20 +575,50 @@ int main(int argc, char* arg[]){
 	/* check arguments */
 	if(argc != 3){
 err:
+		fprintf(stderr, "DStress test executer (revision 853)\n"
+			"Copyright by Thomas Kuehne <thomas@kuehne.cn> 2005\n"
+			"\n");
+
 		if(argc!=0)
-			fprintf(stderr,"%s <run|norun|compile|nocompile> <source>\n", arg[0]);
+			fprintf(stderr,
+				"%s <run|norun|compile|nocompile> <source>\n",
+				arg[0]);
 		else
-			fprintf(stderr,"dstress <run|norun|compile|nocompile> <source>\n");
+			fprintf(stderr,
+				"dstress <run|norun|compile|nocompile>"
+				" <source>\n");
+
+		fprintf(stderr,
+		"\n"
+		"== eniroment settings (usually $NAME or %%NAME%%)  ==\n"
+		"* DMD                - compiler (including standard arguments)\n"
+		"* GDB                - debugger (including standard arguments)\n"
+		"\n"
+		"== case setting (line in the case source) ==\n"
+		"* __DSTRESS_DFLAGS__ - additional compiler arguments\n"
+		"only evaluated if it is a \"nocompile\" or \"norun\" test:\n"
+		"* __DSTRESS_ELINE__  - expected source line to throw an error message\n"
+		"* __DSTRESS_EFILE__  - expected source file to throw an error message\n"
+		"                       (defaults to the case file)\n"
+		"only evaluated if it is a \"run\" or \"norun\" test:\n"
+		"* __GDB_SCRIPT__     - command sequence to feed to the debugger\n"
+		"                       (use \\n to encode a line break)\n"
+		"* __GDB_PATTERN__    - expected regular expression in the debugger's\n"
+		"                       output\n"
+		"== note ==\n"
+		"* there current directory is required to contain the sub-directory \"obj\"\n"
+		"  (used for temporary files)\n"
+		);
 		exit(EXIT_FAILURE);
 	}
 
-	if(0==strcmp(arg[1], "run") || 0==strcmp(arg[1], "RUN")){
+	if(0==strcmp(arg[1], "run")){
 		modus = RUN;
-	}else if(0==strcmp(arg[1], "norun") || 0==strcmp(arg[1], "NORUN")){
+	}else if(0==strcmp(arg[1], "norun")){
 		modus = NORUN;
-	}else if(0==strcmp(arg[1], "compile") || 0==strcmp(arg[1], "COMPILE")){
+	}else if(0==strcmp(arg[1], "compile")){
 		modus = COMPILE;
-	}else if(0==strcmp(arg[1], "nocompile") || 0==strcmp(arg[1], "NOCOMPILE")){
+	}else if(0==strcmp(arg[1], "nocompile")){
 		modus = NOCOMPILE;
 	}else{
 		goto err;
@@ -607,7 +648,8 @@ err:
 
 		gdb_pattern = malloc(sizeof(regex_t));
 		if(regcomp(gdb_pattern, gdb_pattern_raw, REG_EXTENDED)){
-			fprintf(stderr, "failed to compile regular expression:\n\t%s\n", gdb_pattern_raw);
+			fprintf(stderr, "failed to compile regular expression:"
+				"\n\t%s\n", gdb_pattern_raw);
 			exit(EXIT_FAILURE);
 		}else if(gdb_script==NULL){
 			fprintf(stderr, "GDB pattern without GDB script\n");
@@ -646,13 +688,15 @@ err:
 
 #else
 
-	if(gdb_script && strlen(gdb_script) && gdb_pattern_raw && strlen(gdb_pattern_raw)){
-		fprintf(stderr, "WARNING: regex support inactive\n");
-	}else if(gdb_script && strlen(gdb_script)){
-		fprintf(stderr, "GDB script without GDB pattern\n");
-		exit(EXIT_FAILURE);
+	if(gdb_script && strlen(gdb_script)){
+		if(gdb_pattern_raw && strlen(gdb_pattern_raw)){
+			fprintf(stderr, "WARNING: debugger/regex support inactive\n");
+		}else{
+			fprintf(stderr, "debugger script without debugger pattern\n");
+			exit(EXIT_FAILURE);
+		}
 	}else if(gdb_pattern_raw && strlen(gdb_pattern_raw)){
-		fprintf(stderr, "GDB pattern without GDB script\n");
+		fprintf(stderr, "debugger pattern without debugger script\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -701,7 +745,8 @@ err:
 		good_error = checkErrorMessage(error_file, error_line, buffer);
 
 		if(hadExecCrash(buffer)){
-			printf("ERROR:\t%s [internal compiler error]\n", case_file);
+			printf("ERROR:\t%s [internal compiler error]\n",
+				case_file);
 		}else if(modus==COMPILE){
 			if(res==EXIT_SUCCESS){
 				printf("PASS: \t%s\n", case_file);
@@ -709,17 +754,20 @@ err:
 				if(checkErrorMessage(case_file, "", buffer)){
 					printf("FAIL: \t%s\n", case_file);
 				}else{
-					printf("ERROR:\t%s%s\n", case_file, errorMsg(good_error));
+					printf("ERROR:\t%s%s\n", case_file,
+						errorMsg(good_error));
 				}
 			}else{
-				printf("ERROR:\t%s%s\n", case_file, errorMsg(good_error));
+				printf("ERROR:\t%s%s\n", case_file,
+					errorMsg(good_error));
 			}
 		}else{
 			if(res==EXIT_FAILURE){
 				if(good_error){
 					printf("XFAIL:\t%s\n", case_file);
 				}else{
-					printf("FAIL: \t%s%s\n", case_file, errorMsg(good_error));
+					printf("FAIL: \t%s%s\n", case_file,
+						errorMsg(good_error));
 				}
 			}else if(res==EXIT_SUCCESS){
 				printf("XPASS:\t%s\n", case_file);
@@ -772,12 +820,14 @@ err:
 		fprintf(stderr, "%s", buffer);
 
 		if(modus==RUN){
-			good_error = checkErrorMessage(error_file, error_line, buffer);
+			good_error = checkErrorMessage(error_file, error_line,
+				buffer);
 		}else{
 			good_error = 1;
 		}
 		if(hadExecCrash(buffer)){
-			printf("ERROR:\t%s [internal compiler error]\n", case_file);
+			printf("ERROR:\t%s [internal compiler error]\n",
+				case_file);
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}else if(res==EXIT_FAILURE && good_error){
@@ -785,7 +835,8 @@ err:
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}else if(res!=EXIT_SUCCESS){
-			printf("ERROR:\t%s%s\n", case_file, errorMsg(good_error));
+			printf("ERROR:\t%s%s\n", case_file,
+				errorMsg(good_error));
 			fprintf(stderr, "\n--------\n");
 			return  EXIT_SUCCESS;
 		}
@@ -802,7 +853,8 @@ err:
 		buffer = loadFile(TLOG);
 		fprintf(stderr, "%s\n", buffer);
 		if(modus==NORUN){
-			good_error = checkRuntimeErrorMessage(error_file, error_line, buffer);
+			good_error = checkRuntimeErrorMessage(error_file,
+				error_line, buffer);
 		}else{
 			good_error = 1;
 		}
@@ -820,28 +872,35 @@ err:
 				/* diagnostic 3/3 */
 				buffer = loadFile(TLOG);
 				fprintf(stderr, "%s\n", buffer);
-				good_gdb = (regexec(gdb_pattern, buffer, 0, NULL, 0)==0);
+				good_gdb = (regexec(
+						gdb_pattern, buffer, 0, NULL, 0
+					)==0);
 			}
 		}
 #endif /* REG_EXTENDED */
 
 		if(modus==RUN){
 			if(hadExecCrash(buffer)){
-				printf("ERROR:\t%s [test case crash]%s%s", case_file, errorMsg(good_error), gdbMsg(good_gdb));
+				printf("ERROR:\t%s [test case crash]%s%s",
+					case_file, errorMsg(good_error),
+					gdbMsg(good_gdb));
 			}else if(res==EXIT_SUCCESS && good_gdb){
 				printf("PASS: \t%s\n", case_file);
 			}else if(res==EXIT_FAILURE && good_error && good_gdb){
 				printf("FAIL: \t%s\n", case_file);
 			}else{
-				printf("ERROR:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
+				printf("ERROR:\t%s%s%s\n", case_file,
+					errorMsg(good_error), gdbMsg(good_gdb));
 			}
 		}else{
 			if(res==EXIT_SUCCESS && good_gdb){
 				printf("XPASS:\t%s%s\n", case_file, gdbMsg(good_gdb));
 			}else if(good_error && good_gdb){
-				printf("XFAIL:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
+				printf("XFAIL:\t%s%s%s\n", case_file,
+					errorMsg(good_error), gdbMsg(good_gdb));
 			}else{
-				printf("FAIL:\t%s%s%s\n", case_file, errorMsg(good_error), gdbMsg(good_gdb));
+				printf("FAIL:\t%s%s%s\n", case_file,
+					errorMsg(good_error), gdbMsg(good_gdb));
 			}
 		}
 		fprintf(stderr, "--------\n");

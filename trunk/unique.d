@@ -68,7 +68,7 @@ int main(char[][] args){
 
 	version(verbose){
 		foreach(char[] entry; known.keys.sort){
-			fwritef(stderr, "\t%s\n", entry);
+			fwritef(stderr, "\t%s\n", known[entry]);
 		}
 	}
 	

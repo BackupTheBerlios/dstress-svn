@@ -122,7 +122,7 @@ public class GenReport{
 						continue;
 					}
 					// test name
-					String name=nizer.nextToken().replace('\\','/').replace("//","/");
+					String name=nizer.nextToken().replace('\\','/');
 					if(name.indexOf(".")==-1){
 						// support for the old log format
 						if(name.indexOf("html")>-1){
@@ -142,7 +142,7 @@ public class GenReport{
 							continue;
 						}
 					}
-						
+
 					// get
 					TestResult test=(TestResult)data.get(name);
 					if(test==null){
@@ -223,7 +223,7 @@ public class GenReport{
 			buffer.append("'>");
 			buffer.append(plainName.replace('_',' '));
 			buffer.append("</a></th>");
-			
+
 			for(int index=0; index<result.status.length; index++){
 				buffer.append("<td class='");
 				try{
@@ -243,7 +243,7 @@ public class GenReport{
 			}
 			buffer.append("</tr>");
 			for(int i=0; i<todoSelection.length; i++){
-				if(todoSelection[i] && (result.status[i]==result.XPASS 
+				if(todoSelection[i] && (result.status[i]==result.XPASS
 							|| result.status[i]==result.FAIL
 							|| result.status[i]==result.ERROR)
 						)
@@ -252,7 +252,7 @@ public class GenReport{
 					break;
 				}
 			}
-			
+
 			buffer.append("\n");
 			out.write(buffer.toString());
 		}

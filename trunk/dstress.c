@@ -213,7 +213,7 @@ char* loadFile(char* filename){
 	exit(EXIT_FAILURE);
 #else /* USE_WINDOWS */
 
-#error "no loadFile implementation present"
+#error no loadFile implementation present
 
 #endif /* USE_WINDOWS */
 #endif /* USE_POSIX else */

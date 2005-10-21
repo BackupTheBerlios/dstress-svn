@@ -309,7 +309,11 @@ complex : basic_tools $(sort $(subst $(complex_todo),$(complex_done),$(complex_m
 # 
 #
 distclean : clean_log clean
-	$(RM) $(shell $(FIND) . -regex ".*~") $(shell $(FIND) . -regex "\\..*\\.swp") $(shell $(FIND) . -regex "#.*#")
+	$(RM) $(shell $(FIND) . -regex ".*~")
+	$(RM) $(shell $(FIND) . -regex "\\..*\\.swp")
+	$(RM) $(shell $(FIND) . -regex "#.*#")
+	$(RM) $(shell $(FIND) . -regex ".*\\.map")
+	$(RM) $(shell $(FIND) . -regex ".*\\.bak")
 	$(RM) $(crashRun__) $(return__) $(ifeq__) $(extract__) $(dstress__) www/*.class
 
 #

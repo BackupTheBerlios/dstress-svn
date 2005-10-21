@@ -1,7 +1,7 @@
 >>>> VERSION <<<<
-Wed, 12 Oct 2005 20:33:56 +0200
+Fri, 21 Oct 2005 22:56:47 +0200
 Linux 2.6.12-gentoo-r6D x86_64
-Digital Mars D Compiler v0.134
+Digital Mars D Compiler v0.132
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
 Usage:
@@ -21,7 +21,6 @@ Usage:
   -inline        do function inlining
   -Llinkerflag   pass linkerflag to link
   -O             optimize
-  -o-            do not write object file
   -odobjdir      write object files to directory objdir
   -offilename	 name output file to filename
   -op            do not strip paths from source file
@@ -41,7 +40,7 @@ cc  crashRun.c -o crashRun
 cc  dstress.c -o dstress
 find compile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress compile" > compile.sh
 chmod +x compile.sh
-./compile.sh 2>> /mnt/win/WUTemp/dstress/log.txt
+./compile.sh 2>> /tmp/dstress/log.txt
 PASS: 	compile/a/abstract_13.d
 PASS: 	compile/alias_08.d
 PASS: 	compile/align_04.d
@@ -108,7 +107,7 @@ PASS: 	compile/variadic_argument_02.d
 PASS: 	compile/variadic_argument_03.d
 find nocompile -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress nocompile" > nocompile.sh
 chmod +x nocompile.sh
-./nocompile.sh 2>> /mnt/win/WUTemp/dstress/log.txt
+./nocompile.sh 2>> /tmp/dstress/log.txt
 FAIL: 	nocompile/a/abstract_14.d [bad error message]
 XFAIL:	nocompile/a/alias_18.d
 XPASS:	nocompile/a/alias_19.d
@@ -945,6 +944,7 @@ XFAIL:	nocompile/s/static_if_01_A.d
 XFAIL:	nocompile/s/static_if_01_B.d
 XFAIL:	nocompile/s/static_if_01_C.d
 XFAIL:	nocompile/s/static_if_01_D.d
+XFAIL:	nocompile/s/static_if_01_E.d
 XFAIL:	nocompile/s/static_if_02_A.d
 XFAIL:	nocompile/s/static_if_02_B.d
 XFAIL:	nocompile/s/static_if_02_C.d
@@ -1146,7 +1146,7 @@ XFAIL:	nocompile/__TIME__02.d
 rm -f 
 find run -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress run" > run.sh
 chmod +x run.sh
-./run.sh 2>> /mnt/win/WUTemp/dstress/log.txt
+./run.sh 2>> /tmp/dstress/log.txt
 FAIL: 	run/a/alias_24_A.d
 PASS: 	run/a/alias_24_B.d
 PASS: 	run/a/alias_25_D.d
@@ -1184,7 +1184,6 @@ PASS: 	run/a/asm_cbw_01.d
 PASS: 	run/a/asm_cdq_01.d
 PASS: 	run/a/asm_ch_01.d
 PASS: 	run/a/asm_clc_01.d
-FAIL: 	run/a/asm_clc_01.s
 FAIL: 	run/a/asm_clflush_01.d
 PASS: 	run/a/asm_cl_01.d
 PASS: 	run/a/asm_cmc_01.d
@@ -1250,7 +1249,21 @@ PASS: 	run/a/asm_fabs_01.d
 PASS: 	run/a/asm_faddp_01.d
 PASS: 	run/a/asm_fadd_01_A.d
 PASS: 	run/a/asm_fadd_01_B.d
+PASS: 	run/a/asm_fbld_01.d
+PASS: 	run/a/asm_fbstp_01.d
 PASS: 	run/a/asm_fchs_01.d
+PASS: 	run/a/asm_fcompp_01.d
+PASS: 	run/a/asm_fcomp_01_A.d
+PASS: 	run/a/asm_fcomp_01_B.d
+PASS: 	run/a/asm_fcomp_01_C.d
+PASS: 	run/a/asm_fcomp_01_D.d
+FAIL: 	run/a/asm_fcom_01_A.bak
+PASS: 	run/a/asm_fcom_01_A.d
+FAIL: 	run/a/asm_fcom_01_B.bak
+PASS: 	run/a/asm_fcom_01_B.d
+FAIL: 	run/a/asm_fcom_01_C.bak
+FAIL: 	run/a/asm_fcom_01_C.d
+PASS: 	run/a/asm_fcom_01_D.d
 PASS: 	run/a/asm_fcos_01.d
 PASS: 	run/a/asm_fiadd_01_A.d
 PASS: 	run/a/asm_fiadd_01_B.d
@@ -1427,7 +1440,7 @@ PASS: 	run/a/asm_movq2dq_01.d
 PASS: 	run/a/asm_movq_01_A.d
 PASS: 	run/a/asm_movq_01_B.d
 PASS: 	run/a/asm_movsd_01.d
-ERROR:	run/a/asm_movss_01.d
+PASS: 	run/a/asm_movss_01.d
 PASS: 	run/a/asm_movsx_01_A.d
 PASS: 	run/a/asm_movsx_01_B.d
 PASS: 	run/a/asm_movzx_01_A.d
@@ -1450,7 +1463,9 @@ PASS: 	run/a/asm_or_01_B.d
 PASS: 	run/a/asm_or_01_C.d
 PASS: 	run/a/asm_pop_01_A.d
 PASS: 	run/a/asm_pop_01_B.d
+PASS: 	run/a/asm_por_01.d
 PASS: 	run/a/asm_pushad_01.d
+PASS: 	run/a/asm_pusha_01.d
 PASS: 	run/a/asm_push_01_A.d
 PASS: 	run/a/asm_push_01_B.d
 PASS: 	run/a/asm_pxor_01_A.d
@@ -1476,13 +1491,53 @@ PASS: 	run/a/asm_sar_01_C.d
 PASS: 	run/a/asm_sbb_01_A.d
 PASS: 	run/a/asm_sbb_01_B.d
 PASS: 	run/a/asm_sbb_01_C.d
+PASS: 	run/a/asm_setae_01.d
+PASS: 	run/a/asm_seta_01.d
+PASS: 	run/a/asm_setbe_01.d
+PASS: 	run/a/asm_setb_01.d
+PASS: 	run/a/asm_setc_01.d
+PASS: 	run/a/asm_sete_01.d
+PASS: 	run/a/asm_setge_01.d
+PASS: 	run/a/asm_setg_01.d
+PASS: 	run/a/asm_setle_01.d
+PASS: 	run/a/asm_setl_01.d
+PASS: 	run/a/asm_setnae_01.d
+PASS: 	run/a/asm_setna_01.d
+PASS: 	run/a/asm_setnbe_01.d
+PASS: 	run/a/asm_setnb_01.d
+PASS: 	run/a/asm_setnc_01.d
+PASS: 	run/a/asm_setne_01.d
+PASS: 	run/a/asm_setnge_01.d
+PASS: 	run/a/asm_setng_01.d
+PASS: 	run/a/asm_setnle_01.d
+PASS: 	run/a/asm_setnl_01.d
+PASS: 	run/a/asm_setno_01.d
+PASS: 	run/a/asm_setnp_01.d
+PASS: 	run/a/asm_setns_01.d
+PASS: 	run/a/asm_setnz_01.d
+PASS: 	run/a/asm_setpe_01.d
+PASS: 	run/a/asm_setpo_01.d
+PASS: 	run/a/asm_setp_01.d
+PASS: 	run/a/asm_sets_01.d
+PASS: 	run/a/asm_setz_01.d
+PASS: 	run/a/asm_sfence_01.d
+PASS: 	run/a/asm_sgdt_01.d
+PASS: 	run/a/asm_shld_01_A.d
+PASS: 	run/a/asm_shld_01_B.d
 PASS: 	run/a/asm_shl_01_A.d
 PASS: 	run/a/asm_shl_01_B.d
 PASS: 	run/a/asm_shl_01_C.d
+PASS: 	run/a/asm_shrd_01_A.d
+PASS: 	run/a/asm_shrd_01_B.d
 PASS: 	run/a/asm_shr_01_A.d
 PASS: 	run/a/asm_shr_01_B.d
 PASS: 	run/a/asm_shr_01_C.d
+PASS: 	run/a/asm_sidt_01.d
 PASS: 	run/a/asm_si_01.d
+PASS: 	run/a/asm_sldt_01.d
+PASS: 	run/a/asm_smsw_01.d
+PASS: 	run/a/asm_stc_01.d
+PASS: 	run/a/asm_str_01.d
 PASS: 	run/a/asm_sub_01_A.d
 PASS: 	run/a/asm_sub_01_B.d
 PASS: 	run/a/asm_sub_01_C.d
@@ -3160,7 +3215,7 @@ PASS: 	run/__TIME__01.d
 rm -f 
 find norun -type f | grep -v ".svn" | sort --ignore-case | xargs -n 1 echo "./dstress norun" > norun.sh
 chmod +x norun.sh
-./norun.sh 2>> /mnt/win/WUTemp/dstress/log.txt
+./norun.sh 2>> /tmp/dstress/log.txt
 XFAIL:	norun/a/asm_clts_01.d
 XFAIL:	norun/a/asm_invd_01.d
 XFAIL:	norun/a/asm_ud2_01.d

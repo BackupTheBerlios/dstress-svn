@@ -606,7 +606,7 @@ err:
 		"* __GDB_PATTERN__    - expected regular expression in the debugger's\n"
 		"                       output\n"
 		"== note ==\n"
-		"* there current directory is required to contain the sub-directory \"obj\"\n"
+		"* the current directory is required to contain the sub-directory \"obj\"\n"
 		"  (used for temporary files)\n"
 		);
 		exit(EXIT_FAILURE);

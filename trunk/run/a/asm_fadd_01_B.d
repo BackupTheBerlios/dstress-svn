@@ -2,10 +2,15 @@
 // $Date: 2005-08-20 20:24:41 +0200 (Sat, 20 Aug 2005) $
 // $Author: thomask $
 
+// __DSTRESS_DFLAGS__ addon/cpuinfo.d
+
 module dstress.run.a.asm_fadd_01_B;
+import addon.cpuinfo;
 
 int main(){
 	version(D_InlineAsm){
+		haveFPU();
+		
 		double a = -1.0f;
 		double b = 3.5f;
 		

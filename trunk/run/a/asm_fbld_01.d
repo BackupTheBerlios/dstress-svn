@@ -4,34 +4,38 @@
 
 // __DSTRESS_DFLAGS__ addon/cpuinfo.d
 
-module dstress.run.a.asm_fabs_01;
+module dstress.run.a.asm_fbld_01;
 import addon.cpuinfo;
 		
 int main(){
 	version(D_InlineAsm){	
 		haveFPU();
 	
-		float f = -1.0f;
+		byte[10] raw;
+		
+		raw[0] = 1 | (2 << 4);
+		raw[1] = 3 | (4 << 4);
+		raw[2] = 5 | (6 << 4);
+		raw[3] = 0;
+		raw[4] = 0;
+		raw[5] = 0;
+		raw[6] = 0;
+		raw[7] = 0;
+		raw[8] = 0;
+		raw[9] = 0;
+		
+		real r = 17;
 		
 		asm{
-			finit;
-			fld f;
-			fabs;
-			fst f;
+			fbld raw;
+			fstp r;
 		}
 		
-		assert(f == 1.0);
+		r -= 654321.0;
 		
-		f = 2.0;
+		r = (r<0) ? (-r) : r;
 		
-		asm{
-			finit;
-			fld f;
-			fabs;
-			fst f;
-		}
-		
-		assert(f == 2.0);
+		assert(r < r.epsilon * 4);
 		
 		return 0;
 	}else{

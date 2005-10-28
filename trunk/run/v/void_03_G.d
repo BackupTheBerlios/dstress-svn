@@ -5,12 +5,9 @@
 // @author@	Thomas Kühne <thomas-dloop@kuehne.THISISSPAM.cn>
 // @date@	2005-08-17
 
-// __DSTRESS_ELINE__ 16
+module dstress.run.v.void_03_G;
 
-module dstress.nocompile.v.void_03_W;
-
-enum Enum{
-	A, B
+int main(){
+	uint x = void;
+	return 0;
 }
-
-Enum x = void;

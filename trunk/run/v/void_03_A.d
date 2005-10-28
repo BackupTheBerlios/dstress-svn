@@ -5,8 +5,10 @@
 // @author@	Thomas Kühne <thomas-dloop@kuehne.THISISSPAM.cn>
 // @date@	2005-08-17
 
-// __DSTRESS_ELINE__ 12
+module dstress.run.v.void_03_A;
 
-module dstress.nocompile.v.void_03_R;
+byte x = void;
 
-cdouble x = void;
+int main(){
+	return 0;
+}

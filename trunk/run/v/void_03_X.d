@@ -7,10 +7,13 @@
 
 // __DSTRESS_ELINE__ 16
 
-module dstress.nocompile.v.void_03_X;
+module dstress.run.v.void_03_X;
 
 struct Struct{
 	int i;
 }
 
-Struct x = void;
+int main(){
+	Struct x = void;
+	return 0;
+}

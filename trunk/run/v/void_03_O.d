@@ -5,8 +5,9 @@
 // @author@	Thomas Kühne <thomas-dloop@kuehne.THISISSPAM.cn>
 // @date@	2005-08-17
 
-// __DSTRESS_ELINE__ 12
+module dstress.run.v.void_03_O;
 
-module dstress.nocompile.v.void_03_D;
-
-short x = void;
+int main(){
+	idouble x = void;
+	return 0;
+}

@@ -2,12 +2,17 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_DFLAGS__ addon/cpuinfo.d
+
 module dstress.run.a.asm_fscale_01;
+import addon.cpuinfo;
 
 int main(){
 	version(D_InlineAsm){
-		real a = 4.6L;
-		real b = 1;
+		haveFPU();
+		
+		float a = 4.6;
+		float b = 1.0;
 		
 		asm{
 			finit;
@@ -17,7 +22,7 @@ int main(){
 			fstp a;
 		}
 			
-		a -= 16.0L;
+		a -= 16.0;
 		
 		a = (a>0) ? a : -a;
 		
@@ -25,7 +30,7 @@ int main(){
 		
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "no inline asm support");
 		static assert(0);
 	}
 }

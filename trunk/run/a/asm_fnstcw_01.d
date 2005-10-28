@@ -2,19 +2,27 @@
 // $Date: 2005-08-20 20:24:41 +0200 (Sat, 20 Aug 2005) $
 // $Author: thomask $
 
+// __DSTRESS_DFLAGS__ addon/cpuinfo.d
+
 module dstress.run.a.asm_fnstcw_01;
+import addon.cpuinfo;
 
 int main(){
 	version(D_InlineAsm){
-		byte b;
+		haveFPU();
+		
+		ushort b;
 		
 		asm{
+			finit;
 			fnstcw b;
 		}
 		
+		assert(b == 0x037F);
+		
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "no inline asm support");
 		static assert(0);
 	}
 }

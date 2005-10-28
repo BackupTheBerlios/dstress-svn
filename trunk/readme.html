@@ -20,8 +20,8 @@
 		<meta name="robots" content="index,follow" />
 		<meta name="DOCUMENT-STATE" content="STATIC" />
 		<meta name="DC.Language" content="en" />
-		<meta name="date" content="2005-08-14" />
-		<meta name="DC.Date" content="2005-08-14" />
+		<meta name="date" content="2005-10-27" />
+		<meta name="DC.Date" content="2005-10-27" />
 		<link rel="Report" href="./www/dstress.html" title="Report" />
 		<link rel="Results" href="./www/results.html"/>
 		<link rel="copyright" href="./license.txt"/>
@@ -96,13 +96,14 @@
 		<blockquote>
 			<dl>
 				<dd>
-					<dt>DMD / dmd</dt>
+					<dt>DMD</dt>
 						<dd>the D compiler, e.g.: <i>c:\dmd\bin\dmd.exe</i></dd>
 						<dd>use the wrapper <i>gdmd</i> for the GDC compiler</dd>
 						<dd>default value: <i>dmd</i></dd>
-					<dt>GDB / gdb</dt>
+					<dt>GDB</dt>
 						<dd>a debugger with gdb-like commands, e.g.: <i>/usr/local/bin/gdb</i></dd>
 						<dd>default value: <i>gdb</i></dd>
+						<dd>note: only used on POSIX operating systems (e.g. BSD, Linux, Unix)</dd>
 				</dd>
 			</dl>
 		</blockquote>
@@ -132,7 +133,6 @@
 
 		<h3><a name="testing" id="testing" href="#top">^</a> Testing</h3>
 		<blockquote>
-			Testcases that are newer than the result file are ignored.
 			<dl>
 				<dt>Posix Systems: AIX, Apple, BSD, Linux, Unix</dt>
 				<dd>
@@ -210,6 +210,7 @@
 				<dt>Notes</dt>
 				<dd>
 					<ul>
+						<li>test cases that have been changed since the recording of the result file ignored</li>
 						<li>the output is unsorted</li>
 						<li>one or more result-files can be feed to the reporter class</li>
 						<li>lines containing statistic data are marked by <i>&lt;!-- summary --&gt;</i></li>
@@ -239,6 +240,6 @@
 			</dl>
 		</blockquote>
 
-		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/readme.html</a>; 2005-08-21; <a href="mailto:webmastro@kuehne.cn">Webmaster</a></div>
+		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/readme.html</a>; 2005-10-27; <a href="mailto:webmastro@kuehne.cn">Webmaster</a></div>
 	</body>
 </html>

@@ -1,4 +1,4 @@
-# $HeadURL$
+﻿# $HeadURL$
 # $Date$
 # $Author$
 #
@@ -51,7 +51,7 @@ ifndef CD
 CD	:= cd
 endif
 
-# executeable: display a message test (e.g. echo "something to say)
+# executeable: display a message test (e.g. echo "something to say")
 ifndef ECHO
 ECHO	:= echo
 endif

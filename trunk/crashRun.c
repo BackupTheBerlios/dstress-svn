@@ -3,7 +3,7 @@
  *
  * Copyright (C)
  *		2005 Thomas Kuehne <thomas@kuehne.cn>
- *		2005 Anders F Björklund <afb@algonet.se>
+ *		2005 Anders F Björrklund <afb@algonet.se>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@
 const int TIME_OUT= 5*60; /* time-out in seconds (might be cpu or system time)*/
 const int MEM_LIMIT = 200;  /* mem megabytes */
 
-/* try to cope with -ansi and other threads */
+/* identify system API */
 #if defined(__GNU_LIBRARY__) || defined(__GLIBC__) || defined(__USE_POSIX)
 #define USE_POSIX
 #endif

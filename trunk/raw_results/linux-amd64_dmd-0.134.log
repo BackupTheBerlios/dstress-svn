@@ -27,7 +27,7 @@ EXIT CODE: 0
 
 --------
 compile: dmd-0.134 addon/bug_20050903_Y.d addon/bug_20050903_X.d -odobj  -c compile/b/bug_20050903_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.134: line 4: 13669 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 10480 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -320,7 +320,7 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/a/alias_26_A.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.134: line 4: 15117 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 12230 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -330,7 +330,7 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/a/alias_26_C.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.134: line 4: 15129 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 12242 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -430,6 +430,530 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_ah_02_R.d 1> ./obj/log.tmp 2>&1
 nocompile/a/asm_ah_02_R.d(17): bad type/size of operands 'mov'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_A.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_A.d(12): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_C.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_C.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_D.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_D.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_E.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_E.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_F.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_F.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_G.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_G.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_H.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_H.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_I.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_I.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_J.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_J.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_K.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_L.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_L.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_M.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnsave_02_M.d(14): bad type/size of operands 'fnsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnsave_02_N.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnstcw_02_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnstcw_02_B.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnstcw_02_B.d(15): bad type/size of operands 'fnstcw'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnstcw_02_C.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnstcw_02_C.d(15): bad type/size of operands 'fnstcw'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fnstcw_02_D.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fnstcw_02_D.d(12): bad type/size of operands 'fnstcw'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_C.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_E.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_F.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_G.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_H.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_I.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_J.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_K.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_L.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frndint_02_M.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_A.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_A.d(12): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_C.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_C.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_D.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_D.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_E.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_E.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_F.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_F.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_G.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_G.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_H.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_H.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_I.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_I.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_J.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_J.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_K.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_L.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_L.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_M.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_frstor_02_M.d(14): bad type/size of operands 'frstor'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_frstor_02_N.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_A.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_A.d(12): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_C.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_C.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_D.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_D.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_E.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_E.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_F.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_F.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_G.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_G.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_H.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_H.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_I.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_I.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_J.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_J.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_K.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_L.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_L.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_M.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fsave_02_M.d(14): bad type/size of operands 'fsave'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsave_02_N.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_C.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_E.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_F.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_G.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_H.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_I.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_J.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_K.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_L.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fscale_02_M.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_C.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_E.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_F.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_G.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_H.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_I.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_J.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_K.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_L.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsincos_02_M.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_C.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_E.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_F.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_G.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_H.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_I.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_J.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_K.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_L.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsin_02_M.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsqrt_02_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsqrt_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsqrt_02_C.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsqrt_02_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsqrt_02_E.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsqrt_02_F.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fsqrt_02_G.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstcw_02_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstcw_02_B.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fstcw_02_B.d(15): bad type/size of operands 'fstcw'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstcw_02_C.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fstcw_02_C.d(15): bad type/size of operands 'fstcw'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstcw_02_D.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fstcw_02_D.d(12): bad type/size of operands 'fstcw'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstp_02_A.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fstp_02_A.d(12): bad type/size of operands 'fstp'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstp_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstp_02_C.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fstp_02_C.d(14): bad type/size of operands 'fstp'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstp_02_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fstp_02_E.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fst_02_A.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fst_02_A.d(12): bad type/size of operands 'fst'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fst_02_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fst_02_C.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fst_02_C.d(14): bad type/size of operands 'fst'
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fst_02_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fst_02_E.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/a/asm_fst_02_F.d 1> ./obj/log.tmp 2>&1
+nocompile/a/asm_fst_02_F.d(14): bad type/size of operands 'fst'
 EXIT CODE: 256
 
 --------
@@ -703,6 +1227,10 @@ nocompile/b/bug_e2ir_2452_D.d(17): cannot change reference to static array 'c'
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.134 -inline -odobj  -c nocompile/b/bug_e2ir_299_C.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
 nocompile: dmd-0.134  -odobj  -c nocompile/b/bug_expression_5818_C.d 1> ./obj/log.tmp 2>&1
 nocompile/b/bug_expression_5818_C.d(15): function object.Object.opCmp (Object) does not match argument types (uint)
 nocompile/b/bug_expression_5818_C.d(15): cannot implicitly convert expression (test) of type uint to object.Object
@@ -721,7 +1249,7 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/b/bug_expression_5818_E.d 1> ./obj/log.tmp 2>&1
 nocompile/b/bug_expression_5818_E.d(16): incompatible types for ((test) > (val)): 'uint' and 'Y'
-/opt/dmd/bin/dmd-0.134: line 4: 15579 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 13418 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -744,8 +1272,30 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/b/bug_expression_5818_H.d 1> ./obj/log.tmp 2>&1
 nocompile/b/bug_expression_5818_H.d(16): incompatible types for ((test) > (val)): 'uint' and 'Y'
-/opt/dmd/bin/dmd-0.134: line 4: 15597 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 13436 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/b/bug_tocsym_142_A.d 1> ./obj/log.tmp 2>&1
+dmd: tocsym.c:142: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
+/opt/dmd/bin/dmd-0.134: line 4: 13442 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 34304
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/b/bug_tocsym_142_B.d 1> ./obj/log.tmp 2>&1
+nocompile/b/bug_tocsym_142_B.d(22): need 'this' to access member s
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/b/bug_tocsym_142_C.d 1> ./obj/log.tmp 2>&1
+nocompile/b/bug_tocsym_142_C.d(22): need 'this' to access member s
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/b/bug_tocsym_142_D.d 1> ./obj/log.tmp 2>&1
+dmd: tocsym.c:142: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
+/opt/dmd/bin/dmd-0.134: line 4: 13460 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 34304
 
 --------
 nocompile: dmd-0.134 10 -odobj  -c nocompile/bit_02.d 1> ./obj/log.tmp 2>&1
@@ -3725,6 +4275,37 @@ nocompile/n/new_24.d(19): non-constant expression new B
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.134  -odobj  -c nocompile/n/new_25_A.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/n/new_25_B.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/n/new_25_C.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/n/new_25_D.d 1> ./obj/log.tmp 2>&1
+EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/n/new_26_A.d 1> ./obj/log.tmp 2>&1
+nocompile/n/new_26_A.d(14): no identifier for declarator x
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/n/new_26_B.d 1> ./obj/log.tmp 2>&1
+nocompile/n/new_26_B.d(14): no identifier for declarator x
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/n/new_26_C.d 1> ./obj/log.tmp 2>&1
+nocompile/n/new_26_C.d(14): no identifier for declarator x
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.134  -odobj  -c nocompile/named_entity_04.d 1> ./obj/log.tmp 2>&1
 nocompile/named_entity_04.d(10): unnamed character entity &JustMe;
 EXIT CODE: 256
@@ -3952,8 +4533,112 @@ EXIT CODE: 0
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_01.d 1> ./obj/log.tmp 2>&1
-nocompile/o/opAddAssign_01.d(15): semicolon expected, not '+='
-nocompile/o/opAddAssign_01.d(15): found '+=' instead of statement
+nocompile/o/opAddAssign_01.d(17): semicolon expected, not '+='
+nocompile/o/opAddAssign_01.d(17): found '+=' instead of statement
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_A.d(21): incompatible types for ((a) += (x)): 'float' and 'dstress.nocompile.o.opAddAssign_18_A.X'
+nocompile/o/opAddAssign_18_A.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_B.d(21): incompatible types for ((a) += (x)): 'float' and 'X'
+nocompile/o/opAddAssign_18_B.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAddAssign_18_C.X
+nocompile/o/opAddAssign_18_C.d(21): incompatible types for ((x) += (a)): 'dstress.nocompile.o.opAddAssign_18_C.X' and 'float'
+nocompile/o/opAddAssign_18_C.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAddAssign_18_D.d(21): incompatible types for ((x) += (a)): 'X' and 'float'
+nocompile/o/opAddAssign_18_D.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_E.d(21): incompatible types for ((a) += (x)): 'ifloat' and 'dstress.nocompile.o.opAddAssign_18_E.X'
+nocompile/o/opAddAssign_18_E.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_F.d(21): incompatible types for ((a) += (x)): 'ifloat' and 'X'
+nocompile/o/opAddAssign_18_F.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAddAssign_18_G.X
+nocompile/o/opAddAssign_18_G.d(21): incompatible types for ((x) += (a)): 'dstress.nocompile.o.opAddAssign_18_G.X' and 'ifloat'
+nocompile/o/opAddAssign_18_G.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAddAssign_18_H.d(21): incompatible types for ((x) += (a)): 'X' and 'ifloat'
+nocompile/o/opAddAssign_18_H.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_I.d(21): incompatible types for ((a) += (x)): 'cfloat' and 'dstress.nocompile.o.opAddAssign_18_I.X'
+nocompile/o/opAddAssign_18_I.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_J.d(21): incompatible types for ((a) += (x)): 'cfloat' and 'X'
+nocompile/o/opAddAssign_18_J.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAddAssign_18_K.X
+nocompile/o/opAddAssign_18_K.d(21): incompatible types for ((x) += (a)): 'dstress.nocompile.o.opAddAssign_18_K.X' and 'cfloat'
+nocompile/o/opAddAssign_18_K.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAddAssign_18_L.d(21): incompatible types for ((x) += (a)): 'X' and 'cfloat'
+nocompile/o/opAddAssign_18_L.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_M.d(21): incompatible types for ((a) += (x)): 'int' and 'dstress.nocompile.o.opAddAssign_18_M.X'
+nocompile/o/opAddAssign_18_M.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_N.d(21): incompatible types for ((a) += (x)): 'int' and 'X'
+nocompile/o/opAddAssign_18_N.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAddAssign_18_O.X
+nocompile/o/opAddAssign_18_O.d(21): incompatible types for ((x) += (a)): 'dstress.nocompile.o.opAddAssign_18_O.X' and 'int'
+nocompile/o/opAddAssign_18_O.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAddAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAddAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAddAssign_18_P.d(21): incompatible types for ((x) += (a)): 'X' and 'int'
+nocompile/o/opAddAssign_18_P.d(21): 'x' is not an arithmetic type
 EXIT CODE: 256
 
 --------
@@ -4011,6 +4696,122 @@ nocompile/o/opAndAssign_01_R.d(16): 'cast(creal)(1i + 2)' is not of integral typ
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_A.d(21): incompatible types for ((a) &= (x)): 'float' and 'dstress.nocompile.o.opAndAssign_18_A.X'
+nocompile/o/opAndAssign_18_A.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opAndAssign_18_A.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_A.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_B.d(21): incompatible types for ((a) &= (x)): 'float' and 'X'
+nocompile/o/opAndAssign_18_B.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opAndAssign_18_B.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAndAssign_18_C.X
+nocompile/o/opAndAssign_18_C.d(21): incompatible types for ((x) &= (a)): 'dstress.nocompile.o.opAndAssign_18_C.X' and 'float'
+nocompile/o/opAndAssign_18_C.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_C.X
+nocompile/o/opAndAssign_18_C.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAndAssign_18_D.d(21): incompatible types for ((x) &= (a)): 'X' and 'float'
+nocompile/o/opAndAssign_18_D.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opAndAssign_18_D.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_E.d(21): incompatible types for ((a) &= (x)): 'ifloat' and 'dstress.nocompile.o.opAndAssign_18_E.X'
+nocompile/o/opAndAssign_18_E.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opAndAssign_18_E.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_E.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_F.d(21): incompatible types for ((a) &= (x)): 'ifloat' and 'X'
+nocompile/o/opAndAssign_18_F.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opAndAssign_18_F.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAndAssign_18_G.X
+nocompile/o/opAndAssign_18_G.d(21): incompatible types for ((x) &= (a)): 'dstress.nocompile.o.opAndAssign_18_G.X' and 'ifloat'
+nocompile/o/opAndAssign_18_G.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_G.X
+nocompile/o/opAndAssign_18_G.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAndAssign_18_H.d(21): incompatible types for ((x) &= (a)): 'X' and 'ifloat'
+nocompile/o/opAndAssign_18_H.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opAndAssign_18_H.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_I.d(21): incompatible types for ((a) &= (x)): 'cfloat' and 'dstress.nocompile.o.opAndAssign_18_I.X'
+nocompile/o/opAndAssign_18_I.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opAndAssign_18_I.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_I.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_J.d(21): incompatible types for ((a) &= (x)): 'cfloat' and 'X'
+nocompile/o/opAndAssign_18_J.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opAndAssign_18_J.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAndAssign_18_K.X
+nocompile/o/opAndAssign_18_K.d(21): incompatible types for ((x) &= (a)): 'dstress.nocompile.o.opAndAssign_18_K.X' and 'cfloat'
+nocompile/o/opAndAssign_18_K.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_K.X
+nocompile/o/opAndAssign_18_K.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAndAssign_18_L.d(21): incompatible types for ((x) &= (a)): 'X' and 'cfloat'
+nocompile/o/opAndAssign_18_L.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opAndAssign_18_L.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_M.d(21): incompatible types for ((a) &= (x)): 'int' and 'dstress.nocompile.o.opAndAssign_18_M.X'
+nocompile/o/opAndAssign_18_M.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_M.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_N.d(21): incompatible types for ((a) &= (x)): 'int' and 'X'
+nocompile/o/opAndAssign_18_N.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opAndAssign_18_O.X
+nocompile/o/opAndAssign_18_O.d(21): incompatible types for ((x) &= (a)): 'dstress.nocompile.o.opAndAssign_18_O.X' and 'int'
+nocompile/o/opAndAssign_18_O.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opAndAssign_18_O.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opAndAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opAndAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opAndAssign_18_P.d(21): incompatible types for ((x) &= (a)): 'X' and 'int'
+nocompile/o/opAndAssign_18_P.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opAssign_01_A.d 1> ./obj/log.tmp 2>&1
 nocompile/o/opAssign_01_A.d(16): bar = _adDup(foo,4) is not an lvalue
 EXIT CODE: 256
@@ -4048,6 +4849,86 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opAssign_03_B.d 1> ./obj/log.tmp 2>&1
 nocompile/o/opAssign_03_B.d(14): constant 0 is not an lvalue
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_A.d(21): Can only concatenate arrays, not float ~= dstress.nocompile.o.opCatAssign_18_A.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_B.d(21): Can only concatenate arrays, not float ~= X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_C.d(21): Can only concatenate arrays, not dstress.nocompile.o.opCatAssign_18_C.X ~= float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_D.d(21): Can only concatenate arrays, not X ~= float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_E.d(21): Can only concatenate arrays, not ifloat ~= dstress.nocompile.o.opCatAssign_18_E.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_F.d(21): Can only concatenate arrays, not ifloat ~= X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_G.d(21): Can only concatenate arrays, not dstress.nocompile.o.opCatAssign_18_G.X ~= ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_H.d(21): Can only concatenate arrays, not X ~= ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_I.d(21): Can only concatenate arrays, not cfloat ~= dstress.nocompile.o.opCatAssign_18_I.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_J.d(21): Can only concatenate arrays, not cfloat ~= X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_K.d(21): Can only concatenate arrays, not dstress.nocompile.o.opCatAssign_18_K.X ~= cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_L.d(21): Can only concatenate arrays, not X ~= cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_M.d(21): Can only concatenate arrays, not int ~= dstress.nocompile.o.opCatAssign_18_M.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_N.d(21): Can only concatenate arrays, not int ~= X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_O.d(21): Can only concatenate arrays, not dstress.nocompile.o.opCatAssign_18_O.X ~= int
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opCatAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opCatAssign_18_P.d(21): Can only concatenate arrays, not X ~= int
 EXIT CODE: 256
 
 --------
@@ -4124,6 +5005,110 @@ nocompile/o/opCmp_06_O.d(27): need member function opCmp() for interface dstress
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_A.d(21): incompatible types for ((a) /= (x)): 'float' and 'dstress.nocompile.o.opDivAssign_18_A.X'
+nocompile/o/opDivAssign_18_A.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_B.d(21): incompatible types for ((a) /= (x)): 'float' and 'X'
+nocompile/o/opDivAssign_18_B.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opDivAssign_18_C.X
+nocompile/o/opDivAssign_18_C.d(21): incompatible types for ((x) /= (a)): 'dstress.nocompile.o.opDivAssign_18_C.X' and 'float'
+nocompile/o/opDivAssign_18_C.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opDivAssign_18_D.d(21): incompatible types for ((x) /= (a)): 'X' and 'float'
+nocompile/o/opDivAssign_18_D.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_E.d(21): incompatible types for ((a) /= (x)): 'ifloat' and 'dstress.nocompile.o.opDivAssign_18_E.X'
+nocompile/o/opDivAssign_18_E.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_F.d(21): incompatible types for ((a) /= (x)): 'ifloat' and 'X'
+nocompile/o/opDivAssign_18_F.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opDivAssign_18_G.X
+nocompile/o/opDivAssign_18_G.d(21): incompatible types for ((x) /= (a)): 'dstress.nocompile.o.opDivAssign_18_G.X' and 'ifloat'
+nocompile/o/opDivAssign_18_G.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opDivAssign_18_H.d(21): incompatible types for ((x) /= (a)): 'X' and 'ifloat'
+nocompile/o/opDivAssign_18_H.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_I.d(21): incompatible types for ((a) /= (x)): 'cfloat' and 'dstress.nocompile.o.opDivAssign_18_I.X'
+nocompile/o/opDivAssign_18_I.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_J.d(21): incompatible types for ((a) /= (x)): 'cfloat' and 'X'
+nocompile/o/opDivAssign_18_J.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opDivAssign_18_K.X
+nocompile/o/opDivAssign_18_K.d(21): incompatible types for ((x) /= (a)): 'dstress.nocompile.o.opDivAssign_18_K.X' and 'cfloat'
+nocompile/o/opDivAssign_18_K.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opDivAssign_18_L.d(21): incompatible types for ((x) /= (a)): 'X' and 'cfloat'
+nocompile/o/opDivAssign_18_L.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_M.d(21): incompatible types for ((a) /= (x)): 'int' and 'dstress.nocompile.o.opDivAssign_18_M.X'
+nocompile/o/opDivAssign_18_M.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_N.d(21): incompatible types for ((a) /= (x)): 'int' and 'X'
+nocompile/o/opDivAssign_18_N.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opDivAssign_18_O.X
+nocompile/o/opDivAssign_18_O.d(21): incompatible types for ((x) /= (a)): 'dstress.nocompile.o.opDivAssign_18_O.X' and 'int'
+nocompile/o/opDivAssign_18_O.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opDivAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opDivAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opDivAssign_18_P.d(21): incompatible types for ((x) /= (a)): 'X' and 'int'
+nocompile/o/opDivAssign_18_P.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opDiv_10_A.d 1> ./obj/log.tmp 2>&1
 nocompile/o/opDiv_10_A.d(14): cannot implicitly convert expression (4i / 2i) of type float to ifloat
 EXIT CODE: 256
@@ -4156,6 +5141,110 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opIndex_05.d 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_A.d(21): incompatible types for ((a) %= (x)): 'float' and 'dstress.nocompile.o.opModAssign_18_A.X'
+nocompile/o/opModAssign_18_A.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_B.d(21): incompatible types for ((a) %= (x)): 'float' and 'X'
+nocompile/o/opModAssign_18_B.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opModAssign_18_C.X
+nocompile/o/opModAssign_18_C.d(21): incompatible types for ((x) %= (a)): 'dstress.nocompile.o.opModAssign_18_C.X' and 'float'
+nocompile/o/opModAssign_18_C.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opModAssign_18_D.d(21): incompatible types for ((x) %= (a)): 'X' and 'float'
+nocompile/o/opModAssign_18_D.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_E.d(21): incompatible types for ((a) %= (x)): 'ifloat' and 'dstress.nocompile.o.opModAssign_18_E.X'
+nocompile/o/opModAssign_18_E.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_F.d(21): incompatible types for ((a) %= (x)): 'ifloat' and 'X'
+nocompile/o/opModAssign_18_F.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opModAssign_18_G.X
+nocompile/o/opModAssign_18_G.d(21): incompatible types for ((x) %= (a)): 'dstress.nocompile.o.opModAssign_18_G.X' and 'ifloat'
+nocompile/o/opModAssign_18_G.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opModAssign_18_H.d(21): incompatible types for ((x) %= (a)): 'X' and 'ifloat'
+nocompile/o/opModAssign_18_H.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_I.d(21): incompatible types for ((a) %= (x)): 'cfloat' and 'dstress.nocompile.o.opModAssign_18_I.X'
+nocompile/o/opModAssign_18_I.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_J.d(21): incompatible types for ((a) %= (x)): 'cfloat' and 'X'
+nocompile/o/opModAssign_18_J.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opModAssign_18_K.X
+nocompile/o/opModAssign_18_K.d(21): incompatible types for ((x) %= (a)): 'dstress.nocompile.o.opModAssign_18_K.X' and 'cfloat'
+nocompile/o/opModAssign_18_K.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opModAssign_18_L.d(21): incompatible types for ((x) %= (a)): 'X' and 'cfloat'
+nocompile/o/opModAssign_18_L.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_M.d(21): incompatible types for ((a) %= (x)): 'int' and 'dstress.nocompile.o.opModAssign_18_M.X'
+nocompile/o/opModAssign_18_M.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_N.d(21): incompatible types for ((a) %= (x)): 'int' and 'X'
+nocompile/o/opModAssign_18_N.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opModAssign_18_O.X
+nocompile/o/opModAssign_18_O.d(21): incompatible types for ((x) %= (a)): 'dstress.nocompile.o.opModAssign_18_O.X' and 'int'
+nocompile/o/opModAssign_18_O.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opModAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opModAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opModAssign_18_P.d(21): incompatible types for ((x) %= (a)): 'X' and 'int'
+nocompile/o/opModAssign_18_P.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opMod_01_A.d 1> ./obj/log.tmp 2>&1
@@ -4203,6 +5292,110 @@ EXIT CODE: 256
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opMod_01_H.d 1> ./obj/log.tmp 2>&1
 nocompile/o/opMod_01_H.d(11): divide by 0
 nocompile/o/opMod_01_H.d(11): divide by 0
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_A.d(21): incompatible types for ((a) *= (x)): 'float' and 'dstress.nocompile.o.opMulAssign_18_A.X'
+nocompile/o/opMulAssign_18_A.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_B.d(21): incompatible types for ((a) *= (x)): 'float' and 'X'
+nocompile/o/opMulAssign_18_B.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opMulAssign_18_C.X
+nocompile/o/opMulAssign_18_C.d(21): incompatible types for ((x) *= (a)): 'dstress.nocompile.o.opMulAssign_18_C.X' and 'float'
+nocompile/o/opMulAssign_18_C.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opMulAssign_18_D.d(21): incompatible types for ((x) *= (a)): 'X' and 'float'
+nocompile/o/opMulAssign_18_D.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_E.d(21): incompatible types for ((a) *= (x)): 'ifloat' and 'dstress.nocompile.o.opMulAssign_18_E.X'
+nocompile/o/opMulAssign_18_E.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_F.d(21): incompatible types for ((a) *= (x)): 'ifloat' and 'X'
+nocompile/o/opMulAssign_18_F.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opMulAssign_18_G.X
+nocompile/o/opMulAssign_18_G.d(21): incompatible types for ((x) *= (a)): 'dstress.nocompile.o.opMulAssign_18_G.X' and 'ifloat'
+nocompile/o/opMulAssign_18_G.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opMulAssign_18_H.d(21): incompatible types for ((x) *= (a)): 'X' and 'ifloat'
+nocompile/o/opMulAssign_18_H.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_I.d(21): incompatible types for ((a) *= (x)): 'cfloat' and 'dstress.nocompile.o.opMulAssign_18_I.X'
+nocompile/o/opMulAssign_18_I.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_J.d(21): incompatible types for ((a) *= (x)): 'cfloat' and 'X'
+nocompile/o/opMulAssign_18_J.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opMulAssign_18_K.X
+nocompile/o/opMulAssign_18_K.d(21): incompatible types for ((x) *= (a)): 'dstress.nocompile.o.opMulAssign_18_K.X' and 'cfloat'
+nocompile/o/opMulAssign_18_K.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opMulAssign_18_L.d(21): incompatible types for ((x) *= (a)): 'X' and 'cfloat'
+nocompile/o/opMulAssign_18_L.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_M.d(21): incompatible types for ((a) *= (x)): 'int' and 'dstress.nocompile.o.opMulAssign_18_M.X'
+nocompile/o/opMulAssign_18_M.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_N.d(21): incompatible types for ((a) *= (x)): 'int' and 'X'
+nocompile/o/opMulAssign_18_N.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opMulAssign_18_O.X
+nocompile/o/opMulAssign_18_O.d(21): incompatible types for ((x) *= (a)): 'dstress.nocompile.o.opMulAssign_18_O.X' and 'int'
+nocompile/o/opMulAssign_18_O.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opMulAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opMulAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opMulAssign_18_P.d(21): incompatible types for ((x) *= (a)): 'X' and 'int'
+nocompile/o/opMulAssign_18_P.d(21): 'x' is not an arithmetic type
 EXIT CODE: 256
 
 --------
@@ -4290,9 +5483,585 @@ nocompile/o/opOrAssign_01_R.d(16): 'cast(creal)(1i + 2)' is not of integral type
 EXIT CODE: 256
 
 --------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_A.d(21): incompatible types for ((a) |= (x)): 'float' and 'dstress.nocompile.o.opOrAssign_18_A.X'
+nocompile/o/opOrAssign_18_A.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opOrAssign_18_A.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_A.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_B.d(21): incompatible types for ((a) |= (x)): 'float' and 'X'
+nocompile/o/opOrAssign_18_B.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opOrAssign_18_B.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opOrAssign_18_C.X
+nocompile/o/opOrAssign_18_C.d(21): incompatible types for ((x) |= (a)): 'dstress.nocompile.o.opOrAssign_18_C.X' and 'float'
+nocompile/o/opOrAssign_18_C.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_C.X
+nocompile/o/opOrAssign_18_C.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opOrAssign_18_D.d(21): incompatible types for ((x) |= (a)): 'X' and 'float'
+nocompile/o/opOrAssign_18_D.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opOrAssign_18_D.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_E.d(21): incompatible types for ((a) |= (x)): 'ifloat' and 'dstress.nocompile.o.opOrAssign_18_E.X'
+nocompile/o/opOrAssign_18_E.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opOrAssign_18_E.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_E.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_F.d(21): incompatible types for ((a) |= (x)): 'ifloat' and 'X'
+nocompile/o/opOrAssign_18_F.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opOrAssign_18_F.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opOrAssign_18_G.X
+nocompile/o/opOrAssign_18_G.d(21): incompatible types for ((x) |= (a)): 'dstress.nocompile.o.opOrAssign_18_G.X' and 'ifloat'
+nocompile/o/opOrAssign_18_G.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_G.X
+nocompile/o/opOrAssign_18_G.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opOrAssign_18_H.d(21): incompatible types for ((x) |= (a)): 'X' and 'ifloat'
+nocompile/o/opOrAssign_18_H.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opOrAssign_18_H.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_I.d(21): incompatible types for ((a) |= (x)): 'cfloat' and 'dstress.nocompile.o.opOrAssign_18_I.X'
+nocompile/o/opOrAssign_18_I.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opOrAssign_18_I.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_I.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_J.d(21): incompatible types for ((a) |= (x)): 'cfloat' and 'X'
+nocompile/o/opOrAssign_18_J.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opOrAssign_18_J.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opOrAssign_18_K.X
+nocompile/o/opOrAssign_18_K.d(21): incompatible types for ((x) |= (a)): 'dstress.nocompile.o.opOrAssign_18_K.X' and 'cfloat'
+nocompile/o/opOrAssign_18_K.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_K.X
+nocompile/o/opOrAssign_18_K.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opOrAssign_18_L.d(21): incompatible types for ((x) |= (a)): 'X' and 'cfloat'
+nocompile/o/opOrAssign_18_L.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opOrAssign_18_L.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_M.d(21): incompatible types for ((a) |= (x)): 'int' and 'dstress.nocompile.o.opOrAssign_18_M.X'
+nocompile/o/opOrAssign_18_M.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_M.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_N.d(21): incompatible types for ((a) |= (x)): 'int' and 'X'
+nocompile/o/opOrAssign_18_N.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opOrAssign_18_O.X
+nocompile/o/opOrAssign_18_O.d(21): incompatible types for ((x) |= (a)): 'dstress.nocompile.o.opOrAssign_18_O.X' and 'int'
+nocompile/o/opOrAssign_18_O.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opOrAssign_18_O.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opOrAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opOrAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opOrAssign_18_P.d(21): incompatible types for ((x) |= (a)): 'X' and 'int'
+nocompile/o/opOrAssign_18_P.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_A.d(21): incompatible types for ((a) <<= (x)): 'float' and 'dstress.nocompile.o.opShlAssign_18_A.X'
+nocompile/o/opShlAssign_18_A.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opShlAssign_18_A.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_A.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_B.d(21): incompatible types for ((a) <<= (x)): 'float' and 'X'
+nocompile/o/opShlAssign_18_B.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opShlAssign_18_B.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShlAssign_18_C.X
+nocompile/o/opShlAssign_18_C.d(21): incompatible types for ((x) <<= (a)): 'dstress.nocompile.o.opShlAssign_18_C.X' and 'float'
+nocompile/o/opShlAssign_18_C.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_C.X
+nocompile/o/opShlAssign_18_C.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShlAssign_18_D.d(21): incompatible types for ((x) <<= (a)): 'X' and 'float'
+nocompile/o/opShlAssign_18_D.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opShlAssign_18_D.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_E.d(21): incompatible types for ((a) <<= (x)): 'ifloat' and 'dstress.nocompile.o.opShlAssign_18_E.X'
+nocompile/o/opShlAssign_18_E.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opShlAssign_18_E.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_E.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_F.d(21): incompatible types for ((a) <<= (x)): 'ifloat' and 'X'
+nocompile/o/opShlAssign_18_F.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opShlAssign_18_F.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShlAssign_18_G.X
+nocompile/o/opShlAssign_18_G.d(21): incompatible types for ((x) <<= (a)): 'dstress.nocompile.o.opShlAssign_18_G.X' and 'ifloat'
+nocompile/o/opShlAssign_18_G.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_G.X
+nocompile/o/opShlAssign_18_G.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShlAssign_18_H.d(21): incompatible types for ((x) <<= (a)): 'X' and 'ifloat'
+nocompile/o/opShlAssign_18_H.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opShlAssign_18_H.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_I.d(21): incompatible types for ((a) <<= (x)): 'cfloat' and 'dstress.nocompile.o.opShlAssign_18_I.X'
+nocompile/o/opShlAssign_18_I.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opShlAssign_18_I.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_I.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_J.d(21): incompatible types for ((a) <<= (x)): 'cfloat' and 'X'
+nocompile/o/opShlAssign_18_J.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opShlAssign_18_J.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShlAssign_18_K.X
+nocompile/o/opShlAssign_18_K.d(21): incompatible types for ((x) <<= (a)): 'dstress.nocompile.o.opShlAssign_18_K.X' and 'cfloat'
+nocompile/o/opShlAssign_18_K.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_K.X
+nocompile/o/opShlAssign_18_K.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShlAssign_18_L.d(21): incompatible types for ((x) <<= (a)): 'X' and 'cfloat'
+nocompile/o/opShlAssign_18_L.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opShlAssign_18_L.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_M.d(21): incompatible types for ((a) <<= (x)): 'int' and 'dstress.nocompile.o.opShlAssign_18_M.X'
+nocompile/o/opShlAssign_18_M.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_M.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_N.d(21): incompatible types for ((a) <<= (x)): 'int' and 'X'
+nocompile/o/opShlAssign_18_N.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShlAssign_18_O.X
+nocompile/o/opShlAssign_18_O.d(21): incompatible types for ((x) <<= (a)): 'dstress.nocompile.o.opShlAssign_18_O.X' and 'int'
+nocompile/o/opShlAssign_18_O.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShlAssign_18_O.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShlAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShlAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShlAssign_18_P.d(21): incompatible types for ((x) <<= (a)): 'X' and 'int'
+nocompile/o/opShlAssign_18_P.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_A.d(21): incompatible types for ((a) >>= (x)): 'float' and 'dstress.nocompile.o.opShrAssign_18_A.X'
+nocompile/o/opShrAssign_18_A.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opShrAssign_18_A.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_A.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_B.d(21): incompatible types for ((a) >>= (x)): 'float' and 'X'
+nocompile/o/opShrAssign_18_B.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opShrAssign_18_B.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShrAssign_18_C.X
+nocompile/o/opShrAssign_18_C.d(21): incompatible types for ((x) >>= (a)): 'dstress.nocompile.o.opShrAssign_18_C.X' and 'float'
+nocompile/o/opShrAssign_18_C.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_C.X
+nocompile/o/opShrAssign_18_C.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShrAssign_18_D.d(21): incompatible types for ((x) >>= (a)): 'X' and 'float'
+nocompile/o/opShrAssign_18_D.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opShrAssign_18_D.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_E.d(21): incompatible types for ((a) >>= (x)): 'ifloat' and 'dstress.nocompile.o.opShrAssign_18_E.X'
+nocompile/o/opShrAssign_18_E.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opShrAssign_18_E.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_E.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_F.d(21): incompatible types for ((a) >>= (x)): 'ifloat' and 'X'
+nocompile/o/opShrAssign_18_F.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opShrAssign_18_F.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShrAssign_18_G.X
+nocompile/o/opShrAssign_18_G.d(21): incompatible types for ((x) >>= (a)): 'dstress.nocompile.o.opShrAssign_18_G.X' and 'ifloat'
+nocompile/o/opShrAssign_18_G.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_G.X
+nocompile/o/opShrAssign_18_G.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShrAssign_18_H.d(21): incompatible types for ((x) >>= (a)): 'X' and 'ifloat'
+nocompile/o/opShrAssign_18_H.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opShrAssign_18_H.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_I.d(21): incompatible types for ((a) >>= (x)): 'cfloat' and 'dstress.nocompile.o.opShrAssign_18_I.X'
+nocompile/o/opShrAssign_18_I.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opShrAssign_18_I.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_I.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_J.d(21): incompatible types for ((a) >>= (x)): 'cfloat' and 'X'
+nocompile/o/opShrAssign_18_J.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opShrAssign_18_J.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShrAssign_18_K.X
+nocompile/o/opShrAssign_18_K.d(21): incompatible types for ((x) >>= (a)): 'dstress.nocompile.o.opShrAssign_18_K.X' and 'cfloat'
+nocompile/o/opShrAssign_18_K.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_K.X
+nocompile/o/opShrAssign_18_K.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShrAssign_18_L.d(21): incompatible types for ((x) >>= (a)): 'X' and 'cfloat'
+nocompile/o/opShrAssign_18_L.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opShrAssign_18_L.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_M.d(21): incompatible types for ((a) >>= (x)): 'int' and 'dstress.nocompile.o.opShrAssign_18_M.X'
+nocompile/o/opShrAssign_18_M.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_M.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_N.d(21): incompatible types for ((a) >>= (x)): 'int' and 'X'
+nocompile/o/opShrAssign_18_N.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opShrAssign_18_O.X
+nocompile/o/opShrAssign_18_O.d(21): incompatible types for ((x) >>= (a)): 'dstress.nocompile.o.opShrAssign_18_O.X' and 'int'
+nocompile/o/opShrAssign_18_O.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opShrAssign_18_O.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opShrAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opShrAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opShrAssign_18_P.d(21): incompatible types for ((x) >>= (a)): 'X' and 'int'
+nocompile/o/opShrAssign_18_P.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_01.d 1> ./obj/log.tmp 2>&1
 nocompile/o/opSubAssign_01.d(17): semicolon expected, not '-='
 nocompile/o/opSubAssign_01.d(17): found '-=' instead of statement
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_A.d(21): incompatible types for ((a) -= (x)): 'float' and 'dstress.nocompile.o.opSubAssign_18_A.X'
+nocompile/o/opSubAssign_18_A.d(21): 'x' is not an arithmetic type
+dmd: expression.c:4849: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
+/opt/dmd/bin/dmd-0.134: line 4: 17967 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 34304
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_B.d(21): incompatible types for ((a) -= (x)): 'float' and 'X'
+nocompile/o/opSubAssign_18_B.d(21): 'x' is not an arithmetic type
+dmd: expression.c:4849: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
+/opt/dmd/bin/dmd-0.134: line 4: 17973 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 34304
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opSubAssign_18_C.X
+nocompile/o/opSubAssign_18_C.d(21): incompatible types for ((x) -= (a)): 'dstress.nocompile.o.opSubAssign_18_C.X' and 'float'
+nocompile/o/opSubAssign_18_C.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opSubAssign_18_D.d(21): incompatible types for ((x) -= (a)): 'X' and 'float'
+nocompile/o/opSubAssign_18_D.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_E.d(21): incompatible types for ((a) -= (x)): 'ifloat' and 'dstress.nocompile.o.opSubAssign_18_E.X'
+nocompile/o/opSubAssign_18_E.d(21): 'x' is not an arithmetic type
+dmd: expression.c:4849: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
+/opt/dmd/bin/dmd-0.134: line 4: 17991 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 34304
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_F.d(21): incompatible types for ((a) -= (x)): 'ifloat' and 'X'
+nocompile/o/opSubAssign_18_F.d(21): 'x' is not an arithmetic type
+dmd: expression.c:4849: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
+/opt/dmd/bin/dmd-0.134: line 4: 17997 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 34304
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opSubAssign_18_G.X
+nocompile/o/opSubAssign_18_G.d(21): incompatible types for ((x) -= (a)): 'dstress.nocompile.o.opSubAssign_18_G.X' and 'ifloat'
+nocompile/o/opSubAssign_18_G.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opSubAssign_18_H.d(21): incompatible types for ((x) -= (a)): 'X' and 'ifloat'
+nocompile/o/opSubAssign_18_H.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_I.d(21): incompatible types for ((a) -= (x)): 'cfloat' and 'dstress.nocompile.o.opSubAssign_18_I.X'
+nocompile/o/opSubAssign_18_I.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_J.d(21): incompatible types for ((a) -= (x)): 'cfloat' and 'X'
+nocompile/o/opSubAssign_18_J.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opSubAssign_18_K.X
+nocompile/o/opSubAssign_18_K.d(21): incompatible types for ((x) -= (a)): 'dstress.nocompile.o.opSubAssign_18_K.X' and 'cfloat'
+nocompile/o/opSubAssign_18_K.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opSubAssign_18_L.d(21): incompatible types for ((x) -= (a)): 'X' and 'cfloat'
+nocompile/o/opSubAssign_18_L.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_M.d(21): incompatible types for ((a) -= (x)): 'int' and 'dstress.nocompile.o.opSubAssign_18_M.X'
+nocompile/o/opSubAssign_18_M.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_N.d(21): incompatible types for ((a) -= (x)): 'int' and 'X'
+nocompile/o/opSubAssign_18_N.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opSubAssign_18_O.X
+nocompile/o/opSubAssign_18_O.d(21): incompatible types for ((x) -= (a)): 'dstress.nocompile.o.opSubAssign_18_O.X' and 'int'
+nocompile/o/opSubAssign_18_O.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opSubAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opSubAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opSubAssign_18_P.d(21): incompatible types for ((x) -= (a)): 'X' and 'int'
+nocompile/o/opSubAssign_18_P.d(21): 'x' is not an arithmetic type
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_A.d(21): incompatible types for ((a) >>>= (x)): 'float' and 'dstress.nocompile.o.opUShrAssign_18_A.X'
+nocompile/o/opUShrAssign_18_A.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opUShrAssign_18_A.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_A.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_B.d(21): incompatible types for ((a) >>>= (x)): 'float' and 'X'
+nocompile/o/opUShrAssign_18_B.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opUShrAssign_18_B.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opUShrAssign_18_C.X
+nocompile/o/opUShrAssign_18_C.d(21): incompatible types for ((x) >>>= (a)): 'dstress.nocompile.o.opUShrAssign_18_C.X' and 'float'
+nocompile/o/opUShrAssign_18_C.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_C.X
+nocompile/o/opUShrAssign_18_C.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opUShrAssign_18_D.d(21): incompatible types for ((x) >>>= (a)): 'X' and 'float'
+nocompile/o/opUShrAssign_18_D.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opUShrAssign_18_D.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_E.d(21): incompatible types for ((a) >>>= (x)): 'ifloat' and 'dstress.nocompile.o.opUShrAssign_18_E.X'
+nocompile/o/opUShrAssign_18_E.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opUShrAssign_18_E.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_E.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_F.d(21): incompatible types for ((a) >>>= (x)): 'ifloat' and 'X'
+nocompile/o/opUShrAssign_18_F.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opUShrAssign_18_F.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opUShrAssign_18_G.X
+nocompile/o/opUShrAssign_18_G.d(21): incompatible types for ((x) >>>= (a)): 'dstress.nocompile.o.opUShrAssign_18_G.X' and 'ifloat'
+nocompile/o/opUShrAssign_18_G.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_G.X
+nocompile/o/opUShrAssign_18_G.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opUShrAssign_18_H.d(21): incompatible types for ((x) >>>= (a)): 'X' and 'ifloat'
+nocompile/o/opUShrAssign_18_H.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opUShrAssign_18_H.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_I.d(21): incompatible types for ((a) >>>= (x)): 'cfloat' and 'dstress.nocompile.o.opUShrAssign_18_I.X'
+nocompile/o/opUShrAssign_18_I.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opUShrAssign_18_I.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_I.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_J.d(21): incompatible types for ((a) >>>= (x)): 'cfloat' and 'X'
+nocompile/o/opUShrAssign_18_J.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opUShrAssign_18_J.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opUShrAssign_18_K.X
+nocompile/o/opUShrAssign_18_K.d(21): incompatible types for ((x) >>>= (a)): 'dstress.nocompile.o.opUShrAssign_18_K.X' and 'cfloat'
+nocompile/o/opUShrAssign_18_K.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_K.X
+nocompile/o/opUShrAssign_18_K.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opUShrAssign_18_L.d(21): incompatible types for ((x) >>>= (a)): 'X' and 'cfloat'
+nocompile/o/opUShrAssign_18_L.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opUShrAssign_18_L.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_M.d(21): incompatible types for ((a) >>>= (x)): 'int' and 'dstress.nocompile.o.opUShrAssign_18_M.X'
+nocompile/o/opUShrAssign_18_M.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_M.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_N.d(21): incompatible types for ((a) >>>= (x)): 'int' and 'X'
+nocompile/o/opUShrAssign_18_N.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opUShrAssign_18_O.X
+nocompile/o/opUShrAssign_18_O.d(21): incompatible types for ((x) >>>= (a)): 'dstress.nocompile.o.opUShrAssign_18_O.X' and 'int'
+nocompile/o/opUShrAssign_18_O.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opUShrAssign_18_O.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opUShrAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opUShrAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opUShrAssign_18_P.d(21): incompatible types for ((x) >>>= (a)): 'X' and 'int'
+nocompile/o/opUShrAssign_18_P.d(21): 'x' is not of integral type, it is a X
 EXIT CODE: 256
 
 --------
@@ -4347,6 +6116,122 @@ EXIT CODE: 256
 nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_01_S.d 1> ./obj/log.tmp 2>&1
 nocompile/o/opXorAssign_01_S.d(16): 'f[0]' is not of integral type, it is a float
 nocompile/o/opXorAssign_01_S.d(16): '1' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_A.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_A.d(21): incompatible types for ((a) ^= (x)): 'float' and 'dstress.nocompile.o.opXorAssign_18_A.X'
+nocompile/o/opXorAssign_18_A.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opXorAssign_18_A.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_A.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_B.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_B.d(21): incompatible types for ((a) ^= (x)): 'float' and 'X'
+nocompile/o/opXorAssign_18_B.d(21): 'a' is not of integral type, it is a float
+nocompile/o/opXorAssign_18_B.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_C.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_C.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opXorAssign_18_C.X
+nocompile/o/opXorAssign_18_C.d(21): incompatible types for ((x) ^= (a)): 'dstress.nocompile.o.opXorAssign_18_C.X' and 'float'
+nocompile/o/opXorAssign_18_C.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_C.X
+nocompile/o/opXorAssign_18_C.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_D.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_D.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opXorAssign_18_D.d(21): incompatible types for ((x) ^= (a)): 'X' and 'float'
+nocompile/o/opXorAssign_18_D.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opXorAssign_18_D.d(21): 'a' is not of integral type, it is a float
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_E.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_E.d(21): incompatible types for ((a) ^= (x)): 'ifloat' and 'dstress.nocompile.o.opXorAssign_18_E.X'
+nocompile/o/opXorAssign_18_E.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opXorAssign_18_E.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_E.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_F.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_F.d(21): incompatible types for ((a) ^= (x)): 'ifloat' and 'X'
+nocompile/o/opXorAssign_18_F.d(21): 'a' is not of integral type, it is a ifloat
+nocompile/o/opXorAssign_18_F.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_G.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_G.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opXorAssign_18_G.X
+nocompile/o/opXorAssign_18_G.d(21): incompatible types for ((x) ^= (a)): 'dstress.nocompile.o.opXorAssign_18_G.X' and 'ifloat'
+nocompile/o/opXorAssign_18_G.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_G.X
+nocompile/o/opXorAssign_18_G.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_H.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_H.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opXorAssign_18_H.d(21): incompatible types for ((x) ^= (a)): 'X' and 'ifloat'
+nocompile/o/opXorAssign_18_H.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opXorAssign_18_H.d(21): 'a' is not of integral type, it is a ifloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_I.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_I.d(21): incompatible types for ((a) ^= (x)): 'cfloat' and 'dstress.nocompile.o.opXorAssign_18_I.X'
+nocompile/o/opXorAssign_18_I.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opXorAssign_18_I.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_I.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_J.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_J.d(21): incompatible types for ((a) ^= (x)): 'cfloat' and 'X'
+nocompile/o/opXorAssign_18_J.d(21): 'a' is not of integral type, it is a cfloat
+nocompile/o/opXorAssign_18_J.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_K.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_K.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opXorAssign_18_K.X
+nocompile/o/opXorAssign_18_K.d(21): incompatible types for ((x) ^= (a)): 'dstress.nocompile.o.opXorAssign_18_K.X' and 'cfloat'
+nocompile/o/opXorAssign_18_K.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_K.X
+nocompile/o/opXorAssign_18_K.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_L.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_L.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opXorAssign_18_L.d(21): incompatible types for ((x) ^= (a)): 'X' and 'cfloat'
+nocompile/o/opXorAssign_18_L.d(21): 'x' is not of integral type, it is a X
+nocompile/o/opXorAssign_18_L.d(21): 'a' is not of integral type, it is a cfloat
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_M.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_M.d(21): incompatible types for ((a) ^= (x)): 'int' and 'dstress.nocompile.o.opXorAssign_18_M.X'
+nocompile/o/opXorAssign_18_M.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_M.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_N.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_N.d(21): incompatible types for ((a) ^= (x)): 'int' and 'X'
+nocompile/o/opXorAssign_18_N.d(21): 'x' is not of integral type, it is a X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_O.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_O.d(21): 'x' is not a scalar, it is a dstress.nocompile.o.opXorAssign_18_O.X
+nocompile/o/opXorAssign_18_O.d(21): incompatible types for ((x) ^= (a)): 'dstress.nocompile.o.opXorAssign_18_O.X' and 'int'
+nocompile/o/opXorAssign_18_O.d(21): 'x' is not of integral type, it is a dstress.nocompile.o.opXorAssign_18_O.X
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/o/opXorAssign_18_P.d 1> ./obj/log.tmp 2>&1
+nocompile/o/opXorAssign_18_P.d(21): 'x' is not a scalar, it is a X
+nocompile/o/opXorAssign_18_P.d(21): incompatible types for ((x) ^= (a)): 'X' and 'int'
+nocompile/o/opXorAssign_18_P.d(21): 'x' is not of integral type, it is a X
 EXIT CODE: 256
 
 --------
@@ -5709,12 +7594,17 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/t/template_16.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.134: line 4: 20661 Killed                  $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 19703 Killed                  $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35072
 
 --------
+nocompile: dmd-0.134  -odobj  -c nocompile/t/template_17_A.d 1> ./obj/log.tmp 2>&1
+/opt/dmd/bin/dmd-0.134: line 4: 19893 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 35584
+
+--------
 nocompile: dmd-0.134  -odobj  -c nocompile/t/template_class_09.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.134: line 4: 20688 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 19967 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -5915,6 +7805,19 @@ nocompile: dmd-0.134  -odobj  -c nocompile/v/variadic_argument_06_B.d 1> ./obj/l
 EXIT CODE: 0
 
 --------
+nocompile: dmd-0.134  -odobj  -c nocompile/v/variadic_argument_09_A.d 1> ./obj/log.tmp 2>&1
+nocompile/v/variadic_argument_09_A.d(17): function dstress.nocompile.v.variadic_argument_09_A.test (int,int...) does not match argument types (int[])
+nocompile/v/variadic_argument_09_A.d(17): cannot implicitly convert expression (new int[](1 , 2)) of type int[] to int
+/opt/dmd/bin/dmd-0.134: line 4: 20202 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 35584
+
+--------
+nocompile: dmd-0.134  -odobj  -c nocompile/v/variadic_argument_09_B.d 1> ./obj/log.tmp 2>&1
+nocompile/v/variadic_argument_09_B.d(17): function dstress.nocompile.v.variadic_argument_09_B.test (int...) does not match argument types (int[])
+nocompile/v/variadic_argument_09_B.d(17): cannot implicitly convert expression (new int[](1 , 2)) of type int[] to int
+EXIT CODE: 256
+
+--------
 nocompile: dmd-0.134  -odobj  -c nocompile/v/version_09_A.d 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
@@ -5957,113 +7860,6 @@ nocompile: dmd-0.134  -odobj  -c nocompile/v/void_02_D.d 1> ./obj/log.tmp 2>&1
 integral constant must be scalar type, not void
 cannot implicitly convert expression (0) of type int to void
 EXIT CODE: 256
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_A.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_B.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_C.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_D.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_E.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_F.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_G.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_H.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_I.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_J.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_K.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_L.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_M.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_N.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_O.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_P.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_Q.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_R.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_S.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_T.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_U.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_V.d 1> ./obj/log.tmp 2>&1
-nocompile/v/void_03_V.d(12): identifier 'Class' is not defined
-nocompile/v/void_03_V.d(12): Class is used as a type
-nocompile/v/void_03_V.d(12): variable dstress.nocompile.v.void_03_V.x voids have no value
-EXIT CODE: 256
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_W.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_03_X.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_04_Y.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
-
---------
-nocompile: dmd-0.134  -odobj  -c nocompile/v/void_04_Z.d 1> ./obj/log.tmp 2>&1
-EXIT CODE: 0
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/variadic_argument_01.d 1> ./obj/log.tmp 2>&1
@@ -6196,8 +7992,8 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/__DATE__02.d 1> ./obj/log.tmp 2>&1
-nocompile/__DATE__02.d(10): "Oct 21 2005" is not an lvalue
-nocompile/__DATE__02.d(10): cannot assign to static array "Oct 21 2005"
+nocompile/__DATE__02.d(10): "Nov  2 2005" is not an lvalue
+nocompile/__DATE__02.d(10): cannot assign to static array "Nov  2 2005"
 EXIT CODE: 256
 
 --------
@@ -6213,14 +8009,14 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/__TIMESTAMP__02.d 1> ./obj/log.tmp 2>&1
-nocompile/__TIMESTAMP__02.d(10): "Fri Oct 21 23:47:46 2005" is not an lvalue
-nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Fri Oct 21 23:47:46 2005"
+nocompile/__TIMESTAMP__02.d(10): "Wed Nov  2 22:55:00 2005" is not an lvalue
+nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Wed Nov  2 22:55:00 2005"
 EXIT CODE: 256
 
 --------
 nocompile: dmd-0.134  -odobj  -c nocompile/__TIME__02.d 1> ./obj/log.tmp 2>&1
-nocompile/__TIME__02.d(10): "23:47:46" is not an lvalue
-nocompile/__TIME__02.d(10): cannot assign to static array "23:47:46"
+nocompile/__TIME__02.d(10): "22:55:00" is not an lvalue
+nocompile/__TIME__02.d(10): cannot assign to static array "22:55:00"
 EXIT CODE: 256
 
 --------
@@ -7062,6 +8858,22 @@ run/a/asm_fchs_01.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcomi_01_A.d.exe run/a/asm_fcomi_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fcomi_01_A.o -o run/a/asm_fcomi_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fcomi_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcomi_01_B.d.exe run/a/asm_fcomi_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fcomi_01_B.o -o run/a/asm_fcomi_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fcomi_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
 run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcompp_01.d.exe run/a/asm_fcompp_01.d 1> ./obj/log.tmp 2>&1
 gcc obj/cpuinfo.o obj/asm_fcompp_01.o -o run/a/asm_fcompp_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -7102,24 +8914,12 @@ run/a/asm_fcomp_01_D.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcom_01_A.bak.exe run/a/asm_fcom_01_A.bak 1> ./obj/log.tmp 2>&1
-Error: unrecognized file extension bak
-
-EXIT CODE: 256
-
---------
 run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcom_01_A.d.exe run/a/asm_fcom_01_A.d 1> ./obj/log.tmp 2>&1
 gcc obj/cpuinfo.o obj/asm_fcom_01_A.o -o run/a/asm_fcom_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fcom_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
-
---------
-run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcom_01_B.bak.exe run/a/asm_fcom_01_B.bak 1> ./obj/log.tmp 2>&1
-Error: unrecognized file extension bak
-
-EXIT CODE: 256
 
 --------
 run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcom_01_B.d.exe run/a/asm_fcom_01_B.d 1> ./obj/log.tmp 2>&1
@@ -7130,19 +8930,12 @@ run/a/asm_fcom_01_B.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcom_01_C.bak.exe run/a/asm_fcom_01_C.bak 1> ./obj/log.tmp 2>&1
-Error: unrecognized file extension bak
-
-EXIT CODE: 256
-
---------
 run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcom_01_C.d.exe run/a/asm_fcom_01_C.d 1> ./obj/log.tmp 2>&1
 gcc obj/cpuinfo.o obj/asm_fcom_01_C.o -o run/a/asm_fcom_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fcom_01_C.d.exe 1> ./obj/log.tmp 2>&1
 
-Error: AssertError Failure run/a/asm_fcom_01_C.d(37)
-EXIT CODE: 256
+EXIT CODE: 0
 
 --------
 run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcom_01_D.d.exe run/a/asm_fcom_01_D.d 1> ./obj/log.tmp 2>&1
@@ -7153,10 +8946,114 @@ run/a/asm_fcom_01_D.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fcos_01.d.exe run/a/asm_fcos_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fcos_01.o -o run/a/asm_fcos_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fcos_01.d.exe run/a/asm_fcos_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fcos_01.o -o run/a/asm_fcos_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fcos_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdecstp_01.d.exe run/a/asm_fdecstp_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdecstp_01.o -o run/a/asm_fdecstp_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdecstp_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivp_01_A.d.exe run/a/asm_fdivp_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivp_01_A.o -o run/a/asm_fdivp_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivp_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivp_01_B.d.exe run/a/asm_fdivp_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivp_01_B.o -o run/a/asm_fdivp_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivp_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivrp_01_A.d.exe run/a/asm_fdivrp_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivrp_01_A.o -o run/a/asm_fdivrp_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivrp_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivrp_01_B.d.exe run/a/asm_fdivrp_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivrp_01_B.o -o run/a/asm_fdivrp_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivrp_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivr_01_A.d.exe run/a/asm_fdivr_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivr_01_A.o -o run/a/asm_fdivr_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivr_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivr_01_B.d.exe run/a/asm_fdivr_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivr_01_B.o -o run/a/asm_fdivr_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivr_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivr_01_C.d.exe run/a/asm_fdivr_01_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivr_01_C.o -o run/a/asm_fdivr_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivr_01_C.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdivr_01_D.d.exe run/a/asm_fdivr_01_D.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdivr_01_D.o -o run/a/asm_fdivr_01_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdivr_01_D.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdiv_01_A.d.exe run/a/asm_fdiv_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdiv_01_A.o -o run/a/asm_fdiv_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdiv_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdiv_01_B.d.exe run/a/asm_fdiv_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdiv_01_B.o -o run/a/asm_fdiv_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdiv_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdiv_01_C.d.exe run/a/asm_fdiv_01_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdiv_01_C.o -o run/a/asm_fdiv_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdiv_01_C.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fdiv_01_D.d.exe run/a/asm_fdiv_01_D.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fdiv_01_D.o -o run/a/asm_fdiv_01_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fdiv_01_D.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
@@ -7177,248 +9074,336 @@ run/a/asm_fiadd_01_B.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fild_01_A.d.exe run/a/asm_fild_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fild_01_A.o -o run/a/asm_fild_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_ficomp_01_A.d.exe run/a/asm_ficomp_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_ficomp_01_A.o -o run/a/asm_ficomp_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_ficomp_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_ficomp_01_B.d.exe run/a/asm_ficomp_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_ficomp_01_B.o -o run/a/asm_ficomp_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_ficomp_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_ficom_01_A.d.exe run/a/asm_ficom_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_ficom_01_A.o -o run/a/asm_ficom_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_ficom_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_ficom_01_B.d.exe run/a/asm_ficom_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_ficom_01_B.o -o run/a/asm_ficom_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_ficom_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fidivr_01_A.d.exe run/a/asm_fidivr_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fidivr_01_A.o -o run/a/asm_fidivr_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fidivr_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fidivr_01_B.d.exe run/a/asm_fidivr_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fidivr_01_B.o -o run/a/asm_fidivr_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fidivr_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fidiv_01_A.d.exe run/a/asm_fidiv_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fidiv_01_A.o -o run/a/asm_fidiv_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fidiv_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fidiv_01_B.d.exe run/a/asm_fidiv_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fidiv_01_B.o -o run/a/asm_fidiv_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fidiv_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fild_01_A.d.exe run/a/asm_fild_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fild_01_A.o -o run/a/asm_fild_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fild_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fild_01_B.d.exe run/a/asm_fild_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fild_01_B.o -o run/a/asm_fild_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fild_01_B.d.exe run/a/asm_fild_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fild_01_B.o -o run/a/asm_fild_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fild_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fild_01_C.d.exe run/a/asm_fild_01_C.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fild_01_C.o -o run/a/asm_fild_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fild_01_C.d.exe run/a/asm_fild_01_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fild_01_C.o -o run/a/asm_fild_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fild_01_C.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fimul_01_A.d.exe run/a/asm_fimul_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fimul_01_A.o -o run/a/asm_fimul_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fimul_01_A.d.exe run/a/asm_fimul_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fimul_01_A.o -o run/a/asm_fimul_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fimul_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fimul_01_B.d.exe run/a/asm_fimul_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fimul_01_B.o -o run/a/asm_fimul_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fimul_01_B.d.exe run/a/asm_fimul_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fimul_01_B.o -o run/a/asm_fimul_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fimul_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_finit_01.d.exe run/a/asm_finit_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_finit_01.o -o run/a/asm_finit_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fincstp_01.d.exe run/a/asm_fincstp_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fincstp_01.o -o run/a/asm_fincstp_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fincstp_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_finit_01.d.exe run/a/asm_finit_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_finit_01.o -o run/a/asm_finit_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_finit_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fistp_01_A.d.exe run/a/asm_fistp_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fistp_01_A.o -o run/a/asm_fistp_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fistp_01_A.d.exe run/a/asm_fistp_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fistp_01_A.o -o run/a/asm_fistp_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fistp_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fistp_01_B.d.exe run/a/asm_fistp_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fistp_01_B.o -o run/a/asm_fistp_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fistp_01_B.d.exe run/a/asm_fistp_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fistp_01_B.o -o run/a/asm_fistp_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fistp_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fistp_01_C.d.exe run/a/asm_fistp_01_C.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fistp_01_C.o -o run/a/asm_fistp_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fistp_01_C.d.exe run/a/asm_fistp_01_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fistp_01_C.o -o run/a/asm_fistp_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fistp_01_C.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fisttp_01_A.d.exe run/a/asm_fisttp_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fisttp_01_A.o -o run/a/asm_fisttp_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fisttp_01_A.d.exe run/a/asm_fisttp_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fisttp_01_A.o -o run/a/asm_fisttp_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fisttp_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fisttp_01_B.d.exe run/a/asm_fisttp_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fisttp_01_B.o -o run/a/asm_fisttp_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fisttp_01_B.d.exe run/a/asm_fisttp_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fisttp_01_B.o -o run/a/asm_fisttp_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fisttp_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fisttp_01_C.d.exe run/a/asm_fisttp_01_C.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fisttp_01_C.o -o run/a/asm_fisttp_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fisttp_01_C.d.exe run/a/asm_fisttp_01_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fisttp_01_C.o -o run/a/asm_fisttp_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fisttp_01_C.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fist_01_A.d.exe run/a/asm_fist_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fist_01_A.o -o run/a/asm_fist_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fist_01_A.d.exe run/a/asm_fist_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fist_01_A.o -o run/a/asm_fist_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fist_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fist_01_B.d.exe run/a/asm_fist_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fist_01_B.o -o run/a/asm_fist_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fist_01_B.d.exe run/a/asm_fist_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fist_01_B.o -o run/a/asm_fist_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fist_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fisubr_01_A.d.exe run/a/asm_fisubr_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fisubr_01_A.o -o run/a/asm_fisubr_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fisubr_01_A.d.exe run/a/asm_fisubr_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fisubr_01_A.o -o run/a/asm_fisubr_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fisubr_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fisubr_01_B.d.exe run/a/asm_fisubr_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fisubr_01_B.o -o run/a/asm_fisubr_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fisubr_01_B.d.exe run/a/asm_fisubr_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fisubr_01_B.o -o run/a/asm_fisubr_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fisubr_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fisub_01_A.d.exe run/a/asm_fisub_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fisub_01_A.o -o run/a/asm_fisub_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fisub_01_A.d.exe run/a/asm_fisub_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fisub_01_A.o -o run/a/asm_fisub_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fisub_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fisub_01_B.d.exe run/a/asm_fisub_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fisub_01_B.o -o run/a/asm_fisub_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fisub_01_B.d.exe run/a/asm_fisub_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fisub_01_B.o -o run/a/asm_fisub_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fisub_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fld1_01.d.exe run/a/asm_fld1_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fld1_01.o -o run/a/asm_fld1_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fld1_01.d.exe run/a/asm_fld1_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fld1_01.o -o run/a/asm_fld1_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fld1_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fldl2e_01.d.exe run/a/asm_fldl2e_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fldl2e_01.o -o run/a/asm_fldl2e_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fldcw_01.d.exe run/a/asm_fldcw_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fldcw_01.o -o run/a/asm_fldcw_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fldcw_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fldl2e_01.d.exe run/a/asm_fldl2e_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fldl2e_01.o -o run/a/asm_fldl2e_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fldl2e_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fldl2t_01.d.exe run/a/asm_fldl2t_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fldl2t_01.o -o run/a/asm_fldl2t_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fldl2t_01.d.exe run/a/asm_fldl2t_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fldl2t_01.o -o run/a/asm_fldl2t_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fldl2t_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fldlg2_01.d.exe run/a/asm_fldlg2_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fldlg2_01.o -o run/a/asm_fldlg2_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fldlg2_01.d.exe run/a/asm_fldlg2_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fldlg2_01.o -o run/a/asm_fldlg2_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fldlg2_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fldln2_01.d.exe run/a/asm_fldln2_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fldln2_01.o -o run/a/asm_fldln2_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fldln2_01.d.exe run/a/asm_fldln2_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fldln2_01.o -o run/a/asm_fldln2_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fldln2_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fldpi_01.d.exe run/a/asm_fldpi_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fldpi_01.o -o run/a/asm_fldpi_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fldpi_01.d.exe run/a/asm_fldpi_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fldpi_01.o -o run/a/asm_fldpi_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fldpi_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fldz_01.d.exe run/a/asm_fldz_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fldz_01.o -o run/a/asm_fldz_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fldz_01.d.exe run/a/asm_fldz_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fldz_01.o -o run/a/asm_fldz_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fldz_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fmulp_01.d.exe run/a/asm_fmulp_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fmulp_01.o -o run/a/asm_fmulp_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fmulp_01.d.exe run/a/asm_fmulp_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fmulp_01.o -o run/a/asm_fmulp_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fmulp_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fmul_01_A.d.exe run/a/asm_fmul_01_A.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fmul_01_A.o -o run/a/asm_fmul_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fmul_01_A.d.exe run/a/asm_fmul_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fmul_01_A.o -o run/a/asm_fmul_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fmul_01_A.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fmul_01_B.d.exe run/a/asm_fmul_01_B.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fmul_01_B.o -o run/a/asm_fmul_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fmul_01_B.d.exe run/a/asm_fmul_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fmul_01_B.o -o run/a/asm_fmul_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fmul_01_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fninit_01.d.exe run/a/asm_fninit_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fninit_01.o -o run/a/asm_fninit_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fninit_01.d.exe run/a/asm_fninit_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fninit_01.o -o run/a/asm_fninit_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fninit_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fnop_01.d.exe run/a/asm_fnop_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fnop_01.o -o run/a/asm_fnop_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fnop_01.d.exe run/a/asm_fnop_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fnop_01.o -o run/a/asm_fnop_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fnop_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fnstcw_01.d.exe run/a/asm_fnstcw_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fnstcw_01.o -o run/a/asm_fnstcw_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fnsave_01.d.exe run/a/asm_fnsave_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fnsave_01.o -o run/a/asm_fnsave_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fnsave_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fnstcw_01.d.exe run/a/asm_fnstcw_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fnstcw_01.o -o run/a/asm_fnstcw_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fnstcw_01.d.exe 1> ./obj/log.tmp 2>&1
 
@@ -7441,80 +9426,97 @@ run/a/asm_fnstsw_01.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fpatan_01.d.exe run/a/asm_fpatan_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fpatan_01.o -o run/a/asm_fpatan_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fpatan_01.d.exe run/a/asm_fpatan_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fpatan_01.o -o run/a/asm_fpatan_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fpatan_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fprem1_01.d.exe run/a/asm_fprem1_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fprem1_01.o -o run/a/asm_fprem1_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fprem1_01.d.exe run/a/asm_fprem1_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fprem1_01.o -o run/a/asm_fprem1_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fprem1_01.d.exe 1> ./obj/log.tmp 2>&1
 
+-1.000000
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fprem_01.d.exe run/a/asm_fprem_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fprem_01.o -o run/a/asm_fprem_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fprem_01.d.exe run/a/asm_fprem_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fprem_01.o -o run/a/asm_fprem_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fprem_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fptan_01.d.exe run/a/asm_fptan_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fptan_01.o -o run/a/asm_fptan_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fptan_01.d.exe run/a/asm_fptan_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fptan_01.o -o run/a/asm_fptan_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fptan_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_frndint_01.d.exe run/a/asm_frndint_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_frndint_01.o -o run/a/asm_frndint_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_frndint_01.d.exe run/a/asm_frndint_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_frndint_01.o -o run/a/asm_frndint_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_frndint_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fscale_01.d.exe run/a/asm_fscale_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fscale_01.o -o run/a/asm_fscale_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_frstor_01.d.exe run/a/asm_frstor_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_frstor_01.o -o run/a/asm_frstor_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_frstor_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fsave_01.d.exe run/a/asm_fsave_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fsave_01.o -o run/a/asm_fsave_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fsave_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fscale_01.d.exe run/a/asm_fscale_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fscale_01.o -o run/a/asm_fscale_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fscale_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fsincos_01.d.exe run/a/asm_fsincos_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fsincos_01.o -o run/a/asm_fsincos_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fsincos_01.d.exe run/a/asm_fsincos_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fsincos_01.o -o run/a/asm_fsincos_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fsincos_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fsin_01.d.exe run/a/asm_fsin_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fsin_01.o -o run/a/asm_fsin_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fsin_01.d.exe run/a/asm_fsin_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fsin_01.o -o run/a/asm_fsin_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fsin_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fsqrt_01.d.exe run/a/asm_fsqrt_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fsqrt_01.o -o run/a/asm_fsqrt_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fsqrt_01.d.exe run/a/asm_fsqrt_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fsqrt_01.o -o run/a/asm_fsqrt_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fsqrt_01.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
 --------
-run: dmd-0.134  -odobj  -ofrun/a/asm_fstcw_01.d.exe run/a/asm_fstcw_01.d 1> ./obj/log.tmp 2>&1
-gcc obj/asm_fstcw_01.o -o run/a/asm_fstcw_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fstcw_01.d.exe run/a/asm_fstcw_01.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fstcw_01.o -o run/a/asm_fstcw_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fstcw_01.d.exe 1> ./obj/log.tmp 2>&1
 
@@ -7533,6 +9535,30 @@ run: dmd-0.134  -odobj  -ofrun/a/asm_fstsw_01.d.exe run/a/asm_fstsw_01.d 1> ./ob
 gcc obj/asm_fstsw_01.o -o run/a/asm_fstsw_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/a/asm_fstsw_01.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fst_01_A.d.exe run/a/asm_fst_01_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fst_01_A.o -o run/a/asm_fst_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fst_01_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fst_01_B.d.exe run/a/asm_fst_01_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fst_01_B.o -o run/a/asm_fst_01_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fst_01_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 addon/cpuinfo.d -odobj  -ofrun/a/asm_fst_01_C.d.exe run/a/asm_fst_01_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/cpuinfo.o obj/asm_fst_01_C.o -o run/a/asm_fst_01_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/a/asm_fst_01_C.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
@@ -8759,7 +10785,7 @@ gcc obj/asm_pushad_01.o -o run/a/asm_pushad_01.d.exe -lphobos -lpthread -lm -Xli
 EXIT CODE: 0
 run/a/asm_pushad_01.d.exe 1> ./obj/log.tmp 2>&1
 
-4294950136	4294950104	4294950136
+4294954680	4294954648	4294954680
 EXIT CODE: 0
 
 --------
@@ -9507,6 +11533,16 @@ run/a/associative_array_18_D.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.134  -odobj  -ofrun/a/auto_10_A.d.exe run/a/auto_10_A.d 1> ./obj/log.tmp 2>&1
+run/a/auto_10_A.d(8): no identifier for declarator x
+EXIT CODE: 256
+
+--------
+run: dmd-0.134  -odobj  -ofrun/a/auto_10_B.d.exe run/a/auto_10_B.d 1> ./obj/log.tmp 2>&1
+run/a/auto_10_B.d(8): no identifier for declarator x
+EXIT CODE: 256
+
+--------
 run: dmd-0.134  -odobj  -ofrun/abstract_07.d.exe run/abstract_07.d 1> ./obj/log.tmp 2>&1
 gcc obj/abstract_07.o -o run/abstract_07.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -10059,7 +12095,7 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.134 compile/b/bug_20050510_A1.d -odobj  -ofrun/b/bug_20050510_A2.d.exe run/b/bug_20050510_A2.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.134: line 4: 20033 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 21048 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -10539,7 +12575,7 @@ run/b/bug_expression_4275_A.d(33): template foo!(MyClass) is not a member of con
 run/b/bug_expression_4275_A.d(34): undefined identifier myclass dotexp template instance foo!(MyClass).length
 run/b/bug_expression_4275_A.d(34): void has no value
 run/b/bug_expression_4275_A.d(34): incompatible types for ((myclass dotexp template instance foo!(MyClass).length) == (0)): 'void' and 'int'
-/opt/dmd/bin/dmd-0.134: line 4: 22795 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 23805 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -10577,7 +12613,7 @@ EXIT CODE: 0
 --------
 run: dmd-0.134 -inline -odobj  -ofrun/b/bug_glue_355_B.d.exe run/b/bug_glue_355_B.d 1> ./obj/log.tmp 2>&1
 dmd: glue.c:355: virtual void FuncDeclaration::toObjFile(): Assertion `!vthis->csym' failed.
-/opt/dmd/bin/dmd-0.134: line 4: 23045 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 24055 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -10591,7 +12627,7 @@ EXIT CODE: 0
 --------
 run: dmd-0.134  -odobj  -ofrun/b/bug_glue_387_A.d.exe run/b/bug_glue_387_A.d 1> ./obj/log.tmp 2>&1
 dmd: glue.c:387: virtual void FuncDeclaration::toObjFile(): Assertion `!v->csym' failed.
-/opt/dmd/bin/dmd-0.134: line 4: 23112 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 24122 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -10646,7 +12682,7 @@ EXIT CODE: 0
 run: dmd-0.134  -odobj  -ofrun/b/bug_toobj_191_D.d.exe run/b/bug_toobj_191_D.d 1> ./obj/log.tmp 2>&1
 run/b/bug_toobj_191_D.d(12): struct dstress.run.b.bug_toobj_191_D.Outer!(int).Outer no size yet for forward reference
 run/b/bug_toobj_191_D.d(12): struct dstress.run.b.bug_toobj_191_D.Outer!(int).Outer no size yet for forward reference
-/opt/dmd/bin/dmd-0.134: line 4: 23486 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 24494 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -11922,6 +13958,14 @@ run/c/catch_05_G.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.134 -O -odobj  -ofrun/c/catch_05_H.d.exe run/c/catch_05_H.d 1> ./obj/log.tmp 2>&1
+gcc obj/catch_05_H.o -o run/c/catch_05_H.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/c/catch_05_H.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
 run: dmd-0.134  -odobj  -ofrun/c/cdouble_01_A.d.exe run/c/cdouble_01_A.d 1> ./obj/log.tmp 2>&1
 gcc obj/cdouble_01_A.o -o run/c/cdouble_01_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -11984,6 +14028,16 @@ EXIT CODE: 0
 run/c/comment_14.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/c/const_25_A.d.exe run/c/const_25_A.d 1> ./obj/log.tmp 2>&1
+run/c/const_25_A.d(8): no identifier for declarator x
+EXIT CODE: 256
+
+--------
+run: dmd-0.134  -odobj  -ofrun/c/const_25_B.d.exe run/c/const_25_B.d 1> ./obj/log.tmp 2>&1
+run/c/const_25_B.d(8): no identifier for declarator x
+EXIT CODE: 256
 
 --------
 run: dmd-0.134  -odobj  -ofrun/c/creal_26_A.d.exe run/c/creal_26_A.d 1> ./obj/log.tmp 2>&1
@@ -12896,6 +14950,16 @@ EXIT CODE: 0
 run/d/delete_10_C.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
+
+--------
+run: dmd-0.134 -d -odobj  -ofrun/d/deprecated_21_A.d.exe run/d/deprecated_21_A.d 1> ./obj/log.tmp 2>&1
+run/d/deprecated_21_A.d(9): no identifier for declarator x
+EXIT CODE: 256
+
+--------
+run: dmd-0.134 -d -odobj  -ofrun/d/deprecated_21_B.d.exe run/d/deprecated_21_B.d 1> ./obj/log.tmp 2>&1
+run/d/deprecated_21_B.d(9): no identifier for declarator x
+EXIT CODE: 256
 
 --------
 run: dmd-0.134  -odobj  -ofrun/d/double_25_A.d.exe run/d/double_25_A.d 1> ./obj/log.tmp 2>&1
@@ -13903,6 +15967,16 @@ run/f/float_27_B.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.134 -inline -odobj  -ofrun/f/foreach_28_B.d.exe run/f/foreach_28_B.d 1> ./obj/log.tmp 2>&1
+/opt/dmd/bin/dmd-0.134: line 4: 16335 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 35584
+
+--------
+run: dmd-0.134 -inline -odobj  -ofrun/f/foreach_29_B.d.exe run/f/foreach_29_B.d 1> ./obj/log.tmp 2>&1
+/opt/dmd/bin/dmd-0.134: line 4: 16341 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 35584
+
+--------
 run: dmd-0.134  -odobj  -ofrun/f/forward_reference_12_A.d.exe run/f/forward_reference_12_A.d 1> ./obj/log.tmp 2>&1
 gcc obj/forward_reference_12_A.o -o run/f/forward_reference_12_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -13979,6 +16053,16 @@ run/f/forward_reference_15_B.d(19): Foo!(int) is used as a type
 run/f/forward_reference_15_B.d(19): new can only create structs, dynamic arrays or class objects, not void's
 run/f/forward_reference_15_B.d(19): cannot implicitly convert expression (new void*) of type void* to dstress.run.f.forward_reference_15_B.Foo!(int).Foo
 EXIT CODE: 256
+
+--------
+run: dmd-0.134 -inline -odobj  -ofrun/f/for_04_B.d.exe run/f/for_04_B.d 1> ./obj/log.tmp 2>&1
+/opt/dmd/bin/dmd-0.134: line 4: 16627 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 35584
+
+--------
+run: dmd-0.134 -inline -odobj  -ofrun/f/for_05_B.d.exe run/f/for_05_B.d 1> ./obj/log.tmp 2>&1
+/opt/dmd/bin/dmd-0.134: line 4: 16633 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 35584
 
 --------
 run: dmd-0.134  -odobj  -ofrun/f/for_06_A.d.exe run/f/for_06_A.d 1> ./obj/log.tmp 2>&1
@@ -15418,6 +17502,40 @@ collect2: ld returned 1 exit status
 EXIT CODE: 256
 
 --------
+run: dmd-0.134  -odobj  -ofrun/i/import_09.d.exe run/i/import_09.d 1> ./obj/log.tmp 2>&1
+run/i/import_09.d(13): module import_dummy_09 cannot read file 'import_dummy_09.d'
+EXIT CODE: 256
+
+--------
+run: dmd-0.134 run/i/import_10_B.d -odobj  -ofrun/i/import_10_A.d.exe run/i/import_10_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/import_10_B.o obj/import_10_A.o -o run/i/import_10_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/i/import_10_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 run/i/import_10_A.d -odobj  -ofrun/i/import_10_B.d.exe run/i/import_10_B.d 1> ./obj/log.tmp 2>&1
+run/i/import_10_B.d(14): Integer constant expression expected instead of len
+run/i/import_10_B.d(14): Integer constant expression expected instead of len
+run/i/import_10_B.d(14): Integer constant expression expected instead of len
+EXIT CODE: 256
+
+--------
+run: dmd-0.134 run/i/import_11_B.d -odobj  -ofrun/i/import_11_A.d.exe run/i/import_11_A.d 1> ./obj/log.tmp 2>&1
+enum Enum is forward referenced
+/opt/dmd/bin/dmd-0.134: line 4: 24237 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+EXIT CODE: 35584
+
+--------
+run: dmd-0.134 run/i/import_11_A.d -odobj  -ofrun/i/import_11_B.d.exe run/i/import_11_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/import_11_A.o obj/import_11_B.o -o run/i/import_11_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/i/import_11_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
 run: dmd-0.134  -odobj  -ofrun/i/inline_10_A.d.exe run/i/inline_10_A.d 1> ./obj/log.tmp 2>&1
 gcc obj/inline_10_A.o -o run/i/inline_10_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -16690,6 +18808,70 @@ run/m/mixin_14_D.d.exe 1> ./obj/log.tmp 2>&1
 
 Error: AssertError Failure run/m/mixin_14_D.d(16)
 EXIT CODE: 256
+
+--------
+run: dmd-0.134 -inline -odobj  -ofrun/m/mixin_14_E.d.exe run/m/mixin_14_E.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_E.o -o run/m/mixin_14_E.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_E.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 -inline -odobj  -ofrun/m/mixin_14_F.d.exe run/m/mixin_14_F.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_F.o -o run/m/mixin_14_F.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_F.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 -inline -odobj  -ofrun/m/mixin_14_G.d.exe run/m/mixin_14_G.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_G.o -o run/m/mixin_14_G.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_G.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 -inline -odobj  -ofrun/m/mixin_14_H.d.exe run/m/mixin_14_H.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_H.o -o run/m/mixin_14_H.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_H.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 -g -odobj  -ofrun/m/mixin_14_I.d.exe run/m/mixin_14_I.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_I.o -o run/m/mixin_14_I.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_I.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 -g -odobj  -ofrun/m/mixin_14_J.d.exe run/m/mixin_14_J.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_J.o -o run/m/mixin_14_J.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_J.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 -g -odobj  -ofrun/m/mixin_14_K.d.exe run/m/mixin_14_K.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_K.o -o run/m/mixin_14_K.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_K.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134 -g -odobj  -ofrun/m/mixin_14_L.d.exe run/m/mixin_14_L.d 1> ./obj/log.tmp 2>&1
+gcc obj/mixin_14_L.o -o run/m/mixin_14_L.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/m/mixin_14_L.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
 
 --------
 run: dmd-0.134  -odobj  -ofrun/main_02.d.exe run/main_02.d 1> ./obj/log.tmp 2>&1
@@ -20004,6 +22186,14 @@ run/r/remove_01.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.134  -odobj  -ofrun/r/return_06_B.d.exe run/r/return_06_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/return_06_B.o -o run/r/return_06_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/r/return_06_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
 run: dmd-0.134  -odobj  -ofrun/real_01.d.exe run/real_01.d 1> ./obj/log.tmp 2>&1
 gcc obj/real_01.o -o run/real_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -20255,6 +22445,16 @@ EXIT CODE: 0
 run/s/static_31.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/s/static_33_A.d.exe run/s/static_33_A.d 1> ./obj/log.tmp 2>&1
+run/s/static_33_A.d(7): no identifier for declarator x
+EXIT CODE: 256
+
+--------
+run: dmd-0.134  -odobj  -ofrun/s/static_33_B.d.exe run/s/static_33_B.d 1> ./obj/log.tmp 2>&1
+run/s/static_33_B.d(7): no identifier for declarator x
+EXIT CODE: 256
 
 --------
 run: dmd-0.134  -odobj  -ofrun/s/static_if_04_A.d.exe run/s/static_if_04_A.d 1> ./obj/log.tmp 2>&1
@@ -21080,6 +23280,21 @@ run: dmd-0.134  -odobj  -ofrun/t/template_class_10_E.d.exe run/t/template_class_
 gcc obj/template_class_10_E.o -o run/t/template_class_10_E.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
 run/t/template_class_10_E.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/t/template_class_11_A.d.exe run/t/template_class_11_A.d 1> ./obj/log.tmp 2>&1
+run/t/template_class_11_A.d(18): only one index allowed to index void
+run/t/template_class_11_A.d(18): class array must be an array or pointer type, not void
+run/t/template_class_11_A.d(18): cannot implicitly convert expression (class array[1]) of type int to float[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.134  -odobj  -ofrun/t/template_class_11_B.d.exe run/t/template_class_11_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/template_class_11_B.o -o run/t/template_class_11_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/t/template_class_11_B.d.exe 1> ./obj/log.tmp 2>&1
 
 EXIT CODE: 0
 
@@ -22568,8 +24783,215 @@ run/v/void_02_C.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_A.d.exe run/v/void_03_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_A.o -o run/v/void_03_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_B.d.exe run/v/void_03_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_B.o -o run/v/void_03_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_C.d.exe run/v/void_03_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_C.o -o run/v/void_03_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_C.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_D.d.exe run/v/void_03_D.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_D.o -o run/v/void_03_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_D.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_E.d.exe run/v/void_03_E.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_E.o -o run/v/void_03_E.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_E.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_F.d.exe run/v/void_03_F.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_F.o -o run/v/void_03_F.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_F.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_G.d.exe run/v/void_03_G.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_G.o -o run/v/void_03_G.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_G.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_H.d.exe run/v/void_03_H.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_H.o -o run/v/void_03_H.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_H.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_I.d.exe run/v/void_03_I.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_I.o -o run/v/void_03_I.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_I.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_J.d.exe run/v/void_03_J.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_J.o -o run/v/void_03_J.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_J.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_K.d.exe run/v/void_03_K.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_K.o -o run/v/void_03_K.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_K.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_L.d.exe run/v/void_03_L.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_L.o -o run/v/void_03_L.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_L.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_M.d.exe run/v/void_03_M.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_M.o -o run/v/void_03_M.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_M.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_N.d.exe run/v/void_03_N.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_N.o -o run/v/void_03_N.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_N.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_O.d.exe run/v/void_03_O.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_O.o -o run/v/void_03_O.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_O.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_P.d.exe run/v/void_03_P.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_P.o -o run/v/void_03_P.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_P.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_Q.d.exe run/v/void_03_Q.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_Q.o -o run/v/void_03_Q.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_Q.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_R.d.exe run/v/void_03_R.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_R.o -o run/v/void_03_R.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_R.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_S.d.exe run/v/void_03_S.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_S.o -o run/v/void_03_S.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_S.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_T.d.exe run/v/void_03_T.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_T.o -o run/v/void_03_T.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_T.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_U.d.exe run/v/void_03_U.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_U.o -o run/v/void_03_U.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_U.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_V.d.exe run/v/void_03_V.d 1> ./obj/log.tmp 2>&1
+run/v/void_03_V.d(11): identifier 'Class' is not defined
+run/v/void_03_V.d(11): Class is used as a type
+run/v/void_03_V.d(11): variable dstress.run.v.void_03_V.main.x voids have no value
+EXIT CODE: 256
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_W.d.exe run/v/void_03_W.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_W.o -o run/v/void_03_W.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_W.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_X.d.exe run/v/void_03_X.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_X.o -o run/v/void_03_X.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_X.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_Y.d.exe run/v/void_03_Y.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_Y.o -o run/v/void_03_Y.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_Y.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.134  -odobj  -ofrun/v/void_03_Z.d.exe run/v/void_03_Z.d 1> ./obj/log.tmp 2>&1
+gcc obj/void_03_Z.o -o run/v/void_03_Z.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+run/v/void_03_Z.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
 run: dmd-0.134  -odobj  -ofrun/v/volatile_01_A.d.exe run/v/volatile_01_A.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.134: line 4:  8755 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.134: line 4: 12176 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -23142,7 +25564,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 12: 12613 Segmentation fault      ./dstress norun norun/d/debug_info_08_A.d
+./norun.sh: line 12: 16029 Segmentation fault      ./dstress norun norun/d/debug_info_08_A.d
 norun: dmd-0.134 -g -odobj  -ofnorun/d/debug_info_08_B.d.exe norun/d/debug_info_08_B.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_B.o -o norun/d/debug_info_08_B.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -23167,7 +25589,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 13: 12681 Segmentation fault      ./dstress norun norun/d/debug_info_08_B.d
+./norun.sh: line 13: 16097 Segmentation fault      ./dstress norun norun/d/debug_info_08_B.d
 norun: dmd-0.134 -g -odobj  -ofnorun/d/debug_info_08_C.d.exe norun/d/debug_info_08_C.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_C.o -o norun/d/debug_info_08_C.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -23192,7 +25614,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 14: 12749 Segmentation fault      ./dstress norun norun/d/debug_info_08_C.d
+./norun.sh: line 14: 16165 Segmentation fault      ./dstress norun norun/d/debug_info_08_C.d
 norun: dmd-0.134 -gc -odobj  -ofnorun/d/debug_info_08_D.d.exe norun/d/debug_info_08_D.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_D.o -o norun/d/debug_info_08_D.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -23216,7 +25638,7 @@ Program received signal SIGFPE, Arithmetic exception.
 21		a=a/(a-2); /* divide by zero */
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 15: 12817 Segmentation fault      ./dstress norun norun/d/debug_info_08_D.d
+./norun.sh: line 15: 16233 Segmentation fault      ./dstress norun norun/d/debug_info_08_D.d
 norun: dmd-0.134 -g -odobj  -ofnorun/d/debug_info_08_E.d.exe norun/d/debug_info_08_E.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_E.o -o norun/d/debug_info_08_E.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -23241,7 +25663,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 16: 12885 Segmentation fault      ./dstress norun norun/d/debug_info_08_E.d
+./norun.sh: line 16: 16301 Segmentation fault      ./dstress norun norun/d/debug_info_08_E.d
 norun: dmd-0.134  -odobj  -ofnorun/delete_03.d.exe norun/delete_03.d 1> ./obj/log.tmp 2>&1
 gcc obj/delete_03.o -o norun/delete_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
 EXIT CODE: 0
@@ -23274,6 +25696,14 @@ norun/destructor_05.d.exe 1> ./obj/log.tmp 2>&1
 
 Error: AssertError Failure destructor_05(10)
 EXIT CODE: 256
+
+--------
+norun: dmd-0.134 -inline -odobj  -ofnorun/m/main_05_B.d.exe norun/m/main_05_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/main_05_B.o -o norun/m/main_05_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
+EXIT CODE: 0
+norun/m/main_05_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 11
 
 --------
 norun: dmd-0.134  -odobj  -ofnorun/main_05.d.exe norun/main_05.d 1> ./obj/log.tmp 2>&1
@@ -23376,141 +25806,3 @@ Error: Message
 EXIT CODE: 256
 
 --------
-Digital Mars D Compiler v0.134
-Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
-Documentation: www.digitalmars.com/d/index.html
-Usage:
-  dmd files.d ... { -switch }
-
-  files.d        D source files
-  -c             do not link
-  -D             generate documentation
-  -Dddocdir      write documentation file to docdir directory
-  -Dffilename    write documentation file to filename
-  -d             allow deprecated features
-  -debug         compile in debug code
-  -debug=level   compile in debug code <= level
-  -debug=ident   compile in debug code identified by ident
-  -g             add symbolic debug info
-  -Ipath         where to look for imports
-  -inline        do function inlining
-  -Llinkerflag   pass linkerflag to link
-  -O             optimize
-  -o-            do not write object file
-  -odobjdir      write object files to directory objdir
-  -offilename	 name output file to filename
-  -op            do not strip paths from source file
-  -profile	 profile runtime performance of generated code
-  -quiet         suppress unnecessary messages
-  -release	 compile release version
-  -unittest      compile in unit tests
-  -v             verbose
-  -version=level compile in version code >= level
-  -version=ident compile in version code identified by ident
-  -w             enable warnings
-Digital Mars D Compiler v0.134
-Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
-Documentation: www.digitalmars.com/d/index.html
-Usage:
-  dmd files.d ... { -switch }
-
-  files.d        D source files
-  -c             do not link
-  -D             generate documentation
-  -Dddocdir      write documentation file to docdir directory
-  -Dffilename    write documentation file to filename
-  -d             allow deprecated features
-  -debug         compile in debug code
-  -debug=level   compile in debug code <= level
-  -debug=ident   compile in debug code identified by ident
-  -g             add symbolic debug info
-  -Ipath         where to look for imports
-  -inline        do function inlining
-  -Llinkerflag   pass linkerflag to link
-  -O             optimize
-  -o-            do not write object file
-  -odobjdir      write object files to directory objdir
-  -offilename	 name output file to filename
-  -op            do not strip paths from source file
-  -profile	 profile runtime performance of generated code
-  -quiet         suppress unnecessary messages
-  -release	 compile release version
-  -unittest      compile in unit tests
-  -v             verbose
-  -version=level compile in version code >= level
-  -version=ident compile in version code identified by ident
-  -w             enable warnings
-Digital Mars D Compiler v0.134
-Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
-Documentation: www.digitalmars.com/d/index.html
-Usage:
-  dmd files.d ... { -switch }
-
-  files.d        D source files
-  -c             do not link
-  -D             generate documentation
-  -Dddocdir      write documentation file to docdir directory
-  -Dffilename    write documentation file to filename
-  -d             allow deprecated features
-  -debug         compile in debug code
-  -debug=level   compile in debug code <= level
-  -debug=ident   compile in debug code identified by ident
-  -g             add symbolic debug info
-  -Ipath         where to look for imports
-  -inline        do function inlining
-  -Llinkerflag   pass linkerflag to link
-  -O             optimize
-  -o-            do not write object file
-  -odobjdir      write object files to directory objdir
-  -offilename	 name output file to filename
-  -op            do not strip paths from source file
-  -profile	 profile runtime performance of generated code
-  -quiet         suppress unnecessary messages
-  -release	 compile release version
-  -unittest      compile in unit tests
-  -v             verbose
-  -version=level compile in version code >= level
-  -version=ident compile in version code identified by ident
-  -w             enable warnings
-Digital Mars D Compiler v0.134
-Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
-Documentation: www.digitalmars.com/d/index.html
-Usage:
-  dmd files.d ... { -switch }
-
-  files.d        D source files
-  -c             do not link
-  -D             generate documentation
-  -Dddocdir      write documentation file to docdir directory
-  -Dffilename    write documentation file to filename
-  -d             allow deprecated features
-  -debug         compile in debug code
-  -debug=level   compile in debug code <= level
-  -debug=ident   compile in debug code identified by ident
-  -g             add symbolic debug info
-  -Ipath         where to look for imports
-  -inline        do function inlining
-  -Llinkerflag   pass linkerflag to link
-  -O             optimize
-  -o-            do not write object file
-  -odobjdir      write object files to directory objdir
-  -offilename	 name output file to filename
-  -op            do not strip paths from source file
-  -profile	 profile runtime performance of generated code
-  -quiet         suppress unnecessary messages
-  -release	 compile release version
-  -unittest      compile in unit tests
-  -v             verbose
-  -version=level compile in version code >= level
-  -version=ident compile in version code identified by ident
-  -w             enable warnings
-Error: invalid file name '..d'
-Error: invalid file name '..d'
-gcc obj/a.o obj/b.o obj/c.o -o complex/linking/linking_01 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
-gcc complex/linking/a.o complex/linking/b.o complex/linking/c.o -o complex/linking/linking_02 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
-gcc obj/a.o obj/b.o -o complex/typeinfo_init/typeinfo_init_01 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
-gcc complex/typeinfo_init/a.o complex/typeinfo_init/b.o -o complex/typeinfo_init/typeinfo_init_02 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/134/dmd/lib 
-complex/typeinfo_init/b.o(.gnu.linkonce.d._init_7complex13typeinfo_init1a42TemplateClass_C7complex13typeinfo_init1b1A13TemplateClass+0x8): undefined reference to `_init_37TypeInfo_C7complex13typeinfo_init1b1A'
-collect2: ld returned 1 exit status
---- errorlevel 1
-sh: ./complex/typeinfo_init/typeinfo_init_02: No such file or directory

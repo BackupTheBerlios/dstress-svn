@@ -1,7 +1,7 @@
 >>>> VERSION <<<<
-Wed,  2 Nov 2005 23:09:33 +0100
+Wed,  2 Nov 2005 21:06:46 +0100
 Linux 2.6.12-gentoo-r6D-SMP x86_64
-Digital Mars D Compiler v0.133
+Digital Mars D Compiler v0.137
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
 Usage:
@@ -49,7 +49,7 @@ PASS: 	compile/b/bug_20050510_A1.d
 PASS: 	compile/b/bug_20050510_B1.d
 PASS: 	compile/b/bug_20050510_C1.d
 PASS: 	compile/b/bug_20050903_A.d
-ERROR:	compile/b/bug_20050903_B.d [internal compiler error]
+PASS: 	compile/b/bug_20050903_B.d
 PASS: 	compile/bug_cgcod_1445_C.d
 PASS: 	compile/bug_dsymbol_611_C.d
 PASS: 	compile/bug_e2ir_1158_A.d
@@ -119,10 +119,10 @@ XPASS:	nocompile/a/alias_23.d
 XPASS:	nocompile/a/alias_25_A.d
 XPASS:	nocompile/a/alias_25_B.d
 FAIL: 	nocompile/a/alias_25_C.d [bad error message]
-ERROR:	nocompile/a/alias_26_A.d [internal compiler error]
+XFAIL:	nocompile/a/alias_26_A.d
 XFAIL:	nocompile/a/alias_26_B.d
-ERROR:	nocompile/a/alias_26_C.d [internal compiler error]
-XPASS:	nocompile/a/alias_26_D.d
+XFAIL:	nocompile/a/alias_26_C.d
+XFAIL:	nocompile/a/alias_26_D.d
 XFAIL:	nocompile/a/array_initialization_10.d
 FAIL: 	nocompile/a/array_initialization_18_A.d [bad error message]
 FAIL: 	nocompile/a/array_initialization_18_B.d [bad error message]
@@ -308,19 +308,19 @@ XPASS:	nocompile/b/break_11_A.d
 XPASS:	nocompile/b/break_11_B.d
 XPASS:	nocompile/b/break_11_C.d
 XPASS:	nocompile/b/break_11_D.d
-ERROR:	nocompile/b/bug_cod1_2504_A.d [internal compiler error]
+XFAIL:	nocompile/b/bug_cod1_2504_A.d
 XFAIL:	nocompile/b/bug_cod1_2504_B.d
 XFAIL:	nocompile/b/bug_cod1_2504_C.d
-ERROR:	nocompile/b/bug_e2ir_2452_A.d [internal compiler error]
+XFAIL:	nocompile/b/bug_e2ir_2452_A.d
 XFAIL:	nocompile/b/bug_e2ir_2452_C.d
 XFAIL:	nocompile/b/bug_e2ir_2452_D.d
 XPASS:	nocompile/b/bug_e2ir_299_C.d
 XFAIL:	nocompile/b/bug_expression_5818_C.d
 FAIL: 	nocompile/b/bug_expression_5818_D.d [bad error message]
-ERROR:	nocompile/b/bug_expression_5818_E.d [internal compiler error]
+XFAIL:	nocompile/b/bug_expression_5818_E.d
 XFAIL:	nocompile/b/bug_expression_5818_F.d
 XFAIL:	nocompile/b/bug_expression_5818_G.d
-ERROR:	nocompile/b/bug_expression_5818_H.d [internal compiler error]
+XFAIL:	nocompile/b/bug_expression_5818_H.d
 ERROR:	nocompile/b/bug_tocsym_142_A.d
 XFAIL:	nocompile/b/bug_tocsym_142_B.d
 XFAIL:	nocompile/b/bug_tocsym_142_C.d
@@ -633,11 +633,11 @@ XFAIL:	nocompile/html_entity_10.html
 XFAIL:	nocompile/html_entity_11.html
 XFAIL:	nocompile/html_html_02.HTML
 XFAIL:	nocompile/html_htm_02.HTM
-XPASS:	nocompile/i/idouble_03.d
-XPASS:	nocompile/i/ifloat_04.d
+XFAIL:	nocompile/i/idouble_03.d
+XFAIL:	nocompile/i/ifloat_04.d
 XPASS:	nocompile/i/interface_11.d
 XFAIL:	nocompile/i/ireal_03.d
-XPASS:	nocompile/i/ireal_04.d
+XFAIL:	nocompile/i/ireal_04.d
 XFAIL:	nocompile/i/is_01_A.d
 FAIL: 	nocompile/i/is_01_B.d [bad error message]
 XFAIL:	nocompile/i/is_01_C.d
@@ -847,8 +847,8 @@ XPASS:	nocompile/n/new_25_A.d
 XPASS:	nocompile/n/new_25_B.d
 XPASS:	nocompile/n/new_25_C.d
 XPASS:	nocompile/n/new_25_D.d
-XFAIL:	nocompile/n/new_26_A.d
-XFAIL:	nocompile/n/new_26_B.d
+XPASS:	nocompile/n/new_26_A.d
+XPASS:	nocompile/n/new_26_B.d
 XFAIL:	nocompile/n/new_26_C.d
 XFAIL:	nocompile/named_entity_04.d
 XFAIL:	nocompile/named_entity_05.d
@@ -1888,8 +1888,8 @@ ERROR:	run/a/associative_array_18_A.d
 ERROR:	run/a/associative_array_18_B.d
 PASS: 	run/a/associative_array_18_C.d
 PASS: 	run/a/associative_array_18_D.d
-FAIL: 	run/a/auto_10_A.d
-FAIL: 	run/a/auto_10_B.d
+PASS: 	run/a/auto_10_A.d
+PASS: 	run/a/auto_10_B.d
 PASS: 	run/abstract_07.d
 PASS: 	run/abstract_10.d
 PASS: 	run/alias_01.d
@@ -1968,26 +1968,26 @@ PASS: 	run/b/bug_cg87_1240_C.d
 PASS: 	run/b/bug_cg87_1240_D.d
 PASS: 	run/b/bug_cg87_1240_E.d
 PASS: 	run/b/bug_cg87_1240_F.d
-ERROR:	run/b/bug_cgcs_353_A3.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_B3.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_C3.d [internal compiler error]
-ERROR:	run/b/bug_cgcs_353_D3.d [internal compiler error]
+PASS: 	run/b/bug_cgcs_353_A3.d
+FAIL: 	run/b/bug_cgcs_353_B3.d
+PASS: 	run/b/bug_cgcs_353_C3.d
+FAIL: 	run/b/bug_cgcs_353_D3.d
 PASS: 	run/b/bug_cgcs_353_E2.d
 FAIL: 	run/b/bug_cgcs_353_E3.d
 FAIL: 	run/b/bug_cgcs_353_F2.d
 FAIL: 	run/b/bug_cgcs_353_F3.d
 FAIL: 	run/b/bug_cgcs_353_G2.d
-ERROR:	run/b/bug_cgcs_353_G3.d [internal compiler error]
+FAIL: 	run/b/bug_cgcs_353_G3.d
 FAIL: 	run/b/bug_cgcs_353_H2.d
-ERROR:	run/b/bug_cgcs_353_H3.d [internal compiler error]
+FAIL: 	run/b/bug_cgcs_353_H3.d
 PASS: 	run/b/bug_cgcs_353_I2.d
-ERROR:	run/b/bug_cgcs_353_I3.d [internal compiler error]
+FAIL: 	run/b/bug_cgcs_353_I3.d
 PASS: 	run/b/bug_cgcs_353_J2.d
-ERROR:	run/b/bug_cgcs_353_J3.d [internal compiler error]
+FAIL: 	run/b/bug_cgcs_353_J3.d
 PASS: 	run/b/bug_cgcs_353_K2.d
-ERROR:	run/b/bug_cgcs_353_K3.d [internal compiler error]
+FAIL: 	run/b/bug_cgcs_353_K3.d
 PASS: 	run/b/bug_cgcs_353_L2.d
-ERROR:	run/b/bug_cgcs_353_L3.d [internal compiler error]
+FAIL: 	run/b/bug_cgcs_353_L3.d
 PASS: 	run/b/bug_cgcs_353_M2.d
 PASS: 	run/b/bug_cgcs_353_N2.d
 FAIL: 	run/b/bug_cgcs_353_O2.d
@@ -2028,7 +2028,7 @@ PASS: 	run/b/bug_expression_4275_B.d
 PASS: 	run/b/bug_expression_5818_A.d
 PASS: 	run/b/bug_expression_5818_B.d
 PASS: 	run/b/bug_glue_355_A.d
-ERROR:	run/b/bug_glue_355_B.d
+PASS: 	run/b/bug_glue_355_B.d
 PASS: 	run/b/bug_glue_355_C.d
 ERROR:	run/b/bug_glue_387_A.d
 PASS: 	run/b/bug_glue_387_B.d
@@ -2206,8 +2206,8 @@ FAIL: 	run/c/cfloat_02_B.d
 FAIL: 	run/c/class_18_A.d
 PASS: 	run/c/class_18_B.d
 PASS: 	run/c/comment_14.d
-FAIL: 	run/c/const_25_A.d
-FAIL: 	run/c/const_25_B.d
+ERROR:	run/c/const_25_A.d [internal compiler error]
+ERROR:	run/c/const_25_B.d [internal compiler error]
 PASS: 	run/c/creal_26_A.d
 PASS: 	run/c/creal_26_B.d
 PASS: 	run/cast_05.d
@@ -2323,8 +2323,8 @@ PASS: 	run/creal_23.d
 PASS: 	run/d/delete_10_A.d
 PASS: 	run/d/delete_10_B.d
 PASS: 	run/d/delete_10_C.d
-FAIL: 	run/d/deprecated_21_A.d
-FAIL: 	run/d/deprecated_21_B.d
+ERROR:	run/d/deprecated_21_A.d [internal compiler error]
+ERROR:	run/d/deprecated_21_B.d [internal compiler error]
 PASS: 	run/d/double_25_A.d
 PASS: 	run/d/double_25_B.d
 PASS: 	run/dchar_03.d
@@ -2632,7 +2632,7 @@ PASS: 	run/i/inline_14_A.d
 FAIL: 	run/i/inline_14_B.d
 PASS: 	run/i/inline_14_C.d
 PASS: 	run/i/inline_15_A.d
-FAIL: 	run/i/inline_15_B.d
+PASS: 	run/i/inline_15_B.d
 PASS: 	run/i/int_09_A.d
 PASS: 	run/i/int_09_B.d
 PASS: 	run/i/in_out_body_09_A.d
@@ -3226,8 +3226,8 @@ FAIL: 	run/s/static_30_A.d
 PASS: 	run/s/static_30_B.d
 PASS: 	run/s/static_30_C.d
 PASS: 	run/s/static_31.d
-FAIL: 	run/s/static_33_A.d
-FAIL: 	run/s/static_33_B.d
+ERROR:	run/s/static_33_A.d [internal compiler error]
+ERROR:	run/s/static_33_B.d [internal compiler error]
 PASS: 	run/s/static_if_04_A.d
 PASS: 	run/s/static_if_04_B.d
 PASS: 	run/s/static_if_04_C.d

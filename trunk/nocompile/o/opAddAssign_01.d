@@ -6,12 +6,17 @@
 // @date@	2005-04-18
 // @uri@	news:d402bj$nc0$6@digitaldaemon.com
 
-// __DSTRESS_ELINE__ 15
+module dstress.run.opAddAssign_01;
 
-module dstress.nocompile.o.opAddAssign_01;
+void dummy(...){
+}
 
-void test() {
+int main() {
 	byte x = 9;
-	byte y+=x;
+	dummy(x);
+	int y+=x;
+	assert(y==8);
+	assert(x==9);
+	return 0;
 }
 

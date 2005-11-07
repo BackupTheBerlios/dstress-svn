@@ -1287,7 +1287,7 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/b/bug_tocsym_142_A.d 1> ./obj/log.tmp 2>&1
 dmd: tocsym.c:142: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
-/opt/dmd/bin/dmd-0.137: line 4: 22709 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  6737 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -1303,7 +1303,7 @@ EXIT CODE: 256
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/b/bug_tocsym_142_D.d 1> ./obj/log.tmp 2>&1
 dmd: tocsym.c:142: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
-/opt/dmd/bin/dmd-0.137: line 4: 22727 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  6755 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -5853,7 +5853,7 @@ nocompile: dmd-0.137  -odobj  -c nocompile/o/opSubAssign_18_A.d 1> ./obj/log.tmp
 nocompile/o/opSubAssign_18_A.d(21): incompatible types for ((a) -= (x)): 'float' and 'dstress.nocompile.o.opSubAssign_18_A.X'
 nocompile/o/opSubAssign_18_A.d(21): 'x' is not an arithmetic type
 dmd: expression.c:4878: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
-/opt/dmd/bin/dmd-0.137: line 4: 27237 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 11621 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -5861,7 +5861,7 @@ nocompile: dmd-0.137  -odobj  -c nocompile/o/opSubAssign_18_B.d 1> ./obj/log.tmp
 nocompile/o/opSubAssign_18_B.d(21): incompatible types for ((a) -= (x)): 'float' and 'X'
 nocompile/o/opSubAssign_18_B.d(21): 'x' is not an arithmetic type
 dmd: expression.c:4878: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
-/opt/dmd/bin/dmd-0.137: line 4: 27243 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 11627 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -5883,7 +5883,7 @@ nocompile: dmd-0.137  -odobj  -c nocompile/o/opSubAssign_18_E.d 1> ./obj/log.tmp
 nocompile/o/opSubAssign_18_E.d(21): incompatible types for ((a) -= (x)): 'ifloat' and 'dstress.nocompile.o.opSubAssign_18_E.X'
 nocompile/o/opSubAssign_18_E.d(21): 'x' is not an arithmetic type
 dmd: expression.c:4878: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
-/opt/dmd/bin/dmd-0.137: line 4: 27261 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 11645 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -5891,7 +5891,7 @@ nocompile: dmd-0.137  -odobj  -c nocompile/o/opSubAssign_18_F.d 1> ./obj/log.tmp
 nocompile/o/opSubAssign_18_F.d(21): incompatible types for ((a) -= (x)): 'ifloat' and 'X'
 nocompile/o/opSubAssign_18_F.d(21): 'x' is not an arithmetic type
 dmd: expression.c:4878: virtual Expression* MinAssignExp::semantic(Scope*): Assertion `e2->type->isfloating()' failed.
-/opt/dmd/bin/dmd-0.137: line 4: 27267 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 11651 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -6253,6 +6253,11 @@ EXIT CODE: 0
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/o/override_10.d 1> ./obj/log.tmp 2>&1
 nocompile/o/override_10.d(18): function dstress.nocompile.o.override_10.D.fn!() fn_.fn function fn does not override any
+EXIT CODE: 256
+
+--------
+nocompile: dmd-0.137  -odobj  -c nocompile/o/x 1> ./obj/log.tmp 2>&1
+nocompile/o/x.d: module x cannot read file 'nocompile/o/x.d'
 EXIT CODE: 256
 
 --------
@@ -7606,17 +7611,17 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/t/template_16.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 28971 Killed                  $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 13361 Killed                  $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35072
 
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/t/template_17_A.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 29034 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 20440 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/t/template_class_09.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 29044 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 24946 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -7820,7 +7825,7 @@ EXIT CODE: 0
 nocompile: dmd-0.137  -odobj  -c nocompile/v/variadic_argument_09_A.d 1> ./obj/log.tmp 2>&1
 nocompile/v/variadic_argument_09_A.d(17): function dstress.nocompile.v.variadic_argument_09_A.test (int,int...) does not match argument types (int[])
 nocompile/v/variadic_argument_09_A.d(17): cannot implicitly convert expression (new int[](1 , 2)) of type int[] to int
-/opt/dmd/bin/dmd-0.137: line 4: 29295 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 28516 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -8004,8 +8009,8 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/__DATE__02.d 1> ./obj/log.tmp 2>&1
-nocompile/__DATE__02.d(10): "Nov  2 2005" is not an lvalue
-nocompile/__DATE__02.d(10): cannot assign to static array "Nov  2 2005"
+nocompile/__DATE__02.d(10): "Nov  7 2005" is not an lvalue
+nocompile/__DATE__02.d(10): cannot assign to static array "Nov  7 2005"
 EXIT CODE: 256
 
 --------
@@ -8021,14 +8026,14 @@ EXIT CODE: 256
 
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/__TIMESTAMP__02.d 1> ./obj/log.tmp 2>&1
-nocompile/__TIMESTAMP__02.d(10): "Wed Nov  2 21:22:28 2005" is not an lvalue
-nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Wed Nov  2 21:22:28 2005"
+nocompile/__TIMESTAMP__02.d(10): "Mon Nov  7 02:04:44 2005" is not an lvalue
+nocompile/__TIMESTAMP__02.d(10): cannot assign to static array "Mon Nov  7 02:04:44 2005"
 EXIT CODE: 256
 
 --------
 nocompile: dmd-0.137  -odobj  -c nocompile/__TIME__02.d 1> ./obj/log.tmp 2>&1
-nocompile/__TIME__02.d(10): "21:22:28" is not an lvalue
-nocompile/__TIME__02.d(10): cannot assign to static array "21:22:28"
+nocompile/__TIME__02.d(10): "02:04:44" is not an lvalue
+nocompile/__TIME__02.d(10): cannot assign to static array "02:04:44"
 EXIT CODE: 256
 
 --------
@@ -10797,7 +10802,7 @@ gcc obj/asm_pushad_01.o -o run/a/asm_pushad_01.d.exe -lphobos -lpthread -lm -Xli
 EXIT CODE: 0
 run/a/asm_pushad_01.d.exe 1> ./obj/log.tmp 2>&1
 
-4294953304	4294953272	4294953304
+4294957208	4294957176	4294957208
 EXIT CODE: 0
 
 --------
@@ -12113,7 +12118,7 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.137 compile/b/bug_20050510_A1.d -odobj  -ofrun/b/bug_20050510_A2.d.exe run/b/bug_20050510_A2.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 30260 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  3779 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -12631,7 +12636,7 @@ run/b/bug_expression_4275_A.d(33): template foo!(MyClass) is not a member of con
 run/b/bug_expression_4275_A.d(34): undefined identifier myclass dotexp template instance foo!(MyClass).length
 run/b/bug_expression_4275_A.d(34): void has no value
 run/b/bug_expression_4275_A.d(34): incompatible types for ((myclass dotexp template instance foo!(MyClass).length) == (0)): 'void' and 'int'
-/opt/dmd/bin/dmd-0.137: line 4:  1104 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 10287 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -12685,7 +12690,7 @@ EXIT CODE: 0
 --------
 run: dmd-0.137  -odobj  -ofrun/b/bug_glue_387_A.d.exe run/b/bug_glue_387_A.d 1> ./obj/log.tmp 2>&1
 dmd: glue.c:387: virtual void FuncDeclaration::toObjFile(): Assertion `!v->csym' failed.
-/opt/dmd/bin/dmd-0.137: line 4:  1476 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 10934 Aborted                 $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 34304
 
 --------
@@ -12740,7 +12745,7 @@ EXIT CODE: 0
 run: dmd-0.137  -odobj  -ofrun/b/bug_toobj_191_D.d.exe run/b/bug_toobj_191_D.d 1> ./obj/log.tmp 2>&1
 run/b/bug_toobj_191_D.d(12): struct dstress.run.b.bug_toobj_191_D.Outer!(int).Outer no size yet for forward reference
 run/b/bug_toobj_191_D.d(12): struct dstress.run.b.bug_toobj_191_D.Outer!(int).Outer no size yet for forward reference
-/opt/dmd/bin/dmd-0.137: line 4:  1848 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 11652 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -14089,12 +14094,12 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.137  -odobj  -ofrun/c/const_25_A.d.exe run/c/const_25_A.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 11787 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 29249 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
 run: dmd-0.137  -odobj  -ofrun/c/const_25_B.d.exe run/c/const_25_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 11793 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 29256 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -15011,12 +15016,12 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.137 -d -odobj  -ofrun/d/deprecated_21_A.d.exe run/d/deprecated_21_A.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 18650 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  9136 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
 run: dmd-0.137 -d -odobj  -ofrun/d/deprecated_21_B.d.exe run/d/deprecated_21_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 18656 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  9144 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -15588,6 +15593,126 @@ run/dup_05.d.exe 1> ./obj/log.tmp 2>&1
 EXIT CODE: 0
 
 --------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_A.d.exe run/e/enum_41_A.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_A.d(22): incompatible types for ((array) ~ (cast(int)(e))): 'byte[]' and 'int'
+run/e/enum_41_A.d(22): Can only concatenate arrays, not (byte[] ~ int)
+run/e/enum_41_A.d(22): cannot implicitly convert expression (array ~ cast(int)(e)) of type int to byte[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_B.d.exe run/e/enum_41_B.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_B.d(22): incompatible types for ((array) ~ (cast(int)(e))): 'ubyte[]' and 'int'
+run/e/enum_41_B.d(22): Can only concatenate arrays, not (ubyte[] ~ int)
+run/e/enum_41_B.d(22): cannot implicitly convert expression (array ~ cast(int)(e)) of type int to ubyte[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_C.d.exe run/e/enum_41_C.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_C.d(22): incompatible types for ((array) ~ (cast(int)(e))): 'short[]' and 'int'
+run/e/enum_41_C.d(22): Can only concatenate arrays, not (short[] ~ int)
+run/e/enum_41_C.d(22): cannot implicitly convert expression (array ~ cast(int)(e)) of type int to short[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_D.d.exe run/e/enum_41_D.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_D.d(22): incompatible types for ((array) ~ (cast(int)(e))): 'ushort[]' and 'int'
+run/e/enum_41_D.d(22): Can only concatenate arrays, not (ushort[] ~ int)
+run/e/enum_41_D.d(22): cannot implicitly convert expression (array ~ cast(int)(e)) of type int to ushort[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_E.d.exe run/e/enum_41_E.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_E.d(22): incompatible types for ((array) ~ (e)): 'int[]' and 'E'
+run/e/enum_41_E.d(22): Can only concatenate arrays, not (int[] ~ E)
+run/e/enum_41_E.d(22): cannot implicitly convert expression (array ~ e) of type int to int[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_F.d.exe run/e/enum_41_F.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_F.d(22): incompatible types for ((array) ~ (e)): 'uint[]' and 'E'
+run/e/enum_41_F.d(22): Can only concatenate arrays, not (uint[] ~ E)
+run/e/enum_41_F.d(22): cannot implicitly convert expression (array ~ e) of type int to uint[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_G.d.exe run/e/enum_41_G.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_G.d(22): incompatible types for ((array) ~ (e)): 'long[]' and 'E'
+run/e/enum_41_G.d(22): Can only concatenate arrays, not (long[] ~ E)
+run/e/enum_41_G.d(22): cannot implicitly convert expression (array ~ e) of type int to long[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_41_H.d.exe run/e/enum_41_H.d 1> ./obj/log.tmp 2>&1
+run/e/enum_41_H.d(22): incompatible types for ((array) ~ (e)): 'ulong[]' and 'E'
+run/e/enum_41_H.d(22): Can only concatenate arrays, not (ulong[] ~ E)
+run/e/enum_41_H.d(22): cannot implicitly convert expression (array ~ e) of type int to ulong[]
+EXIT CODE: 256
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_A.d.exe run/e/enum_42_A.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_A.o -o run/e/enum_42_A.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_A.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_B.d.exe run/e/enum_42_B.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_B.o -o run/e/enum_42_B.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_B.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_C.d.exe run/e/enum_42_C.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_C.o -o run/e/enum_42_C.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_C.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_D.d.exe run/e/enum_42_D.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_D.o -o run/e/enum_42_D.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_D.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_E.d.exe run/e/enum_42_E.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_E.o -o run/e/enum_42_E.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_E.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_F.d.exe run/e/enum_42_F.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_F.o -o run/e/enum_42_F.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_F.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_G.d.exe run/e/enum_42_G.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_G.o -o run/e/enum_42_G.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_G.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
+run: dmd-0.137  -odobj  -ofrun/e/enum_42_H.d.exe run/e/enum_42_H.d 1> ./obj/log.tmp 2>&1
+gcc obj/enum_42_H.o -o run/e/enum_42_H.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+EXIT CODE: 0
+run/e/enum_42_H.d.exe 1> ./obj/log.tmp 2>&1
+
+EXIT CODE: 0
+
+--------
 run: dmd-0.137  -odobj  -ofrun/else_01.d.exe run/else_01.d 1> ./obj/log.tmp 2>&1
 gcc obj/else_01.o -o run/else_01.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
 EXIT CODE: 0
@@ -16026,12 +16151,12 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.137 -inline -odobj  -ofrun/f/foreach_28_B.d.exe run/f/foreach_28_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 26142 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 21917 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
 run: dmd-0.137 -inline -odobj  -ofrun/f/foreach_29_B.d.exe run/f/foreach_29_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 26148 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 21923 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -16114,12 +16239,12 @@ EXIT CODE: 256
 
 --------
 run: dmd-0.137 -inline -odobj  -ofrun/f/for_04_B.d.exe run/f/for_04_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 26434 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 22209 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
 run: dmd-0.137 -inline -odobj  -ofrun/f/for_05_B.d.exe run/f/for_05_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 26440 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 22215 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -17582,7 +17707,7 @@ EXIT CODE: 256
 --------
 run: dmd-0.137 run/i/import_11_B.d -odobj  -ofrun/i/import_11_A.d.exe run/i/import_11_A.d 1> ./obj/log.tmp 2>&1
 enum Enum is forward referenced
-/opt/dmd/bin/dmd-0.137: line 4:  1591 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4: 29812 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -22506,12 +22631,12 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.137  -odobj  -ofrun/s/static_33_A.d.exe run/s/static_33_A.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4:  3855 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  1853 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
 run: dmd-0.137  -odobj  -ofrun/s/static_33_B.d.exe run/s/static_33_B.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4:  3861 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  1860 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -25049,7 +25174,7 @@ EXIT CODE: 0
 
 --------
 run: dmd-0.137  -odobj  -ofrun/v/volatile_01_A.d.exe run/v/volatile_01_A.d 1> ./obj/log.tmp 2>&1
-/opt/dmd/bin/dmd-0.137: line 4: 22225 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
+/opt/dmd/bin/dmd-0.137: line 4:  2734 Segmentation fault      $A/bin/dmd -I$A/src/phobos -L-L$A/lib $*
 EXIT CODE: 35584
 
 --------
@@ -25622,7 +25747,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 12: 26085 Segmentation fault      ./dstress norun norun/d/debug_info_08_A.d
+./norun.sh: line 12:  9504 Segmentation fault      ./dstress norun norun/d/debug_info_08_A.d
 norun: dmd-0.137 -g -odobj  -ofnorun/d/debug_info_08_B.d.exe norun/d/debug_info_08_B.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_B.o -o norun/d/debug_info_08_B.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
 EXIT CODE: 0
@@ -25647,7 +25772,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 13: 26206 Segmentation fault      ./dstress norun norun/d/debug_info_08_B.d
+./norun.sh: line 13:  9617 Segmentation fault      ./dstress norun norun/d/debug_info_08_B.d
 norun: dmd-0.137 -g -odobj  -ofnorun/d/debug_info_08_C.d.exe norun/d/debug_info_08_C.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_C.o -o norun/d/debug_info_08_C.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
 EXIT CODE: 0
@@ -25672,7 +25797,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 14: 26275 Segmentation fault      ./dstress norun norun/d/debug_info_08_C.d
+./norun.sh: line 14:  9736 Segmentation fault      ./dstress norun norun/d/debug_info_08_C.d
 norun: dmd-0.137 -gc -odobj  -ofnorun/d/debug_info_08_D.d.exe norun/d/debug_info_08_D.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_D.o -o norun/d/debug_info_08_D.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
 EXIT CODE: 0
@@ -25696,7 +25821,7 @@ Program received signal SIGFPE, Arithmetic exception.
 21		a=a/(a-2); /* divide by zero */
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 15: 26343 Segmentation fault      ./dstress norun norun/d/debug_info_08_D.d
+./norun.sh: line 15:  9840 Segmentation fault      ./dstress norun norun/d/debug_info_08_D.d
 norun: dmd-0.137 -g -odobj  -ofnorun/d/debug_info_08_E.d.exe norun/d/debug_info_08_E.d 1> ./obj/log.tmp 2>&1
 gcc obj/debug_info_08_E.o -o norun/d/debug_info_08_E.d.exe -g -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
 EXIT CODE: 0
@@ -25721,7 +25846,7 @@ Program received signal SIGFPE, Arithmetic exception.
 Current language:  auto; currently minimal
 (gdb) (gdb) EXIT CODE: 0
 
-./norun.sh: line 16: 26411 Segmentation fault      ./dstress norun norun/d/debug_info_08_E.d
+./norun.sh: line 16:  9974 Segmentation fault      ./dstress norun norun/d/debug_info_08_E.d
 norun: dmd-0.137  -odobj  -ofnorun/delete_03.d.exe norun/delete_03.d 1> ./obj/log.tmp 2>&1
 gcc obj/delete_03.o -o norun/delete_03.d.exe -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
 EXIT CODE: 0
@@ -25864,3 +25989,141 @@ Error: Message
 EXIT CODE: 256
 
 --------
+Digital Mars D Compiler v0.137
+Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
+Documentation: www.digitalmars.com/d/index.html
+Usage:
+  dmd files.d ... { -switch }
+
+  files.d        D source files
+  -c             do not link
+  -D             generate documentation
+  -Dddocdir      write documentation file to docdir directory
+  -Dffilename    write documentation file to filename
+  -d             allow deprecated features
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
+  -g             add symbolic debug info
+  -Ipath         where to look for imports
+  -inline        do function inlining
+  -Llinkerflag   pass linkerflag to link
+  -O             optimize
+  -o-            do not write object file
+  -odobjdir      write object files to directory objdir
+  -offilename	 name output file to filename
+  -op            do not strip paths from source file
+  -profile	 profile runtime performance of generated code
+  -quiet         suppress unnecessary messages
+  -release	 compile release version
+  -unittest      compile in unit tests
+  -v             verbose
+  -version=level compile in version code >= level
+  -version=ident compile in version code identified by ident
+  -w             enable warnings
+Digital Mars D Compiler v0.137
+Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
+Documentation: www.digitalmars.com/d/index.html
+Usage:
+  dmd files.d ... { -switch }
+
+  files.d        D source files
+  -c             do not link
+  -D             generate documentation
+  -Dddocdir      write documentation file to docdir directory
+  -Dffilename    write documentation file to filename
+  -d             allow deprecated features
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
+  -g             add symbolic debug info
+  -Ipath         where to look for imports
+  -inline        do function inlining
+  -Llinkerflag   pass linkerflag to link
+  -O             optimize
+  -o-            do not write object file
+  -odobjdir      write object files to directory objdir
+  -offilename	 name output file to filename
+  -op            do not strip paths from source file
+  -profile	 profile runtime performance of generated code
+  -quiet         suppress unnecessary messages
+  -release	 compile release version
+  -unittest      compile in unit tests
+  -v             verbose
+  -version=level compile in version code >= level
+  -version=ident compile in version code identified by ident
+  -w             enable warnings
+Digital Mars D Compiler v0.137
+Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
+Documentation: www.digitalmars.com/d/index.html
+Usage:
+  dmd files.d ... { -switch }
+
+  files.d        D source files
+  -c             do not link
+  -D             generate documentation
+  -Dddocdir      write documentation file to docdir directory
+  -Dffilename    write documentation file to filename
+  -d             allow deprecated features
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
+  -g             add symbolic debug info
+  -Ipath         where to look for imports
+  -inline        do function inlining
+  -Llinkerflag   pass linkerflag to link
+  -O             optimize
+  -o-            do not write object file
+  -odobjdir      write object files to directory objdir
+  -offilename	 name output file to filename
+  -op            do not strip paths from source file
+  -profile	 profile runtime performance of generated code
+  -quiet         suppress unnecessary messages
+  -release	 compile release version
+  -unittest      compile in unit tests
+  -v             verbose
+  -version=level compile in version code >= level
+  -version=ident compile in version code identified by ident
+  -w             enable warnings
+Digital Mars D Compiler v0.137
+Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
+Documentation: www.digitalmars.com/d/index.html
+Usage:
+  dmd files.d ... { -switch }
+
+  files.d        D source files
+  -c             do not link
+  -D             generate documentation
+  -Dddocdir      write documentation file to docdir directory
+  -Dffilename    write documentation file to filename
+  -d             allow deprecated features
+  -debug         compile in debug code
+  -debug=level   compile in debug code <= level
+  -debug=ident   compile in debug code identified by ident
+  -g             add symbolic debug info
+  -Ipath         where to look for imports
+  -inline        do function inlining
+  -Llinkerflag   pass linkerflag to link
+  -O             optimize
+  -o-            do not write object file
+  -odobjdir      write object files to directory objdir
+  -offilename	 name output file to filename
+  -op            do not strip paths from source file
+  -profile	 profile runtime performance of generated code
+  -quiet         suppress unnecessary messages
+  -release	 compile release version
+  -unittest      compile in unit tests
+  -v             verbose
+  -version=level compile in version code >= level
+  -version=ident compile in version code identified by ident
+  -w             enable warnings
+Error: invalid file name '..d'
+Error: invalid file name '..d'
+gcc obj/a.o obj/b.o obj/c.o -o complex/linking/linking_01 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+gcc complex/linking/a.o complex/linking/b.o complex/linking/c.o -o complex/linking/linking_02 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+gcc obj/a.o obj/b.o -o complex/typeinfo_init/typeinfo_init_01 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+gcc complex/typeinfo_init/a.o complex/typeinfo_init/b.o -o complex/typeinfo_init/typeinfo_init_02 -lphobos -lpthread -lm -Xlinker -L/opt/dmd/137/dmd/lib 
+complex/typeinfo_init/b.o(.gnu.linkonce.d._init_7complex13typeinfo_init1a42TemplateClass_C7complex13typeinfo_init1b1A13TemplateClass+0x8): undefined reference to `_init_37TypeInfo_C7complex13typeinfo_init1b1A'
+collect2: ld returned 1 exit status
+--- errorlevel 1
+sh: ./complex/typeinfo_init/typeinfo_init_02: No such file or directory

@@ -1,7 +1,7 @@
 >>>> VERSION <<<<
-Mon,  7 Nov 2005 01:43:26 +0100
+Mon,  7 Nov 2005 00:49:08 +0100
 Linux 2.6.12-gentoo-r6D-SMP x86_64
-Digital Mars D Compiler v0.137
+Digital Mars D Compiler v0.138
 Copyright (c) 1999-2005 by Digital Mars written by Walter Bright
 Documentation: www.digitalmars.com/d/index.html
 Usage:
@@ -17,6 +17,7 @@ Usage:
   -debug=level   compile in debug code <= level
   -debug=ident   compile in debug code identified by ident
   -g             add symbolic debug info
+  --help         print help
   -Ipath         where to look for imports
   -inline        do function inlining
   -Llinkerflag   pass linkerflag to link
@@ -2085,10 +2086,10 @@ FAIL: 	run/bug_cg87_2393_E.d
 PASS: 	run/bug_cg87_2393_F.d
 PASS: 	run/bug_cg87_279_A.d
 PASS: 	run/bug_cg87_279_B.d
-PASS: 	run/bug_cg87_279_C.d
+FAIL: 	run/bug_cg87_279_C.d
 PASS: 	run/bug_cg87_279_D.d
 PASS: 	run/bug_cg87_279_E.d
-PASS: 	run/bug_cg87_279_F.d
+FAIL: 	run/bug_cg87_279_F.d
 PASS: 	run/bug_cg87_279_G.d
 PASS: 	run/bug_cg87_279_H.d
 PASS: 	run/bug_cg87_279_I.d
@@ -2118,7 +2119,7 @@ PASS: 	run/bug_cgcs_353_M.d
 PASS: 	run/bug_cgcs_353_N.d
 PASS: 	run/bug_cgcs_353_O.d
 PASS: 	run/bug_cgcs_353_P.d
-PASS: 	run/bug_cgcs_353_Q.d
+FAIL: 	run/bug_cgcs_353_Q.d
 PASS: 	run/bug_cgcs_353_R.d
 PASS: 	run/bug_cgcs_353_S.d
 PASS: 	run/bug_cgcs_353_T.d
@@ -2142,7 +2143,7 @@ PASS: 	run/bug_cod2_4211_M.d
 PASS: 	run/bug_cod2_4211_N.d
 PASS: 	run/bug_cod2_4211_O.d
 PASS: 	run/bug_cod2_4211_P.d
-PASS: 	run/bug_cod2_4211_Q.d
+FAIL: 	run/bug_cod2_4211_Q.d
 PASS: 	run/bug_cod2_4211_R.d
 PASS: 	run/bug_constfold_575_D.d
 PASS: 	run/bug_constfold_575_E.d
@@ -2207,8 +2208,8 @@ FAIL: 	run/c/cfloat_02_B.d
 FAIL: 	run/c/class_18_A.d
 PASS: 	run/c/class_18_B.d
 PASS: 	run/c/comment_14.d
-ERROR:	run/c/const_25_A.d [internal compiler error]
-ERROR:	run/c/const_25_B.d [internal compiler error]
+PASS: 	run/c/const_25_A.d
+PASS: 	run/c/const_25_B.d
 PASS: 	run/c/creal_26_A.d
 PASS: 	run/c/creal_26_B.d
 PASS: 	run/cast_05.d
@@ -2310,9 +2311,9 @@ PASS: 	run/creal_09.d
 PASS: 	run/creal_10.d
 PASS: 	run/creal_11.d
 PASS: 	run/creal_12.d
-PASS: 	run/creal_13.d
-PASS: 	run/creal_14.d
-PASS: 	run/creal_15.d
+FAIL: 	run/creal_13.d
+FAIL: 	run/creal_14.d
+FAIL: 	run/creal_15.d
 PASS: 	run/creal_16.d
 PASS: 	run/creal_17.d
 PASS: 	run/creal_18.d
@@ -2324,8 +2325,8 @@ PASS: 	run/creal_23.d
 PASS: 	run/d/delete_10_A.d
 PASS: 	run/d/delete_10_B.d
 PASS: 	run/d/delete_10_C.d
-ERROR:	run/d/deprecated_21_A.d [internal compiler error]
-ERROR:	run/d/deprecated_21_B.d [internal compiler error]
+PASS: 	run/d/deprecated_21_A.d
+PASS: 	run/d/deprecated_21_B.d
 PASS: 	run/d/double_25_A.d
 PASS: 	run/d/double_25_B.d
 PASS: 	run/dchar_03.d
@@ -2884,7 +2885,7 @@ PASS: 	run/o/opCat_15_N.d
 PASS: 	run/o/opCat_15_O.d
 PASS: 	run/o/opCat_15_P.d
 PASS: 	run/o/opCat_15_Q.d
-PASS: 	run/o/opCat_15_R.d
+FAIL: 	run/o/opCat_15_R.d
 PASS: 	run/o/opCat_15_S.d
 PASS: 	run/o/opCat_15_T.d
 PASS: 	run/o/opCat_15_U.d
@@ -3243,8 +3244,8 @@ FAIL: 	run/s/static_30_A.d
 PASS: 	run/s/static_30_B.d
 PASS: 	run/s/static_30_C.d
 PASS: 	run/s/static_31.d
-ERROR:	run/s/static_33_A.d [internal compiler error]
-ERROR:	run/s/static_33_B.d [internal compiler error]
+FAIL: 	run/s/static_33_A.d
+FAIL: 	run/s/static_33_B.d
 PASS: 	run/s/static_if_04_A.d
 PASS: 	run/s/static_if_04_B.d
 PASS: 	run/s/static_if_04_C.d
@@ -3635,7 +3636,7 @@ XPASS:	norun/delete_05.d
 XFAIL:	norun/destructor_05.d
 FAIL:	norun/m/main_05_B.d [bad error message]
 XFAIL:	norun/main_05.d
-FAIL:	norun/o/opCat_16_A.d [bad error message]
+XFAIL:	norun/o/opCat_16_A.d
 XFAIL:	norun/o/opCat_16_B.d
 XFAIL:	norun/r/return_07_A.d
 FAIL:	norun/r/return_07_B.d [bad error message]

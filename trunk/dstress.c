@@ -32,21 +32,22 @@
 #include <errno.h>
 #include <ctype.h>
 
-#define RUN		1
-#define NORUN		2
-#define COMPILE		4
-#define NOCOMPILE	8
+/* number's choice: XOR and printf :) */
+#define MODE_RUN	(0x10000)
+#define MODE_NORUN	(0x1000)
+#define MODE_COMPILE	(0x100)
+#define MODE_NOCOMPILE	(0x10)
+#define MODE_TORTURE	(0x2)
 
-/* secure malloc */
-void *xmalloc(size_t size){
-	void *p = malloc(size);
-	if (p == NULL){
-		fprintf(stderr,"Failed to allocate %zd bytes!\n", size);
-		exit(EXIT_FAILURE);
-	}
-	return p;
-}
-#define malloc xmalloc
+#define RES_BASE_MASK	(0xFFFFFF0)
+#define RES_PASS	(0x1000000)
+#define RES_XFAIL	(0x100000)
+#define RES_XPASS	(0x10000)
+#define RES_FAIL	(0x1000)
+#define RES_ERROR	(0x100)
+#define RES_UNTESTED	(0x10)
+#define RES_BAD_GDB	(0x4)
+#define RES_BAD_MSG	(0x2)
 
 #if defined(__GNU_LIBRARY__) || defined(__GLIBC__)
 #define USE_POSIX 1
@@ -72,7 +73,23 @@ void *xmalloc(size_t size){
 #include <fcntl.h>
 #include <unistd.h>
 #include <regex.h>
+#include <stdint.h>
+#include <limits.h>
 
+/* not every STDLIB supports C99's "%z" for printf formating */
+#if PTRDIFF_MAX == INT_MAX
+#define ZU "%u"
+#else
+#if PTRDIFF_MAX == LONG_MAX
+#define ZU "%lu"
+#else
+#if PTRDIFF_MAX == SHRT_MAX
+#define ZU "%hu"
+#else
+#error what is the size of a pointer?
+#endif
+#endif
+#endif
 #else
 #ifdef USE_WINDOWS
 
@@ -80,6 +97,18 @@ void *xmalloc(size_t size){
 #define snprintf _snprintf
 #ifndef INVALID_FILE_SIZE
 #define INVALID_FILE_SIZE (-1)
+
+/* not every STDLIB supports C99's "%z" for printf formating */
+#ifdef win32
+#define ZU "%u"
+#else
+#ifdef win64
+#define ZU "%llu"
+#else
+#error what is the size of a pointer?
+#endif
+#endif
+
 #endif
 
 #else
@@ -87,28 +116,88 @@ void *xmalloc(size_t size){
 #endif /* USE_WINDOWS else */
 #endif /* USE_POSIX else */
 
-#define OBJ			"obj "
+#define TORTURE_PREFIX		"torture-"
 
 #ifdef USE_POSIX
-#define		TLOG		"./obj/log.tmp"
 #define		CRASH_RUN	"./crashRun"
-#define		GDB_SCRIPTER	"./obj/gdb.tmp"
+#define		TMP_DIR		"./obj"
 #else
 #ifdef USE_WINDOWS
-#define		TLOG		".\\obj\\log.tmp"
 #define		CRASH_RUN	".\\crashRun"
-#define		GDB_SCRIPTER	".\\obj\\gdb.tmp"
+#define		TMP_DIR		".\\obj"
 #else
 #error OS dependent file names not defined
 #endif
 #endif
 
-char* errorMsg(int good_error){
-	return (good_error) ? ("") : " [bad error message]";
-}
+const char* torture[] = {
+	"",
+	
+	"-g", "-inline", "-fPIC", "-O", "-release",
+	
+	"-g -inline", "-g -fPIC", "-g -O", "-g -release",
+	"-inline -fPIC", "-inline -O", "-inline -release",
+	"-fPIC -O", "-fPIC -release",
+	"-O -release",
+	
+	"-g -inline -fPIC", "-g -inline -O", "-g -inline -release",
+	"-g -fPIC -O", "-g -fPIC -release", "-g -O -release",
+	"-inline -fPIC -O", "-inline -fPIC -release", "-inline -O -release",
+	"-fPIC -O -release",
 
-char* gdbMsg(int good_gdb){
-	return (good_gdb) ? ("") : " [bad debugger message]";
+	"-g -inline -fPIC -O", "-g -inline -fPIC -release",
+	"-g -fPIC -O -release",
+	"-inline -fPIC -O -release",
+
+	"-g -inline -fPIC -O -release"
+};
+
+/* secure malloc */
+void *xmalloc(size_t size){
+	void *p = malloc(size);
+	if (p == NULL){
+		fprintf(stderr, "Failed to allocate " ZU " bytes!\n", size);
+		exit(EXIT_FAILURE);
+	}
+	return p;
+}
+#define malloc xmalloc
+
+/* secure calloc */
+void* xcalloc(size_t members, size_t size){
+	void* ptr = calloc(members, size);
+	if(ptr == NULL){
+		fprintf(stderr, "Failed to allocate " ZU " elements"
+			"(" ZU " bytes each)!\n", members, size);
+		exit(EXIT_FAILURE);
+	}
+	return ptr;
+}
+#define calloc xcalloc
+
+
+void printResult(int result, int modus, char* case_file, FILE* stream){
+	char* msg = NULL;
+#ifdef DEBUG
+	fprintf(stderr, "case: %s, modus: %x, result: %x\n", case_file, modus,
+			result);
+#endif
+
+	if(result & RES_PASS){
+		msg = "PASS: ";
+	}else if(result & RES_XFAIL){
+		msg = "XFAIL:";
+	}else if(result & RES_XPASS){
+		msg = "XPASS:";
+	}else if(result & RES_FAIL){
+		msg = "FAIL: ";
+	}else if(result & RES_ERROR){
+		msg = "ERROR:";
+	}
+
+	fprintf(stream, "%s\t%s%s%s\n", msg, case_file,
+			(result & RES_BAD_MSG) ? " [bad error message]" : "",
+			(result & RES_BAD_GDB) ? " [bad debugger message]" : "");
 }
 
 char* strip(char* buffer){
@@ -124,6 +213,19 @@ char* strip(char* buffer){
 		}
 	}
 	return buffer;
+}
+
+unsigned int genTempFileNameCount;
+char* genTempFileName(){
+	char* back;
+	size_t len;
+
+	len = strlen(TMP_DIR) + 128;
+	back = malloc(len);
+	
+	snprintf(back, len, "%s/t%x-%x-%x.tmp", TMP_DIR, getpid(), rand(), ++genTempFileNameCount);
+
+	return back;
 }
 
 /* cleanup "/" versus "\" in filenames */
@@ -171,15 +273,12 @@ char* loadFile(char* filename){
 	if(back){
 		return back;
 	}
-	if(0==strcmp(filename, TLOG)){
-		return calloc(1,sizeof(char));
-	}
 
 	fprintf(stderr, "File not found \"%s\" (%s)\n", filename, strerror(errno));
 	exit(EXIT_FAILURE);
 #else /* USE_POSIX */
 #ifdef USE_WINDOWS
-	// @todo@ check for 32bit/64bit
+	/* @todo@ check for 32bit/64bit */
 	char* back;
 	DWORD size, numread;
 	HANDLE file=CreateFile(filename, GENERIC_READ, FILE_SHARE_READ, NULL,
@@ -247,11 +346,6 @@ void writeFile(const char* filename, const char* content){
 char* getCompiler(void){
 	char* back = getenv("DMD");
 
-#ifdef USE_WINDOWS
-	if(back == NULL){
-		back = getenv("dmd");
-	}
-#endif
 	if(back==NULL){
 		back = "dmd";
 	}
@@ -263,16 +357,24 @@ char* getCompiler(void){
 char* getGDB(void){
 	char* back = getenv("GDB");
 
-#ifdef USE_WINDOWS
-	if(back == NULL){
-		back = getenv("gdb");
-	}
-#endif
 	if(back==NULL){
 		back = "gdb";
 	}
 
 	return strip(cleanPathSeperator(back));
+}
+
+char* getTortureBlock(void){
+	char* back = getenv("DSTRESS_TORTURE_BLOCK");
+
+	if(back!=NULL){
+		back = strip(back);
+		if(strlen(back)<1){
+			back = NULL;
+		}
+	}
+
+	return back;
 }
 
 /* extract the FIRST occurance of a given TAG until the next linebreak */
@@ -502,18 +604,20 @@ int hadExecCrash(const char* buffer){
 }
 
 /* system call with time-out */
-int crashRun(const char* cmd){
+int crashRun(const char* cmd, char** logFile){
 #ifdef USE_POSIX
 	size_t len;
 	char* buffer;
 
-	len = 4 + strlen(CRASH_RUN) + strlen(cmd);
+	*logFile = genTempFileName();
+
+	len = 20 + strlen(CRASH_RUN) + strlen(cmd) + strlen(*logFile);
 	buffer = malloc(len);
 
-	snprintf(buffer, len, "\"%s\" %s", CRASH_RUN, cmd);
+	snprintf(buffer, len, "\"%s\" %s > %s 2>&1", CRASH_RUN, cmd, *logFile);
 
 	system(buffer);
-	buffer=loadFile(TLOG);
+	buffer=loadFile(*logFile);
 
 	if(strstr(buffer, "EXIT CODE: 0")){
 		return EXIT_SUCCESS;
@@ -534,43 +638,277 @@ int crashRun(const char* cmd){
 #endif /* USE_POSIX else */
 }
 
+int target_compile(int modus, char* compiler, char* arguments, char* case_file,
+		char* error_file, char* error_line)
+{
+	size_t bufferLen;
+	char* buffer;
+	int res;
+	int testResult;
+	int good_error;
+	char* logFile;
+
+	bufferLen = 0;
+	buffer = NULL;
+	res = -1;
+	testResult = -1;
+	good_error = 0;
+	logFile = NULL;
+
+	if(!(modus & MODE_COMPILE) && !(modus & MODE_NOCOMPILE)){
+		fprintf(stderr, "BUG: badly handled mode %i (->compile)\n",
+			modus);
+		exit(EXIT_FAILURE);
+	}
+
+	/* gen command */
+	bufferLen = strlen(compiler) + strlen(arguments) + strlen(TMP_DIR)
+		+ strlen(case_file) + 21;
+	buffer = malloc(bufferLen);
+	snprintf(buffer, bufferLen, "%s %s ", compiler, arguments);
+
+	if(NULL == strstr(buffer, "-od")){
+		snprintf(buffer, bufferLen, "%s %s -od%s -c %s",
+			compiler, arguments, TMP_DIR, case_file);
+	}else{
+		snprintf(buffer, bufferLen, "%s %s -c %s",
+			compiler, arguments, case_file);
+	}
+
+	/* test */
+	if(modus & MODE_COMPILE){
+		fprintf(stderr, "compile: %s\n", buffer);
+	}else{
+		fprintf(stderr, "nocompile: %s\n", buffer);
+	}
+	res = crashRun(buffer, &logFile);
+
+	/* diagnostic */
+	buffer = loadFile(logFile);
+	fprintf(stderr, "%s\n", buffer);
+	remove(logFile);
+	good_error = checkErrorMessage(error_file, error_line, buffer);
+
+	if(hadExecCrash(buffer)){
+		testResult = RES_ERROR;
+	}else if(modus & MODE_COMPILE){
+		if(res == EXIT_SUCCESS){
+			testResult = RES_PASS;
+		}else if(res == EXIT_FAILURE){
+			testResult = RES_FAIL | (good_error ? 0 : RES_BAD_MSG);
+		}else{
+			testResult = RES_ERROR | (good_error ? 0 : RES_BAD_MSG);
+		}
+	}else{
+		if(res == EXIT_FAILURE){
+			if(good_error){
+				testResult = RES_XFAIL;
+			}else{
+				testResult = RES_FAIL | RES_BAD_MSG;
+			}
+		}else if(res == EXIT_SUCCESS){
+			testResult = RES_XPASS;
+		}else{
+			testResult = RES_ERROR;
+		}
+	}
+
+	return testResult;
+}
+
+int target_run(int modus, char* compiler, char* arguments, char* case_file,
+	char* error_file, char* error_line
+#ifdef REG_EXTENDED
+	, char* gdb, char* gdb_script, regex_t* gdb_pattern
+#endif
+	)
+{
+	size_t bufferLen;
+	char* buffer;
+	int res;
+	int testResult;
+	int good_error;
+	char* logFile;
+	char* gdb_scripter;
+	int good_gdb;
+
+	bufferLen = 0;
+	buffer = NULL;
+	res = -1;
+	testResult = -1;
+	good_error = 0;
+	logFile = NULL;
+	good_gdb = 0;
+	gdb_scripter = NULL;
+
+	if(!(modus & MODE_RUN) && !(modus & MODE_NORUN)){
+		fprintf(stderr, "BUG: badly handled mode %i (->run)\n", modus);
+		exit(EXIT_FAILURE);
+	}
+	
+	/* gen command */
+
+	bufferLen = strlen(compiler) + strlen(arguments) + strlen(TMP_DIR)
+			+ strlen(case_file) * 2 + 64;
+	buffer = malloc(bufferLen);
+	snprintf(buffer, bufferLen, "%s %s ", compiler, arguments);
+
+	if(NULL == strstr(buffer, "-od")){
+		if(NULL == strstr(buffer, "-of")){
+			snprintf(buffer, bufferLen,
+				"%s %s -od%s -of%s.exe %s",
+				compiler, arguments, TMP_DIR, case_file,
+				case_file);
+		}else{
+			snprintf(buffer, bufferLen,
+				"%s %s -od%s %s",
+				compiler, arguments, TMP_DIR, case_file);
+		}
+	}else if(NULL == strstr(buffer, "-of")){
+		snprintf(buffer, bufferLen,
+			"%s %s -of%s.exe %s",
+			compiler, arguments, case_file, case_file);
+	}else{
+		snprintf(buffer, bufferLen, "%s %s %s",
+			compiler, arguments, case_file);
+	}
+
+	/* test 1/3 - compile */
+	if(modus & MODE_RUN){
+		fprintf(stderr, "run: %s\n", buffer);
+	}else{
+		fprintf(stderr, "norun: %s\n", buffer);
+	}
+	res = crashRun(buffer, &logFile);
+
+	/* diagnostic 1/3 */
+	buffer = loadFile(logFile);
+	fprintf(stderr, "%s", buffer);
+	remove(logFile);
+	
+	if(modus & MODE_RUN){
+		good_error = checkErrorMessage(error_file, error_line,
+			buffer);
+	}else{
+		good_error = 1;
+	}
+
+	if(hadExecCrash(buffer)){
+		return RES_ERROR;
+	}else if((res == EXIT_FAILURE) && good_error){
+		return RES_FAIL;
+	}else if(res!=EXIT_SUCCESS){
+		return RES_ERROR | (good_error ? 0 : RES_BAD_MSG);
+	}
+
+	/* test 2/3 - run */
+	bufferLen = strlen(case_file) + 30;
+	buffer = malloc(bufferLen);
+	snprintf(buffer, bufferLen, "%s.exe", case_file);
+	fprintf(stderr, "%s\n", buffer);
+	res=crashRun(buffer, &logFile);
+
+	/* diagnostic 2/3 */
+	buffer = loadFile(logFile);
+	fprintf(stderr, "%s\n", buffer);
+	remove(logFile);
+
+	if(modus & MODE_NORUN){
+		good_error = checkRuntimeErrorMessage(error_file, error_line,
+				buffer);
+	}else{
+		good_error = 1;
+	}
+
+#ifdef REG_EXTENDED
+	if(gdb_script != NULL){
+		good_gdb = 0;
+		/* test 3/3 - gdb */
+		gdb_scripter = genTempFileName();
+		writeFile(gdb_scripter, gdb_script);
+		bufferLen = strlen(gdb) + strlen(case_file)
+			+ strlen(gdb_scripter) + 20;
+		snprintf(buffer, bufferLen, "%s %s.exe < %s",
+			gdb, case_file, gdb_scripter);
+		fprintf(stderr, "%s\n", buffer);
+		if(EXIT_SUCCESS==crashRun(buffer, &logFile)){
+			/* diagnostic 3/3 */
+			buffer = loadFile(logFile);
+			fprintf(stderr, "%s\n", buffer);
+			good_gdb = (regexec(gdb_pattern, buffer, 0, NULL, 0)==0);
+		}
+		remove(logFile);
+		remove(gdb_scripter);
+	}else{
+		good_gdb = 1;
+	}
+#endif /* REG_EXTENDED */
+
+	if(modus & MODE_RUN){
+		if(hadExecCrash(buffer)){
+			testResult = RES_ERROR;	
+		}else if((res==EXIT_SUCCESS) && good_gdb){
+			testResult = RES_PASS;
+		}else if((res==EXIT_FAILURE) && good_error && good_gdb){
+			testResult = RES_FAIL;
+		}else{
+			testResult = RES_ERROR | (good_error ? 0 : RES_BAD_MSG)
+				| (good_gdb ? 0 : RES_BAD_GDB);
+		}
+	}else{
+		if(res==EXIT_SUCCESS){
+			testResult = RES_XPASS;
+		}else if(good_error && good_gdb){
+			testResult = RES_XFAIL;
+		}else{
+			testResult = RES_FAIL | (good_error ? 0 : RES_BAD_MSG)
+				| (good_gdb ? 0 : RES_BAD_GDB);
+		}
+	}
+
+	return testResult;
+}
 
 int main(int argc, char* arg[]){
+	
 	char* compiler;		/* the compiler - from enviroment flag "DMD" */
 	char* cmd_arg_case;	/* additional arguments - from the testcase file */
 	char* buffer;		/* general purpose buffer */
 	size_t bufferLen;
+	int index;
 	int modus;		/* test modus: RUN NORUN COMPILE NOCOMPILE */
-	int res;		/* return code from external executions */
 	char* case_file;
+	int case_result;
+	int torture_result[sizeof(torture)/sizeof(char*)];
+	char* torture_block_global;
+	char* torture_block_case;
+	char* torture_require;
 	char* error_file;	/* expected sourcefile containing the error */
 	char* error_line;	/* expected error line */
-	int good_error;		/* error contained file and line and matched the expectations */
 	char* gdb;		/* the debugger - from environment flag "GDB" */
 	char* gdb_script;	/* gdb command sequence */
 	char* gdb_pattern_raw;	/* POSIX regexp expected in GDB's output */
 #ifdef REG_EXTENDED
 	regex_t* gdb_pattern;
 #endif
-	int good_gdb;		/* (gdb test and positive) or (no gdb test)*/
 
 	compiler	= NULL;
 	cmd_arg_case	= NULL;
 	buffer		= NULL;
 	bufferLen 	= 0;
 	modus 		= -1;
-	res 		= -1;
 	case_file 	= NULL;
+	torture_block_global	= NULL;
+	torture_block_case	= NULL;
+	torture_require	= NULL;
 	error_file 	= NULL;
 	error_line 	= NULL;
-	good_error 	= -1;
 	gdb		= NULL;
 	gdb_script	= NULL;
 	gdb_pattern_raw = NULL;
 #ifdef REG_EXTENDED
 	gdb_pattern 	= NULL;
 #endif
-	good_gdb 	= -1;
 
 	/* check arguments */
 	if(argc != 3){
@@ -579,32 +917,34 @@ err:
 			"Copyright by Thomas Kuehne <thomas@kuehne.cn> 2005\n"
 			"\n");
 
-		if(argc!=0)
+		if(argc!=0){
 			fprintf(stderr,
 				"%s <run|norun|compile|nocompile> <source>\n",
 				arg[0]);
-		else
+		}else{
 			fprintf(stderr,
 				"dstress <run|norun|compile|nocompile>"
 				" <source>\n");
+		}
 
-		fprintf(stderr,
-		"\n"
+		fprintf(stderr, "\n"
 		"== eniroment settings (usually $NAME or %%NAME%%)  ==\n"
 		"* DMD                - compiler (including standard arguments)\n"
-		"* GDB                - debugger (including standard arguments)\n"
-		"\n"
+		"* GDB                - debugger (including standard arguments)\n");
+		fprintf(stderr, "\n"
 		"== case setting (line in the case source) ==\n"
 		"* __DSTRESS_DFLAGS__ - additional compiler arguments\n"
 		"only evaluated if it is a \"nocompile\" or \"norun\" test:\n"
 		"* __DSTRESS_ELINE__  - expected source line to throw an error message\n"
 		"* __DSTRESS_EFILE__  - expected source file to throw an error message\n"
-		"                       (defaults to the case file)\n"
+		"                       (defaults to the case file)\n");
+		fprintf(stderr,
 		"only evaluated if it is a \"run\" or \"norun\" test:\n"
 		"* __GDB_SCRIPT__     - command sequence to feed to the debugger\n"
 		"                       (use \\n to encode a line break)\n"
 		"* __GDB_PATTERN__    - expected regular expression in the debugger's\n"
-		"                       output\n"
+		"                       output\n");
+		fprintf(stderr, "\n"
 		"== note ==\n"
 		"* the current directory is required to contain the sub-directory \"obj\"\n"
 		"  (used for temporary files)\n"
@@ -612,14 +952,19 @@ err:
 		exit(EXIT_FAILURE);
 	}
 
+	modus = 0;
+	if(0==strncmp(arg[1], TORTURE_PREFIX, strlen(TORTURE_PREFIX))){
+		modus |= MODE_TORTURE;
+		arg[1] += strlen(TORTURE_PREFIX);
+	}
 	if(0==strcmp(arg[1], "run")){
-		modus = RUN;
+		modus |= MODE_RUN;
 	}else if(0==strcmp(arg[1], "norun")){
-		modus = NORUN;
+		modus |= MODE_NORUN;
 	}else if(0==strcmp(arg[1], "compile")){
-		modus = COMPILE;
+		modus |= MODE_COMPILE;
 	}else if(0==strcmp(arg[1], "nocompile")){
-		modus = NOCOMPILE;
+		modus |= MODE_NOCOMPILE;
 	}else{
 		goto err;
 	}
@@ -628,6 +973,7 @@ err:
 	case_file = cleanPathSeperator(strdup(arg[2]));
 	compiler = getCompiler();
 	gdb = getGDB();
+	torture_block_global = getTortureBlock();
 	buffer = loadFile(case_file);
 
 	cmd_arg_case = getCaseFlag(buffer, "__DSTRESS_DFLAGS__");
@@ -635,7 +981,8 @@ err:
 	error_file = getCaseFlag(buffer, "__DSTRESS_EFILE__");
 	gdb_script = getCaseFlag(buffer, "__GDB_SCRIPT__");
 	gdb_pattern_raw = getCaseFlag(buffer, "__GDB_PATTERN__");
-
+	torture_block_case = getCaseFlag(buffer, "__DSTRESS_TORTURE_BLOCK__");
+	torture_require = getCaseFlag(buffer, "__DSTRESS_TORTURE_REQUIRE__");
 
 	/* set implicit source file */
 	if(strcmp(error_line, "")!=0 && strcmp(error_file, "")==0){
@@ -680,9 +1027,7 @@ err:
 		buffer=malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s\n\nquit\ny\n\n", gdb_script);
 		gdb_script=buffer;
-		good_gdb = 0;
 	}else{
-	    good_gdb = 1;
 	    gdb_script = NULL;
 	}
 
@@ -690,19 +1035,17 @@ err:
 
 	if(gdb_script && strlen(gdb_script)){
 		if(gdb_pattern_raw && strlen(gdb_pattern_raw)){
-			fprintf(stderr, "WARNING: debugger/regex support inactive\n");
+			fprintf(stderr, "WARNING: GDB/regex support inactive\n");
 		}else{
-			fprintf(stderr, "debugger script without debugger pattern\n");
+			fprintf(stderr, "GDB script without GDB pattern\n");
 			exit(EXIT_FAILURE);
 		}
 	}else if(gdb_pattern_raw && strlen(gdb_pattern_raw)){
-		fprintf(stderr, "debugger pattern without debugger script\n");
+		fprintf(stderr, "GDB pattern without GDB script\n");
 		exit(EXIT_FAILURE);
 	}
 
 #endif /* REG_EXTENDED else */
-
-
 
 #ifdef DEBUG
 	fprintf(stderr, "case:     \"%s\"\n", case_file);
@@ -710,203 +1053,114 @@ err:
 	fprintf(stderr, "DFLAGS C: \"%s\"\n", cmd_arg_case);
 	fprintf(stderr, "ELINE   : \"%s\"\n", error_line);
 	fprintf(stderr, "EFILE   : \"%s\"\n", error_file);
+#ifdef REG_EXTENDED
 	fprintf(stderr, "GDB Scri: \"%s\"\n", gdb_script);
 	fprintf(stderr, "GDB Patt: \"%s\"\n", gdb_pattern_raw);
 #endif
+	fprintf(stderr, "block G : \"%s\"\n", torture_block_global);
+	fprintf(stderr, "block C : \"%s\"\n", torture_block_case);
+	fprintf(stderr, "modus   : %x\n", modus);
+#endif
 
-	/* start working */
-	if(modus==COMPILE || modus==NOCOMPILE){
-		/* gen command */
-		bufferLen = strlen(compiler)+strlen(cmd_arg_case)
-			+strlen(OBJ)+strlen(case_file)+strlen(TLOG)+21;
+
+	/* let's get serious */
+
+	if(modus & MODE_TORTURE){
+		if((modus & (MODE_COMPILE | MODE_NOCOMPILE)) 
+			&& (modus & (MODE_RUN | MODE_NORUN)))
+		{
+			fprintf(stderr, "BUG: unhandled torture modus %x\n", modus);
+		}else if(!(modus & (MODE_COMPILE | MODE_NOCOMPILE | MODE_RUN | MODE_NORUN))){
+			fprintf(stderr, "BUG: unhandled torture modus %x\n", modus);
+		}
+
+		bufferLen = strlen(torture[(sizeof(torture) / sizeof(char*))-1])
+			+ strlen(cmd_arg_case) + 3;
+		
+		if(torture_block_case!=NULL && strlen(torture_block_case)<1){
+			torture_block_case=NULL;
+		}
+		
 		buffer = malloc(bufferLen);
-		snprintf(buffer, bufferLen, "%s %s ", compiler, cmd_arg_case);
-
-		if(NULL==strstr(buffer, "-od")){
-			snprintf(buffer, bufferLen,
-				"%s %s -od%s -c %s 1> %s 2>&1",
-				compiler, cmd_arg_case, OBJ, case_file, TLOG);
-		}else{
-			snprintf(buffer, bufferLen, "%s %s -c %s 1> %s 2>&1",
-				compiler, cmd_arg_case, case_file, TLOG);
-		}
-
-		/* test */
-		if(modus==COMPILE){
-			fprintf(stderr, "compile: %s\n", buffer);
-		}else{
-			fprintf(stderr, "nocompile: %s\n", buffer);
-		}
-		res = crashRun(buffer);
-
-		/* diagnostic */
-		buffer = loadFile(TLOG);
-		fprintf(stderr, "%s\n", buffer);
-		good_error = checkErrorMessage(error_file, error_line, buffer);
-
-		if(hadExecCrash(buffer)){
-			printf("ERROR:\t%s [internal compiler error]\n",
-				case_file);
-		}else if(modus==COMPILE){
-			if(res==EXIT_SUCCESS){
-				printf("PASS: \t%s\n", case_file);
-			}else if(res==EXIT_FAILURE && good_error){
-				if(checkErrorMessage(case_file, "", buffer)){
-					printf("FAIL: \t%s\n", case_file);
-				}else{
-					printf("ERROR:\t%s%s\n", case_file,
-						errorMsg(good_error));
-				}
-			}else{
-				printf("ERROR:\t%s%s\n", case_file,
-					errorMsg(good_error));
+		for(index=0; index < sizeof(torture)/sizeof(char*); index++){
+			if((torture_block_global && strstr(torture[index], torture_block_global))
+				|| (torture_block_case && strstr(torture[index], torture_block_case))
+				|| (torture_block_case && !strstr(torture[index], torture_require)))
+			{
+				torture_result[index]=RES_UNTESTED;
+				continue;
 			}
-		}else{
-			if(res==EXIT_FAILURE){
-				if(good_error){
-					printf("XFAIL:\t%s\n", case_file);
-				}else{
-					printf("FAIL: \t%s%s\n", case_file,
-						errorMsg(good_error));
-				}
-			}else if(res==EXIT_SUCCESS){
-				printf("XPASS:\t%s\n", case_file);
-			}else{
-				printf("ERROR:\t%s\n", case_file);
-			}
-		}
-		fprintf(stderr,"--------\n");
-	}else if(modus==RUN || modus==NORUN){
-		/* gen command */
-
-		bufferLen = strlen(compiler)+strlen(cmd_arg_case)
-			+strlen(OBJ)
-			+strlen(case_file)*2+strlen(TLOG)+64;
-		buffer = malloc(bufferLen);
-		snprintf(buffer, bufferLen, "%s %s ", compiler, cmd_arg_case);
-
-		if(NULL==strstr(buffer, "-od")){
-			if(NULL==strstr(buffer, "-of")){
-				snprintf(buffer, bufferLen,
-					"%s %s -od%s -of%s.exe %s 1> %s 2>&1",
-					compiler, cmd_arg_case, OBJ, case_file,
-					case_file, TLOG);
-			}else{
-				snprintf(buffer, bufferLen,
-					"%s %s -od%s %s 1> %s 2>&1",
-					compiler, cmd_arg_case, OBJ, case_file,
-					TLOG);
-			}
-		}else if(NULL==strstr(buffer, "-of")){
-			snprintf(buffer, bufferLen,
-				"%s %s -of%s.exe %s 1> %s 2>&1",
-				compiler, cmd_arg_case, case_file, case_file,
-				TLOG);
-		}else{
-			snprintf(buffer, bufferLen, "%s %s %s 1> %s 2>&1",
-				compiler, cmd_arg_case, case_file, TLOG);
-		}
-
-		/* test 1/3 - compile */
-		if(modus==RUN){
-			fprintf(stderr, "run: %s\n", buffer);
-		}else{
-			fprintf(stderr, "norun: %s\n", buffer);
-		}
-		res = crashRun(buffer);
-
-		/* diagnostic 1/3 */
-		buffer = loadFile(TLOG);
-		fprintf(stderr, "%s", buffer);
-
-		if(modus==RUN){
-			good_error = checkErrorMessage(error_file, error_line,
-				buffer);
-		}else{
-			good_error = 1;
-		}
-		if(hadExecCrash(buffer)){
-			printf("ERROR:\t%s [internal compiler error]\n",
-				case_file);
-			fprintf(stderr, "\n--------\n");
-			return  EXIT_SUCCESS;
-		}else if(res==EXIT_FAILURE && good_error){
-			printf("FAIL: \t%s\n", case_file);
-			fprintf(stderr, "\n--------\n");
-			return  EXIT_SUCCESS;
-		}else if(res!=EXIT_SUCCESS){
-			printf("ERROR:\t%s%s\n", case_file,
-				errorMsg(good_error));
-			fprintf(stderr, "\n--------\n");
-			return  EXIT_SUCCESS;
-		}
-
-		/* test 2/3 - run */
-		bufferLen = strlen(case_file) + strlen(TLOG) + 30;
-		buffer = malloc(bufferLen);
-		snprintf(buffer, bufferLen, "%s.exe 1> %s 2>&1\n", case_file,
-			TLOG);
-		fprintf(stderr, "%s\n", buffer);
-		res=crashRun(buffer);
-
-		/* diagnostic 2/3 */
-		buffer = loadFile(TLOG);
-		fprintf(stderr, "%s\n", buffer);
-		if(modus==NORUN){
-			good_error = checkRuntimeErrorMessage(error_file,
-				error_line, buffer);
-		}else{
-			good_error = 1;
-		}
-
+			
+			buffer[0]=0;
+			snprintf(buffer, bufferLen, "%s %s", torture[index], cmd_arg_case);
+		
+			if(modus & (MODE_COMPILE | MODE_NOCOMPILE)){
+				torture_result[index] = target_compile(modus,
+					compiler, buffer, case_file,
+					error_file, error_line);
+			}else if(modus & (MODE_RUN | MODE_NORUN)){
+				torture_result[index] = target_run(modus,
+					compiler, buffer, case_file,
+					error_file, error_line
 #ifdef REG_EXTENDED
-		if(!good_gdb){
-			/* test 3/3 - gdb */
-			writeFile(GDB_SCRIPTER, gdb_script);
-			bufferLen = strlen(gdb) + strlen(case_file)
-				+ strlen(GDB_SCRIPTER) + strlen(TLOG) + 20;
-			snprintf(buffer, bufferLen, "%s %s.exe < %s > %s 2>&1",
-				gdb, case_file, GDB_SCRIPTER, TLOG);
-			fprintf(stderr, "%s\n", buffer);
-			if(EXIT_SUCCESS==crashRun(buffer)){
-				/* diagnostic 3/3 */
-				buffer = loadFile(TLOG);
-				fprintf(stderr, "%s\n", buffer);
-				good_gdb = (regexec(
-						gdb_pattern, buffer, 0, NULL, 0
-					)==0);
+					, gdb, gdb_script, gdb_pattern
+#endif
+				);
 			}
-		}
-#endif /* REG_EXTENDED */
 
-		if(modus==RUN){
-			if(hadExecCrash(buffer)){
-				printf("ERROR:\t%s [test case crash]%s%s",
-					case_file, errorMsg(good_error),
-					gdbMsg(good_gdb));
-			}else if(res==EXIT_SUCCESS && good_gdb){
-				printf("PASS: \t%s\n", case_file);
-			}else if(res==EXIT_FAILURE && good_error && good_gdb){
-				printf("FAIL: \t%s\n", case_file);
-			}else{
-				printf("ERROR:\t%s%s%s\n", case_file,
-					errorMsg(good_error), gdbMsg(good_gdb));
-			}
-		}else{
-			if(res==EXIT_SUCCESS && good_gdb){
-				printf("XPASS:\t%s%s\n", case_file, gdbMsg(good_gdb));
-			}else if(good_error && good_gdb){
-				printf("XFAIL:\t%s%s%s\n", case_file,
-					errorMsg(good_error), gdbMsg(good_gdb));
-			}else{
-				printf("FAIL:\t%s%s%s\n", case_file,
-					errorMsg(good_error), gdbMsg(good_gdb));
-			}
+			fprintf(stderr, "Torture-Sub-%i/" ZU "-", index+1,
+					sizeof(torture)/sizeof(char*));
+			printResult(torture_result[index], modus, case_file,
+					stderr);
+			fprintf(stderr, "--------\n");
 		}
-		fprintf(stderr, "--------\n");
+
+		printf("Torture:\t%s\t{", case_file);
+		for(index=0; index < sizeof(torture)/sizeof(char*); index++){
+			case_result = 0;
+			switch(torture_result[index] & RES_BASE_MASK){
+				case RES_UNTESTED: case_result = 0; break;
+				case RES_PASS: case_result = 1 << 2; break;
+				case RES_XFAIL: case_result = 2 << 2; break;
+				case RES_XPASS: case_result = 3 << 2; break;
+				case RES_FAIL: case_result = 4 << 2; break;
+				case RES_ERROR: case_result = 5 << 2; break;
+				default:
+					fprintf(stderr, "BUG: unexpected case result %i\n",
+							torture_result[index]);
+					exit(EXIT_FAILURE);
+			}
+			
+			if(torture_result[index] & RES_BAD_MSG){
+				case_result |= 1;
+			}
+			if(torture_result[index] & RES_BAD_GDB){
+				case_result |= 2;
+			}
+
+			printf("%c", 'A' + case_result);
+		}
+		printf("}\n");
 	}else{
-		printf("@bug@ %d (%s)\n", modus, case_file);
-		return EXIT_FAILURE;
+		/* start working */
+		if(modus & (MODE_RUN | MODE_NORUN)){
+			case_result = target_run(modus, compiler, cmd_arg_case,
+					case_file, error_file, error_line
+#ifdef REG_EXTENDED
+					, gdb, gdb_script, gdb_pattern
+#endif
+					);
+			printResult(case_result, modus, case_file, stdout);
+		}
+
+		if(modus & (MODE_COMPILE | MODE_NOCOMPILE)){
+			case_result = target_compile(modus, compiler,
+					cmd_arg_case, case_file, error_file,
+					error_line);
+			printResult(case_result, modus, case_file, stdout);
+		}
 	}
+
+	
 	return EXIT_SUCCESS;
 }

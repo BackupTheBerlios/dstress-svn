@@ -7,8 +7,7 @@
 // @uri@	news:cv77ei$27mv$3@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3017
 
-// __DSTRESS_DFLAGS__ -inline
-// __DSTRESS_ELINE__ 22
+// __DSTRESS_ELINE__ 21
 
 module dstress.nocompile.inline_07;
 

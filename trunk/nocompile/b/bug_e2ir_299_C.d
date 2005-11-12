@@ -9,8 +9,7 @@
 
 // function literals cannot call nested functions
 
-// __DSTRESS_DFLAGS__ -inline
-// __DSTRESS_ELINE__ 20
+// __DSTRESS_ELINE__ 19
 
 module dstress.nocompile.b.bug_e2ir_299_C;
 

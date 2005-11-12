@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_DFLAGS__ 10
+// __DSTRESS_ELINE__ 10
 
 module dstress.nocompile.bit_02;
 

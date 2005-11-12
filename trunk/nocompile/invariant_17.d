@@ -9,7 +9,8 @@
 
 // invariant may not call non-static public class member functions (stack overflow)
 
-// __DSTRESS_ELINE__ 25
+// __DSTRESS_TORTURE_BLOCK__ -release
+// __DSTRESS_ELINE__ 26
 
 module dstress.nocompile.invariant_17;
 

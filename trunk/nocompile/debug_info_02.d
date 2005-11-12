@@ -6,8 +6,7 @@
 // @date@	2005-03-25
 // @uri@	news:opsn61vgpg23k2f5@nrage.netwin.co.nz
 
-// __DSTRESS_DFLAGS__ -g
-// __DSTRESS_ELINE__ 14
+// __DSTRESS_ELINE__ 13
 
 module dstress.nocompile.debug_info_02;
 

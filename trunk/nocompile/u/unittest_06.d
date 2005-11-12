@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_DFLAGS__ 13
+// __DSTRESS_ELINE__ 13
 
 module dstress.nocompile.u.unittest_06;
 

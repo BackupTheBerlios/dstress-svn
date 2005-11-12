@@ -7,6 +7,11 @@ private import std.path;
 private char[][char[]] known;
 private uint doppelgaenger;
 
+version(reporters){
+	private import std.string;
+	private uint[char[]] reporters;
+}
+
 private char[] lastPathElem(char[] path){
 	size_t end=path.length-1;
 	size_t start;
@@ -42,6 +47,35 @@ private void add(char[] file){
 		}else{
 			known[base] = file;
 		}
+		
+		version(reporters){
+			// only works for UTF-8
+			char[] data=cast(char[]) read(file);
+			
+			size_t index = find(data, "@author@");
+			if(index != index.max){				
+				data = data[index + "@author@".length .. data.length];
+				
+				foreach(char end; "\r\n\x00\x0A"){
+					index = find(data, end);
+					if(index != index.max){
+						data = data[0 .. index];
+					}
+				}
+		
+				data = strip(data);
+				
+				version(verbose){
+					if(data in reporters){
+						reporters[data]++;
+					}else{
+						reporters[data]=1;
+					}
+				}else{
+					reporters[data]=1;
+				}
+			}
+		}
 	}
 	
 	if(isdir(file) && (base[0]!='.')){
@@ -70,6 +104,16 @@ int main(char[][] args){
 		foreach(char[] entry; known.keys.sort){
 			fwritef(stderr, "\t%s\n", known[entry]);
 		}
+	}
+	
+	version(reporters){
+		foreach(char[] entry; reporters.keys.sort){
+			version(verbose){
+				fprintf(stderr, "%i\t%.*s\n", reporters[entry], entry);
+			}else{
+				fprintf(stderr, "%.*s\n", entry);
+			}
+		}	
 	}
 	
 	fwritef(stdout, "hits : %s\n", doppelgaenger);

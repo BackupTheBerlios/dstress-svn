@@ -2,9 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 12
-// __GDB_SCRIPT__ run
-// __GDB_PATTERN__ assert_05[.]d[(]12[)]
+// __DSTRESS_ELINE__ 10
 
 module dstress.norun.assert_04;
 

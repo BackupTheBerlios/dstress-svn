@@ -2,7 +2,8 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 12
+// __DSTRESS_TORTURE_BLOCK__ -release
+// __DSTRESS_ELINE__ 13
 
 module dstress.norun.bounds_checking_03;
 

@@ -7,8 +7,9 @@
 // @uri@	news:dcl3e6$2hjr$1@digitaldaemon.com
 
 // __DSTRESS_DFLAGS__ -gc
+// __DSTRESS_TORTURE_BLOCK__ -g
 // __GDB_SCRIPT__ run\nbacktrace
-// __GDB_PATTERN__ SIGFPE.*debug_info_08_D[.]d:21
+// __GDB_PATTERN__ SIGFPE.*debug_info_08_D[.]d:22
 
 module dstress.norun.d.debug_info_08_D;
  

@@ -6,7 +6,7 @@
 // @date@	2005-08-01
 // @uri@	news:dcl3e6$2hjr$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -g
+// __DSTRESS_TORTURE_REQUIRE__ -g
 // __GDB_SCRIPT__ run\nbacktrace
 // __GDB_PATTERN__ SIGFPE.*debug_info_08_B[.]d:21
 

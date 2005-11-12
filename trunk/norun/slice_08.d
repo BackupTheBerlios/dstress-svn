@@ -2,7 +2,8 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 21
+// __DSTRESS_TORTURE_BLOCK__ -release
+// __DSTRESS_ELINE__ 22
 
 module dstress.nocompile.slice_08;
 

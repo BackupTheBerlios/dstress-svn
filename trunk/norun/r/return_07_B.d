@@ -6,7 +6,6 @@
 // @date@	2005-07-14
 // @uri@	news:op.stwu8jtdl2lsvj@esi
 
-// __DSTRESS_DFLAGS__ -inline
 // __DSTRESS_ELINE__ 15
 
 module dstress.norun.r.return_07_B;

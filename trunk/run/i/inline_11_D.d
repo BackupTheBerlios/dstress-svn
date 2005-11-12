@@ -6,8 +6,6 @@
 // @date@	2005-06-25
 // @uri@	news:d9e3af$1olf$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.i.inline_11_D;
  
 struct Struct{

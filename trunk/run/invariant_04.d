@@ -9,6 +9,8 @@
 
 // invariant for structs allowed since dmd-0.119
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.invariant_04;
 
 bool tested;

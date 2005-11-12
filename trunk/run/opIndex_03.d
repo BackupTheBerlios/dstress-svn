@@ -6,8 +6,6 @@
 // @date@	2005-04-24
 // @uri@	news:d4ha7g$fuc$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.opIndex_03;
 
 class Range{

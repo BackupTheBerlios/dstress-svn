@@ -7,8 +7,6 @@
 // @uri@	news:cqmufn$26oj$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2606
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.bug_20041226_E;
 
 void dummy(...){

@@ -2,6 +2,7 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -release
 module dstress.run.slice_09;
 
 int main(){

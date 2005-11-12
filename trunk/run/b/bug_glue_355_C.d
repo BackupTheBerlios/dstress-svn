@@ -6,8 +6,6 @@
 // @date@	2005-09-29
 // @uri@	news:dhf4c3$pua$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.b.bug_glue_355_C;
 
 class Foo {

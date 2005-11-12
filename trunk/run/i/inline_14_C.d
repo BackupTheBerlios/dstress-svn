@@ -6,8 +6,6 @@
 // @date@	2005-09-09
 // @uri@	news:dfsni3$2jst$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.i.inline_14_C;
 
 int a = 0;

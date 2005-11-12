@@ -6,6 +6,8 @@
 // @date@	2005-02-05
 // @uri@	news:cu30gc$29cb$1@digitaldaemon.com
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.invariant_21;
 
 class MyClass{

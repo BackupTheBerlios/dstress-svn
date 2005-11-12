@@ -7,6 +7,8 @@
 // @uri@	news:opshfzxz0b44buww@simon.homenet
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2262
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.in_out_body_02;
 
 struct MyStruct{

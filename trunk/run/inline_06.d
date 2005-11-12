@@ -7,8 +7,6 @@
 // @uri@	news:opsl6xtajtaaezs2@robingood
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2984
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.inline_06;
 
 struct MyStruct{

@@ -3,6 +3,7 @@
 // $Author$
 
 // the name function name "_invariant" isn't forbidden (dmd-0.104 documentation)
+
 module dstress.run.invariant_10;
 
 class MyClass{

@@ -7,8 +7,6 @@
 // @uri@	news:op.sq4gt8ddkcck4r@esi
 // @desc@	-inline calling wrong virtual function
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.i.inline_10_C;
 
 class Base{

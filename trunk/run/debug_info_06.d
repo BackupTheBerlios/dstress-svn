@@ -6,7 +6,6 @@
 // @date@	2005-03-25
 // @uri@	news:d21vhg$pld$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -g
 
 module dstress.run.debug_info_06;
 

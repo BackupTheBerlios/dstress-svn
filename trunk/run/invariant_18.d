@@ -7,6 +7,8 @@
 // @uri@	news:cldaue$2gf4$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2144
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.invariant_18;
 
 class MyClass{

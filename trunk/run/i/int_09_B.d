@@ -6,8 +6,6 @@
 // @date@	2005-05-25
 // @uri@	news:d72fan$60m$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -O
-
 module dstress.run.i.int_09_B;
 
 int main(){

@@ -7,8 +7,6 @@
 // @uri@	news:d99id2$fgj$1@digitaldaemon.com
 // @desc@	foreach and throw/catch code generation
 
-// __DSTRESS_DFLAGS__ -O
-
 module dstress.run.c.catch_05_H;
 
 void dummy(...){

@@ -6,8 +6,6 @@
 // @date@	2005-08-06
 // @uri@	news:dd23j9$1b6c$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -release -O
-
 module dstress.run.f.for_06_E;
 
 int foo(inout real[] arr) {

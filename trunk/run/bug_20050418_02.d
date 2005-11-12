@@ -6,6 +6,8 @@
 // @date@	2005-04-18
 // @uri@	news:d3rulu$bn9$1@digitaldaemon.com
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.bug_20050418_02;
 
 class Buffer{

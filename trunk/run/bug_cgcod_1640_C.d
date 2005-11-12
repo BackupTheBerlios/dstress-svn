@@ -9,8 +9,6 @@
 
 module dstress.run.bug_cgcod_1640_C;
 
-// __DSTRESS_DFLAGS__ -O
-
 struct MyStruct{
 	int a;
 }

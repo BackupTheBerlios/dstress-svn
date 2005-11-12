@@ -9,6 +9,8 @@
 
 // invariants for Unions allowed since dmd-0.119
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.invariant_06;
 
 int status;

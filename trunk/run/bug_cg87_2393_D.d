@@ -6,8 +6,6 @@
 // @date@	2005-03-27
 // @uri@	news:d26pug$2m4m$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.bug_cg87_2393_D;
 
 cfloat x;

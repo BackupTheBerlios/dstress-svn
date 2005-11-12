@@ -6,6 +6,8 @@
 // @date@	2005-02-06
 // @uri@	news:s2chd2-1n2.ln1@lnews.kuehne.cn
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.invariant_25;
 
 class MyClass{

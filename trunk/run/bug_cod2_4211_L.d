@@ -6,8 +6,6 @@
 // @date@	2005-04-27
 // @uri@	news:d4or18$1th1$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -O
-
 module dstress.run.bug_cod2_4211_L;
 
 cdouble[1] a;

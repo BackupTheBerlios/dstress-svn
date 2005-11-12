@@ -5,6 +5,7 @@
 // Unit tests are run in the lexical order in which they appear
 // within a module
 
+// __DSTRESS_TORTURE_BLOCK__ -release
 // __DSTRESS_DFLAGS__ -unittest
 
 module dstress.run.unittest_08;

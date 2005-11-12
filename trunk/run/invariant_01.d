@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.invariant_01;
 
 class MyClass{

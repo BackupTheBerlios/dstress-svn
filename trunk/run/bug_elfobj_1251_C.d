@@ -6,7 +6,6 @@
 // @date@	2005-02-03
 // @uri@	news:cts483$1klp$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -g
 
 module dstress.run.bug_elfobj_1251_C;
 

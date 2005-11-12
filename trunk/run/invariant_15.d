@@ -7,6 +7,8 @@
 // @uri@	news:clbr09$uc6$1@digitaldaemon.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/2140
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.invariant_15;
 
 class Parent{

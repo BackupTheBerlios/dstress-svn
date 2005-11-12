@@ -7,8 +7,6 @@
 // @uri@	news:cp86l0$106o$2@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2491
 
-// __DSTRESS_DFLAGS__ -g
-
 module dstress.run.bug_elfobj_1251_A;
 
 bool foo() {

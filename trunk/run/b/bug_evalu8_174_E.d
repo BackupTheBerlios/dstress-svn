@@ -7,8 +7,6 @@
 // @uri@	news:d72dg6$40l$1@digitaldaemon.com
 // @desc@	Internal error: ../ztc/evalu8.c 174
 
-// __DSTRESS_DFLAGS__ -release -O
-
 module dstress.run.b.bug_evalu8_174_E;
 
 void foo(){

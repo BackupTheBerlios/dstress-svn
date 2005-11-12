@@ -6,8 +6,6 @@
 // @date@	2005-06-23
 // @uri@	news:d9erom$2roj$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ -inline
-
 module dstress.run.b.bug_cod3_736_B;
 
 struct Struct{

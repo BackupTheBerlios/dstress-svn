@@ -97,6 +97,7 @@
 #define snprintf _snprintf
 #ifndef INVALID_FILE_SIZE
 #define INVALID_FILE_SIZE (-1)
+#endif
 
 /* not every STDLIB supports C99's "%z" for printf formating */
 #ifdef win32
@@ -107,8 +108,6 @@
 #else
 #error what is the size of a pointer?
 #endif
-#endif
-
 #endif
 
 #else

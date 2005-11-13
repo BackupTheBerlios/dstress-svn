@@ -31,8 +31,8 @@
 #include <stdio.h>
 #include <signal.h>
 
-const int TIME_OUT= 5*60; /* time-out in seconds (might be cpu or system time)*/
-const int MEM_LIMIT = 200;  /* mem megabytes */
+const int TIME_OUT= 30; /* time-out in seconds (might be cpu or system time)*/
+const int MEM_LIMIT = 1024;  /* mem megabytes */
 
 /* identify system API */
 #if defined(__GNU_LIBRARY__) || defined(__GLIBC__) || defined(__USE_POSIX)

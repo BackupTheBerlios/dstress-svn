@@ -25,7 +25,7 @@ template foo(Type){
 }
 
 int main(){
-	printf("%d\n",foo!(int)(1));
+	foo!(int)(1);
 	return 0;
 }
 

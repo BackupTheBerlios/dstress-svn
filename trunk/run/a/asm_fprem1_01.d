@@ -22,7 +22,6 @@ int main(){
 			fstp a;
 		}
 		
-		printf("%f\n", a);
 		a += 1.0;
 		
 		a = (a>0) ? a : -a;

@@ -63,8 +63,6 @@ int main(){
 						
 			assert(a_SI == c_SI);
 			assert(b_SI == x);
-			
-			printf("%u\t%u\t%u\n", a_SP, b_SP, c_SP);
 		}
 		return 0;
 	}else{

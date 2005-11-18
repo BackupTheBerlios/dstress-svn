@@ -100,10 +100,10 @@
 #endif
 
 /* not every STDLIB supports C99's "%z" for printf formating */
-#ifdef win32
+#ifdef WIN32
 #define ZU "%u"
 #else
-#ifdef win64
+#ifdef WIN64
 #define ZU "%llu"
 #else
 #error what is the size of a pointer?
@@ -131,14 +131,14 @@
 
 const char* torture[] = {
 	"",
-	
+
 	"-g", "-inline", "-fPIC", "-O", "-release",
-	
+
 	"-g -inline", "-g -fPIC", "-g -O", "-g -release",
 	"-inline -fPIC", "-inline -O", "-inline -release",
 	"-fPIC -O", "-fPIC -release",
 	"-O -release",
-	
+
 	"-g -inline -fPIC", "-g -inline -O", "-g -inline -release",
 	"-g -fPIC -O", "-g -fPIC -release", "-g -O -release",
 	"-inline -fPIC -O", "-inline -fPIC -release", "-inline -O -release",
@@ -221,8 +221,12 @@ char* genTempFileName(){
 
 	len = strlen(TMP_DIR) + 128;
 	back = malloc(len);
-	
+
+#ifdef USE_POSIX
 	snprintf(back, len, "%s/t%x-%x-%x.tmp", TMP_DIR, getpid(), rand(), ++genTempFileNameCount);
+#else
+	snprintf(back, len, "%s\\t%x-%x-%x.tmp", TMP_DIR, getpid(), rand(), ++genTempFileNameCount);
+#endif
 
 	return back;
 }
@@ -604,12 +608,12 @@ int hadExecCrash(const char* buffer){
 
 /* system call with time-out */
 int crashRun(const char* cmd, char** logFile){
-#ifdef USE_POSIX
+
 	size_t len;
 	char* buffer;
 
 	*logFile = genTempFileName();
-
+#ifdef USE_POSIX
 	len = 20 + strlen(CRASH_RUN) + strlen(cmd) + strlen(*logFile);
 	buffer = malloc(len);
 
@@ -630,8 +634,15 @@ int crashRun(const char* cmd, char** logFile){
 #else
 
 #error comment me out, if your test cases produce neither eternal loops nor Access Violations
-	int i = system(cmd);
+
+	len = 10 + strlen(cmd) + strlen(*logFile);
+	buffer = malloc(len);
+
+	snprintf(buffer, len, "%s > %s 2>&1", cmd, *logFile);
+
+	int i = system(buffer);
 	fprintf(stderr, "EXIT CODE: %i\n", i);
+
 	return i;
 
 #endif /* USE_POSIX else */
@@ -744,7 +755,7 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 		fprintf(stderr, "BUG: badly handled mode %i (->run)\n", modus);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	/* gen command */
 
 	bufferLen = strlen(compiler) + strlen(arguments) + strlen(TMP_DIR)
@@ -784,7 +795,7 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	buffer = loadFile(logFile);
 	fprintf(stderr, "%s", buffer);
 	remove(logFile);
-	
+
 	if(modus & MODE_RUN){
 		good_error = checkErrorMessage(error_file, error_line,
 			buffer);
@@ -841,11 +852,13 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	}else{
 		good_gdb = 1;
 	}
+#else
+	good_gdb = 1;
 #endif /* REG_EXTENDED */
 
 	if(modus & MODE_RUN){
 		if(hadExecCrash(buffer)){
-			testResult = RES_ERROR;	
+			testResult = RES_ERROR;
 		}else if((res==EXIT_SUCCESS) && good_gdb){
 			testResult = RES_PASS;
 		}else if((res==EXIT_FAILURE) && good_error && good_gdb){
@@ -869,7 +882,7 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 }
 
 int main(int argc, char* arg[]){
-	
+
 	char* compiler;		/* the compiler - from enviroment flag "DMD" */
 	char* cmd_arg_case;	/* additional arguments - from the testcase file */
 	char* buffer;		/* general purpose buffer */
@@ -1065,7 +1078,7 @@ err:
 	/* let's get serious */
 
 	if(modus & MODE_TORTURE){
-		if((modus & (MODE_COMPILE | MODE_NOCOMPILE)) 
+		if((modus & (MODE_COMPILE | MODE_NOCOMPILE))
 			&& (modus & (MODE_RUN | MODE_NORUN)))
 		{
 			fprintf(stderr, "BUG: unhandled torture modus %x\n", modus);
@@ -1075,11 +1088,11 @@ err:
 
 		bufferLen = strlen(torture[(sizeof(torture) / sizeof(char*))-1])
 			+ strlen(cmd_arg_case) + 3;
-		
+
 		if(torture_block_case!=NULL && strlen(torture_block_case)<1){
 			torture_block_case=NULL;
 		}
-		
+
 		buffer = malloc(bufferLen);
 		for(index=0; index < sizeof(torture)/sizeof(char*); index++){
 			if((torture_block_global && strstr(torture[index], torture_block_global))
@@ -1089,10 +1102,10 @@ err:
 				torture_result[index]=RES_UNTESTED;
 				continue;
 			}
-			
+
 			buffer[0]=0;
 			snprintf(buffer, bufferLen, "%s %s", torture[index], cmd_arg_case);
-		
+
 			if(modus & (MODE_COMPILE | MODE_NOCOMPILE)){
 				torture_result[index] = target_compile(modus,
 					compiler, buffer, case_file,
@@ -1129,7 +1142,7 @@ err:
 							torture_result[index]);
 					exit(EXIT_FAILURE);
 			}
-			
+
 			if(torture_result[index] & RES_BAD_MSG){
 				case_result |= 1;
 			}
@@ -1160,6 +1173,6 @@ err:
 		}
 	}
 
-	
+
 	return EXIT_SUCCESS;
 }

@@ -188,11 +188,16 @@ class Sheet{
 	SimpleTest[char[]] summary;
 	char[] name;
 	char[] cleanName;
+	bool bugPriority;
 
 	private const char[] maskTorture="Torture:";
 	private const char[][] maskSimple=["XPASS:", "PASS:", "FAIL:", "XFAIL:", "ERROR:"];
 
 	this(char[] fileName){
+		if(fileName.length > 2 && fileName[0 .. 2] == "--"){
+			bugPriority=true;
+			fileName = fileName[2 .. $];
+		}
 		char[] data = cast(char[]) std.file.read(fileName);
 		long modTime = getModTime(fileName);
 
@@ -328,7 +333,6 @@ char[][] unique(char[][] a){
 }
 
 int main(char[][] arg){
-
 	Sheet[] sheets;
 	sheets.length = arg.length - 1;
 
@@ -388,10 +392,25 @@ int main(char[][] arg){
 				line ~= "'>";
 				switch(st.result & Result.BASE_MASK){
 					case Result.PASS: line~="PASS"; break;
-					case Result.XPASS: line~="XPASS"; badResult=true; break;
-					case Result.FAIL: line~="FAIL"; badResult=true; break;
+					case Result.XPASS:
+						line~="XPASS";
+						if(s.bugPriority){
+							badResult=true;
+						}
+						break;
+					case Result.FAIL:
+						line~="FAIL";
+						if(s.bugPriority){
+							badResult=true;
+						}
+						break;
 					case Result.XFAIL: line~="XFAIL"; break;
-					case Result.ERROR: line~="ERROR"; badResult=true; break;
+					case Result.ERROR:
+						line~="ERROR";
+						if(s.bugPriority){
+							badResult=true;
+						}
+						break;
 					case Result.UNTESTED: line~="-"; break;
 					default:{
 						throw new Exception(s.name~" - "~ st.toString());

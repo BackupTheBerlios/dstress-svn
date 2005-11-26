@@ -8,7 +8,7 @@
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2546
 
 
-// __DSTRESS_ERROR__ . 18
+// __DSTRESS_ERROR__ 18
 
 module dstress.nocompile.template_07;
 

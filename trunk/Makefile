@@ -101,7 +101,7 @@ flag_pattern 	:= __DSTRESS_DFLAGS__
 
 .PHONY:: all version basic_tools compile nocompile run norun complex clean distclean clean_log
 
-.SUFFIXES: $(ext_run) $(ext_norun) $(ext_nocompile) $(ext_compile) 
+.SUFFIXES:: $(ext_run) $(ext_norun) $(ext_nocompile) $(ext_compile) 
 #
 # test everything
 #

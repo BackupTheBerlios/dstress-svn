@@ -23,6 +23,6 @@ debug			fprintf(stderr, "Allocated array of length %d.\n", a.length);
 			return 0;
 		}
 	}
-	assert(0)
+	assert(0);
 }
 

@@ -25,7 +25,7 @@
 	complex/command_line/$(complex_done) \
 	complex/command_line/clean
 
-.SUFFIXES: \
+.SUFFIXES:: \
 	.cmdnullfail
 	
 complex/command_line/warning :

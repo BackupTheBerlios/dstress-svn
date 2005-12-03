@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-10-26
-// @uri@	djnicb$1a5t$1@digitaldaemon.com
+// @uri@	news:djnicb$1a5t$1@digitaldaemon.com
 
 // __DSTRESS_DFLAGS__ run/i/import_11_A.d
 

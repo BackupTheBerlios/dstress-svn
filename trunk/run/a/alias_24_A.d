@@ -4,7 +4,7 @@
 
 // @author@	Burton Radons <burton-radons@smocky.com>
 // @date@	2005-05-22
-// @uri@	d6qih3$2b20$1@digitaldaemon.com
+// @uri@	news:d6qih3$2b20$1@digitaldaemon.com
 
 module dstress.run.a.alias_24_A;
 

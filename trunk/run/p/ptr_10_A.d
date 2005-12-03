@@ -11,14 +11,14 @@ module dstress.run.p.ptr_10_A;
 
 void test(char[] x, int len, bool nonNull){
 
-    if (x.length != len)
-	assert(0);
+	if (x.length != len)
+		assert(0);
 
-    if (nonNull && x.ptr == null)
-	assert(0);
+	if (nonNull && x.ptr is null)
+		assert(0);
 
-    if (!nonNull && x.ptr != null)
-	assert(0);
+	if (!nonNull && x.ptr !is null)
+		assert(0);
 }
 
 int main(){

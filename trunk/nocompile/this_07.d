@@ -5,7 +5,7 @@
 // @author@	Benjamin Herr
 // @date@	2005-04-09
 
-// __DSTRESS_ELINE__  25
+// __DSTRESS_ELINE__ 25
 
 module dstress.nocompile.this_07;
 

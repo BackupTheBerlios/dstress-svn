@@ -20,5 +20,5 @@ class B : A{
 }
 
 void main(){
-	B b = new B;
+	B b = new B();
 }

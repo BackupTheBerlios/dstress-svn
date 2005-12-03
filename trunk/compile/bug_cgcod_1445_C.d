@@ -1,6 +1,6 @@
-// $HeadURL: http://dstress.kuehne.cn/compile/bug_cgcod_1445_C.d $
-// $Date: 2005-05-06 11:35:44 +0200 (Fr, 06 Mai 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	David Medlock <amedlock@nospam.org>
 // @date@	2005-05-04

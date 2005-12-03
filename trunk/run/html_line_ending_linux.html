@@ -1,6 +1,8 @@
 <html>
 	<head><title>dstress: html_line_ending_linux</title></head>
 	<body><pre><CODE>
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 int main(){
 	try{
 		assert(0);
@@ -29,7 +31,7 @@ void checkLineNumber(Object o){
 	for(end=string.length-1; end&gt;start; end--){if(string[end]==')'){break;}}
 
 	assert(end-start==2);
-	assert(string[start+1]=='6');
+	assert(string[start+1]=='8');
 }
 	</CODE></pre></body>
 </html>

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS__ELINE__ 11
+// __DSTRESS_ELINE__ 11
 
 module dstress.nocompile.associative_array_01;
 

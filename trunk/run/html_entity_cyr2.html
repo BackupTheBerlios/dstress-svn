@@ -1,35 +1,37 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_cyr2</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_cyr2</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_cyr2;
+
 int main(){
-	assert('&#x0452;'=='&djcy;');
-	assert('&#x0402;'=='&DJcy;');
-	assert('&#x0453;'=='&gjcy;');
-	assert('&#x0403;'=='&GJcy;');
-	assert('&#x0454;'=='&jukcy;');
-	assert('&#x0404;'=='&Jukcy;');
-	assert('&#x0455;'=='&dscy;');
-	assert('&#x0405;'=='&DScy;');
-	assert('&#x0456;'=='&iukcy;');
-	assert('&#x0406;'=='&Iukcy;');
-	assert('&#x0457;'=='&yicy;');
-	assert('&#x0407;'=='&YIcy;');
-	assert('&#x0458;'=='&jsercy;');
-	assert('&#x0408;'=='&Jsercy;');
-	assert('&#x0459;'=='&ljcy;');
-	assert('&#x0409;'=='&LJcy;');
-	assert('&#x045A;'=='&njcy;');
-	assert('&#x040A;'=='&NJcy;');
-	assert('&#x045B;'=='&tshcy;');
-	assert('&#x040B;'=='&TSHcy;');
-	assert('&#x045C;'=='&kjcy;');
-	assert('&#x040C;'=='&KJcy;');
-	assert('&#x045E;'=='&ubrcy;');
-	assert('&#x040E;'=='&Ubrcy;');
-	assert('&#x045F;'=='&dzcy;');
-	assert('&#x040F;'=='&DZcy;');
+	static assert('&DJcy;' == 0x402);
+	static assert('&djcy;' == 0x452);
+	static assert('&DScy;' == 0x405);
+	static assert('&dscy;' == 0x455);
+	static assert('&DZcy;' == 0x40F);
+	static assert('&dzcy;' == 0x45F);
+	static assert('&GJcy;' == 0x403);
+	static assert('&gjcy;' == 0x453);
+	static assert('&Iukcy;' == 0x406);
+	static assert('&iukcy;' == 0x456);
+	static assert('&Jsercy;' == 0x408);
+	static assert('&jsercy;' == 0x458);
+	static assert('&Jukcy;' == 0x404);
+	static assert('&jukcy;' == 0x454);
+	static assert('&KJcy;' == 0x40C);
+	static assert('&kjcy;' == 0x45C);
+	static assert('&LJcy;' == 0x409);
+	static assert('&ljcy;' == 0x459);
+	static assert('&NJcy;' == 0x40A);
+	static assert('&njcy;' == 0x45A);
+	static assert('&TSHcy;' == 0x40B);
+	static assert('&tshcy;' == 0x45B);
+	static assert('&Ubrcy;' == 0x40E);
+	static assert('&ubrcy;' == 0x45E);
+	static assert('&YIcy;' == 0x407);
+	static assert('&yicy;' == 0x457);
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

@@ -9,7 +9,7 @@
 
 // call to "this" before "super"-constructor
 
-// __DSTRESS_ELINE__  25
+// __DSTRESS_ELINE__ 25
 
 module dstress.nocompile.super_09;
 

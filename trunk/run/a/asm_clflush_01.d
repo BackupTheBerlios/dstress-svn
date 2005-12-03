@@ -20,7 +20,7 @@ int main(){
 			clflush b;
 			inc EAX;
 		not_supported:
-			mov a, EAX;
+			mov a, 1;
 		}
 	
 		assert(a==0x20001 || a==1);

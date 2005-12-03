@@ -1,49 +1,52 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_box</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_box</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_box;
+
 int main(){
-	assert('&#x2500;'=='&boxh;');
-	assert('&#x2502;'=='&boxv;');
-	assert('&#x2514;'=='&boxur;');
-	assert('&#x2518;'=='&boxul;');
-	assert('&#x2510;'=='&boxdl;');
-	assert('&#x250C;'=='&boxdr;');
-	assert('&#x251C;'=='&boxvr;');
-	assert('&#x2534;'=='&boxhu;');
-	assert('&#x2524;'=='&boxvl;');
-	assert('&#x252C;'=='&boxhd;');
-	assert('&#x253C;'=='&boxvh;');
-	assert('&#x255E;'=='&boxvR;');
-	assert('&#x2567;'=='&boxhU;');
-	assert('&#x2561;'=='&boxvL;');
-	assert('&#x2564;'=='&boxhD;');
-	assert('&#x256A;'=='&boxvH;');
-	assert('&#x2550;'=='&boxH;');
-	assert('&#x2551;'=='&boxV;');
-	assert('&#x2558;'=='&boxUR;');
-	assert('&#x255B;'=='&boxUL;');
-	assert('&#x2555;'=='&boxDL;');
-	assert('&#x2552;'=='&boxDR;');
-	assert('&#x255F;'=='&boxVR;');
-	assert('&#x2568;'=='&boxHU;');
-	assert('&#x2562;'=='&boxVL;');
-	assert('&#x2565;'=='&boxHD;');
-	assert('&#x256B;'=='&boxVH;');
-	assert('&#x2560;'=='&boxVr;');
-	assert('&#x2569;'=='&boxHu;');
-	assert('&#x2563;'=='&boxVl;');
-	assert('&#x2566;'=='&boxHd;');
-	assert('&#x256C;'=='&boxVh;');
-	assert('&#x2559;'=='&boxuR;');
-	assert('&#x255C;'=='&boxUl;');
-	assert('&#x2556;'=='&boxdL;');
-	assert('&#x2553;'=='&boxDr;');
-	assert('&#x255A;'=='&boxUr;');
-	assert('&#x255D;'=='&boxuL;');
-	assert('&#x2557;'=='&boxDl;');
-	assert('&#x2554;'=='&boxdR;');
+	static assert('&boxdl;' == 0x2510);
+	static assert('&boxdL;' == 0x2555);
+	static assert('&boxDl;' == 0x2556);
+	static assert('&boxDL;' == 0x2557);
+	static assert('&boxdr;' == 0x250C);
+	static assert('&boxdR;' == 0x2552);
+	static assert('&boxDr;' == 0x2553);
+	static assert('&boxDR;' == 0x2554);
+	static assert('&boxh;' == 0x2500);
+	static assert('&boxH;' == 0x2550);
+	static assert('&boxhd;' == 0x252C);
+	static assert('&boxHd;' == 0x2564);
+	static assert('&boxhD;' == 0x2565);
+	static assert('&boxHD;' == 0x2566);
+	static assert('&boxhu;' == 0x2534);
+	static assert('&boxHu;' == 0x2567);
+	static assert('&boxhU;' == 0x2568);
+	static assert('&boxHU;' == 0x2569);
+	static assert('&boxul;' == 0x2518);
+	static assert('&boxuL;' == 0x255B);
+	static assert('&boxUl;' == 0x255C);
+	static assert('&boxUL;' == 0x255D);
+	static assert('&boxur;' == 0x2514);
+	static assert('&boxuR;' == 0x2558);
+	static assert('&boxUr;' == 0x2559);
+	static assert('&boxUR;' == 0x255A);
+	static assert('&boxv;' == 0x2502);
+	static assert('&boxV;' == 0x2551);
+	static assert('&boxvh;' == 0x253C);
+	static assert('&boxvH;' == 0x256A);
+	static assert('&boxVh;' == 0x256B);
+	static assert('&boxVH;' == 0x256C);
+	static assert('&boxvl;' == 0x2524);
+	static assert('&boxvL;' == 0x2561);
+	static assert('&boxVl;' == 0x2562);
+	static assert('&boxVL;' == 0x2563);
+	static assert('&boxvr;' == 0x251C);
+	static assert('&boxvR;' == 0x255E);
+	static assert('&boxVr;' == 0x255F);
+	static assert('&boxVR;' == 0x2560);
+
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

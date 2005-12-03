@@ -2,7 +2,7 @@
 // $Date$
 // $Base$
 
-// __DSTRESS_ELINE__  10
+// __DSTRESS_ELINE__ 10
 
 module dstress.nocompile.super_06;
 

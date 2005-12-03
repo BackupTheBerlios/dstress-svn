@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.line_token_12;
 
 # line __LINE__ __FILE__
@@ -14,8 +16,7 @@ int main(){
 		return 0;
 	}
 
-	assert(-1);
-	return 1;
+	assert(0);
 }
 
 /* 
@@ -42,5 +43,5 @@ void checkLineNumber(Object o){
 
 	assert(end-start==3);
 	assert(string[start+1]=='1');
-	assert(string[start+2]=='0');
+	assert(string[start+2]=='2');
 }

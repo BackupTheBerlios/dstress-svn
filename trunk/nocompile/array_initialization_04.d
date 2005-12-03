@@ -7,7 +7,7 @@
 // @uri@	news:cohvnb$1eil$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2383
 
-// __DSTRESS__ELINE__ 19
+// __DSTRESS_ELINE__ 19
 
 module dstress.nocompile.array_initialization_04;
 

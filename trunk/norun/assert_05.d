@@ -2,7 +2,8 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 10
+// __DSTRESS_ELINE__ 11
+// __DSTRESS_TORTURE_BLOCK__ -release
 
 module dstress.norun.assert_05;
 

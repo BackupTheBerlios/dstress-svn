@@ -2,8 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -release
 module dstress.run.line_ending_linux;
-
 int main(){
 	try{
 		assert(0);
@@ -12,8 +12,7 @@ int main(){
 		return 0;
 	}
 
-	assert(-1);
-	return 1;
+	assert(0);
 }
 
 /* 

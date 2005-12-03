@@ -14,7 +14,7 @@ class MyClass{
 	}
 
 	~this(){
-		assert(0);
+		throw new Exception("should never throw");
 	}
 }
 

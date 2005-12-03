@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__11
+// __DSTRESS_ELINE__ 11
 
 module dstress.nocompile.wchar_02;
 

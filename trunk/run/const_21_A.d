@@ -1,6 +1,6 @@
-// $HeadURL: http://dstress.kuehne.cn/run/const_21_A.d $
-// $Date: 2005-05-06 11:25:58 +0200 (Fr, 06 Mai 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	zwang <nehzgnaw@gmail.com>
 // @date@	2005-05-05

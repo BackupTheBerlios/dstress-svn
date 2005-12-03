@@ -4,6 +4,8 @@
 
 // SwitchError should be a sub-class of Error witch in turn is a sub-class of Exception
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.switch_03;
 
 int main(){

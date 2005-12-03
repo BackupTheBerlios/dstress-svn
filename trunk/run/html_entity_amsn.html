@@ -1,68 +1,68 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_amsn</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_amsn</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_amsn;
+
 int main(){
-	assert('&#xE411;'=='&gnap;');
-	assert('&#x2269;'=='&gne;');
-	assert('&#x2269;'=='&gnE;');
-	assert('&#x22E7;'=='&gnsim;');
-	assert('&#x2269;'=='&gvnE;');
-	assert('&#xE2A2;'=='&lnap;');
-	assert('&#x2268;'=='&lnE;');
-	assert('&#x2268;'=='&lne;');
-	assert('&#x22E6;'=='&lnsim;');
-	assert('&#x2268;'=='&lvnE;');
-	assert('&#x2249;'=='&nap;');
-	assert('&#x2247;'=='&ncong;');
-	assert('&#x2262;'=='&nequiv;');
-	assert('&#x2271;'=='&ngE;');
-	assert('&#x2271;'=='&nge;');
-	assert('&#x2271;'=='&nges;');
-	assert('&#x226F;'=='&ngt;');
-	assert('&#x2270;'=='&nle;');
-	assert('&#x2270;'=='&nlE;');
-	assert('&#x2270;'=='&nles;');
-	assert('&#x226E;'=='&nlt;');
-	assert('&#x22EA;'=='&nltri;');
-	assert('&#x22EC;'=='&nltrie;');
-	assert('&#x2224;'=='&nmid;');
-	assert('&#x2226;'=='&npar;');
-	assert('&#x2280;'=='&npr;');
-	assert('&#x22E0;'=='&npre;');
-	assert('&#x22EB;'=='&nrtri;');
-	assert('&#x22ED;'=='&nrtrie;');
-	assert('&#x2281;'=='&nsc;');
-	assert('&#x22E1;'=='&nsce;');
-	assert('&#x2241;'=='&nsim;');
-	assert('&#x2244;'=='&nsime;');
-	assert('&#xE2AA;'=='&nsmid;');
-	assert('&#x2226;'=='&nspar;');
-	assert('&#x2284;'=='&nsub;');
-	assert('&#x2288;'=='&nsube;');
-	assert('&#x2288;'=='&nsubE;');
-	assert('&#x2285;'=='&nsup;');
-	assert('&#x2289;'=='&nsupE;');
-	assert('&#x2289;'=='&nsupe;');
-	assert('&#x22AC;'=='&nvdash;');
-	assert('&#x22AD;'=='&nvDash;');
-	assert('&#x22AF;'=='&nVDash;');
-	assert('&#x22AE;'=='&nVdash;');
-	assert('&#x22E8;'=='&prnap;');
-	assert('&#xE2B3;'=='&prnE;');
-	assert('&#x22E8;'=='&prnsim;');
-	assert('&#x22E9;'=='&scnap;');
-	assert('&#xE2B5;'=='&scnE;');
-	assert('&#x22E9;'=='&scnsim;');
-	assert('&#x228A;'=='&subne;');
-	assert('&#x228A;'=='&subnE;');
-	assert('&#x228B;'=='&supne;');
-	assert('&#x228B;'=='&supnE;');
-	assert('&#xE2B8;'=='&vsubnE;');
-	assert('&#x228A;'=='&vsubne;');
-	assert('&#x228B;'=='&vsupne;');
-	assert('&#x228B;'=='&vsupnE;');
+	static assert('&gnap;' == 0x2A8A);
+	static assert('&gnE;' == 0x2269);
+	static assert('&gne;' == 0x2A88);
+	static assert('&gnsim;' == 0x22E7);
+	static assert('&lnap;' == 0x2A89);
+	static assert('&lnE;' == 0x2268);
+	static assert('&lne;' == 0x2A87);
+	static assert('&lnsim;' == 0x22E6);
+	static assert('&nap;' == 0x2249);
+	static assert('&ncong;' == 0x2247);
+	static assert('&nequiv;' == 0x2262);
+	static assert('&nge;' == 0x2271);
+	static assert('&ngsim;' == 0x2275);
+	static assert('&ngt;' == 0x226F);
+	static assert('&nle;' == 0x2270);
+	static assert('&nlsim;' == 0x2274);
+	static assert('&nlt;' == 0x226E);
+	static assert('&nltri;' == 0x22EA);
+	static assert('&nltrie;' == 0x22EC);
+	static assert('&nmid;' == 0x2224);
+	static assert('&npar;' == 0x2226);
+	static assert('&npr;' == 0x2280);
+	static assert('&nprcue;' == 0x22E0);
+	static assert('&nrtri;' == 0x22EB);
+	static assert('&nrtrie;' == 0x22ED);
+	static assert('&nsc;' == 0x2281);
+	static assert('&nsccue;' == 0x22E1);
+	static assert('&nsim;' == 0x2241);
+	static assert('&nsime;' == 0x2244);
+	static assert('&nsmid;' == 0x2224);
+	static assert('&nspar;' == 0x2226);
+	static assert('&nsqsube;' == 0x22E2);
+	static assert('&nsqsupe;' == 0x22E3);
+	static assert('&nsub;' == 0x2284);
+	static assert('&nsube;' == 0x2288);
+	static assert('&nsup;' == 0x2285);
+	static assert('&nsupe;' == 0x2289);
+	static assert('&ntgl;' == 0x2279);
+	static assert('&ntlg;' == 0x2278);
+	static assert('&nvdash;' == 0x22AC);
+	static assert('&nvDash;' == 0x22AD);
+	static assert('&nVdash;' == 0x22AE);
+	static assert('&nVDash;' == 0x22AF);
+	static assert('&parsim;' == 0x2AF3);
+	static assert('&prnap;' == 0x2AB9);
+	static assert('&prnE;' == 0x2AB5);
+	static assert('&prnsim;' == 0x22E8);
+	static assert('&rnmid;' == 0x2AEE);
+	static assert('&scnap;' == 0x2ABA);
+	static assert('&scnE;' == 0x2AB6);
+	static assert('&scnsim;' == 0x22E9);
+	static assert('&simne;' == 0x2246);
+	static assert('&solbar;' == 0x233F);
+	static assert('&subne;' == 0x228A);
+	static assert('&subnE;' == 0x2ACB);
+	static assert('&supne;' == 0x228B);
+	static assert('&supnE;' == 0x2ACC);
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

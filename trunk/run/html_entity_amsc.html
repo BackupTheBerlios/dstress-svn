@@ -1,18 +1,33 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_amsc</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_amsc</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_amsc;
+
 int main(){
-	assert('&#x2309;'=='&rceil;');
-	assert('&#x230B;'=='&rfloor;');
-	assert('&#xE291;'=='&rpargt;');
-	assert('&#x231D;'=='&urcorn;');
-	assert('&#x231F;'=='&drcorn;');
-	assert('&#x2308;'=='&lceil;');
-	assert('&#x230A;'=='&lfloor;');
-	assert('&#x231C;'=='&ulcorn;');
-	assert('&#x231E;'=='&dlcorn;');
+	static assert('&dlcorn;' == 0x231E);
+	static assert('&drcorn;' == 0x231F);
+	static assert('&gtlPar;' == 0x2995);
+	static assert('&langd;' == 0x2991);
+	static assert('&lbrke;' == 0x298B);
+	static assert('&lbrksld;' == 0x298F);
+	static assert('&lbrkslu;' == 0x298D);
+	static assert('&lceil;' == 0x2308);
+	static assert('&lfloor;' == 0x230A);
+	static assert('&lmoust;' == 0x23B0);
+	static assert('&lparlt;' == 0x2993);
+	static assert('&ltrPar;' == 0x2996);
+	static assert('&rangd;' == 0x2992);
+	static assert('&rbrke;' == 0x298C);
+	static assert('&rbrksld;' == 0x298E);
+	static assert('&rbrkslu;' == 0x2990);
+	static assert('&rceil;' == 0x2309);
+	static assert('&rfloor;' == 0x230B);
+	static assert('&rmoust;' == 0x23B1);
+	static assert('&rpargt;' == 0x2994);
+	static assert('&ulcorn;' == 0x231C);
+	static assert('&urcorn;' == 0x231D);
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

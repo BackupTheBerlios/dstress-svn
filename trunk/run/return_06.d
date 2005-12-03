@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// path without return 
+// __DSTRESS_TORTURE_BLOCK__ -release
 
 module dstress.run.return_06;
 

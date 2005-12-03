@@ -3,7 +3,7 @@
 ahiru			<ahiru@1dk.jp>
 AJG			<AJG@nospam.com>
 Aleksey Bobnev		<uw@front.ru>
-Anders F Bj?rklund	<afb@algonet.se>
+Anders F Björklun	<afb@algonet.se>
 Andrew Fedoniouk	<news@terrainformatica.com>
 Andy Friesen		<andy@ikagames.com>
 Ant			<duitoolkit@yahoo.ca>
@@ -16,7 +16,7 @@ Bent Rasmussen		<exo@bent-rasmussen.info>
 berupon			<yu@3dcg.ne.jp>
 brad beveridge
 Brian Gardner		<briangr@friberg.us>
-Brian Hj?llund
+Brian Hjølluu
 Buchan			<kbuchan@xtra.co.nz>
 Burton Radons		<burton-radons@shaw.ca>, <burton-radons@smocky.com>
 Carlos Santander B.	<carlos8294@msn.com>, <csantander619@gmail.com>
@@ -28,20 +28,22 @@ Daniel Horn		<hellcatv@hotmail.com>
 Dave
 David Friedman		<d3rdclsmail_a_@_t_earthlink_d_._t_net>
 David L. Davis		<SpottedTiger@yahoo.com>
-David Medlock		<amedlock@nospam.org>, <noone@nowhere.com>
+David Medlock		<amedlock@nospam.org>
 Deewiant		<deewiant.doesnotlike.spam@gmail.com>
-Derek Parnell		<derek@psych.ward>
+Derek Parnell
 dickl			<dick221z@yahoo.com>
+Don Clugston
 ElfQT			<dethjunk@yahoo.com>
 Eugene Pelekhay		<pelekhay@gmail.com>
 Florian Sonnenberger	<nairolf@online.de>
+Garett Bass		<garettbass@studiotekne.com>
 Geoff Hickey
+h3r3tic / heretic
 Hauke Duden		<H.NS.Duden@gmx.net>
-heretic
 Hiroshi Sakurai
 Ilya Zaitseff		<sark7@mail333.com>
 imr1984
-Ivan Senji		<ivan.senji@public.srce.hr>
+Ivan Senji		<ivan.senji@public.srce.hr>,  <ivan.senji_REMOVE_@_THIS__gmail.com>
 J Anderson		<REMOVEanderson@badmama.com.au>
 J C Calvarese		<jcc7@cox.net>
 James Dunne		<james.jdunne@gmail.com>
@@ -55,7 +57,7 @@ kenny			<funisher@gmail.com>
 Kevin Bealer
 Kevin VR		<azra@pandora.be>
 kinghajj
-Knud_S?rensen		<knud@NetRunner.all-technology.com>
+Knud Sorensen		<knud@NetRunner.all-technology.com>
 Kris			<fu@bar.com>, <someidiot@earthlink.dot.dot.dot.net>
 larrycowan
 Lars Ivar Igesund	<larsivar@igesund.net>
@@ -64,14 +66,14 @@ Lukas Pinkowski		<Lukas.Pinkowski@web.de>
 Manfred Nowak		<svv1999@hotmail.com>
 marko			<tm030127d@galeb.etf.bg.ac.yu>
 Michael Butscher	<mbutscher@gmx.de>
-MicroWizard
-Miguel Ferreira Sim?es	<Kobold@netcabo.pt>
+Miguel Ferreira Simões	<Kobold@netcabo.pt>
 Mike Parker		<aldacron71@yahoo.com>
 Mike Swieton		<mike@swieton.net>
 Mizuno Hiroki		<hiroki1124@hotmail.com>
 nail
 ndove			http://www.dsource.org/forums/profile.php?mode=viewprofile&u=142
 Neil Santos
+Nick
 Nick Sabalausky
 Oskar Linde		<d98-oliRE.MO.VE@nada.kth.se>
 Patrick Down
@@ -93,14 +95,15 @@ Stewart Gordon		<smjg_1998@yahoo.com>
 teqDruid		<me@teqdruid.com>
 tetsuya
 Thomas Kuehne		<thomas-dloop@kuehne.THISISSPAM.cn>
+Tiago Gasiba		<tiago.gasiba@gmail.com>
 Tintor Marko		<tm030127d@galeb.etf.bg.ac.yu>
 Tom S			<h3r3tic@remove.mat.uni.torun.pl>
 Tyro			<ridimz_at@yahoo.dot.com>
 Unknown W. Brackets	<unknown@simplemachines.org>
 Uwe Salomon		<post@uwesalomon.de>
-Valéry			<valery@freesurf.fr>
+Valér			<valery@freesurf.fr>
 van eeshan		<vanee@hotmail.com>
-Vathix			<chris@dprogramming.com>, <vathix@dprogramming.com>
+Vathix			<chris@dprogramming.com>, <vathix@dprogramming.com>, <vathixSpamFix@dprogramming.com>
 Victor Nakoryakov	<nail-mail@mail.ru>
 Walter			<newshound@digitalmars.com>
 xs0			<xs0@xs0.com>

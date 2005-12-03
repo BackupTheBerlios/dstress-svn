@@ -1,6 +1,6 @@
-// $HeadURL: http://dstress.kuehne.cn/nocompile/interface_18.d $
-// $Date: 2005-05-06 11:07:26 +0200 (Fr, 06 Mai 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	zwang <nehzgnaw@gmail.com>
 // @date@	2005-05-05

@@ -1,27 +1,60 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_amso</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_amso</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_amso;
+
 int main(){
-	assert('&#x2220;'=='&ang;');
-	assert('&#x2221;'=='&angmsd;');
-	assert('&#x2136;'=='&beth;');
-	assert('&#x2035;'=='&bprime;');
-	assert('&#x2201;'=='&comp;');
-	assert('&#x2138;'=='&daleth;');
-	assert('&#x2113;'=='&ell;');
-	assert('&#x2205;'=='&empty;');
-	assert('&#x2137;'=='&gimel;');
-	assert('&#x2111;'=='&image;');
-	assert('&#x0131;'=='&inodot;');
-	assert('&#x2204;'=='&nexist;');
-	assert('&#x24C8;'=='&oS;');
-	assert('&#x210F;'=='&planck;');
-	assert('&#x211C;'=='&real;');
-	assert('&#xFE68;'=='&sbsol;');
-	assert('&#x2032;'=='&vprime;');
-	assert('&#x2118;'=='&weierp;');
+	static assert('&ang;' == 0x2220);
+	static assert('&ange;' == 0x29A4);
+	static assert('&angmsd;' == 0x2221);
+	static assert('&angmsdaa;' == 0x29A8);
+	static assert('&angmsdab;' == 0x29A9);
+	static assert('&angmsdac;' == 0x29AA);
+	static assert('&angmsdad;' == 0x29AB);
+	static assert('&angmsdae;' == 0x29AC);
+	static assert('&angmsdaf;' == 0x29AD);
+	static assert('&angmsdag;' == 0x29AE);
+	static assert('&angmsdah;' == 0x29AF);
+	static assert('&angrtvb;' == 0x22BE);
+	static assert('&angrtvbd;' == 0x299D);
+	static assert('&bbrk;' == 0x23B5);
+	static assert('&bbrktbrk;' == 0x23B6);
+	static assert('&bemptyv;' == 0x29B0);
+	static assert('&beth;' == 0x2136);
+	static assert('&boxbox;' == 0x29C9);
+	static assert('&bprime;' == 0x2035);
+	static assert('&bsemi;' == 0x204F);
+	static assert('&cemptyv;' == 0x29B2);
+	static assert('&cirE;' == 0x29C3);
+	static assert('&cirscir;' == 0x29C2);
+	static assert('&comp;' == 0x2201);
+	static assert('&daleth;' == 0x2138);
+	static assert('&demptyv;' == 0x29B1);
+	static assert('&ell;' == 0x2113);
+	static assert('&empty;' == 0x2205);
+	static assert('&emptyv;' == 0x2205);
+	static assert('&gimel;' == 0x2137);
+	static assert('&iiota;' == 0x2129);
+	static assert('&image;' == 0x2111);
+	static assert('&laemptyv;' == 0x29B4);
+	static assert('&lltri;' == 0x25FA);
+	static assert('&lrtri;' == 0x22BF);
+	static assert('&mho;' == 0x2127);
+	static assert('&nexist;' == 0x2204);
+	static assert('&oS;' == 0x24C8);
+	static assert('&planck;' == 0x210F);
+	static assert('&plankv;' == 0x210F);
+	static assert('&raemptyv;' == 0x29B3);
+	static assert('&range;' == 0x29A5);
+	static assert('&real;' == 0x211C);
+	static assert('&tbrk;' == 0x23B4);
+	static assert('&trpezium;' == 0xFFFD);
+	static assert('&ultri;' == 0x25F8);
+	static assert('&urtri;' == 0x25F9);
+	static assert('&vzigzag;' == 0x299A);
+	static assert('&weierp;' == 0x2118);
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

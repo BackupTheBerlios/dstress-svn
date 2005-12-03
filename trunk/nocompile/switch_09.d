@@ -9,7 +9,7 @@
 
 // duplicate case "123" in switch statement
 
-// __DSTRESS_ELINE__  24
+// __DSTRESS_ELINE__ 24
 
 module dstress.nocompile.switch_09;
 

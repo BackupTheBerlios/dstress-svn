@@ -6,7 +6,7 @@
 // @date@	2005-08-04
 // @uri@	news:dctjfi$kkv$1@digitaldaemon.com
 
-// __DSTRESS_ELINE__  15
+// __DSTRESS_ELINE__ 15
 
 module dtsress.nocompile.o.opIndex_05;
 

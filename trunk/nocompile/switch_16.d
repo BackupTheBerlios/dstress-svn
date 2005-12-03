@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__  16
+// __DSTRESS_ELINE__ 16
 
 module dstress.nocompile.switch_16;
 

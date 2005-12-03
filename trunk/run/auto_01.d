@@ -9,13 +9,12 @@
 
 module dstress.run.auto_01;
 
-
 auto class AutoClass{
 	this(){
 		throw new Exception("error msg");
 	}
 	~this(){
-		assert(0);
+		throw new Exception("should never throw");
 	}
 }
 

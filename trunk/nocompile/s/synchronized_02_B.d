@@ -6,7 +6,7 @@
 // @date@	2005-08-05
 // @uri@	news:dd0p34$a82$1@digitaldaemon.com
 
-// __DSTRESS_ELINE__  15
+// __DSTRESS_ELINE__ 15
 
 module dtsress.nocompile.s.synchronized_02_B;
 

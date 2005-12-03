@@ -1,6 +1,6 @@
-// $HeadURL: http://dstress.kuehne.cn/run/align_12.d $
-// $Date: 2005-05-06 14:14:51 +0200 (Fr, 06 Mai 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Robert Atkinson <Robert.Atkinson@gmail.com>
 // @date@	2005-05-04

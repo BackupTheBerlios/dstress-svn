@@ -1,71 +1,73 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_lat1</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_lat1</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_lat1;
+
 int main(){
-	assert('&#x00E1;'=='&aacute;');
-	assert('&#x00C1;'=='&Aacute;');
-	assert('&#x00E2;'=='&acirc;');
-	assert('&#x00C2;'=='&Acirc;');
-	assert('&#x00E0;'=='&agrave;');
-	assert('&#x00C0;'=='&Agrave;');
-	assert('&#x00E5;'=='&aring;');
-	assert('&#x00C5;'=='&Aring;');
-	assert('&#x00E3;'=='&atilde;');
-	assert('&#x00C3;'=='&Atilde;');
-	assert('&#x00E4;'=='&auml;');
-	assert('&#x00C4;'=='&Auml;');
-	assert('&#x00E6;'=='&aelig;');
-	assert('&#x00C6;'=='&AElig;');
-	assert('&#x00E7;'=='&ccedil;');
-	assert('&#x00C7;'=='&Ccedil;');
-	assert('&#x00F0;'=='&eth;');
-	assert('&#x00D0;'=='&ETH;');
-	assert('&#x00E9;'=='&eacute;');
-	assert('&#x00C9;'=='&Eacute;');
-	assert('&#x00EA;'=='&ecirc;');
-	assert('&#x00CA;'=='&Ecirc;');
-	assert('&#x00E8;'=='&egrave;');
-	assert('&#x00C8;'=='&Egrave;');
-	assert('&#x00EB;'=='&euml;');
-	assert('&#x00CB;'=='&Euml;');
-	assert('&#x00ED;'=='&iacute;');
-	assert('&#x00CD;'=='&Iacute;');
-	assert('&#x00EE;'=='&icirc;');
-	assert('&#x00CE;'=='&Icirc;');
-	assert('&#x00EC;'=='&igrave;');
-	assert('&#x00CC;'=='&Igrave;');
-	assert('&#x00EF;'=='&iuml;');
-	assert('&#x00CF;'=='&Iuml;');
-	assert('&#x00F1;'=='&ntilde;');
-	assert('&#x00D1;'=='&Ntilde;');
-	assert('&#x00F3;'=='&oacute;');
-	assert('&#x00D3;'=='&Oacute;');
-	assert('&#x00F4;'=='&ocirc;');
-	assert('&#x00D4;'=='&Ocirc;');
-	assert('&#x00F2;'=='&ograve;');
-	assert('&#x00D2;'=='&Ograve;');
-	assert('&#x00F8;'=='&oslash;');
-	assert('&#x00D8;'=='&Oslash;');
-	assert('&#x00F5;'=='&otilde;');
-	assert('&#x00D5;'=='&Otilde;');
-	assert('&#x00F6;'=='&ouml;');
-	assert('&#x00D6;'=='&Ouml;');
-	assert('&#x00DF;'=='&szlig;');
-	assert('&#x00FE;'=='&thorn;');
-	assert('&#x00DE;'=='&THORN;');
-	assert('&#x00FA;'=='&uacute;');
-	assert('&#x00DA;'=='&Uacute;');
-	assert('&#x00FB;'=='&ucirc;');
-	assert('&#x00DB;'=='&Ucirc;');
-	assert('&#x00F9;'=='&ugrave;');
-	assert('&#x00D9;'=='&Ugrave;');
-	assert('&#x00FC;'=='&uuml;');
-	assert('&#x00DC;'=='&Uuml;');
-	assert('&#x00FD;'=='&yacute;');
-	assert('&#x00DD;'=='&Yacute;');
-	assert('&#x00FF;'=='&yuml;');
+	static assert('&Aacute;' == 0xC1);
+	static assert('&aacute;' == 0xE1);
+	static assert('&Acirc;' == 0xC2);
+	static assert('&acirc;' == 0xE2);
+	static assert('&AElig;' == 0xC6);
+	static assert('&aelig;' == 0xE6);
+	static assert('&Agrave;' == 0xC0);
+	static assert('&agrave;' == 0xE0);
+	static assert('&Aring;' == 0xC5);
+	static assert('&aring;' == 0xE5);
+	static assert('&Atilde;' == 0xC3);
+	static assert('&atilde;' == 0xE3);
+	static assert('&Auml;' == 0xC4);
+	static assert('&auml;' == 0xE4);
+	static assert('&Ccedil;' == 0xC7);
+	static assert('&ccedil;' == 0xE7);
+	static assert('&Eacute;' == 0xC9);
+	static assert('&eacute;' == 0xE9);
+	static assert('&Ecirc;' == 0xCA);
+	static assert('&ecirc;' == 0xEA);
+	static assert('&Egrave;' == 0xC8);
+	static assert('&egrave;' == 0xE8);
+	static assert('&ETH;' == 0xD0);
+	static assert('&eth;' == 0xF0);
+	static assert('&Euml;' == 0xCB);
+	static assert('&euml;' == 0xEB);
+	static assert('&Iacute;' == 0xCD);
+	static assert('&iacute;' == 0xED);
+	static assert('&Icirc;' == 0xCE);
+	static assert('&icirc;' == 0xEE);
+	static assert('&Igrave;' == 0xCC);
+	static assert('&igrave;' == 0xEC);
+	static assert('&Iuml;' == 0xCF);
+	static assert('&iuml;' == 0xEF);
+	static assert('&Ntilde;' == 0xD1);
+	static assert('&ntilde;' == 0xF1);
+	static assert('&Oacute;' == 0xD3);
+	static assert('&oacute;' == 0xF3);
+	static assert('&Ocirc;' == 0xD4);
+	static assert('&ocirc;' == 0xF4);
+	static assert('&Ograve;' == 0xD2);
+	static assert('&ograve;' == 0xF2);
+	static assert('&Oslash;' == 0xD8);
+	static assert('&oslash;' == 0xF8);
+	static assert('&Otilde;' == 0xD5);
+	static assert('&otilde;' == 0xF5);
+	static assert('&Ouml;' == 0xD6);
+	static assert('&ouml;' == 0xF6);
+	static assert('&szlig;' == 0xDF);
+	static assert('&THORN;' == 0xDE);
+	static assert('&thorn;' == 0xFE);
+	static assert('&Uacute;' == 0xDA);
+	static assert('&uacute;' == 0xFA);
+	static assert('&Ucirc;' == 0xDB);
+	static assert('&ucirc;' == 0xFB);
+	static assert('&Ugrave;' == 0xD9);
+	static assert('&ugrave;' == 0xF9);
+	static assert('&Uuml;' == 0xDC);
+	static assert('&uuml;' == 0xFC);
+	static assert('&Yacute;' == 0xDD);
+	static assert('&yacute;' == 0xFD);
+	static assert('&yuml;' == 0xFF);
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

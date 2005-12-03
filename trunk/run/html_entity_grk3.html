@@ -1,52 +1,54 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_grk3</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_grk3</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_grk3;
+
 int main(){
-	assert('&#x03B1;'=='&alpha;');
-	assert('&#x03B2;'=='&beta;');
-	assert('&#x03B3;'=='&gamma;');
-	assert('&#x0393;'=='&Gamma;');
-	assert('&#x03DC;'=='&gammad;');
-	assert('&#x03B4;'=='&delta;');
-	assert('&#x0394;'=='&Delta;');
-	assert('&#x220A;'=='&epsi;');
-	assert('&#x03B5;'=='&epsiv;');
-	assert('&#x220A;'=='&epsis;');
-	assert('&#x03B6;'=='&zeta;');
-	assert('&#x03B7;'=='&eta;');
-	assert('&#x03B8;'=='&thetas;');
-	assert('&#x0398;'=='&Theta;');
-	assert('&#x03D1;'=='&thetav;');
-	assert('&#x03B9;'=='&iota;');
-	assert('&#x03BA;'=='&kappa;');
-	assert('&#x03F0;'=='&kappav;');
-	assert('&#x03BB;'=='&lambda;');
-	assert('&#x039B;'=='&Lambda;');
-	assert('&#x03BC;'=='&mu;');
-	assert('&#x03BD;'=='&nu;');
-	assert('&#x03BE;'=='&xi;');
-	assert('&#x039E;'=='&Xi;');
-	assert('&#x03C0;'=='&pi;');
-	assert('&#x03D6;'=='&piv;');
-	assert('&#x03A0;'=='&Pi;');
-	assert('&#x03C1;'=='&rho;');
-	assert('&#x03F1;'=='&rhov;');
-	assert('&#x03C3;'=='&sigma;');
-	assert('&#x03A3;'=='&Sigma;');
-	assert('&#x03C2;'=='&sigmav;');
-	assert('&#x03C4;'=='&tau;');
-	assert('&#x03C5;'=='&upsi;');
-	assert('&#x03D2;'=='&Upsi;');
-	assert('&#x03C6;'=='&phis;');
-	assert('&#x03A6;'=='&Phi;');
-	assert('&#x03D5;'=='&phiv;');
-	assert('&#x03C7;'=='&chi;');
-	assert('&#x03C8;'=='&psi;');
-	assert('&#x03A8;'=='&Psi;');
-	assert('&#x03C9;'=='&omega;');
-	assert('&#x03A9;'=='&Omega;');
+	static assert('&alpha;' == 0x3B1);
+	static assert('&beta;' == 0x3B2);
+	static assert('&chi;' == 0x3C7);
+	static assert('&Delta;' == 0x394);
+	static assert('&delta;' == 0x3B4);
+	static assert('&epsi;' == 0x3F5);
+	static assert('&epsiv;' == 0x3B5);
+	static assert('&eta;' == 0x3B7);
+	static assert('&Gamma;' == 0x393);
+	static assert('&gamma;' == 0x3B3);
+	static assert('&Gammad;' == 0x3DC);
+	static assert('&gammad;' == 0x3DD);
+	static assert('&iota;' == 0x3B9);
+	static assert('&kappa;' == 0x3BA);
+	static assert('&kappav;' == 0x3F0);
+	static assert('&Lambda;' == 0x39B);
+	static assert('&lambda;' == 0x3BB);
+	static assert('&mu;' == 0x3BC);
+	static assert('&nu;' == 0x3BD);
+	static assert('&Omega;' == 0x3A9);
+	static assert('&omega;' == 0x3C9);
+	static assert('&Phi;' == 0x3A6);
+	static assert('&phi;' == 0x3D5);
+	static assert('&phiv;' == 0x3C6);
+	static assert('&Pi;' == 0x3A0);
+	static assert('&pi;' == 0x3C0);
+	static assert('&piv;' == 0x3D6);
+	static assert('&Psi;' == 0x3A8);
+	static assert('&psi;' == 0x3C8);
+	static assert('&rho;' == 0x3C1);
+	static assert('&rhov;' == 0x3F1);
+	static assert('&Sigma;' == 0x3A3);
+	static assert('&sigma;' == 0x3C3);
+	static assert('&sigmav;' == 0x3C2);
+	static assert('&tau;' == 0x3C4);
+	static assert('&Theta;' == 0x398);
+	static assert('&theta;' == 0x3B8);
+	static assert('&thetav;' == 0x3D1);
+	static assert('&upsi;' == 0x3C5);
+	static assert('&Upsi;' == 0x3D2);
+	static assert('&Xi;' == 0x39E);
+	static assert('&xi;' == 0x3BE);
+	static assert('&zeta;' == 0x3B6);
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

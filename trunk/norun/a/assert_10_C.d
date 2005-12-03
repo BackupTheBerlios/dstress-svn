@@ -7,7 +7,8 @@
 // @uri@	news:151tzf2ee9law$.15kklgaxy0bfr$.dlg@40tude.net
 // @desc@	invalid code generation
 
-// __DSTRESS_ELINE__ 31
+// __DSTRESS_ELINE__ 32
+// __DSTRESS_TORTURE_BLOCK__ -release
 
 module dstress.norun.a.assert_10_C;
 

@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.line_token_04;
 
 int main(){

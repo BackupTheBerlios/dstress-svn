@@ -6,6 +6,8 @@
 // @date@	2005-08-27
 // @uri@	news:deojrd$2h97$2@digitaldaemon.com
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.s.super_12_A;
 
 int statusA;

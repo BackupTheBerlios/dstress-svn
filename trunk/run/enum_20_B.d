@@ -1,6 +1,6 @@
-// $HeadURL: http://dstress.kuehne.cn/run/enum_20_B.d $
-// $Date: 2005-05-03 21:30:54 +0200 (Di, 03 Mai 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-04-29

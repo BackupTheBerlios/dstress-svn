@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS__ELINE__ 10
+// __DSTRESS_ELINE__ 10
 
 module dstress.nocompile.assert_03;
 

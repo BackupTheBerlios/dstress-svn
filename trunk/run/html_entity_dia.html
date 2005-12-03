@@ -1,23 +1,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>html_entity_dia</title></head>
-<body><pre><code>
+<head><title>dstress.run.html_entity_dia</title></head>
+<body><pre><CODE>
+module dstress.run.html_entity_dia;
+
 int main(){
-	assert('&#x00B4;'=='&acute;');
-	assert('&#x02D8;'=='&breve;');
-	assert('&#x02C7;'=='&caron;');
-	assert('&#x00B8;'=='&cedil;');
-	assert('&#x005E;'=='&circ;');
-	assert('&#x02DD;'=='&dblac;');
-	assert('&#x00A8;'=='&die;');
-	assert('&#x02D9;'=='&dot;');
-	assert('&#x0060;'=='&grave;');
-	assert('&#x00AF;'=='&macr;');
-	assert('&#x02DB;'=='&ogon;');
-	assert('&#x02DA;'=='&ring;');
-	assert('&#x02DC;'=='&tilde;');
-	assert('&#x00A8;'=='&uml;');
+	static assert('&acute;' == 0xB4);
+	static assert('&breve;' == 0x2D8);
+	static assert('&caron;' == 0x2C7);
+	static assert('&cedil;' == 0xB8);
+	static assert('&circ;' == 0x2C6);
+	static assert('&dblac;' == 0x2DD);
+	static assert('&die;' == 0xA8);
+	static assert('&dot;' == 0x2D9);
+	static assert('&grave;' == 0x60);
+	static assert('&macr;' == 0xAF);
+	static assert('&ogon;' == 0x2DB);
+	static assert('&ring;' == 0x2DA);
+	static assert('&tilde;' == 0x2DC);
+	static assert('&uml;' == 0xA8);
 	return 0;
 }
-</code></pre></body>
+</CODE></pre></body>
 </html>

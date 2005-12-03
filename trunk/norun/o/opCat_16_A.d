@@ -6,7 +6,8 @@
 // @date@	2005-09-15
 // @uri@	news:dgap19$2lhi$1@digitaldaemon.com
 
-// __DSTRESS_ELINE__ 29
+// __DSTRESS_TORTURE_BLOCK__ -release
+// __DSTRESS_ELINE__ 30
 
 module dstress.norun.o.opCat_16_A;
 

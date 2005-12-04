@@ -36,6 +36,7 @@ Don Clugston
 ElfQT			<dethjunk@yahoo.com>
 Eugene Pelekhay		<pelekhay@gmail.com>
 Florian Sonnenberger	<nairolf@online.de>
+Fredrik Olsson		<peylow@gmail.com>
 Garett Bass		<garettbass@studiotekne.com>
 Geoff Hickey
 h3r3tic / heretic

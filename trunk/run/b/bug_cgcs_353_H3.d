@@ -16,7 +16,7 @@ int main(){
 
 	assert(foos.length==0);
 
-	foos[] = foos[] ~ new Foo();
+	foos = foos[] ~ new Foo();
 	
 	assert(foos.length==1);
 	

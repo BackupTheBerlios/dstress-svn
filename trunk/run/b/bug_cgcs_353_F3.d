@@ -13,7 +13,7 @@ int main(){
 
 	assert(foos.length==0);
 
-	foos[] = 3 ~ foos[];
+	foos = 3 ~ foos[];
 	
 	assert(foos.length==1);
 	

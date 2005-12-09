@@ -447,12 +447,12 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 	/* gen patterns*/
 	if(file!=NULL){
 		if(line!=NULL){
-			len = strlen(file)+strlen(line)+5;
+			len = strlen(file)+strlen(line)+3;
 			dmd = malloc(len);
 			snprintf(dmd, len, "%s(%s)", file, line);
 
 			gdc = malloc(len);
-			snprintf(gdc, len, "%s:%s: ", file, line);
+			snprintf(gdc, len, "%s:%s", file, line);
 		}else{
 			len = strlen(file)+2;
 			dmd = malloc(len);
@@ -462,12 +462,12 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 			snprintf(gdc, len, "%s:", file);
 		}
 	}else if(line!=NULL){
-		len = strlen(line)+5;
+		len = strlen(line)+3;
 		dmd = malloc(len);
-		snprintf(dmd, len, "(%s): ", line);
+		snprintf(dmd, len, "(%s)", line);
 
 		gdc = malloc(len);
-		snprintf(gdc, len, ":%s: ", line);
+		snprintf(gdc, len, ":%s", line);
 	}else{
 		return 1;
 	}

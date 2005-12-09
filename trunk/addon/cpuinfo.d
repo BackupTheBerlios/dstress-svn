@@ -7,87 +7,133 @@
 module /*dstress.*/addon.cpuinfo;
 
 version(D_InlineAsm){
-	void haveCMOV(){
-		uint a = 0;
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
-		}
-		assert((a >> 15) & 1);
+	version(X86){
+		const bool haveX86InlineAsm = true;
+		version = haveX86InlineAsm;
+	}else version(X86_64){
+		const bool haveX86InlineAsm = true;
+		version = haveX86InlineAsm;
+	}else{
+		pragma(msg, "no Inline ASM support");
+		const bool haveX86InlineAsm = false;
 	}
-	
-	void haveCX8(){
-		uint a = 0;
+}else version(D_InlineAsm_X86){
+	const bool haveX86InlineAsm = true;
+	version = haveX86InlineAsm;
+}else{
+	pragma(msg, "no Inline ASM support");
+	const bool haveX86InlineAsm = false;
+}
+
+void haveCMOV(){
+	uint a = 0;
+
+	version(haveX86InlineAsm){
 		asm{
 			mov EAX, 1;
 			cpuid;
 			mov a, EDX;
 		}
-		assert((a >> 8) & 1);
-	}
-	
-	void haveFPU(){
-		uint a = 0;
-		
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
-		}
-		
-		assert(a & 1);
-	}
-		
-	void haveMMX(){
-		uint a = 0;
-		
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
-		}
-		
-		assert((a >> 23) & 1);
 	}
 
-	
-	void haveSSE(){
-		uint a = 0;
-		
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
-		}
-		
-		assert((a >> 25) & 1);
-	}	
-
-	void haveSSE2(){
-		uint a = 0;
-		
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
-		}
-		
-		assert((a >> 26) & 1);
+	if(!((a >> 15) & 1)){
+		throw new Exception("no X86 CMOV support present");
 	}
+}
 	
-	void haveSSE3(){
-		uint a = 0;
+void haveCX8(){
+	uint a = 0;
+
+	version(haveX86InlineAsm){
+		asm{
+			mov EAX, 1;
+			cpuid;
+			mov a, EDX;
+		}
+	}
+
+	if(!((a >> 8) & 1)){
+		throw new Exception("no X86 CX8 support present");
+	}
+}
+
+void haveFPU(){
+	uint a = 0;
+		
+	version(haveX86InlineAsm){
+		asm{
+			mov EAX, 1;
+			cpuid;
+			mov a, EDX;
+		}
+	}
+		
+	if(!(a & 1)){
+		throw new Exception("no X86 FPU present");
+	}
+}
+
+void haveMMX(){
+	uint a = 0;
+		
+	version(haveX86InlineAsm){
+		asm{
+			mov EAX, 1;
+			cpuid;
+			mov a, EDX;
+		}
+	}
+		
+	if(!((a >> 23) & 1)){
+		throw new Exception("no X86 MMX support present");
+	}
+}
+
+	
+void haveSSE(){
+	uint a = 0;
 			
+	version(haveX86InlineAsm){
+		asm{
+			mov EAX, 1;
+			cpuid;
+			mov a, EDX;
+		}
+	}
+
+	if(!((a >> 25) & 1)){
+		throw new Exception("no X86 SSE support present");
+	}	
+}
+
+void haveSSE2(){
+	uint a = 0;
+		
+	version(haveX86InlineAsm){
+		asm{
+			mov EAX, 1;
+			cpuid;
+			mov a, EDX;
+		}
+	}
+
+	if(!((a >> 26) & 1)){
+		throw new Exception("no X86 SSE2 support present");
+	}
+}
+	
+void haveSSE3(){
+	uint a = 0;
+			
+	version(haveX86InlineAsm){
 		asm{
 			mov EAX, 1;
 			cpuid;
 			mov a, ECX;
 		}
-			
-		assert(a & 1);
 	}
-}else{
-	pragma(msg, "no Inline ASM support");
-	static assert(0);
+	
+	if(!(a & 1)){
+		throw new Exception("no X86 SSE3 support present");
+	}
 }

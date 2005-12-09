@@ -6,7 +6,7 @@
 // @date@	2005-09-27
 // @uri@	news:dhc170$qa0$2@digitaldaemon.com
 
-// __DSTRESS_ELINE__ 15
+// __DSTRESS_ELINE__ 16
 
 module dstress.nocompile.b.bug_expression_5818_D;
 

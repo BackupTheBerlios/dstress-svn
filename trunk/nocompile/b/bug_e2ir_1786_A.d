@@ -6,7 +6,9 @@
 // @date@	2005-08-04
 // @uri@	news:dct2rf$5bf$1@digitaldaemon.com
 
-module dtsress.run.b.bug_e2ir_1786_A;
+// __DSTRESS_ELINE__ 19
+
+module dtsress.nocompile.b.bug_e2ir_1786_A;
 
 interface SomeInterface{
 }

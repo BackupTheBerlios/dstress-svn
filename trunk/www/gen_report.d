@@ -434,15 +434,15 @@ int main(char[][] arg){
 		statBuffer ~= "<th><a href='./"~s.cleanName~".html'>"~s.name~"</a></th>";
 	}
 	statBuffer ~= "\n";
-	statBuffer ~= "<tr class=\""~cast(char)(Result.PASS+'A')~"\"><th>PASS</th>";
+	statBuffer ~= "<tr class='"~cast(char)(Result.PASS+'A')~"'><th>PASS</th>";
 	foreach(uint i; stat[1]){ statBuffer ~= "<td>"~std.string.toString(i)~"</td>"; }
-	statBuffer ~= "</tr>\n<tr class=\""~cast(char)(Result.XFAIL+'A')~"\"><th>XFAIL</th>";
+	statBuffer ~= "</tr>\n<tr class='"~cast(char)(Result.XFAIL+'A')~"'><th>XFAIL</th>";
 	foreach(uint i; stat[2]){ statBuffer ~= "<td>"~std.string.toString(i)~"</td>"; }
-	statBuffer ~= "</tr>\n<tr class=\""~cast(char)(Result.XPASS+'A')~"\"><th>XPASS</th>";
+	statBuffer ~= "</tr>\n<tr class='"~cast(char)(Result.XPASS+'A')~"'><th>XPASS</th>";
 	foreach(uint i; stat[3]){ statBuffer ~= "<td>"~std.string.toString(i)~"</td>"; }
-	statBuffer ~= "</tr>\n<tr class=\""~cast(char)(Result.FAIL+'A')~"\"><th>FAIL</th>";
+	statBuffer ~= "</tr>\n<tr class='"~cast(char)(Result.FAIL+'A')~"'><th>FAIL</th>";
 	foreach(uint i; stat[4]){ statBuffer ~= "<td>"~std.string.toString(i)~"</td>"; }
-	statBuffer ~= "</tr>\n<tr class=\""~cast(char)(Result.ERROR+'A')~"\"><th>ERROR</th>";
+	statBuffer ~= "</tr>\n<tr class='"~cast(char)(Result.ERROR+'A')~"'><th>ERROR</th>";
 	foreach(uint i; stat[5]){ statBuffer ~= "<td>"~std.string.toString(i)~"</td>"; }
 	statBuffer ~= "</tr>\n<tr class='A'><th>untested</th>";
 	foreach(uint i; stat[0]){ statBuffer ~= "<td>"~std.string.toString(i)~"</td>"; }

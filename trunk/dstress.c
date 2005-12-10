@@ -599,7 +599,9 @@ int hadExecCrash(const char* buffer){
 	if(strstr(buffer, "Segmentation fault")
 			|| strstr(buffer, "Internal error")
 			|| strstr(buffer, "gcc.gnu.org/bugs")
-			|| strstr(buffer, "EXIT CODE: signal"))
+			|| strstr(buffer, "EXIT CODE: signal")
+			|| strstr(buffer, "Assertion failure")
+			|| strstr(buffer, "Access Violation"))
 	{
 		return 1;
 	}

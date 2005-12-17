@@ -6,7 +6,7 @@
 // @date@	2005-12-17
 // @uri@	news:o7fc73-4ci.ln1@birke.kuehne.cn
 
-module dstress.run.f.foreach_31_F;
+module dstress.run.w.wchar_10_A;
 
 int main(){
 	wchar[] s = "_\U00012345-"w;

@@ -4106,3 +4106,17 @@ Torture:	run/w/wchar_10_B.d	{QQQQQEQQQEQQEQEEQQEQEEQEEEQEEEE}
 Torture:	run/cfloat_01.d	{EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE}
 Torture:	norun/i/in_out_body_10_B.d	{IIIIIRIIIRIIRIRRIIRIRRIRRRIRRRR}
 Torture:	norun/i/in_out_body_10_C.d	{RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR}
+Fri, 30 Dec 2005 00:43:41 +0100
+Torture:	run/a/array_initialization_21_A.d	{QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ}
+Torture:	run/a/array_initialization_21_B.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_C.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_D.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_E.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_F.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	norun/d/debug_info_08_A.d	{QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ}
+Torture:	norun/d/debug_info_08_B.d	{QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ}
+Torture:	norun/d/debug_info_08_C.d	{QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ}
+Torture:	norun/d/debug_info_08_D.d	{QAQQQQAAAAQQQQQQAAAAAAQQQQAAAQA}
+Torture:	norun/d/debug_info_08_E.d	{QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ}
+Fri, 30 Dec 2005 03:41:47 +0100
+Torture:	norun/d/debug_info_08_D.d	{QAQQQQAAAAQQQQQQAAAAAAQQQQAAAQA}

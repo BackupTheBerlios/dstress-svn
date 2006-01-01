@@ -4133,3 +4133,11 @@ Torture:	norun/delete_04.d	{IIIIIRIIIRIIRIRRIIRIRRIRRRIRRRR}
 Torture:	norun/delete_05.d	{MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM}
 Torture:	norun/destructor_05.d	{IIIIIAIIIAIIAIAAIIAIAAIAAAIAAAA}
 Torture:	norun/main_05.d	{IIRIIARIIARRAIAARRAIAARAAARAAAA}
+Thu, 29 Dec 2005 21:35:46 +0100
+Torture:	run/a/array_initialization_21_A.d	{EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE}
+Torture:	run/a/array_initialization_21_B.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_C.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_D.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_E.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Torture:	run/a/array_initialization_21_F.d	{UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
+Fri, 30 Dec 2005 03:41:12 +0100

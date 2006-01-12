@@ -4100,3 +4100,30 @@ Torture:	norun/throw_05.d	{IIIAIIIAIIAIIAAIAIIAAIAAIAAAAAA}
 cc  ifeq__.c -o ifeq__
 make: *** No rule to make target `return__.c', needed by `return__'.  Stop.
 Sun, 01 Jan 2006 20:24:12 +0100
+Tue, 03 Jan 2006 14:15:41 +0100
+Torture:	run/f/forward_reference_16_A.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/f/forward_reference_16_B.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/f/forward_reference_16_C.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/f/forward_reference_16_D.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/f/forward_reference_16_E.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/f/forward_reference_16_F.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/f/forward_reference_16_G.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/f/forward_reference_16_H.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/w/with_14_A.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/w/with_14_B.d	{QQQAQEQAQEAQEAAEAQEAAEAAEAAAAAA}
+Thu, 05 Jan 2006 14:29:46 +0100
+Torture:	run/l/length_08_A.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/l/length_08_B.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/l/length_08_C.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/l/length_08_D.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/l/length_08_E.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/t/template_class_16_A.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/t/template_class_16_B.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/t/template_class_16_C.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/t/template_class_16_D.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/t/template_class_16_E.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/t/template_class_16_F.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/t/template_class_16_G.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Torture:	run/t/template_class_16_H.d	{EEEAEEEAEEAEEAAEAEEAAEAAEAAAAAA}
+Torture:	run/t/template_class_16_I.d	{QQQAQQQAQQAQQAAQAQQAAQAAQAAAAAA}
+Thu, 12 Jan 2006 10:15:38 +0100

@@ -6,7 +6,7 @@
 // @date@	2005-12-30
 // @uri@	news:dp2u3b$1osl$1@digitaldaemon.com
 
-module dstress.run.t.template_23_B;
+module dstress.run.t.opCat_18_B;
 
 template dog(char[] duck){
 	const int dog = 2;

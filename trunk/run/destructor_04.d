@@ -8,27 +8,32 @@
 
 module dstress.run.destructor_04;
 
+bool hadDtor = false;
+
 class MyClass{
 	this(){
 		throw new Exception("dummy");
 	}
 
 	~this(){
+		hadDtor = true;
 		throw new Exception("should never throw");
+		
 	}
 }
 
 int main(){
 	MyClass c;
 
-	bool caught=false;
 	try{
 		c = new MyClass();
 	}catch{
-		caught=true;	
+		if(!hadDtor){
+			return 0;
+		}else{
+			assert(0);
+		}
 	}
-	
-	assert(caught);
 
-	return 0;
+	assert(0);
 }

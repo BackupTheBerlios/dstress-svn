@@ -29,6 +29,9 @@ int main(){
 		test();
 	}catch{
 	}
-	assert(status==-1);
-	return 0;
+	
+	if(status==-1){
+		return 0;
+	}
+	assert(0);
 }

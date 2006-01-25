@@ -36,6 +36,9 @@ int main(){
 		assert(status==1);
 		status-=5;
 	}
-	assert(status==-4);
-	return 0;
+	
+	if(status==-4){
+		return 0;
+	}
+	assert(0);
 }

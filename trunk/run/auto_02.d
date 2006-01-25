@@ -14,8 +14,12 @@ auto class AutoClass{
 		throw new Exception("error msg");
 	}
 	~this(){
-		assert(status==0);
-		status--;
+		
+		if(status == 0){
+			status--;
+		}else{
+			status = -100;
+		}
 	}
 }
 
@@ -24,12 +28,22 @@ void test(){
 		auto AutoClass ac = new AutoClass();
 		ac.bad();
 	}catch{
+		if(status == -1){
+			status = 20;
+		}
+	}
+
+	if(status != 20){
+		throw new Exception("dtor not called");
 	}
 }
 
 int main(){
-	assert(status==0);
+	assert(status == 0);
+
 	test();
-	assert(status==-1);
-	return 0;
+	
+	if(status == 20){
+		return 0;
+	}
 }

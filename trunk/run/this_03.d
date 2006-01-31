@@ -17,7 +17,7 @@ class Node{
 	}
 	
 	~this(){
-		remove nodes[this];
+		nodes.remove(this);
 	}
 }
 

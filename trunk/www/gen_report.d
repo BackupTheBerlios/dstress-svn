@@ -242,7 +242,7 @@ class Sheet{
 			return null;
 		}
 
-		char[] back = "<html>\n<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas Kuehne' /></head>\n";
+		char[] back = "<html>\n<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&uuml;hne' /></head>\n";
 		back ~= "<body><center><h1>DStress - Torture: "~name~"</h2></center><center><small>by Thomas K&uuml;hne &lt;thomas-at-kuehne.cn&gt;<small></center>\n";
 		back ~= "<h2><a name=\"note\" id=\"note\"></a>Note</h2>\n<blockquote>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.</blockquote>\n";
 		back ~= "<h2><a name=\"summary\" id=\"summary\"></a>Summary</h2>\n<table border=\"1\">\n<tr><td>&nbsp;</td>";

@@ -15,17 +15,16 @@ version(X86){
 
 align(2) struct S{
 	byte a;
-	byte b;
+	int b;
 }
 
 int main(){
 	S s;
 	version(testA){
-		assert(&s.a-&s.b==-2);
+		assert((cast(void*)&s.a)-(cast(void*)&s.b)==-2);
 	}else{
 		pragma(msg, "no C alignment data present");
 		static assert(0);
 	}
 	return 0;
 }
-

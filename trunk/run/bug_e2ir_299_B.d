@@ -11,6 +11,6 @@ module dstress.run.bug_e2ir_299_B;
 
 int main(){
 	void foo() {}
-	delegate void() { foo(); };
+	auto a = delegate void() { foo(); };
 	return 0;
 }

@@ -11,6 +11,6 @@
 module dstress.nocompile.d.delegate_14_B;
 
 int main(){
-	delegate void ();
+	auto a = delegate void ();
 ;
 }

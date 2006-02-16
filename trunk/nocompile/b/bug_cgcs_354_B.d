@@ -6,12 +6,14 @@
 // @date@	2005-11-14
 // @uri@	news:op.sz8vo9n6z1znrt@vulcan
 
-module dstress.run.b.bug_cgcs_354_A;
+// __DSTRESS_ELINE__ 17
 
-int main(){
+module dstress.run.b.bug_cgcs_354_B;
+
+void main(){
 	int i;
-	ubyte[4] ub;
+	ubyte[] ub;
+	ub.length = 4;
 	ub[] = cast(ubyte[4]) &i;
-	return 0;
 }
 

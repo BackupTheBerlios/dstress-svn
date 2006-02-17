@@ -17,9 +17,9 @@ class MyException :  Exception{
 int main(){
 	try{
 		throw new MyException("");
-	}catch(Exception){
+	}catch(Exception e1){
 		assert(0);
-	}catch(MyException){
+	}catch(MyException e2){
 		assert(1);
 	}
 	return 0;

@@ -11,15 +11,15 @@
 
 module dstress.nocompile.t.template_29_B;
 
-template foo(uint i){
+template foo(size_t i){
 	static if(i > 0){
-		const uint bar = foo!(i-1).bar;
+		const size_t bar = foo!(i-1).bar;
 	}else{
-		const uint bar = 1;
+		const size_t bar = 1;
 	}
 }
 
 int main(){
-	return foo!(uint.max).bar;
+	return foo!(size_t.max).bar;
 }
 

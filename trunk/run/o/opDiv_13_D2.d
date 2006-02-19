@@ -1,6 +1,6 @@
-// $HeadURL: svn://dstress.kuehne.cn/run/__DATE__01.d $
-// $Date: 2005-03-12 14:49:58 +0100 (Sat, 12 Mar 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // @author@	Deewiant <deewiant.doesnotlike.spam@gmail.com>
 // @date@	2005-12-06

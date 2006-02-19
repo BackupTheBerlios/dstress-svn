@@ -1,6 +1,6 @@
-// $HeadURL: svn://127.0.0.1/run/a/asm_fld1_01.d $
-// $Date: 2005-10-04 11:25:00 +0200 (星期二, 04 十月 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // __DSTRESS_DFLAGS__ addon/cpuinfo.d
 

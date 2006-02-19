@@ -1,6 +1,6 @@
- // $HeadURL: svn://dstress.kuehne.cn/run/a/asm_and_01.d $
- // $Date: 2005-09-08 09:37:28 +0200 (Thu, 08 Sep 2005) $
- // $Author: thomask $
+ // $HeadURL$
+ // $Date$
+ // $Author$
  
 module dstress.run.a.asm_rdtsc_01;
 

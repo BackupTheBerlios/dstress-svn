@@ -1,6 +1,6 @@
-// $HeadURL: svn://dstress.kuehne.cn/run/a/asm_adc_01_A.d $
-// $Date: 2005-08-24 00:23:55 +0200 (Wed, 24 Aug 2005) $
-// $Author: thomask $
+// $HeadURL$
+// $Date$
+// $Author$
 
 // __DSTRESS_DFLAGS__ addon/cpuinfo.d
 

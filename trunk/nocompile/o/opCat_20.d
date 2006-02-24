@@ -6,6 +6,8 @@
 // @date@	2006-02-10
 // @uri@	news:dshvbk$qop$1@digitaldaemon.com
 
+// __DSTRESS_ELINE__ 15
+
 module dstress.run.o.opCat_20;
 
 int main(){

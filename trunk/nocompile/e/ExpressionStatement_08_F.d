@@ -6,7 +6,7 @@
 // @date@	2005-12-12
 // @uri@	news:dnjnqe$16sv$1@digitaldaemon.com
 
-// __DSTRESS_ELINE__ 15
+// __DSTRESS_ELINE__ 14
 
 module dstress.nocompile.e.ExpressionsStatement_08_F;
 

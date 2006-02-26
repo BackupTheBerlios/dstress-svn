@@ -5,8 +5,8 @@
 module dstress.run.m.mangleof_02_D;
 
 int main(){
-	char[] m = (bit*[]).mangleof;
-	if(m == "APb"){
+	char[] m = (bool*[]).mangleof;
+	if(m == "APx"){
 		return 0;
 	}
 }

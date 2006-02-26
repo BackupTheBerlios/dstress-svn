@@ -10,7 +10,7 @@
 module dstress.run.o.opSlice_01_A;
 
 int main(){
-	bit arr[4][2];
+	bool arr[4][2];
 
 	arr[0][1]=true;
 	

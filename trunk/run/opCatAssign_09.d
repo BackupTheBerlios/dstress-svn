@@ -10,8 +10,8 @@ module dstress.run.opCatAssign_09;
 
 int main(){
 
-	bit[] a;
-	bit[] b;
+	bool[] a;
+	bool[] b;
     
 	a.length = 8;
 	a[0] = 0;

@@ -6,6 +6,6 @@
 
 module dstress.nocompile.l.label_04_E;
 
-bit:
+bool:
 
 int dummy;

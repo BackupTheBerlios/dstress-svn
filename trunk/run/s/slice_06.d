@@ -2,19 +2,16 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_TORTURE_BLOCK__ -release
-// __DSTRESS_ELINE__ 22
-
-module dstress.nocompile.slice_06;
+module dstress.run.s.slice_06;
 
 int main(){
-	bit[] a;
+	bool[] a;
 	a.length=2;
 	a[] = true;
 	assert(a[0]);
 	assert(a[1]);
 	
-	bit[] b;
+	bool[] b;
 	b.length=2;
 	assert(!b[0]);
 	assert(!b[1]);

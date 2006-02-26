@@ -5,13 +5,13 @@
 module dstress.run.sort_01;
 
 int main(){
-	bit a[];
+	bool a[];
 	a.length=3;
 	a[0]=false;
 	a[1]=true;
 	a[2]=false;
 
-	bit[] b=a.sort;
+	bool[] b=a.sort;
 
 	assert(a.length==3);
 	assert(!a[0]);

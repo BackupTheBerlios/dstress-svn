@@ -2,12 +2,12 @@
 // $Date$
 // $Author$
 
-module dstress.run.bit_03;
+module dstress.run.bool_03;
 
 int main(){
-	bit a;
-	bit b;
-	bit c;
+	bool a;
+	bool b;
+	bool c;
 	
 	a = false; b = !a;
 	assert( a == false );

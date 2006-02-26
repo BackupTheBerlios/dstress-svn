@@ -6,6 +6,8 @@
 // @date@	2005-12-12
 // @uri@	news:dnjnqe$16sv$1@digitaldaemon.com
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.i.in_out_body_11_E;
 
 int inBase;

@@ -4,9 +4,9 @@
 
 // __DSTRESS_ELINE__ 10
 
-module dstress.nocompile.bit_02;
+module dstress.nocompile.bool_02;
 
 int main(){
-	bit b = 2;
+	bool b = 2;
 	return 0; 
 }

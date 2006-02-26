@@ -9,9 +9,9 @@
 module dstress.run.o.opCmp_07_B;
 
 int main(){
-	bit[9] a;
+	bool[9] a;
 	a[8] = false;
-	bit[9] b;
+	bool[9] b;
 	b[8] = true;
 	
 	assert(a<b);

@@ -14,7 +14,7 @@ const float[6] arr = [
 	4: 4.0f
 ];
 
-bit equal(float a, float b){
+bool equal(float a, float b){
 	byte* aa = cast(byte*) &a;
 	byte* bb = cast(byte*) &b;
 

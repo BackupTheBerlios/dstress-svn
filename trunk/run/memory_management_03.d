@@ -4,12 +4,12 @@
 
 module dstress.run.memory_management_03;
 
-void test(bit[] arr){
+void test(bool[] arr){
 	arr[1] = !arr[1];
 }
 
 int main(){
-	bit[] c;
+	bool[] c;
 	c.length=3;
 	c[0]=true;
 	c[1]=false;

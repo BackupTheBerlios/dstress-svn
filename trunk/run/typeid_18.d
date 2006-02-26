@@ -6,9 +6,9 @@
 module dstress.run.typeid_18;
 
 int main(){
-	TypeInfo ti = typeid(bit*);
+	TypeInfo ti = typeid(bool*);
 	assert(!(ti is null));
-	assert(ti.tsize==(bit*).sizeof);
-	assert(ti.toString()=="bit*");
+	assert(ti.tsize==(bool*).sizeof);
+	assert(ti.toString()=="bool*");
 	return 0;
 }

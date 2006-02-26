@@ -10,7 +10,7 @@
 module dstress.run.b.bug_cod2_4211_V;
 
 struct Foo{
-	bit a, b, c;
+	bool a, b, c;
 }
 
 int bar(Foo e){

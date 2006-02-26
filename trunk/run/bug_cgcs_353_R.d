@@ -9,22 +9,22 @@
 
 module dstress.run.bug_cgcs_353_R;
 
-bit[1] a;
-bit[1] b;
+bool[1] a;
+bool[1] b;
 
-bit[] concat() {
+bool[] concat() {
 	return a~b;
 }
 
 int main(){
-	a[]=0;
-	b[]=1;
+	a[] = false;
+	b[] = true;
 
-	bit[] arr=concat();
+	bool[] arr=concat();
 
 	assert(arr.length==2);
-	assert(arr[0]==0);
-	assert(arr[1]==1);
+	assert(!arr[0]);
+	assert(arr[1]);
 	
 	return 0;
 }

@@ -5,13 +5,13 @@
 module dstress.run.dup_02;
 
 int main(){
-	bit a[];
+	bool a[];
 	a.length=3;
 	a[0]=false;
 	a[1]=false;
 	a[2]=true;
 
-	bit[] b=a.dup;
+	bool[] b=a.dup;
 	a[1]=true;
 	b[0]=true;
 

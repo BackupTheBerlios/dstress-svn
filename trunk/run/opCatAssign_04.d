@@ -5,14 +5,14 @@
 module dstress.run.opCatAssign_04;
 
 int main(){
-	bit[] a;
+	bool[] a;
 	a.length=3;
 	a[0]=true;
 	a[1]=true;
 	a[2]=true;
 	assert(a.length==3);
 
-	bit[] b;
+	bool[] b;
 	b.length=2;
 	b[0]=false;
 	b[1]=false;

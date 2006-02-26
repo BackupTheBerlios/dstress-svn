@@ -16,9 +16,9 @@ enum Enum{
 }
 
 int test(Enum e){
-	bit[] b;
-	b = cast(bit[])
-		(cast(bit*)e);
+	bool[] b;
+	b = cast(bool[])
+		(cast(bool*)e);
 	return 0;
 }
 

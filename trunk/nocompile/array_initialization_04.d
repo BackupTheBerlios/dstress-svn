@@ -16,7 +16,7 @@ void test(size_t size){
 
 int main(){
 	for (int t=0; t<33; t++){
-		test((bit[t]).sizeof);
+		test((bool[t]).sizeof);
 	}
 	return 0;
 }

@@ -16,9 +16,9 @@ enum Enum{
 }
 
 int main(){
-	bit[] b;
+	bool[] b;
 	Enum e;
-	b = cast(bit[])
-		(cast(bit*)e);
+	b = cast(bool[])
+		(cast(bool*)e);
 	return 0;
 }

@@ -10,7 +10,7 @@
 module dstress.run.b.bug_cgcs_353_R2;
 
 int main(){
-	bit[] arr;
+	bool[] arr;
 	arr.length=1;
 	arr[0]=false;
 

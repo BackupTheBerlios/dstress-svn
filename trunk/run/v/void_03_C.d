@@ -8,6 +8,6 @@
 module dstress.run.v.void_03_C;
 
 int main(){
-	bit x = void;
+	bool x = void;
 	return 0;
 }

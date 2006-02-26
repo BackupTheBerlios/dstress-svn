@@ -9,8 +9,8 @@
 module dstress.run.o.opCat_15_A;
 
 int main(){
-	bit x=true;
-	bit[] arr;
+	bool x=true;
+	bool[] arr;
 
 	arr = arr ~ x;
 	assert(arr.length==1);

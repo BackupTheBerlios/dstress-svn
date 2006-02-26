@@ -9,46 +9,46 @@
 module dstress.run.opCat_04;
 
 int main(){
-	static bit[] a = [1, 1, 0, 1, 0];
+	static bool[] a = [true, true, false, true, false];
 	assert(a.length==5);
-	assert(a[0]==1);
-	assert(a[1]==1);
-	assert(a[2]==0);
-	assert(a[3]==1);
-	assert(a[4]==0);
+	assert(a[0]==true);
+	assert(a[1]==true);
+	assert(a[2]==false);
+	assert(a[3]==true);
+	assert(a[4]==false);
 
-	static bit[] b = [1, 0, 0, 1];
+	static bool[] b = [true, false, false, true];
 	assert(b.length==4);
-	assert(b[0]==1);
-	assert(b[1]==0);
-	assert(b[2]==0);
-	assert(b[3]==1);
+	assert(b[0]==true);
+	assert(b[1]==false);
+	assert(b[2]==false);
+	assert(b[3]==true);
 
 	
-	bit[] c = a~b;
+	bool[] c = a~b;
 	assert(a.length==5);
-	assert(a[0]==1);
-	assert(a[1]==1);
-	assert(a[2]==0);
-	assert(a[3]==1);
-	assert(a[4]==0);
+	assert(a[0]==true);
+	assert(a[1]==true);
+	assert(a[2]==false);
+	assert(a[3]==true);
+	assert(a[4]==false);
 
 	assert(b.length==4);
-	assert(b[0]==1);
-	assert(b[1]==0);
-	assert(b[2]==0);
-	assert(b[3]==1);
+	assert(b[0]==true);
+	assert(b[1]==false);
+	assert(b[2]==false);
+	assert(b[3]==true);
 
 	assert(c.length==9);
-	assert(c[0]==1);
-	assert(c[1]==1);
-	assert(c[2]==0);
-	assert(c[3]==1);
-	assert(c[4]==0);
-	assert(c[5]==1);
-	assert(c[6]==0);
-	assert(c[7]==0);
-	assert(c[8]==1);
+	assert(c[0]==true);
+	assert(c[1]==true);
+	assert(c[2]==false);
+	assert(c[3]==true);
+	assert(c[4]==false);
+	assert(c[5]==true);
+	assert(c[6]==false);
+	assert(c[7]==false);
+	assert(c[8]==true);
 
 	return 0;
 }

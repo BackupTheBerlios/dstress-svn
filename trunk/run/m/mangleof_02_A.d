@@ -5,8 +5,8 @@
 module dstress.run.m.mangleof_02_A;
 
 int main(){
-	char[] m = (bit).mangleof;
-	if(m == "b"){
+	char[] m = (bool).mangleof;
+	if(m == "x"){
 		return 0;
 	}
 }

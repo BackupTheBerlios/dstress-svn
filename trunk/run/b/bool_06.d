@@ -6,14 +6,14 @@
 // @date@	2004-08-20
 // @uri@	news:cg41gm$2u2d$1@digitaldaemon.com
 
-module dstress.run.bit_04;
+module dstress.run.bool_06;
 
-struct MyStruct{
-	bit check;
+union MyUnion{
+	bool check;
 }
 
 int main(){
-	MyStruct s;
-	s.check = 0 != 0;
+	MyUnion u;
+	u.check = 0 != 0;
 	return 0;
 }

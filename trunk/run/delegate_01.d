@@ -17,7 +17,7 @@ struct List(T){
 }
 
 int main(){
-	List!(bit) list;
+	List!(bool) list;
 	return 0;
 }
 

@@ -6,6 +6,6 @@
 
 module dstress.nocompile.enum_31_B;
 
-enum Enum : bit {
+enum Enum : bool {
 	A = -1
 }

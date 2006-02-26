@@ -9,7 +9,7 @@
 module dstress.run.opCatAssign_13;
 
 int main(){
-	static bit[] a = [true, true, false, true, false];
+	static bool[] a = [true, true, false, true, false];
 	assert(a.length==5);
 	assert(a[0]==true);
 	assert(a[1]==true);
@@ -17,7 +17,7 @@ int main(){
 	assert(a[3]==true);
 	assert(a[4]==false);
 
-	bit[] b = a.dup;
+	bool[] b = a.dup;
 	assert(a.length==5);
 	assert(a[0]==true);
 	assert(a[1]==true);

@@ -6,14 +6,14 @@
 // @date@	2004-08-20
 // @uri@	news:cg41gm$2u2d$1@digitaldaemon.com
 
-module dstress.run.bit_05;
+module dstress.run.bool_04;
 
-class MyClass{
-	bit check;
+struct MyStruct{
+	bool check;
 }
 
 int main(){
-	MyClass c = new MyClass();
-	c.check = 0 != 0;
+	MyStruct s;
+	s.check = 0 != 0;
 	return 0;
 }

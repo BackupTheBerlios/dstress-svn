@@ -10,7 +10,7 @@ module dstress.nocompile.o.cast_28;
 
 void main(){
 	char[] data;
-	bit* pData;
+	bool* pData;
 
-	pData = &cast(bit*) data;
+	pData = &cast(bool*) data;
 } 

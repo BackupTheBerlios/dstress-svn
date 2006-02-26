@@ -10,7 +10,7 @@
 module dstress.run.o.opAndAssign_01_A;
 
 int main(){
-	bit[1] arr;
+	bool[1] arr;
 
 	arr[0] &= false;
 	assert(!arr[0]);

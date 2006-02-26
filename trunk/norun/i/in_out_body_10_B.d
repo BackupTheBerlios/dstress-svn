@@ -6,7 +6,8 @@
 // @date@	2005-12-12
 // @uri@	news:dnjnqe$16sv$1@digitaldaemon.com
 
-// __DSTRESS_ELINE__ 27
+// __DSTRESS_TORTURE_BLOCK__ -release
+// __DSTRESS_ELINE__ 28
 
 module dstress.norun.i.in_out_body_10_B;
 

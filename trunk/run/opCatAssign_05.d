@@ -5,7 +5,7 @@
 module dstress.run.opCatAssign_05;
 
 int main(){
-	bit[] a;
+	bool[] a;
 	a.length=3;
 	a[0]=true;
 	a[1]=false;

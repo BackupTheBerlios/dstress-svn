@@ -32,6 +32,19 @@
 				</xsl:element>
 				</td><td align='right'><a href="http://dstress.kuehne.cn/www/links.html">Links</a></td>
 			</tr></table></div>
+			<!-- Start of StatCounter Code -->
+			<script type="text/javascript">
+				<!-- 
+					var sc_project=1337754; 
+					var sc_invisible=1; 
+					var sc_partition=12; 
+					var sc_security="a4a998fe"; 
+					var sc_remove_link=1; 
+				//-->
+			</script>
+
+			<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><img src="http://c13.statcounter.com/counter.php?sc_project=1337754&amp;amp;java=0&amp;amp;security=a4a998fe&amp;amp;invisible=1" class="statcounter" alt="counter" /></div></noscript>
+			<!-- End of StatCounter Code -->
 		</body>
 	</html>
 	</xsl:template>

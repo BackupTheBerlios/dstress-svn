@@ -1168,6 +1168,8 @@ err:
 			case_result = target_compile(modus, compiler,
 					cmd_arg_case, case_file, error_file,
 					error_line);
+		}else{
+			fprintf(stderr, "BUG: unhandled non-torture modus %x\n", modus);
 		}
 		
 		fprintf(stdout, "Torture-Sub-1/" ZU "-",

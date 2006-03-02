@@ -1,4 +1,4 @@
-﻿Thanks to all the bug reporters and for the test case suggestions.
+﻿Thanks for all the bug reports and test case suggestions:
 
 ahiru			<ahiru@1dk.jp>
 AJG			<AJG@nospam.com>
@@ -8,6 +8,7 @@ Andrew Fedoniouk	<news@terrainformatica.com>
 Andy Friesen		<andy@ikagames.com>
 Ant			<duitoolkit@yahoo.ca>
 Arcane Jill
+Artem Rebrov		<ar_other@mail.ru>
 Bastiaan Veelo		<Bastiaan.N.Veelo@ntnu.no>
 BCS
 Ben Hinkle		<ben.hinkle@gmail.com>, <bhinkle4@juno.com>, <bhinkle@mathworks.com>
@@ -22,6 +23,8 @@ Buchan			<kbuchan@xtra.co.nz>
 Burton Radons		<burton-radons@shaw.ca>, <burton-radons@smocky.com>
 Carlos Santander B.	<carlos8294@msn.com>, <csantander619@gmail.com>
 Charlie
+Chris Miller		<chris@dprogramming.com>
+Chris Newton		<redshodan@dot.gmail.dot.dooot.com>
 Chris Sauls		<ibisbasenji@gmail.com>
 clayasaurus		<clayasaurus@gmail.com>
 D Trebbien
@@ -29,8 +32,9 @@ Daniel Horn		<hellcatv@hotmail.com>
 Dave
 David Friedman		<d3rdclsmail_a_@_t_earthlink_d_._t_net>
 David L. Davis		<SpottedTiger@yahoo.com>
-David Medlock		<amedlock@nospam.org>
+David Medlock		<amedlock@nospam.org>, <noone@nowhere.com>
 Deewiant		<deewiant.doesnotlike.spam@gmail.com>
+dennis luehring		<dl.soluz@gmx.net>
 Derek Parnell
 dickl			<dick221z@yahoo.com>
 Don Clugston
@@ -54,6 +58,7 @@ Jay
 John C			<johnch_atms@hotmail.com>
 John Demme		<me@teqdruid.com>
 John Reimer		<brk_6502@NO_SPA_M.yahoo.com>
+Johan Granberg		<lijat.meREM@VEgmail.com>
 k2
 kenny			<funisher@gmail.com>
 Kevin Bealer
@@ -68,6 +73,7 @@ Lukas Pinkowski		<Lukas.Pinkowski@web.de>
 Manfred Nowak		<svv1999@hotmail.com>
 marko			<tm030127d@galeb.etf.bg.ac.yu>
 Michael Butscher	<mbutscher@gmx.de>
+MicroWizard
 Miguel Ferreira Simões	<Kobold@netcabo.pt>
 Mike Parker		<aldacron71@yahoo.com>
 Mike Swieton		<mike@swieton.net>
@@ -85,6 +91,8 @@ pragma
 Regan Heath		<regan@netwin.co.nz>
 Rev
 Robert Atkinson		<Robert.Atkinson@gmail.com>
+Robert Schiele		<rschiele@uni-mannheim.de>
+Roberto Mariottini
 Roel Mathys		<roel.mathys@yucom.be>
 Russ Lewis		<spamhole-2001-07-16@deming-os.org>
 Russell Wilkins		<Russell.Wilkins@grovestarsoftware.com>, <rwilkins@grovestarsoftware.com>
@@ -110,7 +118,9 @@ Vathix			<chris@dprogramming.com>, <vathix@dprogramming.com>, <vathixSpamFix@dpr
 Victor Nakoryakov	<nail-mail@mail.ru>
 Walter			<newshound@digitalmars.com>
 xs0			<xs0@xs0.com>
+yama
 zwang			<nehzgnaw@gmail.com>
 
 			<derick_eddington@nospam.yahoo.nospam.com>
 			<jmjmak@utu.invalid.fi>
+			<fp@fpx.de>

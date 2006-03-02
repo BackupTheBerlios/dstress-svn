@@ -1164,15 +1164,15 @@ err:
 					, gdb, gdb_script, gdb_pattern
 #endif
 					);
-			printResult(case_result, modus, case_file, stdout);
-		}
-
-		if(modus & (MODE_COMPILE | MODE_NOCOMPILE)){
+		}else if(modus & (MODE_COMPILE | MODE_NOCOMPILE)){
 			case_result = target_compile(modus, compiler,
 					cmd_arg_case, case_file, error_file,
 					error_line);
-			printResult(case_result, modus, case_file, stdout);
 		}
+		
+		fprintf(stdout, "Torture-Sub-1/" ZU "-",
+			sizeof(torture)/sizeof(char*));
+		printResult(case_result, modus, case_file, stdout);
 	}
 
 

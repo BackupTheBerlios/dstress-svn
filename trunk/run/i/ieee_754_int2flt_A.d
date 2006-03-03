@@ -14,7 +14,8 @@ int main(){
 	}
 
 	for(int i = 0; i < border; i++){
-		int test = 1 << i;
+		int test = 1;
+		test <<= i;
 		real r = test;
 		int result = cast(int)r;
 

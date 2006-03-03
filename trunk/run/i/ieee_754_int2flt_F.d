@@ -14,7 +14,8 @@ int main(){
 	}
 
 	for(ulong i = 0; i < border; i++){
-		ulong test = 1 << i;
+		ulong test = 1;
+		test <<= i;
 		double r = test;
 		ulong result = cast(ulong)r;
 

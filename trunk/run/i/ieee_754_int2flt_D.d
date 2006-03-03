@@ -14,7 +14,8 @@ int main(){
 	}
 
 	for(long i = 0; i < border; i++){
-		long test = 1 << i;
+		long test = 1;
+		test <<= i;
 		float r = test;
 		long result = cast(long)r;
 

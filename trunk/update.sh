@@ -1,7 +1,7 @@
 #!/bin/bash
 
 make distclean
-dmd -w -O log.d || exit
+dmd -w -O log.d || exit 2
 export PATH=.:$PATH
 
 for DMD in `cd /opt/dmd/bin/; ls *dmd-0.*  | sort -u -r`; do
@@ -25,6 +25,9 @@ for DMD in `cd /opt/dmd/bin/; ls *dmd-0.*  | sort -u -r`; do
 		mv raw_results/linux-amd64_$DMDX.log.update update-list.sh
 		chmod +x update-list.sh
 		./update-list.sh >> raw_results/linux-amd64_$DMDX 2>> raw_results/linux-amd64_$DMDX.log
+		rm -f log.txt
+		make complex > log.txt 2>&1
+		cat log.txt >> raw_results/linux-amd64_$DMDX.log
 	else
 		echo "$DMD ($DMDX) - full build"
 		make > raw_results/linux-amd64_$DMDX 2>&1

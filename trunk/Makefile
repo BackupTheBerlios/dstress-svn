@@ -3,7 +3,7 @@
 # $Author$
 #
 # GnuMakefile for DStress http://dstress.kuehne.cn/www/dstress.html
-# Copyright (C) 2004, 2005 Thomas Kuehne
+# Copyright (C) 2004, 2005, 2006 Thomas Kuehne
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -165,15 +165,15 @@ nocompile_clean :
 # used in some complex test cases
 define analyse_nocompile
 	@if $(ifeq__) $(z_return) 0 ; then \
-		$(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
+		$(ECHO) "Torture-Sub-1/31-XPASS: $(z_name)"; $(RM) $@; \
 	else \
 		if $(CAT) $(z_log) | $(GREP) ; then \
-			$(ECHO) "ERROR: $(z_name) [Internal compiler error]"; $(RM) $@; \
+			$(ECHO) "Torture-Sub-1/31-ERROR: $(z_name) [Internal compiler error]"; $(RM) $@; \
 		else \
 			if $(ifeq__) $(z_return) 256 ; then \
-				$(ECHO) "XFAIL: $(z_name)"; $(TOUCH) $@; \
+				$(ECHO) "Torture-Sub-1/31-XFAIL: $(z_name)"; $(TOUCH) $@; \
 			else \
-				$(ECHO) "ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
+				$(ECHO) "Torture-Sub-1/31-ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
 			fi \
 		fi \
 	fi
@@ -193,12 +193,12 @@ compile_clean :
 # used in some complex test cases
 define analyse_compile
 	@if $(ifeq__) $(z_return) 0 ; then \
-		$(ECHO) "PASS:  $(z_name)"; $(TOUCH) $@; \
+		$(ECHO) "Torture-Sub-1/31-PASS:  $(z_name)"; $(TOUCH) $@; \
 	else \
 		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
+			$(ECHO) "Torture-Sub-1/31-FAIL:  $(z_name)"; $(RM) $@; \
 		else \
-			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
+			$(ECHO) "Torture-Sub-1/31-ERROR: $(z_name) [$(z_return)]"; $(RM) $@; \
 		fi \
 	fi
 endef
@@ -220,19 +220,19 @@ define analyse_run
 	@if $(ifeq__) $(z_return) 0 ; then \
 		$(eval z_return2 = $(shell $(return__) "./$@ $(to_log)")) \
 		if $(ifeq__) $(z_return2) 0 ; then \
-			$(ECHO) "PASS:  $(z_name)"; \
+			$(ECHO) "Torture-Sub-1/31-PASS:  $(z_name)"; \
 		else \
 			if $(ifeq__) $(z_return2) 256 ; then \
-				$(ECHO) "FAIL:  $(z_name)"; $(RM) $@; \
+				$(ECHO) "Torture-Sub-1/31-FAIL:  $(z_name)"; $(RM) $@; \
 			else \
-				$(ECHO) "ERROR: $(z_name) [run: $(z_return2)]"; $(RM) $@; \
+				$(ECHO) "Torture-Sub-1/31-ERROR: $(z_name) [run: $(z_return2)]"; $(RM) $@; \
 			fi \
 		fi \
 	else \
 		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name) (compiling error)"; \
+			$(ECHO) "Torture-Sub-1/31-FAIL:  $(z_name) (compiling error)"; \
 		else \
-			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; \
+			$(ECHO) "Torture-Sub-1/31-ERROR: $(z_name) [$(z_return)]"; \
 		fi \
 	fi
 endef
@@ -287,15 +287,15 @@ norun_clean :
 define analyse_norun
 	@if $(ifeq__) $(z_return) 0; then \
 		if ./$@ $(to_log); \
-			then $(ECHO) "XPASS: $(z_name)"; $(RM) $@; \
+			then $(ECHO) "Torture-Sub-1/31-XPASS: $(z_name)"; $(RM) $@; \
 		else \
-			$(ECHO) "XFAIL: $(z_name)"; \
+			$(ECHO) "Torture-Sub-1/31-XFAIL: $(z_name)"; \
 		fi \
 	else \
 		if $(ifeq__) $(z_return) 256 ; then \
-			$(ECHO) "FAIL:  $(z_name) (compiling error)"; $(RM) $@; \
+			$(ECHO) "Torture-Sub-1/31-FAIL:  $(z_name) (compiling error)"; $(RM) $@; \
 		else \
-			$(ECHO) "ERROR: $(z_name) [$(z_return)]"; \
+			$(ECHO) "Torture-Sub-1/31-ERROR: $(z_name) [$(z_return)]"; \
 		fi \
 	fi
 endef

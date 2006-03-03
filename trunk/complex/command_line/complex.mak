@@ -1,5 +1,5 @@
-# GnuMakefile for DStress http://dmd.kuehne.cn/dstress.html
-# Copyright (C) 2004 Thomas Kuehne
+# GnuMakefile for DStress http://dstress.kuehne.cn/www/dstress.html
+# Copyright (C) 2004, 2006 Thomas Kuehne
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -56,9 +56,9 @@ complex/command_line/$(complex_done) : $(complex/command_line/raw)
 	$(eval z_name = $(word 1,$(z_raw)))
 	$(eval z_arg = $(subst $(z_name),,$(z_raw)))
 	@if $(CD) complex/command_line ; $(DMD) $(z_arg) $(to_log); then \
-		$(ECHO) "XPASS: $(z_name)"; \
+		$(ECHO) "Torture-Sub-1/31-XPASS: $(z_name)"; \
 	else \
-		$(ECHO) "XFAIL: $(z_name)"; \
+		$(ECHO) "Torture-Sub-1/31-XFAIL: $(z_name)"; \
 	fi 
 	
 # this will be called by root's "clean" target

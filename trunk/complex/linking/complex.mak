@@ -1,4 +1,4 @@
-# GnuMakefile for DStress http://dmd.kuehne.cn/dstress.html
+# GnuMakefile for DStress http://dstress.kuehne.cn/www/dstres.html
 # Copyright (C) 2004 Thomas Kuehne
 #
 # This program is free software; you can redistribute it and/or modify

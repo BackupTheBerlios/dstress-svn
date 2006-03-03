@@ -1,5 +1,5 @@
-# GnuMakefile for DStress http://dmd.kuehne.cn/dstress.html
-# Copyright (C) 2004 Thomas Kuehne
+# GnuMakefile for DStress http://dstress.kuehne.cn/www/dstress.html
+# Copyright (C) 2004, 2006 Thomas Kuehne
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -49,9 +49,9 @@ complex/error_message/$(complex_done) : $(complex/error_message/raw)
 	$(eval z_name = $(word 2,$(z_raw)))
 	$(eval z_arg = $(subst __,,$(subst ,.d,$(z_name))))
 	@if $(CD) complex/error_message ; $(DMD) -c $(z_arg) | wc -l | grep "^[0-9][0-9][0-9]" $(to_log); then \
-		$(ECHO) "FAIL: $(z_name)"; \
+		$(ECHO) "Torture-Sub-1/31-FAIL: complex/error_message/$(z_name)"; \
 	else \
-		$(ECHO) "PASS: $(z_name)"; \
+		$(ECHO) "Torture-Sub-1/31-PASS: complex/error_message/$(z_name)"; \
 	fi 
 	
 # this will be called by root's "clean" target

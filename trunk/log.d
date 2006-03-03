@@ -218,19 +218,6 @@ abstract class Test{
 	}
 }
 
-class PlainTest : Test{
-	Result r;
-
-	Result condensed(){
-		return r;
-	}
-
-	this(char[] file, Result result){
-		super(file);
-		r = result;
-	}
-}
-
 class TortureTest : Test{
 	Result[] r;
 
@@ -261,7 +248,6 @@ class TortureTest : Test{
 }
 
 class Log{
-	PlainTest[char[]] plain;
 	TortureTest[char[]] torture;
 
 	char[] id;
@@ -309,23 +295,6 @@ class Log{
 	Regression[] findRegressions(Log oldLog){
 		Regression[] back;
 		
-		foreach(PlainTest t; plain.values){
-			PlainTest* oldT = t.file in oldLog.plain;
-			if(oldT !is null){
-				if(oldT.r < t.r){
-					back ~= new Regression(oldT.r, t);
-				}
-			}else{
-				TortureTest* oldT = t.file in oldLog.torture;
-				if(oldT !is null){
-					Result r = oldT.condensed();
-					if(r < t.r){
-						back ~= new Regression(r, t);
-					}
-				}
-			}
-		}
-
 		foreach(TortureTest t; torture.values){
 			TortureTest* oldT = t.file in oldLog.torture;
 
@@ -333,14 +302,6 @@ class Log{
 				foreach(size_t i, Result r; t.r){
 					if(oldT.r[i] < r){
 						back ~= new Regression(t.name, t.file, oldT.r[i], r, TORTURE_FLAGS[i]); 
-					}
-				}
-			}else{
-				PlainTest* oldT = t.file in oldLog.plain;
-				if(oldT !is null){
-					Result r = t.condensed();
-					if(oldT.r < r){
-						back ~= new Regression(t.name, t.file, oldT.r, r);
 					}
 				}
 			}
@@ -363,7 +324,7 @@ class Log{
 				}
 			}else if(isfile(path)){
 				char[] file = path[testRoot.length + std.path.sep.length .. $];
-				if(!(file in plain) && !(file in torture)){
+				if(!(file in torture)){
 					char[] output = "dstress torture-" ~ status ~ " " ~ file;
 					updateList ~= output;
 				}
@@ -379,39 +340,26 @@ class Log{
 	}
 
 	void dropBogusResults(FStime recordTime, char[] testRoot){
-		uint totalCount = plain.length + torture.length; 
-
-		char[][] sourcesPlain = plain.keys;
-		foreach(char[] source; sourcesPlain){
-			try{
-				FStime caseTime = getFStime(testRoot~std.path.sep~source);
-				if(caseTime > recordTime){
-					debug(drop) fwritefln(stderr, "dropped: %s", source);
-					plain.remove(source);
-				}
-			}catch(Exception e){
-				debug(drop) fwritefln(stderr, "dropped: %s", source);
-				plain.remove(source);
-			}
-		}
-		plain.rehash;
+		uint totalCount = torture.length; 
 		
 		char[][] sourcesTorture = torture.keys;
 		foreach(char[] source; sourcesTorture){
-			try{
-				FStime caseTime = getFStime(testRoot~std.path.sep~source);
-				if(caseTime > recordTime){
+			if(-1 == find(source, "complex/")){
+				try{
+					FStime caseTime = getFStime(testRoot~std.path.sep~source);
+					if(caseTime > recordTime){
+						debug(drop) fwritefln(stderr, "dropped: %s", source);
+						torture.remove(source);
+					}
+				}catch(Exception e){
 					debug(drop) fwritefln(stderr, "dropped: %s", source);
 					torture.remove(source);
 				}
-			}catch(Exception e){
-				debug(drop) fwritefln(stderr, "dropped: %s", source);
-				torture.remove(source);
 			}
 		}
 		torture.rehash;
 		
-		writefln("dropped %s outdated tests (%s remaining)", totalCount - (plain.length + torture.length), plain.length + torture.length); 
+		writefln("dropped %s outdated tests (%s remaining)", totalCount - torture.length, torture.length); 
 	}
 
 	
@@ -474,30 +422,13 @@ class Log{
 			
 			file = cleanFileName(file);
 			
-			if(id < 0){
-				// update plain
-				PlainTest* test  = file in plain;
-		
-				if(test is null){
-					if((file in torture) !is null){
-						torture.remove(file);
-					}
-
-					plain[file] = new PlainTest(file, r);
-				}else{
-					test.r = r;
-				}
-			}else{
+			if(id >= 0){
 				// update sub
 				id--;
 		
 				TortureTest* test = file in torture;
 
 				if(test is null){
-					if((file in plain) !is null){
-						plain.remove(file);
-					}
-
 					TortureTest t = new TortureTest(file);
 					torture[file] = t;
 					t.r[id] = r;
@@ -520,13 +451,6 @@ class Regression{
 	char[] file;
 	char[] name;
 	char[] extInfo;
-
-	this(Result oldResult, PlainTest b){
-		before = oldResult;
-		after = b.r;
-		file = b.file;
-		name = b.name;
-	}
 
 	this(char[] name, char[] file, Result oldR, Result newR, char[] addonInfo=null){
 		this.file = file;
@@ -699,7 +623,11 @@ class Report{
 					continue;
 				}else{
 					char[] name = replace(t.name, "_", " ");
-					char[] back = "<tr><th><a href=\"../"~t.file~"\" id='"~t.name~"'>"~name~"</a></th>";
+					char[] src = t.file;
+					if(find(src,"complex/")!=-1){
+						src = src[0 .. rfind(src, "/")];
+					}
+					char[] back = "<tr><th><a href=\"../"~src~"\" id='"~t.name~"'>"~name~"</a></th>";
 					foreach(Result r; t.r){
 						back ~= "<td class='" ~ cast(char)(r+'A') ~ "'>";
 						if(r == Result.UNTESTED){
@@ -931,7 +859,7 @@ int main(char[][] args){
 		case "genUpdateList":{
 			foreach(Log l; report.log){
 				char[][] update = l.genUpdateList(root);
-				writefln("%s updates required (%s still up to date)", update.length, l.plain.length + l.torture.length);
+				writefln("%s updates required (%s still up to date)", update.length, l.torture.length);
 
 				char[] updateFile = l.id ~ ".update";
 				try{std.file.remove(updateFile);}catch{}

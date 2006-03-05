@@ -61,7 +61,7 @@
 #define USE_POSIX 1
 #endif
 
-#if defined(WIN) || defined(WIN32)
+#if defined(WIN) || defined(WIN32) || defined(WIN64)
 #define USE_WINDOWS 1
 #endif
 
@@ -122,11 +122,14 @@
 #define		TMP_DIR		"./obj"
 #else
 #ifdef USE_WINDOWS
-#define		CRASH_RUN	".\\crashRun"
 #define		TMP_DIR		".\\obj"
 #else
 #error OS dependent file names not defined
 #endif
+#endif
+
+#ifdef USE_WINDOWS
+HANDLE originalStdout, originalStderr;
 #endif
 
 const char* torture[] = {
@@ -633,8 +636,76 @@ int crashRun(const char* cmd, char** logFile){
 	}else{
 		return RAND_MAX;
 	}
-#else
+#elif defined USE_WINDOWS
+	PROCESS_INFORMATION processInfo;
+	STARTUPINFO startupInfo;
+	SECURITY_ATTRIBUTES sa = {
+		sizeof(SECURITY_ATTRIBUTES), NULL, TRUE
+	};
+	HANDLE tLogFile;
+	unsigned long exitCode;
+	int timeLeft = 600;	// time limit in iterations of WFX loop
 
+	memset(&processInfo, 0, sizeof(PROCESS_INFORMATION));
+	memset(&startupInfo, 0, sizeof(STARTUPINFO));
+	startupInfo.cb = sizeof(STARTUPINFO);
+
+	tLogFile = CreateFile(*logFile, GENERIC_WRITE,
+	  0, &sa, CREATE_ALWAYS, FILE_FLAG_WRITE_THROUGH, NULL);
+
+	if (tLogFile == NULL) {
+		printf("ERROR: could not open log file");
+		return RAND_MAX;
+	}
+
+	SetStdHandle(STD_OUTPUT_HANDLE, tLogFile);
+	SetStdHandle(STD_ERROR_HANDLE, originalStdout);
+
+	if (!CreateProcess(NULL, (char*) cmd, NULL, NULL, TRUE, 0, NULL, NULL,
+		  &startupInfo, &processInfo)) {
+		void *message;
+
+		FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER
+		  | FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), 0,
+		   (char*) &message, 0, NULL);
+
+		SetStdHandle(STD_OUTPUT_HANDLE, originalStdout);
+		SetStdHandle(STD_ERROR_HANDLE, originalStderr);
+		CloseHandle(tLogFile);
+
+		// this should never happen
+		fprintf(stderr, "ERROR running %s:\n", cmd);
+		fprintf(stderr, "%s\n", message);
+		LocalFree((HLOCAL) message);
+		return RAND_MAX;
+	}
+
+	// wait for exit
+	while (TRUE) {
+		GetExitCodeProcess(processInfo.hProcess, &exitCode);
+		if (exitCode == 0x103) {
+			if (--timeLeft == 0) {
+				TerminateProcess(processInfo.hProcess, EXIT_FAILURE);
+				SetStdHandle(STD_OUTPUT_HANDLE, originalStdout);
+				SetStdHandle(STD_ERROR_HANDLE, originalStderr);
+				CloseHandle(tLogFile);
+				printf("EXIT CODE: timeout\n");
+				Sleep(100);
+				return RAND_MAX;
+			}
+			Sleep(100);
+		} else {
+			SetStdHandle(STD_OUTPUT_HANDLE, originalStdout);
+			SetStdHandle(STD_ERROR_HANDLE, originalStderr);
+
+			CloseHandle(tLogFile);
+
+			printf("EXIT CODE: %i\n", exitCode);
+			return exitCode;
+		}
+	}
+
+#else /* USE_WINDOWS */
 #error comment me out, if your test cases produce neither eternal loops nor Access Violations
 
 	len = 10 + strlen(cmd) + strlen(*logFile);
@@ -646,7 +717,6 @@ int crashRun(const char* cmd, char** logFile){
 	fprintf(stderr, "EXIT CODE: %i\n", i);
 
 	return i;
-
 #endif /* USE_POSIX else */
 }
 
@@ -1078,6 +1148,10 @@ err:
 
 
 	/* let's get serious */
+#ifdef USE_WINDOWS
+		originalStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+		originalStderr = GetStdHandle(STD_ERROR_HANDLE);
+#endif
 
 	if(modus & MODE_TORTURE){
 		if((modus & (MODE_COMPILE | MODE_NOCOMPILE))

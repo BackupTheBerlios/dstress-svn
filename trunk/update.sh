@@ -19,6 +19,7 @@ for DMD in `cd /opt/dmd/bin/; ls *dmd-0.*  | sort -u -r`; do
 		echo "$DMD ($DMDX) - update build"
 		make dstress
 		gunzip < raw_results/linux-amd64_$DMDX.log.gz > raw_results/linux-amd64_$DMDX.log
+		touch -a -m -r raw_results/linux-amd64_$DMDX.log.gz raw_results/linux-amd64_$DMDX.log
 		./log genUpdateList . raw_results/linux-amd64_$DMDX.log
 		date -R > raw_results/linux-amd64_$DMDX 
 		date -R > raw_results/linux-amd64_$DMDX.log 

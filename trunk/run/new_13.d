@@ -4,8 +4,6 @@
 
 module dstress.run.new_13;
 
-extern(C) void* malloc(size_t size);
-
 int counter;
 
 union MyUnion{
@@ -13,7 +11,7 @@ union MyUnion{
 
 	new(size_t size){
 		counter++;
-		return malloc(size);
+		return (new byte[size]).ptr;
 	}
 }
 

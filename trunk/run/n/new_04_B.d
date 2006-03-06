@@ -2,17 +2,13 @@
 // $Date$
 // $Author$
 
-module dstress.run.new_04;
+module dstress.run.n.new_04_B;
 
 char[] status;
 int count;
 
-class C{
-	byte b;
-
-	this(byte c){
-		b = c;
-	}
+struct S{
+	int dummy;
 
 	new (size_t i, char[] msg){
 		status = msg;
@@ -27,7 +23,7 @@ int main(){
 		assert(0);
 	}
 
-	C c;
+	S s;
 	
 	if(status.length != 0){
 		assert(0);
@@ -37,11 +33,11 @@ int main(){
 		assert(0);
 	}
 
-	if(c !is null){
+	if(&s is null){
 		assert(0);
 	}
 
-	c = new("abc") C(-4);
+	S* p = new("abc") S;
 
 	if(status != "abc"){
 		assert(0);
@@ -51,11 +47,7 @@ int main(){
 		assert(0);
 	}
 	
-	if(c is null){
-		assert(0);
-	}
-
-	if(c.b != -4){
+	if(p is null){
 		assert(0);
 	}
 

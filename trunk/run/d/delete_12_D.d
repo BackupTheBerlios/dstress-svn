@@ -6,13 +6,7 @@
 // @date@	2006-02-15
 // @uri@	news:dsv036$qlt$1@digitaldaemon.com
 
-// @WARNING@	direct use of Phobos
-
 module dstress.run.d.delete_12_D;
-
-import std.c.stdlib;
-import std.outofmemory;
-import std.gc;
 
 int status;
 
@@ -22,11 +16,7 @@ class Foo{
 	new(size_t sz){
 		void* p;
 
-		p = malloc(sz);
-    
-		if (!p){
-			throw new OutOfMemoryException();
-		}
+		p = (new byte[sz]).ptr;
 		
 		if(status++ != 1){
 			assert(0);

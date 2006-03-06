@@ -4,22 +4,20 @@
 
 module dstress.run.new_08;
 
-extern(C)  void *malloc(size_t size);
-
 int counter;
 int counter2;
 
 class Parent{
 	new(size_t size){
 		counter++;
-		return malloc(size);
+		return (new byte[size]).ptr;
 	}
 }
 
 class Child : Parent{
 	new(size_t size){
 		counter2++;
-		return malloc(size);
+		return (new byte[size]).ptr;
 	}
 }
 

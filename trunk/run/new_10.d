@@ -6,8 +6,6 @@ module dstress.run.new_10;
 
 int counter;
 
-extern(C) void* malloc(size_t size);
-
 class MyClass{
 	this(){
 		assert(counter==0);
@@ -15,7 +13,7 @@ class MyClass{
 	}
 
 	new(size_t size){
-		return malloc(size);
+		return (new byte[size]).ptr;
 	}			
 }
 

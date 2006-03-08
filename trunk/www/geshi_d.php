@@ -1,10 +1,10 @@
 <?php
 /*************************************************************************************
- * java.php
+ * d.php
  * --------
  * Author: Thomas Kuehne (thomas@kuehne.cn)
- * Copyright: (c) 2005 Thomas Kuehne (http://thomas.kuehne.cn/)
- * Release Version: 0.0.2
+ * Copyright: (c) 2005, 2006 Thomas Kuehne (http://thomas.kuehne.cn/)
+ * Release Version: 0.0.3
  * CVS Revision Version: $Revision$
  * Date Started: 2005/04/22
  * Last Modified: $Date$
@@ -13,6 +13,8 @@
  *
  * CHANGES
  * -------
+ * 2006/03/08 (0.0.3)
+ *  - updated to DMD-0.149
  * 2005/04/22 (0.0.2)
  *  -  added _d_* and sizeof/ptrdiff_t
  * 2005/04/20 (0.0.1)
@@ -77,6 +79,7 @@ $language_data = array (
 				'throw',
 				'this',
 				'super',
+				'scope',
 				'pragma',
 				'out',
 				'null',
@@ -118,8 +121,8 @@ $language_data = array (
 				'_d_throw',
 				'_d_switch_ustring',
 				'_d_switch_string',
+				'_d_switch_error',
 				'_d_switch_dstring',
-				'_d_OutOfMemory',
 				'_d_obj_eq',
 				'_d_obj_cmp',
 				'_d_newclass',
@@ -127,11 +130,12 @@ $language_data = array (
 				'_d_newarrayi',
 				'_d_new',
 				'_d_monitorrelease',
+				'_d_monitorexit',
+				'_d_monitorenter',
 				'_d_monitor_prolog',
 				'_d_monitor_handler',
-				'_d_monitorexit',
 				'_d_monitor_epilog',
-				'_d_monitorenter',
+				'_d_local_unwind2',
 				'_d_local_unwind',
 				'_d_isbaseof2',
 				'_d_isbaseof',
@@ -142,6 +146,7 @@ $language_data = array (
 				'_d_exception_filter',
 				'_d_exception',
 				'_d_dynamic_cast',
+				'_d_desc',
 				'_d_delmemory',
 				'_d_delinterface',
 				'_d_delclass',
@@ -149,7 +154,9 @@ $language_data = array (
 				'_d_criticalexit',
 				'_d_criticalenter',
 				'_d_create_exception_object',
+				'_d_cover_register',
 				'_d_callfinalizer',
+				'_d_assert',
 				'_d_arraysetlengthb',
 				'_d_arraysetlength',
 				'_d_arraysetbit2',
@@ -165,6 +172,8 @@ $language_data = array (
 				'_d_arrayappendc',
 				'_d_arrayappendb',
 				'_d_arrayappend',
+				'_d_array_bounds',
+				'_d_OutOfMemory'
 			),
 		4 => array(
 				'wchar',
@@ -220,7 +229,7 @@ $language_data = array (
 		),
 	'SYMBOLS' => array(
 		'(', ')', '[', ']', '{', '}', '?', '!', ';', ':', ',', '...', '..',
-		'+', '-', '*', '/', '%', '&', '|', '^', '<', '>', '=', '~',
+		'+', '-', '*', '/', '%', '&', '|', '^', '<', '>', '=', '~', '$',
 		),
 	'CASE_SENSITIVE' => array(
 		GESHI_COMMENTS => true,

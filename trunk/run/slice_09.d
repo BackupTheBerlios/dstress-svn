@@ -19,7 +19,7 @@ int main(){
 	try{
 		b[1..2] = a[0..1];
 	}catch(Exception e){
-		return 0;
+		assert(0);
 	}
-	assert(0);
+	return 0;
 }

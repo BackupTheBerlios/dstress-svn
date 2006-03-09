@@ -16,9 +16,17 @@ int main(){
 	array[] = 3;
 	array.length = 3;
 
-	assert(array[0] == 3);
-	assert(array[1] == 3);
-	assert(array[2] == 4);
+	if(array[0] != 3){
+		assert(0);
+	}
+	
+	if(array[1] != 3){
+		assert(0);
+	}
+	
+	if(array[2] != 4){
+		assert(0);
+	}
 
 	return 0;
 }

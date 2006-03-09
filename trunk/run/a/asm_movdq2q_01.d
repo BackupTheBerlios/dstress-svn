@@ -15,9 +15,9 @@ int main(){
 			movq b, XMM0;
 		}
 		
-		assert(a==b);
-		
-		return 0;
+		if(a==b){
+			return 0;
+		}
 	}else{
 		pragma(msg, "no Inline asm support");
 		static assert(0);

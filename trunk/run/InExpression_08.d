@@ -17,7 +17,9 @@ int main(){
 	array[key]=value;
 	MyClass* ptr = key in array;
 	
-	assert(&value == ptr);
+	if(value != *ptr){
+		assert(0);
+	}
 
 	return 0;
 }

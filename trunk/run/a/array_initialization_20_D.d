@@ -20,9 +20,17 @@ int main(){
 	array.length = 3;
 
 
-	assert(array[0] == three);
-	assert(array[1] == three);
-	assert(array[2] == four);
+	if(array[0] != three){
+		assert(0);
+	}
+	
+	if(array[1] != three){
+		assert(0);
+	}
+	
+	if(array[2] != four){
+		assert(0);
+	}
 
 	return 0;
 }

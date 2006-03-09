@@ -16,7 +16,9 @@ int main(){
 	X[] array;
 	array.length = 1;
 
-	assert(array[0] == four);
+	if(array[0] != four){
+		assert(0);
+	}
 
 	return 0;
 }

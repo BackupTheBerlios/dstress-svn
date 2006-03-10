@@ -25,7 +25,7 @@ for DMD in `cd /opt/dmd/bin/; ls *dmd-0.*  | sort -u -r`; do
 		date -R > raw_results/linux-amd64_$DMDX.log 
 		mv raw_results/linux-amd64_$DMDX.log.update update-list.sh
 		chmod +x update-list.sh
-		./update-list.sh >> raw_results/linux-amd64_$DMDX 2>> raw_results/linux-amd64_$DMDX.log
+		./update-list.sh 2>> raw_results/linux-amd64_$DMDX 1>> raw_results/linux-amd64_$DMDX.log
 		rm -f log.txt
 		make complex > log.txt 2>&1
 		cat log.txt >> raw_results/linux-amd64_$DMDX.log
@@ -50,7 +50,9 @@ for LOG in `tree -if tmp2 | grep "gz$"`; do
 done
 
 ./log genReport . \
-	--./tmp2/linux-amd64_dmd-0.148.log \
+	--./tmp2/linux-amd64_dmd-0.149.log \
+	--./tmp2/linux-amd64_gdc-0.18.1.log \
+	./tmp2/linux-amd64_dmd-0.148.log \
 	./tmp2/linux-amd64_dmd-0.147.log \
 	./tmp2/linux-amd64_dmd-0.146.log \
 	./tmp2/linux-amd64_dmd-0.145.log \
@@ -58,12 +60,13 @@ done
 	./tmp2/linux-amd64_dmd-0.143.log \
 	./tmp2/linux-amd64_dmd-0.142.log \
 	./tmp2/linux-amd64_dmd-0.141.log \
-	--./tmp2/linux-amd64_gdc-0.17.log \
-	./tmp2/linux-amd64_dmd-0.140.log
+	./tmp2/linux-amd64_gdc-0.17.log 
 
 mv www/results.html www/results.short.html
 
 ./log genReport . \
+	--./tmp2/linux-amd64_dmd-0.149.log \
+	--./tmp2/linux-amd64_gdc-0.18.1.log \
 	--./tmp2/linux-amd64_dmd-0.148.log \
 	--./tmp2/linux-amd64_dmd-0.147.log \
 	--./tmp2/linux-amd64_dmd-0.146.log \

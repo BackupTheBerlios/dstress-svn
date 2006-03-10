@@ -255,7 +255,7 @@ char* cleanPathSeperator(char* filename){
 	return filename;
 }
 
-char* loadFile(char* filename){
+char* loadFile(char* filename, size_t* len){
 #ifdef USE_POSIX
 	char* back;
 	struct stat fileInfo;
@@ -269,8 +269,10 @@ char* loadFile(char* filename){
 			fileInfo.st_size = read(file, back, fileInfo.st_size);
 			if(fileInfo.st_size>=0){
 				*(back+fileInfo.st_size) = '\x00';
+				*len = fileInfo.st_size;
 			}else{
 				back = NULL;
+				*len = 0;
 			}
 		}
 		close(file);
@@ -300,11 +302,14 @@ char* loadFile(char* filename){
 			if (ReadFile(file,back,size,&numread,NULL) == 1){
 				if (numread==size){
 					*(back+size) = '\x00';
+					len = size;
 				}else{
 					back = NULL;
+					len = 0;
 				}
 			}else{
 				back = NULL;
+				len = 0;
 			}
 		}
 		CloseHandle(file);
@@ -625,8 +630,9 @@ int crashRun(const char* cmd, char** logFile){
 	snprintf(buffer, len, "\"%s\" %s > %s 2>&1", CRASH_RUN, cmd, *logFile);
 
 	system(buffer);
-	buffer=loadFile(*logFile);
+	buffer=loadFile(*logFile, &len);
 
+	/* @todo@ use: len */
 	if(strstr(buffer, "EXIT CODE: 0")){
 		return EXIT_SUCCESS;
 	}else if(strstr(buffer, "EXIT CODE: 256")
@@ -644,7 +650,7 @@ int crashRun(const char* cmd, char** logFile){
 	};
 	HANDLE tLogFile;
 	unsigned long exitCode;
-	int timeLeft = 600;	// time limit in iterations of WFX loop
+	int timeLeft = 600;	/* time limit in iterations of WFX loop */
 
 	memset(&processInfo, 0, sizeof(PROCESS_INFORMATION));
 	memset(&startupInfo, 0, sizeof(STARTUPINFO));
@@ -673,14 +679,14 @@ int crashRun(const char* cmd, char** logFile){
 		SetStdHandle(STD_ERROR_HANDLE, originalStderr);
 		CloseHandle(tLogFile);
 
-		// this should never happen
+		/* this should never happen */
 		fprintf(stderr, "ERROR running %s:\n", cmd);
 		fprintf(stderr, "%s\n", message);
 		LocalFree((HLOCAL) message);
 		return RAND_MAX;
 	}
 
-	// wait for exit
+	/* wait for exit */
 	while (TRUE) {
 		GetExitCodeProcess(processInfo.hProcess, &exitCode);
 		if (exitCode == 0x103) {
@@ -714,7 +720,7 @@ int crashRun(const char* cmd, char** logFile){
 	snprintf(buffer, len, "%s > %s 2>&1", cmd, *logFile);
 
 	int i = system(buffer);
-	fprintf(stderr, "EXIT CODE: %i\n", i);
+	printf("EXIT CODE: %i\n", i);
 
 	return i;
 #endif /* USE_POSIX else */
@@ -759,15 +765,15 @@ int target_compile(int modus, char* compiler, char* arguments, char* case_file,
 
 	/* test */
 	if(modus & MODE_COMPILE){
-		fprintf(stderr, "compile: %s\n", buffer);
+		printf("compile: %s\n", buffer);
 	}else{
-		fprintf(stderr, "nocompile: %s\n", buffer);
+		printf("nocompile: %s\n", buffer);
 	}
 	res = crashRun(buffer, &logFile);
 
 	/* diagnostic */
-	buffer = loadFile(logFile);
-	fprintf(stderr, "%s\n", buffer);
+	buffer = loadFile(logFile, &bufferLen);
+	printf("%.*s\n", (int)bufferLen, buffer);
 	remove(logFile);
 	good_error = checkErrorMessage(error_file, error_line, buffer);
 
@@ -857,15 +863,15 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 
 	/* test 1/3 - compile */
 	if(modus & MODE_RUN){
-		fprintf(stderr, "run: %s\n", buffer);
+		printf("run: %s\n", buffer);
 	}else{
-		fprintf(stderr, "norun: %s\n", buffer);
+		printf("norun: %s\n", buffer);
 	}
 	res = crashRun(buffer, &logFile);
 
 	/* diagnostic 1/3 */
-	buffer = loadFile(logFile);
-	fprintf(stderr, "%s", buffer);
+	buffer = loadFile(logFile, &bufferLen);
+	printf("%.*s", (int)bufferLen, buffer);
 	remove(logFile);
 
 	if(modus & MODE_RUN){
@@ -887,12 +893,12 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	bufferLen = strlen(case_file) + 30;
 	buffer = malloc(bufferLen);
 	snprintf(buffer, bufferLen, "%s.exe", case_file);
-	fprintf(stderr, "%s\n", buffer);
+	printf("%s\n", buffer);
 	res=crashRun(buffer, &logFile);
 
 	/* diagnostic 2/3 */
-	buffer = loadFile(logFile);
-	fprintf(stderr, "%s\n", buffer);
+	buffer = loadFile(logFile, &bufferLen);
+	printf("%.*s\n", (int) bufferLen, buffer);
 	remove(logFile);
 
 	if(modus & MODE_NORUN){
@@ -912,11 +918,11 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 			+ strlen(gdb_scripter) + 20;
 		snprintf(buffer, bufferLen, "%s %s.exe < %s",
 			gdb, case_file, gdb_scripter);
-		fprintf(stderr, "%s\n", buffer);
+		printf("%s\n", buffer);
 		if(EXIT_SUCCESS==crashRun(buffer, &logFile)){
 			/* diagnostic 3/3 */
-			buffer = loadFile(logFile);
-			fprintf(stderr, "%s\n", buffer);
+			buffer = loadFile(logFile, &bufferLen);
+			printf("%.*s\n", (int)bufferLen, buffer);
 			good_gdb = (regexec(gdb_pattern, buffer, 0, NULL, 0)==0);
 		}
 		remove(logFile);
@@ -926,7 +932,7 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	}
 #else
 	good_gdb = 1;
-#endif /* REG_EXTENDED */
+#endif /* REG_EXTENDED else */
 
 	if(modus & MODE_RUN){
 		if(hadExecCrash(buffer)){
@@ -997,8 +1003,8 @@ int main(int argc, char* arg[]){
 	/* check arguments */
 	if(argc != 3){
 err:
-		fprintf(stderr, "DStress test executer (revision 853)\n"
-			"Copyright by Thomas Kuehne <thomas@kuehne.cn> 2005\n"
+		fprintf(stderr, "DStress test executer (revision 1083)\n"
+			"Copyright by Thomas Kuehne <thomas@kuehne.cn> 2005, 2006\n"
 			"\n");
 
 		if(argc!=0){
@@ -1054,11 +1060,12 @@ err:
 	}
 
 	/* gen flags */
-	case_file = cleanPathSeperator(strdup(arg[2]));
+	case_file = cleanPathSeperator(arg[2]);
 	compiler = getCompiler();
 	gdb = getGDB();
 	torture_block_global = getTortureBlock();
-	buffer = loadFile(case_file);
+	buffer = loadFile(case_file, &bufferLen);
+	bufferLen = 0;
 
 	cmd_arg_case = getCaseFlag(buffer, "__DSTRESS_DFLAGS__");
 	error_line = getCaseFlag(buffer, "__DSTRESS_ELINE__");
@@ -1132,7 +1139,7 @@ err:
 #endif /* REG_EXTENDED else */
 
 #ifdef DEBUG
-	fprintf(stderr, "case:     \"%s\"\n", case_file);
+	fprintf(stderr, "case    : \"%s\"\n", case_file);
 	fprintf(stderr, "compiler: \"%s\"\n", compiler);
 	fprintf(stderr, "DFLAGS C: \"%s\"\n", cmd_arg_case);
 	fprintf(stderr, "ELINE   : \"%s\"\n", error_line);
@@ -1149,8 +1156,8 @@ err:
 
 	/* let's get serious */
 #ifdef USE_WINDOWS
-		originalStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-		originalStderr = GetStdHandle(STD_ERROR_HANDLE);
+	originalStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+	originalStderr = GetStdHandle(STD_ERROR_HANDLE);
 #endif
 
 	if(modus & MODE_TORTURE){
@@ -1158,8 +1165,10 @@ err:
 			&& (modus & (MODE_RUN | MODE_NORUN)))
 		{
 			fprintf(stderr, "BUG: unhandled torture modus %x\n", modus);
+			exit(EXIT_FAILURE);
 		}else if(!(modus & (MODE_COMPILE | MODE_NOCOMPILE | MODE_RUN | MODE_NORUN))){
 			fprintf(stderr, "BUG: unhandled torture modus %x\n", modus);
+			exit(EXIT_FAILURE);
 		}
 
 		bufferLen = strlen(torture[(sizeof(torture) / sizeof(char*))-1])
@@ -1196,41 +1205,13 @@ err:
 				);
 			}
 
-			fprintf(stderr, "Torture-Sub-%i/" ZU "-", index+1,
+			printf("Torture-Sub-%i/" ZU "-", index+1,
 					sizeof(torture)/sizeof(char*));
 			printResult(torture_result[index], modus, case_file,
-					stderr);
-			fprintf(stderr, "--------\n");
+					stdout);
+			printf("--------\n");
 		}
-
-		printf("Torture:\t%s\t{", case_file);
-		for(index=0; index < sizeof(torture)/sizeof(char*); index++){
-			case_result = 0;
-			switch(torture_result[index] & RES_BASE_MASK){
-				case RES_UNTESTED: case_result = 0; break;
-				case RES_PASS: case_result = 1 << 2; break;
-				case RES_XFAIL: case_result = 2 << 2; break;
-				case RES_XPASS: case_result = 3 << 2; break;
-				case RES_FAIL: case_result = 4 << 2; break;
-				case RES_ERROR: case_result = 5 << 2; break;
-				default:
-					fprintf(stderr, "BUG: unexpected case result %i\n",
-							torture_result[index]);
-					exit(EXIT_FAILURE);
-			}
-
-			if(torture_result[index] & RES_BAD_MSG){
-				case_result |= 1;
-			}
-			if(torture_result[index] & RES_BAD_GDB){
-				case_result |= 2;
-			}
-
-			printf("%c", 'A' + case_result);
-		}
-		printf("}\n");
 	}else{
-		/* start working */
 		if(modus & (MODE_RUN | MODE_NORUN)){
 			case_result = target_run(modus, compiler, cmd_arg_case,
 					case_file, error_file, error_line
@@ -1244,13 +1225,13 @@ err:
 					error_line);
 		}else{
 			fprintf(stderr, "BUG: unhandled non-torture modus %x\n", modus);
+			exit(EXIT_FAILURE);
 		}
 		
-		fprintf(stdout, "Torture-Sub-1/" ZU "-",
+		printf("Torture-Sub-1/" ZU "-",
 			sizeof(torture)/sizeof(char*));
 		printResult(case_result, modus, case_file, stdout);
 	}
 
-
-	return EXIT_SUCCESS;
+	exit(EXIT_SUCCESS);
 }

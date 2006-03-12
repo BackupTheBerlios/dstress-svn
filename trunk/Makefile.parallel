@@ -1,0 +1,125 @@
+# $HeadURL$
+# $Date$
+# $Author$
+#
+# experimental parallel GnuMakefile for DStress http://dstress.kuehne.cn/www/dstress.html
+# Copyright (C) 2006 Thomas Kuehne
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#                                      
+
+usage :
+	$(warning common target sequence: 'clean' 'all')
+	$(warning don't forget to call >>>clean<<< before 'all' 'compile' 'nocompile' 'norun' or 'run')
+
+#
+# config
+#
+
+date = date +"%a, %e %b %Y %T %z"
+uname = uname -s -m -r
+
+ifndef CAT
+CAT := cat
+endif
+
+ifndef CC
+CC := cc
+endif
+
+ifndef DMD
+DMD := dmd
+export DMD
+endif
+
+ifndef FIND
+FIND := find
+endif
+
+ifndef RM
+RM := rm -f
+endif
+
+###############################################################################
+###############################################################################
+#
+# nothing to customize below this line
+#
+###############################################################################
+###############################################################################
+
+dstress := ./dstress.exe
+crashRun := ./crashRun.exe
+logsuffix := .outlog
+
+.PHONY:: all all_prep all_real clean compile nocompile norun run tools version
+
+all : tools compile nocompile run norun
+
+%.exe : %.c
+	$(CC) $(CFLAGS) $< -o $@
+	
+tools : $(dstress) $(crashRun)
+
+version :
+	@$(date)
+	@$(uname)
+	-@$(DMD) -v
+
+#
+# compile
+#
+compile : $(patsubst %,%.exe,$(shell find compile -type f | grep -v "\\.svn"))
+
+compile/%.exe : compile/% tools
+	@$(dstress) torture-compile $< > obj/$(notdir $<)$(logsuffix)
+	@$(CAT) obj/$(notdir $<)$(logsuffix)
+
+#
+# nocompile
+# 
+nocompile : $(patsubst %,%.exe,$(shell find nocompile -type f | grep -v "\\.svn"))
+
+nocompile/%.exe : nocompile/% tools
+	@$(dstress) torture-nocompile $< > obj/$(notdir $<)$(logsuffix)
+	@$(CAT) obj/$(notdir $<)$(logsuffix)
+
+#
+# norun
+#
+norun : $(patsubst %,%.exe,$(shell find norun -type f | grep -v "\\.svn"))
+
+norun/%.exe : norun/% tools
+	@$(dstress) torture-norun $< > obj/$(notdir $<)$(logsuffix)
+	@$(CAT) obj/$(notdir $<)$(logsuffix)
+
+#
+# run
+#
+run : $(patsubst %,%.exe,$(shell find run -type f | grep -v "\\.svn"))
+
+run/%.exe : run/% tools
+	@$(dstress) torture-run $< > obj/$(notdir $<)$(logsuffix)
+	@$(CAT) obj/$(notdir $<)$(logsuffix)
+
+
+clean :
+	$(RM) -- $(shell find run -name "*exe")
+	$(RM) -- $(shell find norun -name "*exe")
+	$(RM) -- $(shell find compile -name "*exe")
+	$(RM) -- $(shell find nocompile -name "*exe")
+	$(RM) -- obj/?*.*
+	$(RM) -- $(dstress) $(crashRun)
+

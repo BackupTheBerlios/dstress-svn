@@ -20,16 +20,12 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #                                      
 
-usage :
-	$(warning common target sequence: 'clean' 'all')
-	$(warning don't forget to call >>>clean<<< before 'all' 'compile' 'nocompile' 'norun' or 'run')
-
 #
 # config
 #
 
-date = date +"%a, %e %b %Y %T %z"
-uname = uname -s -m -r
+date := date +"%a, %e %b %Y %T %z"
+uname := uname -s -m -r
 
 ifndef CAT
 CAT := cat
@@ -52,6 +48,9 @@ ifndef RM
 RM := rm -f
 endif
 
+find := find
+find_filter := -type f | grep -v "\\(\\.svn\\)\\|\\(\\.exe$\\)"
+
 ###############################################################################
 ###############################################################################
 #
@@ -60,13 +59,19 @@ endif
 ###############################################################################
 ###############################################################################
 
+ifndef NO_TORTURE
+torture := torture-
+else
+torture :=
+endif
+
 dstress := ./dstress.exe
 crashRun := ./crashRun.exe
 logsuffix := .outlog
 
 .PHONY:: all all_prep all_real clean compile nocompile norun run tools version
 
-all : tools compile nocompile run norun
+all : version compile nocompile run norun
 
 %.exe : %.c
 	$(CC) $(CFLAGS) $< -o $@
@@ -81,45 +86,49 @@ version :
 #
 # compile
 #
-compile : $(patsubst %,%.exe,$(shell find compile -type f | grep -v "\\.svn"))
+compile : $(sort $(patsubst %,%.exe,$(shell $(find) compile $(find_filter))))
 
 compile/%.exe : compile/% tools
-	@$(dstress) torture-compile $< > obj/$(notdir $<)$(logsuffix)
+	@$(dstress) $(torture)compile $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
 
 #
 # nocompile
 # 
-nocompile : $(patsubst %,%.exe,$(shell find nocompile -type f | grep -v "\\.svn"))
+nocompile : $(sort $(patsubst %,%.exe,$(shell $(find) nocompile $(find_filter))))
 
 nocompile/%.exe : nocompile/% tools
-	@$(dstress) torture-nocompile $< > obj/$(notdir $<)$(logsuffix)
+	@$(dstress) $(torture)nocompile $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
 
 #
 # norun
 #
-norun : $(patsubst %,%.exe,$(shell find norun -type f | grep -v "\\.svn"))
+norun : $(sort $(patsubst %,%.exe,$(shell $(find) norun $(find_filter))))
 
 norun/%.exe : norun/% tools
-	@$(dstress) torture-norun $< > obj/$(notdir $<)$(logsuffix)
+	@$(dstress) $(torture)norun $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
 
 #
 # run
 #
-run : $(patsubst %,%.exe,$(shell find run -type f | grep -v "\\.svn"))
+run : $(sort $(patsubst %,%.exe,$(shell $(find) run $(find_filter))))
 
 run/%.exe : run/% tools
-	@$(dstress) torture-run $< > obj/$(notdir $<)$(logsuffix)
+	@$(dstress) $(torture)run $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
 
+#
+# clean
+#
+#
 
 clean :
-	$(RM) -- $(shell find run -name "*exe")
-	$(RM) -- $(shell find norun -name "*exe")
-	$(RM) -- $(shell find compile -name "*exe")
-	$(RM) -- $(shell find nocompile -name "*exe")
+	$(RM) -- $(shell $(find) run -name "*exe")
+	$(RM) -- $(shell $(find) norun -name "*exe")
+	$(RM) -- $(shell $(find) compile -name "*exe")
+	$(RM) -- $(shell $(find) nocompile -name "*exe")
 	$(RM) -- obj/?*.*
 	$(RM) -- $(dstress) $(crashRun)
 

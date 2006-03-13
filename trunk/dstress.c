@@ -73,23 +73,55 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <regex.h>
-#include <stdint.h>
 #include <limits.h>
 
-/* not every STDLIB supports C99's "%z" for printf formating */
-#if PTRDIFF_MAX == INT_MAX
+/* not every STDLIB propperly supports C99's "%z" for printf formating */
+/* (I just love those non-conforming headers...) */
+#undef ZU
+
+#if !defined(ZU) && defined(SSIZE_MAX)
+#if defined(INT_MAX) && SSIZE_MAX == INT_MAX
 #define ZU "%u"
-#else
-#if PTRDIFF_MAX == LONG_MAX
+#elif defined(LONG_MAX) && SSIZE_MAX == LONG_MAX
 #define ZU "%lu"
-#else
-#if PTRDIFF_MAX == SHRT_MAX
+#elif defined(LLONG_MAX) && SSIZE_MAX == LLONG_MAX
+#define ZU "%llu"
+#elif defined(SHRT_MAX) && SSIZE_MAX == SHRT_MAX
 #define ZU "%hu"
-#else
+#endif
+#endif /* SSIZE_MAX */
+
+#if !defined(ZU) && defined(SIZE_T_MAX)
+#if defined(UINT_MAX) && SIZE_T_MAX == UINT_MAX
+#define ZU "%u"
+#elif defined(ULONG_MAX) && SIZE_T_MAX == ULONG_MAX
+#define ZU "%lu"
+#elif defined(ULLONG_MAX) && SIZE_T_MAX == ULLONG_MAX
+#define ZU "%llu"
+#elif defined(USHRT_MAX) && SIZE_T_MAX == USHRT_MAX
+#define ZU "%hu"
+#endif
+#endif /* SIZE_T_MAX */
+
+#ifndef ZU
+#include <stdint.h>
+#ifdef PTRDIFF_MAX
+#if defined(INT_MAX) && PTRDIFF_MAX == INT_MAX
+#define ZU "%u"
+#elif defined(LONG_MAX) && PTRDIFF_MAX == LONG_MAX
+#define ZU "%lu"
+#elif defined(LLONG_MAX) && PTRDIFF_MAX == LLONG_MAX
+#define ZU "%llu"
+#elif defined(SHRT_MAX) && PTRDIFF_MAX == SHRT_MAX
+#define ZU "%hu"
+#endif
+#endif
+#endif /* PTRDIFF_MAX */
+
+#ifndef ZU
 #error what is the size of a pointer?
 #endif
-#endif
-#endif
+
 #else
 #ifdef USE_WINDOWS
 
@@ -302,14 +334,14 @@ char* loadFile(char* filename, size_t* len){
 			if (ReadFile(file,back,size,&numread,NULL) == 1){
 				if (numread==size){
 					*(back+size) = '\x00';
-					len = size;
+					*len = size;
 				}else{
 					back = NULL;
-					len = 0;
+					*len = 0;
 				}
 			}else{
 				back = NULL;
-				len = 0;
+				*len = 0;
 			}
 		}
 		CloseHandle(file);
@@ -1227,7 +1259,7 @@ err:
 			fprintf(stderr, "BUG: unhandled non-torture modus %x\n", modus);
 			exit(EXIT_FAILURE);
 		}
-		
+
 		printf("Torture-Sub-1/" ZU "-",
 			sizeof(torture)/sizeof(char*));
 		printResult(case_result, modus, case_file, stdout);

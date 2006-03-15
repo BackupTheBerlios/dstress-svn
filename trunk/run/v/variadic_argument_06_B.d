@@ -7,14 +7,21 @@
 // @uri@	news:d8g6e8$1kak$1@digitaldaemon.com
 // @desc@	expression.c:272: void functionArguments(Loc, Scope*, TypeFunction*, Array*): Assertion `0' failed
 	
-// __DSTRESS_ELINE__ 19
-
-module dstress.nocompile.v.variadic_argument_06_B;
+module dstress.run.v.variadic_argument_06_B;
 
 void test(int[] i ...){
+	if(i.length != 1){
+		assert(0);
+	}
+
+	if(i[0] != 7){
+		assert(0);
+	}
 }
 
-void main(){
-	int j;
+int main(){
+	int j = 7;
 	test(j);
+
+	return 0;
 }

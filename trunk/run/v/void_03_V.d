@@ -8,6 +8,6 @@
 module dstress.run.v.void_03_V;
 
 int main(){
-	Class x = void;
+	Object x = void;
 	return 0;
 }

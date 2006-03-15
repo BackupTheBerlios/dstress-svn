@@ -65,15 +65,15 @@ else
 torture :=
 endif
 
-dstress := ./dstress.exe
-crashRun := ./crashRun.exe
+dstress := ./dstress
+crashRun := ./crashRun
 logsuffix := .outlog
 
-.PHONY:: all all_prep all_real clean compile nocompile norun run tools version
+.PHONY:: all clean compile nocompile norun run tools version
 
-all : version compile nocompile run norun
+all :: version compile nocompile run norun
 
-%.exe : %.c
+% : %.c
 	$(CC) $(CFLAGS) $< -o $@
 	
 tools : $(dstress) $(crashRun)
@@ -123,8 +123,7 @@ run/%.exe : run/% tools
 # clean
 #
 #
-
-clean :
+clean ::
 	$(RM) -- $(shell $(find) run -name "*exe")
 	$(RM) -- $(shell $(find) norun -name "*exe")
 	$(RM) -- $(shell $(find) compile -name "*exe")

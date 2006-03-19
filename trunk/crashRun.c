@@ -81,6 +81,8 @@ static pid_t pID;
 #endif
 
 
+char* cmd;
+
 /* let's start implementing :) */
 
 void handleSignal(int signalID){
@@ -173,9 +175,6 @@ void setupHandlers(){
 	signal(SIGBUS, &handleSignal);
 #endif
 	signal(SIGFPE, &handleSignal);
-#ifdef SIGKILL
-	signal(SIGKILL, &handleSignal);
-#endif
 #ifdef SIGUSR1
 	signal(SIGUSR1, &handleSignal);
 #endif
@@ -211,11 +210,14 @@ void setupHandlers(){
 #endif /* USE_POSIX */
 }
 
+void cleanCommand(){
+	free(cmd);
+}
+
 char* reconstructCmd(int argc, char** argv){
 	size_t cmdLen=1;
 	size_t tmpLen;
 	size_t i;
-	char* cmd;
 	char* tmp;
 
 	for(i=0; i<argc; i++){
@@ -224,6 +226,8 @@ char* reconstructCmd(int argc, char** argv){
 	}
 
 	cmd = (char*)malloc(cmdLen);
+	atexit(&cleanCommand);
+
 	*cmd = '\x00';
 	tmp = cmd;
 
@@ -236,7 +240,6 @@ char* reconstructCmd(int argc, char** argv){
 }
 
 int main(int argc, char** argv){
-	char* cmd;
 	if(argc<2){
 		fprintf(stderr, "name of command to call required\n");
 		return EXIT_FAILURE;

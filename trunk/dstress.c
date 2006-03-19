@@ -2,7 +2,7 @@
  * core test tool for the DStress test suite
  * http://dstress.kuehne.cn
  *
- * Copyright (C) 2005 Thomas Kuehne <thomas@kuehne.cn>
+ * Copyright (C) 2005, 2006 Thomas Kuehne <thomas@kuehne.cn>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -105,6 +105,7 @@
 
 #ifndef ZU
 #include <stdint.h>
+#undef ZU
 #ifdef PTRDIFF_MAX
 #if defined(INT_MAX) && PTRDIFF_MAX == INT_MAX
 #define ZU "%u"
@@ -280,7 +281,7 @@ char* cleanPathSeperator(char* filename){
 	}
 #else
 
-#error no cleanPathSeperator available for this system
+#error no cleanPathSeperator implementation available for this system
 
 #endif /* USE_WINDOWS else */
 #endif /* USE_POSIX else */
@@ -455,33 +456,25 @@ char* getCaseFlag(const char* data, const char* tag){
 }
 
 /* check compile-time error messages */
-int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
+int checkErrorMessage(const char* file, const char* line, const char* buffer){
 
-	char* file;
-	char* line;
 	char* dmd;
 	char* gdc;
 	size_t len;
 	int back;
 
-	file = NULL;
-	line = NULL;
 	dmd = NULL;
 	gdc = NULL;
 	len = 0;
 	back = 0;
 
 	/* clean arguments */
-	if(strcmp(file_, "")!=0){
-		len = strlen(file_)+1;
-		file = malloc(len);
-		strncpy(file, file_, len);
+	if(file && !file[0]){
+		file = NULL;
 	}
 
-	if(strcmp(line_, "")!=0){
-		len = strlen(line_)+1;
-		line = malloc(len);
-		strncpy(line, line_, len);
+	if(line && !line[0]){
+		line = NULL;
 	}
 
 	/* gen patterns*/
@@ -491,7 +484,7 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 			dmd = malloc(len);
 			snprintf(dmd, len, "%s(%s)", file, line);
 
-			gdc = malloc(len);
+			gdc = malloc(--len);
 			snprintf(gdc, len, "%s:%s", file, line);
 		}else{
 			len = strlen(file)+2;
@@ -506,7 +499,7 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 		dmd = malloc(len);
 		snprintf(dmd, len, "(%s)", line);
 
-		gdc = malloc(len);
+		gdc = malloc(--len);
 		snprintf(gdc, len, ":%s", line);
 	}else{
 		return 1;
@@ -524,27 +517,26 @@ int checkErrorMessage(const char* file_, const char* line_, const char* buffer){
 		back=1;
 	}
 
+	free(dmd);
+	free(gdc);
+
 	return back;
 }
 
-int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* buffer){
+int checkRuntimeErrorMessage(const char* file, const char* line, const char* buffer){
 	/* PhobosLong	dir/file.d(2)
 	 * Phobos	package.module(2)
 	 */
 
-	char* file;
-	char* line;
 	char* phobos;
 	char* phobosLong;
 
-	char* begin;
-	char* end;
+	const char* begin;
+	const char* end;
 	size_t len;
 
 	int back=0;
 
-	file = NULL;
-	line = NULL;
 	phobos = NULL;
 	phobosLong = NULL;
 
@@ -553,22 +545,18 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 	len = 0;
 
 	/* clean arguments */
-	if(strcmp(file_, "")!=0){
-		len = strlen(file_)+1;
-		file = malloc(len);
-		strncpy(file, file_, len);
+	if(file && !file[0]){
+		file = NULL;
 	}
 
-	if(strcmp(line_, "")!=0){
-		len = strlen(line_)+1;
-		line = malloc(len);
-		strncpy(line, line_, len);
+	if(line && !line[0]){
+		line = NULL;
 	}
 
 	/* gen patterns*/
 	if(file!=NULL){
 		if(line!=NULL){
-			len = strlen(file)+strlen(line)+5;
+			len = strlen(file)+strlen(line)+3;
 			phobos = malloc(len);
 			begin=strrchr(file,'/');
 			if(begin){
@@ -632,6 +620,11 @@ int checkRuntimeErrorMessage(const char* file_, const char* line_, const char* b
 		back=1;
 	}
 
+	free(phobos);
+	if(phobosLong){
+		free(phobosLong);
+	}
+
 	return back;
 }
 
@@ -653,6 +646,7 @@ int crashRun(const char* cmd, char** logFile){
 
 	size_t len;
 	char* buffer;
+	int back;
 
 	*logFile = genTempFileName();
 #ifdef USE_POSIX
@@ -662,18 +656,23 @@ int crashRun(const char* cmd, char** logFile){
 	snprintf(buffer, len, "\"%s\" %s > %s 2>&1", CRASH_RUN, cmd, *logFile);
 
 	system(buffer);
+	free(buffer);
+
 	buffer=loadFile(*logFile, &len);
 
 	/* @todo@ use: len */
 	if(strstr(buffer, "EXIT CODE: 0")){
-		return EXIT_SUCCESS;
+		back = EXIT_SUCCESS;
 	}else if(strstr(buffer, "EXIT CODE: 256")
 			|| strstr(buffer, "EXIT CODE: timeout"))
 	{
-		return EXIT_FAILURE;
+		back = EXIT_FAILURE;
 	}else{
-		return RAND_MAX;
+		back = RAND_MAX;
 	}
+	free(buffer);
+
+	return back;
 #elif defined USE_WINDOWS
 	PROCESS_INFORMATION processInfo;
 	STARTUPINFO startupInfo;
@@ -802,11 +801,13 @@ int target_compile(int modus, char* compiler, char* arguments, char* case_file,
 		printf("nocompile: %s\n", buffer);
 	}
 	res = crashRun(buffer, &logFile);
+	free(buffer);
 
 	/* diagnostic */
 	buffer = loadFile(logFile, &bufferLen);
 	printf("%.*s\n", (int)bufferLen, buffer);
 	remove(logFile);
+	free(logFile);
 	good_error = checkErrorMessage(error_file, error_line, buffer);
 
 	if(hadExecCrash(buffer)){
@@ -832,6 +833,8 @@ int target_compile(int modus, char* compiler, char* arguments, char* case_file,
 			testResult = RES_ERROR;
 		}
 	}
+
+	free(buffer);
 
 	return testResult;
 }
@@ -900,11 +903,13 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 		printf("norun: %s\n", buffer);
 	}
 	res = crashRun(buffer, &logFile);
+	free(buffer);
 
 	/* diagnostic 1/3 */
 	buffer = loadFile(logFile, &bufferLen);
 	printf("%.*s", (int)bufferLen, buffer);
 	remove(logFile);
+	free(logFile);
 
 	if(modus & MODE_RUN){
 		good_error = checkErrorMessage(error_file, error_line,
@@ -914,11 +919,15 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	}
 
 	if(hadExecCrash(buffer)){
+		free(buffer);
 		return RES_ERROR;
-	}else if((res == EXIT_FAILURE) && good_error){
-		return RES_FAIL;
-	}else if(res!=EXIT_SUCCESS){
-		return RES_ERROR | (good_error ? 0 : RES_BAD_MSG);
+	}else{
+		free(buffer);
+		if((res == EXIT_FAILURE) && good_error){
+			return RES_FAIL;
+		}else if(res!=EXIT_SUCCESS){
+			return RES_ERROR | (good_error ? 0 : RES_BAD_MSG);
+		}
 	}
 
 	/* test 2/3 - run */
@@ -927,11 +936,13 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	snprintf(buffer, bufferLen, "%s.exe", case_file);
 	printf("%s\n", buffer);
 	res=crashRun(buffer, &logFile);
+	free(buffer);
 
 	/* diagnostic 2/3 */
 	buffer = loadFile(logFile, &bufferLen);
 	printf("%.*s\n", (int) bufferLen, buffer);
 	remove(logFile);
+	free(logFile);
 
 	if(modus & MODE_NORUN){
 		good_error = checkRuntimeErrorMessage(error_file, error_line,
@@ -942,12 +953,14 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 
 #ifdef REG_EXTENDED
 	if(gdb_script != NULL){
+		free(buffer);
 		good_gdb = 0;
 		/* test 3/3 - gdb */
 		gdb_scripter = genTempFileName();
 		writeFile(gdb_scripter, gdb_script);
 		bufferLen = strlen(gdb) + strlen(case_file)
 			+ strlen(gdb_scripter) + 20;
+		buffer = malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s.exe < %s",
 			gdb, case_file, gdb_scripter);
 		printf("%s\n", buffer);
@@ -987,6 +1000,7 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 				| (good_gdb ? 0 : RES_BAD_GDB);
 		}
 	}
+	free(buffer);
 
 	return testResult;
 }
@@ -1107,6 +1121,8 @@ err:
 	torture_block_case = getCaseFlag(buffer, "__DSTRESS_TORTURE_BLOCK__");
 	torture_require = getCaseFlag(buffer, "__DSTRESS_TORTURE_REQUIRE__");
 
+	free(buffer);
+
 	/* set implicit source file */
 	if(strcmp(error_line, "")!=0 && strcmp(error_file, "")==0){
 		error_file=case_file;
@@ -1117,7 +1133,7 @@ err:
 	if(gdb_pattern_raw!=NULL && gdb_pattern_raw[0]!='\x00'){
 
 		gdb_pattern = malloc(sizeof(regex_t));
-		if(regcomp(gdb_pattern, gdb_pattern_raw, REG_EXTENDED)){
+		if(regcomp(gdb_pattern, gdb_pattern_raw, REG_EXTENDED | REG_NOSUB)){
 			fprintf(stderr, "failed to compile regular expression:"
 				"\n\t%s\n", gdb_pattern_raw);
 			exit(EXIT_FAILURE);
@@ -1150,8 +1166,9 @@ err:
 		buffer=malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s\n\nquit\ny\n\n", gdb_script);
 		gdb_script=buffer;
-	}else{
-	    gdb_script = NULL;
+	}else if(gdb_script){
+		free(gdb_script);
+		gdb_script = NULL;
 	}
 
 #else

@@ -6,7 +6,7 @@ export PATH=.:$PATH
 
 for DMD in `cd /opt/dmd/bin/; ls *dmd-0.*  | sort -u -r`; do
 	export DMD
-	if echo $DMD | grep "\\(0\\.138\\)\\|\\(0\\.139\\)\\|\\(0\\.14\\)\\|\\(gdmd\\)" > /dev/null 2>/dev/null; then
+	if echo $DMD | grep "\\(0\\.138\\)\\|\\(0\\.139\\)\\|\\(0\\.14\\)\\|\\(gdmd\\)\\|\\(0\\.15\\)" > /dev/null 2>/dev/null; then
 		unset DSTRESS_TORTURE_BLOCK
 	else
 		DSTRESS_TORTURE_BLOCK=-fPIC

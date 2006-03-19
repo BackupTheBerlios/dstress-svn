@@ -9,7 +9,7 @@
 module dstress.run.c.creal_27_C;
 
 int main(){
-	static assert((2.0Li).im == 2.0);
+	static assert((2.0Li).im == 2.0L);
 
 	return 0;
 }

@@ -17,9 +17,9 @@ template sum(creal x){
 }
 
 int main(){
-	creal x = sum!(2.0L);
+	creal x = sum!(2.0L + 0.0Li);
 
-	if(x != 3.0L){
+	if(x != 3.0L + 0.0Li){
 		assert(0);
 	}
 

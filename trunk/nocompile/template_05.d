@@ -7,6 +7,8 @@
 // @uri@	news:pan.2004.05.30.19.54.44.280109@NetRunner.all-technology.com
 // @url@	nntp://digitalmars.com/digitalmars.D.bugs/329
 
+// __DSTRESS_ELINE__ 34
+
 module dstress.nocompile.template_05;
 
 template pow(x, int n){ 

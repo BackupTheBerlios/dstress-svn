@@ -14,8 +14,8 @@ union S{
 }
 
 int main(){
-	float re = -0.0;
-	ifloat im = -0.0i;
+	float re = -0.0f;
+	ifloat im = -0.0fi;
 	cfloat a = re + im;
 
 	S s;

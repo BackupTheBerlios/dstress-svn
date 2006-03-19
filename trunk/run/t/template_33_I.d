@@ -17,9 +17,9 @@ template sum(cfloat x){
 }
 
 int main(){
-	cfloat x = sum!(3.0f);
+	cfloat x = sum!(3.0f + 0.0fi);
 
-	if(x != 6.0f){
+	if(x != 6.0f + 0.0fi){
 		assert(0);
 	}
 

@@ -19,8 +19,8 @@ void bar(){
 }
 
 int main(){
-	x=2;
+	x= 2.0 + 0.0i;
 	bar();
-	assert(x==-2);
+	assert(x == -2.0 + 0.0i);
 	return 0;
 } 

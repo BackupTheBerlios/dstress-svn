@@ -14,7 +14,7 @@ union S{
 }
 
 int main(){
-	cfloat a = 0.0 + 0.0i;
+	cfloat a = 0.0f + 0.0fi;
 
 	S s;
 

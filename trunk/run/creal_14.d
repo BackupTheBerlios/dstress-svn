@@ -12,7 +12,7 @@ int main(){
 	b = real.infinity + ireal.infinity;
 	byte* Y = cast(byte*)(cast(void*)&b);
 
-	for(int i=0; i<a.sizeof; i++){
+	for(size_t i=0; i<a.sizeof; i++){
 		assert(X[i]==Y[i]);
 	}
 
@@ -21,14 +21,14 @@ int main(){
 	X = cast(byte*)(cast(void*)&c);
 	Y = cast(byte*)(cast(void*)&d);
 
-	for(int i=0; i<c.sizeof; i++){
+	for(size_t i=0; i<c.sizeof; i++){
 		assert(X[i]==Y[i]);
 	}
 
 	d=a.im;
 	X = cast(byte*)(cast(void*)&c);
 	Y = cast(byte*)(cast(void*)&d);
-	for(int i=0; i<c.sizeof; i++){
+	for(size_t i=0; i<c.sizeof; i++){
 		assert(X[i]==Y[i]);
 	}
 	

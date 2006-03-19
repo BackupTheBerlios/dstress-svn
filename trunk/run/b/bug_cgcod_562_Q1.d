@@ -18,16 +18,16 @@ alias test!(creal[]) bug;
 
 int main(){
 	creal[2] array;
-	array[0] = 2.0;
+	array[0] = 2.0L + 0.0Li;
 	
 	bug(array);
-	array[0] -= 1.0;
-	if(array[0].re < 0.0){
+	array[0] -= 1.0L;
+	if(array[0].re < 0.0L){
 		array[0] *= -1;
 	}
 	
-	assert(array[0].re < real.epsilon * 4.0);
-	assert(array[0].im < real.epsilon * 4.0);
+	assert(array[0].re < real.epsilon * 4.0L);
+	assert(array[0].im < real.epsilon * 4.0L);
 	
 	return 0;
 }

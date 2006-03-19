@@ -10,8 +10,8 @@
 module dstress.run.creal_20;
 
 int main(){
-	creal c = (2-2i)*(2-2i);
-	assert(c.re == 0);
-	assert(c.im == -8);
+	creal c = (2.0L - 2.0Li)*(2.0L - 2.0Li);
+	assert(c.re == 0.0L);
+	assert(c.im == -8.0L);
 	return 0;
 }

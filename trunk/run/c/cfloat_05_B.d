@@ -15,16 +15,16 @@ void foo(cfloat[] data){
 int main(){
 	cfloat[] data;
 	data.length = 2;
-	data[0] = 4.0 + 2.0i;
-	data[1] = 2.0 + 4.0i;
+	data[0] = 4.0f + 2.0fi;
+	data[1] = 2.0f + 4.0fi;
 
 	foo(data);
 
 	assert(data.length == 2);
-	assert(data[0].im == 1.0);
-	assert(data[0].re == 2.0);
-	assert(data[1].im == 4.0);
-	assert(data[1].re == 2.0);
+	assert(data[0].im == 1.0f);
+	assert(data[0].re == 2.0f);
+	assert(data[1].im == 4.0f);
+	assert(data[1].re == 2.0f);
 	
 	return 0;
 }

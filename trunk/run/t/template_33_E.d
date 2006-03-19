@@ -17,9 +17,9 @@ template sum(cdouble x){
 }
 
 int main(){
-	cdouble x = sum!(2.0);
+	cdouble x = sum!(2.0 + 0.0i);
 
-	if(x != 3.0){
+	if(x != 3.0 + 0.0i){
 		assert(0);
 	}
 

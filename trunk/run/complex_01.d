@@ -12,10 +12,10 @@ int main(){
 	creal C, Cj;
 	real y, x;
 
-	C  = x + y * 1i + Cj;
-	Cj = y * 1i + C + x;
-	C  = Cj + 1i * y + x;
-	Cj = 1i * y + x + C;
+	C  = x + y * 1.0Li + Cj;
+	Cj = y * 1.0Li + C + x;
+	C  = Cj + 1.0Li * y + x;
+	Cj = 1.0Li * y + x + C;
 
 	return 0; 
 }

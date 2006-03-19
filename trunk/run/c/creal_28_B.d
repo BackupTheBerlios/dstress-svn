@@ -14,12 +14,12 @@ void foo(creal[] data){
 
 int main(){
 	creal[1] d;
-	d[0] = 1.0 + 2.0i;
+	d[0] = 1.0L + 2.0Li;
 
 	foo(d);
 
-	assert(d[0].im == 2.0);
-	assert(d[0].re == 0.0);
+	assert(d[0].im == 2.0L);
+	assert(d[0].re == 0.0L);
 
 	return 0;
 }

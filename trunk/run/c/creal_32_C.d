@@ -12,7 +12,7 @@ module dstress.run.c.creal_32_C;
 import std.math;
 
 int main(){
-	creal a = 0.0 - 0.0i;
+	creal a = 0.0L - 0.0Li;
 
 	if(signbit(a.re)){
 		assert(0);

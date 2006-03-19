@@ -14,12 +14,12 @@ void foo(cfloat[] data){
 
 int main(){
 	cfloat[1] d;
-	d[0] = 1.0 + 2.0i;
+	d[0] = 1.0f + 2.0fi;
 
 	foo(d);
 
-	assert(d[0].im == 2.0);
-	assert(d[0].re == -1.0);
+	assert(d[0].im == 2.0f);
+	assert(d[0].re == -1.0f);
 
 	return 0;
 }

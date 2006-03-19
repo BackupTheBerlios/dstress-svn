@@ -9,7 +9,7 @@
 module dstress.run.cfloat_01;
 
 int main(){
-	cfloat c = 27Fi;
+	cfloat c = 27Fi + 0.0F;
 	assert(c.re==0.0F);
 	assert(c.im==27.0F);
 	return 0;

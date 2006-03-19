@@ -15,16 +15,16 @@ void foo(creal[] data){
 int main(){
 	creal[] data;
 	data.length = 2;
-	data[0] = 4.0 + 2.0i;
-	data[1] = 2.0 + 4.0i;
+	data[0] = 4.0L + 2.0Li;
+	data[1] = 2.0L + 4.0Li;
 
 	foo(data);
 
 	assert(data.length == 2);
-	assert(data[0].im == 1.0);
-	assert(data[0].re == 2.0);
-	assert(data[1].im == 4.0);
-	assert(data[1].re == 2.0);
+	assert(data[0].im == 1.0L);
+	assert(data[0].re == 2.0L);
+	assert(data[1].im == 4.0L);
+	assert(data[1].re == 2.0L);
 	
 	return 0;
 }

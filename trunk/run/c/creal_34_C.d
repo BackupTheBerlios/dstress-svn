@@ -12,8 +12,8 @@ module dstress.run.c.creal_34_C;
 import std.math;
 
 int main(){
-	real re = 0.0;
-	ireal im = -0.0i;
+	real re = 0.0L;
+	ireal im = -0.0Li;
 	creal a = re + im;
 
 	if(signbit(a.re)){

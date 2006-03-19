@@ -5,11 +5,11 @@
 module dstress.run.creal_03;
 
 int main(){
-	real x1 = 2.0;
-	real y1 = 3.0;
-	real x2 = 5.0;
-	real y2 = 7.0;
-	ireal i = 1.0i;
+	real x1 = 2.0L;
+	real y1 = 3.0L;
+	real x2 = 5.0L;
+	real y2 = 7.0L;
+	ireal i = 1.0Li;
 
 	creal a = x1 + y1*i;
 	creal b = x2 + y2*i;

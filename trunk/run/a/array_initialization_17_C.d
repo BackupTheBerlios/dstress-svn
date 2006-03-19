@@ -10,8 +10,8 @@
 module dstress.run.a.array_initialization_17_C;
 
 const cfloat[6] arr = [
-	1: 1.0f, 2.0f,
-	4: 4.0f
+	1: 1.0f + 0.0i, 2.0f + 0.0i,
+	4: 4.0f + 0.0i
 ];
 
 bool equal(cfloat a, cfloat b){

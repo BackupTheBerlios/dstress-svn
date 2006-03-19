@@ -9,9 +9,9 @@
 module dstress.run.c.creal_27_B;
 
 int main(){
-	const creal a = 2.0i + 1.0;
+	const creal a = 2.0Li + 1.0L;
 
-	static assert(a.re == 1.0);
+	static assert(a.re == 1.0L);
 
 	return 0;
 }

@@ -9,10 +9,10 @@
 module dstress.run.c.cdouble_01_A;
 
 int main(){
-	static cdouble[] params = [1,3,5];
+	static cdouble[] params = [1.0 + 0.0i, 3.0 + 0.0i, 5.0 + 0.0i];
 
 	cdouble[] sums = new cdouble[3];
-	sums[] = 0;
+	sums[] = 0.0 + 0.0i;
 
 	foreach(cdouble d; params){
 		cdouble prod = d;
@@ -24,12 +24,12 @@ int main(){
 		sums[2] += prod;
 	}
 
-	assert(sums[0].re==9);
-	assert(sums[0].im==0);
-	assert(sums[1].re==35);
-	assert(sums[1].im==0);
-	assert(sums[2].re==153);
-	assert(sums[2].im==0);
+	assert(sums[0].re == 9.0);
+	assert(sums[0].im == 0.0);
+	assert(sums[1].re == 35.0);
+	assert(sums[1].im == 0.0);
+	assert(sums[2].re == 153.0);
+	assert(sums[2].im == 0.0);
 
 	return 0;
 }

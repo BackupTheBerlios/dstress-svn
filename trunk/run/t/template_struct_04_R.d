@@ -9,11 +9,11 @@ struct S(creal f){
 }
 
 int main(){
-	const creal a = 1.2 + 2.1i;
+	const creal a = 1.2L + 2.1Li;
 	auto sa = new S!(a);
 	assert(sa.cf == a);
 
-	const creal b = -0.8 - 0.1i;
+	const creal b = -0.8L - 0.1Li;
 	auto sb = new S!(b);
 	assert(sb.cf == b);
 	

@@ -14,7 +14,7 @@ union S{
 }
 
 int main(){
-	const cfloat a = 0.0 - 0.0i;
+	const cfloat a = 0.0f - 0.0fi;
 
 	S s;
 

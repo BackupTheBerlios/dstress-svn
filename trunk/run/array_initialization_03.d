@@ -9,8 +9,6 @@
 
 module dstress.run.array_initialization_03;
 
-// dmd 1.04, winXP
-
 template Foo(T, int L){
 	T[L] arr;
 	class Bar {

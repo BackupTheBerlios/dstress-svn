@@ -11,8 +11,8 @@ module dstress.run.c.cdouble_06;
 int main( ){
 	cdouble[] array;
 	array.length = 3;
-	array[0] = 1.0;
-	array[1] = 1.0i;
+	array[0] = 1.0 + 0.0i;
+	array[1] = 0.0 + 1.0i;
 	array[2] = 1.0 + 1.0i;
 
 	for(int i = 0; i < array.length; i++ ){
@@ -21,7 +21,7 @@ int main( ){
 
 	assert(array[0] == 1.0 - 1.0i);
 	assert(array[1] == 1.0 + 1.0i);
-	assert(array[2] == 2.0);
+	assert(array[2] == 2.0 + 0.0i);
 
 	return 0;
 }

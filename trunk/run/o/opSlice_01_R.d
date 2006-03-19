@@ -10,18 +10,21 @@
 module dstress.run.o.opSlice_01_R;
 
 int main(){
-	creal arr[4][2]=0i;
+	creal arr[4][2] = 0.0L + 0.0Li;
 
-	arr[0][1]=1i;
+	arr[0][1] = 0.0L + 1.0Li;
 	
 	arr[1..2] = arr[0];
 	
 	assert(!arr[0][0]);
 	assert(arr[0][1]);
+	
 	assert(!arr[1][0]);
 	assert(arr[1][1]);
+	
 	assert(!arr[2][0]);
-	assert(arr[2][1]);
+	assert(!arr[2][1]);
+	
 	assert(!arr[3][0]);
 	assert(!arr[3][1]);
 

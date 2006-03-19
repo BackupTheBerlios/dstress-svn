@@ -19,7 +19,7 @@ void bar(){
 }
 
 int main(){
-	x=2;
+	x = 2 + 0i;
 	bar();
 	assert(x==-2);
 	return 0;

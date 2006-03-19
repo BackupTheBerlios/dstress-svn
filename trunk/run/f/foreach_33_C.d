@@ -8,7 +8,7 @@ int main(){
 	int sum = 0;
 	char[] data = "\u0001\u0010\u0030";
 
-	creal c = 1.0 + 2.0i;
+	creal c = 1.0L + 2.0Li;
 
 	foreach(c; data){
 		static assert(typeid(typeof(c)) == typeid(char));

@@ -7,5 +7,5 @@
 module dstress.nocompile.enum_32_C;
 
 enum Enum : cfloat {
-	A = 1.0fi
+	A = 1.0fi + 0.0
 }

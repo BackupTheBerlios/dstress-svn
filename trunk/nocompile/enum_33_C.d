@@ -7,5 +7,5 @@
 module dstress.nocompile.enum_33_C;
 
 enum Enum : cdouble {
-	A = 1.0i
+	A = 1.0i + 0.0
 }

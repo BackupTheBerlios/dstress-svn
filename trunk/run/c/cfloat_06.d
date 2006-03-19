@@ -11,17 +11,17 @@ module dstress.run.c.cfloat_06;
 int main( ){
 	cfloat[] array;
 	array.length = 3;
-	array[0] = 1.0;
-	array[1] = 1.0i;
-	array[2] = 1.0 + 1.0i;
+	array[0] = 1.0f + 0.0fi;
+	array[1] = 0.0f + 1.0fi;
+	array[2] = 1.0f + 1.0fi;
 
 	for(int i = 0; i < array.length; i++ ){
-		array[i] += -1.0i * array[i];
+		array[i] += -1.0fi * array[i];
 	}
 
-	assert(array[0] == 1.0 - 1.0i);
-	assert(array[1] == 1.0 + 1.0i);
-	assert(array[2] == 2.0);
+	assert(array[0] == 1.0f - 1.0fi);
+	assert(array[1] == 1.0f + 1.0fi);
+	assert(array[2] == 2.0f + 0.0fi);
 
 	return 0;
 }

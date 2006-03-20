@@ -18,7 +18,7 @@ alias test!(creal[]) bug;
 
 int main(){
 	creal[2] array;
-	array[0] = 2.0L;
+	array[0] = 2.0L + 0.0Li;
 	
 	bug(array);
 	array[0] -= 1.0L;

@@ -3,8 +3,8 @@
 // $Author$
 
 // @author@	<thomas-dloop@kuehne.cn>
-// @date@	2006-03-19
-// @uri@	news:XXX
+// @date@	2006-03-20
+// @uri@	news:bug-59-3@http.d.puremagic.com/bugzilla/
 
 // __DSTRESS_ELINE__ 15
 

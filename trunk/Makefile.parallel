@@ -45,7 +45,7 @@ FIND := find
 endif
 
 ifndef RM
-RM := rm -f
+RM := rm -f --
 endif
 
 find := find
@@ -76,7 +76,7 @@ all :: version compile nocompile run norun
 % : %.c
 	$(CC) $(CFLAGS) $< -o $@
 	
-tools : $(dstress) $(crashRun)
+tools :: $(dstress) $(crashRun)
 
 version :
 	@$(date)
@@ -124,10 +124,21 @@ run/%.exe : run/% tools
 #
 #
 clean ::
-	$(RM) -- $(shell $(find) run -name "*exe")
-	$(RM) -- $(shell $(find) norun -name "*exe")
-	$(RM) -- $(shell $(find) compile -name "*exe")
-	$(RM) -- $(shell $(find) nocompile -name "*exe")
-	$(RM) -- obj/?*.*
-	$(RM) -- $(dstress) $(crashRun)
+	$(RM) $(shell $(find) run -name "*exe")
+	$(RM) $(shell $(find) norun -name "*exe")
+	$(RM) $(shell $(find) compile -name "*exe")
+	$(RM) $(shell $(find) nocompile -name "*exe")
+	$(RM) obj/[A-E]*.*
+	$(RM) obj/[F-J]*.*
+	$(RM) obj/[K-O]*.*
+	$(RM) obj/[P-T]*.*
+	$(RM) obj/[U-Z]*.*
+	$(RM) obj/[a-e]*.*
+	$(RM) obj/[f-j]*.*
+	$(RM) obj/[k-o]*.*
+	$(RM) obj/[p-t]*.*
+	$(RM) obj/[u-z]*.*
+	$(RM) obj/?*.*
+	$(RM) run.sh norun.sh compile.sh nocompile.sh
+	$(RM) $(dstress) $(crashRun)
 

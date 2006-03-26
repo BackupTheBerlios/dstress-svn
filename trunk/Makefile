@@ -43,7 +43,7 @@ endif
 
 # executeable: remove zero or more files (e.g.: rm -f a b c)
 ifndef RM
-RM	:= rm -f
+RM	:= rm -f --
 endif
 
 # executeable: change to a given dir (e.g. cd some/other/dir)
@@ -161,6 +161,7 @@ nocompile : $(dstress__) nocompile_clean
 
 nocompile_clean :
 	$(eval z_rm = $(shell find nocompile -type f  -name "*\\.o" | grep -v ".svn"))
+	$(RM) $(z_rm)
 
 # used in some complex test cases
 define analyse_nocompile
@@ -189,6 +190,7 @@ compile : $(dstress__) compile_clean
 
 compile_clean :
 	$(eval z_rm = $(shell find compile -type f  -name "*\\.o" | grep -v ".svn"))
+	$(RM) $(z_rm)
 
 # used in some complex test cases
 define analyse_compile
@@ -328,7 +330,17 @@ clean_log :
 complex_clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles)))
 	
 clean : complex_clean nocompile_clean compile_clean norun_clean run_clean
-	$(RM) $(z_rm) $(OBJ_DIR)/?*.*
+	$(RM) $(OBJ_DIR)/[A-E]*.*
+	$(RM) $(OBJ_DIR)/[F-J]*.*
+	$(RM) $(OBJ_DIR)/[K-O]*.*
+	$(RM) $(OBJ_DIR)/[P-T]*.*
+	$(RM) $(OBJ_DIR)/[U-Z]*.*
+	$(RM) $(OBJ_DIR)/[a-e]*.*
+	$(RM) $(OBJ_DIR)/[f-j]*.*
+	$(RM) $(OBJ_DIR)/[k-o]*.*
+	$(RM) $(OBJ_DIR)/[p-t]*.*
+	$(RM) $(OBJ_DIR)/[u-z]*.*
+	$(RM) $(OBJ_DIR)/?*.*
 	$(RM) run.sh norun.sh compile.sh nocompile.sh
 
 # the empty line above has to remain, otherwise some weired problems can arise

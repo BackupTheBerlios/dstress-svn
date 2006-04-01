@@ -329,7 +329,7 @@ clean_log :
 #
 complex_clean : $(sort $(subst $(complex_todo),clean,$(complex_makefiles)))
 	
-clean : complex_clean nocompile_clean compile_clean norun_clean run_clean
+clean :: complex_clean nocompile_clean compile_clean norun_clean run_clean
 	$(RM) $(OBJ_DIR)/[A-E]*.*
 	$(RM) $(OBJ_DIR)/[F-J]*.*
 	$(RM) $(OBJ_DIR)/[K-O]*.*

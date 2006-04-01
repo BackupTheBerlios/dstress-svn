@@ -2,7 +2,10 @@
  * core test tool for the DStress test suite
  * http://dstress.kuehne.cn
  *
- * Copyright (C) 2005, 2006 Thomas Kuehne <thomas@kuehne.cn>
+ * Copyright (C)
+ * 	2005, 2006 Thomas Kuehne <thomas@kuehne.cn>
+ * 	2005 Carlos Santander (Window files)
+ * 	2005 Stewart Gordon <smjg_1998@yahoo.com> (Window crashRun)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -151,7 +154,7 @@
 #define TORTURE_PREFIX		"torture-"
 
 #ifdef USE_POSIX
-#define		CRASH_RUN	"./crashRun"
+#define		CRASH_RUN	"./crashRun 30 1024"
 #define		TMP_DIR		"./obj"
 #else
 #ifdef USE_WINDOWS
@@ -653,7 +656,7 @@ int crashRun(const char* cmd, char** logFile){
 	len = 20 + strlen(CRASH_RUN) + strlen(cmd) + strlen(*logFile);
 	buffer = malloc(len);
 
-	snprintf(buffer, len, "\"%s\" %s > %s 2>&1", CRASH_RUN, cmd, *logFile);
+	snprintf(buffer, len, "%s %s > %s 2>&1", CRASH_RUN, cmd, *logFile);
 
 	system(buffer);
 	free(buffer);

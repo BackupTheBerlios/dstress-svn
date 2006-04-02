@@ -18,5 +18,7 @@ int main() {
 	Int i;
 	short s;
 
-	static assert (is(typeof(i + s) == long));
+	static assert (is(typeof(i + s) == int));
+
+	return 0;
 }

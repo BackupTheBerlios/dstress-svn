@@ -19,4 +19,6 @@ int main() {
 	Int i;
 
 	static assert (is(typeof(s + i) == int));
+
+	return 0;
 }

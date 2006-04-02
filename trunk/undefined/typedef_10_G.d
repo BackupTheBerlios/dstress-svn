@@ -19,4 +19,6 @@ int main() {
 	Int i;
 
 	static assert (is(typeof(l + i) == long));
+
+	return 0;
 }

@@ -601,7 +601,7 @@ class Report{
 					if(i > -1){
 						z = z[0 .. i];
 					}
-					if(z in k){
+					if(z in k && -1 == find(org, "complex")){
 						throw new Exception("dublicate key "~org);
 					}
 					k[z] = org;
@@ -690,7 +690,7 @@ class Report{
 				if(i > -1){
 					z = z[0 .. i];
 				}
-				if(z in keys){
+				if(z in keys && -1 == find(org, "complex/")){
 					throw new Exception("dublicate key "~org);
 				}
 				keys[z] = org;

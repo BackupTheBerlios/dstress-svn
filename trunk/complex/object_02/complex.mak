@@ -27,6 +27,7 @@ complex/object_02/warning :
 
 complex/object_02/dest = \
 	complex/object_02/object_02_A
+	complex/object_02/object_02_B
 
 # the actual target, will be called by root's "all" / "complex" target
 complex/object_02/$(complex_done) : $(complex/object_02/dest) $(return__) $(ifeq__)
@@ -34,10 +35,24 @@ complex/object_02/$(complex_done) : $(complex/object_02/dest) $(return__) $(ifeq
 #
 # compile or nocompile but don't crash
 #
-complex/object_02/object_02 : complex/object_02/object.d $(return__) $(ifeq__)
+complex/object_02/object_02_A : complex/object_02/object.d $(return__) $(ifeq__)
 	@$(RM) -f complex/object_02/*.o
 	$(eval z_name = $@)
 	$(eval z_return = $(shell cd complex/object_02; $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) object.d $(to_log)"))
+	@if $(ifeq__) $(z_return) 0; then \
+		 $(ECHO) "Torture-Sub-1/31-PASS: $(z_name)"; \
+	else \
+		if $(ifeq__) $(z_return) 256; then \
+			$(ECHO) "Torture-Sub-1/31-PASS: $(z_name)"; \
+		else \
+			$(ECHO) "Torture-Sub-1/31-ERROR: $(z_name)"; \
+		fi \
+	fi 
+
+complex/object_02/object_02_B : complex/object_02/a.d $(return__) $(ifeq__)
+	@$(RM) -f complex/object_02/*.o
+	$(eval z_name = $@)
+	$(eval z_return = $(shell cd complex/object_02; $(return__) "$(DMD) $(DFLAGS) -od$(OBJ_DIR) a.d $(to_log)"))
 	@if $(ifeq__) $(z_return) 0; then \
 		 $(ECHO) "Torture-Sub-1/31-PASS: $(z_name)"; \
 	else \

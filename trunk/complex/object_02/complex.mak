@@ -26,7 +26,7 @@ complex/object_02/warning :
 	$(error "don't invoke this file directly, instead use DStress' root Makefile with the target \"complex/object_02/complex.done\", \"complex\" or \"all\"")
 
 complex/object_02/dest = \
-	complex/object_02/object_02_A
+	complex/object_02/object_02_A \
 	complex/object_02/object_02_B
 
 # the actual target, will be called by root's "all" / "complex" target

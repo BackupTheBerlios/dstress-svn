@@ -12,11 +12,18 @@ void dummy(...){
 }
 
 int main() {
-	real x = 9l;
+	real x = 9.0L;
 	dummy(x);
-	real y=++x;
-	assert(y==10l);
-	assert(x==10l);
+	real y = ++x;
+
+	if(y != 10.0L){
+		assert(0);
+	}
+
+	if(x != 10.0L){
+		assert(0);
+	}
+	
 	return 0;
 }
 

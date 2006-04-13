@@ -16,14 +16,14 @@ ireal[] concat() {
 }
 
 int main(){
-	a[]=1.0li;
-	b[]=3.0li;
+	a[] = 1.0Li;
+	b[] = 3.0Li;
 
 	ireal[] arr=concat();
 
 	assert(arr.length==2);
-	assert(arr[0]==1.0li);
-	assert(arr[1]==3.0li);
+	assert(arr[0] == 1.0Li);
+	assert(arr[1] == 3.0Li);
 	
 	return 0;
 }

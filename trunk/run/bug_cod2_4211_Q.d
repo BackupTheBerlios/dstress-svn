@@ -16,14 +16,14 @@ creal[] concat() {
 }
 
 int main(){
-	a[]=0.5l+1.0li;
-	b[]=0.5l+3.0li;
+	a[] = 0.5L + 1.0Li;
+	b[] = 0.5L + 3.0Li;
 
 	creal[] arr=concat();
 
 	assert(arr.length==2);
-	assert(arr[0]==0.5l+1.0li);
-	assert(arr[1]==0.5l+3.0li);
+	assert(arr[0] == 0.5L + 1.0Li);
+	assert(arr[1] == 0.5L + 3.0Li);
 	
 	return 0;
 }

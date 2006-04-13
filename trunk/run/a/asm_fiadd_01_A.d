@@ -16,13 +16,17 @@ int main(){
 			fst a;
 		}
 		
-		assert(a > 0);
+		if(a <= 0){
+			assert(0);
+		}
 		
-		a -= 32.8l;
+		a -= 32.8L;
 		
 		a = (a>0) ? a : -a;
 		
-		assert(a < a.epsilon*16);
+		if(a >= a.epsilon*16){
+			assert(0);
+		}
 		
 		return 0;
 	}else{

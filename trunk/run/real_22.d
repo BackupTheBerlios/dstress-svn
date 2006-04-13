@@ -9,8 +9,15 @@
 module dstress.run.real_22;
 
 int main(){
-	real f = 0.0000195l;
-	assert(typeid(typeof(0.0000195l)) == typeid(real));
-	assert(.5l + f * 1e6l == .5l + 0.0000195l * 1e6l);
+	real f = 0.0000195L;
+	
+	if(typeid(typeof(0.0000195L)) != typeid(real)){
+		assert(0);
+	}
+
+	if(.5L + f * 1e6L != .5L + 0.0000195L * 1e6L){
+		assert(0);
+	}
+
 	return 0;
 }

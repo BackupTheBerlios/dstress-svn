@@ -12,12 +12,19 @@ void dummy(...){
 }
 
 int main() {
-	real x = 3l;
+	real x = 3.0L;
 	dummy(x);
-	real y=2l;
+	real y = 2.0L;
 	y*=x;
-	assert(y==6l);
-	assert(x==3l);
+	
+	if(y != 6.0L){
+		assert(0);
+	}
+	
+	if(x != 3.0L){
+		assert(0);
+	}
+
 	return 0;
 }
 

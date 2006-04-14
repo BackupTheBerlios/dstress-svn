@@ -71,6 +71,9 @@ logsuffix := .outlog
 
 .PHONY:: all clean compile nocompile norun run tools version
 
+bug:
+	$(error not yet save for test cases involving multiple object files)
+	
 all :: version compile nocompile run norun
 
 % : %.c

@@ -1234,7 +1234,7 @@ err:
 		for(index=0; index < sizeof(torture)/sizeof(char*); index++){
 			if((torture_block_global && strstr(torture[index], torture_block_global))
 				|| (torture_block_case && strstr(torture[index], torture_block_case))
-				|| (torture_block_case && !strstr(torture[index], torture_require)))
+				|| (torture_require && !strstr(torture[index], torture_require)))
 			{
 				torture_result[index]=RES_UNTESTED;
 				continue;

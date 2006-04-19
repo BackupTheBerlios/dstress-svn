@@ -77,7 +77,7 @@ bug:
 all :: version compile nocompile run norun
 
 % : %.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -DUSE_VALGRIND $< -o $@
 	
 tools :: $(dstress) $(crashRun)
 

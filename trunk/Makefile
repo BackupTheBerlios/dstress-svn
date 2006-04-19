@@ -80,7 +80,7 @@ endif
 ###############################################################################
 
 # tools
-return__	:= ./return__
+return__	:= $(PWD)/return__
 ifeq__		:= ./ifeq__
 extract__	:= ./extract__
 dstress__	:= ./dstress
@@ -123,7 +123,7 @@ $(dstress__) : dstress.c $(crashRun__) Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
 $(crashRun__) : crashRun.c Makefile
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -DUSE_VALGRIND $< -o $@
 
 basic_tools : $(ifeq__) $(return__) $(extract__) $(dstress__)
 

@@ -154,7 +154,7 @@
 #define TORTURE_PREFIX		"torture-"
 
 #ifdef USE_POSIX
-#define		CRASH_RUN	"./crashRun 30 1024"
+#define		CRASH_RUN	"./crashRun 30 2000"
 #define		TMP_DIR		"./obj"
 #else
 #ifdef USE_WINDOWS
@@ -451,7 +451,7 @@ char* getCaseFlag(const char* data, const char* tag){
 			back = malloc(end1-begin+1);
 			strncpy(back, begin, end1-begin);
 			back[end1-begin]='\x00';
-			return strip(cleanPathSeperator(back));
+			return strip(back);
 		}
 	}
 
@@ -637,7 +637,10 @@ int hadExecCrash(const char* buffer){
 			|| strstr(buffer, "gcc.gnu.org/bugs")
 			|| strstr(buffer, "EXIT CODE: signal")
 			|| strstr(buffer, "Assertion failure")
-			|| strstr(buffer, "Access Violation"))
+			|| strstr(buffer, "Access Violation")
+			|| strstr(buffer, "Invalid read of size")
+			|| strstr(buffer, "Conditional jump or move depends on uninitialised value")
+			|| strstr(buffer, "Use of uninitialised value of size"))
 	{
 		return 1;
 	}
@@ -955,7 +958,10 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	}
 
 #ifdef REG_EXTENDED
-	if(gdb_script != NULL){
+	if(((res==EXIT_SUCCESS && (modus & MODE_RUN))
+			||(res==EXIT_SUCCESS && (modus & MODE_RUN)))
+			&& gdb_script != NULL)
+	{
 		free(buffer);
 		good_gdb = 0;
 		/* test 3/3 - gdb */
@@ -1116,9 +1122,9 @@ err:
 	buffer = loadFile(case_file, &bufferLen);
 	bufferLen = 0;
 
-	cmd_arg_case = getCaseFlag(buffer, "__DSTRESS_DFLAGS__");
+	cmd_arg_case =  cleanPathSeperator(getCaseFlag(buffer, "__DSTRESS_DFLAGS__"));
 	error_line = getCaseFlag(buffer, "__DSTRESS_ELINE__");
-	error_file = getCaseFlag(buffer, "__DSTRESS_EFILE__");
+	error_file =  cleanPathSeperator(getCaseFlag(buffer, "__DSTRESS_EFILE__"));
 	gdb_script = getCaseFlag(buffer, "__GDB_SCRIPT__");
 	gdb_pattern_raw = getCaseFlag(buffer, "__GDB_PATTERN__");
 	torture_block_case = getCaseFlag(buffer, "__DSTRESS_TORTURE_BLOCK__");
@@ -1264,6 +1270,18 @@ err:
 			printf("--------\n");
 		}
 	}else{
+		if(torture_require){
+			if(!cmd_arg_case){
+				torture_require = cmd_arg_case;
+			}else{
+				size_t new_len = strlen(cmd_arg_case);
+				new_len += strlen(torture_require);
+				new_len++;
+				cmd_arg_case = realloc(cmd_arg_case, new_len);
+				strcat(cmd_arg_case, " ");
+				strcat(cmd_arg_case, torture_require);
+			}
+		}
 		if(modus & (MODE_RUN | MODE_NORUN)){
 			case_result = target_run(modus, compiler, cmd_arg_case,
 					case_file, error_file, error_line

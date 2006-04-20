@@ -71,9 +71,6 @@ logsuffix := .outlog
 
 .PHONY:: all clean compile nocompile norun run tools version
 
-bug:
-	$(error not yet save for test cases involving multiple object files)
-	
 all :: version compile nocompile run norun
 
 % : %.c
@@ -141,7 +138,7 @@ clean ::
 	$(RM) obj/[k-o]*.*
 	$(RM) obj/[p-t]*.*
 	$(RM) obj/[u-z]*.*
-	$(RM) obj/?*.*
+	$(RM) -rf obj/*
 	$(RM) run.sh norun.sh compile.sh nocompile.sh
 	$(RM) $(dstress) $(crashRun)
 

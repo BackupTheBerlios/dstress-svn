@@ -34,7 +34,6 @@
 
 #undef WAIT_GUARD
 #define WAIT_GUARD 3
-#define VALGRIND "valgrind -q --suppressions=valgrind.suppress"
 
 /* time-out in seconds
  * Posix: cpu time(timeOut) and system time(timeOut * WAIT_GUARD)
@@ -224,14 +223,10 @@ char* reconstructCmd(int argc, char** argv){
 
 	for(i=0; i<argc; i++){
 		cmdLen+=strlen(argv[i]);
-		cmdLen+=3;
+		cmdLen+=1;
 	}
 
-#ifdef USE_VALGRIND
-	cmdLen += strlen(VALGRIND);
-#endif
-
-	cmd = malloc(cmdLen);
+	cmd = malloc(++cmdLen);
 	if(!cmd){
 		fprintf(stderr, "failed to allocate enough memory");
 		exit(EXIT_FAILURE);
@@ -240,14 +235,8 @@ char* reconstructCmd(int argc, char** argv){
 	*cmd = '\x00';
 	tmp = cmd;
 
-#ifdef USE_VALGRIND
-	tmpLen = snprintf(tmp, cmdLen, "%s ", VALGRIND);
-	tmp += tmpLen;
-	cmdLen -= tmpLen;
-#endif
-
 	for(i=0; i<argc; i++){
-		tmpLen = snprintf(tmp, cmdLen, "\"%s\" ", argv[i]);
+		tmpLen = snprintf(tmp, cmdLen, "%s ", argv[i]);
 		tmp += tmpLen;
 		cmdLen -= tmpLen;
 	}

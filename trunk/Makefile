@@ -110,19 +110,10 @@ all : Makefile version compile nocompile run norun complex
 #
 # the tools
 #
-$(return__) : return__.c Makefile
-	$(CC) $(CFLAGS) $< -o $@
-
-$(ifeq__) : ifeq__.c Makefile
-	$(CC) $(CFLAGS) $< -o $@
-
-$(extract__) : extract__.c Makefile
+% : %.c Makefile
 	$(CC) $(CFLAGS) $< -o $@
 
 $(dstress__) : dstress.c $(crashRun__) Makefile
-	$(CC) $(CFLAGS) $< -o $@
-
-$(crashRun__) : crashRun.c Makefile
 	$(CC) $(CFLAGS) -DUSE_VALGRIND $< -o $@
 
 basic_tools : $(ifeq__) $(return__) $(extract__) $(dstress__)
@@ -340,7 +331,7 @@ clean :: complex_clean nocompile_clean compile_clean norun_clean run_clean
 	$(RM) $(OBJ_DIR)/[k-o]*.*
 	$(RM) $(OBJ_DIR)/[p-t]*.*
 	$(RM) $(OBJ_DIR)/[u-z]*.*
-	$(RM) $(OBJ_DIR)/?*.*
+	$(RM) -rf $(OBJ_DIR)/*
 	$(RM) run.sh norun.sh compile.sh nocompile.sh
 
 # the empty line above has to remain, otherwise some weired problems can arise

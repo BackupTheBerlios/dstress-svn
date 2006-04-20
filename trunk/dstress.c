@@ -155,14 +155,23 @@
 
 #ifdef USE_POSIX
 #define		CRASH_RUN	"./crashRun 30 2000"
+#ifdef USE_VALGRIND
+#define		VALGRIND	"valgrind --leak-check=no -q --suppressions=valgrind.suppress"	
+#else
+#define		VALGRIND	""
+#endif
 #define		TMP_DIR		"./obj"
+#define		RM_DIR		"rm -rf"
 #else
 #ifdef USE_WINDOWS
+#define		VALGRIND	""
 #define		TMP_DIR		".\\obj"
 #else
 #error OS dependent file names not defined
 #endif
 #endif
+
+char* tmp_dir;
 
 #ifdef USE_WINDOWS
 HANDLE originalStdout, originalStderr;
@@ -258,13 +267,13 @@ char* genTempFileName(){
 	char* back;
 	size_t len;
 
-	len = strlen(TMP_DIR) + 128;
+	len = strlen(tmp_dir) + 128;
 	back = malloc(len);
 
 #ifdef USE_POSIX
-	snprintf(back, len, "%s/t%x-%x-%x.tmp", TMP_DIR, getpid(), rand(), ++genTempFileNameCount);
+	snprintf(back, len, "%s/t%x-%x-%x.tmp", tmp_dir, getpid(), rand(), ++genTempFileNameCount);
 #else
-	snprintf(back, len, "%s\\t%x-%x-%x.tmp", TMP_DIR, getpid(), rand(), ++genTempFileNameCount);
+	snprintf(back, len, "%s\\t%x-%x-%x.tmp", tmp_dir, getpid(), rand(), ++genTempFileNameCount);
 #endif
 
 	return back;
@@ -455,7 +464,9 @@ char* getCaseFlag(const char* data, const char* tag){
 		}
 	}
 
-	return calloc(1,1);
+	back = malloc(1);
+	back[0] = 0;
+	return back;
 }
 
 /* check compile-time error messages */
@@ -787,14 +798,14 @@ int target_compile(int modus, char* compiler, char* arguments, char* case_file,
 	}
 
 	/* gen command */
-	bufferLen = strlen(compiler) + strlen(arguments) + strlen(TMP_DIR)
+	bufferLen = strlen(compiler) + strlen(arguments) + strlen(tmp_dir)
 		+ strlen(case_file) + 21;
 	buffer = malloc(bufferLen);
 	snprintf(buffer, bufferLen, "%s %s ", compiler, arguments);
 
 	if(NULL == strstr(buffer, "-od")){
 		snprintf(buffer, bufferLen, "%s %s -od%s -c %s",
-			compiler, arguments, TMP_DIR, case_file);
+			compiler, arguments, tmp_dir, case_file);
 	}else{
 		snprintf(buffer, bufferLen, "%s %s -c %s",
 			compiler, arguments, case_file);
@@ -877,7 +888,7 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 
 	/* gen command */
 
-	bufferLen = strlen(compiler) + strlen(arguments) + strlen(TMP_DIR)
+	bufferLen = strlen(compiler) + strlen(arguments) + strlen(tmp_dir)
 			+ strlen(case_file) * 2 + 64;
 	buffer = malloc(bufferLen);
 	snprintf(buffer, bufferLen, "%s %s ", compiler, arguments);
@@ -886,12 +897,12 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 		if(NULL == strstr(buffer, "-of")){
 			snprintf(buffer, bufferLen,
 				"%s %s -od%s -of%s.exe %s",
-				compiler, arguments, TMP_DIR, case_file,
+				compiler, arguments, tmp_dir, case_file,
 				case_file);
 		}else{
 			snprintf(buffer, bufferLen,
 				"%s %s -od%s %s",
-				compiler, arguments, TMP_DIR, case_file);
+				compiler, arguments, tmp_dir, case_file);
 		}
 	}else if(NULL == strstr(buffer, "-of")){
 		snprintf(buffer, bufferLen,
@@ -937,9 +948,15 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	}
 
 	/* test 2/3 - run */
-	bufferLen = strlen(case_file) + 30;
-	buffer = malloc(bufferLen);
-	snprintf(buffer, bufferLen, "%s.exe", case_file);
+	if(VALGRIND && VALGRIND[0]){
+		bufferLen = strlen(VALGRIND) + strlen(case_file) + 8;
+		buffer = malloc(bufferLen);
+		snprintf(buffer, bufferLen, "%s %s.exe", VALGRIND, case_file);
+	}else{
+		bufferLen = strlen(case_file) + 8;
+		buffer = malloc(bufferLen);
+		snprintf(buffer, bufferLen, "%s.exe", case_file);
+	}
 	printf("%s\n", buffer);
 	res=crashRun(buffer, &logFile);
 	free(buffer);
@@ -1132,6 +1149,23 @@ err:
 
 	free(buffer);
 
+	/* tmp_dir */
+	if(!cmd_arg_case || !cmd_arg_case[0]){
+		tmp_dir = TMP_DIR;
+	}else{
+		pid_t pid;
+		pid = getpid();
+		bufferLen = strlen(TMP_DIR) + 4 + sizeof(pid_t) * 4;
+		buffer = malloc(bufferLen);
+		snprintf(buffer, bufferLen, "%s/_%X", TMP_DIR, pid);
+		tmp_dir = cleanPathSeperator(buffer);
+		if(mkdir(tmp_dir, 0770)){
+			fprintf(stderr, "failed to create tmp dir: %s (%d, %s)\n",
+					tmp_dir, errno, strerror(errno));
+			return EXIT_FAILURE;
+		}
+	}
+
 	/* set implicit source file */
 	if(strcmp(error_line, "")!=0 && strcmp(error_file, "")==0){
 		error_file=case_file;
@@ -1270,16 +1304,16 @@ err:
 			printf("--------\n");
 		}
 	}else{
-		if(torture_require){
-			if(!cmd_arg_case){
+		if(torture_require && !torture_require[0]){
+			if(!cmd_arg_case || !cmd_arg_case[0]){
 				torture_require = cmd_arg_case;
 			}else{
-				size_t new_len = strlen(cmd_arg_case);
-				new_len += strlen(torture_require);
-				new_len++;
-				cmd_arg_case = realloc(cmd_arg_case, new_len);
-				strcat(cmd_arg_case, " ");
-				strcat(cmd_arg_case, torture_require);
+				bufferLen = strlen(cmd_arg_case);
+				bufferLen += strlen(torture_require);
+				bufferLen += 2;
+				buffer = malloc(bufferLen);
+				snprintf(buffer, bufferLen, "%s %s", cmd_arg_case, torture_require);
+				cmd_arg_case = buffer;
 			}
 		}
 		if(modus & (MODE_RUN | MODE_NORUN)){
@@ -1303,5 +1337,13 @@ err:
 		printResult(case_result, modus, case_file, stdout);
 	}
 
+	if(strcmp(TMP_DIR, tmp_dir)){
+		bufferLen = strlen(tmp_dir);
+		bufferLen += strlen(RM_DIR);
+		bufferLen += 2;
+		buffer = malloc(bufferLen);
+		snprintf(buffer, bufferLen, "%s %s", RM_DIR, tmp_dir);
+		system(buffer);
+	}
 	exit(EXIT_SUCCESS);
 }

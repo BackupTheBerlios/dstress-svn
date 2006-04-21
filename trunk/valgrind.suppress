@@ -1,0 +1,6 @@
+{
+   no-ld-1
+   Memcheck:Cond
+   obj:/lib32/ld-2.3.5.so
+}
+

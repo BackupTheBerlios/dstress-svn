@@ -5,18 +5,20 @@
 module dstress.run.a.asm_mul_01_A;
 
 int main(){
-	version(D_InlineAsm){
-		ushort a;
-		ubyte x = byte.max+2;
+	version(D_InlineAsm_X86){
+		uint i;
+		ubyte x = 0xFF;
 		
 		asm{
-			mov EAX, 0x12_34_56_78u;
-			mov AL, 2;
+			mov EAX, 0x23_43_56_78u;
+			mov AL, 0xEE;
 			mul x;
-			mov a, AX;
+			mov i, EAX;
 		}
 
-		assert(a==(byte.max+2)*2);
+		if(i != 0x23_43_ED_12){
+			assert(0);
+		}
 		
 		return 0;
 	}else{

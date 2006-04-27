@@ -5,7 +5,7 @@
 module dstress.run.a.asm_jmp_01;
 
 int main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		int a = 0;
 		
 		asm{
@@ -14,7 +14,9 @@ int main(){
 		save1:	mov a, EAX;
 		}
 		
-		assert(a == 1);
+		if(a != 1){
+			assert(0);
+		}
 		
 		asm{
 			mov EAX, 0;
@@ -23,7 +25,9 @@ int main(){
 		save2:	mov a, EAX;
 		}
 
-		assert(a == 0);
+		if(a != 0){
+			assert(0);
+		}
 		
 		
 		return 0;

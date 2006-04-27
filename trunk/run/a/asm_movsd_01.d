@@ -5,7 +5,7 @@
 module dstress.run.a.asm_movsd_01;
 
 int main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		
 		double a = -12.1L;
 		double b = 2.8L;
@@ -15,7 +15,9 @@ int main(){
 			movsd b, XMM0;
 		}
 		
-		assert(a==b);
+		if(a != b){
+			assert(0);
+		}
 		
 		return 0;
 	}else{

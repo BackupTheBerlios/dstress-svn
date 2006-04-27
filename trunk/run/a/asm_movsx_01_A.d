@@ -5,11 +5,9 @@
 module dstress.run.a.asm_movsx_01_A;
 
 int main(){
-	version(D_InlineAsm){
-		int i=0xFF_FF_FF_FFu;
-		byte b=byte.min;
-		
-		assert(i==0xFF_FF_FF_FFu);
+	version(D_InlineAsm_X86){
+		int i = 0xFF_FF_FF_FFu;
+		byte b = byte.min;
 		
 		asm{
 			mov EAX, i;
@@ -18,7 +16,9 @@ int main(){
 			mov i, EAX;
 		}
 	
-		assert(i==byte.min);
+		if(i != byte.min){
+			assert(0);
+		}
 		
 		i=0xFF_FF_FF_FFu;
 		b=byte.max;
@@ -30,7 +30,9 @@ int main(){
 			mov i, EAX;
 		}
 		
-		assert(i==byte.max);
+		if(i != byte.max){
+			assert(0);
+		}
 		
 		return 0;
 	}else{

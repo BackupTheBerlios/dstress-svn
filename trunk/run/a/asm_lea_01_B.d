@@ -5,7 +5,7 @@
 module dstress.run.a.asm_lea_01_B;
 
 int main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		ushort i;
 		
 		asm{
@@ -13,7 +13,9 @@ int main(){
 			mov i, AX;
 		}
 		
-		assert(cast(ushort)&i == i);
+		if(cast(ushort)&i != i){
+			assert(0);
+		}
 		
 		return 0;
 	}else{

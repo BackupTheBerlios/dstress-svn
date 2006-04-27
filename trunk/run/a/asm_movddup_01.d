@@ -4,27 +4,23 @@
 
 module dstress.run.a.asm_movdup_01;
 
-align(16) struct X{
-	ulong[2] c;
-}
-
 int main(){
-	version(D_InlineAsm){
-		
-		double d = -3.5;
-		
-		X* x = new X;
+	version(D_InlineAsm_X86){
+		double a = -3.5;
+		double[2] b;
 		
 		asm{
-			mov EAX, x;
-			movddup XMM0, d;
-			movdqa X.c[EAX], XMM0;
+			movddup XMM0, a;
+			movdqu f, XMM0;
 		}
 		
-		assert(x.c[0]==x.c[1]);
-		
-		assert(*(cast(double*)cast(void*)&x.c[0]) == d);
-		
+		if(b[0] != a){
+			assert(0);
+		}
+
+		if(b[1] != a){
+			assert(0);
+		}
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

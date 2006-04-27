@@ -2,23 +2,14 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_movss_01;
+module dstress.norun.a.asm_ltr_01;
 
 int main(){
 	version(D_InlineAsm_X86){
-		
-		float a = -12.1L;
-		float b = 2.8L;
-		
+		ushort s = 0;
 		asm{
-			movss XMM0, a;
-			movss b, XMM0;
+			ltr s;
 		}
-		
-		if(a != b){
-			assert(0);
-		}
-		
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

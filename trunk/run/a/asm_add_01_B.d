@@ -13,13 +13,13 @@ int main(){
 		assert(s==0xFFFFu);
 		
 		asm{
-			mov EAX, 0;
+			mov EAX, 0x98_76_54_32;
 			mov AX, s;
 			add AX, 1;
 			mov i, EAX;
 		}
 	
-		assert(i==0u);
+		assert(i==0x98_76_00_00u);
 		assert(s==0xFFFFu);
 		
 		return 0;

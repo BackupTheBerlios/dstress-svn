@@ -5,7 +5,7 @@
 module dstress.run.a.asm_movzx_01_B;
 
 int main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		uint i = 0xFF_FF_FF_FFu;
 		ubyte b = 0xFF;
 		
@@ -19,11 +19,15 @@ int main(){
 			mov i, EAX;
 		}
 	
-		assert(i==0x00_00_00_FFu);
-		assert(b==0xFF);
+		if(i != 0x00_00_00_FFu){
+			assert(0);
+		}
+		if(b != 0xFF){
+			assert(0);
+		}
 		
 		i = 0xFF_FF_FF_FFu;
-		b=0x12;
+		b = 0x12;
 		
 		asm{
 			mov EAX, i;
@@ -32,8 +36,12 @@ int main(){
 			mov i, EAX;
 		}
 		
-		assert(i==0x00_00_00_12u);
-		assert(b==0x12);
+		if(i != 0x00_00_00_12u){
+			assert(0);
+		}
+		if(b != 0x12){
+			assert(0);
+		}
 		
 		return 0;
 	}else{

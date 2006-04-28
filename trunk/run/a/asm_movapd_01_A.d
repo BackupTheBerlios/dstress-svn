@@ -2,25 +2,27 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_movdup_01;
+module dstress.run.a.asm_movapd_01_A;
 
 int main(){
 	version(D_InlineAsm_X86){
-		double a = -3.5;
+		static double[2] A = [2.0, 3.0];
 		double[2] b;
-		
+
 		asm{
-			movddup XMM0, a;
-			movdqu f, XMM0;
+			movdqu XMM0, A;
+			movapd XMM1, XMM0;
+			movdqu b, XMM1;
 		}
-		
-		if(b[0] != a){
+
+		if(A[0] != b[0]){
 			assert(0);
 		}
 
-		if(b[1] != a){
+		if(A[1] != b[1]){
 			assert(0);
 		}
+		
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

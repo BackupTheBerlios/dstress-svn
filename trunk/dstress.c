@@ -948,7 +948,8 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	}
 
 	/* test 2/3 - run */
-	if(VALGRIND && VALGRIND[0]){
+	/* FIXME asm workaround due to Valgrind bugs */
+	if(VALGRIND && VALGRIND[0] && !strstr(case_file, "/asm_") && !strstr(case_file, "\\asm_")){
 		bufferLen = strlen(VALGRIND) + strlen(case_file) + 8;
 		buffer = malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s.exe", VALGRIND, case_file);

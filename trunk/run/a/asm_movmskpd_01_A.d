@@ -2,20 +2,21 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_movss_01;
+module dstress.run.a.asm_movmskpd_01_A;
 
 int main(){
 	version(D_InlineAsm_X86){
-		
-		float a = -12.1L;
-		float b = 2.8L;
+		const double[2] a = [1.0, -1.0];
+		uint b;
 		
 		asm{
-			movss XMM0, a;
-			movss b, XMM0;
+			movdqu XMM0, a;
+			mov EAX, 0xFFFF_FFFF;
+			movmskpd EAX, XMM0;
+			mov b, EAX;
 		}
 		
-		if(a != b){
+		if(b != 0xFFFF_FF02){
 			assert(0);
 		}
 		

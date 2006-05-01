@@ -37,20 +37,20 @@
 
 /* number's choice: XOR and printf :) */
 #define MODE_RUN	(0x10000)
-#define MODE_NORUN	(0x1000)
-#define MODE_COMPILE	(0x100)
-#define MODE_NOCOMPILE	(0x10)
-#define MODE_TORTURE	(0x2)
+#define MODE_NORUN	(0x01000)
+#define MODE_COMPILE	(0x00100)
+#define MODE_NOCOMPILE	(0x00010)
+#define MODE_TORTURE	(0x00002)
 
 #define RES_BASE_MASK	(0xFFFFFF0)
 #define RES_PASS	(0x1000000)
-#define RES_XFAIL	(0x100000)
-#define RES_XPASS	(0x10000)
-#define RES_FAIL	(0x1000)
-#define RES_ERROR	(0x100)
-#define RES_UNTESTED	(0x10)
-#define RES_BAD_GDB	(0x4)
-#define RES_BAD_MSG	(0x2)
+#define RES_XFAIL	(0x0100000)
+#define RES_XPASS	(0x0010000)
+#define RES_FAIL	(0x0001000)
+#define RES_ERROR	(0x0000100)
+#define RES_UNTESTED	(0x0000010)
+#define RES_BAD_GDB	(0x0000004)
+#define RES_BAD_MSG	(0x0000002)
 
 #if defined(__GNU_LIBRARY__) || defined(__GLIBC__)
 #define USE_POSIX 1
@@ -178,25 +178,51 @@ HANDLE originalStdout, originalStderr;
 #endif
 
 const char* torture[] = {
+	/* 0 args */
 	"",
 
-	"-g", "-inline", "-fPIC", "-O", "-release",
+	/* 1 args */
+	"-g",
+	"-inline",
+	"-fPIC",
+	"-O",
+	"-release",
 
-	"-g -inline", "-g -fPIC", "-g -O", "-g -release",
-	"-inline -fPIC", "-inline -O", "-inline -release",
-	"-fPIC -O", "-fPIC -release",
+	/* 2 args */
+	"-g -inline",
+	"-g -fPIC",
+	"-g -O",
+	"-g -release",
+	"-inline -fPIC",
+	"-inline -O",
+	"-inline -release",
+	"-fPIC -O",
+	"-fPIC -release",
 	"-O -release",
 
-	"-g -inline -fPIC", "-g -inline -O", "-g -inline -release",
-	"-g -fPIC -O", "-g -fPIC -release", "-g -O -release",
-	"-inline -fPIC -O", "-inline -fPIC -release", "-inline -O -release",
+	/* 3 args */
+	"-g -inline -fPIC",
+	"-g -inline -O",
+	"-g -inline -release",
+	"-g -fPIC -O",
+	"-g -fPIC -release",
+	"-g -O -release",
+	"-inline -fPIC -O",
+	"-inline -fPIC -release",
+	"-inline -O -release",
 	"-fPIC -O -release",
 
-	"-g -inline -fPIC -O", "-g -inline -fPIC -release",
+	/* 4 args */
+	"-g -inline -fPIC -O",
+	"-g -inline -fPIC -release",
 	"-g -fPIC -O -release",
 	"-inline -fPIC -O -release",
 
-	"-g -inline -fPIC -O -release"
+	/* 5 args */
+	"-g -inline -fPIC -O -release",
+
+	/* 4 args - ommitted */
+	"-g -inline -O -release"
 };
 
 /* secure malloc */
@@ -1265,7 +1291,7 @@ err:
 		}
 
 		bufferLen = strlen(torture[(sizeof(torture) / sizeof(char*))-1])
-			+ strlen(cmd_arg_case) + 3;
+			+ 128 + strlen(cmd_arg_case) + 3;
 
 		if(torture_block_case!=NULL && strlen(torture_block_case)<1){
 			torture_block_case=NULL;

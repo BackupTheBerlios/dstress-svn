@@ -974,12 +974,20 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 	}
 
 	/* test 2/3 - run */
-	/* FIXME asm workaround due to Valgrind bugs */
-	if(VALGRIND && VALGRIND[0] && !strstr(case_file, "/asm_") && !strstr(case_file, "\\asm_")){
+	if((modus & MODE_NORUN) && (strstr(case_file, "/asm_")
+				|| strstr(case_file, "\\asm_")))
+	{
+		/* Valgrind doesn't support privileged instructions */
+		goto no_valgrind;
+	}else if(!strstr(case_file, "/asm_") && !strstr(case_file, "\\asm_")){
+		/* FIXME asm workaround due to Valgrind bugs (mainly SSE3) */
+		goto no_valgrind;
+	}else if(VALGRIND && VALGRIND[0]){
 		bufferLen = strlen(VALGRIND) + strlen(case_file) + 8;
 		buffer = malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s.exe", VALGRIND, case_file);
 	}else{
+no_valgrind:
 		bufferLen = strlen(case_file) + 8;
 		buffer = malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s.exe", case_file);

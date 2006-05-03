@@ -129,6 +129,9 @@
 #else
 #ifdef USE_WINDOWS
 
+#include <process.h>
+typedef int pid_t;
+
 #include <windows.h>
 #define snprintf _snprintf
 #ifndef INVALID_FILE_SIZE
@@ -166,6 +169,7 @@
 #ifdef USE_WINDOWS
 #define		VALGRIND	""
 #define		TMP_DIR		".\\obj"
+#define		RM_DIR		"rd /sq"
 #else
 #error OS dependent file names not defined
 #endif
@@ -690,6 +694,16 @@ int crashRun(const char* cmd, char** logFile){
 	size_t len;
 	char* buffer;
 	int back;
+#ifdef USE_WINDOWS
+	PROCESS_INFORMATION processInfo;
+	STARTUPINFO startupInfo;
+	SECURITY_ATTRIBUTES sa = {
+		sizeof(SECURITY_ATTRIBUTES), NULL, TRUE
+	};
+	HANDLE tLogFile;
+	unsigned long exitCode;
+	int timeLeft = 600;	/* time limit in iterations of WFX loop */
+#endif
 
 	*logFile = genTempFileName();
 #ifdef USE_POSIX
@@ -717,15 +731,6 @@ int crashRun(const char* cmd, char** logFile){
 
 	return back;
 #elif defined USE_WINDOWS
-	PROCESS_INFORMATION processInfo;
-	STARTUPINFO startupInfo;
-	SECURITY_ATTRIBUTES sa = {
-		sizeof(SECURITY_ATTRIBUTES), NULL, TRUE
-	};
-	HANDLE tLogFile;
-	unsigned long exitCode;
-	int timeLeft = 600;	/* time limit in iterations of WFX loop */
-
 	memset(&processInfo, 0, sizeof(PROCESS_INFORMATION));
 	memset(&startupInfo, 0, sizeof(STARTUPINFO));
 	startupInfo.cb = sizeof(STARTUPINFO);

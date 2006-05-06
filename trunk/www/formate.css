@@ -1,6 +1,9 @@
 body  { background-color:#ffe28c; }
+
 a { color:#370be5; }
 a:hover { background-color:#fff7b7; }
+a.broken_1 { font-style:italic; background-color:#FFCCCC;}
+a.broken_1:hover { background-color:#FFEEFF; }
 
 td { text-align: center }
 

@@ -4,17 +4,23 @@
 
 module dstress.run.a.asm_addsubps_01_A;
 
+version(D_InlineAsm_X86){
+	version = doTest;
+}else version(D_InlineAsm_X86_64){
+	version = doTest;
+}
+
 int main(){
-	version(D_InlineAsm_X86){
+	version(doTest){
 		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
 		static float[4] B = [0.1f, 0.2f, 0.3f, 0.4f];
 		float[4] c;
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movups XMM0, A;
+			movups XMM1, B;
 			addsubps XMM0, XMM1;
-			movdqu c, XMM0;
+			movups c, XMM0;
 		}
 
 		c[0] -= 0.9f;
@@ -54,7 +60,7 @@ int main(){
 		}
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		static assert(0);
 	}
 }

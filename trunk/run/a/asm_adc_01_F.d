@@ -2,12 +2,16 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_REQUIRE__ D_InlineAsm_X86
-
 module dstress.run.a.asm_adc_01_F;
 
+version(D_InlineAsm_X86){
+	version = doTest;
+}else version(D_InlineAsm_X86_64){
+	version = doTest;
+}
+
 int main(){
-	version(D_InlineAsm_X86){
+	version(doTest){
 		int a;
 				
 		asm{
@@ -34,7 +38,7 @@ int main(){
 		
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
 		static assert(0);
 	}
 }

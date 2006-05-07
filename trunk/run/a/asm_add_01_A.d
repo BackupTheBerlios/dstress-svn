@@ -5,7 +5,7 @@
 module dstress.run.a.asm_add_01_A;
 
 int main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		uint i = 0x12_23_45_56;
 		ubyte b = 0xFFu;
 		
@@ -24,7 +24,7 @@ int main(){
 		
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
 		static assert(0);
 	}
 }

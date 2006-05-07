@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_cmpxchg_01_B;
+module dstress.run.a.asm_cmpxchg_01_A;
 
 version(D_InlineAsm_X86){
 	version = doTest;
@@ -12,13 +12,15 @@ version(D_InlineAsm_X86){
 
 int main(){
 	version(doTest){
-		ushort a = 0;
-		ushort c = 3;
+		ubyte a = 0;
+		ubyte c = 3;
 		asm{
-			mov AX, 1;
-			mov BX, 2;
-			cmpxchg c, BX;
-			mov a, AX;
+			mov AL, 1;
+			mov BL, 2;
+			mov CL, c;
+			cmpxchg CL, BL;
+			mov a, AL;
+			mov c, CL;
 		}
 	
 		if(c != 3){
@@ -32,10 +34,12 @@ int main(){
 		c = 3;
 		
 		asm{
-			mov AX, 3;
-			mov BX, 2;
-			cmpxchg c, BX;
-			mov a, AX;
+			mov AL, 3;
+			mov BL, 2;
+			mov CL, c;
+			cmpxchg CL, BL;
+			mov a, AL;
+			mov c, CL;
 		}
 		
 		if(c != 2){

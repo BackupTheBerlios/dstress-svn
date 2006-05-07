@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_clflush_01;
+module dstress.run.a.asm_cmpsd_01_B;
 
 version(D_InlineAsm_X86){
 	version = doTest;
@@ -12,27 +12,25 @@ version(D_InlineAsm_X86){
 
 int main(){
 	version(doTest){
-		uint a;
-		ubyte b = 1;
-		
+		static double[2] A = [1.0, 2.0];
+		static double B = 1.0;
+		ulong[2] c;
+		double[2] d;
+
 		asm{
-			mov EAX, 1;
-			cpuid;
-			mov EAX, EDX;
-			mov EBX, 0x2000;
-			and EAX, EBX;
-			cmp EAX, EBX;
-			jne not_supported;
-			clflush b;
-			inc EAX;
-		not_supported:
-			mov a, 1;
+			movupd XMM0, A;
+			cmpsd XMM0, B, 0;
+			movdqu c, XMM0;
+			movupd d, XMM0;
 		}
-	
-		if((a != 0x20001) && (a != 1)){
+
+		if(c[0] != ulong.max){
 			assert(0);
 		}
-		
+		if(d[1] != A[1]){
+			assert(0);
+		}
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

@@ -2,10 +2,16 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_cmpxchg_01_B;
+module dstress.run.a.asm_cmpxchg_01_C;
+
+version(D_InlineAsm_X86){
+	version = doTest;
+}else version(D_InlineAsm_X86_64){
+	version = doTest;
+}
 
 int main(){
-	version(D_InlineAsm){
+	version(doTest){
 		uint a = 0;
 		uint c = 3;
 		asm{
@@ -15,8 +21,12 @@ int main(){
 			mov a, EAX;
 		}
 	
-		assert(c==3);
-		assert(a==3);
+		if(c != 3){
+			assert(0);
+		}
+		if(a != 3){
+			assert(0);
+		}
 		
 		a = 0;
 		c = 3;
@@ -28,12 +38,16 @@ int main(){
 			mov a, EAX;
 		}
 		
-		assert(c==2);
-		assert(a==3);
+		if(c != 2){
+			assert(0);
+		}
+		if(a != 3){
+			assert(0);
+		}
 		
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		static assert(0);
 	}
 }

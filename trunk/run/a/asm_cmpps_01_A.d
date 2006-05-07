@@ -4,6 +4,12 @@
 
 module dstress.run.a.asm_cmpps_01_A;
 
+version(D_InlineAsm_X86){
+	version = doTest;
+}else version(D_InlineAsm_X86_64){
+	version = doTest;
+}
+
 int main(){
 	version(D_InlineAsm_X86){
 		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
@@ -11,10 +17,10 @@ int main(){
 		uint[4] c;
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movups XMM0, A;
+			movups XMM1, B;
 			cmpps XMM0, XMM1, 0;
-			movdqu c, XMM0;
+			movups c, XMM0;
 		}
 
 		if(c[0]){
@@ -31,7 +37,7 @@ int main(){
 		}
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		static assert(0);
 	}
 }

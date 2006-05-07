@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_cmpxchg_01_B;
+module dstress.run.a.asm_cmpss_01_B;
 
 version(D_InlineAsm_X86){
 	version = doTest;
@@ -12,39 +12,31 @@ version(D_InlineAsm_X86){
 
 int main(){
 	version(doTest){
-		ushort a = 0;
-		ushort c = 3;
+		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
+		static float B = 1.0f;
+		uint[4] c;
+		float[4] f;
+
 		asm{
-			mov AX, 1;
-			mov BX, 2;
-			cmpxchg c, BX;
-			mov a, AX;
+			movups XMM0, A;
+			cmpss XMM0, B, 0;
+			movdqu c, XMM0;
+			movups f, XMM0;
 		}
-	
-		if(c != 3){
+
+		if(c[0] != uint.max){
 			assert(0);
 		}
-		if(a != 3){
+		if(f[1] != A[1]){
 			assert(0);
 		}
-		
-		a = 0;
-		c = 3;
-		
-		asm{
-			mov AX, 3;
-			mov BX, 2;
-			cmpxchg c, BX;
-			mov a, AX;
-		}
-		
-		if(c != 2){
+		if(f[2] != A[2]){
 			assert(0);
 		}
-		if(a != 3){
+		if(f[3] != A[3]){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

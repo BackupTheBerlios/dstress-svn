@@ -1,8 +1,8 @@
-// $HeadURL$
-// $Date$
-// $Author$
-
-module dstress.run.a.asm_cmc_01;
+ // $HeadURL$
+ // $Date$
+ // $Author$
+ 
+module dstress.run.a.asm_comisd_01_B;
 
 version(D_InlineAsm_X86){
 	version = doTest;
@@ -12,18 +12,17 @@ version(D_InlineAsm_X86){
 
 int main(){
 	version(doTest){
-		byte a = 0;
-				
+		const double[2] A = [1.0, 2.0];
+		const double B = 3.0;
+
 		asm{
-			clc;
-			cmc;
-			jnc error;
-			stc;
-			cmc;
-			jc error;
+			movupd XMM0, A;
+			comisd XMM0, B;
+			jg error;
+			je error;
+			jnl error;
 		}
-		
-		
+
 		return 0;
 	error:
 		assert(0);

@@ -17,8 +17,10 @@ int main(){
 		asm{
 			mov AX, 1;
 			mov BX, 2;
-			cmpxchg c, BX;
+			mov CX, c;
+			cmpxchg CX, BX;
 			mov a, AX;
+			mov c, CX;
 		}
 	
 		if(c != 3){
@@ -34,8 +36,10 @@ int main(){
 		asm{
 			mov AX, 3;
 			mov BX, 2;
-			cmpxchg c, BX;
+			mov CX, c;
+			cmpxchg CX, BX;
 			mov a, AX;
+			mov c, CX;
 		}
 		
 		if(c != 2){

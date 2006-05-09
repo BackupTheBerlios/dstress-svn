@@ -4,8 +4,14 @@
 
 module dstress.run.a.asm_div_01_C;
 
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
 int main(){
-	version(D_InlineAsm){
+	version(runTest){
 		uint y = 2;
 		
 		uint a = 0x00_00_00_00u;
@@ -19,8 +25,12 @@ int main(){
 			mov b, EDX;
 		}
 
-		assert(a==0x7F_FF_FF_FFu);
-		assert(b==0x1u);
+		if(a != 0x7F_FF_FF_FFu){
+			assert(0);
+		}
+		if(b != 0x1u){
+			assert(0);
+		}
 		
 		a = 0x00_00_00_00u;
 		b = 0xFF_FF_FF_FEu;
@@ -33,12 +43,16 @@ int main(){
 			mov b, EDX;
 		}
 
-		assert(a==0x7F_FF_FF_FFu);
-		assert(b==0x0u);
+		if(a != 0x7F_FF_FF_FFu){
+			assert(0);
+		}
+		if(b != 0x0u){
+			assert(0);
+		}
 		
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		static assert(0);
 	}
 }

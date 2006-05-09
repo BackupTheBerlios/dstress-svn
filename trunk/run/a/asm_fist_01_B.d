@@ -9,7 +9,7 @@ import addon.cpuinfo;
 
 int main(){
 	version(D_InlineAsm){
-		haveFPU();
+		haveFPU!()();
 		
 		real r = -800.0L;
 		int i;

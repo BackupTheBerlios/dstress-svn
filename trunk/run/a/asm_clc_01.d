@@ -5,13 +5,13 @@
 module dstress.run.a.asm_clc_01;
 
 version(D_InlineAsm_X86){
-	version = doTest;
+	version = runTest;
 }else version(D_InlineAsm_X86_64){
-	version = doTest;
+	version = runTest;
 }
 
 int main(){
-	version(doTest){
+	version(runTest){
 		uint a;
 		
 		asm{

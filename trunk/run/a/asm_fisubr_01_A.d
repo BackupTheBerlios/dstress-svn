@@ -9,7 +9,7 @@ import addon.cpuinfo;
 
 int main(){
 	version(D_InlineAsm){
-		haveFPU();
+		haveFPU!()();
 		
 		float a = 2.4;
 		int b = 19;

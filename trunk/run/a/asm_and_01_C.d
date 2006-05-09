@@ -5,13 +5,13 @@
 module dstress.run.a.asm_and_01_C;
 
 version(D_InlineAsm_X86){
-	version = doTest;
+	version = runTest;
 }else version(D_InlineAsm_X86_64){
-	version = doTest;
+	version = runTest;
 }
 
 int main(){
-	version(doTest){
+	version(runTest){
 		uint a = 0x12_34_56_06;
 		uint b = 0x12_30_43_01;
 		asm{

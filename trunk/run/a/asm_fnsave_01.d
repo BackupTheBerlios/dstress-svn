@@ -9,7 +9,7 @@ import addon.cpuinfo;
 
 int main(){
 	version(D_InlineAsm){
-		haveFPU();
+		haveFPU!()();
 		
 		static if(size_t.sizeof==4 || size_t.sizeof==6){
 			const ubyte stateSize = 108;

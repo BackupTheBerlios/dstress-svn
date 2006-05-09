@@ -5,12 +5,12 @@
 module dstress.run.a.asm_add_02;
 
 version(D_InlineAsm_X86){
-	version = doTest;
+	version = runTest;
 }else version(D_InlineAsm_X86_64){
-	version = doTest;
+	version = runTest;
 }
 
-version(doTest){
+version(runTest){
 	int test(int i){
 		asm{
 			naked;

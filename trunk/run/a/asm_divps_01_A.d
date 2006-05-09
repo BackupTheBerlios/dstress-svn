@@ -4,17 +4,23 @@
 
 module dstress.run.a.asm_divps_01_A;
 
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
 int main(){
-	version(D_InlineAsm_X86){
+	version(runTest){
 		static float[4] A = [-16.0f, 12.0f, 3.3f, 0.0f];
 		static float[4] B = [2.0f, 3.0f, 1.0f, 9.7f];
 		float[4] c;
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movups XMM0, A;
+			movups XMM1, B;
 			divps XMM0, XMM1;
-			movdqu c, XMM0;
+			movups c, XMM0;
 		}
 
 		c[0] += 8.0f;
@@ -47,9 +53,10 @@ int main(){
 		if(c[3] > float.epsilon * 16){
 			assert(0);
 		}
+
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		static assert(0);
 	}
 }

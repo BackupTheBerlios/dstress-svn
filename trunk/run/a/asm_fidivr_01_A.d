@@ -2,16 +2,21 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_DFLAGS__ addon/cpuinfo.d
-
 module dstress.run.a.asm_fidivr_01_A;
-import addon.cpuinfo;
 
-int main(){
-	version(D_InlineAsm){
-		haveFPU();
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		haveFPU!()();
 		
-		float a = -3.0;
+		float a = -3.0f;
 		int b = 12;
 		
 		asm{
@@ -20,11 +25,13 @@ int main(){
 			fstp a;
 		}
 		
-		assert(a == -4.0);
+		if(a != -4.0f){
+			assert(0);
+		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

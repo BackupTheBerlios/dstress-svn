@@ -5,9 +5,9 @@
 module dstress.run.a.asm_cmpps_01_A;
 
 version(D_InlineAsm_X86){
-	version = doTest;
+	version = runTest;
 }else version(D_InlineAsm_X86_64){
-	version = doTest;
+	version = runTest;
 }
 
 int main(){

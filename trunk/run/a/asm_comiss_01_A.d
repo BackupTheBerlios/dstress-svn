@@ -5,13 +5,13 @@
 module dstress.run.a.asm_comiss_01_A;
 
 version(D_InlineAsm_X86){
-	version = doTest;
+	version = runTest;
 }else version(D_InlineAsm_X86_64){
-	version = doTest;
+	version = runTest;
 }
 
 int main(){
-	version(doTest){
+	version(runTest){
 		const float[4] A = [10.0f, 20.0f, 19.0f, 2.0f];
 		const float[4] B = [5.0f, 5.0f, 5.0f, 3.0f];
 

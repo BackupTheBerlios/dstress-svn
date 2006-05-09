@@ -5,13 +5,13 @@
 module dstress.run.a.asm_addsubps_01_A;
 
 version(D_InlineAsm_X86){
-	version = doTest;
+	version = runTest;
 }else version(D_InlineAsm_X86_64){
-	version = doTest;
+	version = runTest;
 }
 
 int main(){
-	version(doTest){
+	version(runTest){
 		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
 		static float[4] B = [0.1f, 0.2f, 0.3f, 0.4f];
 		float[4] c;

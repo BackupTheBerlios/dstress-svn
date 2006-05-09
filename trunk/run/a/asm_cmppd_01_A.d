@@ -5,13 +5,13 @@
 module dstress.run.a.asm_cmppd_01_A;
 
 version(D_InlineAsm_X86){
-	version = doTest;
+	version = runTest;
 }else version(D_InlineAsm_X86_64){
-	version = doTest;
+	version = runTest;
 }
 
 int main(){
-	version(doTest){
+	version(runTest){
 		static double[2] A = [1.0, 2.0f];
 		static double[2] B = [1.1, 2.0f];
 		ulong[2] c;

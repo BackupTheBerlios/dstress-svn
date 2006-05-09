@@ -4,8 +4,14 @@
 
 module dstress.run.a.asm_div_01_B;
 
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
 int main(){
-	version(D_InlineAsm){
+	version(runTest){
 		ushort y = 2;
 		
 		ushort a = 0x00_00u;
@@ -19,8 +25,12 @@ int main(){
 			mov b, DX;
 		}
 
-		assert(a==0x7F_FFu);
-		assert(b==0x1u);
+		if(a != 0x7F_FFu){
+			assert(0);
+		}
+		if(b != 0x1u){
+			assert(0);
+		}
 		
 		a = 0x00_00u;
 		b = 0xFF_FEu;
@@ -33,8 +43,12 @@ int main(){
 			mov b, DX;
 		}
 
-		assert(a==0x7F_FFu);
-		assert(b==0x0u);
+		if(a != 0x7F_FFu){
+			assert(0);
+		}
+		if(b != 0x0u){
+			assert(0);
+		}
 		
 		return 0;
 	}else{

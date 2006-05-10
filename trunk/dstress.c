@@ -161,13 +161,13 @@ typedef int pid_t;
 #ifdef USE_VALGRIND
 #define		VALGRIND	"valgrind --leak-check=no -q --suppressions=valgrind.suppress"	
 #else
-#define		VALGRIND	""
+#define		VALGRIND	NULL
 #endif
 #define		TMP_DIR		"./obj"
 #define		RM_DIR		"rm -rf"
 #else
 #ifdef USE_WINDOWS
-#define		VALGRIND	""
+#define		VALGRIND	NULL
 #define		TMP_DIR		".\\obj"
 #define		RM_DIR		"rd /sq"
 #else
@@ -980,14 +980,17 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 
 	/* test 2/3 - run */
 	if((modus & MODE_NORUN) && (strstr(case_file, "/asm_")
-				|| strstr(case_file, "\\asm_")))
+				|| strstr(case_file, "\\asm_")
+				|| (case_file == strstr(case_file, "asm_"))))
 	{
 		/* Valgrind doesn't support privileged instructions */
 		goto no_valgrind;
-	}else if(!strstr(case_file, "/asm_") && !strstr(case_file, "\\asm_")){
+	}else if(strstr(case_file, "/asm_") || strstr(case_file, "\\asm_")
+			|| (case_file == strstr(case_file, "asm_")))
+	{
 		/* FIXME asm workaround due to Valgrind bugs (mainly SSE3) */
 		goto no_valgrind;
-	}else if(VALGRIND && VALGRIND[0]){
+	}else if(VALGRIND){
 		bufferLen = strlen(VALGRIND) + strlen(case_file) + 8;
 		buffer = malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s.exe", VALGRIND, case_file);

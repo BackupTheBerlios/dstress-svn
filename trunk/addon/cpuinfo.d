@@ -20,24 +20,30 @@ version(D_InlineAsm){
 }else version(D_InlineAsm_X86){
 	const bool haveX86InlineAsm = true;
 	version = haveX86InlineAsm;
+}else version(D_InlineAsm_X86_X64){
+	const bool haveX86InlineAsm = true;
+	version = haveX86InlineAsm;
 }else{
 	pragma(msg, "no Inline ASM support");
 	const bool haveX86InlineAsm = false;
 }
 
-void haveCMOV(){
-	uint a = 0;
 
-	version(haveX86InlineAsm){
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
+template haveCMOV(){
+	void haveCMOV(){
+		uint a = 0;
+
+		version(haveX86InlineAsm){
+			asm{
+				mov EAX, 1;
+				cpuid;
+				mov a, EDX;
+			}
 		}
-	}
 
-	if(!((a >> 15) & 1)){
-		throw new Exception("no X86 CMOV support present");
+		if(!((a >> 15) & 1)){
+			throw new Exception("DSTRESS{XFAIL}: no CMOV support present");
+		}
 	}
 }
 	
@@ -57,19 +63,21 @@ void haveCX8(){
 	}
 }
 
-void haveFPU(){
-	uint a = 0;
+template haveFPU(){
+	void haveFPU(){
+		uint a = 0;
 		
-	version(haveX86InlineAsm){
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
+		version(haveX86InlineAsm){
+			asm{
+				mov EAX, 1;
+				cpuid;
+				mov a, EDX;
+			}
 		}
-	}
 		
-	if(!(a & 1)){
-		throw new Exception("no X86 FPU present");
+		if(!(a & 1)){
+			throw new Exception("DSTRESS{XFAIL}: no X86 FPU present");
+		}
 	}
 }
 

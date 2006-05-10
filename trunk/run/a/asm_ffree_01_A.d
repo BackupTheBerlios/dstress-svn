@@ -1,34 +1,26 @@
-// $HeadURL$
-// $Date$
-// $Author$
-
-module dstress.run.a.asm_fild_01_A;
+ // $HeadURL$
+ // $Date$
+ // $Author$
+ 
+module dstress.run.a.asm_ffree_01_A;
 
 version(D_InlineAsm_X86){
-	version = runTest;
+	version = doTest;
 }else version(D_InlineAsm_X86_64){
-	version = runTest;
+	version = doTest;
 }
 
-version(runTest){
+version(doTest){
 	import addon.cpuinfo;
-
+	
 	int main(){
 		haveFPU!()();
-		
-		short i = 800;
-		double d;
-		
+
 		asm{
 			finit;
-			fild i;
-			fst d;
+			ffree ST(1);
 		}
-		
-		if(d != 800.0){
-			assert(0);
-		}
-		
+
 		return 0;
 	}
 }else{

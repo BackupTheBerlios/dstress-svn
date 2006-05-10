@@ -2,32 +2,41 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_DFLAGS__ addon/cpuinfo.d
-
 module dstress.run.a.asm_fistp_01_A;
-import addon.cpuinfo;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
 		haveFPU!()();
 		
-		real r = -80.0L;
-		short a, b;
+		float f = -800.0f;
+		short i;
 		
 		asm{
-			finit;
 			fld1;
-			fld r;
-			fistp a;
-			fistp b;
+			fld f;
+			fistp i;
+			fst f;
 		}
 		
-		assert(a == -80);
-		assert(b == 1);
+		if(i != -800){
+			assert(0);
+		}
+
+		if(f != 1.0f){
+			assert(0);
+		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

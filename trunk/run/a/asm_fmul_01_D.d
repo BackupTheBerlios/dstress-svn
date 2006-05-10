@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_fnsave_01;
+module dstress.run.a.asm_fmul_01_D;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -16,18 +16,25 @@ version(runTest){
 	int main(){
 		haveFPU!()();
 		
-		static if(size_t.sizeof==4 || size_t.sizeof==6){
-			const ubyte stateSize = 108;
-		}else static if(size_t.sizeof==2){
-			const ubyte stateSize = 94;
-		}else{
-			static assert(0);
-		}
-		
-		ubyte[stateSize] state;
+		float a = 2.0f;
+		float b = -3.0f;
 		
 		asm{
-			fnsave state;
+			fld a;
+			fld b;
+			fmul ST(1), ST;
+			fdecstp;
+			fst b;
+		}
+		
+		b -= -6.0f;
+		
+		if(b < 0.0f){
+			b = -b;
+		}
+		
+		if(b > b.epsilon * 4.0f){
+			assert(0);
 		}
 		
 		return 0;

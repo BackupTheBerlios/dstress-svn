@@ -2,19 +2,24 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_DFLAGS__ addon/cpuinfo.d
-
 module dstress.run.a.asm_fldcw_01;
-import addon.cpuinfo;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
 		haveFPU!()();
 		
 		ushort controll;
 		
-		float a = 2.8;
-		float b = 2.1;
+		float a = 2.8f;
+		float b = 2.1f;
 		
 		short i1_a, i1_b;
 		short i2_a, i2_b;
@@ -37,6 +42,13 @@ int main(){
 			fistp i1_b;
 		}
 		
+		if(i1_a != 2){
+			assert(0);
+		}
+		if(i1_b != 2){
+			assert(0);
+		}
+		
 		controll &= 0b1111_00_1111111111;
 		controll |= 0b0000_10_0000000000;
 		
@@ -47,6 +59,12 @@ int main(){
 			
 			fld b;
 			fistp i2_b;
+		}
+		if(i2_a != 3){
+			assert(0);
+		}
+		if(i2_b != 3){
+			assert(0);
 		}
 		
 		controll &= 0b1111_00_1111111111;
@@ -59,19 +77,16 @@ int main(){
 			fld b;
 			fistp i3_b;
 		}
-		
-		assert(i1_a == 2);
-		assert(i1_b == 2);
-		
-		assert(i2_a == 3);
-		assert(i2_b == 3);
-		
-		assert(i3_a == 3);
-		assert(i3_b == 2);
+		if(i3_a != 3){
+			assert(0);
+		}
+		if(i3_b != 2){
+			assert(0);
+		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

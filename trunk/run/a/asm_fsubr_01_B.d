@@ -4,28 +4,39 @@
 
 module dstress.run.a.asm_fsubr_01_B;
 
-int main(){
-	version(D_InlineAsm){
-		double a = 2.4L;
-		double b = -1.2L;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		double a = 2.4;
+		double b = -1.2;
 		
 		asm{
-			fld a;
-			fsubr b;
+			fld b;
+			fsubr a;
 			fst a;
 		}
 		
-		assert(a<0);
+		a -= 3.6;
 		
-		a += 3.6L;
+		if(a < 0.0){
+			a = -a;
+		}
 		
-		a = (a>0) ? a : -a;
-		
-		assert(a < a.epsilon * 4);
+		if(a > a.epsilon * 4.0){
+			assert(0);
+		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

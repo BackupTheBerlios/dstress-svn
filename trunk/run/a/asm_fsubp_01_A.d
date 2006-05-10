@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_fnsave_01;
+module dstress.run.a.asm_fsubp_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -12,22 +12,33 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-
+	
 	int main(){
-		haveFPU!()();
-		
-		static if(size_t.sizeof==4 || size_t.sizeof==6){
-			const ubyte stateSize = 108;
-		}else static if(size_t.sizeof==2){
-			const ubyte stateSize = 94;
-		}else{
-			static assert(0);
-		}
-		
-		ubyte[stateSize] state;
+		double a = 2.4;
+		double b = -1.2;
 		
 		asm{
-			fnsave state;
+			fld1;
+			fldz;
+			fld a;
+			fld b;
+			fsubp;
+			fstp a;
+			fstp b;
+		}
+		
+		a -= 3.6;
+		
+		if(a < 0.0){
+			a = -a;
+		}
+		
+		if(a > a.epsilon * 4.0){
+			assert(0);
+		}
+
+		if(b != 0.0){
+			assert(0);
 		}
 		
 		return 0;

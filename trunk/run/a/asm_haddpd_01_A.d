@@ -4,17 +4,27 @@
 
 module dstress.run.a.asm_haddpd_01_A;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+	
+	int main(){
+		haveSSE3!()();
+
 		static double[2] A = [7.0, 11.0];
 		static double[2] B = [2.0, 3.0];
 		double[2] c;
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movupd XMM0, A;
+			movupd XMM1, B;
 			haddpd XMM0, XMM1;
-			movdqu c, XMM0;
+			movupd c, XMM0;
 		}
 
 		c[0] -= 18.0;
@@ -34,8 +44,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

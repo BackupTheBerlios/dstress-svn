@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_fxtract_01;
+module dstress.run.a.asm_fucomp_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -15,28 +15,40 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-
-		float a = -8.0f;
-		float exponent;
-		float significand;
-		float f;
 		
+		float f1 = float.nan;
+		float f2;
+		ushort s;
+				
 		asm{
 			fldz;
-			fld a;
-			fxtract;
-			fstp significand;
-			fstp exponent;
-			fst f;
+			fld1;
+			fldz;
+			fld f1;
+			fucomp;
+			fstsw s;
+			fstp f1;
+			fstp f2;
+		}
+
+		if(f1 != 0.0f){
+			assert(0);
+		}
+		if(f2 != 1.0f){
+			assert(0);
 		}
 		
-		if(significand != -1.0f){
+		ushort C0 = 1 << 8;
+		ushort C2 = 1 << 10;
+		ushort C3 = 1 << 14;
+		
+		if(!(s & C0)){
 			assert(0);
 		}
-		if(exponent != 3.0f){
+		if(!(s & C2)){
 			assert(0);
 		}
-		if(f != 0.0f){
+		if(!(s & C3)){
 			assert(0);
 		}
 		

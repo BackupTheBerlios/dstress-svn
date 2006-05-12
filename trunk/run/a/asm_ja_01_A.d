@@ -4,24 +4,28 @@
 
 module dstress.run.a.asm_ja_01_A;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		uint a=5;
 		uint b=5;
 		
 		asm{
 			mov EAX, a;
 			cmp EAX, b;
-			ja save;
-			add EAX, 1;
-		save:	mov a, EAX;
+			ja error;
 		}
 		
-		assert(a == 6);
-		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
+	error:
+		assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_idiv_01_A;
+module dstress.run.a.asm_idiv_02_B;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -11,31 +11,44 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
-	import addon.cpuinfo;
-
 	int main(){
-		byte y = 2;
+		short y = 2;
 		
-		ushort a = 0x00_81;
+		short a = 0x00_00;
+		short b = - 0x0F_FF;
 		
 		asm{
-			mov AX, a;
-			idiv y;
+			mov DX, a;
+			mov AX, b;
+			mov CX, y;
+			idiv CX;
 			mov a, AX;
+			mov b, DX;
 		}
-		if(a != 0x0140){
+
+		if(a != 0x78_00){
+			assert(0);
+		}
+		if(b != 1){
 			assert(0);
 		}
 		
-		a = 0x00_80;
+		a = 0x00_00;
+		b = - 0x0F_FE;
 
 		asm{
-			mov AX, a;
-			idiv y;
+			mov DX, a;
+			mov AX, b;
+			mov CX, y;
+			idiv CX;
 			mov a, AX;
+			mov b, DX;
 		}
-		
-		if(a != 0x0040){
+
+		if(a != 0x78_01){
+			assert(0);
+		}
+		if(b != 0){
 			assert(0);
 		}
 		

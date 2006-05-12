@@ -4,24 +4,40 @@
 
 module dstress.run.a.asm_fyl2x_01;
 
-int main(){
-	version(D_InlineAsm){
-		real a = -2.0L;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+	
+	int main(){
+		haveFPU!()();
+
+		float a = -2.0f;
+		float b;
 		
 		asm{
-			finit;
+			fld a;
 			fld a;
 			fld1;
 			fyl2x;
-			fstp a;
-			fstp a;
+			fstp b;
+			fst a;
 		}
 		
-		assert(a == -0.0L);
+		if(b != -0.0f){
+			assert(0);
+		}
+		if(a != -2.0f){
+			assert(0);
+		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

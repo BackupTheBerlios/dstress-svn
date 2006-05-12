@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_ja_01_B;
+module dstress.run.a.asm_inc_02_B;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -10,20 +10,19 @@ version(D_InlineAsm_X86){
 	version = runTest;
 }
 
+
 version(runTest){
 	int main(){
-		uint a=5;
-		uint b=4;
+		short b = 0x342F;
 		
 		asm{
-			mov EAX, a;
-			cmp EAX, b;
-			ja save;
+			inc b;
+		}
+	
+		if(b != 0x3430){
+			assert(0);
 		}
 		
-		assert(0);
-	
-	save:
 		return 0;
 	}
 }else{

@@ -129,19 +129,22 @@ void haveSSE2(){
 		throw new Exception("no X86 SSE2 support present");
 	}
 }
-	
-void haveSSE3(){
-	uint a = 0;
+
+template haveSSE3(){
+	void haveSSE3(){
+		uint a = 1;
+		uint b = 0;
 			
-	version(haveX86InlineAsm){
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, ECX;
+		version(haveX86InlineAsm){
+			asm{
+				mov EAX, a;
+				cpuid;
+				mov b, ECX;
+			}
 		}
-	}
 	
-	if(!(a & 1)){
-		throw new Exception("no X86 SSE3 support present");
+		if(!(a & 1)){
+			throw new Exception("DSTRESS{XFAIL}: no SSE3 support present");
+		}
 	}
 }

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_imul_02_A;
+module dstress.run.a.asm_fxch_01_B;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -11,17 +11,33 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
+	import addon.cpuinfo;
+	
 	int main(){
-		int a = -2;
-		int b = 3;
+		haveFPU!()();
+
+		float a = -1.0f;
+		float b = 3.5f;
+		
+		float a2, b2, x2;
 		
 		asm{
-			mov EAX, a;
-			imul EAX, b;
-			mov b, EAX;
+			fld a;
+			fld1;
+			fld b;
+			fxch ST(2);
+			fstp b2;
+			fstp x2;
+			fst a2;
 		}
-
-		if(b != -6){
+		
+		if(a2 != b){
+			assert(0);
+		}
+		if(x2 != 1.0f){
+			assert(0);
+		}
+		if(b2 != a){
 			assert(0);
 		}
 		

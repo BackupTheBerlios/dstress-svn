@@ -16,8 +16,8 @@
 		<meta name="DC.Creator" content="Thomas Kuehne &lt;webmastro@kuehne.cn&gt;" />
 		<meta name="DC.Publisher" content="Thomas Kuehne &lt;webmastro@kuehne.cn&gt;" />
 		<meta name="DC.Language" content="en" />
-		<meta name="date" content="2005-10-27" />
-		<meta name="DC.Date" content="2005-10-27" />
+		<meta name="date" content="2006-05-14" />
+		<meta name="DC.Date" content="2006-05-14" />
 		<link rel="Report" href="./www/dstress.html" title="Report" />
 		<link rel="Results" href="./www/results.html" />
 		<link rel="copyright" href="./license.txt" />
@@ -117,6 +117,12 @@
 				<dt>__DSTRESS_ELINE__</dt>
 					<dd>expected failing source line</dd>
 					<dd>default: <i>empty</i></dd>
+				<dt>__DSTRESS_TORTURE_BLOCK__</dt>
+					<dd>don't execute those torture tests which contain this plain string</dd>
+					<dd>default: <i>unset</i></dd>
+				<dt>__DSTRESS_TORTURE_REQUIRE__</dt>
+					<dd>execute only those torture tests which contain this plain string</dd>
+					<dd>default: <i>unset</i></dd>
 				<dt>__GDB_PATTERN__</dt>
 					<dd>expected regular expression in GDB's output</dd>
 					<dd>default: <i>empty</i></dd>
@@ -185,39 +191,6 @@
 			</dl>
 		</blockquote>
 
-		<!--<h3><a name="report-generation" id="report-generation" href="#top">^</a> Report Generation</h3>
-		<blockquote>
-			<dl>
-				<dt>Requirements</dt>
-				<dd>
-					<ul>
-						<li>a Java compiler</li>
-						<li><a href="./www/GenReport.java">GenReport.java</a></li>
-						<li>at least one logfile</li>
-					</ul>
-				</dd>
-				<dt>Step-by-Step</dt>
-				<dd>
-					<ol>
-						<li>compile the reporter class<blockquote><pre><span class="cmd">javac GenReporter.java</span></pre></blockquote></li>
-						<li>feed the logfile(s) to the reporter class<blockquote><pre><span class="cmd">java cn.kuehne.dmd.dstress.GenReport results1 results2 &gt; report.raw</span></pre></blockquote></li>
-						<li>sort and insert <i>report.raw</i> with apropiate HTML tags into a HTML file</li>
-					</ol>
-				</dd>
-				<dt>Notes</dt>
-				<dd>
-					<ul>
-						<li>test cases that have been changed since the recording of the result file ignored</li>
-						<li>the output is unsorted</li>
-						<li>one or more result-files can be feed to the reporter class</li>
-						<li>lines containing statistic data are marked by <i>&lt;!-- summary --&gt;</i></li>
-						<li>use <i>...resultfile</i> instead of <i>resultfile</i> to mark all FAIL, XPASS, ERROR testcases of this logfile by <i>&lt;!-- P! --&gt;</i></li>
-						<li>more than one resultfile can be marked</li>
-					</ul>
-				</dd>
-			</dl>
-		</blockquote>-->
-
 		<h3><a name="sourcecode-metadata" id="sourcecode-metadata" href="#top">^</a> Sourcecode Metadata</h3>
 		<blockquote>
 			Metadata starts with one of the markers listed below and continues until the end of the line.
@@ -237,6 +210,6 @@
 			</dl>
 		</blockquote>
 
-		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/readme.html</a>; 2005-10-27; <a href="mailto:webmastro@kuehne.cn">Webmaster</a></div>
+		<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/dstress.html'>http://dstress.kuehne.cn/readme.html</a>; 2006-05-14; <a href="mailto:webmastro@kuehne.cn">Webmaster</a></div>
 	</body>
 </html>

@@ -1347,9 +1347,9 @@ err:
 			printf("--------\n");
 		}
 	}else{
-		if(torture_require && !torture_require[0]){
+		if(torture_require && torture_require[0]){
 			if(!cmd_arg_case || !cmd_arg_case[0]){
-				torture_require = cmd_arg_case;
+				cmd_arg_case = torture_require;
 			}else{
 				bufferLen = strlen(cmd_arg_case);
 				bufferLen += strlen(torture_require);

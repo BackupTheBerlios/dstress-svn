@@ -487,7 +487,7 @@ class Report{
 	char[] root;
 	Log[] log;
 	static const char[] header =
-		"<th>&nbsp;</th><th>-g</th><th>-inline</th>"
+		"<th>&#160;</th><th>-g</th><th>-inline</th>"
 		"<th>-fPIC</th><th>-O</th><th>-release</th>"
 		"<th>-g -inline</th><th>-g -fPIC</th><th>-g -O</th>"
 		"<th>-g -release</th><th>-inline -fPIC</th>"
@@ -549,8 +549,8 @@ class Report{
 			stream.writeLine("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>");
 			stream.writeLine("<html xmlns='http://www.w3.org/1999/xhtml'>");
 
-			stream.writeLine("<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&uuml;hne' /><meta name='date' content='" ~ dateString() ~ "' /></head>");
-			stream.writeLine("<body><center><h1>DStress - Torture: "~name~"</h1></center><center><small>by Thomas K&uuml;hne &lt;thomas-at-kuehne.cn&gt;</small></center>");
+			stream.writeLine("<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&#252;hne' /><meta name='date' content='" ~ dateString() ~ "' /></head>");
+			stream.writeLine("<body><center><h1>DStress - Torture: "~name~"</h1></center><center><small>by Thomas K&#252;hne &lt;thomas-at-kuehne.cn&gt;</small></center>");
 			stream.writeLine("<h2><a name='note' id='note'></a>Note</h2><blockquote>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.</blockquote>");
 		}
 		
@@ -588,7 +588,7 @@ class Report{
 
 
 			stream.writeLine("<table border='1' summary='nummeric summary of the test results'>");
-			stream.writeLine("\t<tr><td>&nbsp;</td>"~header~"</tr>");
+			stream.writeLine("\t<tr><td>&#160;</td>"~header~"</tr>");
 			stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.PASS)~"'><th>PASS</th>" ~ streamLine(stats[Result.PASS >> 2])~"</tr>");
 			stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.XFAIL)~"'><th>XFAIL</th>" ~ streamLine(stats[Result.XFAIL >> 2])~"</tr>");
 			stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.XPASS)~"'><th>XPASS</th>" ~ streamLine(stats[Result.XPASS >> 2])~"</tr>");
@@ -601,7 +601,7 @@ class Report{
 		{ // details
 			stream.writeLine("<h2><a name='details' id='details'></a>Details</h2>");
 			stream.writeLine("<table border='1' summary='detailed listing of all test cases with unexpected results'>");
-			stream.writeLine("<tr><td>&nbsp;</td>"~header~"</tr>");
+			stream.writeLine("<tr><td>&#160;</td>"~header~"</tr>");
 			
 			char[][] keys;
 			{
@@ -660,12 +660,12 @@ class Report{
 				}
 			}
 
-			stream.writeLine("<tr><td>&nbsp;</td>"~header~"</tr>");
+			stream.writeLine("<tr><td>&#160;</td>"~header~"</tr>");
 			stream.writeLine("</table>");
 		}
 		
 		{ // footer
-			stream.writeLine("<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/"~cleanName~".html'>http://dstress.kuehne.cn/www/"~cleanName~".html</a>&nbsp; &nbsp;" ~ dateString() ~ "</div>");
+			stream.writeLine("<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/"~cleanName~".html'>http://dstress.kuehne.cn/www/"~cleanName~".html</a>&#160; &#160;" ~ dateString() ~ "</div>");
 			stream.writeLine("<!-- Start of StatCounter Code -->");
 			stream.writeLine("<script type='text/javascript'><!-- var sc_project=1337754; var sc_invisible=1; var sc_partition=12; var sc_security=\"a4a998fe\"; var sc_remove_link=1; //--> </script>");
 			stream.writeLine("<script type='text/javascript' src='http://www.statcounter.com/counter/counter_xhtml.js'></script><noscript><div class='statcounter'><img src='http://c13.statcounter.com/counter.php?sc_project=1337754&amp;amp;java=0&amp;amp;security=a4a998fe&amp;amp;invisible=1' class='statcounter' alt='counter' /></div></noscript>");
@@ -767,14 +767,14 @@ class Report{
 		// output
 		stream.writeLine("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>");
 		stream.writeLine("<html xmlns='http://www.w3.org/1999/xhtml'>");
-		stream.writeLine("<head><title>DStress Report</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&uuml;hne' /><meta name='date' content='"~dateString()~"' /></head>");
+		stream.writeLine("<head><title>DStress Report</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&#252;hne' /><meta name='date' content='"~dateString()~"' /></head>");
 		stream.writeLine("<body><center><h1>DStress Report</h1></center>");
 		stream.writeLine("<h2><a name='note' id='note'></a>Note</h2>");
-		stream.writeLine("<blockquote>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.</blockquote>");
+		stream.writeLine("<blockquote><p>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.<p></blockquote>");
 		stream.writeLine("<h2><a name='summary' id='summary'></a>Summary</h2>");
 
 		stream.writeLine("<table border='1' summary='nummeric summary of the test results'>");
-		char[] versionHeader = "<tr><td>&nbsp;</td>";
+		char[] versionHeader = "<tr><td>&#160;</td>";
 		{ // version header
 			foreach(Log l; log){
 				char[] name = l.id;
@@ -808,7 +808,7 @@ class Report{
 		stream.writeLine(versionHeader);
 		stream.writeLine("</table>");
 		
-		stream.writeLine("<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/results.html'>http://dstress.kuehne.cn/www/results.html</a>&nbsp; &nbsp;"~dateString()~"</div>");
+		stream.writeLine("<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/results.html'>http://dstress.kuehne.cn/www/results.html</a>&#160; &#160;"~dateString()~"</div>");
 
 		stream.writeLine("<!-- Start of StatCounter Code -->");
 		stream.writeLine("<script type='text/javascript'><!-- var sc_project=1337754; var sc_invisible=1; var sc_partition=12; var sc_security=\"a4a998fe\"; var sc_remove_link=1; //--> </script>");

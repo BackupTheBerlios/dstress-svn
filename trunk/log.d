@@ -9,12 +9,17 @@ private import std.c.stdlib;
 private import std.date;
 
 static char[][] TORTURE_FLAGS = [
+	/* 0 args */
 	"",
+
+	/* 1 args */
 	"-g",
 	"-inline",
 	"-fPIC",
 	"-O",
 	"-release",
+
+	/* 2 args */
 	"-g -inline",
 	"-g -fPIC",
 	"-g -O",
@@ -25,6 +30,8 @@ static char[][] TORTURE_FLAGS = [
 	"-fPIC -O",
 	"-fPIC -release",
 	"-O -release",
+
+	/* 3 args */
 	"-g -inline -fPIC",
 	"-g -inline -O",
 	"-g -inline -release",
@@ -35,11 +42,18 @@ static char[][] TORTURE_FLAGS = [
 	"-inline -fPIC -release",
 	"-inline -O -release",
 	"-fPIC -O -release",
+
+	/* 4 args */
 	"-g -inline -fPIC -O",
 	"-g -inline -fPIC -release",
 	"-g -fPIC -O -release",
 	"-inline -fPIC -O -release",
-	"-g -inline -fPIC -O -release"
+
+	/* 5 args */
+	"-g -inline -fPIC -O -release",
+
+	/* 4 args - ommitted */
+	"-g -inline -O -release"
 ];
 
 enum Result{
@@ -300,7 +314,7 @@ class Log{
 
 			if(oldT !is null){
 				foreach(size_t i, Result r; t.r){
-					if(oldT.r[i] < r){
+					if(oldT.r[i] < r && oldT.r[i]){
 						back ~= new Regression(t.name, t.file, oldT.r[i], r, TORTURE_FLAGS[i]); 
 					}
 				}
@@ -344,7 +358,7 @@ class Log{
 		
 		char[][] sourcesTorture = torture.keys;
 		foreach(char[] source; sourcesTorture){
-			if(-1 == find(source, "complex/")){
+			if(find(source, "complex/") < 0){
 				try{
 					FStime caseTime = getFStime(testRoot~std.path.sep~source);
 					if(caseTime > recordTime){
@@ -488,7 +502,8 @@ class Report{
 		"<th>-g -inline -fPIC -release</th>"
 		"<th>-g -fPIC -O -release</th>"
 		"<th>-inline -fPIC -O -release</th>"
-		"<th>-g -inline -fPIC -O -release</th>";
+		"<th>-g -inline -fPIC -O -release</th>"
+		"<th>-g -inline -O -release</th>";
 	
 	this(char[] root, Log[] log){
 		this.root = root;
@@ -601,7 +616,7 @@ class Report{
 					if(i > -1){
 						z = z[0 .. i];
 					}
-					if(z in k && -1 == find(org, "complex")){
+					if(z in k && find(org, "complex") < 0){
 						throw new Exception("dublicate key "~org);
 					}
 					k[z] = org;
@@ -624,7 +639,7 @@ class Report{
 				}else{
 					char[] name = replace(t.name, "_", " ");
 					char[] src = t.file;
-					if(find(src,"complex/")!=-1){
+					if(find(src,"complex/") != -1){
 						src = src[0 .. rfind(src, "/")];
 					}
 					char[] back = "<tr><th><a href=\"../"~src~"\" id='"~t.name~"'>"~name~"</a></th>";

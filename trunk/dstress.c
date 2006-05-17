@@ -688,6 +688,23 @@ int hadExecCrash(const char* buffer){
 	return 0;
 }
 
+int conditionalResult(const char* buffer){
+	if(strstr(buffer, "DSTRESS{XFAIL}")){
+		return RES_XFAIL;
+	}else if(strstr(buffer, "DSTRESS{XPASS}")){
+		return RES_XPASS;
+	}else if(strstr(buffer, "DSTRESS{FAIL}")){
+		return RES_FAIL;
+	}else if(strstr(buffer, "DSTRESS{PASS}")){
+		return RES_PASS;
+	}else if(strstr(buffer, "DSTRESS{ERROR}")){
+		return RES_ERROR;
+	}else{
+		return 0;
+	}
+	
+}
+
 /* system call with time-out */
 int crashRun(const char* cmd, char** logFile){
 
@@ -858,7 +875,11 @@ int target_compile(int modus, char* compiler, char* arguments, char* case_file,
 	free(logFile);
 	good_error = checkErrorMessage(error_file, error_line, buffer);
 
-	if(hadExecCrash(buffer)){
+	testResult = conditionalResult(buffer);
+
+	if(testResult){
+		/* conditional result */
+	}else if(hadExecCrash(buffer)){
 		testResult = RES_ERROR;
 	}else if(modus & MODE_COMPILE){
 		if(res == EXIT_SUCCESS){
@@ -966,12 +987,15 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 		good_error = 1;
 	}
 
+	testResult = conditionalResult(buffer);
 	if(hadExecCrash(buffer)){
 		free(buffer);
 		return RES_ERROR;
 	}else{
 		free(buffer);
-		if((res == EXIT_FAILURE) && good_error){
+		if(testResult){
+			return testResult;
+		}else if((res == EXIT_FAILURE) && good_error){
 			return RES_FAIL;
 		}else if(res!=EXIT_SUCCESS){
 			return RES_ERROR | (good_error ? 0 : RES_BAD_MSG);
@@ -1002,6 +1026,11 @@ no_valgrind:
 	}
 	printf("%s\n", buffer);
 	res=crashRun(buffer, &logFile);
+	testResult = conditionalResult(buffer);
+	if(testResult){
+		free(buffer);
+		return testResult;
+	}
 	free(buffer);
 
 	/* diagnostic 2/3 */
@@ -1022,6 +1051,11 @@ no_valgrind:
 			||(res==EXIT_SUCCESS && (modus & MODE_RUN)))
 			&& gdb_script != NULL)
 	{
+		testResult = conditionalResult(buffer);
+		if(testResult){
+			return testResult;
+		}
+
 		free(buffer);
 		good_gdb = 0;
 		/* test 3/3 - gdb */
@@ -1047,6 +1081,11 @@ no_valgrind:
 #else
 	good_gdb = 1;
 #endif /* REG_EXTENDED else */
+
+	testResult = conditionalResult(buffer);
+	if(testResult){
+		return testResult;
+	}
 
 	if(modus & MODE_RUN){
 		if(hadExecCrash(buffer)){

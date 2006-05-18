@@ -14,7 +14,7 @@ version(D_InlineAsm){
 		const bool haveX86InlineAsm = true;
 		version = haveX86InlineAsm;
 	}else{
-		pragma(msg, "no Inline ASM support");
+		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		const bool haveX86InlineAsm = false;
 	}
 }else version(D_InlineAsm_X86){
@@ -24,7 +24,7 @@ version(D_InlineAsm){
 	const bool haveX86InlineAsm = true;
 	version = haveX86InlineAsm;
 }else{
-	pragma(msg, "no Inline ASM support");
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 	const bool haveX86InlineAsm = false;
 }
 
@@ -39,6 +39,8 @@ template haveCMOV(){
 				cpuid;
 				mov a, EDX;
 			}
+		}else{
+			pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		}
 
 		if(!((a >> 15) & 1)){
@@ -46,7 +48,7 @@ template haveCMOV(){
 		}
 	}
 }
-	
+
 void haveCX8(){
 	uint a = 0;
 
@@ -66,67 +68,80 @@ void haveCX8(){
 template haveFPU(){
 	void haveFPU(){
 		uint a = 0;
-		
+
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, 1;
 				cpuid;
 				mov a, EDX;
 			}
+		}else{
+			pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		}
-		
+
 		if(!(a & 1)){
 			throw new Exception("DSTRESS{XFAIL}: no X86 FPU present");
 		}
 	}
 }
 
-void haveMMX(){
-	uint a = 0;
-		
-	version(haveX86InlineAsm){
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
+template haveMMX(){
+	void haveMMX(){
+		uint a = 0;
+
+		version(haveX86InlineAsm){
+			asm{
+				mov EAX, 1;
+				cpuid;
+				mov a, EDX;
+			}
+		}else{
+			pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		}
-	}
-		
-	if(!((a >> 23) & 1)){
-		throw new Exception("no X86 MMX support present");
+
+		if(!((a >> 23) & 1)){
+			throw new Exception("DSTRESS{XFAIL}: no MMX support present");
+		}
 	}
 }
 
-	
-void haveSSE(){
-	uint a = 0;
-			
-	version(haveX86InlineAsm){
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
+template haveSSE(){
+	void haveSSE(){
+		uint a = 0;
+
+		version(haveX86InlineAsm){
+			asm{
+				mov EAX, 1;
+				cpuid;
+				mov a, EDX;
+			}
+		}else{
+			pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+		}
+
+		if(!((a >> 25) & 1)){
+			throw new Exception("DSTRESS{XFAIL}: no SSE support present");
 		}
 	}
-
-	if(!((a >> 25) & 1)){
-		throw new Exception("no X86 SSE support present");
-	}	
 }
 
-void haveSSE2(){
-	uint a = 0;
-		
-	version(haveX86InlineAsm){
-		asm{
-			mov EAX, 1;
-			cpuid;
-			mov a, EDX;
-		}
-	}
+template haveSSE2(){
+	void haveSSE2(){
+		uint a = 0;
 
-	if(!((a >> 26) & 1)){
-		throw new Exception("no X86 SSE2 support present");
+		version(haveX86InlineAsm){
+			asm{
+				mov EAX, 1;
+				cpuid;
+				mov a, EDX;
+			}
+		}else{
+			pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+		}
+
+		if(!((a >> 26) & 1)){
+			throw new Exception("DSTRESS{XFAIL}: no SSE2 support present");
+		}
 	}
 }
 
@@ -134,15 +149,17 @@ template haveSSE3(){
 	void haveSSE3(){
 		uint a = 1;
 		uint b = 0;
-			
+
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, a;
 				cpuid;
 				mov b, ECX;
 			}
+		}else{
+			pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 		}
-	
+
 		if(!(a & 1)){
 			throw new Exception("DSTRESS{XFAIL}: no SSE3 support present");
 		}

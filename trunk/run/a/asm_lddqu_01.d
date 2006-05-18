@@ -4,39 +4,40 @@
 
 module dstress.run.a.asm_lddqu_01;
 
-align(1) struct X{
-	ubyte a;
-	ulong b;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
 }
 
-align(16) struct Y{
-	ulong c;
-}
-		
-int main(){
-	version(D_InlineAsm){	
-		X* x = new X;
+version(runTest){
+	import addon.cpuinfo;
 	
-		assert(cast(size_t)&(x.b) % 2 == 1);
-		
-		x.b = 0x0123_4567_89AB_CDEF_LU;
-		
-		Y* y = new Y;
-		
-		assert(cast(size_t)&(y.c) % 16 == 0);
-		
+	int main(){
+		haveSSE3!()();
+
+		const ubyte[16] A = [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+		ubyte[16] b;
+
 		asm{
-			mov EAX, x;
-			lddqu XMM0, X.b[EAX];
-			mov EAX, y;
-			movdqa Y.c[EAX], XMM0;
+			lddqu XMM0, A;
+			movdqu b, XMM0;
+		}
+
+		if(A.length != b.length){
+			assert(0);
+		}
+
+		for(size_t i = 0; i < A.lenght; i++){
+			if(A[i] != b[i]){
+				assert(0);
+			}
 		}
 		
-		assert(y.c==0x0123_4567_89AB_CDEF_LU);
-		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

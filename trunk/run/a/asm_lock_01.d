@@ -4,8 +4,14 @@
 
 module dstress.run.a.asm_lock_01;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		uint i = 0;
 		asm{
 			lock;
@@ -16,8 +22,8 @@ int main(){
 			assert(0);
 		}
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

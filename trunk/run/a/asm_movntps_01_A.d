@@ -4,13 +4,23 @@
 
 module dstress.run.a.asm_movntps_01_A;
 
-int main(){
-	version(D_InlineAsm_X86){
-		const float[4] a = [1.0, -1.0, 0.0, 0.1];
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+	
+	int main(){
+		haveSSE!()();
+		
+		const float[4] a = [1.0f, -1.0f, 0.0f, 0.1f];
 		float[4] b;
 		
 		asm{
-			movdqu XMM0, a;
+			movups XMM0, a;
 			movntps b, XMM0;
 		}
 		
@@ -28,8 +38,8 @@ int main(){
 		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

@@ -4,8 +4,18 @@
 
 module dstress.run.a.asm_movq_01_B;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		haveSSE2!()();
+
 		static ulong[2] a = [0x1234_ABCD_56789_EF90_LU, 0x1122_5566_77AA_FFFF_LU];
 		ulong[2] b;
 		
@@ -26,8 +36,8 @@ int main(){
 		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

@@ -11,7 +11,9 @@ module dstress.run.t.typeid_89;
 int main(){
 	Typeid t = typeid(bit);
 
-	assert(t !== null);
+	if(!t){
+		assert(0);
+	}
 
 	return 0;
 }

@@ -4,10 +4,12 @@
 
 module dstress.run.s.static_33_B;
 
-deprecated x = 4;
+static x = 4;
 
 int main(){
-	assert(typeid(typeof(x)).toString() == "int");
+	if(typeid(typeof(x)).toString() != "int"){
+		assert(0);
+	}
 	
 	return 0;
 }

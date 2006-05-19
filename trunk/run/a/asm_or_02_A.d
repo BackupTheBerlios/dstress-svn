@@ -4,24 +4,29 @@
 
 module dstress.run.a.asm_or_02_A;
 
-int main(){
-	version(D_InlineAsm_X86){
-		uint a;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
+		uint a = 0b0110_1110__0000_1111__1100_0011__0011_1111;
+		ushort b = 0b1111_1110__0111_1111;
 		
 		asm{
-			mov EAX, 0x45_FD_BC_67;
-			mov AL, 0b0100_0001;
-			or AL, 0b0001_1000;
-			mov a, EAX;
+			mov EAX, a;
+			or b, AX;
 		}
 		
-		if(a != (0x45_FD_BC_00 | 0b0101_1001)){
+		if(b != 0b1111_1111__0111_1111){
 			assert(0);
 		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

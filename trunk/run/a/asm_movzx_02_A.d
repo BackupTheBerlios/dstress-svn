@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_mulss_01_A;
+module dstress.run.a.asm_movzx_02_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -11,35 +11,39 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
-	import addon.cpuinfo;
-	
 	int main(){
-		haveSSE!()();
-
-		const float[4] A = [7.0f, 4.0f, 1.0f, -2.0f];
-		const float[4] B = [3.0f, 2.0f, 0.0f, 5.0f];
-		float[4] c;
+		uint i = 0xFF_FF_FF_FFu;
+		ubyte b = 0xFF;
 		
 		asm{
-			movups XMM0, A;
-			movups XMM1, B;
-			mulss XMM0, XMM1;
-			movups c, XMM0;
+			mov EAX, i;
+			movzx AX, b;
+			mov i, EAX;
+		}
+	
+		if(i != 0xFF_FF_00_FFu){
+			assert(0);
+		}
+		if(b != 0xFF){
+			assert(0);
 		}
 		
-		if(c[0] != 7.0f){
+		i=0xFF_FF_FF_FFu;
+		b=0x12;
+		
+		asm{
+			mov EAX, i;
+			movzx AX, b;
+			mov i, EAX;
+		}
+		
+		if(i != 0xFF_FF_00_12u){
 			assert(0);
 		}
-		if(c[1] != 4.0f){
+		if(b != 0x12){
 			assert(0);
 		}
-		if(c[2] != 1.0f){
-			assert(0);
-		}
-		if(c[3] != -10.0f){
-			assert(0);
-		}
-
+		
 		return 0;
 	}
 }else{

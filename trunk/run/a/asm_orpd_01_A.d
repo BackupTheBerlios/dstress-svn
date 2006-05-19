@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_mulpd_01_A;
+module dstress.run.a.asm_orpd_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -12,24 +12,25 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-
+	
 	int main(){
 		haveSSE2!()();
 
-		const double[2] A = [7.0, 4.0];
-		const double[2] B = [3.0, 2.0];
+		static double[2] A = [4.0, 8.0];
+		static double[2] B = [3.0, 4.0];
 		double[2] c;
-		
+				
 		asm{
 			movupd XMM0, A;
-			mulpd XMM0, B;
+			movupd XMM1, B;
+			orpd XMM0, XMM1;
 			movupd c, XMM0;
 		}
-		
-		if(c[0] != 21.0){
+
+		if(c[0] != 6.0){
 			assert(0);
 		}
-		if(c[1] != 8.0){
+		if(c[1] != 16.0){
 			assert(0);
 		}
 

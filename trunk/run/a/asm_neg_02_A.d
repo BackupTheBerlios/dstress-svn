@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_not_01_A;
+module dstress.run.a.asm_neg_02_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -12,13 +12,15 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	int main(){
-		ubyte a = 0b0110_1110;
-		
+		uint y = 0x78_56_43_21;
+				
 		asm{
-			not a;
+			mov EAX, y;
+			neg AL;
+			mov y, EAX;
 		}
-		
-		if(a != 0b1001_0001){
+
+		if(y != 0x78_56_43_DF){
 			assert(0);
 		}
 		

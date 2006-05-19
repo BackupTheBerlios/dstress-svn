@@ -4,9 +4,19 @@
 
 module dstress.run.a.asm_movups_01_C;
 
-int main(){
-	version(D_InlineAsm_X86){
-		const float[4] A = [1.0, 2.0, 3.0, 4.0];
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+	
+	int main(){
+		haveSSE!()();
+		
+		const float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
 		float[4] b;
 		
 		asm{
@@ -28,8 +38,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

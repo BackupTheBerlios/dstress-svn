@@ -4,13 +4,16 @@
 
 module dstress.run.a.asm_movzx_01_A;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		uint i = 0xFF_FF_FF_FFu;
 		ubyte b = 0xFF;
-		
-		assert(i==0xFF_FF_FF_FFu);
-		assert(b==0xFF);
 		
 		asm{
 			mov EAX, i;
@@ -44,8 +47,8 @@ int main(){
 		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

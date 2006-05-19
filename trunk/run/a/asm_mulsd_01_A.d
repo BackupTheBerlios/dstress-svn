@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_not_01_A;
+module dstress.run.a.asm_mulsd_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -11,17 +11,29 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
+	import addon.cpuinfo;
+
 	int main(){
-		ubyte a = 0b0110_1110;
+		haveSSE2!()();
+
+		const double[2] A = [7.0, 4.0];
+		const double[2] B = [3.0, 2.0];
+		double[2] c;
 		
 		asm{
-			not a;
+			movupd XMM0, A;
+			movupd XMM1, B;
+			mulsd XMM0, XMM1;
+			movupd c, XMM0;
 		}
 		
-		if(a != 0b1001_0001){
+		if(c[0] != 7.0){
 			assert(0);
 		}
-		
+		if(c[1] != 8.0){
+			assert(0);
+		}
+
 		return 0;
 	}
 }else{

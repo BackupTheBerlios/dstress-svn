@@ -1048,7 +1048,7 @@ no_valgrind:
 
 #ifdef REG_EXTENDED
 	if(((res==EXIT_SUCCESS && (modus & MODE_RUN))
-			||(res==EXIT_SUCCESS && (modus & MODE_RUN)))
+			||(res != EXIT_FAILURE && (modus & MODE_NORUN)))
 			&& gdb_script != NULL)
 	{
 		testResult = conditionalResult(buffer);

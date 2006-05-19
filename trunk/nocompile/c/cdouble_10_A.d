@@ -12,5 +12,5 @@ module dstress.nocompile.c.cdouble_10_A;
 
 void main(){
 	cdouble x;
-	x = 2.0;
+	x = 2;
 }

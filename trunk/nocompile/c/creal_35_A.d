@@ -11,6 +11,6 @@
 module dstress.nocompile.c.creal_35_A;
 
 void main(){
-	cdouble x;
+	creal x;
 	x = 2;
 }

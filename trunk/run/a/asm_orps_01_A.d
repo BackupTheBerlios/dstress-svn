@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_pextrw_01_B;
+module dstress.run.a.asm_orps_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -16,22 +16,27 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		ulong x = 0x0500_FFFF_0707_1234;
-		uint a;
-		uint b;
-		
+		static float[4] A = [5.0f, 10.0f, 1.0f, 17.0f];
+		static float[4] B = [6.0f, 9.0f, -2.0f, 20.0f];
+		float[4] c;
+				
 		asm{
-			movq MM0, x;
-			pextrw EAX, MM0, 2;
-			mov a, EAX;
-			pextrw EDX, MM0, 1;
-			mov b, EDX;
+			movups XMM0, A;
+			movups XMM1, B;
+			orpd XMM0, XMM1;
+			movups c, XMM0;
 		}
 
-		if(a != 0xFFFF){
+		if(c[0] != 7.0f){
 			assert(0);
 		}
-		if(b != 0x0707){
+		if(c[1] != 11.0f){
+			assert(0);
+		}
+		if(c[2] != -float.infinity){
+			assert(0);
+		}
+		if(c[3] != 21.0f){
 			assert(0);
 		}
 

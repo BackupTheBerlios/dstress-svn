@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_pavgusb_01_A;
+module dstress.run.a.asm_pavgb_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -16,15 +16,16 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const ubyte[8] A = [1, 2, 3, 4, 5, 6, 7, 8];
-		const ubyte[8] B = [5, 2, 1, 8, 15, 4, 1, 4];
-		const ubyte[8] C = [3, 2, 2, 6, 10, 5, 4, 6];
-		ubyte[8] d;
+		const byte[8] A = [1, -2, 3, 4, 5, 6, 7, 8];
+		const byte[8] B = [5, 2, -1, -8, 15, 4, 1, 4];
+		const byte[8] C = [3, 0, 1, -2, 10, 5, 4, 6];
+		byte[8] d;
 
 		asm{
 			emms;
 			movq MM0, A;
-			pavgusb MM0, B;
+			movq MM1, B;
+			pavgb MM0, MM1;
 			movq d, MM0;
 		}
 

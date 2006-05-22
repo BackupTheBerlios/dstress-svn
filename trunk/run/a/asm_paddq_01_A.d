@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_pinsrw_01_B;
+module dstress.run.a.asm_paddq_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -12,24 +12,27 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-
+	
 	int main(){
-		haveSSE!()();
+		haveSSE2!()();
 
-		ulong x = 0x0500_FFFF_0707_1234;
-		ulong y;
-		short a = 0x5678;
-		
+		static long[2] A = [-1, -2];
+		static long[2] B = [2, long.max];
+		long[2] c;
+				
 		asm{
-			movq MM0, x;
-			pinsrw MM0, a, 0;
-			movq y, MM0;
+			movdqu XMM0, A;
+			movdqu XMM1, B;
+			paddq XMM0, XMM1;
+			movdqu c, XMM0;
 		}
 
-		if(y != 0x0500_FFFF_0707_5678){
+		if(c[0] != 1){
 			assert(0);
 		}
-
+		if(c[1] != long.max - 2){
+			assert(0);
+		}
 		return 0;
 	}
 }else{

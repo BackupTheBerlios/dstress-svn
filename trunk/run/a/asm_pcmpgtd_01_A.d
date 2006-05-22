@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_pextrw_01_B;
+module dstress.run.a.asm_pcmpgtd_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -14,27 +14,31 @@ version(runTest){
 	import addon.cpuinfo;
 	
 	int main(){
-		haveSSE!()();
+		haveSSE2!()();
 
-		ulong x = 0x0500_FFFF_0707_1234;
-		uint a;
-		uint b;
-		
+		static int[4] A = [0, 3, 0, 4];
+		static int[4] B = [0, 1, 1, 4];
+		uint[4] c;
+				
 		asm{
-			movq MM0, x;
-			pextrw EAX, MM0, 2;
-			mov a, EAX;
-			pextrw EDX, MM0, 1;
-			mov b, EDX;
+			movdqu XMM0, A;
+			movdqu XMM1, B;
+			pcmpgtd XMM0, XMM1;
+			movdqu c, XMM0;
 		}
 
-		if(a != 0xFFFF){
+		if(c[0] != 0){
 			assert(0);
 		}
-		if(b != 0x0707){
+		if(c[1] != 0xFFFF_FFFF){
 			assert(0);
 		}
-
+		if(c[2] != 0){
+			assert(0);
+		}
+		if(c[3] != 0){
+			assert(0);
+		}
 		return 0;
 	}
 }else{

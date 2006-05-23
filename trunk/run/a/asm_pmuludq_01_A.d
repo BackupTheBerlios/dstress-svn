@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_pslldq_01_A;
+module dstress.run.a.asm_pmuludq_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -14,22 +14,24 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		const ubyte[16] A = [1, 0, 2, 3, 4, 5, 6, 7, 8 ,9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF];
-		ubyte[16] b;
-		
+		haveSSE2!()();
+
+		const uint[4] A = [1, 0x1234_5678, 0xFEDC_A987, 3];
+		const uint[4] B = [0xFFFF_FFFF, 0xABCD, 13, 88];
+
+		ulong[2] c;
+
 		asm{
 			movdqu XMM0, A;
-			pslldq XMM0, 1;
-			movdqu b, XMM0;
+			movdqu XMM1, B;
+			pmuludq, XMM0, XMM1;
+			movdqu c, XMM0;
 		}
 
-		foreach(size_t i, ubyte x; b[0 .. b.length - 1]){
-			if(x != i){
-				assert(0);
-			}
+		if(c[0] != 0x0000_0C37__89AB_6618){
+			assert(0);
 		}
-
-		if(b[$-1] != 0){
+		if(c[1] != 0x0000_0000__0000_0108){
 			assert(0);
 		}
 

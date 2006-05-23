@@ -2,27 +2,26 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_pop_01_A;
+module dstress.run.a.asm_pop_02_B;
 
 version(D_InlineAsm_X86){
-	version = runTest;
-}else version(D_InlineAsm_X86_64){
 	version = runTest;
 }
 
 version(runTest){
 	int main(){
-		ushort a = 0x12_AB;
-		ushort b = 0x00_00;
+		uint a = 0;
 		size_t p1, p2, p3;
 		
 		static if(size_t.sizeof == 4){
 			asm{
+				mov EAX, 0xABCD_1234;
 				mov p1, ESP;
-				push a;
+				push EAX;
 				mov p2, ESP;
-				pop b;
+				pop EBX;
 				mov p3, ESP;
+				mov a, EBX;
 			}
 		}else{
 			pragma(msg, "DSTRESS{ERROR}: unhandled size of void pointer");
@@ -32,10 +31,10 @@ version(runTest){
 		if(p1 != p3){
 			assert(0);
 		}
-		if(p1-2 != p2){
+		if(p1-4 != p2){
 			assert(0);
 		}
-		if(b != 0x12_AB){
+		if(a != 0xABCD_1234){
 			assert(0);
 		}
 		

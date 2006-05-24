@@ -14,22 +14,23 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		const ubyte[16] A = [1, 0, 2, 3, 4, 5, 6, 7, 8 ,9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF];
-		ubyte[16] b;
-		
+		haveSSE2!()();
+
+		const ulong[2] A = [(1 << 63) | 1, (1 << 63) | 3];
+		const long[2] B = [8, 1];
+		ulong[2] c;
+
 		asm{
 			movdqu XMM0, A;
-			pslldq XMM0, 1;
-			movdqu b, XMM0;
+			movdqu XMM1, B;
+			pslldq XMM0, XMM1;
+			movdqu c, XMM0;
 		}
 
-		foreach(size_t i, ubyte x; b[0 .. b.length - 1]){
-			if(x != i){
-				assert(0);
-			}
+		if(c[0] != 3){
+			assert(0);
 		}
-
-		if(b[$-1] != 0){
+		if(c[1] != 6){
 			assert(0);
 		}
 

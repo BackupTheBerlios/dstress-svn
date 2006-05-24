@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_psrldq_01_A;
+module dstress.run.a.asm_psrad_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -16,21 +16,32 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const ulong[2] A = [(1 << 63) | 1, (1 << 63) | 3];
-		const long[2] B = [8, 1];
-		ulong[2] c;
+		const uint[4] A = [
+			(1 << 31) | 1,
+			(1 << 31) | (1 << 8),
+			(1 << 31) | (1 << 16),
+			(1 << 31) | (1 << 23)];
+
+		const long[2] B = [0x8FFF_FFFF_FFFF_FFFF, 1];
+		uint[4] c;
 
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;
-			psrldq XMM0, XMM1;
+			psrad XMM0, XMM1;
 			movdqu c, XMM0;
 		}
 
-		if(c[0] != (1 << 62)){
+		if(c[0] != (3 << 30)){
 			assert(0);
 		}
-		if(c[1] != (3 << 62) | 1){
+		if(c[1] != ((3 << 30) | (1 << 7))){
+			assert(0);
+		}
+		if(c[2] != ((3 << 30) | (1 << 15))){
+			assert(0);
+		}
+		if(c[3] != ((3 << 30) | (1 << 22))){
 			assert(0);
 		}
 

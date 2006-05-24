@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_pshufhw_01_A;
+module dstress.run.a.asm_punpckhwd_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -16,40 +16,40 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const short[8] A = [9, 9, 9, 9, 9, 9, 9, 9];
-		const short[8] B = [1, 2, 3, 4, 5, 6, 7, 8];
+		const short[8] A = [0, 1, 2, 3, 4, 5, 6, 7];
+		const short[8] B = [0, -1, -2, -3, -4, -5, -6, -7];
 
 		short[8] c;
 
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;
-			pushfhw XMM0, XMM1, 0b11_10_01_00;
-			movdqu, XMM0;
+			punpckhwd XMM0, XMM1;
+			movdqu c, XMM0;
 		}
 
-		if(c[0] != 4){
+		if(c[0] != 0){
 			assert(0);
 		}
-		if(c[1] != 3){
+		if(c[1] != 0){
 			assert(0);
 		}
-		if(c[2] != 2){
+		if(c[2] != -1){
 			assert(0);
 		}
 		if(c[3] != 1){
 			assert(0);
 		}
-		if(c[4] != 5){
+		if(c[4] != -2){
 			assert(0);
 		}
-		if(c[5] != 6){
+		if(c[5] != 2){
 			assert(0);
 		}
-		if(c[6] != 7){
+		if(c[6] != -3){
 			assert(0);
 		}
-		if(c[7] != 8){
+		if(c[7] != 3){
 			assert(0);
 		}
 
@@ -59,3 +59,4 @@ version(runTest){
 	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 	static assert(0);
 }
+

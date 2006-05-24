@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_psrldq_01_A;
+module dstress.run.a.asm_psubsw_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -16,25 +16,27 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const ulong[2] A = [(1 << 63) | 1, (1 << 63) | 3];
-		const long[2] B = [8, 1];
-		ulong[2] c;
+		const short[8] A = [1, 2, 3, 4, 5, 6, 7, short.min];
+		const short[8] B = [0, 1, 2, 3, 4, 5, 6, short.max];
+
+		short[8] c;
 
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;
-			psrldq XMM0, XMM1;
+			psubsw XMM0, XMM1;
 			movdqu c, XMM0;
 		}
 
-		if(c[0] != (1 << 62)){
-			assert(0);
-		}
-		if(c[1] != (3 << 62) | 1){
-			assert(0);
+		foreach(short x; c[0 .. c.length -1]){
+			if(x != 1){
+				assert(0);
+			}
 		}
 
-		return 0;
+		if(c[c.length - 1] != short.min){
+			assert(0);
+		}
 	}
 }else{
 	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

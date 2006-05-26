@@ -11,4 +11,3 @@
 module dstress.nocompile.p.pragma_07_A;
 
 pragma(msg, "blah") class A{}
-

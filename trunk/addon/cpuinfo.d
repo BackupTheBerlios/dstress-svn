@@ -165,3 +165,20 @@ template haveSSE3(){
 		}
 	}
 }
+
+template aligned_new(T){
+	T[] aligned_new(size_t len, size_t alignment){
+		ubyte* ptr = new ubyte[len * T.sizeof + alignment];
+
+		alignment *= 8;
+
+		while((cast(size_t)ptr) % alignment){
+			ptr++;
+		}
+
+		T[]data = (cast(T*) ptr)[0 .. len];
+		data[] = T.init;
+
+		return data;
+	}
+}

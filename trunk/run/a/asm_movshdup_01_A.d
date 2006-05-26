@@ -23,16 +23,16 @@ version(runTest){
 			movups b, XMM1;
 		}
 		
-		if(a[0] != b[0]){
+		if(a[1] != b[0]){
 			assert(0);
 		}
-		if(a[0] != b[1]){
+		if(a[1] != b[1]){
 			assert(0);
 		}
-		if(a[2] != b[2]){
+		if(a[3] != b[2]){
 			assert(0);
 		}
-		if(a[2] != b[3]){
+		if(a[3] != b[3]){
 			assert(0);
 		}
 		

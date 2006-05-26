@@ -26,7 +26,7 @@ version(runTest){
 			mov b, EAX;
 		}
 		
-		if(b != 0x0000_0004){
+		if(b != 0b1110){
 			assert(0);
 		}
 		

@@ -26,10 +26,10 @@ version(runTest){
 			movupd c, XMM0;
 		}
 		
-		if(c[0] != 7.0){
+		if(c[0] != 14.0){
 			assert(0);
 		}
-		if(c[1] != 8.0){
+		if(c[1] != 4.0){
 			assert(0);
 		}
 

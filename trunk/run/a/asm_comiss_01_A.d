@@ -12,16 +12,16 @@ version(D_InlineAsm_X86){
 
 int main(){
 	version(runTest){
-		const float[4] A = [10.0f, 20.0f, 19.0f, 2.0f];
-		const float[4] B = [5.0f, 5.0f, 5.0f, 3.0f];
+		const float[4] A = [0.0f, 1.0f, 3.0f, 5.0f];
+		const float[4] B = [0.0f, 2.0f, 4.0f, 6.0f];
 
 		asm{
 			movups XMM0, A;
 			movups XMM1, B;
 			comiss XMM0, XMM1;
-			jg error;
-			je error;
-			jnl error;
+			jnz error;
+			jp error;
+			jc error;
 		}
 
 		return 0;

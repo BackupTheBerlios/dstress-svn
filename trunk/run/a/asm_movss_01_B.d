@@ -27,7 +27,7 @@ version(runTest){
 			movups c, XMM0;
 		}
 		
-		if(c[0] != A[0]){
+		if(c[0] != B[0]){
 			assert(0);
 		}
 		if(c[1] != A[1]){
@@ -36,7 +36,7 @@ version(runTest){
 		if(c[2] != A[2]){
 			assert(0);
 		}
-		if(c[3] != B[3]){
+		if(c[3] != A[3]){
 			assert(0);
 		}
 

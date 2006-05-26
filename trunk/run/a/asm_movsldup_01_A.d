@@ -17,7 +17,7 @@ version(runTest){
 		haveSSE3!()();
 
 		const float[4] A = [1.0, -1.0f, -2.0f, 2.0f];
-		double[4] b;
+		float[4] b;
 		
 		asm{
 			movups XMM0, A;
@@ -25,16 +25,16 @@ version(runTest){
 			movups b, XMM1;
 		}
 		
-		if(A[1] != b[0]){
+		if(A[0] != b[0]){
 			assert(0);
 		}
-		if(A[1] != b[1]){
+		if(A[0] != b[1]){
 			assert(0);
 		}
-		if(A[3] != b[2]){
+		if(A[2] != b[2]){
 			assert(0);
 		}
-		if(A[3] != b[3]){
+		if(A[2] != b[3]){
 			assert(0);
 		}
 		

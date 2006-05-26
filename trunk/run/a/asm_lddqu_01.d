@@ -29,7 +29,7 @@ version(runTest){
 			assert(0);
 		}
 
-		for(size_t i = 0; i < A.lenght; i++){
+		for(size_t i = 0; i < A.length; i++){
 			if(A[i] != b[i]){
 				assert(0);
 			}

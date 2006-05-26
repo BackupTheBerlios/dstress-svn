@@ -17,13 +17,15 @@ version(runTest){
 		haveSSE2!()();
 
 		const double[2] a = [1.0, -1.0];
-		double[2] b;
+		double[] b = aligned_new!(double)(2, 16);
 		
 		asm{
 			movupd XMM0, a;
 			movntpd b, XMM0;
+			sfence;
 		}
 		
+		printf("%lf\n", b[0], b[1]);
 		if(a[0] != b[0]){
 			assert(0);
 		}

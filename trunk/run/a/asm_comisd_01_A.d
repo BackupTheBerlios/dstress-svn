@@ -12,17 +12,18 @@ version(D_InlineAsm_X86){
 
 int main(){
 	version(runTest){
-		const double[2] A = [1.0, 2.0];
-		const double[2] B = [1.0, 3.0];
+		const double[2] A = [1.0, 3.0];
+		const double[2] B = [4.0, 3.0];
 
 		asm{
 			movupd XMM0, A;
 			movupd XMM1, B;
 			comisd XMM0, XMM1;
-			jg error;
-			je error;
-			jnl error;
+			jz error;
+			jp error;
+			jnc error;
 		}
+		
 
 		return 0;
 	error:

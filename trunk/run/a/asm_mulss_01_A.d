@@ -27,7 +27,7 @@ version(runTest){
 			movups c, XMM0;
 		}
 		
-		if(c[0] != 7.0f){
+		if(c[0] != 21.0f){
 			assert(0);
 		}
 		if(c[1] != 4.0f){
@@ -36,7 +36,7 @@ version(runTest){
 		if(c[2] != 1.0f){
 			assert(0);
 		}
-		if(c[3] != -10.0f){
+		if(c[3] != -2.0f){
 			assert(0);
 		}
 

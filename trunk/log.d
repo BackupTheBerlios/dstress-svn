@@ -770,7 +770,7 @@ class Report{
 		stream.writeLine("<head><title>DStress Report</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&#252;hne' /><meta name='date' content='"~dateString()~"' /></head>");
 		stream.writeLine("<body><center><h1>DStress Report</h1></center>");
 		stream.writeLine("<h2><a name='note' id='note'></a>Note</h2>");
-		stream.writeLine("<blockquote><p>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.<p></blockquote>");
+		stream.writeLine("<blockquote><p>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.</p></blockquote>");
 		stream.writeLine("<h2><a name='summary' id='summary'></a>Summary</h2>");
 
 		stream.writeLine("<table border='1' summary='nummeric summary of the test results'>");
@@ -788,6 +788,7 @@ class Report{
 				}
 				versionHeader ~= "<th><a href='./" ~ cleanFileName(l.id) ~ ".html'>"~replace(name, "_", " ")~"</a></th>";
 			}
+			versionHeader ~= "</tr>";
 			stream.writeLine("\t"~versionHeader);
 		}
 		

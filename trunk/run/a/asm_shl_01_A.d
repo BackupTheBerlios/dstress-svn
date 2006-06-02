@@ -1,22 +1,32 @@
-// $HeadURL$
-// $Date$
-// $Author$
-
+ // $HeadURL$
+ // $Date$
+ // $Author$
+ 
 module dstress.run.a.asm_shl_01_A;
 
-int main(){	
-	version(D_InlineAsm){
-		uint a = uint.max;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
+		uint a = 0xFF_FF_01_02;
 		
 		asm{
-			shl a, 1;
+			mov EAX, a;
+			shl AL, 1;
+			mov a, EAX;
 		}
 		
-		assert(a == uint.max-1u);
+		if(a != 0xFF_FF_01_04){
+			assert(0);
+		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

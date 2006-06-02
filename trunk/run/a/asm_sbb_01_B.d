@@ -4,35 +4,45 @@
 
 module dstress.run.a.asm_sbb_01_B;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		short a = 500;
 		short b = 300;
 				
 		asm{
 			clc;
-			mov AX, a;
-			sbb AX, b;
-			mov a, AX;
+			mov BX, a;
+			sbb BX, b;
+			mov a, BX;
 		}
 
-		assert(a == 200);
+		if(a != 200){
+			assert(0);
+		}
 
 		a = 500;
 		b = 300;
 		
 		asm{
 			stc;
-			mov AX, a;
-			sbb AX, b;
-			mov a, AX;
+			mov BX, a;
+			sbb BX, b;
+			mov a, BX;
 		}
 		
-		assert(a == 199);
+		if(a != 199){
+			assert(0);
+		}
 		
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

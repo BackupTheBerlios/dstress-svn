@@ -547,7 +547,7 @@ class Report{
 			char[] name = toupper(cleanName);
 		
 			stream.writeLine("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>");
-			stream.writeLine("<html xmlns='http://www.w3.org/1999/xhtml'>");
+			stream.writeLine("<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>");
 
 			stream.writeLine("<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&#252;hne' /><meta name='date' content='" ~ dateString() ~ "' /></head>");
 			stream.writeLine("<body><center><h1>DStress - Torture: "~name~"</h1></center><center><small>by Thomas K&#252;hne &lt;thomas-at-kuehne.cn&gt;</small></center>");
@@ -789,15 +789,35 @@ class Report{
 				versionHeader ~= "<th><a href='./" ~ cleanFileName(l.id) ~ ".html'>"~replace(name, "_", " ")~"</a></th>";
 			}
 			versionHeader ~= "</tr>";
-			stream.writeLine("\t"~versionHeader);
 		}
 		
-		stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.PASS)~"'><th>PASS</th>" ~ streamLine(stats[Result.PASS >> 2])~"</tr>");
-		stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.XFAIL)~"'><th>XFAIL</th>" ~ streamLine(stats[Result.XFAIL >> 2])~"</tr>");
-		stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.XPASS)~"'><th>XPASS</th>" ~ streamLine(stats[Result.XPASS >> 2])~"</tr>");
-		stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.FAIL)~"'><th>FAIL</th>" ~ streamLine(stats[Result.FAIL >> 2])~"</tr>");
-		stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.ERROR)~"'><th>ERROR</th>" ~ streamLine(stats[Result.ERROR >> 2])~"</tr>");
-		stream.writeLine("\t<tr class='" ~ cast(char)('A'+Result.UNTESTED)~"'><th>untested</th>" ~ streamLine(stats[Result.UNTESTED >> 2])~"</tr>");
+		stream.writeLine("\t<tr><td>&#160;</td>"
+			"<th class='" ~ cast(char)('A'+Result.PASS)~"'>PASS</th>"
+			"<th class='" ~ cast(char)('A'+Result.XFAIL)~"'>XFAIL</th>"
+			"<th class='" ~ cast(char)('A'+Result.XPASS)~"'>XPASS</th>"
+			"<th class='" ~ cast(char)('A'+Result.FAIL)~"'>FAIL</th>"
+			"<th class='" ~ cast(char)('A'+Result.ERROR)~"'>ERROR</th>"
+			"<th class='" ~ cast(char)('A'+Result.UNTESTED)~"'>UNTESTED</th></tr>");
+		foreach(size_t j, Log l; log){
+			char[] row ="\t<tr>";
+			char[] name = l.id;
+			int i = rfind(name, "/");
+			if(i > -1){
+				name = name[i+1 .. $];
+			}
+			i = rfind(name, ".log");
+			if(i + ".log".length == name.length){
+				name = name[0 .. i];
+			}
+			row ~= "<th><a href='./" ~ cleanFileName(l.id) ~ ".html'>"~replace(name, "_", " ")~"</a></th>";
+			row ~= "<td class='" ~ cast(char)('A'+Result.PASS)~"'>" ~ std.string.toString(stats[Result.PASS >> 2][j]) ~"</td>";
+			row ~= "<td class='" ~ cast(char)('A'+Result.XFAIL)~"'>" ~ std.string.toString(stats[Result.XFAIL >> 2][j]) ~"</td>";
+			row ~= "<td class='" ~ cast(char)('A'+Result.XPASS)~"'>" ~ std.string.toString(stats[Result.XPASS >> 2][j]) ~"</td>";
+			row ~= "<td class='" ~ cast(char)('A'+Result.FAIL)~"'>" ~ std.string.toString(stats[Result.FAIL >> 2][j]) ~"</td>";
+			row ~= "<td class='" ~ cast(char)('A'+Result.ERROR)~"'>" ~ std.string.toString(stats[Result.ERROR >> 2][j]) ~"</td>";
+			row ~= "<td class='" ~ cast(char)('A'+Result.UNTESTED)~"'>" ~ std.string.toString(stats[Result.UNTESTED >> 2][j]) ~"</td>";
+			stream.writeLine(row ~ "</tr>");
+		}
 		stream.writeLine("</table>");
 
 		stream.writeLine("<h2><a name='details' id='details'></a>Details</h2>");

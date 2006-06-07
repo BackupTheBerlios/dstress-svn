@@ -15,6 +15,7 @@ version(runTest){
 	
 	int main(){
 		haveSSE2!()();
+		haveMMX!()();
 
 		static int[4] A = [1, -2, 3, -4];
 		static int[4] B = [5, -6, 7, -8];

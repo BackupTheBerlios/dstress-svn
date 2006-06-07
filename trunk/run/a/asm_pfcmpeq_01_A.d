@@ -14,6 +14,7 @@ int main(){
 			movq MM0, A;
 			pfcmpeq MM0, B;
 			movq c, MM0;
+			emms;
 		}
 
 		if(c[0] != uint.max){

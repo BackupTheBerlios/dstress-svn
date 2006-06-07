@@ -28,6 +28,25 @@ version(D_InlineAsm){
 	const bool haveX86InlineAsm = false;
 }
 
+template have3DNow(){
+	void have3DNow(){
+		uint a = 0;
+
+		version(haveX86InlineAsm){
+			asm{
+				mov EAX, 0x8000_0001;
+				cpuid;
+				mov a, EDX;
+			}
+		}else{
+			pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+		}
+
+		if(!((a >> 30) & 1)){
+			throw new Exception("DSTRESS{XFAIL}: no 3DNow! support present");
+		}
+	}
+}
 
 template haveCMOV(){
 	void haveCMOV(){

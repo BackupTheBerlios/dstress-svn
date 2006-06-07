@@ -9,7 +9,7 @@ version(D_InlineAsm_X86){
 }else version(D_InlineAsm_X86_64){
 	version = runTest;
 }
-
+import std.stdio;
 version(runTest){
 	import addon.cpuinfo;
 
@@ -17,20 +17,18 @@ version(runTest){
 		haveSSE2!()();
 
 		const ulong[2] A = [(1 << 63) | 1, (1 << 63) | 3];
-		const long[2] B = [8, 1];
 		ulong[2] c;
 
 		asm{
 			movdqu XMM0, A;
-			movdqu XMM1, B;
-			pslldq XMM0, XMM1;
+			pslldq XMM0, 1;
 			movdqu c, XMM0;
 		}
 
-		if(c[0] != 3){
+		if(c[0] != 0x100){
 			assert(0);
 		}
-		if(c[1] != 6){
+		if(c[1] != 0x300){
 			assert(0);
 		}
 

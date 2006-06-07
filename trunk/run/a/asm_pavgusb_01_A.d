@@ -22,10 +22,10 @@ version(runTest){
 		ubyte[8] d;
 
 		asm{
-			emms;
 			movq MM0, A;
 			pavgusb MM0, B;
 			movq d, MM0;
+			emms;
 		}
 
 		for(size_t i = 0; i < C.length; i++){

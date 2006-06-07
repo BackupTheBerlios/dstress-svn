@@ -24,7 +24,7 @@ version(runTest){
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;
-			pmuludq, XMM0, XMM1;
+			pmuludq XMM0, XMM1;
 			movdqu c, XMM0;
 		}
 

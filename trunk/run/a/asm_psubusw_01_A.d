@@ -28,7 +28,7 @@ version(runTest){
 			movdqu c, XMM0;
 		}
 
-		foreach(short x; c[0 .. c.length -1]){
+		foreach(ushort x; c[0 .. c.length -1]){
 			if(x != 1){
 				assert(0);
 			}
@@ -37,6 +37,8 @@ version(runTest){
 		if(c[c.length - 1] != 0){
 			assert(0);
 		}
+
+		return 0;
 	}
 }else{
 	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

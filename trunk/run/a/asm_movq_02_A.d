@@ -26,6 +26,7 @@ version(runTest){
 		asm{
 			movq MM0, A;
 			movq b, MM0;
+			emms;
 		}
 		
 		for(size_t i = 0; i < A.length; i++){

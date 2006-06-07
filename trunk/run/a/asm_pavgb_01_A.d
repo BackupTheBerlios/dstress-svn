@@ -16,17 +16,17 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const byte[8] A = [1, -2, 3, 4, 5, 6, 7, 8];
-		const byte[8] B = [5, 2, -1, -8, 15, 4, 1, 4];
-		const byte[8] C = [3, 0, 1, -2, 10, 5, 4, 6];
+		const byte[8] A = [1, 2, 3, 4, 5, 6, 7, 8];
+		const byte[8] B = [5, 2, 1, 8, 15, 4, 1, 4];
+		const byte[8] C = [3, 2, 2, 6, 10, 5, 4, 6];
 		byte[8] d;
 
 		asm{
-			emms;
 			movq MM0, A;
 			movq MM1, B;
 			pavgb MM0, MM1;
 			movq d, MM0;
+			emms;
 		}
 
 		for(size_t i = 0; i < C.length; i++){

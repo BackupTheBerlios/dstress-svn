@@ -4,8 +4,18 @@
 
 module dstress.run.a.asm_pfrsqrt_01_B;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		have3DNow!()();
+
 		const float[2] A = [4.0f, 0.5f];
 		float[2] c;
 
@@ -13,6 +23,7 @@ int main(){
 			movq MM1, A;
 			pfrsqrt MM0, MM1;
 			movq c, MM0;
+			emms;
 		}
 
 		c[0] -= 0.5f;
@@ -32,8 +43,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

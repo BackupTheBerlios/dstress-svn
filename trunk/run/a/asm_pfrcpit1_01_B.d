@@ -4,8 +4,19 @@
 
 module dstress.run.a.asm_pfrcpit1_01_B;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		haveMMX!()();
+		have3DNow!()();
+
 		const float[2] A = [2.0f, -0.5f];
 		float[2] c;
 
@@ -14,9 +25,10 @@ int main(){
 			pfrcp MM0, MM1;
 			pfrcpit1 MM0, MM1;
 			movq c, MM0;
+			emms;
 		}
 
-		c[0] -= 0.5f;
+		c[0] -= 1.007812f;
 		if(c[0] < 0.0f){
 			c[0] = -c[0];
 		}
@@ -24,7 +36,7 @@ int main(){
 			assert(0);
 		}
 		
-		c[1] += 2.0f;
+		c[1] += 1.007812f;
 		if(c[0] < 0.0f){
 			c[0] = -c[0];
 		}
@@ -33,8 +45,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

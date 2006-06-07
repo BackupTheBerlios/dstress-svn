@@ -16,7 +16,7 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const short[8] A = [4, 5, 6, 7, 0, 1, 2, 3, 4];
+		const short[8] A = [4, 5, 6, 7, 0, 1, 2, 3];
 		const short[8] B = [-4, -5, -6, -7, 0, -1, -2, -3];
 
 		short[8] c;
@@ -28,28 +28,28 @@ version(runTest){
 			movdqu c, XMM0;
 		}
 
-		if(c[0] != 0){
+		if(c[0] != 4){
 			assert(0);
 		}
-		if(c[1] != 0){
+		if(c[1] != -4){
 			assert(0);
 		}
-		if(c[2] != -1){
+		if(c[2] != 5){
 			assert(0);
 		}
-		if(c[3] != 1){
+		if(c[3] != -5){
 			assert(0);
 		}
-		if(c[4] != -2){
+		if(c[4] != 6){
 			assert(0);
 		}
-		if(c[5] != 2){
+		if(c[5] != -6){
 			assert(0);
 		}
-		if(c[6] != -3){
+		if(c[6] != 7){
 			assert(0);
 		}
-		if(c[7] != 3){
+		if(c[7] != -7){
 			assert(0);
 		}
 

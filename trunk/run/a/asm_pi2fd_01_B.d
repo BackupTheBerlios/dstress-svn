@@ -4,14 +4,25 @@
 
 module dstress.run.a.asm_pi2fd_01_B;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		have3DNow!()();
+		
 		const int[2] A = [6, 2];
 		float[2] b;
 
 		asm{
 			pi2fd MM0, A;
 			movq b, MM0;
+			emms;
 		}
 
 		if(b[0] != 6.0f){
@@ -23,8 +34,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

@@ -17,14 +17,14 @@ version(runTest){
 		haveSSE2!()();
 
 		const short[8] A = [-1, 2, 0x7FFF, 7, 0x7FF0, 0x7EDC, 3, -16];
-		const short[8] B = [2, 0, 7, 0x7FFF, 0x00FF, 0x7EDC, 5, 0xABCD];
+		const short[8] B = [2, 0, 7, 0x7FFF, 0x00FF, 0x7EDC, 5, 0x6BCD];
 
 		ushort[8] c;
 
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;
-			pmulhw, XMM0, XMM1;
+			pmulhw XMM0, XMM1;
 			movdqu c, XMM0;
 		}
 
@@ -49,7 +49,7 @@ version(runTest){
 		if(c[6] != 0){
 			assert(0);
 		}
-		if(c[7] != 0xFFF5){
+		if(c[7] != 0xFFF9){
 			assert(0);
 		}
 

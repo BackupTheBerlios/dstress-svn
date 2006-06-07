@@ -22,7 +22,7 @@ version(runTest){
 		asm{
 			movupd XMM0, A;
 			movdq2q MM0, XMM0;
-			movq b, XMM0;
+			movq b, MM0;
 		}
 		
 		if(b != A[1]){

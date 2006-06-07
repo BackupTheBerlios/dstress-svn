@@ -16,21 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const ulong[2] A = [(1 << 63) | 1, (1 << 63) | 3];
-		const long[2] B = [8, 1];
+		const ulong[2] A = [0x1234_5678_90AB_CDEF, 0x0102_0304_0506_0708];
 		ulong[2] c;
 
 		asm{
 			movdqu XMM0, A;
-			movdqu XMM1, B;
-			psrldq XMM0, XMM1;
+			psrldq XMM0, 1;
 			movdqu c, XMM0;
 		}
 
-		if(c[0] != (1 << 62)){
+		if(c[0] != 0x0012_3456_7890_ABCD){
 			assert(0);
 		}
-		if(c[1] != (3 << 62) | 1){
+		if(c[1] != 0x0001_0203_0405_0607){
 			assert(0);
 		}
 

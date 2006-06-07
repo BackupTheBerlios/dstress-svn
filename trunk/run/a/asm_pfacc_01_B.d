@@ -15,6 +15,7 @@ int main(){
 			movq MM1, B;
 			pfacc MM0, MM1;
 			movq c, MM0;
+			emms;
 		}
 
 		if(c[0] != -333.0f){

@@ -6,13 +6,14 @@ module dstress.run.a.asm_pfrcp_01_B;
 
 int main(){
 	version(D_InlineAsm_X86){
-		const float[2] A = [2.0f, -0.5f];
+		const float[2] A = [2.0f, 3.3f];
 		float[2] c;
 
 		asm{
 			movq MM1, A;
 			pfrcp MM0, MM1;
 			movq c, MM0;
+			emms;
 		}
 
 		c[0] -= 0.5f;
@@ -23,7 +24,7 @@ int main(){
 			assert(0);
 		}
 		
-		c[1] += 2.0f;
+		c[1] -= 0.5f;
 		if(c[1] < 0.0f){
 			c[1] = -c[1];
 		}

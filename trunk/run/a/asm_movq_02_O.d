@@ -26,6 +26,7 @@ version(runTest){
 		asm{
 			movq MM0, A;
 			movq b, MM0;
+			emms;
 		}
 
 		if(A != 0x12_34_56_78_9A_BC_DE_F0){

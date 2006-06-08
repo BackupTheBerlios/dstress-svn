@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		byte y = 2;
-				
+
 		asm{
 			neg y;
 		}
@@ -21,7 +21,7 @@ version(runTest){
 		if(y != -2){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

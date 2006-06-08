@@ -14,7 +14,7 @@ int main(){
 	version(runTest){
 		int a = 30000;
 		int b = 50000;
-				
+
 		asm{
 			clc;
 			mov EAX, a;
@@ -26,16 +26,16 @@ int main(){
 
 		a = 30000;
 		b = 50000;
-		
+
 		asm{
 			stc;
 			mov EAX, a;
 			adc EAX, b;
 			mov a, EAX;
 		}
-		
+
 		assert(a == 80001);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");

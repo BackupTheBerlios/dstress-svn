@@ -20,7 +20,7 @@ version(runTest){
 	int main(){
 		void* x = &b;
 		void* y;
-		
+
 		static if(size_t.sizeof == 4){
 			asm{
 				mov EAX, offset b;

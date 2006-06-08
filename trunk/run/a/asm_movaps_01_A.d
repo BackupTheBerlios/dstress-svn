@@ -32,7 +32,7 @@ version(runTest){
 		if(A[1] != b[1]){
 			assert(0);
 		}
-		
+
 		if(A[2] != b[2]){
 			assert(0);
 		}

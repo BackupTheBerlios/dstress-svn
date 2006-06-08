@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint a = 0xAB_34_56_78;
-		
+
 		asm{
 			mov EAX, a;
 			call dummy;
@@ -24,11 +24,11 @@ version(runTest){
 			inc EAX;
 			mov a, EAX;
 		}
-		
+
 		if(a != 0xAB_34_56_7A){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

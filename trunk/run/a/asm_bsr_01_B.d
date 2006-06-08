@@ -13,16 +13,16 @@ version(D_InlineAsm_X86){
 int main(){
 	version(runTest){
 		ushort a = 0x3000;
-		
+
 		asm{
 			bsr AX, a;
 			mov a, AX;
 		}
-		
+
 		if(a != 13){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

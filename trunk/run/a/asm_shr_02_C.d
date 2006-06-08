@@ -11,15 +11,15 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
-	int main(){	
+	int main(){
 		uint a = 0x84_20_10_22;
-		
+
 		asm{
 			mov EAX, a;
 			shr EAX, 1;
 			mov a, EAX;
 		}
-		
+
 		if(a != 0x42_10_08_11){
 			assert(0);
 		}

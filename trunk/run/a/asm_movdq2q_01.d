@@ -12,19 +12,19 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE2!()();
 
 		static double[2] A = [1.0, 2.0];
 		double b = 3.0;
-		
+
 		asm{
 			movupd XMM0, A;
 			movdq2q MM0, XMM0;
 			movq b, MM0;
 		}
-		
+
 		if(b != A[1]){
 			return 0;
 		}

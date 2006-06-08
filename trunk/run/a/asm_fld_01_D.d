@@ -29,7 +29,7 @@ version(runTest){
 		if(b != 1.0f){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

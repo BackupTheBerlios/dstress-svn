@@ -15,7 +15,7 @@ version(runTest){
 		asm{
 			fwait;
 		}
-	
+
 		return 0;
 	}
 }else{

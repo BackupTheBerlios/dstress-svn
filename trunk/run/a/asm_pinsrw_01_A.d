@@ -12,14 +12,14 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
 
 		ulong x = 0x0500_FFFF_0707_1234;
 		ulong y;
 		uint a = 0x1234_5678;
-		
+
 		asm{
 			movq MM0, x;
 			mov EAX, a;

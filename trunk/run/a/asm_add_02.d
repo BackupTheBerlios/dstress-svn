@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_add_02;
 
 version(D_InlineAsm_X86){

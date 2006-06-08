@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE3!()();
 
@@ -34,7 +34,7 @@ version(runTest){
 				assert(0);
 			}
 		}
-		
+
 		return 0;
 	}
 }else{

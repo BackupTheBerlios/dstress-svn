@@ -20,31 +20,31 @@ int main(){
 			cmpxchg c, BX;
 			mov a, AX;
 		}
-	
+
 		if(c != 3){
 			assert(0);
 		}
 		if(a != 3){
 			assert(0);
 		}
-		
+
 		a = 0;
 		c = 3;
-		
+
 		asm{
 			mov AX, 3;
 			mov BX, 2;
 			cmpxchg c, BX;
 			mov a, AX;
 		}
-		
+
 		if(c != 2){
 			assert(0);
 		}
 		if(a != 3){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

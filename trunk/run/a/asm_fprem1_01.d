@@ -15,10 +15,10 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		float a = 2.5f;
 		float b = -4.2f;
-		
+
 		asm{
 			finit;
 			fld a;
@@ -26,17 +26,17 @@ version(runTest){
 			fprem1;
 			fstp a;
 		}
-		
+
 		a -= 0.8f;
-		
+
 		if(a < 0.0f){
 			a = -a;
 		}
-		
+
 		if(a > a.epsilon * 4.0f){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

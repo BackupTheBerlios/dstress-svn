@@ -17,11 +17,11 @@ version(runTest){
 		haveFPU!()();
 
 		byte[28] b;
-		
+
 		asm{
 			fstenv b;
 		}
-		
+
 		return 0;
 	}
 }else{

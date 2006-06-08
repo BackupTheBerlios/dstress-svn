@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE3!()();
 
@@ -34,7 +34,7 @@ version(runTest){
 		if(c[0] > double.epsilon * 16){
 			assert(0);
 		}
-		
+
 		c[1] -= 5.0;
 		if(c[1] < 0){
 			c[1] = -c[1];

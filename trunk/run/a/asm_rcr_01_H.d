@@ -13,16 +13,16 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		ushort a = 0b1110_0000__0000_0101;
-			
+
 		asm{
 			clc;
 			rcr a, 2;
 		}
-		
+
 		if(a != 0b1011_1000__0000_0001){
 			assert(0);
 		}
-		
+
 		asm{
 			stc;
 			rcr a, 2;

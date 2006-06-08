@@ -14,32 +14,32 @@ version(runTest){
 	int main(){
 		int i = 0xFF_FF_FF_FFu;
 		byte b = byte.min;
-		
+
 		asm{
 			mov EAX, i;
 			mov AL, b;
 			movsx EAX, AL;
 			mov i, EAX;
 		}
-	
+
 		if(i != byte.min){
 			assert(0);
 		}
-		
+
 		i=0xFF_FF_FF_FFu;
 		b=byte.max;
-		
+
 		asm{
 			mov EAX, i;
 			mov AL, b;
 			movsx EAX, AL;
 			mov i, EAX;
 		}
-		
+
 		if(i != byte.max){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

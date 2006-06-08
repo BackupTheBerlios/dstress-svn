@@ -27,7 +27,7 @@ version(runTest){
 			psadbw XMM0, XMM1;
 			movdqu c, XMM0;
 		}
-	
+
 		if(c[0] != 0){
 			assert(0);
 		}

@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		uint i;
 		ubyte x = 0xFF;
-		
+
 		asm{
 			mov EAX, 0x23_43_56_78u;
 			mov AL, 0xEE;
@@ -25,7 +25,7 @@ version(runTest){
 		if(i != 0x23_43_ED_12){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

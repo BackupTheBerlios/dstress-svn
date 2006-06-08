@@ -23,7 +23,7 @@ int main(){
 		if(c[0] > float.epsilon * (1 << 11)){
 			assert(0);
 		}
-		
+
 		c[1] -= 0.5f;
 		if(c[1] < 0.0f){
 			c[1] = -c[1];

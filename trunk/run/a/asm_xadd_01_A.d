@@ -4,22 +4,33 @@
 
 module dstress.run.a.asm_xadd_01_A;
 
-int main(){
-	version(D_InlineAsm){
-		ubyte a = 1u;
-		ubyte b = 3u;
-		
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
+		ubyte a = 1;
+		ubyte b = 3;
+
 		asm{
 			mov AL, a;
 			xadd b, AL;
 			mov a, AL;
 		}
-	
-		assert(a==3);
-		assert(b==4);
+
+		if(a != 3){
+			assert(0);
+		}
+		if(b != 4){
+			assert(0);
+		}
+
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

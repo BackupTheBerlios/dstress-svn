@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint a = 1;
-		
+
 		asm{
 			mov EAX, a;
 			enter 2048, 30;
@@ -21,11 +21,11 @@ version(runTest){
 			inc EAX;
 			mov a, EAX;
 		}
-		
+
 		if(a != 2){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

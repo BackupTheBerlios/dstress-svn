@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_and_02_C;
 
 version(D_InlineAsm_X86){
@@ -19,7 +19,7 @@ int main(){
 			and EBX, b;
 			mov a, EBX;
 		}
-		
+
 		if(a != 0x12_30_42_00){
 			assert(0);
 		}

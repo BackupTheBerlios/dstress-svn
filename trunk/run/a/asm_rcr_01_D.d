@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		ubyte a = 0b1111_1101;
-			
+
 		asm{
 			clc;
 			mov CL, 1;
@@ -23,7 +23,7 @@ version(runTest){
 		if(a != 0b0111_1110){
 			assert(0);
 		}
-		
+
 		asm{
 			stc;
 			mov CL, 1;

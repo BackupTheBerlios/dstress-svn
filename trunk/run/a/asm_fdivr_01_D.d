@@ -15,11 +15,11 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		float a = 12.0f;
 		float b = -3.0f;
 		float c = 9.9f;
-		
+
 		asm{
 			fld b;
 			fldz;
@@ -29,7 +29,7 @@ version(runTest){
 			fstp b;
 			fstp c;
 		}
-		
+
 		if(a != 12.0f){
 			assert(0);
 		}
@@ -39,7 +39,7 @@ version(runTest){
 		if(c != -4.0f){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

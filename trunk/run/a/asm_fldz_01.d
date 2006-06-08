@@ -15,18 +15,18 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		double f = -800.9L;
-		
+
 		asm{
 			fldz;
 			fstp f;
 		}
-		
+
 		if(f != 0.0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

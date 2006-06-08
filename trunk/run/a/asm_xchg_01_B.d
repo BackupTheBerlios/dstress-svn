@@ -4,22 +4,33 @@
 
 module dstress.run.a.asm_xchg_01_B;
 
-int main(){
-	version(D_InlineAsm){
-		ushort a = 1u;
-		ushort b = 3u;
-		
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
+		short a = 0x1234;
+		short b = 0x3421;
+
 		asm{
-			mov AX, a;
-			xchg AX, b;
-			mov a, AX;
+			mov BX, a;
+			xchg BX, b;
+			mov a, BX;
 		}
-	
-		assert(a==3u);
-		assert(b==1u);
+
+		if(a != 0x3421){
+			assert(0);
+		}
+		if(b != 0x1234){
+			assert(0);
+		}
+
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

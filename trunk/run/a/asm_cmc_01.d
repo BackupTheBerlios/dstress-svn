@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 int main(){
 	version(runTest){
 		byte a = 0;
-				
+
 		asm{
 			clc;
 			cmc;
@@ -22,8 +22,8 @@ int main(){
 			cmc;
 			jc error;
 		}
-		
-		
+
+
 		return 0;
 	error:
 		assert(0);

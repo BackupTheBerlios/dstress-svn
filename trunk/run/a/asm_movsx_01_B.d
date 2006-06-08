@@ -14,14 +14,14 @@ version(runTest){
 	int main(){
 		uint i = 0x12_3F_FF_FFu;
 		byte b = -128;
-		
+
 		asm{
 			mov EAX, i;
 			mov AL, b;
 			movsx AX, AL;
 			mov i, EAX;
 		}
-	
+
 		if(i != 0x12_3F_FF_80u){
 			assert(0);
 		}

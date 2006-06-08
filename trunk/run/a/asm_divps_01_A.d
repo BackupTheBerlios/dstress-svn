@@ -38,7 +38,7 @@ int main(){
 		if(c[1] > float.epsilon * 16){
 			assert(0);
 		}
-		
+
 		c[2] -= 3.3f;
 		if(c[2] < 0){
 			c[2] = -c[2];
@@ -46,7 +46,7 @@ int main(){
 		if(c[2] > float.epsilon * 16){
 			assert(0);
 		}
-		
+
 		if(c[3] < 0){
 			c[3] = -c[3];
 		}

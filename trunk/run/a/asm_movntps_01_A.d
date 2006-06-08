@@ -12,18 +12,18 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
-		
+
 		const float[4] a = [1.0f, -1.0f, 0.0f, 0.1f];
 		float[4] b;
-		
+
 		asm{
 			movups XMM0, a;
 			movntps b, XMM0;
 		}
-		
+
 		if(a[0] != b[0]){
 			assert(0);
 		}
@@ -36,7 +36,7 @@ version(runTest){
 		if(a[3] != b[3]){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

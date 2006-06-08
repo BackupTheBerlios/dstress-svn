@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		short a = 500;
 		short b = 300;
-				
+
 		asm{
 			clc;
 			mov BX, a;
@@ -29,7 +29,7 @@ version(runTest){
 
 		a = 500;
 		b = 300;
-		
+
 		asm{
 			stc;
 			mov BX, a;
@@ -37,11 +37,11 @@ version(runTest){
 			sbb BX, CX;
 			mov a, BX;
 		}
-		
+
 		if(a != 199){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

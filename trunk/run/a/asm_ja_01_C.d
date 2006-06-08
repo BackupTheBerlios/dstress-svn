@@ -14,15 +14,15 @@ version(runTest){
 	int main(){
 		uint a=5;
 		uint b=6;
-		
+
 		asm{
 			mov EAX, a;
 			cmp EAX, b;
 			ja error;
 		}
-		
+
 		return 0;
-		
+
 	error:
 		assert(0);
 	}

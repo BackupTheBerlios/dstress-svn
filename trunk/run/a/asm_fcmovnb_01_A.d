@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_fcmovnb_01_A;
 
 version(D_InlineAsm_X86){
@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveFPU!()();
 		haveCMOV!()();

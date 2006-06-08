@@ -14,42 +14,42 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		ubyte a;
-		
+
 		a = 0xFF;
-		
+
 		asm{
 			mov EAX, 3;
 			cmp EAX, 4;
 			seta BL;
 			mov a, BL;
 		}
-		
+
 		if(a != 0){
 			assert(0);
 		}
-		
+
 		a = 0xFF;
-		
+
 		asm{
 			mov EAX, 4;
 			cmp EAX, 3;
 			seta BL;
 			mov a, BL;
 		}
-		
+
 		if(a != 1){
 			assert(0);
 		}
-		
+
 		a = 0xFF;
-		
+
 		asm{
 			mov EAX, 4;
 			cmp EAX, 4;
 			seta BL;
 			mov a, BL;
 		}
-		
+
 		if(a != 0){
 			assert(0);
 		}

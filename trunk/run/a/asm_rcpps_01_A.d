@@ -24,7 +24,7 @@ version(runTest){
 			rcpps XMM1, XMM0;
 			movups b, XMM1;
 		}
-		
+
 		b[0] -= 1.0f;
 		if(b[0] < 0.0f){
 			b[0] = -b[0];
@@ -32,7 +32,7 @@ version(runTest){
 		if(b[0] > 1.0f / 4096.0f){
 			assert(0);
 		}
-		
+
 		b[1] -= 0.5f;
 		if(b[1] < 0.0f){
 			b[1] = -b[1];
@@ -48,7 +48,7 @@ version(runTest){
 		if(b[2] > 2.0f / 4096.0f){
 			assert(0);
 		}
-		
+
 		b[3] += 0.25f;
 		if(b[3] < 0.0f){
 			b[3] = -b[3];

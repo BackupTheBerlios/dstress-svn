@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		byte a = 50;
-				
+
 		asm{
 			clc;
 			mov AL, a;
@@ -26,18 +26,18 @@ version(runTest){
 		}
 
 		a = 50;
-		
+
 		asm{
 			stc;
 			mov AL, a;
 			sbb AL, 30;
 			mov a, AL;
 		}
-		
+
 		if(a != 19){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

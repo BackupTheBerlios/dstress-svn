@@ -7,7 +7,7 @@ module dstress.run.a.asm_jnp_01_B;
 int main(){
 	version(D_InlineAsm){
 		byte a;
-		
+
 		asm{
 			mov AL, 3;
 			cmp AL, 2;
@@ -15,9 +15,9 @@ int main(){
 			mov AL, 0;
 		save:	mov a, AL;
 		}
-		
+
 		assert(a == 3);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

@@ -12,14 +12,14 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE2!()();
 
 		static int[4] A = [1, 2, 3, 4];
 		static int[4] B = [int.max-2, int.min, 0, -6];
 		int[4] c;
-				
+
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;

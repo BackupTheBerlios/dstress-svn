@@ -12,24 +12,24 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
 
 		const float[4] A = [1.0f, -1.0f, -float.infinity, -0.0f];
 		uint b;
-		
+
 		asm{
 			movdqu XMM0, A;
 			mov EAX, 0x1234_5678;
 			movmskps EAX, XMM0;
 			mov b, EAX;
 		}
-		
+
 		if(b != 0b1110){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

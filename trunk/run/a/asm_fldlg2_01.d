@@ -15,24 +15,24 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		double f = -800.9;
-		
+
 		asm{
 			fldlg2;
 			fstp f;
 		}
-		
+
 		f -= 0.30102999566398119521373889472449;
-		
+
 		if(f < 0.0){
 			f = -f;
 		}
-		
+
 		if(f > f.epsilon * 4.0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

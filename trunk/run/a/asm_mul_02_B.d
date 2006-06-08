@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		ushort a, b;
 		ushort x = short.max+2;
-		
+
 		asm{
 			mov EAX, 0x12_34_56_78u;
 			mov EDX, 0x12_34_56_78u;
@@ -31,7 +31,7 @@ version(runTest){
 		if(b != 2){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

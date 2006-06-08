@@ -13,16 +13,16 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint a = 0b1111_0000__1100_0011__1010_0101__0111_1110;
-			
+
 		asm{
 			clc;
 			rcr a, 2;
 		}
-		
+
 		if(a != 0b0011_1100__0011_0000__1110_1001__0101_1111){
 			assert(0);
 		}
-		
+
 		asm{
 			stc;
 			rcr a, 2;

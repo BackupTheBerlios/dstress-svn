@@ -15,7 +15,7 @@ version(runTest){
 		asm{
 			nop;
 		}
-		
+
 		return 0;
 	}
 }else{

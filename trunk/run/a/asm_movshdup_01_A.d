@@ -12,17 +12,17 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		const float[4] a = [1.0f, -1.0f, -2.0f, 2.0f];
 		float[4] b;
-		
+
 		asm{
 			movups XMM0, a;
 			movshdup XMM1, XMM0;
 			movups b, XMM1;
 		}
-		
+
 		if(a[1] != b[0]){
 			assert(0);
 		}
@@ -35,7 +35,7 @@ version(runTest){
 		if(a[3] != b[3]){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

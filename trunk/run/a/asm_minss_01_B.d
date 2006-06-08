@@ -33,7 +33,7 @@ version(runTest){
 		if(c[1] != 3.0f){
 			assert(0);
 		}
-		
+
 		if(c[2] != 17.0f){
 			assert(0);
 		}

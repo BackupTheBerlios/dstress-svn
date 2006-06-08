@@ -28,7 +28,7 @@ version(runTest){
 			fstp a;
 			fst b;
 		}
-		
+
 		if(a != 0.0f){
 			assert(0);
 		}

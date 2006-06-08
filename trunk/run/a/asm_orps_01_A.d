@@ -12,14 +12,14 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
 
 		static float[4] A = [5.0f, 10.0f, 1.0f, 17.0f];
 		static float[4] B = [6.0f, 9.0f, -2.0f, 20.0f];
 		float[4] c;
-				
+
 		asm{
 			movups XMM0, A;
 			movups XMM1, B;

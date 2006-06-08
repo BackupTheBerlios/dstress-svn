@@ -14,7 +14,7 @@ int main(){
 	version(runTest){
 		byte a = 3;
 		byte b = 5;
-				
+
 		asm{
 			clc;
 			mov AL, a;
@@ -26,16 +26,16 @@ int main(){
 
 		a = 3;
 		b = 5;
-		
+
 		asm{
 			stc;
 			mov AL, a;
 			adc AL, b;
 			mov a, AL;
 		}
-		
+
 		assert(a == 9);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");

@@ -19,7 +19,7 @@ version(runTest){
 
 	int main(){
 		haveSSE2!()();
-		
+
 		const byte[8] A = [3, 4, 9, 0, 1, 3, 7, 2];
 		byte[8] b;
 
@@ -28,7 +28,7 @@ version(runTest){
 			movq b, MM0;
 			emms;
 		}
-		
+
 		for(size_t i = 0; i < A.length; i++){
 			if(A[i] != b[i]){
 				assert(0);

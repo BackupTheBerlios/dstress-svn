@@ -15,7 +15,7 @@ version(runTest){
 
 	int main(){
 		have3DNow!()();
-		
+
 		const ubyte[8] A = [1, 2, 3, 4, 5, 6, 7, 8];
 		const ubyte[8] B = [5, 2, 1, 8, 15, 4, 1, 4];
 		const ubyte[8] C = [3, 2, 2, 6, 10, 5, 4, 6];

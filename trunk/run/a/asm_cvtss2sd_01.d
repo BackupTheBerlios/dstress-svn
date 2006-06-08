@@ -8,7 +8,7 @@ int main(){
 	version(D_InlineAsm){
 		float f = -19.0f;
 		double d = 0.0f;
-		
+
 		asm{
 			cvtss2sd XMM0, f;
 			movq d, XMM0;
@@ -16,7 +16,7 @@ int main(){
 
 		assert(d==-19.0);
 		assert(f==-19.0);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

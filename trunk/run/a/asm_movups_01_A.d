@@ -18,12 +18,12 @@ version(runTest){
 
 		const float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
 		float[4] b;
-		
+
 		asm{
 			movdqu XMM0, A;
 			movups b, XMM0;
 		}
-		
+
 		if(b[0] != A[0]){
 			assert(0);
 		}

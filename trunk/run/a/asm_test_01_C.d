@@ -4,25 +4,30 @@
 
 module dstress.run.a.asm_test_01_C;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		uint a = 3u;
 		uint b = 2u;
-		
+
 		asm{
 			mov EAX, a;
 			test b, EAX;
-			jg dummy;
-			mov a, 0;
-		dummy:
-			inc a;
+			jz error;
+			js error;
+			jp error;
 		}
-	
-		assert(a==4);
-		
+
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
+	error:
+		assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

@@ -8,7 +8,7 @@ int main(){
 	version(D_InlineAsm){
 		uint i = 0;
 		double f = 64.0f;
-		
+
 		asm{
 			cvtsd2si EAX, f;
 			mov i, EAX;
@@ -16,7 +16,7 @@ int main(){
 
 		assert(i==64);
 		assert(f==64.0f);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

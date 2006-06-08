@@ -19,7 +19,7 @@ version(runTest){
 
 	int main(){
 		haveSSE2!()();
-		
+
 		const idouble[1] A = [4.1i];
 		idouble[1] b;
 
@@ -28,7 +28,7 @@ version(runTest){
 			movq b, MM0;
 			finit;
 		}
-		
+
 		for(size_t i = 0; i < A.length; i++){
 			if(A[i] != b[i]){
 				assert(0);

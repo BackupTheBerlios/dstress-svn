@@ -14,36 +14,36 @@ version(runTest){
 	int main(){
 		uint i = 0xFF_FF_FF_FFu;
 		ubyte b = 0xFF;
-		
+
 		asm{
 			mov EAX, i;
 			movzx EAX, b;
 			mov i, EAX;
 		}
-	
+
 		if(i != 0x00_00_00_FFu){
 			assert(0);
 		}
 		if(b != 0xFF){
 			assert(0);
 		}
-		
+
 		i = 0xFF_FF_FF_FFu;
 		b = 0x12;
-		
+
 		asm{
 			mov EAX, i;
 			movzx EAX, b;
 			mov i, EAX;
 		}
-		
+
 		if(i != 0x00_00_00_12u){
 			assert(0);
 		}
 		if(b != 0x12){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

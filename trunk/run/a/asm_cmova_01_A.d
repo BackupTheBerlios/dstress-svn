@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_cmova_01_A;
 
 version(D_InlineAsm_X86){
@@ -39,7 +39,7 @@ int main(){
 		if(a != 0xAB_CD_12_34){
 			assert(0);
 		}
-		
+
 		return 0;
 	error:
 		assert(0);

@@ -15,19 +15,19 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		ushort a, b;
-		
+
 		asm{
 			finit;
 			fstsw a;
 			fdecstp;
 			fstsw b;
 		}
-		
+
 		a = (a >> 11) & 0b111;
 		b = (b >> 11) & 0b111;
-		
+
 		if(a != 0){
 			assert(0);
 		}

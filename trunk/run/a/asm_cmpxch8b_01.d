@@ -12,11 +12,11 @@ int main(){
 		asm{
 			mov EAX, 0;
 			mov EDX, 0;
-			
+
 			mov EBX, 0xFFFFFFFF;
 			mov ECX, 0xFFFFFFFF;
 			cmpxch8b c;
-			
+
 			mov a, EAX;
 			mov d, EDX;
 		}
@@ -24,26 +24,26 @@ int main(){
 		assert(c==c.max);
 		assert(a==0);
 		assert(d==0);
-		
+
 		c=1;
-		
+
 		asm{
 			mov EAX, 0;
 			mov EDX, 0;
-			
+
 			mov EBX, 0xFFFFFFFF;
 			mov ECX, 0xFFFFFFFF;
 			cmpxch8b c;
-			
+
 			mov a, EAX;
 			mov d, EDX;
 		}
 
-		
+
 		assert(c==1);
 		assert(a==1);
 		assert(d==0);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

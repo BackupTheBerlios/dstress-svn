@@ -14,7 +14,7 @@ int main(){
 	version(runTest){
 		uint a;
 		ubyte b = 1;
-		
+
 		asm{
 			mov EAX, 1;
 			cpuid;
@@ -28,11 +28,11 @@ int main(){
 		not_supported:
 			mov a, 1;
 		}
-	
+
 		if((a != 0x20001) && (a != 1)){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

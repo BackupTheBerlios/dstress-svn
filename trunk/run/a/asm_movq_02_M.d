@@ -19,7 +19,7 @@ version(runTest){
 
 	int main(){
 		haveSSE2!()();
-		
+
 		const double[1] A = [4.1];
 		double[1] b;
 

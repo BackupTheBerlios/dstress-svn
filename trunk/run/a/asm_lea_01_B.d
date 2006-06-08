@@ -13,16 +13,16 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		ushort i;
-		
+
 		asm{
 			lea AX, i;
 			mov i, AX;
 		}
-		
+
 		if(cast(ushort)&i != i){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

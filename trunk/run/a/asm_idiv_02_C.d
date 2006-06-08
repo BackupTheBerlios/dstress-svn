@@ -13,10 +13,10 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		int y = -2;
-		
+
 		int a = 0x00_00_00_00;
 		int b = - 0x0F_FF_FF_FF;
-		
+
 		asm{
 			mov EDX, a;
 			mov EAX, b;
@@ -32,7 +32,7 @@ version(runTest){
 		if(b != 1){
 			assert(0);
 		}
-		
+
 		a = 0x00_00_00_00;
 		b = 0x0F_FF_FF_FE;
 
@@ -51,7 +51,7 @@ version(runTest){
 		if(b != 0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

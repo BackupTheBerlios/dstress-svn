@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		short y = -1234;
-				
+
 		asm{
 			neg y;
 		}
@@ -21,7 +21,7 @@ version(runTest){
 		if(y != 1234){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

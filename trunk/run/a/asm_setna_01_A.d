@@ -13,39 +13,39 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		ubyte a;
-		
+
 		a = 0xFF;
-		
+
 		asm{
 			mov EAX, 3;
 			cmp EAX, 4;
 			setna a;
 		}
-		
+
 		if(a != 1){
 			assert(0);
 		}
-		
+
 		a = 0xFF;
-		
+
 		asm{
 			mov EAX, 4;
 			cmp EAX, 3;
 			setna a;
 		}
-		
+
 		if(a != 0){
 			assert(0);
 		}
-		
+
 		a = 0xFF;
-		
+
 		asm{
 			mov EAX, 4;
 			cmp EAX, 4;
 			setna a;
 		}
-		
+
 		if(a != 1){
 			assert(0);
 		}

@@ -38,7 +38,7 @@ version(runTest){
 		if(c[3] != B[1]){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

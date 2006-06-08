@@ -11,14 +11,14 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
-	int main(){	
+	int main(){
 		ubyte a = 0x84;
-		
+
 		asm{
 			mov CL, 1;
 			shr a, CL;
 		}
-		
+
 		if(a != 0x42){
 			assert(0);
 		}

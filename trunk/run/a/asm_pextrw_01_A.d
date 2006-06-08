@@ -12,14 +12,14 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
 
 		static ushort[8] x = [1, 2, 3, 4, 5, 0xFFFF, 7, 0];
 		uint a;
 		uint b;
-		
+
 		asm{
 			movdqu XMM0, x;
 			pextrw EAX, XMM0, 5;

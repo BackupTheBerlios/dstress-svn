@@ -13,10 +13,10 @@ version(D_InlineAsm_X86){
 int main(){
 	version(runTest){
 		ushort y = 2;
-		
+
 		ushort a = 0x00_00u;
 		ushort b = 0xFF_FFu;
-		
+
 		asm{
 			mov DX, a;
 			mov AX, b;
@@ -32,7 +32,7 @@ int main(){
 		if(b != 0x1u){
 			assert(0);
 		}
-		
+
 		a = 0x00_00u;
 		b = 0xFF_FEu;
 
@@ -51,7 +51,7 @@ int main(){
 		if(b != 0x0u){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

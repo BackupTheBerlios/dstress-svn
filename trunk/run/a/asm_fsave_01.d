@@ -15,7 +15,7 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		static if(size_t.sizeof==4 || size_t.sizeof==6){
 			const ubyte stateSize = 108;
 		}else static if(size_t.sizeof==2){
@@ -23,13 +23,13 @@ version(runTest){
 		}else{
 			static assert(0);
 		}
-		
+
 		ubyte[stateSize] state;
-		
+
 		asm{
 			fsave state;
 		}
-		
+
 		return 0;
 	}
 }else{

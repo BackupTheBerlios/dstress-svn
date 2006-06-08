@@ -21,7 +21,7 @@ int main(){
 		if(i != 0x00_01){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");

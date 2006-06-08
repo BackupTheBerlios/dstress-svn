@@ -19,14 +19,14 @@ version(runTest){
 		const double[2] A = [7.0, 4.0];
 		const double[2] B = [3.0, 2.0];
 		double[2] c;
-		
+
 		asm{
 			movupd XMM0, A;
 			movupd XMM1, B;
 			mulsd XMM0, XMM1;
 			movupd c, XMM0;
 		}
-		
+
 		if(c[0] != 21.0){
 			assert(0);
 		}

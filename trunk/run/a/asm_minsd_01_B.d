@@ -32,7 +32,7 @@ version(runTest){
 		if(c[1] != 4.0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

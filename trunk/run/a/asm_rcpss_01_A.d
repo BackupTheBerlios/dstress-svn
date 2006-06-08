@@ -26,7 +26,7 @@ version(runTest){
 			rcpss XMM1, XMM0;
 			movups c, XMM1;
 		}
-	
+
 		c[0] -= 0.5f;
 		if(c[0] < 0.0f){
 			c[0] = -c[0];
@@ -38,11 +38,11 @@ version(runTest){
 		if(c[1] != B[1]){
 			assert(0);
 		}
-		
+
 		if(c[2] != B[2]){
 			assert(0);
 		}
-		
+
 		if(c[3] != B[3]){
 			assert(0);
 		}

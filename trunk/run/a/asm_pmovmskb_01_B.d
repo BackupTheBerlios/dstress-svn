@@ -8,7 +8,7 @@ int main(){
 	version(D_InlineAsm_X86){
 		ulong a = 0x0888_7FFF_FFFF_0000;
 		uint i;
-		
+
 		asm{
 			movq MM0, a;
 			mov EAX, 0xFF12_34BC;

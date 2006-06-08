@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveMMX!()();
 
@@ -25,7 +25,7 @@ version(runTest){
 		if((state & 0x0000_FFFF) != 0x0000_1F80){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -15,14 +15,14 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		float f1 = float.nan;
 		float f2;
-		
+
 		ubyte CF = 2;
 		ubyte PF = 2;
 		ubyte ZF = 2;
-				
+
 		asm{
 			fldz;
 			fldz;
@@ -43,7 +43,7 @@ version(runTest){
 		if(f2 != 0.0f){
 			assert(0);
 		}
-		
+
 		if(CF != 1){
 			assert(0);
 		}
@@ -53,7 +53,7 @@ version(runTest){
 		if(ZF != 1){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

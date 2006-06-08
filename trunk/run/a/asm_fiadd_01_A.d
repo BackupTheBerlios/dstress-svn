@@ -12,28 +12,28 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveFPU!()();
 
 		double a = -1.2;
 		int b = 34;
-		
+
 		asm{
 			finit;
 			fld a;
 			fiadd b;
 			fst a;
 		}
-		
+
 		a -= 32.8;
-		
+
 		a = (a > 0.0) ? a : -a;
-		
+
 		if(a >= a.epsilon * 16.0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

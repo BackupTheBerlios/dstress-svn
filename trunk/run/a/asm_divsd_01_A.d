@@ -38,7 +38,7 @@ int main(){
 		if(c[1] > double.epsilon * 16){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

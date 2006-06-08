@@ -14,7 +14,7 @@ int main(){
 	version(runTest){
 		short a = 300;
 		short b = 500;
-				
+
 		asm{
 			clc;
 			mov AX, a;
@@ -26,16 +26,16 @@ int main(){
 
 		a = 300;
 		b = 500;
-		
+
 		asm{
 			stc;
 			mov AX, a;
 			adc AX, b;
 			mov a, AX;
 		}
-		
+
 		assert(a == 801);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");

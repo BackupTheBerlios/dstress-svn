@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_btc_01_A;
 
 version(D_InlineAsm_X86){
@@ -24,7 +24,7 @@ int main(){
 			btc a, BX;
 			jnc error;
 		}
-		
+
 		if(a != 2){
 			assert(0);
 		}

@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_mov_02_A;
 
 version(D_InlineAsm_X86){
@@ -28,7 +28,7 @@ version(runTest){
 		if(i != 0x12_34_33_FE){
 			assert(0);
 		}
-    		
+
 		return 0;
 	}
 }else{

@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		byte a = 50;
 		byte b = 30;
-				
+
 		asm{
 			clc;
 			mov BL, a;
@@ -29,7 +29,7 @@ version(runTest){
 
 		a = 50;
 		b = 30;
-		
+
 		asm{
 			stc;
 			mov BL, a;
@@ -37,11 +37,11 @@ version(runTest){
 			sbb BL, CL;
 			mov a, BL;
 		}
-		
+
 		if(a != 19){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

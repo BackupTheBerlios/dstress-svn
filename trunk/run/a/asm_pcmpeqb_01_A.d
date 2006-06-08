@@ -12,14 +12,14 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE2!()();
 
 		static byte[16] A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 		static byte[16] B = [1, 0, byte.min, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 16];
 		ubyte[16] c;
-				
+
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;

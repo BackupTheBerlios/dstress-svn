@@ -17,7 +17,7 @@ version(runTest){
 		haveFPU!()();
 
 		float a = -0.0f;
-		
+
 		asm{
 			fld a;
 			fld a;
@@ -25,11 +25,11 @@ version(runTest){
 			fstp a;
 			fstp a;
 		}
-		
+
 		if(a != 0.0L){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

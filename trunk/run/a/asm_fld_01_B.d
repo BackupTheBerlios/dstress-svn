@@ -27,7 +27,7 @@ version(runTest){
 		if(b != 1.2){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -15,7 +15,7 @@ version(runTest){
 
 	int main(){
 		have3DNow!()();
-		
+
 		const float[2] A = [-3.0f, 7.0f];
 		const float[2] B = [2.0f, 8.0f];
 		float[2] c;

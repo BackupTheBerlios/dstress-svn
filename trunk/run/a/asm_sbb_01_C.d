@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		int a = 50000;
 		int b = 30000;
-				
+
 		asm{
 			clc;
 			mov EBX, a;
@@ -28,18 +28,18 @@ version(runTest){
 
 		a = 50000;
 		b = 30000;
-		
+
 		asm{
 			stc;
 			mov EBX, a;
 			sbb EBX, b;
 			mov a, EBX;
 		}
-		
+
 		if(a != 19999){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

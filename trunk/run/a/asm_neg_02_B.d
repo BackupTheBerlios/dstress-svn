@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint y = 0x78_56_43_21;
-				
+
 		asm{
 			mov EAX, y;
 			neg AX;
@@ -23,7 +23,7 @@ version(runTest){
 		if(y != 0x78_56_BC_DF){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

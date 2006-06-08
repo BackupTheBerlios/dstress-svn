@@ -17,24 +17,24 @@ version(runTest){
 	int main(){
 		float a = 2.4f;
 		float b = -1.2f;
-		
+
 		asm{
 			fld b;
 			fld a;
 			fsub ST, ST(1);
 			fst a;
 		}
-		
+
 		a -= 3.6f;
-		
+
 		if(a < 0.0f){
 			a = -a;
 		}
-		
+
 		if(a > a.epsilon * 4.0f){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		int a = 50000;
-				
+
 		asm{
 			clc;
 			sbb a, 30000;
@@ -24,16 +24,16 @@ version(runTest){
 		}
 
 		a = 50000;
-		
+
 		asm{
 			stc;
 			sbb a, 30000;
 		}
-		
+
 		if(a != 19999){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

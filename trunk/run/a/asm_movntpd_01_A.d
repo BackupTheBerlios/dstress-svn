@@ -12,19 +12,19 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE2!()();
 
 		const double[2] a = [1.0, -1.0];
 		double[] b = aligned_new!(double)(2, 16);
-		
+
 		asm{
 			movupd XMM0, a;
 			movntpd b, XMM0;
 			sfence;
 		}
-		
+
 		printf("%lf\n", b[0], b[1]);
 		if(a[0] != b[0]){
 			assert(0);
@@ -32,7 +32,7 @@ version(runTest){
 		if(a[1] != b[1]){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

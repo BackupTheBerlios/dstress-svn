@@ -14,19 +14,19 @@ version(runTest){
 	int main(){
 		uint a = 0x1234_ABCD;
 		uint b = 2;
-		
+
 		asm{
 			mov EAX, a;
 			movnti b, EAX;
 		}
-		
+
 		if(a != 0x1234_ABCD){
 			assert(0);
 		}
 		if(b != 0x1234_ABCD){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

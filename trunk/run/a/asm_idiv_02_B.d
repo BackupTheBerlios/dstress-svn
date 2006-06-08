@@ -13,10 +13,10 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		short y = 2;
-		
+
 		short a = 0x00_00;
 		short b = - 0x0F_FF;
-		
+
 		asm{
 			mov DX, a;
 			mov AX, b;
@@ -32,7 +32,7 @@ version(runTest){
 		if(b != 1){
 			assert(0);
 		}
-		
+
 		a = 0x00_00;
 		b = - 0x0F_FE;
 
@@ -51,7 +51,7 @@ version(runTest){
 		if(b != 0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

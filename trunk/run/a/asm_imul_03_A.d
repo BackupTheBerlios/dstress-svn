@@ -14,18 +14,18 @@ version(runTest){
 	int main(){
 		byte a = -2;
 		byte b = 3;
-		
+
 		asm{
 			mov AL, a;
 			mov BL, b;
 			imul BL;
 			mov b, AL;
 		}
-	
+
 		if(b != -6){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

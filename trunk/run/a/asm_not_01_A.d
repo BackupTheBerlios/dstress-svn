@@ -13,15 +13,15 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		ubyte a = 0b0110_1110;
-		
+
 		asm{
 			not a;
 		}
-		
+
 		if(a != 0b1001_0001){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

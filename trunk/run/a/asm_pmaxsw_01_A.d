@@ -16,7 +16,7 @@ version(runTest){
 
 	int main(){
 		haveSSE!()();
-		
+
 		const short[8] A = [1, 2, 3, 4, 5, 6, 16, 2];
 		const short[8] B = [-9, 10, -11, -12, 13, 14, 0xFFF, 1];
 

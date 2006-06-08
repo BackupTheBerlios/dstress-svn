@@ -35,7 +35,7 @@ printf("%f %f\n", c[0], c[1]);
 		if(c[0] > float.epsilon * (1 << 8)){
 			assert(0);
 		}
-		
+
 		c[1] -= 1.007812;
 		if(c[1] < 0.0f){
 			c[1] = -c[1];

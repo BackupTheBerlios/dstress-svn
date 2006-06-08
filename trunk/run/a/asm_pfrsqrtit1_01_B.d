@@ -15,7 +15,7 @@ version(runTest){
 
 	int main(){
 		have3DNow!()();
-		
+
 		const float[2] A = [4.0f, 0.5f];
 		float[2] c;
 
@@ -34,7 +34,7 @@ version(runTest){
 		if(c[0] > float.epsilon * (1 << 8)){
 			assert(0);
 		}
-		
+
 		c[1] -= 1.001953f;
 		if(c[1] < 0.0f){
 			c[1] = -c[1];

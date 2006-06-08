@@ -34,7 +34,7 @@ version(runTest){
 		if(c[0] > 1.0f / 4096.0f){
 			assert(0);
 		}
-		
+
 		c[1] -= 1.0f;
 		if(c[1] < 0.0f){
 			c[1] = -c[1];
@@ -50,7 +50,7 @@ version(runTest){
 		if(c[2] > 0.25f / 4096.0f){
 			assert(0);
 		}
-		
+
 		c[3] += 0.5f;
 		if(c[3] < 0.0f){
 			c[3] = -c[3];

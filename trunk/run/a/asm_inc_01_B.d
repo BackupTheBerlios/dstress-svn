@@ -13,17 +13,17 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint i = 0x12_3F_FF_FFu;
-		
+
 		asm{
 			mov EAX, i;
 			inc AX;
 			mov i, EAX;
 		}
-	
+
 		if(i != 0x12_3F_00_00u){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -15,18 +15,18 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		ushort b;
-		
+
 		asm{
 			finit;
 			fnstcw b;
 		}
-		
+
 		if(b != 0x037F){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

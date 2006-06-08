@@ -19,7 +19,7 @@ version(runTest){
 		ulong x = 0x0500_FFFF_0707_1234;
 		ulong y;
 		short a = 0x5678;
-		
+
 		asm{
 			movq MM0, x;
 			pinsrw MM0, a, 0;

@@ -12,22 +12,22 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveMMX!()();
 
 		uint a = 0x1234_ABCD;
 		int b = 2;
-		
+
 		asm{
 			movd MM0, a;
 			movd b, MM0;
 		}
-		
+
 		if(a != b){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

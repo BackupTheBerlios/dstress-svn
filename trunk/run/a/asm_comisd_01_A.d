@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_comisd_01_A;
 
 version(D_InlineAsm_X86){
@@ -23,7 +23,7 @@ int main(){
 			jp error;
 			jnc error;
 		}
-		
+
 
 		return 0;
 	error:

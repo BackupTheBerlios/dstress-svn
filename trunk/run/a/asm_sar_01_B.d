@@ -11,13 +11,13 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
-	int main(){	
+	int main(){
 		ushort a = 0x84_10;
-		
+
 		asm{
 			sar a, 1;
 		}
-		
+
 		if(a != 0xC2_08){
 			assert(0);
 		}

@@ -13,11 +13,11 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		byte b;
-		
+
 		asm{
 			prefetchnta b;
 		}
-		
+
 		return 0;
 	}
 }else{

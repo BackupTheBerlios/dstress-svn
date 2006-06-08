@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_btc_01_B;
 
 version(D_InlineAsm_X86){
@@ -26,7 +26,7 @@ int main(){
 			jnc error;
 			mov a, AX;
 		}
-		
+
 		if(a != 2){
 			assert(0);
 		}

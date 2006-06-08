@@ -34,7 +34,7 @@ version(runTest){
 		if(c[0] > 1.0f / 4096.0f){
 			assert(0);
 		}
-		
+
 		if(c[1] != A[1]){
 			assert(0);
 		}

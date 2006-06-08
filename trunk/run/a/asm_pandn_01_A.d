@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE2!()();
 
@@ -25,7 +25,7 @@ version(runTest){
 			0b00001000_00001100, 0b00000100_00000110, 0b00000010_00000011, 0b11111111_10101010
 		];
 		ushort[8] c;
-				
+
 		asm{
 			movdqu XMM0, A;
 			movdqu XMM1, B;

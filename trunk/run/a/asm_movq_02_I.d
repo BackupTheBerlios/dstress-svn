@@ -19,7 +19,7 @@ version(runTest){
 
 	int main(){
 		haveSSE2!()();
-		
+
 		const dchar[2] A = [3, 4];
 		dchar[2] b;
 
@@ -28,7 +28,7 @@ version(runTest){
 			movq b, MM0;
 			emms;
 		}
-		
+
 		for(size_t i = 0; i < A.length; i++){
 			if(A[i] != b[i]){
 				assert(0);

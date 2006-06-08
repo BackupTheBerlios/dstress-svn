@@ -15,22 +15,22 @@ version(runTest){
 
 	int main(){
 		haveSSE2!()();
-		
+
 		ulong a = 0x1234_ABCD_5678_EF01;
 		ulong b = 2;
-		
+
 		asm{
 			movq MM0, a;
 			movq b, MM0;
 		}
-		
+
 		if(a != 0x1234_ABCD_5678_EF01){
 			assert(0);
 		}
 		if(b != 0x1234_ABCD_5678_EF01){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

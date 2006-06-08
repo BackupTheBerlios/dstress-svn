@@ -19,7 +19,7 @@ version(runTest){
 
 	int main(){
 		haveSSE2!()();
-		
+
 		const long A = 0x12_34_56_78_9A_BC_DE_F0;
 		long b;
 

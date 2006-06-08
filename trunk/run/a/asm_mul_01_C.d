@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		uint a, b;
 		uint x = int.max+2;
-		
+
 		asm{
 			mov EAX, 0x12_34_56_78u;
 			mov EDX, 0x12_34_56_78u;
@@ -30,7 +30,7 @@ version(runTest){
 		if(b != 2){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

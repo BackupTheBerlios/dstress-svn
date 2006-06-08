@@ -13,18 +13,18 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint a = 0b1111_0000__1100_0011__1010_0101__0111_1110;
-			
+
 		asm{
 			clc;
 			mov EAX, a;
 			rcr AL, 2;
 			mov a, EAX;
 		}
-		
+
 		if(a != 0b1111_0000__1100_0011__1010_0101__0001_1111){
 			assert(0);
 		}
-		
+
 		asm{
 			stc;
 			mov EAX, a;

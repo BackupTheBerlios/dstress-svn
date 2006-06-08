@@ -19,7 +19,7 @@ version(runTest){
 
 	int main(){
 		haveSSE2!()();
-		
+
 		const ifloat[2] A = [3.0fi, 4.1fi];
 		ifloat[2] b;
 
@@ -28,7 +28,7 @@ version(runTest){
 			movq b, MM0;
 			emms;
 		}
-		
+
 		for(size_t i = 0; i < A.length; i++){
 			if(A[i] != b[i]){
 				assert(0);

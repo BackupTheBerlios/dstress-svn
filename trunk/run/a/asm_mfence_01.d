@@ -15,7 +15,7 @@ version(runTest){
 		asm{
 			mfence;
 		}
-		
+
 		return 0;
 	}
 }else{

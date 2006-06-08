@@ -14,16 +14,16 @@ version(runTest){
 	int main(){
 		uint a;
 		uint b;
-		
+
 		asm{
 			lea EAX, a;
 			mov b, EAX;
 		}
-		
+
 		if(b != cast(int)&a){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

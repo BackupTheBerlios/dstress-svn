@@ -18,7 +18,7 @@ version(runTest){
 
 		float f;
 		ushort s;
-				
+
 		asm{
 			fld1;
 			fxam;
@@ -29,11 +29,11 @@ version(runTest){
 		if(f != 1.0f){
 			assert(0);
 		}
-		
+
 		ushort C0 = 1 << 8;
 		ushort C2 = 1 << 10;
 		ushort C3 = 1 << 14;
-		
+
 		if(s & C0){
 			assert(0);
 		}

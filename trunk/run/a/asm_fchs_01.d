@@ -15,15 +15,15 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		real a = -1.2L;
-		
+
 		asm{
 			fld a;
 			fchs;
 			fstp a;
 		}
-		
+
 		if(1.2L != a){
 			assert(0);
 
@@ -34,12 +34,12 @@ version(runTest){
 			fchs;
 			fstp a;
 		}
-		
+
 		if(-1.2L != a){
 			assert(0);
 
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -16,21 +16,21 @@ version(runTest){
 	int main(){
 		haveFPU!()();
 		ushort controll, status;
-		
+
 		asm{
 			fninit;
 			fstcw controll;
 			fstsw status;
 		}
-		
+
 		if(controll != 0x037F){
 			assert(0);
 		}
 		if(status != 0){
 			assert(0);
 		}
-		
-		
+
+
 		return 0;
 	}
 }else{

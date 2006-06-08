@@ -27,7 +27,7 @@ version(runTest){
 		if(b != A[0]){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

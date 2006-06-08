@@ -14,15 +14,15 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		int b = 0x12_FF_FF_FF;
-		
+
 		asm{
 			inc b;
 		}
-	
+
 		if(b != 0x13_00_00_00){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

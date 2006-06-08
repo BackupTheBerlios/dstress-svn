@@ -12,19 +12,19 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-		
+
 	int main(){
 		haveFPU!()();
-	
+
 		byte[10] raw;
-		
+
 		real r = 654321.0L;
-		
+
 		asm{
 			fld r;
 			fbstp raw;
 		}
-		
+
 		if(raw[0] != (1 | (2 << 4))){
 			assert(0);
 		}
@@ -55,7 +55,7 @@ version(runTest){
 		if(raw[9] != 0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

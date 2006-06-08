@@ -15,11 +15,11 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		asm{
 			fnop;
 		}
-		
+
 		return 0;
 	}
 }else{

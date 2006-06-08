@@ -33,7 +33,7 @@ version(runTest){
 		if(c[0] > float.epsilon * (1 << 11)){
 			assert(0);
 		}
-		
+
 		c[1] -= 4.0f;
 		if(c[0] < 0.0f){
 			c[0] = -c[0];

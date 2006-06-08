@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_shl_02_D;
 
 version(D_InlineAsm_X86){
@@ -13,16 +13,16 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		ubyte a = 0b1011_0011;
-		
+
 		asm{
 			mov CL, 1;
 			shl a, CL;
 		}
-		
+
 		if(a != 0b0110_0110){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

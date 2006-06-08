@@ -1,7 +1,7 @@
  // $HeadURL$
  // $Date$
  // $Author$
- 
+
 module dstress.run.a.asm_sal_01_D;
 
 version(D_InlineAsm_X86){
@@ -13,18 +13,18 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint a = 0xFF_FF_01_02;
-		
+
 		asm{
 			mov EAX, a;
 			mov CL, 1;
 			sal AL, CL;
 			mov a, EAX;
 		}
-		
+
 		if(a != 0xFF_FF_01_04){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

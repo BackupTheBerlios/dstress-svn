@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		uint a = 0b1111_1100__0000_0100__1111_1100__0100_0001;
-			
+
 		asm{
 			clc;
 			mov CL, 1;
@@ -37,7 +37,7 @@ version(runTest){
 		if(a != 0b1111_1100__0000_0100__1011_1111__0001_0000){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

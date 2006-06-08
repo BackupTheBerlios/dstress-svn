@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
 
@@ -34,7 +34,7 @@ version(runTest){
 		if(c[1] != 3.0f){
 			assert(0);
 		}
-		
+
 		if(c[2] != 16.0f){
 			assert(0);
 		}

@@ -15,7 +15,7 @@ version(runTest){
 		asm{
 			lfence;
 		}
-		
+
 		return 0;
 	}
 }else{

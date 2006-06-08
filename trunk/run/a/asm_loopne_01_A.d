@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		int a;
-		
+
 		asm{
 			mov EAX, -5;
 			mov ECX, 10;
@@ -21,11 +21,11 @@ version(runTest){
 			loopne start;
 			mov a, EAX;
 		}
-		
+
 		if(a != 0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

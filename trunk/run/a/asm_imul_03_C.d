@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		int a = -2;
 		int b = 3;
-		
+
 		asm{
 			mov EAX, a;
 			mov EBX, b;
@@ -25,7 +25,7 @@ version(runTest){
 		if(b != -6){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -20,7 +20,7 @@ version(runTest){
 		float exponent;
 		float significand;
 		float f;
-		
+
 		asm{
 			fldz;
 			fld a;
@@ -29,7 +29,7 @@ version(runTest){
 			fstp exponent;
 			fst f;
 		}
-		
+
 		if(significand != -1.0f){
 			assert(0);
 		}
@@ -39,7 +39,7 @@ version(runTest){
 		if(f != 0.0f){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

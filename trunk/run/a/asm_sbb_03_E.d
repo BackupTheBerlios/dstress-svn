@@ -13,7 +13,7 @@ version(D_InlineAsm_X86){
 version(runTest){
 	int main(){
 		short a = 500;
-				
+
 		asm{
 			clc;
 			sbb a, 300;
@@ -24,16 +24,16 @@ version(runTest){
 		}
 
 		a = 500;
-		
+
 		asm{
 			stc;
 			sbb a, 300;
 		}
-		
+
 		if(a != 199){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

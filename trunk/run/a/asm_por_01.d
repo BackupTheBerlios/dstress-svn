@@ -19,13 +19,13 @@ version(runTest){
 		ulong a = 0xFF01_00FF_0001_0000;
 		ulong b = 0xFF00_10FF_0002_0000;
 		ulong c = 2;
-			
+
 		asm{
 			movq MM0, a;
 			por MM0, b;
 			movq c, MM0;
 		}
-		
+
 		if(c != 0xFF01_10FF_0003_0000){
 			assert(0);
 		}

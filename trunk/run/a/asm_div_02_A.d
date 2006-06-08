@@ -15,7 +15,7 @@ int main(){
 		ubyte a, b;
 		ushort x = byte.max+3;
 		ubyte y = 2;
-		
+
 		asm{
 			mov AX, x;
 			mov BL, y;
@@ -30,10 +30,10 @@ int main(){
 		if(b != 0){
 			assert(0);
 		}
-		
+
 		x = byte.max+2;
 		y = 2;
-				
+
 		asm{
 			mov AX, x;
 			mov BL, y;
@@ -41,14 +41,14 @@ int main(){
 			mov a, AL;
 			mov b, AH;
 		}
-		
+
 		if(a != 64){
 			assert(0);
 		}
 		if(b != 1){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

@@ -4,22 +4,29 @@
 
 module dstress.run.a.asm_xor_01_B;
 
-int main(){
-	version(D_InlineAsm){
-		ushort a = 1u;
-		ushort b = 3u;
-		
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
+		short a = 0x1534;
+		short b = 0x0150;
+
 		asm{
 			mov AX, a;
 			xor b, AX;
-			mov a, AX;
 		}
-	
-		assert(a==1u);
-		assert(b==2u);
+
+		if(b != (0x1534 ^ 0x0150)){
+			assert(0);
+		}
+
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

@@ -9,15 +9,15 @@ int main(){
 		float a = 1.2;
 		float b = 1.2;
 		uint res;
-		
+
 		asm{
 			movd XMM0, a;
 			cmpss XMM0, b, 2;
 			movd res, XMM0;
 		}
-	
+
 		assert(res == res.max);
-		
+
 		return 0;
 	}else{
 		pragma(msg, "no Inline asm support");

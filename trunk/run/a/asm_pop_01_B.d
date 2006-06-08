@@ -13,7 +13,7 @@ version(runTest){
 		uint a = 0x12AB_34CD;
 		uint b = 0;
 		size_t p1, p2, p3;
-		
+
 		static if(size_t.sizeof == 4){
 			asm{
 				mov p1, ESP;
@@ -26,7 +26,7 @@ version(runTest){
 			pragma(msg, "DSTRESS{ERROR}: unhandled size of void pointer");
 			static assert(0);
 		}
-		
+
 		if(p1 != p3){
 			assert(0);
 		}
@@ -36,7 +36,7 @@ version(runTest){
 		if(b != 0x12AB_34CD){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -38,7 +38,7 @@ version(runTest){
 		if(c[1] != A[1]){
 			assert(0);
 		}
-		
+
 		if(c[2] != B[0]){
 			assert(0);
 		}
@@ -46,7 +46,7 @@ version(runTest){
 		if(c[3] != B[1]){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

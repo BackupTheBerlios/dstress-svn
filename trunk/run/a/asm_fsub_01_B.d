@@ -17,23 +17,23 @@ version(runTest){
 	int main(){
 		double a = 2.4;
 		double b = -1.2;
-		
+
 		asm{
 			fld a;
 			fsub b;
 			fst a;
 		}
-		
+
 		a -= 3.6;
-		
+
 		if(a < 0.0){
 			a = -a;
 		}
-		
+
 		if(a > a.epsilon * 4.0){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

@@ -18,12 +18,12 @@ version(runTest){
 
 		const double[2] A = [1.0, 4.0];
 		double[2] b;
-		
+
 		asm{
 			movdqu XMM0, A;
 			movupd b, XMM0;
 		}
-		
+
 		if(b[0] != A[0]){
 			assert(0);
 		}

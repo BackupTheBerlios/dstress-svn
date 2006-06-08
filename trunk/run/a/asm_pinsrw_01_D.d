@@ -11,7 +11,7 @@ int main(){
 
 		ushort x = 0x34CD;
 		ushort y = 0x0010;
-		
+
 		asm{
 			movdqu XMM0, a;
 			pinsrw XMM0, x, 0;

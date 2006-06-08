@@ -15,7 +15,7 @@ version(runTest){
 
 	int main(){
 		haveSSE3!()();
-		
+
 		static float[4] A = [2.0f, 3.0f, 6.0f, 8.0f];
 		static float[4] B = [1.0f, 4.0f, 5.0f, 9.0f];
 		float[4] c;
@@ -34,7 +34,7 @@ version(runTest){
 		if(c[0] > float.epsilon * 16){
 			assert(0);
 		}
-		
+
 		c[1] += 2.0f;
 		if(c[1] < 0){
 			c[1] = -c[1];
@@ -42,7 +42,7 @@ version(runTest){
 		if(c[1] > float.epsilon * 16){
 			assert(0);
 		}
-		
+
 		c[2] += 3.0;
 		if(c[2] < 0){
 			c[2] = -c[2];

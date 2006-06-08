@@ -13,17 +13,17 @@ version(D_InlineAsm_X86){
 int main(){
 	version(runTest){
 		uint i = 0x01_01_00_00u;
-		
+
 		asm{
 			mov EAX, i;
 			dec AX;
 			mov i, EAX;
 		}
-	
+
 		if(i != 0x01_01_FF_FFu){
 			assert(0);
 		}
-		
+
 		return 0;
 	}else{
 		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");

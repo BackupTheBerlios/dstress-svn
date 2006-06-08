@@ -15,12 +15,12 @@ version(runTest){
 
 	int main(){
 		haveFPU!()();
-		
+
 		float f1, f2;
 		f1 = 1.0f;
-		
+
 		ushort s;
-				
+
 		asm{
 			fldz;
 			fld1;
@@ -42,7 +42,7 @@ version(runTest){
 		ushort C1 = 1 << 9;
 		ushort C2 = 1 << 10;
 		ushort C3 = 1 << 14;
-		
+
 		if(!(s & C0)){
 			assert(0);
 		}
@@ -55,7 +55,7 @@ version(runTest){
 		if(s & C3){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

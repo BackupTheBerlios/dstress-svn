@@ -15,9 +15,9 @@ version(runTest){
 
 	int main(){
 		byte y = 2;
-		
+
 		ushort a = 0x00_81;
-		
+
 		asm{
 			mov AX, a;
 			mov CL, y;
@@ -27,7 +27,7 @@ version(runTest){
 		if(a != 0x0140){
 			assert(0);
 		}
-		
+
 		a = 0x00_80;
 
 		asm{
@@ -36,11 +36,11 @@ version(runTest){
 			idiv CL;
 			mov a, AX;
 		}
-		
+
 		if(a != 0x0040){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

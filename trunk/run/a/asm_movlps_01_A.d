@@ -18,7 +18,7 @@ version(runTest){
 
 		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
 		static float[2] B = [5.0f, 6.0f];
-		
+
 		float[4] c;
 
 		asm{

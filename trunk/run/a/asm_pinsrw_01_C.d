@@ -8,7 +8,7 @@ int main(){
 	version(D_InlineAsm_X86){
 		static ushort[8] a = [1, 2, 3, 4, 5, 0xFFFF, 7, 0];
 		ushort[8] b;
-		
+
 		asm{
 			movdqu XMM0, a;
 			mov EAX, 0x12AB_34CD;

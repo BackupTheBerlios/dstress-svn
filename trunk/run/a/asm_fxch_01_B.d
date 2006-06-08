@@ -12,15 +12,15 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveFPU!()();
 
 		float a = -1.0f;
 		float b = 3.5f;
-		
+
 		float a2, b2, x2;
-		
+
 		asm{
 			fld a;
 			fld1;
@@ -30,7 +30,7 @@ version(runTest){
 			fstp x2;
 			fst a2;
 		}
-		
+
 		if(a2 != b){
 			assert(0);
 		}
@@ -40,7 +40,7 @@ version(runTest){
 		if(b2 != a){
 			assert(0);
 		}
-		
+
 		return 0;
 	}
 }else{

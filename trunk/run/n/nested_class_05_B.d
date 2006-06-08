@@ -23,7 +23,7 @@ struct Outer{
 int main(){
 	Outer* outer = new Outer();
 	outer.i = 1;
-	Outer.Inner inner = new outer.Inner();
+	Outer.Inner inner = outer.new Inner();
 	outer.i = 2;
 
 	if(inner.x != 1){

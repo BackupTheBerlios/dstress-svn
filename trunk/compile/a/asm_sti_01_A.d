@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_sidt_01;
+module dstress.compile.a.asm_sti_01_A;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -11,14 +11,11 @@ version(D_InlineAsm_X86){
 }
 
 version(runTest){
-	int main(){
-		ulong u = 0;
-
+	void foo(){
 		asm{
-			sidt u;
+			sti;
+			nop;
 		}
-
-		return 0;
 	}
 }else{
 	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");

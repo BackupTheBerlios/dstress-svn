@@ -4,8 +4,14 @@
 
 module dstress.run.a.asm_sgdt_01;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 
 		long u = 0;
 
@@ -13,11 +19,9 @@ int main(){
 			sgdt u;
 		}
 
-		assert(u!=0);
-
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

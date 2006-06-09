@@ -4,11 +4,15 @@
 
 module dstress.run.a.asm_sub_01_B;
 
-int main(){
-	version(D_InlineAsm){
-		uint i = 0x12_3F_00_00u;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
 
-		assert(i==0x12_3F_00_00u);
+version(runTest){
+	int main(){
+		int i = 0x12_3F_00_00;
 
 		asm{
 			mov EAX, i;
@@ -16,11 +20,13 @@ int main(){
 			mov i, EAX;
 		}
 
-		assert(i==0x12_3F_FF_FFu);
+		if(i != 0x12_3F_FF_FF){
+			assert(0);
+		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

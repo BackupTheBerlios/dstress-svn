@@ -4,24 +4,24 @@
 
 module dstress.run.a.asm_stc_01;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
 
-		ubyte a, b = 3;
-
+version(runTest){
+	int main(){
 		asm{
-			clc;
-			setc a;
 			stc;
-			setc b;
+			jnc error;
 		}
 
-		assert(a == 0);
-		assert(b == 1);
-
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
+	error:
+		assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

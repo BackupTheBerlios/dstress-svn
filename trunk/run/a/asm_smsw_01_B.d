@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_shrd_01_A;
+module dstress.run.a.asm_smsw_01_B;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -12,19 +12,15 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	int main(){
-		ushort a = 0b0000_0000__1000_0000;
-		ushort b = 0b1000_0000__0000_0101;
+
+		ushort a = 0;
 
 		asm{
-			mov BX, b;
-			shrd a, BX, 3;
-			mov b, BX;
+			smsw AX;
+			mov a, AX;
 		}
 
-		if(a != 0b1010_0000__0001_0000){
-			assert(0);
-		}
-		if(b != 0b1000_0000__0000_0101){
+		if(a == 0){
 			assert(0);
 		}
 

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_shrd_01_A;
+module dstress.run.a.asm_shrd_01_C;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -17,7 +17,9 @@ version(runTest){
 
 		asm{
 			mov BX, b;
-			shrd a, BX, 3;
+			mov AX, a;
+			shrd AX, BX, 3;
+			mov a, AX;
 			mov b, BX;
 		}
 

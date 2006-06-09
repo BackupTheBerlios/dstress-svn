@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_shrd_01_B;
+module dstress.run.a.asm_shrd_02_D;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -17,8 +17,11 @@ version(runTest){
 		uint b = 0b1000_0000__0000_0000__0000_0000__0000_0101;
 
 		asm{
+			mov EAX, a;
 			mov EBX, b;
-			shrd a, EBX, 3;
+			mov CL, 3;
+			shrd EAX, EBX, CL;
+			mov a, EAX;
 			mov b, EBX;
 		}
 

@@ -6,15 +6,15 @@ module dstress.run.goto_07;
 
 int main(){
 
-	int label=1;
+	int a = 1;
 	if(0){
-label:
-		int label=2;
-		assert(label==2);		
+a:
+		int b = 2;
+		assert(b == 2);
 	}else{
-		assert(label==1);
-		goto label;
+		assert(a == 1);
+		goto a;
 	}
-	assert(label==1);
+	assert(a == 1);
 	return 0;
 }

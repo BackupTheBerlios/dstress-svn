@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// __DSTRESS_ELINE__ 16
+// __DSTRESS_ELINE__ 14
 
 module dstress.nocompile.s.scope_03_F;
 
@@ -12,8 +12,6 @@ void main(){
 
 	{
 		int x = 3;
-		
-		assert(.x);
 	}
 }
 	

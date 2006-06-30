@@ -9,15 +9,15 @@
 module dstress.run.s.switch_22_B;
 
 int main(){
-	int i;
+	int i = 2;
 	
-	switch(2){
+	switch(3){
 		scope(exit) i--;
 		
 		default:
 	}
 
-	if(i != -1){
+	if(i != 2){
 		assert(0);
 	}
 

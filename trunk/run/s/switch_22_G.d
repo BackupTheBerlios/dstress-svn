@@ -9,7 +9,7 @@
 module dstress.run.s.switch_22_G;
 
 int main(){
-	int i;
+	int i = 3;
 	
 	switch(2){
 		case 0:
@@ -18,7 +18,7 @@ int main(){
 		default:
 	}
 
-	if(i != 0){
+	if(i != 3){
 		assert(0);
 	}
 

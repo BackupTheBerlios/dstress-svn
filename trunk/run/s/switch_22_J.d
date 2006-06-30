@@ -9,16 +9,16 @@
 module dstress.run.s.switch_22_J;
 
 int main(){
-	int i;
+	int i = 3;
 	
 	switch(2){
 		case 2:
-			scope(failure) i--;
+			scope(failure) i++;
 		
 		default:
 	}
 
-	if(i != 0){
+	if(i != 3){
 		assert(0);
 	}
 

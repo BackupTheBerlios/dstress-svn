@@ -11,10 +11,10 @@ module dstress.run.s.switch_22_A;
 int main(){
 	switch(2){
 		int x;
-		x = 3;
 		
 		default:
-			if(x++ != 4){
+			x = 1;
+			if(x != 1){
 				assert(0);
 			}
 	}

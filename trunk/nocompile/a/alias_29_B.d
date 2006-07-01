@@ -6,18 +6,15 @@
 // @date@	2006-02-09
 // @uri@	news:dsgstn$2u4h$2@digitaldaemon.com
 
-module dstress.run.a.alias_29_B;
+// __DSTRESS_ELINE__ 19
+
+module dstress.nocompile.a.alias_29_B;
 
 class C{
 	int i;
 }
 
-int main(){
+void main(){
      C c = new C();
      alias c.i a;
-
-     c.i = 3;
-     assert(a == 3);
-
-     return 0;
 }

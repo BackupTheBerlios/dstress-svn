@@ -10,8 +10,8 @@ version(D_InlineAsm_X86){
 	version = runTest;
 }
 
-int main(){
-	version(runTest){
+version(runTest){
+	int main(){
 		uint i = 4;
 		asm{
 			mov EBX, 0xFF_FF_FF_FF;
@@ -25,8 +25,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

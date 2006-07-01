@@ -20,9 +20,18 @@ version(runTest){
 	}
 
 	int main(){
-		assert(test(1)==2);
-		assert(test(2)==3);
-		assert(test(3)==4);
+		if(test(1) != 2){
+			assert(0);
+		}
+
+		if(test(2) != 3){
+			assert(0);
+		}
+
+		if(test(3) != 4){
+			assert(0);
+		}
+
         	return 0;
 	}
 }else{

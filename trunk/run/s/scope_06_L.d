@@ -4,6 +4,9 @@
 
 module dstress.run.s.scope_06_L;
 
+class X{
+}
+
 int main(){
 	int a;
 	
@@ -25,7 +28,7 @@ int main(){
 		}
 
 		scope(success){
-			return 1;
+			assert(0);
 		}
 
 		
@@ -35,8 +38,8 @@ int main(){
 			a = 10;
 		}
 
-		throw new Exception("msg");
-	}catch(Exception e){
+		throw new X();
+	}catch(X x){
 		if(a != 12){
 			assert(0);
 		}
@@ -45,5 +48,4 @@ int main(){
 	}
 
 	assert(0);
-
 }

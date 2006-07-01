@@ -16,11 +16,14 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		const int[2] A = [6, 2];
-		float[2] b;
+		int[] a = new int[2];
+		a[0] = 6;
+		a[1] = 2;
+		
+		float[] b = new float[2];
 
 		asm{
-			pi2fd MM0, A;
+			pi2fd MM0, a;
 			movq b, MM0;
 			emms;
 		}

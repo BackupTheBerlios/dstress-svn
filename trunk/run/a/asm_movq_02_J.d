@@ -6,6 +6,8 @@
 // @date@	2006-05-26
 // @uri@	news:bug-173-3@http.d.puremagic.com/bugzilla
 
+// __DSTRESS_TORTURE_BLOCK__ -fPIC
+
 module dstress.run.a.asm_movq_02_J;
 
 version(D_InlineAsm_X86){

@@ -4,15 +4,17 @@
 
 module dstress.run.a.asm_ax_01;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		byte a = 0x12;
 		byte b = 0x34;
 		short s;
-
-		assert(a==0x12);
-		assert(b==0x34);
-		assert(s==0x00_00);
 
 		asm{
 			mov AH, a;
@@ -20,13 +22,19 @@ int main(){
 			mov s, AX;
 		}
 
-		assert(a==0x12);
-		assert(b==0x34);
-		assert(s==0x12_34);
+		if(a != 0x12){
+			assert(0);
+		}
+		if(b != 0x34){
+			assert(0);
+		}
+		if(s != 0x12_34){
+			assert(0);
+		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	static assert(0);
 }

@@ -25,7 +25,6 @@ version(runTest){
 		b[1] = -2.4;
 
 		asm{
-			emms;
 			movupd XMM0, a;
 			movupd XMM1, b;
 			addpd XMM0, XMM1;

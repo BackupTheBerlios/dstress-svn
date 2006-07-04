@@ -16,21 +16,37 @@ version(runTest){
 	int main(){
 		haveSSE3!()();
 
-		const ubyte[16] A = [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+		ubyte[] a = new ubyte[16];
+		a[0] = 1;
+		a[1] = 2;
+		a[2] = 3;
+		a[3] = 4;
+		a[4] = 5;
+		a[5] = 6;
+		a[6] = 7;
+		a[7] = 8;
+		a[8] = 9;
+		a[9] = 10;
+		a[10] = 11;
+		a[11] = 12;
+		a[12] = 13;
+		a[13] = 14;
+		a[14] = 15;
+		a[15] = 16;
 
-		ubyte[16] b;
+		ubyte[] b = new ubyte[16];
 
 		asm{
-			lddqu XMM0, A;
+			lddqu XMM0, a;
 			movdqu b, XMM0;
 		}
 
-		if(A.length != b.length){
+		if(a.length != b.length){
 			assert(0);
 		}
 
-		for(size_t i = 0; i < A.length; i++){
-			if(A[i] != b[i]){
+		for(size_t i = 0; i < a.length; i++){
+			if(a[i] != b[i]){
 				assert(0);
 			}
 		}

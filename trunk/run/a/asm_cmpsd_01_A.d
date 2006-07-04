@@ -10,8 +10,12 @@ version(D_InlineAsm_X86){
 	version = runTest;
 }
 
-int main(){
-	version(runTest){
+version(runTest){
+	import addon.cpuinfo;
+	
+	int main(){
+		haveSSE2!()();
+
 		static double[2] A = [1.0, 2.0];
 		static double[2] B = [1.0, 2.0];
 		ulong[2] c;

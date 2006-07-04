@@ -17,14 +17,14 @@ version(runTest){
 		haveFPU!()();
 
 		static if(size_t.sizeof==4 || size_t.sizeof==6){
-			const ubyte stateSize = 108;
+			ubyte stateSize = 108;
 		}else static if(size_t.sizeof==2){
-			const ubyte stateSize = 94;
+			ubyte stateSize = 94;
 		}else{
 			static assert(0);
 		}
 
-		ubyte[stateSize] state;
+		ubyte[] state = new ubyte[stateSize];
 
 		asm{
 			frstor state;

@@ -16,11 +16,16 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const float[4] A = [1.0f, -1.0f, -float.infinity, -0.0f];
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = -1.0f;
+		a[2] = -float.infinity;
+		a[3] = -0.0f;
+
 		uint b;
 
 		asm{
-			movdqu XMM0, A;
+			movdqu XMM0, a;
 			mov EAX, 0x1234_5678;
 			movmskps EAX, XMM0;
 			mov b, EAX;

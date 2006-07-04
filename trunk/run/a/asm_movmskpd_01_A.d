@@ -16,7 +16,10 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const double[2] a = [1.0, -1.0];
+		double[] a = new double[2];
+		a[0] = 1.0;
+		a[1] = -1.0;
+
 		uint b;
 
 		asm{

@@ -16,19 +16,22 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		const float[2] A = [123.0f, -456.0f];
-		int[2] b;
+		float[] a = new float[2];
+		a[0] = 123.0f;
+		a[1] = -456.0f;
+		
+		int[] b = new int[2];
 
 		asm{
-			pf2id MM0, A;
+			pf2id MM0, a;
 			movq b, MM0;
 			emms;
 		}
 
-		if(b[0] != A[0]){
+		if(b[0] != a[0]){
 			assert(0);
 		}
-		if(b[1] != A[1]){
+		if(b[1] != a[1]){
 			assert(0);
 		}
 

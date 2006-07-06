@@ -16,20 +16,47 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const ubyte[8] A = [1, 2, 3, 4, 5, 6, 7, 8];
-		const ubyte[8] B = [5, 2, 1, 8, 15, 4, 1, 4];
-		const ubyte[8] C = [3, 2, 2, 6, 10, 5, 4, 6];
-		ubyte[8] d;
+		ubyte[] a = new ubyte[8];
+		a[0] = 1;
+		a[1] = 2;
+		a[2] = 3;
+		a[3] = 4;
+		a[4] = 5;
+		a[5] = 6;
+		a[6] = 7;
+		a[7] = 8;
+
+		ubyte[] b = new ubyte[8];
+		b[0] = 5;
+		b[1] = 2;
+		b[2] = 1;
+		b[3] = 8;
+		b[4] = 15;
+		b[5] = 4;
+		b[6] = 1;
+		b[7] = 4;
+
+		ubyte[] c = new ubyte[8];
+		c[0] = 3;
+		c[1] = 2;
+		c[2] = 2;
+		c[3] = 6;
+		c[4] = 10;
+		c[5] = 5;
+		c[6] = 4;
+		c[7] = 6;
+
+		ubyte[] d = new ubyte[8];
 
 		asm{
-			movq MM0, A;
-			pavgusb MM0, B;
+			movq MM0, a;
+			pavgusb MM0, b;
 			movq d, MM0;
 			emms;
 		}
 
-		for(size_t i = 0; i < C.length; i++){
-			if(d[i] != C[i]){
+		for(size_t i = 0; i < c.length; i++){
+			if(d[i] != c[i]){
 				assert(0);
 			}
 		}

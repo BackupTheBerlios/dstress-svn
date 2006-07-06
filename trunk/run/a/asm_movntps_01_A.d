@@ -16,8 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const float[4] a = [1.0f, -1.0f, 0.0f, 0.1f];
-		float[4] b;
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = -1.0f;
+		a[2] = 0.0f;
+		a[3] = 0.1f;
+
+		float[] b = aligned_new!(float)(4, 16);
 
 		asm{
 			movups XMM0, a;

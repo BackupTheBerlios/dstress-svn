@@ -16,13 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const double[2] A = [7.0, 4.0];
-		const double[2] B = [3.0, 2.0];
-		double[2] c;
+		double[] a = new double[2];
+		a[0] = 7.0;
+		a[1] = 4.0;
+		
+		double[] b = new double[2];
+		b[0] = 3.0;
+		b[1] = 2.0;
+		
+		double[] c = new double[2];
 
 		asm{
-			movupd XMM0, A;
-			movupd XMM1, B;
+			movupd XMM0, a;
+			movupd XMM1, b;
 			mulsd XMM0, XMM1;
 			movupd c, XMM0;
 		}

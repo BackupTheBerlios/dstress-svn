@@ -14,8 +14,13 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		const float[4] a = [1.0f, -1.0f, -2.0f, 2.0f];
-		float[4] b;
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = -1.0f;
+		a[2] = -2.0f;
+		a[3] = 2.0f;
+
+		float[] b = new float[4];
 
 		asm{
 			movups XMM0, a;

@@ -16,19 +16,22 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const double[2] A = [1.0, 4.0];
-		double[2] b;
+		double[] a = new double[2];
+		a[0] = 1.0;
+		a[1] = 4.0;
+		
+		double[] b = new double[2];
 
 		asm{
-			movdqu XMM0, A;
+			movdqu XMM0, a;
 			movupd XMM1, XMM0;
 			movdqu b, XMM1;
 		}
 
-		if(b[0] != A[0]){
+		if(b[0] != a[0]){
 			assert(0);
 		}
-		if(b[1] != A[1]){
+		if(b[1] != a[1]){
 			assert(0);
 		}
 

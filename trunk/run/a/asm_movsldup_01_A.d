@@ -16,25 +16,30 @@ version(runTest){
 	int main(){
 		haveSSE3!()();
 
-		const float[4] A = [1.0, -1.0f, -2.0f, 2.0f];
-		float[4] b;
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = -1.0f;
+		a[2] = -2.0f;
+		a[3] = 2.0f;
+		
+		float[] b = new float[4];
 
 		asm{
-			movups XMM0, A;
+			movups XMM0, a;
 			movsldup XMM1, XMM0;
 			movups b, XMM1;
 		}
 
-		if(A[0] != b[0]){
+		if(a[0] != b[0]){
 			assert(0);
 		}
-		if(A[0] != b[1]){
+		if(a[0] != b[1]){
 			assert(0);
 		}
-		if(A[2] != b[2]){
+		if(a[2] != b[2]){
 			assert(0);
 		}
-		if(A[2] != b[3]){
+		if(a[2] != b[3]){
 			assert(0);
 		}
 

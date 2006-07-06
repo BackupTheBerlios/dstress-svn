@@ -16,7 +16,10 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const double[2] a = [1.0, -1.0];
+		double[] a = new double[2];
+		a[0] = 1.0;
+		a[1] = -1.0;
+
 		double[] b = aligned_new!(double)(2, 16);
 
 		asm{
@@ -25,7 +28,6 @@ version(runTest){
 			sfence;
 		}
 
-		printf("%lf\n", b[0], b[1]);
 		if(a[0] != b[0]){
 			assert(0);
 		}

@@ -16,25 +16,30 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
-		float[4] b;
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = 2.0f;
+		a[2] = 3.0f;
+		a[3] = 4.0f;
+		
+		float[] b = new float[4];
 
 		asm{
-			movdqu XMM0, A;
+			movdqu XMM0, a;
 			movups XMM1, XMM0;
 			movdqu b, XMM1;
 		}
 
-		if(b[0] != A[0]){
+		if(b[0] != a[0]){
 			assert(0);
 		}
-		if(b[1] != A[1]){
+		if(b[1] != a[1]){
 			assert(0);
 		}
-		if(b[2] != A[2]){
+		if(b[2] != a[2]){
 			assert(0);
 		}
-		if(b[3] != A[3]){
+		if(b[3] != a[3]){
 			assert(0);
 		}
 

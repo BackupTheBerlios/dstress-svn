@@ -10,11 +10,14 @@
 module dstress.run.o.opCat_07_A;
 
 void foo(char[] s){
-	assert(s=="is this it? yep!")
+	if(s != "is this it? yep!"){
+		assert(0);
+	}
 }
 
 int main(){
 	char c = '?';
 	foo("is this it"~c~" yep!");
+
 	return 0;
 }

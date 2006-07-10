@@ -16,5 +16,5 @@ template bar(char[] str){
 	const char[] bar = str;
 }
 
-static assert(foo!("abc") == "abc"):
+static assert(foo!("abc") == "abc");
 

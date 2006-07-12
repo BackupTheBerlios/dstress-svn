@@ -1,0 +1,25 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// @author@	<daiphoenix@lycos.com>
+// @date@	2006-03-14
+// @uri@	news:bug-51-3@http.d.puremagic.com/bugzilla/
+
+module dstress.run.s.string_postfix_07_B;
+
+int main(){
+	char[6] cstr = "1234"c;
+	auto a = cast(dchar[1])(cstr);
+	auto b = cast(dchar[1])("1234"c);
+
+	if(a.length != b.length){
+		assert(0);
+	}
+
+	if(a != b){
+		assert(0);
+	}
+
+	return 0;
+}

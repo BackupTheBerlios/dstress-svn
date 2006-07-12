@@ -10,15 +10,25 @@ version(D_InlineAsm_X86){
 	version = runTest;
 }
 
-int main(){
-	version(runTest){
-		static double[2] A = [-16.0, 12.0];
-		static double[2] B = [2.0, 3.0];
-		double[2] c;
+version(runTest){
+	import addon.cpuinfo;
+	
+	int main(){
+		haveSSE2!()();
+		
+		double[] a = new double[2];
+		a[0] = -16.0;
+		a[1] =  12.0;
+		
+		double[] b = new double[2];
+		b[0] = 2.0;
+		b[1] = 3.0;
+
+		double[] c = new double[2];
 
 		asm{
-			movupd XMM0, A;
-			movupd XMM1, B;
+			movupd XMM0, a;
+			movupd XMM1, b;
 			divpd XMM0, XMM1;
 			movupd c, XMM0;
 		}
@@ -40,8 +50,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

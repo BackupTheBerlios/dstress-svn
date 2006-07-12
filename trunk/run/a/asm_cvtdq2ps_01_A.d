@@ -4,15 +4,31 @@
 
 module dstress.run.a.asm_cvtdq2ps_01_A;
 
-int main(){
-	version(D_InlineAsm_X86){
-		static int[4] A = [0, -1, 2, -3];
-		float[4] b;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+	
+	int main(){
+		haveSSE2!()();
+
+		int[] a = new int[4];
+		a[0] = 0;
+		a[1] = -1;
+		a[2] = 2;
+		a[3] = -3;
+		
+		float[] b = new float[4];
 
 		asm{
-			movdqu XMM0, A;
+			movdqu XMM0, a;
 			cvtdq2ps XMM1, XMM0;
 			movdqu b, XMM1;
+			emms;
 		}
 
 		if(b[0] != 0.0f){
@@ -29,8 +45,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

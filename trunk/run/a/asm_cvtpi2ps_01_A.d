@@ -17,13 +17,21 @@ version(runTest){
 		haveSSE2!();
 		haveMMX!();
 
-		static int[2] A = [-3, 2];
-		static float[4] B = [10.1f, 20.2f, 30.3f, 40.4f];
-		float[4] c;
+		int[] a = new int[2];
+		a[0] = -3;
+		a[1] = 2;
+		
+		float[] b = new float[4];
+		b[0] = 10.1f;
+		b[1] = 20.2f;
+		b[2] = 30.3f;
+		b[3] = 40.4f;
+		
+		float[] c = new float[4];
 
 		asm{
-			movq MM0, A;
-			movups XMM0, B;
+			movq MM0, a;
+			movups XMM0, b;
 			cvtpi2ps XMM0, MM0;
 			movups c, XMM0;
 			emms;
@@ -45,10 +53,10 @@ version(runTest){
 			assert(0);
 		}
 
-		if(c[2] != B[2]){
+		if(c[2] != b[2]){
 			assert(0);
 		}
-		if(c[3] != B[3]){
+		if(c[3] != b[3]){
 			assert(0);
 		}
 		return 0;

@@ -4,18 +4,35 @@
 
 module dstress.run.a.asm_cmpiss_01_A;
 
-int main(){
-	version(D_InlineAsm_X86){
-		static float[4] A = [1.0f, 2.0f, 3.0f, -8.0f];
-		static float[4] B = [0.0f, 4.0f, 3.0f, -4.0f];
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = 2.0f;
+		a[2] = 3.0f;
+		a[3] = -8.0f;
+		
+		float[] b = new float[4];
+		b[0] = 0.0f;
+		b[1] = 4.0f;
+		b[2] = 3.0f;
+		b[3] = -4.0f;
+
 		uint i;
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movdqu XMM0, a;
+			movdqu XMM1, b;
 			comiss XMM0, XMM1;
+			emms;
 			mov EAX, 0;
-			jc done_1;
+			jnc done_1;
 			jz done_1;
 			jp done_1;
 			inc EAX;
@@ -28,9 +45,10 @@ int main(){
 		}
 
 		asm{
-			movdqu XMM0, B;
-			movdqu XMM1, A;
+			movdqu XMM0, b;
+			movdqu XMM1, a;
 			comiss XMM0, XMM1;
+			emms;
 			mov EAX, 0;
 			jnc done_2;
 			jz done_2;
@@ -44,8 +62,8 @@ int main(){
 			assert(0);
 		}
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

@@ -17,11 +17,16 @@ version(runTest){
 		haveSSE2!();
 		haveMMX!();
 
-		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
-		int[2] b;
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = 2.0f;
+		a[2] = 3.0f;
+		a[3] = 4.0f;
+
+		int[] b = new int[2];
 
 		asm{
-			movups XMM0, A;
+			movups XMM0, a;
 			cvttps2pi MM0, XMM0;
 			movq b, MM0;
 			emms;

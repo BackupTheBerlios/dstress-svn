@@ -16,14 +16,20 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		static float[4] A = [2.0f, 3.0f, 17.0f, -1.0f];
+		float[] a = new float[4];
+		a[0] = 2.0f;
+		a[1] = 3.0f;
+		a[2] = 17.0f;
+		a[3] = -1.0f;
+		
 		float b = 1.0f;
-		float[4] c;
+		float[] c = new float[4];
 
 		asm{
-			movups XMM0, A;
+			movups XMM0, a;
 			minss XMM0, b;
 			movups c, XMM0;
+			emms;
 		}
 
 		if(c[0] != 1.0f){

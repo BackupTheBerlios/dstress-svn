@@ -16,18 +16,23 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
-		float[2] b;
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = 2.0f;
+		a[2] = 3.0f;
+		a[3] = 4.0f;
+		float[] b = new float[2];
 
 		asm{
-			movups XMM0, A;
+			movups XMM0, a;
 			movhps b, XMM0;
+			emms;
 		}
 
-		if(b[0] != A[2]){
+		if(b[0] != a[2]){
 			assert(0);
 		}
-		if(b[1] != A[3]){
+		if(b[1] != a[3]){
 			assert(0);
 		}
 

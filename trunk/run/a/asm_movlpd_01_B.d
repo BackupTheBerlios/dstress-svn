@@ -16,15 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static double[2] A = [3.0, 4.0];
+		double[] a = new double[2];
+		a[0] = 3.0;
+		a[1] = 4.0;
+
 		double b = 5.0;
 
 		asm{
-			movups XMM0, A;
+			movups XMM0, a;
 			movlpd b, XMM0;
+			emms;
 		}
 
-		if(b != A[0]){
+		if(b != a[0]){
 			assert(0);
 		}
 

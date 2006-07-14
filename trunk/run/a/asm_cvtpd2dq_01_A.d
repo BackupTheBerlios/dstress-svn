@@ -26,7 +26,6 @@ version(runTest){
 			movdqu XMM0, a;
 			cvtpd2dq XMM1, XMM0;
 			movdqu b, XMM1;
-			emms;
 		}
 
 		if(b[0] != -2){

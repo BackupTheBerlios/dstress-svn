@@ -16,13 +16,23 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
-		const float[4] B = [-1.0f, 1.0f, 4.0f, -4.0f];
-		float[4] c;
+		float[] a = new float[4];
+		a[0] = 1.0f;
+		a[1] = 2.0f;
+		a[2] = 3.0f;
+		a[3] = 4.0f;
+
+		float[] b = new float[4];
+		b[0] = -1.0f;
+		b[1] = 1.0f;
+		b[2] = 4.0f;
+		b[3] = -4.0f;
+
+		float[] c = new float[4];
 
 		asm{
-			movups XMM0, A;
-			movups XMM1, B;
+			movups XMM0, a;
+			movups XMM1, b;
 			rsqrtps XMM0, XMM1;
 			movups c, XMM0;
 		}

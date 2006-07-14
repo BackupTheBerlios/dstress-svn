@@ -17,13 +17,23 @@ version(runTest){
 		haveSSE2!()();
 		haveMMX!()();
 
-		static int[4] A = [1, -2, 3, -4];
-		static int[4] B = [5, -6, 7, -8];
-		short[8] c;
+		int[] a = new int[4];
+		a[0] = 1;
+		a[1] = -2;
+		a[2] = 3;
+		a[3] = -4;
+		
+		int[] b = new int[4];
+		b[0] = 5;
+		b[1] = -6;
+		b[2] = 7;
+		b[3] = -8;
+
+		short[] c = new short[8];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movdqu XMM0, a;
+			movdqu XMM1, b;
 			packssdw XMM0, XMM1;
 			movdqu c, XMM0;
 		}

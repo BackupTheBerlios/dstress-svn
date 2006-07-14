@@ -29,7 +29,6 @@ version(runTest){
 			cmpsd XMM0, b, 0;
 			movdqu c, XMM0;
 			movupd d, XMM0;
-			emms;
 		}
 
 		if(c[0] != ulong.max){

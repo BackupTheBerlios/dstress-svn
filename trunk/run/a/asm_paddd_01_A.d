@@ -16,13 +16,23 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static int[4] A = [1, 2, 3, 4];
-		static int[4] B = [int.max-2, int.min, 0, -6];
-		int[4] c;
+		int[] a = new int[4];
+		a[0] = 1;
+		a[1] = 2;
+		a[2] = 3;
+		a[3] = 4;
+
+		int[] b = new int[4];
+		b[0] = int.max-2;
+		b[1] = int.min;
+		b[2] = 0;
+		b[3] = -6;
+
+		int[] c = new int[4];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movdqu XMM0, a;
+			movdqu XMM1, b;
 			paddd XMM0, XMM1;
 			movdqu c, XMM0;
 		}

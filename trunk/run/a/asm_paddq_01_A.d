@@ -16,13 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static long[2] A = [-1, -2];
-		static long[2] B = [2, long.max];
-		long[2] c;
+		long[] a = new long[2];
+		a[0] = -1;
+		a[1] = -2;
+		
+		long[] b = new long[2];
+		b[0] = 2;
+		b[1] = long.max;
+		
+		long[] c = new long[2];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movdqu XMM0, a;
+			movdqu XMM1, b;
 			paddq XMM0, XMM1;
 			movdqu c, XMM0;
 		}

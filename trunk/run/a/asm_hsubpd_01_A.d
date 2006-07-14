@@ -31,7 +31,6 @@ version(runTest){
 			movupd XMM1, b;
 			hsubpd XMM0, XMM1;
 			movupd c, XMM0;
-			emms;
 		}
 
 		c[0] += 1.0;

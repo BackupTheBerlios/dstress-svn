@@ -16,28 +16,29 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		static ulong[2] X = [0x0011_2233_4455_6677_8899LU, 0x1234_5678_90AB_CDEF];
-		ulong[2] y = X.dup;
+		ulong[] x = new ulong[2];
+		x[0] = 0x0011_2233_4455_6677_8899LU;
+		x[1] = 0x1234_5678_90AB_CDEF;
 
-		static ulong A = 0x1234_ABCD_5678_EF01;
-		ulong a = A;
+		ulong a = 0x1234_ABCD_5678_EF01;
 
 		asm{
-			movdqu XMM0, X;
+			movdqu XMM0, x;
 			movq MM0, a;
 			movq2dq XMM0, MM0;
-			movdqu y, XMM0;
+			movdqu x, XMM0;
+			emms;
 		}
 
-		if(a != A){
+		if(a != 0x1234_ABCD_5678_EF01){
 			assert(0);
 		}
 
-		if(y[0] != A){
+		if(x[0] != 0x1234_ABCD_5678_EF01){
 			assert(0);
 		}
 
-		if(y[1] != 0){
+		if(x[1] != 0){
 			assert(0);
 		}
 

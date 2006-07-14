@@ -27,7 +27,6 @@ version(runTest){
 		asm{
 			movups XMM0, a;
 			movlps b, XMM0;
-			emms;
 		}
 
 		if(b[0] != a[0]){

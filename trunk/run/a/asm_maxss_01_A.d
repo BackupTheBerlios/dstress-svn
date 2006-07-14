@@ -35,7 +35,6 @@ version(runTest){
 			movups XMM1, b;
 			maxss XMM0, XMM1;
 			movups c, XMM0;
-			emms;
 		}
 
 		if(c[0] != 2.0f){

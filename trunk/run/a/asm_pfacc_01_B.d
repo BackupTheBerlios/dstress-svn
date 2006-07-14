@@ -6,13 +6,19 @@ module dstress.run.a.asm_pfacc_01_B;
 
 int main(){
 	version(D_InlineAsm_X86){
-		const float[2] A = [123.0f, -456.0f];
-		const float[2] B = [12.0f, 17.0f];
-		float[2] c;
+		float[] a = new float[2];
+		a[0] = 123.0f;
+		a[1] = -456.0f;
+		
+		float[] b = new float[2];
+		b[0] = 12.0f;
+		b[1] = 17.0f;
+		
+		float[] c = new float[2];
 
 		asm{
-			movq MM0, A;
-			movq MM1, B;
+			movq MM0, a;
+			movq MM1, b;
 			pfacc MM0, MM1;
 			movq c, MM0;
 			emms;

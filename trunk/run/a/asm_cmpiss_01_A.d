@@ -30,7 +30,6 @@ version(runTest){
 			movdqu XMM0, a;
 			movdqu XMM1, b;
 			comiss XMM0, XMM1;
-			emms;
 			mov EAX, 0;
 			jnc done_1;
 			jz done_1;

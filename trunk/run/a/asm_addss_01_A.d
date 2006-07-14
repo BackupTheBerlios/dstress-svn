@@ -33,7 +33,6 @@ version(runTest){
 			movups XMM1, b;
 			addss XMM0, XMM1;
 			movups b, XMM0;
-			emms;
 		}
 
 		b[0] -= 5.0f;

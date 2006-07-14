@@ -39,7 +39,6 @@ version(runTest){
 			movups XMM1, b;
 			movlhps XMM0, XMM1;
 			movups c, XMM0;
-			emms;
 		}
 
 		if(c[0] != a[0]){

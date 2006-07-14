@@ -16,13 +16,47 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static byte[16] A = [1, byte.min, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-		static byte[16] B = [byte.max, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7];
-		byte[16] c;
+		byte[] a = new byte[16];
+		a[0] = 1;
+		a[1] = byte.min;
+		a[2] = 3;
+		a[3] = 4;
+		a[4] = 5;
+		a[5] = 6;
+		a[6] = 7;
+		a[7] = 8;
+		a[8] = 9;
+		a[9] = 10;
+		a[10] = 11;
+		a[11] = 12;
+		a[12] = 13;
+		a[13] = 14;
+		a[14] = 15;
+		a[15] = 16;
+
+		byte[] b = new byte[16];
+		b[0] = byte.max;
+		b[1] = -7;
+		b[2] = -6;
+		b[3] = -5;
+		b[4] = -4;
+		b[5] = -3;
+		b[6] = -2;
+		b[7] = -1;
+		b[8] = 0;
+		b[9] = 1;
+		b[10] = 2;
+		b[11] = 3;
+		b[12] = 4;
+		b[13] = 5;
+		b[14] = 6;
+		b[15] = 7;
+
+		byte[] c = new byte[16];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movdqu XMM0, a;
+			movdqu XMM1, b;
 			paddsb XMM0, XMM1;
 			movdqu c, XMM0;
 		}

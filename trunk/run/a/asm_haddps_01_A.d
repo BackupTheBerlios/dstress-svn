@@ -35,7 +35,6 @@ version(runTest){
 			movups XMM1, b;
 			haddps XMM0, XMM1;
 			movups c, XMM0;
-			emms;
 		}
 
 		c[0] -= 13.3f;

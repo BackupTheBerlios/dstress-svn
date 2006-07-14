@@ -16,14 +16,31 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const short[8] A = [4, 5, 6, 7, 0, 1, 2, 3];
-		const short[8] B = [-4, -5, -6, -7, 0, -1, -2, -3];
+		short[] a = new short[8];
+		a[0] = 4;
+		a[1] = 5;
+		a[2] = 6;
+		a[3] = 7;
+		a[4] = 0;
+		a[5] = 1;
+		a[6] = 2;
+		a[7] = 3;
 
-		short[8] c;
+		short[] b = new short[8];
+		b[0] = -4;
+		b[1] = -5;
+		b[2] = -6;
+		b[3] = -7;
+		b[4] = 0;
+		b[5] = -1;
+		b[6] = -2;
+		b[7] = -3;
+
+		short[] c = new short[8];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			movdqu XMM0, a;
+			movdqu XMM1, b;
 			punpcklwd XMM0, XMM1;
 			movdqu c, XMM0;
 		}

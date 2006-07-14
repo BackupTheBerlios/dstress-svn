@@ -16,13 +16,23 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const float[4] A = [2.0f, 1.0f, 0.5f, -4.0f];
-		const float[4] B = [5.0f, 6.0f, 7.0f, 8.0f];
-		float[4] c;
+		float[] a = new float[4];
+		a[0] = 2.0f;
+		a[1] = 1.0f;
+		a[2] = 0.5f;
+		a[3] = -4.0f;
+
+		float[] b = new float[4];
+		b[0] = 5.0f;
+		b[1] = 6.0f;
+		b[2] = 7.0f;
+		b[3] = 8.0f;
+		
+		float[] c = new float[4];
 
 		asm{
-			movups XMM0, A;
-			movups XMM1, B;
+			movups XMM0, a;
+			movups XMM1, b;
 			rcpss XMM1, XMM0;
 			movups c, XMM1;
 		}
@@ -35,15 +45,15 @@ version(runTest){
 			assert(0);
 		}
 
-		if(c[1] != B[1]){
+		if(c[1] != b[1]){
 			assert(0);
 		}
 
-		if(c[2] != B[2]){
+		if(c[2] != b[2]){
 			assert(0);
 		}
 
-		if(c[3] != B[3]){
+		if(c[3] != b[3]){
 			assert(0);
 		}
 

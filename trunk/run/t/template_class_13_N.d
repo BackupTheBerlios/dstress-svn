@@ -11,11 +11,15 @@ class C(cfloat f){
 int main(){
 	const cfloat a = 1.2f + 2.1fi;
 	C!(a) sa = new C!(a);
-	assert(sa.cf == a);
+	if(sa.cf != a){
+		assert(0);
+	}
 
 	const cfloat b = -0.8f - 0.1fi;
 	C!(b) sb = new C!(b);
-	assert(sa.cf == b);
+	if(sa.cf != b){
+		assert(0);
+	}
 
 	return 0;
 }

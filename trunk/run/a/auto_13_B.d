@@ -24,25 +24,43 @@ class Class {
 }
 
 int main () {
-	assert(status.length == 0);
+	if(status.length != 0){
+		assert(0);
+	}
 
 	{
 		auto Class c = new Class(1);
 	}
 
-	assert(status.length == 2);
-	assert(status[0] ==  1);
-	assert(status[1] == -1);
+	if(status.length != 2){
+		assert(0);
+	}
+	if(status[0] != 1){
+		assert(0);
+	}
+	if(status[1] != -1){
+		assert(0);
+	}
 
 	{
 		auto Class c = new Class(2);
 	}
 
-	assert(status.length == 4);
-	assert(status[0] ==  1);
-	assert(status[1] == -1);
-	assert(status[2] ==  2);
-	assert(status[3] == -2);
+	if(status.length != 4){
+		assert(0);
+	}
+	if(status[0] != 1){
+		assert(0);
+	}
+	if(status[1] != -1){
+		assert(0);
+	}
+	if(status[2] != 2){
+		assert(0);
+	}
+	if(status[3] != -2){
+		assert(0);
+	}
 
 	return 0;
 }

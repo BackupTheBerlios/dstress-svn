@@ -19,16 +19,32 @@ int main(){
 
 	arr[0][1]=E.b;
 	
-	arr[1..2] = arr[0];
+	arr[1..3] = arr[0];
 	
-	assert(E.a==arr[0][0]);
-	assert(E.b==arr[0][1]);
-	assert(E.a==arr[1][0]);
-	assert(E.b==arr[1][1]);
-	assert(E.a==arr[2][0]);
-	assert(E.b==arr[2][1]);
-	assert(E.a==arr[3][0]);
-	assert(E.a==arr[3][1]);
+	if(E.a != arr[0][0]){
+		assert(0);
+	}
+	if(E.b != arr[0][1]){
+		assert(0);
+	}
+	if(E.a != arr[1][0]){
+		assert(0);
+	}
+	if(E.b != arr[1][1]){
+		assert(0);
+	}
+	if(E.a != arr[2][0]){
+		assert(0);
+	}
+	if(E.b != arr[2][1]){
+		assert(0);
+	}
+	if(E.a != arr[3][0]){
+		assert(0);
+	}
+	if(E.a != arr[3][1]){
+		assert(0);
+	}
 
 	return 0;
 }

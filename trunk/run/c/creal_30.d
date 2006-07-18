@@ -19,9 +19,15 @@ int main( ){
 		array[i] += -1.0Li * array[i];
 	}
 
-	assert(array[0] == 1.0L - 1.0Li);
-	assert(array[1] == 1.0L + 1.0Li);
-	assert(array[2] == 2.0L + 0.0Li);
+	if(array[0] != 1.0L - 1.0Li){
+		assert(0);
+	}
+	if(array[1] != 1.0L + 1.0Li){
+		assert(0);
+	}
+	if(array[2] != 2.0L + 0.0Li){
+		assert(0);
+	}
 
 	return 0;
 }

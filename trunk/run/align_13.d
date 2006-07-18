@@ -21,7 +21,9 @@ align(4) struct S{
 int main(){
 	S s;
 	version(testA){
-		assert(&s.a-&s.b==-4);
+		if(&s.a-&s.b != -4){
+			assert(0);
+		}
 	}else{
 		pragma(msg, "no C alignment data present");
 		static assert(0);

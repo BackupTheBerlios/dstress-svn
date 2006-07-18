@@ -8,7 +8,9 @@ int main(){
 	ifloat i=2.0fi;
 	i *= 4.0f;
 
-	assert(i==8.0fi);
+	if(i != 8.0fi){
+		assert(0);
+	}
 
 	return 0;
 }

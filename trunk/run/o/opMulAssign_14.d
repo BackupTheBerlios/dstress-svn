@@ -8,7 +8,9 @@ int main(){
 	ireal i=2.0Li;
 	i *= 4.0L;
 
-	assert(i==8.0Li);
+	if(i != 8.0Li){
+		assert(0);
+	}
 
 	return 0;
 }

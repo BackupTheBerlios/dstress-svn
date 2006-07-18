@@ -15,7 +15,11 @@ ireal test(){
 int main(){
 	creal c = 0.0L+0.0Li;
 	c = c + test;
-	assert(c.re==0.0L);
-	assert(c.im==1.0L);
+	if(c.re != 0.0L){
+		assert(0);
+	}
+	if(c.im != 1.0L){
+		assert(0);
+	}
 	return 0;
 }

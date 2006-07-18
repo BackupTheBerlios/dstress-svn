@@ -14,19 +14,33 @@ int main(){
 
 	arr[0][1]= 0.0 + 1.0i;
 	
-	arr[1..2] = arr[0];
+	arr[1..3] = arr[0];
 	
-	assert(!arr[0][0]);
-	assert(arr[0][1]);
+	if(arr[0][0]){
+		assert(0);
+	}
+	if(!arr[0][1]){
+		assert(0);
+	}
+	if(arr[1][0]){
+		assert(0);
+	}
+	if(!arr[1][1]){
+		assert(0);
+	}
+	if(arr[2][0]){
+		assert(0);
+	}
+	if(!arr[2][1]){
+		assert(0);
+	}
 	
-	assert(!arr[1][0]);
-	assert(arr[1][1]);
-	
-	assert(!arr[2][0]);
-	assert(!arr[2][1]);
-	
-	assert(!arr[3][0]);
-	assert(!arr[3][1]);
+	if(arr[3][0]){
+		assert(0);
+	}
+	if(arr[3][1]){
+		assert(0);
+	}
 
 	return 0;
 }

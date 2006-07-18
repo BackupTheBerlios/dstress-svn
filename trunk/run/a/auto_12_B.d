@@ -14,7 +14,9 @@ struct S{
 
 int main(){
 	S* s = new S;
-	assert(s.i == 0);
+	if(s.i != 0){
+		assert(0);
+	}
 
 	return 0;
 }

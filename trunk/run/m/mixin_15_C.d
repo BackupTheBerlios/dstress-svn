@@ -33,11 +33,17 @@ mixin T!();
 int main(){
 	I i = new C();
 
-	assert(status == 0);
+	if(status != 0){
+		assert(0);
+	}
 	i.test();
-	assert(status == -1);
+	if(status != -1){
+		assert(0);
+	}
 	test();
-	assert(status == 1);
+	if(status != 1){
+		assert(0);
+	}
 
 	return 0;
 }

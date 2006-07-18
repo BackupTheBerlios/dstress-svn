@@ -20,16 +20,32 @@ int main(){
 
 	arr[0][1]=new mObj();
 	
-	arr[1..2] = arr[0];
+	arr[1..3] = arr[0];
 	
-	assert(null is arr[0][0]);
-	assert(!(null is arr[0][1]));
-	assert(null is arr[1][0]);
-	assert(!(null is arr[1][1]));
-	assert(null is arr[2][0]);
-	assert(!(null is arr[2][1]));
-	assert(null is arr[3][0]);
-	assert(null is arr[3][1]);
+	if(!(null is arr[0][0])){
+		assert(0);
+	}
+	if(null is arr[0][1]){
+		assert(0);
+	}
+	if(!(null is arr[1][0])){
+		assert(0);
+	}
+	if(null is arr[1][1]){
+		assert(0);
+	}
+	if(!(null is arr[2][0])){
+		assert(0);
+	}
+	if(null is arr[2][1]){
+		assert(0);
+	}
+	if(!(null is arr[3][0])){
+		assert(0);
+	}
+	if(!(null is arr[3][1])){
+		assert(0);
+	}
 
 	return 0;
 }

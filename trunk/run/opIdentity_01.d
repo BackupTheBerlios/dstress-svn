@@ -41,6 +41,8 @@ int main() {
  	J a = new B;
 	J b = new B;
 	a.addChild(b);
-	assert(b.parent is a);
+	if(!(b.parent is a)){
+		assert(0);
+	}
 	return 0;
 }

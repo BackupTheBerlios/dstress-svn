@@ -15,7 +15,11 @@ ifloat test(){
 int main(){
 	cfloat c = 0.0f+0.0fi;
 	c += test;
-	assert(c.re==0.0f);
-	assert(c.im==1.0f);
+	if(c.re != 0.0f){
+		assert(0);
+	}
+	if(c.im != 1.0f){
+		assert(0);
+	}
 	return 0;
 }

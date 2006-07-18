@@ -18,24 +18,36 @@ int main(){
 
 
 	s.f = 0.0i;
-	assert(s.i[top]==0x00000000);
+	if(s.i[top] != 0x00000000){
+		assert(0);
+	}
 
 	s.f = -0.0i;
-	assert(s.i[top]==0x80000000);
+	if(s.i[top] != 0x80000000){
+		assert(0);
+	}
 
 	s.f = 0.0i - 0.0i;
-	assert(s.i[top]==0x00000000);
+	if(s.i[top] != 0x00000000){
+		assert(0);
+	}
 
 	s.f = (-0.0i) - 0.0i;
-	assert(s.i[top]==0x80000000);
+	if(s.i[top] != 0x80000000){
+		assert(0);
+	}
 
 	s.f = 0.0i;
 	s.f *= 1.0i;
-	assert(s.i[top]==0x00000000);
+	if(s.i[top] != 0x00000000){
+		assert(0);
+	}
 
 	s.f = 0.0i;
 	s.f *= -1.0i;
-	assert(s.i[top]==0x80000000);
+	if(s.i[top] != 0x80000000){
+		assert(0);
+	}
 
 	return 0;
 }

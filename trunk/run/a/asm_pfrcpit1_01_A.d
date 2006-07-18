@@ -26,7 +26,6 @@ version(runTest){
 			movq c, MM0;
 			emms;
 		}
-printf("%f %f\n", c[0], c[1]);
 
 		c[0] -= 1.007812f;
 		if(c[0] < 0.0f){

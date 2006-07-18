@@ -17,10 +17,20 @@ struct A {
 A a = { one:1, two:2 };
 
 int main(){
-	assert(a.one==1);
-	assert(a.two[0]==2);
-	assert(a.two[1]==2);
-	assert(a.two[2]==2);
-	assert(a.two[3]==2);
+	if(a.one != 1){
+		assert(0);
+	}
+	if(a.two[0] != 2){
+		assert(0);
+	}
+	if(a.two[1] != 2){
+		assert(0);
+	}
+	if(a.two[2] != 2){
+		assert(0);
+	}
+	if(a.two[3] != 2){
+		assert(0);
+	}
 	return 0;
 }

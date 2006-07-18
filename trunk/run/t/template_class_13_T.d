@@ -11,11 +11,15 @@ class C(cdouble f){
 int main(){
 	const cdouble a = 1.2 + 2.1i;
 	auto sa = new C!(a);
-	assert(sa.cf == a);
+	if(sa.cf != a){
+		assert(0);
+	}
 
 	const cdouble b = -0.8 - 0.1i;
 	auto sb = new C!(b);
-	assert(sa.cf == b);
+	if(sa.cf != b){
+		assert(0);
+	}
 
 	return 0;
 }

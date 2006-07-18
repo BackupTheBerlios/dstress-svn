@@ -19,7 +19,9 @@ int main(){
 	
 	auto i = c.value();
 
-	assert(i == 5);
+	if(i != 5){
+		assert(0);
+	}
 	
 	return 0;
 }

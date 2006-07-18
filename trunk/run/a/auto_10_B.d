@@ -7,7 +7,9 @@ module dstress.run.c.auto_10_B;
 int main(){
 	auto x = 4;
 	
-	assert(typeid(typeof(x)).toString() == "int");
+	if(typeid(typeof(x)).toString() != "int"){
+		assert(0);
+	}
 	
 	return 0;
 }

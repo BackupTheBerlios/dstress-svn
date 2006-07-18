@@ -7,7 +7,9 @@ module dstress.run.c.auto_10_A;
 int main(){
 	auto x = 4.0;
 	
-	assert(typeid(typeof(x)).toString() == "double");
+	if(typeid(typeof(x)).toString() != "double"){
+		assert(0);
+	}
 	
 	return 0;
 }

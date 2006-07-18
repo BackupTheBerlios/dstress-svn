@@ -26,12 +26,18 @@ class Derived:Base{
 
 int main(){
 	Base b = new Base;
-	assert(b.test=="base");
+	if(b.test != "base"){
+		assert(0);
+	}
 
 	Derived d = new Derived;
-	assert(d.test=="derived");
+	if(d.test != "derived"){
+		assert(0);
+	}
 
 	Base bd = new Derived;
-	assert(bd.test=="derived");
+	if(bd.test != "derived"){
+		assert(0);
+	}
 	return 0;
 }

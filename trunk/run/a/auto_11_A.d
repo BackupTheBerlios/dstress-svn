@@ -15,7 +15,9 @@ int value() {
 int main(){
 	auto i = value();
 
-	assert(i == 5);
+	if(i != 5){
+		assert(0);
+	}
 	
 	return 0;
 }

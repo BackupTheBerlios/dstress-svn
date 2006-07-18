@@ -19,6 +19,8 @@ struct Particle{
 Particle particles[MAX_PARTICLES];
 
 int main(){
-	assert(particles.length == MAX_PARTICLES);
+	if(particles.length != MAX_PARTICLES){
+		assert(0);
+	}
 	return 0;
 }

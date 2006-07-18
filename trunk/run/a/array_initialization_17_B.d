@@ -29,12 +29,24 @@ bool equal(float a, float b){
 }
 
 int main(){	
-	assert(equal(arr[0], float.nan));
-	assert(arr[1]==1.0f);
-	assert(arr[2]==2.0f);
-	assert(equal(arr[3], float.nan));
-	assert(arr[4]==4.0f);
-	assert(equal(arr[5], float.nan));
+	if(!equal(arr[0], float.nan)){
+		assert(0);
+	}
+	if(arr[1] != 1.0f){
+		assert(0);
+	}
+	if(arr[2] != 2.0f){
+		assert(0);
+	}
+	if(!equal(arr[3], float.nan)){
+		assert(0);
+	}
+	if(arr[4] != 4.0f){
+		assert(0);
+	}
+	if(!equal(arr[5], float.nan)){
+		assert(0);
+	}
 
 	return 0;
 }

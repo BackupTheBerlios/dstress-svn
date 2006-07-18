@@ -7,16 +7,32 @@ module dstress.run.typeid_28;
 
 int main(){
 	TypeInfo ti = typeid(ushort[]);
-	assert(!(ti is null));
-	assert(ti);
-	assert(ti.tsize==(ushort[]).sizeof);
-	assert(ti.toString()=="ushort[]");
+	if(ti is null){
+		assert(0);
+	}
+	if(!ti){
+		assert(0);
+	}
+	if(ti.tsize != (ushort[]).sizeof){
+		assert(0);
+	}
+	if(ti.toString() != "ushort[]"){
+		assert(0);
+	}
 
 	TypeInfo_Array ta = cast(TypeInfo_Array) ti;
-	assert(!(ta is null));
-	assert(ta);
-	assert(ta.tsize==(ushort[]).sizeof);
-	assert(ta.toString()=="ushort[]");
+	if(ta is null){
+		assert(0);
+	}
+	if(!ta){
+		assert(0);
+	}
+	if(ta.tsize != (ushort[]).sizeof){
+		assert(0);
+	}
+	if(ta.toString() != "ushort[]"){
+		assert(0);
+	}
 
 	return 0;
 }

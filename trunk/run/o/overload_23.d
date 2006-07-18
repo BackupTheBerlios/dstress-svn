@@ -22,12 +22,18 @@ class Derived:Base{
 
 int main(){
 	Base b = new Base;
-	assert(b.name=="base");
+	if(b.name != "base"){
+		assert(0);
+	}
 
 	Derived d = new Derived;
-	assert(d.name=="derived");
+	if(d.name != "derived"){
+		assert(0);
+	}
 
 	Base bd = new Derived;
-	assert(bd.name=="derived");
+	if(bd.name != "derived"){
+		assert(0);
+	}
 	return 0;
 }

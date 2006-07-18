@@ -23,13 +23,19 @@ mixin testT!(int);
 
 int main(){
 	byte b;
-	assert(test(b)==b.max);
+	if(test(b) != b.max){
+		assert(0);
+	}
 
 	ubyte ub;
-	assert(test(ub)==ub.max);
+	if(test(ub) != ub.max){
+		assert(0);
+	}
 
 	int i;
-	assert(test(i)==i.max);
+	if(test(i) != i.max){
+		assert(0);
+	}
 
 	return 0;
 }

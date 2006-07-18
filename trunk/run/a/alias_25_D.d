@@ -13,8 +13,12 @@ module dstress.nocompile.a.alias_25_D;
 import addon.alias_25_Z;
 
 int main(){
-	assert(i==0);
+	if(i != 0){
+		assert(0);
+	}
 	iPublic++;
-	assert(i==1);
+	if(i != 1){
+		assert(0);
+	}
 	return 0;
 }

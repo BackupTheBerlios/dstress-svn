@@ -8,7 +8,9 @@ int main(){
 	idouble i=2.0i;
 	i *= 4.0;
 
-	assert(i==8.0i);
+	if(i != 8.0i){
+		assert(0);
+	}
 
 	return 0;
 }

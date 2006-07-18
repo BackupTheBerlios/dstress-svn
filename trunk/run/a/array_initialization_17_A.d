@@ -16,17 +16,29 @@ const char[3][13] month = [
 
 
 int main(){	
-	assert(month[1]=="Jan");
-	assert(month[6]=="Jun");
-	assert(month[8]=="Aug");
-	assert(month[12]=="Dec");
+	if(month[1] != "Jan"){
+		assert(0);
+	}
+	if(month[6] != "Jun"){
+		assert(0);
+	}
+	if(month[8] != "Aug"){
+		assert(0);
+	}
+	if(month[12] != "Dec"){
+		assert(0);
+	}
 
 	foreach(char c; month[0]){
-		assert(c==char.init);
+		if(c != char.init){
+			assert(0);
+		}
 	}
 
 	foreach(char c; month[7]){
-		assert(c==char.init);
+		if(c != char.init){
+			assert(0);
+		}
 	}
 
 	return 0;

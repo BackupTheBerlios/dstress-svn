@@ -15,7 +15,11 @@ idouble test(){
 int main(){
 	cdouble c = 0.0+0.0i;
 	c = c + test;
-	assert(c.re==0.0);
-	assert(c.im==1.0);
+	if(c.re != 0.0){
+		assert(0);
+	}
+	if(c.im != 1.0){
+		assert(0);
+	}
 	return 0;
 }

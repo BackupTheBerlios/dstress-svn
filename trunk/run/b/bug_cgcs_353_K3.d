@@ -18,8 +18,10 @@ int main(){
 	assert(foos.length==0);
 
 	foos = new Foo() ~ foos[];
-	
-	assert(foos.length==1);
-	
+
+	if(foos.length != 1){
+		assert(0);
+	}
+
 	return 0;
 }

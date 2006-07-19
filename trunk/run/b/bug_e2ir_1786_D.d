@@ -13,7 +13,7 @@ class SomeObject{
 
 int main(){
 	SomeObject[] arr = new SomeObject[1];
-	
+
 	arr[0]=new SomeObject();
 
 	if(arr[0] < arr[0]){

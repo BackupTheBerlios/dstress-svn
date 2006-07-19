@@ -10,7 +10,7 @@ module dstress.run.b.bug_type_308_F;
 
 struct S{
 	int i;
-	
+
 	S foo(int x){
 		S s;
 

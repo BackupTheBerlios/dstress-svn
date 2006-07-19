@@ -16,13 +16,13 @@ struct S{
 
 int main(){
 	S s;
-	
+
 	auto i = s.value();
 
 	if(i != 5){
 		assert(0);
 	}
-	
+
 	return 0;
 }
 

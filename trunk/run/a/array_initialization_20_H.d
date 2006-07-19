@@ -13,7 +13,7 @@ typedef cdouble X = 4.0i + 0.4;
 int main(){
 	X four = cast(X) (4.0i + 0.4);
 	X three = cast(X) (3.0i + 0.3);
-	
+
 	X[] array;
 	array.length = 2;
 	array[] = three;
@@ -22,11 +22,11 @@ int main(){
 	if(array[0] != three){
 		assert(0);
 	}
-	
+
 	if(array[1] != three){
 		assert(0);
 	}
-	
+
 	if(array[2] != four){
 		assert(0);
 	}

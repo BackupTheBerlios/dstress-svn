@@ -8,85 +8,189 @@ int main(){
 	bool a;
 	bool b;
 	bool c;
-	
+
 	a = false; b = !a;
-	assert( a == false );
-	assert( b == true  );
+	if(a != false){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
 	a = true; b = !a;
-	assert( a == true  );
-	assert( b == false );
-	
+	if(a != true){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+
 	// AndAnd
 	a=true; b=true; c=a&&b;
-	assert( a == true  );
-	assert( b == true  );
-	assert( c == true  );
+	if(a != true){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 	a=true; b=false; c=a&&b;
-	assert( a == true  );
-	assert( b == false );
-	assert( c == false );
+	if(a != true){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
 	a=false; b=true; c=a&&b;
-	assert( a == false );
-	assert( b == true  );
-	assert( c == false );
+	if(a != false){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
 	a=false; b=false; c=a&&b;
-	assert( a == false );
-	assert( b == false );
-	assert( c == false );
+	if(a != false){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
 
 	// OrOr
 	a=true; b=true; c=a||b;
-	assert( a == true  );
-	assert( b == true  ),
-	assert( c == true  );
+	if(a != true){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 	a=true; b=false; c=a||b;
-	assert( a == true  );
-	assert( b == false );
-	assert( c == true  );
+	if(a != true){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 	a=false; b=true; c=a||b;
-	assert( a == false );
-	assert( b == true  );
-	assert( c == true  );
+	if(a != false){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 	a=false; b=false; c=a||b;
-	assert( a == false );
-	assert( b == false );
-	assert( c == false );	
-	
+	if(a != false){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
+
 	// Equality Expression ("==")
 	a=true; b=true; c= a==b;
-	assert( a == true  );
-	assert( b == true  );
-	assert( c == true  );
+	if(a != true){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 	a=true; b=false; c= a==b;
-	assert( a == true  );
-	assert( b == false );
-	assert( c == false );
+	if(a != true){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
 	a=false; b=true; c= a==b;
-	assert( a == false );
-	assert( b == true  );
-	assert( c == false );
+	if(a != false){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
 	a=false; b=false; c= a==b;
-	assert( a == false );
-	assert( b == false );
-	assert( c == true  );
+	if(a != false){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 
 	// Inequality Expression ("!=")
 	a=true; b=true; c= a!=b;
-	assert( a == true  );
-	assert( b == true  );
-	assert( c == false );
+	if(a != true){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
 	a=true; b=false; c= a!=b;
-	assert( a == true  );
-	assert( b == false );	
-	assert( c == true  );
+	if(a != true){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 	a=false; b=true; c= a!=b;
-	assert( a == false );
-	assert( b == true  );
-	assert( c == true  );
+	if(a != false){
+		assert(0);
+	}
+	if(b != true){
+		assert(0);
+	}
+	if(c != true){
+		assert(0);
+	}
 	a=false; b=false; c= a!=b;
-	assert( a == false );
-	assert( b == false );
-	assert( c == false );
-	
-	return 0; 
+	if(a != false){
+		assert(0);
+	}
+	if(b != false){
+		assert(0);
+	}
+	if(c != false){
+		assert(0);
+	}
+
+	return 0;
 }

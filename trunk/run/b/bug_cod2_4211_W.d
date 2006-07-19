@@ -22,6 +22,9 @@ int main() {
 	d.a=1;
 	d.b=2;
 	d.c=3;
-	assert(bar(d)==14);
+
+	if(bar(d) != 14){
+		assert(0);
+	}
         return 0;
 }

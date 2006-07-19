@@ -15,7 +15,7 @@ class MyClass{
 			return x;
 		}
 	}
-	
+
 	int dummy;
 }
 
@@ -29,9 +29,13 @@ class Container{
 int main(){
 	Container container = new Container();
 	MyClass myclass = new MyClass();
-    
-	assert( container.element.foo!(MyClass).sizeof == (MyClass[]).sizeof );
-	assert( myclass.foo!(MyClass).length == 0 || myclass.foo!(MyClass)[0] is myclass );
+
+	if(container.element.foo!(MyClass).sizeof != (MyClass[]).sizeof){
+		assert(0);
+	}
+	if(!(myclass.foo!(MyClass).length == 0 || myclass.foo!(MyClass)[0] is myclass )){
+		assert(0);
+	}
 
 	return 0;
 }

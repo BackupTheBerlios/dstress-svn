@@ -8,17 +8,17 @@
 module dstress.run.b.bug_d_codegen_1560_B;
 
 struct S{
-	
+
 	void set(void[] result){
 	}
-	
+
 	void set(int result){
 		set((&result)[0 .. 1]);
 	}
-	
+
 	void get(void[] value){
 	}
-	
+
 	void get(int value){
 		get((&value)[0 .. 1]);
 	}

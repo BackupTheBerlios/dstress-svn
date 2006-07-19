@@ -21,6 +21,9 @@ int main() {
 	Foo d;
 	d.a=1;
 	d.b=2;
-	assert(bar(d)==3);
+
+	if(bar(d) != 3){
+		assert(0);
+	}
         return 0;
 }

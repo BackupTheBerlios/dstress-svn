@@ -18,11 +18,11 @@ enum Enum {
 
 class A {
 	alias void delegate(Enum) EnumDG;
-	
+
 	void fork(EnumDG dg){
 		dg(Enum.TWO);
 	}
-	
+
 	void test(Enum e){
 		if(e != Enum.TWO){
 			assert(0);

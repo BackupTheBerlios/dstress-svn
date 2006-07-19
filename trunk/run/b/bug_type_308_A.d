@@ -8,7 +8,7 @@
 
 module dstress.run.b.bug_type_308_A;
 
-int main() {   
+int main() {
 	int [3][3] x;
 	x[1][1 .. 3] = 1;
 

@@ -12,11 +12,15 @@ module dstress.run.b.bug_d_codegen_981_A;
 int main(){
 	char [] bar="test";
 	char [] foo;
-        
+
 	foo="<"~bar[0];
-        
-	assert(foo.length==2);
-	assert(foo=="<t");
-        
+
+	if(foo.length != 2){
+		assert(0);
+	}
+	if(foo != "<t"){
+		assert(0);
+	}
+
 	return 0;
-} 
+}

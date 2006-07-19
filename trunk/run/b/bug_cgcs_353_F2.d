@@ -16,8 +16,12 @@ int main(){
 
 	arr = arr ~ 1;
 
-	assert(arr[0]==2);
-	assert(arr[1]==1);
+	if(arr[0] != 2){
+		assert(0);
+	}
+	if(arr[1] != 1){
+		assert(0);
+	}
 
 	return 0;
 }

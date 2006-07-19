@@ -6,21 +6,38 @@ module dstress.run.bool_01;
 
 int main(){
 	bool a;
-	assert(a.max == 1);
-	assert(a.min == 0);
-	assert(a.init == 0);
+	if(a.max != 1){
+		assert(0);
+	}
+	if(a.min != 0){
+		assert(0);
+	}
+	if(a.init != 0){
+		assert(0);
+	}
 
-	assert(a.sizeof == typeid( bool ).tsize());
-	
+	if(a.sizeof != typeid( bool ).tsize()){
+		assert(0);
+	}
+
 	a = true;
-	assert( a == 1);
+	if(a != 1){
+		assert(0);
+	}
 	bool b = 1;
-	assert( b == 1);
-	
+	if(b != 1){
+		assert(0);
+	}
+
 	bool c = false;
-	assert( c == 0);
+	if(c != 0){
+		assert(0);
+	}
+
 	bool d = 0;
-	assert( d == 0);
-	
-	return 0; 
+	if(d != 0){
+		assert(0);
+	}
+
+	return 0;
 }

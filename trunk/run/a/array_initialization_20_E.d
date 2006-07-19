@@ -12,7 +12,7 @@ typedef idouble X = 4.0i;
 
 int main(){
 	X four = cast(X) 4.0i;
-	
+
 	X[] array;
 	array.length = 1;
 

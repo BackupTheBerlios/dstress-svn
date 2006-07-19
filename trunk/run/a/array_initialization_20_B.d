@@ -19,11 +19,11 @@ int main(){
 	if(array[0] != 3){
 		assert(0);
 	}
-	
+
 	if(array[1] != 3){
 		assert(0);
 	}
-	
+
 	if(array[2] != 4){
 		assert(0);
 	}

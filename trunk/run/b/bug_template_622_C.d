@@ -18,6 +18,6 @@ int main(){
 	if(func!(int, 2)(1) != 3){
 		assert(0);
 	}
-	
+
 	return 0;
 }

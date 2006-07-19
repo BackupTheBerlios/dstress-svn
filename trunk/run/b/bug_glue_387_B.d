@@ -9,6 +9,13 @@
 
 module dstress.run.b.bug_glue_387_B;
 
+version(D_InlineAsm_X86){
+}else version(D_InlineAsm){
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
+}
+
 enum msync{
     acq,
     rel,
@@ -36,7 +43,9 @@ template testStore(T, msync ms){
 	void testStore(){
 		T base;
 		Atomic!(T) atom;
-		assert(atom.m_val == base);
+		if(atom.m_val != base){
+			assert(0);
+		}
 		atom.store!(ms)();
 	}
 }

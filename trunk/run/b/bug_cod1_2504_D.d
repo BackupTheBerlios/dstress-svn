@@ -10,7 +10,7 @@ module dstress.run.b.bug_cod1_2504_D;
 
 class C{
 	C[] c;
-	
+
 	this(){
 		c ~= c;
 	}
@@ -18,6 +18,9 @@ class C{
 
 int main(){
 	C c = new C();
-	assert(c.c.length==0);
+
+	if(c.c.length != 0){
+		assert(0);
+	}
 	return 0;
 }

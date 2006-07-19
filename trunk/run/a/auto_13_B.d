@@ -12,7 +12,7 @@ int[] status;
 
 class Class {
 	int id;
-	
+
 	this (int id) {
 		this.id = id;
 		status  ~= id;

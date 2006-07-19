@@ -15,11 +15,11 @@ struct Struct{
 	real foo(){
 		return 0;;
 	}
-	
+
 	void bar(out Struct Q){
 		if (foo < 0){
 			Q = *this;
-		}			
+		}
 	}
 }
 
@@ -31,8 +31,10 @@ int main(){
 	ss.id=2;
 
 	s.bar(ss);
-	assert(ss.id==0);
-	
-	return 0;	
+	if(ss.id != 0){
+		assert(0);
+	}
+
+	return 0;
 }
 

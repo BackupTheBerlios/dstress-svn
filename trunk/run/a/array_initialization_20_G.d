@@ -12,7 +12,7 @@ typedef cdouble X = 4.0i + 0.4;
 
 int main(){
 	X four = cast(X) (4.0i + 0.4);
-	
+
 	X[] array;
 	array.length = 1;
 

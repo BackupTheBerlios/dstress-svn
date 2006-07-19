@@ -16,8 +16,12 @@ int main(){
 
 	arr = arr ~ 1.0f;
 
-	assert(arr[0]==2.0f);
-	assert(arr[1]==1.0f);
+	if(arr[0] != 2.0f){
+		assert(0);
+	}
+	if(arr[1] != 1.0f){
+		assert(0);
+	}
 
 	return 0;
 }

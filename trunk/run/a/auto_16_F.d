@@ -25,7 +25,7 @@ int main(){
 	if((new C()).toString() != "hallo bug"){
 		assert(0);
 	}
-	
+
 	version(always){
 		if(c.toString() != "hallo bug"){
 			assert(0);

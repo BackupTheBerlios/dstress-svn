@@ -12,9 +12,9 @@ module dstress.nocompile.bug_cg87_1240_B;
 
 int main(){
 	ireal r;
- 
+
 	if (r > real.max){
 		assert(0);
-	}		
+	}
 	return 0;
 }

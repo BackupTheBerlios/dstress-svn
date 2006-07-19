@@ -18,7 +18,7 @@ enum Enum {
 
 class A {
 	alias void function(Enum) EnumDG;
-	
+
 	void fork(EnumDG dg){
 		dg(Enum.TWO);
 	}

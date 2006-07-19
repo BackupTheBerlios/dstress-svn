@@ -28,11 +28,15 @@ int main(){
 
 	s.value = 2;
 	add(s);
-	assert(status == 1);
+	if(status != 1){
+		assert(0);
+	}
 
 	s.value = 0;
 	add(s);
-	assert(status == -1);
+	if(status != -1){
+		assert(0);
+	}
 
 	return 0;
 }

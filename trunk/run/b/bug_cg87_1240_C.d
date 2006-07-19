@@ -12,9 +12,9 @@ module dstress.nocompile.bug_cg87_1240_C;
 
 int main(){
 	float r;
- 
+
 	if (r < ifloat.max){
 		assert(0);
-	}		
+	}
 	return 0;
 }

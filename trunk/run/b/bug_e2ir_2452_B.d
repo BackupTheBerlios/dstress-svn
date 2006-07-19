@@ -18,8 +18,12 @@ class C{
 
 int main(){
 	C c = new C();
-	assert(c.c.length==1);
-	assert(c.c[0] is c);
-	
+	if(c.c.length != 1){
+		assert(0);
+	}
+	if(!(c.c[0] is c)){
+		assert(0);
+	}
+
 	return 0;
 }

@@ -19,16 +19,20 @@ alias test!(cfloat[]) bug;
 int main(){
 	cfloat[2] array;
 	array[0] = 2.0 + 0.0i;
-	
+
 	bug(array);
 	array[0] -= 1.0;
 	if(array[0].re < 0.0){
 		array[0] *= -1;
 	}
-	
-	assert(array[0].re < float.epsilon * 4.0);
-	assert(array[0].im < float.epsilon * 4.0);
-	
+
+	if(array[0].re > float.epsilon * 4.0f){
+		assert(0);
+	}
+	if(array[0].im > float.epsilon * 4.0f){
+		assert(0);
+	}
+
 	return 0;
 }
 

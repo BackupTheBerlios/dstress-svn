@@ -18,7 +18,7 @@ int main(){
 	if(i != 5){
 		assert(0);
 	}
-	
+
 	return 0;
 }
 

@@ -22,6 +22,9 @@ int main() {
 	d.a=1;
 	d.b=2;
 	d.c=3;
-	assert(bar(d)==6);
+
+	if(bar(d) != 6){
+		assert(0);
+	}
         return 0;
 }

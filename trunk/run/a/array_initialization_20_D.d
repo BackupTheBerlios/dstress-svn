@@ -13,7 +13,7 @@ typedef double X = 4.0;
 int main(){
 	X three = cast(X) 3.0;
 	X four = cast(X) 4.0;
-	
+
 	X[] array;
 	array.length = 2;
 	array[] = three;
@@ -23,11 +23,11 @@ int main(){
 	if(array[0] != three){
 		assert(0);
 	}
-	
+
 	if(array[1] != three){
 		assert(0);
 	}
-	
+
 	if(array[2] != four){
 		assert(0);
 	}

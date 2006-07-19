@@ -12,9 +12,9 @@ module dstress.nocompile.bug_cg87_1240_E;
 
 int main(){
 	double r;
- 
+
 	if (r == idouble.max){
 		assert(0);
-	}		
+	}
 	return 0;
 }

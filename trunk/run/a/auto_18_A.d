@@ -42,7 +42,7 @@ int main(){
 	if(a[1][2] != 4){
 		assert(0);
 	}
-	
+
 	if(a[2].length != 1){
 		assert(0);
 	}

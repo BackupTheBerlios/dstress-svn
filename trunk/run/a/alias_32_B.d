@@ -20,7 +20,7 @@ class A {
 	void fork(EnumDG dg){
 		dg(Enum.TWO);
 	}
-	
+
 	alias void delegate(Enum) EnumDG;
 
 	void test(Enum e){

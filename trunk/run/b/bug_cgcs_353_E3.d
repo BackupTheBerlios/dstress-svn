@@ -11,12 +11,18 @@ module dstress.run.b.bug_cgcs_353_E3;
 int main(){
 	int[] foos;
 
-	assert(foos.length==0);
+	if(foos.length != 0){
+		assert(0);
+	}
 
 	foos = foos[] ~ 3;
-	
-	assert(foos.length==1);
-	assert(foos[0]==3);
-	
+
+	if(foos.length != 1){
+		assert(0);
+	}
+	if(foos[0] != 3){
+		assert(0);
+	}
+
 	return 0;
 }

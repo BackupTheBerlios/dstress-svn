@@ -25,5 +25,5 @@ int main(){
 
 	aa[o] = o;
 
-	return 0; 
+	return 0;
 }

@@ -22,7 +22,7 @@ template foo(){
 
 int main(){
 	mixin foo!();
-	
+
 	C c = new C();
 
 	foo = &c.bar;

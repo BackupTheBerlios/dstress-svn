@@ -22,6 +22,9 @@ int main() {
 	d.a=true;
 	d.b=false;
 	d.c=true;
-	assert(bar(d)==4);
+
+	if(bar(d) != 4){
+		assert(0);
+	}
         return 0;
 }

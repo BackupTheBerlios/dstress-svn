@@ -19,16 +19,20 @@ alias test!(cdouble[]) bug;
 int main(){
 	cdouble[2] array;
 	array[0] = 2.0 + 0.0i;
-	
+
 	bug(array);
 	array[0] -= 1.0;
 	if(array[0].re < 0.0){
 		array[0] *= -1;
 	}
-	
-	assert(array[0].re < double.epsilon * 4.0);
-	assert(array[0].im < double.epsilon * 4.0);
-	
+
+	if(array[0].re > double.epsilon * 4.0){
+		assert(0);
+	}
+	if(array[0].im > double.epsilon * 4.0){
+		assert(0);
+	}
+
 	return 0;
 }
 

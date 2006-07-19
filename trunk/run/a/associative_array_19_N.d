@@ -22,7 +22,7 @@ class Payload {
 		value.x += 1;
 		this.value = value;
 	}
-	
+
 	Key value;
 }
 
@@ -40,7 +40,7 @@ int main(){
 	foreach(Key key; allKeys) {
 		aa[key] = new Payload(key);
 	}
-	
+
 	for(size_t step = 0; step < 10000; step++){
 		foreach(Key key; allKeys) {
 			if(!(key in aa)){

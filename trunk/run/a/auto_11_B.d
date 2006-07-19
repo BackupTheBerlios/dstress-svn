@@ -16,13 +16,13 @@ class C{
 
 int main(){
 	C c = new C();
-	
+
 	auto i = c.value();
 
 	if(i != 5){
 		assert(0);
 	}
-	
+
 	return 0;
 }
 

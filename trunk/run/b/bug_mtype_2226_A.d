@@ -18,7 +18,7 @@ class C{
 
 int main(){
 	typeof( {} ) foo;
-	
+
 	C c = new C();
 
 	foo = &c.bar;

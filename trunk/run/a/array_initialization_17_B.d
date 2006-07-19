@@ -28,7 +28,7 @@ bool equal(float a, float b){
 	return true;
 }
 
-int main(){	
+int main(){
 	if(!equal(arr[0], float.nan)){
 		assert(0);
 	}

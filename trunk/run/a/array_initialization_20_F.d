@@ -13,7 +13,7 @@ typedef idouble X = 4.0i;
 int main(){
 	X four = cast(X) 4.0i;
 	X three = cast(X) 3.0i;
-	
+
 	X[] array;
 	array.length = 2;
 	array[] = three;
@@ -26,7 +26,7 @@ int main(){
 	if(array[1] != three){
 		assert(0);
 	}
-	
+
 	if(array[2] != four){
 		assert(0);
 	}

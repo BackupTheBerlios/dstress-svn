@@ -18,7 +18,6 @@ class MyClass{
 	~this(){
 		hadDtor = true;
 		throw new Exception("should never throw");
-		
 	}
 }
 

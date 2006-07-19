@@ -12,7 +12,7 @@ typedef double X = 4.0;
 
 int main(){
 	X four = cast(X) 4.0;
-	
+
 	X[] array;
 	array.length = 1;
 

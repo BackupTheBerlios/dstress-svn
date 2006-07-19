@@ -1,8 +1,10 @@
-﻿Thanks for all the bug reports and test case suggestions:
+﻿Thanks for all the bug reports and test case suggestions to:
 
 ahiru			<ahiru@1dk.jp>
 AJG			<AJG@nospam.com>
+Alberto Simon		<lugaidster@gmail.com>
 Aleksey Bobnev		<uw@front.ru>
+Alex			<CppCoder@gmail.com>
 Anders F Björklun	<afb@algonet.se>
 Andrew Fedoniouk	<news@terrainformatica.com>
 Andy Friesen		<andy@ikagames.com>
@@ -10,15 +12,17 @@ Ant			<duitoolkit@yahoo.ca>
 Arcane Jill
 Artem Rebrov		<ar_other@mail.ru>
 Bastiaan Veelo		<Bastiaan.N.Veelo@ntnu.no>
-BCS
+BCS			<shro8822@uidaho.edu>
 Ben Hinkle		<ben.hinkle@gmail.com>, <bhinkle4@juno.com>, <bhinkle@mathworks.com>
 Benjamin Herr
 Bent Rasmussen		<exo@bent-rasmussen.info>
 berupon			<yu@3dcg.ne.jp>
+bobef			<bobef@lessequal.com>
 brad beveridge
+Brad Roberts		<braddr@puremagic.com>
 Brian Gardner		<briangr@friberg.us>
 Brian Hjølluu
-Bruno Medeiros		<daiphoenixNO@SPAMlycos.com>
+Bruno Medeiros		<daiphoenixNO@SPAMlycos.com>, <brunodomedeirosATgmail@SPAM.com>
 Buchan			<kbuchan@xtra.co.nz>
 Burton Radons		<burton-radons@shaw.ca>, <burton-radons@smocky.com>
 Carlos Santander B.	<carlos8294@msn.com>, <csantander619@gmail.com>
@@ -26,22 +30,27 @@ Charlie
 Chris Miller		<chris@dprogramming.com>
 Chris Newton		<redshodan@dot.gmail.dot.dooot.com>
 Chris Sauls		<ibisbasenji@gmail.com>
+Christopher Lane Hinson	<lane@downstairspeople.org>
 clayasaurus		<clayasaurus@gmail.com>
 D Trebbien
-Daniel Horn		<hellcatv@hotmail.com>
-Dave
-David Friedman		<d3rdclsmail_a_@_t_earthlink_d_._t_net>
+Daniel Horn		<hellcatv@hotmail.com>	
+Dave			<godaves@yahoo.com>
+David Friedman		<d3rdclsmail_a_@_t_earthlink_d_._t_net>, <dvdfrdmn@users.sf.net>
 David L. Davis		<SpottedTiger@yahoo.com>
 David Medlock		<amedlock@nospam.org>, <noone@nowhere.com>
 Deewiant		<deewiant.doesnotlike.spam@gmail.com>
 dennis luehring		<dl.soluz@gmx.net>
-Derek Parnell
+Derick Eddington	<derick_eddington@nospam.yahoo.nospam.com>
+Derek Parnell		<ddparnell@bigpond.com>
 dickl			<dick221z@yahoo.com>
-Don Clugston
+Don Clugston		<clugdbug@yahoo.com.au>
 ElfQT			<dethjunk@yahoo.com>
+Eric Anderton (aka Pragma)	<ericanderton@yahoo.com>
 Eugene Pelekhay		<pelekhay@gmail.com>
 Florian Sonnenberger	<nairolf@online.de>
+Frank Benoit		<benoit@tionex.de>
 Fredrik Olsson		<peylow@gmail.com>
+Frits van Bommel	<fvbommel@wxs.nl>
 Garett Bass		<garettbass@studiotekne.com>
 Geoff Hickey
 h3r3tic / heretic
@@ -53,7 +62,8 @@ Ivan Senji		<ivan.senji@public.srce.hr>,  <ivan.senji_REMOVE_@_THIS__gmail.com>
 J Anderson		<REMOVEanderson@badmama.com.au>
 J C Calvarese		<jcc7@cox.net>
 James Dunne		<james.jdunne@gmail.com>
-Jarrett Billingsley	<kb3ctd2@yahoo.com>
+James Pelcis		<jpelcis@gmail.com>
+Jarrett Billingsley	<kb3ctd2@yahoo.com>, <jarrett.billingsley@gmail.com>
 Jay
 John C			<johnch_atms@hotmail.com>
 John Demme		<me@teqdruid.com>
@@ -69,26 +79,25 @@ Kris			<fu@bar.com>, <someidiot@earthlink.dot.dot.dot.net>
 larrycowan
 Lars Ivar Igesund	<larsivar@igesund.net>
 Li Jie			<cpunion@gmail.com>
-Lionello Lunesu		<lionello.lunesu@crystalinter.remove.com>
+Lionello Lunesu		<lionello.lunesu@crystalinter.remove.com>, <lio@lunesu.com>
 Lukas Pinkowski		<Lukas.Pinkowski@web.de>
 Manfred Nowak		<svv1999@hotmail.com>
 marko			<tm030127d@galeb.etf.bg.ac.yu>
+Markus Dangl		<sky@quit-clan.de>
 Michael Butscher	<mbutscher@gmx.de>
 MicroWizard
 Miguel Ferreira Simões	<Kobold@netcabo.pt>
 Mike Parker		<aldacron71@yahoo.com>
 Mike Swieton		<mike@swieton.net>
 Mizuno Hiroki		<hiroki1124@hotmail.com>
-nail
+nail			<nail-mail@mail.ru>
 ndove			http://www.dsource.org/forums/profile.php?mode=viewprofile&u=142
 Neil Santos
-Nick
 Nick Sabalausky
 Oskar Linde		<d98-oliRE.MO.VE@nada.kth.se>
 Patrick Down
 Paul Guerra
 Paul Runde		<prunde@consolidated.net>
-pragma
 Regan Heath		<regan@netwin.co.nz>
 Rev
 Robert Atkinson		<Robert.Atkinson@gmail.com>
@@ -99,10 +108,13 @@ Russ Lewis		<spamhole-2001-07-16@deming-os.org>
 Russell Wilkins		<Russell.Wilkins@grovestarsoftware.com>, <rwilkins@grovestarsoftware.com>
 Sam McCall		<tunah@tunah.net>
 Sean Kelly		<sean@f4.ca>
+Sebastian Beschke	<s.beschke@gmx.de>
 shinichiro.h		<s31552@mail.ecc.u-tokyo.ac.jp>
 Simon Buchan
+Stephan Bergmann	<stephan.bergmann@sun.com>
 Stephan Wienczny	<Stephan@Wienczny.de>, <wienczny@web.de>
-Stewart Gordon		<smjg_1998@yahoo.com>
+Sterling Christensen	<sterlingchristensen@hotmail.com>
+Stewart Gordon		<smjg_1998@yahoo.com>, <smjg@iname.com>
 teqDruid		<me@teqdruid.com>
 tetsuya
 Thomas Kuehne		<thomas-dloop@kuehne.THISISSPAM.cn>
@@ -113,7 +125,7 @@ Tom S			<h3r3tic@remove.mat.uni.torun.pl>
 Tyro			<ridimz_at@yahoo.dot.com>
 Unknown W. Brackets	<unknown@simplemachines.org>
 Uwe Salomon		<post@uwesalomon.de>
-Valér			<valery@freesurf.fr>
+Valéry			<valery@freesurf.fr>
 van eeshan		<vanee@hotmail.com>
 Vathix			<chris@dprogramming.com>, <vathix@dprogramming.com>, <vathixSpamFix@dprogramming.com>
 Victor Nakoryakov	<nail-mail@mail.ru>
@@ -122,7 +134,6 @@ xs0			<xs0@xs0.com>
 yama
 zwang			<nehzgnaw@gmail.com>
 
-			<derick_eddington@nospam.yahoo.nospam.com>
-			<jmjmak@utu.invalid.fi>
-			<fp@fpx.de>
-			<lane@downstairspeople.org>
+?			<fp@fpx.de>
+?			<jmjmak@utu.invalid.fi>
+?			<mclysenk@mtu.edu>

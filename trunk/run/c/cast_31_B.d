@@ -20,11 +20,11 @@ int main() {
 	if(tapir[0] != antelope[0]){
 		assert(0);
 	}
-	
+
 	if(tapir[1] != antelope[1]){
 		assert(0);
 	}
-	
+
 	if(tapir[2] != antelope[2]){
 		assert(0);
 	}

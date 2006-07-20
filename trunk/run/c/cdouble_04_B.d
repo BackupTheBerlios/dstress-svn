@@ -25,6 +25,6 @@ int main(){
 	assert(data[0].re == 2.0);
 	assert(data[1].im == 4.0);
 	assert(data[1].re == 2.0);
-	
+
 	return 0;
 }

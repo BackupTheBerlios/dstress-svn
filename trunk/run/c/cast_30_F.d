@@ -12,8 +12,10 @@ alias double X;
 
 int main(){
 	X four = cast(X) 4.0;
-	
-	assert(cast(double)four == 4.0);
+
+	if(cast(double)four != 4.0){
+		assert(0);
+	}
 
 	return 0;
 }

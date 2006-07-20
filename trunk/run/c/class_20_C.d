@@ -22,7 +22,7 @@ class C :  A, B{
 	int dummy(){
 		return 2;
 	}
-	
+
 	int bar(){
 		return 1;
 	}

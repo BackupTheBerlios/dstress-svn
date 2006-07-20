@@ -21,13 +21,17 @@ int main(){
 
 	bb["zwei"] = 2;
 
-	assert(counter==0);
- 
+	if(counter != 0){
+		assert(0);
+	}
+
 	foreach(char[] s, int i; bb){
 		dummy();
 	}
 
-	assert(counter==1);
+	if(counter != 1){
+		assert(0);
+	}
 
 	bb["a"] = 1;
 
@@ -35,8 +39,12 @@ int main(){
 		try{
 			throw new Error("foo");
 		}catch(Error e){
-			assert(e);
-			assert(counter==1);
+			if(!e){
+				assert(0);
+			}
+			if(counter != 1){
+				assert(0);
+			}
 			return 0;
 		}catch{
 			assert(0);

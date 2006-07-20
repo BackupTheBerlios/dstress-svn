@@ -13,7 +13,11 @@ static this(){
 }
 
 int main(){
-	assert(a==3);
-	assert(b==2);
+	if(a != 3){
+		assert(0);
+	}
+	if(b != 2){
+		assert(0);
+	}
 	return 0;
 }

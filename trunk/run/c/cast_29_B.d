@@ -17,10 +17,10 @@ class Bar : Foo{
 
 int main(){
 	Bar[] bars=new Bar[100];
-	
+
 	foreach(Foo f; bars){
 		return 0;
 	}
-	
+
 	assert(0);
-} 
+}

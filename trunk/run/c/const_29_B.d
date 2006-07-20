@@ -36,7 +36,7 @@ class Foo{
 		if(status != 0){
 			assert(0);
 		}
-		
+
 		status++;
 		this();
 	}

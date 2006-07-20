@@ -16,6 +16,8 @@ enum{
 }
 
 int main(){
-	assert(X==0);
+	if(X != 0){
+		assert(0);
+	}
 	return 0;
 }

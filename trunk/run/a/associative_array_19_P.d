@@ -1,6 +1,6 @@
 // $HeadURL$
 // $Date$
-// $Author
+// $Author$
 
 // @author@	Sebastian Beschke <s.beschke@gmx.de>
 // @date@	2005-03-25

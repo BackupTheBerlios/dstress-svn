@@ -31,17 +31,17 @@ int main(){
 	if(a.x() != 1){
 		assert(0);
 	}
-	
-	
+
+
 	B b = new B();
-	
+
 	if(b.x() != 2){
 		assert(0);
 	}
-	
+
 
 	A c = new B();
-	
+
 	if(c.x() != 2){
 		assert(0);
 	}

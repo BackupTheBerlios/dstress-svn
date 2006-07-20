@@ -24,12 +24,24 @@ int main(){
 		sums[2] += prod;
 	}
 
-	assert(sums[0].re==9.0f);
-	assert(sums[0].im==0.0f);
-	assert(sums[1].re==35.0f);
-	assert(sums[1].im==0.0f);
-	assert(sums[2].re==153.0f);
-	assert(sums[2].im==0.0f);
+	if(sums[0].re != 9.0f){
+		assert(0);
+	}
+	if(sums[0].im != 0.0f){
+		assert(0);
+	}
+	if(sums[1].re != 35.0f){
+		assert(0);
+	}
+	if(sums[1].im != 0.0f){
+		assert(0);
+	}
+	if(sums[2].re != 153.0f){
+		assert(0);
+	}
+	if(sums[2].im != 0.0f){
+		assert(0);
+	}
 
 	return 0;
 }

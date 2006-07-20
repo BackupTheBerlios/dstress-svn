@@ -15,9 +15,15 @@ class C{
 }
 
 int main(){
-	assert(C.a == 1);
-	assert(C.b == 2);
-	assert(C.c == 6);
+	if(C.a != 1){
+		assert(0);
+	}
+	if(C.b != 2){
+		assert(0);
+	}
+	if(C.c != 6){
+		assert(0);
+	}
 
 	return 0;
 }

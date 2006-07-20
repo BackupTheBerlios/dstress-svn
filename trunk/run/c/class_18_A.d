@@ -10,7 +10,7 @@ module dstress.run.c.class_18_A;
 
 class Foo {
 	const int x = 1;
-	
+
 	static class Foo {
 		const int x = 2;
 	}
@@ -21,9 +21,15 @@ class Foo {
 
 int main(){
 	Foo.Bar a = new Foo.Bar;
-	assert(Foo.x == 1);
-	assert(Foo.Foo.x == 2);
-	assert(a.x == 1);
-	
+	if(Foo.x != 1){
+		assert(0);
+	}
+	if(Foo.Foo.x != 2){
+		assert(0);
+	}
+	if(a.x != 1){
+		assert(0);
+	}
+
 	return 0;
 }

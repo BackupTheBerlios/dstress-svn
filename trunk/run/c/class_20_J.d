@@ -26,7 +26,7 @@ class C(T1, T2) : B!(T1), B!(T2){
 	int dummy(){
 		return 2;
 	}
-	
+
 	int bar(){
 		return 1;
 	}
@@ -54,7 +54,7 @@ int main(){
 	}
 
 	A2 a2 = c;
-	
+
 	if(a2.bar() != 1){
 		assert(0);
 	}

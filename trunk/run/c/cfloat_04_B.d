@@ -18,8 +18,12 @@ int main(){
 
 	foo(d);
 
-	assert(d[0].im == 2.0f);
-	assert(d[0].re == 0.0f);
+	if(d[0].im != 2.0f){
+		assert(0);
+	}
+	if(d[0].re != 0.0f){
+		assert(0);
+	}
 
 	return 0;
 }

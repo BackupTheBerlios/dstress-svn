@@ -20,7 +20,7 @@ int bb[char[]];
 int main(){
 
 	assert(counter==0);
- 
+
 	foreach(int i; bb){
 		dummy(i);
 	}

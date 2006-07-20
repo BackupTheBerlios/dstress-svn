@@ -22,7 +22,7 @@ int main(){
 	bb["zwei"] = 2;
 
 	assert(counter==0);
- 
+
 	foreach(int i; bb){
 		dummy();
 	}

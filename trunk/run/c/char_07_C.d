@@ -11,7 +11,9 @@ module dstress.run.c.char_07_C;
 int main(){
 	char[] string = "\uDBC4\uDD11"d;
 
-	assert(string.length == 4);
+	if(string.length != 4){
+		assert(0);
+	}
 
 	if(string[0] == 0xF0 && string[1] == 0x81 && string[2] == 0x84 && string[3] == 0x91){
 		return 0;

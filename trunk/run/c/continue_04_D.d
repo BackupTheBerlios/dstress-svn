@@ -10,7 +10,7 @@ module dstress.run.c.continue_04_D;
 
 int main(){
 	int sum;
-	
+
 label:
 	foreach(char c; "\x00\x01\x02"){
 		sum += c;

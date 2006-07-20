@@ -12,7 +12,7 @@ alias cdouble X;
 
 int main(){
 	X four = cast(X) (4.0i + 0.4);
-	
+
 	assert(four.im == 4.0);
 	assert(four.re == 0.4);
 

@@ -20,7 +20,7 @@ struct MyStruct{
 int main(){
 	MyStruct foo;
 	int sum;
-	
+
 	foreach(int i; foo){
 		sum += i;
 	}

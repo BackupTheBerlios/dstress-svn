@@ -23,7 +23,7 @@ class C(T) : T, B!(A){
 	int dummy(){
 		return 2;
 	}
-	
+
 	int bar(){
 		return 1;
 	}

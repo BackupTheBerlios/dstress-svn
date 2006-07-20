@@ -12,6 +12,6 @@ int main(){
 	const char[] x = "\u0081bcde";
 
 	static assert(x.sizeof == size_t.sizeof * 2);
-	
+
 	return 0;
 }

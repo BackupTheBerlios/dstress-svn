@@ -24,12 +24,24 @@ int main(){
 		sums[2] += prod;
 	}
 
-	assert(sums[0].re == 9.0L);
-	assert(sums[0].im == 0.0L);
-	assert(sums[1].re == 35.0L);
-	assert(sums[1].im == 0.0L);
-	assert(sums[2].re == 153.0L);
-	assert(sums[2].im == 0.0L);
+	if(sums[0].re != 9.0L){
+		assert(0);
+	}
+	if(sums[0].im != 0.0L){
+		assert(0);
+	}
+	if(sums[1].re != 35.0L){
+		assert(0);
+	}
+	if(sums[1].im != 0.0L){
+		assert(0);
+	}
+	if(sums[2].re != 153.0L){
+		assert(0);
+	}
+	if(sums[2].im != 0.0L){
+		assert(0);
+	}
 
 	return 0;
 }

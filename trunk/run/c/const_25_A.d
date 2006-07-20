@@ -9,7 +9,9 @@ class C{
 }
 
 int main(){
-	assert(typeid(typeof(C.x)).toString() == "double");
-	
+	if(typeid(typeof(C.x)).toString() != "double"){
+		assert(0);
+	}
+
 	return 0;
 }

@@ -12,7 +12,7 @@ typedef idouble X;
 
 int main(){
 	X four = cast(X) 4.0i;
-	
+
 	assert(four.im == 4.0);
 
 	return 0;

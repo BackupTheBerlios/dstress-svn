@@ -20,11 +20,21 @@ int main(){
 
 	foo(data);
 
-	assert(data.length == 2);
-	assert(data[0].im == 1.0L);
-	assert(data[0].re == 2.0L);
-	assert(data[1].im == 4.0L);
-	assert(data[1].re == 2.0L);
-	
+	if(data.length != 2){
+		assert(0);
+	}
+	if(data[0].im != 1.0L){
+		assert(0);
+	}
+	if(data[0].re != 2.0L){
+		assert(0);
+	}
+	if(data[1].im != 4.0L){
+		assert(0);
+	}
+	if(data[1].re != 2.0L){
+		assert(0);
+	}
+
 	return 0;
 }

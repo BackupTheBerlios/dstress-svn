@@ -18,10 +18,10 @@ class Bar : Foo{
 int main(){
 	Bar[] bars=new Bar[100];
 	Foo[] foos=bars;
-	
+
 	foreach(Foo f; foos){
 		return 0;
 	}
-	
+
 	assert(0);
-} 
+}

@@ -22,7 +22,7 @@ version(runTest){
 		a[1] = -2;
 		a[2] = 3;
 		a[3] = -4;
-		
+
 		int[] b = new int[4];
 		b[0] = 5;
 		b[1] = -6;

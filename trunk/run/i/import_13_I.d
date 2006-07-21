@@ -6,14 +6,14 @@
 // @date@	2006-03-03
 // @uri@	news:dua8sq$18af$1@digitaldaemon.com
 
-// __DSTRESS_DFLAGS__ compile/i/import_13_G.d  compile/i/import_13_H.d
+// __DSTRESS_DFLAGS__ compile/i/import_13_G.d compile/i/import_13_H.d
 
 module dstress.run.i.import_13_I;
 
 import /*dstress.*/compile.i.import_13_G;
 
 int main(){
-	if((new Foo()).foo() !=  "Foo.foo"){
+	if((new Foo()).foo() != "Foo.foo"){
 		assert(0);
 	}
 	return 0;

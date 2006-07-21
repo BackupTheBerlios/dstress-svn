@@ -17,7 +17,7 @@ struct StructOf(Type){
 }
 
 int main(){
-	auto  c = new StructOf!(int)();
+	auto c = new StructOf!(int)();
 	int x = 3;
 
 	c.ref!() = x;

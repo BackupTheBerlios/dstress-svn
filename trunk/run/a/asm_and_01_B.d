@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		uint a = 0x12_34_56_06;
 		ushort b = 5;
-		
+
 		asm{
 			mov EAX, a;
 			and AX, b;

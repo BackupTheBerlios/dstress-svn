@@ -19,11 +19,11 @@ version(runTest){
 		float[] a = new float[2];
 		a[0] = -123.0f;
 		a[1] = 457.0f;
-		
+
 		float[] b = new float[2];
 		b[0] = 123.0f;
 		b[1] = 456.0f;
-		
+
 		float[] c = new float[2];
 
 		asm{

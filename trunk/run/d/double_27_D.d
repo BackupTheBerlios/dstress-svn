@@ -8,7 +8,7 @@ module dstress.run.d.double_27_D;
 
 double func (double *array){
 	double d = *array;
-	
+
 	if (d == 1.0){
 		return d;
 	}else{
@@ -22,6 +22,6 @@ int main (){
 	if(func(values) != double.max){
 		assert(0);
 	}
-	
+
 	return 0;
 }

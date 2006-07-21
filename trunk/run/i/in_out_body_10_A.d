@@ -38,7 +38,7 @@ int main() {
 
 	assert(a == 0);
 	assert(b == 0);
-	
+
 	assert(base.func() == 13);
 
 	assert(a == 1);
@@ -50,6 +50,6 @@ int main() {
 
 	assert(a == 2);
 	assert(b == 1);
-	
+
 	return 0;
 }

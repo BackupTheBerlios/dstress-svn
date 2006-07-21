@@ -37,7 +37,7 @@ int main(){
 	if(status != 0){
 		assert(0);
 	}
-	
+
 	f.bar.doSayHello();
 
 	if(status != 1){

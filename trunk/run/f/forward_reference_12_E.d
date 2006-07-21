@@ -16,7 +16,7 @@ union Outer{
 }
 
 union Test{
-     Outer.Inner s;
+	Outer.Inner s;
 }
 
 int main(){

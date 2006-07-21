@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE2!()();
 
@@ -21,7 +21,7 @@ version(runTest){
 		a[1] = -1;
 		a[2] = 2;
 		a[3] = -3;
-		
+
 		float[] b = new float[4];
 
 		asm{

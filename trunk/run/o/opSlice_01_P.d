@@ -13,9 +13,9 @@ int main(){
 	cfloat arr[4][2]= 0.0f + 0.0fi;
 
 	arr[0][1]= 0.0f + 1.0fi;
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(arr[0][0]){
 		assert(0);
 	}

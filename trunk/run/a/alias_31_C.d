@@ -19,7 +19,7 @@ class ClassOf(Type){
 }
 
 int main(){
-	auto  c = new ClassOf!(int)();
+	auto c = new ClassOf!(int)();
 	int x = 3;
 
 	c.ref!() = x;

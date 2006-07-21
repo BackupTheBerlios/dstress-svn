@@ -33,7 +33,7 @@ int main(){
 	if(container.element().foo!(MyClass).sizeof != (MyClass[]).sizeof ){
 		assert(0);
 	}
-	if(!(myclass.foo!(MyClass).length == 0 ||  myclass.foo!(MyClass)[0] is myclass )){
+	if(!(myclass.foo!(MyClass).length == 0 || myclass.foo!(MyClass)[0] is myclass )){
 		assert(0);
 	}
 

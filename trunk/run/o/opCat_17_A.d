@@ -11,8 +11,8 @@ module dstress.run.o.opCat_17_A;
 int main(){
 	const static char[][] strings = ["Foo"];
 	const static char[] test = "Bar";
-	assert((strings ~  test).length==2);
-	assert((strings ~  test)[0] == "Foo");
-	assert((strings ~  test)[1] == "Bar");
+	assert((strings ~ test).length==2);
+	assert((strings ~ test)[0] == "Foo");
+	assert((strings ~ test)[1] == "Bar");
 	return 0;
 }

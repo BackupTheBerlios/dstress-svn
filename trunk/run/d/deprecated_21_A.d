@@ -9,7 +9,9 @@ module dstress.run.d.deprecated_21_A;
 deprecated x = 4.0;
 
 int main(){
-	assert(typeid(typeof(x)).toString() == "double");
-	
+	if(typeid(typeof(x)).toString() != "double"){
+		assert(0);
+	}
+
 	return 0;
 }

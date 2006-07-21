@@ -21,7 +21,7 @@ template Mixer(){
 
 class FooBar{
 	mixin Mixer mixer;
-	
+
 	char test(){
 		if(step == 1){
 			step++;

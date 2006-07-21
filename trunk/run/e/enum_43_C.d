@@ -10,7 +10,7 @@ module dstress.run.e.enum_43_C;
 
 int main(){
 	int[E.min] array;
-	
+
 	if(E.min == 1 && array.length == 1){
 		return 0;
 	}

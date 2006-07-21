@@ -22,14 +22,14 @@ int main(){
 	}else{
 		assert(0);
 	}
-	
+
 	if(-128>0){
 		assert(0);
 	}
-	
+
 	if(-128>=0){
 		assert(0);
 	}
-	
+
 	return 0;
 }

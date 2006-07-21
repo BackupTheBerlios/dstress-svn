@@ -12,16 +12,16 @@ int main(){
 	mixin Template!();
 	char[] arg = "AAA";
 
-	
+
 	assert(Class.foo(arg) == "AAA");
 	assert(test() == "XXX");
-	
+
 	return 0;
 }
 
 template Template(){
 	char[] arg = "XXX";
-	
+
 	char[] test(){
 		return Class.foo(arg);
 	}

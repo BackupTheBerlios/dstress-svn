@@ -17,7 +17,7 @@ class Foo{
 		void* p;
 
 		p = (new byte[sz]).ptr;
-    
+
 		if(status++ != 1){
 			assert(0);
 		}

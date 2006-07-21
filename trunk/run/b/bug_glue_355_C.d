@@ -9,19 +9,19 @@
 module dstress.run.b.bug_glue_355_C;
 
 class Foo {
-    this(int[] params ...) {
-    }
+	this(int[] params ...) {
+	}
 }
 
 class Bar {
 
-    private this() {
-        init();
-    }
+	private this() {
+		init();
+	}
 
-    void init() {
-        Foo f = new Foo(1, 2, 3);
-    }
+	void init() {
+		Foo f = new Foo(1, 2, 3);
+	}
 
 }
 

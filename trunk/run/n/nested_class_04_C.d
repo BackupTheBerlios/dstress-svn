@@ -17,9 +17,9 @@ struct Outer{
 		this(){
 			 x = i;
 		}
-        }
+	}
 
-        Inner test(){
+	Inner test(){
 		Inner o;
 
 		void bug(){
@@ -29,7 +29,7 @@ struct Outer{
 		bug();
 
 		return o;
-        }
+	}
 }
 
 int main(){

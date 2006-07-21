@@ -10,7 +10,7 @@ module dstress.run.o.opCat_19_B;
 
 int main(){
 	char [] armadillo = "abc" ~ 'a';
-	
+
 	if(armadillo == "abca"){
 		return 0;
 	}

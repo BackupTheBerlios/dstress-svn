@@ -26,5 +26,5 @@ int main() {
 	if(bar(d) != 4){
 		assert(0);
 	}
-        return 0;
+	return 0;
 }

@@ -13,11 +13,11 @@ int main(){
 	dummy = "abc".dup;
 	for(size_t a=0; a < 200; a++){
 		char[] tmp = new char[a % 80];
-		for(size_t b=0; b  < a % 10; b++){
+		for(size_t b=0; b < a % 10; b++){
 			dummy = dummy[0 .. $ % 33] ~ tmp[0 .. $ % 11] ~ dummy[ $ % 33 .. $];
 		}
 	}
-	
+
 	if(dummy.length != 4189){
 		assert(0);
 	}

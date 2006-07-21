@@ -16,7 +16,7 @@ struct X{
 
 int main(){
 	X x;
-	
+
 	if((typeof(x))() != 3){
 		assert(0);
 	}

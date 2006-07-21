@@ -15,7 +15,7 @@ struct Array{
 		check = a;
 		return a;
 	}
-	
+
 	int opIndexAssign(int a, int b){
 		check = a * b;
 		return a;
@@ -31,9 +31,9 @@ class Property{
 
 int main(){
 	Property p = new Property();
-	
+
 	p.property[4] = 8;
 	assert(check == 4*8);
-	
+
 	return 0;
 }

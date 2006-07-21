@@ -10,7 +10,7 @@ module dstress.run.f.function_06_A;
 
 int function(int)[] table;
 
-int main() {	
+int main() {
 	table ~= function int(int x) {
 			return x + 99;
 		};

@@ -6,7 +6,7 @@ module dstress.run.i.ieee_754_int2flt_A;
 
 int main(){
 	size_t border;
-	
+
 	if((int.sizeof * 8) - 1 < real.dig * 3){
 		border = (int.sizeof * 8) - 1;
 	}else{

@@ -13,9 +13,9 @@ int main(){
 	Object arr[4][2];
 
 	arr[0][1]=new Object();
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(!(null is arr[0][0])){
 		assert(0);
 	}

@@ -27,7 +27,7 @@ class Foo{
 
 class FooBar : Foo{
 	mixin Mixer;
-	
+
 	char test(){
 		if(step == 1){
 			step++;

@@ -16,13 +16,13 @@ enum E : ushort{
 
 int main(){
 	ushort[] array;
-	
+
 	E e = E.B;
-	
+
 	array ~= e;
-	
+
 	assert(array.length==1);
 	assert(array[0]==E.B);
-	
+
 	return 0;
 }

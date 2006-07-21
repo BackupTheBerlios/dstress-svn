@@ -12,7 +12,7 @@ version(D_InlineAsm_X86){
 
 version(D_InlineAsm_X86){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
 

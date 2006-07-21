@@ -22,7 +22,7 @@ version(runTest){
 		a[1] = 2.0f;
 		a[2] = 3.0f;
 		a[3] = 4.0f;
-		
+
 		int[] b = new int[2];
 
 		asm{

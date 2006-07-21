@@ -9,7 +9,7 @@ void func(){
 
 	static class Inner{
 		int test(){
-		    return m;
+			return m;
 		}
 	}
 

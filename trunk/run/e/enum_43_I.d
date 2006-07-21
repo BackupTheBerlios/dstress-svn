@@ -16,7 +16,7 @@ enum E{
 
 const int[E.max] array;
 
-int main(){	
+int main(){
 	static if(E.max == 3){
 		static if(array.length == 3){
 			return 0;

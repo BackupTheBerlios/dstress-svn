@@ -10,7 +10,7 @@ module dstress.run.o.opOrOr_01_B;
 
 int main(){
 	bool A, B, C;
-	
+
 	int a = 1;
 	if(a < 0 || 10 < a){
 		assert(0);

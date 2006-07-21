@@ -13,9 +13,9 @@ int main(){
 	idouble arr[4][2]=0i;
 
 	arr[0][1]=1i;
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(arr[0][0]){
 		assert(0);
 	}

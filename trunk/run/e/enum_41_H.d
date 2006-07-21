@@ -16,13 +16,13 @@ enum E : ulong{
 
 int main(){
 	ulong[] array;
-	
+
 	E e = E.B;
-	
+
 	array = array ~ e;
-	
+
 	assert(array.length==1);
 	assert(array[0]==E.B);
-	
+
 	return 0;
 }

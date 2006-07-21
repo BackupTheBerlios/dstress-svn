@@ -13,7 +13,7 @@ int status;
 class C {
 	template T(alias f) {
 		void check(){
-			f();		
+			f();
 			assert(status++==2);
 		}
 	}
@@ -23,7 +23,7 @@ class C {
 	}
 
 	mixin T!(test) x;
-	
+
 	void run(){
 		assert(status++==0);
 		check();

@@ -17,5 +17,5 @@ int main(){
 	assert(-1 == (-3)/3);
 	assert(1 == (-3)/(-3));
 	assert(-1 == 3/(-3));
-	return 0;	
-} 
+	return 0;
+}

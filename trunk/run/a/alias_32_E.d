@@ -13,7 +13,7 @@ bool status = false;
 alias void function(Enum) EnumDG;
 
 enum Enum {
-        ONE = 1,
+	ONE = 1,
 	TWO,
 	THREE
 }

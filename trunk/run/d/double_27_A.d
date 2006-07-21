@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// based on: gcc.c-torture/execute/ieee/20010226-1.c 
+// based on: gcc.c-torture/execute/ieee/20010226-1.c
 
 module dstress.run.d.double_27_A;
 
@@ -23,5 +23,5 @@ int main(){
 
 	return 0;
 }
-	
+
 

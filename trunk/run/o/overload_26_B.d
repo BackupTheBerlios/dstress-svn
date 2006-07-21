@@ -22,7 +22,7 @@ int foo(uint i){
 
 int main(){
 	int i = 2;
-	
+
 	if(foo(i) != 3){
 		assert(0);
 	}

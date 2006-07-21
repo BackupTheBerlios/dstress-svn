@@ -22,6 +22,6 @@ int main(){
 	if(sumI != 6){
 		assert(0);
 	}
-	
+
 	return 0;
 }

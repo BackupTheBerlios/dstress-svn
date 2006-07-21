@@ -13,8 +13,8 @@ int main(){
 	a[8] = true;
 	bool[9] b;
 	b[8] = false;
-	
+
 	assert(a>b);
-	
+
 	return 0;
 }

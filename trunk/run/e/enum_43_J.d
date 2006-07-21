@@ -16,7 +16,7 @@ enum E{
 
 const int[E.min] array;
 
-int main(){	
+int main(){
 	static if(E.min == 1){
 		static if(array.length == 1){
 			return 0;

@@ -13,11 +13,11 @@ int outer(){
 	int test(){
 		class Innner{
 			int i;
-	        }
-	        
+		}
+
 		return Innner.i.offsetof;
 	}
-	
+
 	return test();
 }
 

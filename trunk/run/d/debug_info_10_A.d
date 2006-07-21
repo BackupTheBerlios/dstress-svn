@@ -10,7 +10,7 @@ module dstress.run.d.debug_info_10_A;
 
 int main(char[][] args){
 	int i = args.length / 1000;
-	
+
 	i += 12340011;
 
 	if(i % 4){

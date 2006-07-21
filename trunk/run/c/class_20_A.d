@@ -14,7 +14,7 @@ interface B{
 	int dummy();
 }
 
-class C :  A, B{
+class C : A, B{
 	int foo(){
 		return 0;
 	}

@@ -19,11 +19,11 @@ version(runTest){
 		long[] a = new long[2];
 		a[0] = -1;
 		a[1] = -2;
-		
+
 		long[] b = new long[2];
 		b[0] = 2;
 		b[1] = long.max;
-		
+
 		long[] c = new long[2];
 
 		asm{

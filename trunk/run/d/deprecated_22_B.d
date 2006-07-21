@@ -22,9 +22,9 @@ deprecated alias baz foo;
 
 int main(){
 	status = 90;
-	
+
 	foo(2);
-	
+
 	if(status != 92){
 		assert(0);
 	}

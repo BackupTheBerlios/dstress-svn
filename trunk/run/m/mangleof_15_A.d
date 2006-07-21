@@ -10,7 +10,7 @@ module dstress.run.m.mangleof_15_A;
 
 int main(){
 	const char [] s = (int).mangleof;
-	
+
 	static if( s.length > 2 && s[2] == 'x' ){
 		assert(0);
 	}

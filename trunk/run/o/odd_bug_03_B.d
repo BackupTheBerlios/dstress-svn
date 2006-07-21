@@ -19,15 +19,15 @@ void f(...){
 	char[] s;
 
 	void putc(dchar c){
-		s ~= c;       
+		s ~= c;
 	}
-    
+
 	std.format.doFormat(&putc, _arguments, _argptr);
-    
+
 	assert(s=="mystery");
 }
 
 int main(){
 	f("mystery");
 	return 0;
-} 
+}

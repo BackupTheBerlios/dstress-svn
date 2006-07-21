@@ -18,7 +18,7 @@ class C{
 
 int main(){
 	if(is(C.test == function)){
-		assert(0);	
+		assert(0);
 	}
 
 	return 0;

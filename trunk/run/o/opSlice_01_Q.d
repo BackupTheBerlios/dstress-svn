@@ -13,9 +13,9 @@ int main(){
 	cdouble arr[4][2]= 0.0 + 0.0i;
 
 	arr[0][1]= 0.0 + 1.0i;
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(arr[0][0]){
 		assert(0);
 	}
@@ -34,7 +34,7 @@ int main(){
 	if(!arr[2][1]){
 		assert(0);
 	}
-	
+
 	if(arr[3][0]){
 		assert(0);
 	}

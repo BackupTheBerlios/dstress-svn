@@ -12,16 +12,16 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE!()();
-		
+
 		float[] a = new float[4];
 		a[0] = 1.0f;
 		a[1] = 20.0f;
 		a[2] = 0.4f;
 		a[3] = 2.0f;
-		
+
 		float[] b = new float[4];
 		b[0] = 4.0f;
 		b[1] = 10.0f;

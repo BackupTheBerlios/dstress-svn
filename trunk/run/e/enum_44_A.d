@@ -17,7 +17,7 @@ enum E{
 int main(){
 	static assert(hello == 3);
 	static assert(E.hello == 3);
-	
+
 	E e;
 
 	if(e == 3){

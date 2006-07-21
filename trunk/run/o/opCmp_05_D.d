@@ -17,18 +17,18 @@ int main(){
 	static if(128<=0){
 		assert(0);
 	}
-	
+
 	static if(128>0){
 		assert(1);
 	}else{
 		assert(0);
 	}
-	
+
 	static if(128>=0){
 		assert(1);
 	}else{
 		assert(0);
 	}
-	
+
 	return 0;
 }

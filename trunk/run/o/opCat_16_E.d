@@ -13,8 +13,8 @@ int main(){
 	strings.length = 1;
 	strings[0] = "Foo";
 	dchar[] test = "Bar";
-	assert((strings ~  test).length==2);
-	assert((strings ~  test)[0] == "Foo");
-	assert((strings ~  test)[1] == "Bar");
+	assert((strings ~ test).length==2);
+	assert((strings ~ test)[0] == "Foo");
+	assert((strings ~ test)[1] == "Bar");
 	return 0;
 }

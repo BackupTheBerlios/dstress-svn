@@ -9,7 +9,7 @@
 module dstress.run.d.double_28_B;
 
 int main(){
-	static if((real.max >=  double.max)
+	static if((real.max >= double.max)
 		&& (real.dig >= double.dig))
 	{
 		double d = double.max;

@@ -18,10 +18,10 @@ version(runTest){
 		asm{
 			mov EAX, a;
 			mov EBX, b;
-			bt  EAX, EBX;
+			bt EAX, EBX;
 			jnc error;
 			mov EBX, EAX;
-			bt  EAX, EBX;
+			bt EAX, EBX;
 			jc error;
 		}
 

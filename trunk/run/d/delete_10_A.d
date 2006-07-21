@@ -13,8 +13,8 @@ struct Box{
 }
 
 int main(){
-        Box*[10] boxes;
-        boxes[0] = new Box;
-        delete boxes[0];
-        return 0;
+	Box*[10] boxes;
+	boxes[0] = new Box;
+	delete boxes[0];
+	return 0;
 }

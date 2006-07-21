@@ -11,7 +11,7 @@ module dstress.run.d.delete_14_B;
 class Foo{
 	this(){
 	}
-	
+
 	new (size_t s){
 		return new byte[s];
 	}

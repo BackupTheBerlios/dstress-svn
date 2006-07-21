@@ -12,11 +12,11 @@ int main(){
 	int[int] array;
 	array[2] = 3;
 	array.remove(2);
-	
+
 	if(array.keys.length != 0){
 		assert(0);
 	}
-	
+
 	foreach(int elem; array){
 		assert(0);
 	}

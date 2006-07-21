@@ -13,9 +13,9 @@ int main(){
 	ubyte arr[4][2];
 
 	arr[0][1]=true;
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(arr[0][0]){
 		assert(0);
 	}

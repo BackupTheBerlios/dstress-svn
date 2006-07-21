@@ -15,7 +15,7 @@ class Class {
 
 	this (int id) {
 		this.id = id;
-		status  ~= id;
+		status ~= id;
 	}
 
 	~this () {

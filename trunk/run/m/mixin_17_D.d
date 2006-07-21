@@ -23,14 +23,14 @@ void dummy(...){
 
 template mix(){
 	int i;
-	
+
 	void test(){
 		dummy(i);
 	}
 }
 
 int main(){
-	assert(status == 0); 
+	assert(status == 0);
 
 	mixin mix!();
 

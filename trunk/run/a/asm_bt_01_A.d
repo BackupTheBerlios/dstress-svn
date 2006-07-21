@@ -18,10 +18,10 @@ version(runTest){
 		asm{
 			mov AX, a;
 			mov BX, b;
-			bt  AX, BX;
+			bt AX, BX;
 			jnc error;
 			mov BX, AX;
-			bt  AX, BX;
+			bt AX, BX;
 			jc error;
 		}
 

@@ -18,12 +18,12 @@ class C{
 
 int main(){
 	int x;
-	
+
 	with(new C){
 		x = test(1);
 	}
-	
+
 	assert(x==2);
-	
+
 	return 0;
 }

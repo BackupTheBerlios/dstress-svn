@@ -26,9 +26,9 @@ int main(){
 	assert(s * 1 == 2);
 
 	Class c = new Class;
-	assert(c * 1 == 5);	
-	
-	return 0;	
+	assert(c * 1 == 5);
+
+	return 0;
 }
 
 

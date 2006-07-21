@@ -50,7 +50,7 @@ version(runTest){
 		b[13] = 5;
 		b[14] = 6;
 		b[15] = 7;
-		
+
 		byte[] c = new byte[16];
 
 		asm{

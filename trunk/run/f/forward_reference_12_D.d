@@ -17,7 +17,7 @@ class Outer{
 
 class Test{
 	Outer.Inner s;
-	
+
 	this(){
 		s = new Outer.Inner;
 	}

@@ -20,7 +20,7 @@ class Parent{
 	}
 }
 
-class C :  Parent, A, B{
+class C : Parent, A, B{
 	int foo(){
 		return 0;
 	}

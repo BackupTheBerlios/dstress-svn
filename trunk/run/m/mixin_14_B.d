@@ -11,16 +11,16 @@ module dstress.run.m.mixin_14_B;
 int main(){
 	int arg = 1;
 	mixin Template!();
-	
+
 	assert(Class.foo(arg) == 1);
 	assert(test() == 2);
-	
+
 	return 0;
 }
 
 template Template(){
 	int arg = 2;
-	
+
 	int test(){
 		return Class.foo(arg);
 	}

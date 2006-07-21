@@ -27,7 +27,7 @@ version(runTest){
 		b[1] = 6.0f;
 		b[2] = 7.0f;
 		b[3] = 8.0f;
-		
+
 		float[] c = new float[4];
 
 		asm{

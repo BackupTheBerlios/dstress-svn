@@ -12,21 +12,21 @@ int a = 0;
 int b = 0;
 
 class A{
-        void f(){
-                a++;
-        }
+	void f(){
+		a++;
+	}
 }
 
 final class B : A{
-        void f(){
-                b++;
-                super.f();
-        }
+	void f(){
+		b++;
+		super.f();
+	}
 }
 
 int main(){
-        (new B).f();
-        assert(a==1);
-        assert(b==1);
-        return 0;
+	(new B).f();
+	assert(a==1);
+	assert(b==1);
+	return 0;
 }

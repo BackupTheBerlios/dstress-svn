@@ -22,9 +22,9 @@ void foo(int i) {
 
 int main(){
 	status = 90;
-	
+
 	foo(2);
-	
+
 	if(status != 92){
 		assert(0);
 	}

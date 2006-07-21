@@ -25,5 +25,5 @@ int main(){
 	test_B((-3)/3);
 	test_A((-3)/(-3));
 	test_B(3/(-3));
-	return 0;	
-} 
+	return 0;
+}

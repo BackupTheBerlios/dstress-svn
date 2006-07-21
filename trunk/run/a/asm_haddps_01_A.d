@@ -21,7 +21,7 @@ version(runTest){
 		a[1] = 7.2f;
 		a[2] = 8.3f;
 		a[3] = 9.4f;
-		
+
 		float[] b = new float[4];
 		b[0] = 1.0f;
 		b[1] = 2.0f;

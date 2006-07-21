@@ -21,9 +21,9 @@ version(runTest){
 		a[1] = 2.0f;
 		a[2] = 3.0f;
 		a[3] = 4.0f;
-		
+
 		float b = 9.0f;
-		
+
 		float[] c = new float[4];
 
 		asm{

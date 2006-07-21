@@ -9,14 +9,14 @@
 module dstress.run.f.foreach_34_A;
 
 template crash(T){
-        int crash(T t){
+	int crash(T t){
 		int sum;
-                foreach(char u; t){
+		foreach(char u; t){
 			sum += u;
 		}
 
 		return sum;
-        }
+	}
 }
 
 int main(){

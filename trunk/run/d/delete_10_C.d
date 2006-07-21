@@ -13,9 +13,9 @@ class Box{
 }
 
 int main(){
-        Box*[10] boxes;
-        Box b = new Box;
-        boxes[0] = &b;
-        delete boxes[0];
-        return 0;
+	Box*[10] boxes;
+	Box b = new Box;
+	boxes[0] = &b;
+	delete boxes[0];
+	return 0;
 }

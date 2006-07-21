@@ -9,7 +9,7 @@
 module dstress.run.i.inline_15_A;
 
 int[] toArray(int[] params ...) {
-        return params.dup;
+	return params.dup;
 }
 
 int[] values;

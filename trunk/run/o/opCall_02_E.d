@@ -20,7 +20,7 @@ class X{
 
 int main(){
 	X x;
-	
+
 	if(T!(typeof(x))() != 3){
 		assert(0);
 	}

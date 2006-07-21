@@ -15,7 +15,7 @@ version(runTest){
 
 	int main(){
 		haveSSE3!()();
-		
+
 		float[] a = new float[4];
 		a[0] = 1.0f;
 		a[1] = 2.0f;

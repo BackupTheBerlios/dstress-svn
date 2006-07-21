@@ -6,7 +6,7 @@ module dstress.run.i.ieee_754_flt2int_F;
 
 int main(){
 	size_t border;
-	
+
 	if(ulong.sizeof * 8 < real.dig * 3){
 		border = ulong.sizeof * 8;
 	}else{

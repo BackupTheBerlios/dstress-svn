@@ -12,8 +12,8 @@ module dstress.run.o.offsetof_80_A;
 int test(){
 	struct Struct{
 		int i;
-        }
-	        
+	}
+
 	return Struct.i.offsetof;
 }
 

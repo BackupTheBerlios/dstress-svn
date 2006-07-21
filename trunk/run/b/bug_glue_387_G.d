@@ -10,13 +10,13 @@ module dstress.run.b.bug_glue_387_G;
 
 template atomicStore( T )
 {
-     void atomicStore(T newval)
-     {
-         volatile asm
-         {
-             mov EAX, newval;
-         }
-     }
+	void atomicStore(T newval)
+	{
+		volatile asm
+		{
+			mov EAX, newval;
+		}
+	}
 }
 
 int main(){

@@ -13,7 +13,7 @@ int status;
 class C {
 	template T(alias f) {
 		void check(){
-			f();		
+			f();
 			assert(status++==2);
 		}
 	}

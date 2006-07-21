@@ -11,7 +11,7 @@ module dstress.run.o.opCat_19_A;
 int main(){
 	char [] armadillo;
 	armadillo = "abc" ~ 'a';
-	
+
 	if(armadillo == "abca"){
 		return 0;
 	}

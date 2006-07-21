@@ -15,7 +15,7 @@ template T(alias a) {
 }
 
 class C{
-        mixin T!(
+	mixin T!(
 		function(){
 			status++;
 		}

@@ -15,7 +15,7 @@ int main(){
 	body {
 		return i + 1;
 	}
-	
+
 	assert(test(1)==2);
 	return 0;
 }

@@ -10,7 +10,7 @@ module dstress.run.o.opCat_19_C;
 
 int main(){
 	const char [] armadillo = "abc" ~ 'a';
-	
+
 	static if(armadillo == "abca"){
 		return 0;
 	}

@@ -16,7 +16,7 @@ class X{
 
 int main(){
 	X x;
-	
+
 	if(typeof(x).opCall() != 3){
 		assert(0);
 	}

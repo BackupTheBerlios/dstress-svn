@@ -21,14 +21,14 @@ int main(){
 	}else{
 		assert(0);
 	}
-	
+
 	static if(-128>0){
 		assert(0);
 	}
-	
+
 	static if(-128>=0){
 		assert(0);
 	}
-	
+
 	return 0;
 }

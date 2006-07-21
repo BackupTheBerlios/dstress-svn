@@ -9,7 +9,7 @@
 module dstress.run.a.assert_12_C;
 
 int main(){
-	bool b  = (0.9 + 3.5L == 0.9L + 3.5L);
+	bool b = (0.9 + 3.5L == 0.9L + 3.5L);
 	assert(b);
 	return 0;
 }

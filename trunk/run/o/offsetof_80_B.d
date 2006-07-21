@@ -13,8 +13,8 @@ class Outer{
 	int test(){
 		struct Innner{
 			int i;
-	        }
-	        
+		}
+
 		return Innner.i.offsetof;
 	}
 }

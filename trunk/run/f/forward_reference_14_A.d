@@ -10,7 +10,7 @@ module dstress.run.f.forward_reference_14_A;
 
 class Foo(TYPE){
 	static int delegate(TYPE a) myLilFunction;
-		
+
 	void func(int delegate(TYPE a) theParameter = myLilFunction){
 	}
 }

@@ -19,7 +19,7 @@ version(runTest){
 		double[] a = new double[2];
 		a[0] = 2.0;
 		a[1] = 3.0;
-		
+
 		double[] b = new double[2];
 		double c = 1.0;
 

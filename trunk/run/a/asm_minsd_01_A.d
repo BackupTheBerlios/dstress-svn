@@ -19,11 +19,11 @@ version(runTest){
 		double[] a = new double[2];
 		a[0] = 2.0;
 		a[1] = 4.0;
-		
+
 		double[] b = new double[2];
 		b[0] = 1.0;
 		b[1] = 3.0;
-		
+
 		double[] c = new double[2];
 
 		asm{

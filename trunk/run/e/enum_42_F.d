@@ -16,13 +16,13 @@ enum E : uint{
 
 int main(){
 	uint[] array;
-	
+
 	E e = E.B;
-	
+
 	array ~= e;
-	
+
 	assert(array.length==1);
 	assert(array[0]==E.B);
-	
+
 	return 0;
 }

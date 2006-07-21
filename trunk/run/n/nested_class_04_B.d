@@ -17,9 +17,9 @@ class Outer{
 		this(){
 			 x = i;
 		}
-        }
+	}
 
-        Inner test(){
+	Inner test(){
 		Inner o;
 
 		void bug(){
@@ -29,7 +29,7 @@ class Outer{
 		bug();
 
 		return o;
-        }
+	}
 }
 
 int main(){

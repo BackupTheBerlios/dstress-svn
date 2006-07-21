@@ -7,7 +7,7 @@
 // @uri@	news:d9e3af$1olf$1@digitaldaemon.com
 
 module dstress.run.i.inline_11_D;
- 
+
 struct Struct{
 	int i;
 
@@ -31,5 +31,5 @@ struct Struct{
 int main(){
 	Struct s;
 	assert(s.bar().i==4);
-	return 0;	
+	return 0;
 }

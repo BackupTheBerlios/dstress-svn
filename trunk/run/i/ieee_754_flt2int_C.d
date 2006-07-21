@@ -6,7 +6,7 @@ module dstress.run.i.ieee_754_flt2int_C;
 
 int main(){
 	size_t border;
-	
+
 	if((long.sizeof * 8) - 1 < float.dig * 3){
 		border = (long.sizeof * 8) - 1;
 	}else{

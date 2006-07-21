@@ -13,11 +13,11 @@ int outer(){
 	int test(){
 		struct Innner{
 			int i;
-	        }
-	        
+		}
+
 		return Innner.i.offsetof;
 	}
-	
+
 	return test();
 }
 

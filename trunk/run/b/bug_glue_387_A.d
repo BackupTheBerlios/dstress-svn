@@ -17,8 +17,8 @@ version(D_InlineAsm_X86){
 }
 
 enum msync{
-    acq,
-    rel,
+	acq,
+	rel,
 }
 
 template atomicStore(T, msync ms){

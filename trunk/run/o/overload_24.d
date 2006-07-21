@@ -20,7 +20,7 @@ class Base{
 
 class Derived:Base{
 	package char[] name(){
-                return "derived";
+		return "derived";
 	}
 }
 

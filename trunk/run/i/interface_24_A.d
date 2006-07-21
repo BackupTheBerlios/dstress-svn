@@ -28,7 +28,7 @@ class Class : I {
 int main() {
 	Class c = new Class();
 	I i = c;
-	
+
 	if(c.x() != 1){
 		assert(0);
 	}

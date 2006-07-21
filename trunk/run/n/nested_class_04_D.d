@@ -17,15 +17,15 @@ struct Outer{
 		this(){
 			 x = i;
 		}
-        }
+	}
 
-        Inner test(){
+	Inner test(){
 		Inner o;
 
 		o = new Inner();
 
 		return o;
-        }
+	}
 }
 
 int main(){

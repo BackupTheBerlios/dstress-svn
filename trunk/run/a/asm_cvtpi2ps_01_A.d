@@ -20,13 +20,13 @@ version(runTest){
 		int[] a = new int[2];
 		a[0] = -3;
 		a[1] = 2;
-		
+
 		float[] b = new float[4];
 		b[0] = 10.1f;
 		b[1] = 20.2f;
 		b[2] = 30.3f;
 		b[3] = 40.4f;
-		
+
 		float[] c = new float[4];
 
 		asm{

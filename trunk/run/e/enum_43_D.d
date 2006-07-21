@@ -10,7 +10,7 @@ module dstress.run.e.enum_43_D;
 
 int main(){
 	int[E.max] array;
-	
+
 	if(E.max == 3 && array.length == 3){
 		return 0;
 	}

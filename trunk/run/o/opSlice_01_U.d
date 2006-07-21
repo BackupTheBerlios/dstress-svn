@@ -18,9 +18,9 @@ int main(){
 	E arr[4][2];
 
 	arr[0][1]=E.b;
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(E.a != arr[0][0]){
 		assert(0);
 	}

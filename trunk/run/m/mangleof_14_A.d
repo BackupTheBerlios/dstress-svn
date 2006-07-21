@@ -13,7 +13,7 @@ template a(size_t n){
 }
 
 template b(f) {
-	const int b =  a!(f.mangleof.length);
+	const int b = a!(f.mangleof.length);
 }
 
 int main(){

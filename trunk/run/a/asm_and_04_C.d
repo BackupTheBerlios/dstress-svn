@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		uint a = 0x12_34_56_06;
 		uint b = 0x02_12_41_05;
-		
+
 		asm{
 			mov EAX, a;
 			mov EBX, b;

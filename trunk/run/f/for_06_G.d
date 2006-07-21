@@ -11,7 +11,7 @@ module dstress.run.f.for_06_G;
 int foo(inout real[] arr) {
 	size_t i = 1;
 	int counter;
-	
+
 	for(size_t j = arr.length-1; j >= i; j--) {
 		arr[j] = arr[j - i];
 		counter++;
@@ -23,7 +23,7 @@ int foo(inout real[] arr) {
 int main(){
 	real[] array;
 	array.length = 1;
-	
+
 	if(foo(array)==0){
 		return 0;
 	}else{

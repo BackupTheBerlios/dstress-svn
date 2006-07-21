@@ -21,6 +21,6 @@ int main(){
 	if(sum != 0x41){
 		assert(0);
 	}
-	
+
 	return 0;
 }

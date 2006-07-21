@@ -8,7 +8,7 @@ module dstress.run.d.double_27_C;
 
 double func (double *array){
 	double d = *array;
-	
+
 	if (d == 0.0){
 		return d;
 	}else{
@@ -22,6 +22,6 @@ int main (){
 	if(func(values) != 0.1e-100){
 		assert(0);
 	}
-	
+
 	return 0;
 }

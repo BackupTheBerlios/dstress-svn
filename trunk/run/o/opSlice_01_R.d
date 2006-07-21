@@ -13,9 +13,9 @@ int main(){
 	creal arr[4][2] = 0.0L + 0.0Li;
 
 	arr[0][1] = 0.0L + 1.0Li;
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(arr[0][0]){
 		assert(0);
 	}

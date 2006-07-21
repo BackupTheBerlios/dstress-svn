@@ -19,9 +19,9 @@ int main(){
 	mInter arr[4][2];
 
 	arr[0][1]=new mObj();
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(!(null is arr[0][0])){
 		assert(0);
 	}

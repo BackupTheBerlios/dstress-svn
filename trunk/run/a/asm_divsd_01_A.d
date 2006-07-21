@@ -12,16 +12,16 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		double[] a = new double[2];
 		a[0] = -16.0f;
-		a[1] =  12.0;
-		
+		a[1] = 12.0;
+
 		double[] b = new double[2];
 		b[0] = 2.0f;
 		b[1] = 3.0f;
-		
+
 		double[] c = new double[2];
 
 		asm{

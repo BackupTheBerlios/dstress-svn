@@ -11,7 +11,7 @@ module dstress.run.f.forward_reference_12_C;
 
 class Test{
 	Outer.Inner s;
-	
+
 	this(){
 		s = new Outer.Inner;
 	}

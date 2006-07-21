@@ -12,14 +12,14 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	
+
 	int main(){
 		haveSSE2!()();
-		
+
 		double[] a = new double[2];
 		a[0] = 1.0;
 		a[1] = 2.0;
-		
+
 		double b = 1.0;
 		ulong[] c = new ulong[2];
 		double[] d = new double[2];

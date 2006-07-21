@@ -30,7 +30,7 @@ class Foo{
 int main(){
 	Foo foo = new Foo();
 	int delegate() hallo;
-	
+
 	hallo = foo.bar.getDelegate();
 
 	if(!hallo){
@@ -45,7 +45,7 @@ int main(){
 	if(status != 1){
 		assert(0);
 	}
-		
+
 	return 0;
 }
 

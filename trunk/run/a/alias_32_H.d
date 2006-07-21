@@ -11,7 +11,7 @@ module dstress.run.a.alias_32_H;
 bool status = false;
 
 enum Enum {
-        ONE = 1,
+	ONE = 1,
 	TWO,
 	THREE
 }

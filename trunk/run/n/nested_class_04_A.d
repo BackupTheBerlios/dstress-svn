@@ -17,11 +17,11 @@ class Outer{
 		this(){
 			 x = i;
 		}
-        }
+	}
 
-        Inner test(){
+	Inner test(){
 		return new Inner();
-        }
+	}
 }
 
 int main(){

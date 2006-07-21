@@ -17,6 +17,6 @@ int main(){
 
 	static assert(hello == 3);
 	static assert(.hello == 3);
-	
+
 	return 0;
 }

@@ -13,9 +13,9 @@ int main(){
 	real arr[4][2]=0;
 
 	arr[0][1]=1;
-	
+
 	arr[1..3] = arr[0];
-	
+
 	if(arr[0][0]){
 		assert(0);
 	}

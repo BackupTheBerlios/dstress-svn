@@ -1,0 +1,527 @@
+dmd-0.163   -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC -O  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -O -release  -od./obj -c compile/m/mangleof_16_A.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163   -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -fPIC -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC -O  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -fPIC -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -inline -fPIC -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -fPIC -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -g -inline -O -release  -od./obj -c compile/m/mangleof_16_D.d
+dmd-0.163.bin: mtype.c:536: virtual Expression* Type::getProperty(Loc, Identifier*): Assertion `deco' failed.
+
+dmd-0.163 -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -inline -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -inline -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -inline -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -inline -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_A.d.exe run/b/bug_cgcod_1667_A.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -inline -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -inline -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -inline -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163 -g -inline -fPIC -O  -od./obj -ofrun/b/bug_cgcod_1667_C.d.exe run/b/bug_cgcod_1667_C.d
+Internal error: ../ztc/cgcod.c 1680
+
+dmd-0.163   -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -O  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -O -release  -od./obj -ofrun/b/bug_type_308_B.d.exe run/b/bug_type_308_B.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163   -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -O  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -O -release  -od./obj -ofrun/b/bug_type_308_D.d.exe run/b/bug_type_308_D.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163   -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -O  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -inline -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -fPIC -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308
+
+dmd-0.163 -g -inline -O -release  -od./obj -ofrun/b/bug_type_308_F.d.exe run/b/bug_type_308_F.d
+Internal error: ../ztc/type.c 308

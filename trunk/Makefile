@@ -182,6 +182,8 @@ compile : $(dstress__) compile_clean
 compile_clean :
 	$(eval z_rm = $(shell find compile -type f  -name "*\\.o" | grep -v ".svn"))
 	$(RM) $(z_rm)
+	$(eval z_rm = $(shell find compile -type f  -name "*\\.exe" | grep -v ".svn"))
+	$(RM) $(z_rm)
 
 # used in some complex test cases
 define analyse_compile

@@ -10,7 +10,7 @@ module dstress.run.r.real_26_I;
 
 int main(){
 	const double d = real.max;
-	real r = f;
+	real r = d;
 
 	if(r != r.infinity){
 		assert(0);

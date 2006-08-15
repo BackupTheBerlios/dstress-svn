@@ -9,11 +9,11 @@
 module dstress.run.opEquals_01;
 
 struct TestStruct{
-	int opEquals(TestStruct[] t){
+	bool opEquals(TestStruct[] t){
 		return 0;
 	}
 	
-	int opEquals(TestStruct t){
+	bool opEquals(TestStruct t){
 		return 0;
 	}
 }

@@ -11,7 +11,7 @@
 module dstress.nocompile.opEquals_03;
 
 struct TestStruct{
-	int opEquals(TestStruct[] t){ // no overload for TestStruct present
+	bool opEquals(TestStruct[] t){ // no overload for TestStruct present
 		return 0;
 	}
 }

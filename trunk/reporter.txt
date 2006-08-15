@@ -53,9 +53,9 @@ Fredrik Olsson		<peylow@gmail.com>
 Frits van Bommel	<fvbommel@wxs.nl>
 Garett Bass		<garettbass@studiotekne.com>
 Geoff Hickey
-h3r3tic / heretic
 Hauke Duden		<H.NS.Duden@gmx.net>
 Hiroshi Sakurai
+icee			<iceelyne@gmail.com>
 Ilya Zaitseff		<sark7@mail333.com>
 imr1984
 Ivan Senji		<ivan.senji@public.srce.hr>,  <ivan.senji_REMOVE_@_THIS__gmail.com>
@@ -111,6 +111,7 @@ Sean Kelly		<sean@f4.ca>
 Sebastian Beschke	<s.beschke@gmx.de>
 shinichiro.h		<s31552@mail.ecc.u-tokyo.ac.jp>
 Simon Buchan
+Søren J. Løvborg	<web@kwi.dk>
 Stephan Bergmann	<stephan.bergmann@sun.com>
 Stephan Wienczny	<Stephan@Wienczny.de>, <wienczny@web.de>
 Sterling Christensen	<sterlingchristensen@hotmail.com>
@@ -121,7 +122,7 @@ Thomas Kuehne		<thomas-dloop@kuehne.THISISSPAM.cn>
 Tiago Gasiba		<tiago.gasiba@gmail.com>
 Tim Keating
 Tintor Marko		<tm030127d@galeb.etf.bg.ac.yu>
-Tom S			<h3r3tic@remove.mat.uni.torun.pl>
+Tomasz Stachowiak(aka Tom S / h3r3tic / heretic)	<h3r3tic@remove.mat.uni.torun.pl>
 Tyro			<ridimz_at@yahoo.dot.com>
 Unknown W. Brackets	<unknown@simplemachines.org>
 Uwe Salomon		<post@uwesalomon.de>

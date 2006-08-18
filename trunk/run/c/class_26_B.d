@@ -9,10 +9,9 @@
 
 module dstress.run.c.class_26_B;
 
+int status;
 
 int main(){
-	int status;
-
 	int delegate() foo(){
 		return &(new class
 			{

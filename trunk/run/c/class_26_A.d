@@ -9,9 +9,9 @@
 
 module dstress.run.c.class_26_A;
 
-int main(){
-	int status;
+int status;
 
+int main(){
 	int delegate() foo(){
 		class C{
 			int dg(){

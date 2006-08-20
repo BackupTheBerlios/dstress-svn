@@ -10,36 +10,48 @@ version(D_InlineAsm_X86){
 	version = runTest;
 }
 
-int main(){
-	version(runTest){
-		static float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
-		uint[4] c;
-		float[4] f;
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		haveSSE!()();
+
+		float* a = new float[4];
+		a[0] = 1.0f;
+		a[1] = 2.0f;
+		a[2] = 3.0f;
+		a[3] = 4.0f;
+		
+		uint* c = new uint[4];
+		float* f = new float[4];
 
 		asm{
-			movups XMM0, A;
-			movups XMM1, A;
+			mov EAX, a;
+			movups XMM0, [EAX];
+			movups XMM1, [EAX];
 			cmpss XMM0, XMM1, 0;
-			movdqu c, XMM0;
-			movups f, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
+			mov EAX, f;
+			movups [EAX], XMM0;
 		}
 
 		if(c[0] != uint.max){
 			assert(0);
 		}
-		if(f[1] != A[1]){
+		if(f[1] != a[1]){
 			assert(0);
 		}
-		if(f[2] != A[2]){
+		if(f[2] != a[2]){
 			assert(0);
 		}
-		if(f[3] != A[3]){
+		if(f[3] != a[3]){
 			assert(0);
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

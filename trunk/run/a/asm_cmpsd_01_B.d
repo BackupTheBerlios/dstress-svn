@@ -16,19 +16,22 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		double[] a = new double[2];
+		double* a = new double[2];
 		a[0] = 1.0;
 		a[1] = 2.0;
 
 		double b = 1.0;
-		ulong[] c = new ulong[2];
-		double[] d = new double[2];
+		ulong* c = new ulong[2];
+		double* d = new double[2];
 
 		asm{
-			movupd XMM0, a;
+			mov EAX, a;
+			movupd XMM0, [EAX];
 			cmpsd XMM0, b, 0;
-			movdqu c, XMM0;
-			movupd d, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
+			mov EAX, d;
+			movupd [EAX], XMM0;
 		}
 
 		if(c[0] != ulong.max){

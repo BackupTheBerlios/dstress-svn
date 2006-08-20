@@ -4,8 +4,18 @@
 
 module dstress.run.a.asm_cvtsi2ss_01;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		haveSSE!()();
+
 		int i = -23000;
 		float f = 0.0f;
 
@@ -14,12 +24,16 @@ int main(){
 			movd f, XMM0;
 		}
 
-		assert(f==-23000.0);
-		assert(i==-23000);
+		if(f != -23000.0){
+			assert(0);
+		}
+		if(i != -23000){
+			assert(0);
+		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

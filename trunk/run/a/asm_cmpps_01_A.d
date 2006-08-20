@@ -16,25 +16,28 @@ version(D_InlineAsm_X86){
 	int main(){
 		haveSSE!()();
 
-		float[] a = new float[4];
+		float* a = new float[4];
 		a[0] = 1.0f;
 		a[1] = 2.0f;
 		a[2] = 3.0f;
 		a[3] = 4.0f;
 
-		float[] b = new float[4];
+		float* b = new float[4];
 		b[0] = 1.1f;
 		b[1] = 1.9f;
 		b[2] = 3.0f;
 		b[3] = 4.1f;
 
-		uint[] c = new uint[4];
+		uint* c = new uint[4];
 
 		asm{
-			movups XMM0, a;
-			movups XMM1, b;
+			mov EAX, a;
+			movups XMM0, [EAX];
+			mov EAX, b;
+			movups XMM1, [EAX];
 			cmpps XMM0, XMM1, 0;
-			movups c, XMM0;
+			mov EAX, c;
+			movups [EAX], XMM0;
 		}
 
 		if(c[0]){

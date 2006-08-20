@@ -17,16 +17,18 @@ version(runTest){
 		haveSSE2!();
 		haveMMX!();
 
-		int[] a = new int[2];
+		int* a = new int[2];
 		a[0] = -3;
 		a[1] = 2;
 
-		double[] b = new double[2];
+		double* b = new double[2];
 
 		asm{
-			movq MM0, a;
+			mov EAX, a;
+			movq MM0, [EAX];
 			cvtpi2pd XMM0, MM0;
-			movupd b, XMM0;
+			mov EAX, b;
+			movupd [EAX], XMM0;
 			emms;
 		}
 

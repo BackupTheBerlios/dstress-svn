@@ -16,23 +16,25 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		float[] a = new float[4];
+		float* a = new float[4];
 		a[0] = 1.0f;
 		a[1] = 20.0f;
 		a[2] = 0.4f;
 		a[3] = 1.0f;
 
-		float[] b = new float[4];
+		float* b = new float[4];
 		b[0] = 4.0f;
 		b[1] = 10.0f;
 		b[2] = 4.0f;
 		b[3] = -1.0f;
 
 		asm{
-			movups XMM0, a;
-			movups XMM1, b;
+			mov EAX, a;
+			movups XMM0, [EAX];
+			mov EAX, b;
+			movups XMM1, [EAX];
 			addps XMM0, XMM1;
-			movups b, XMM0;
+			movups [EAX], XMM0;
 		}
 
 		b[0] -= 5.0f;

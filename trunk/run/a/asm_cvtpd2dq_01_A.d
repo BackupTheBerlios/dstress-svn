@@ -16,16 +16,18 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		double[] a = new double[2];
+		double* a = new double[2];
 		a[0] = -2.0;
 		a[1] = 4.0;
 
-		int[] b = new int[4];
+		int* b = new int[4];
 
 		asm{
-			movdqu XMM0, a;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
 			cvtpd2dq XMM1, XMM0;
-			movdqu b, XMM1;
+			mov EAX, b;
+			movdqu [EAX], XMM1;
 		}
 
 		if(b[0] != -2){

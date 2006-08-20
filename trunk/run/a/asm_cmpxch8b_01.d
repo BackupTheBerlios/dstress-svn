@@ -4,8 +4,14 @@
 
 module dstress.run.a.asm_cmpxch8b_01_B;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		uint a = 1;
 		uint d = 1;
 		ulong c = 0;
@@ -21,9 +27,15 @@ int main(){
 			mov d, EDX;
 		}
 
-		assert(c==c.max);
-		assert(a==0);
-		assert(d==0);
+		if(c != c.max){
+			assert(0);
+		}
+		if(a != 0){
+			assert(0);
+		}
+		if(d != 0){
+			assert(0);
+		}
 
 		c=1;
 
@@ -39,14 +51,19 @@ int main(){
 			mov d, EDX;
 		}
 
-
-		assert(c==1);
-		assert(a==1);
-		assert(d==0);
+		if(c != 1){
+			assert(0);
+		}
+		if(a != 1){
+			assert(0);
+		}
+		if(d != 0){
+			assert(0);
+		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

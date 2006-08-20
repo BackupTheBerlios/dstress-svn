@@ -16,19 +16,21 @@ version(runTest){
 	int main(){
 		haveSSE3!()();
 
-		double[] a = new double[2];
+		double* a = new double[2];
 		a[0] = 1.0;
 		a[1] = 30.0;
 
-		double[] b = new double[2];
+		double* b = new double[2];
 		b[0] = 4.0;
 		b[1] = 10.0;
 
 		asm{
-			movupd XMM0, a;
-			movupd XMM1, b;
+			mov EAX, a;
+			movupd XMM0, [EAX];
+			mov EAX, b;
+			movupd XMM1, [EAX];
 			addsubpd XMM0, XMM1;
-			movupd b, XMM0;
+			movupd [EAX], XMM0;
 		}
 
 		b[0] += 3.0;

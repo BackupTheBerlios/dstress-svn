@@ -12,13 +12,13 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	int main(){
-		float[] a = new float[4];
+		float* a = new float[4];
 		a[0] = 1.0f;
 		a[1] = 2.0f;
 		a[2] = 3.0f;
 		a[3] = -8.0f;
 
-		float[] b = new float[4];
+		float* b = new float[4];
 		b[0] = 0.0f;
 		b[1] = 4.0f;
 		b[2] = 3.0f;
@@ -27,8 +27,10 @@ version(runTest){
 		uint i;
 
 		asm{
-			movdqu XMM0, a;
-			movdqu XMM1, b;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			comiss XMM0, XMM1;
 			mov EAX, 0;
 			jnc done_1;
@@ -44,10 +46,11 @@ version(runTest){
 		}
 
 		asm{
-			movdqu XMM0, b;
-			movdqu XMM1, a;
+			mov EAX, b;
+			movdqu XMM0, [EAX];
+			mov EAX, a;	
+			movdqu XMM1, [EAX];
 			comiss XMM0, XMM1;
-			emms;
 			mov EAX, 0;
 			jnc done_2;
 			jz done_2;

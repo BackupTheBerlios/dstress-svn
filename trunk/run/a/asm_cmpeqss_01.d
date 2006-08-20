@@ -2,10 +2,20 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_cmpltss_01;
+module dstress.run.a.asm_cmpeqss_01;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		haveSSE!()();
+		
 		float a = 1.2;
 		float b = 1.2;
 		uint res;
@@ -16,11 +26,13 @@ int main(){
 			movd res, XMM0;
 		}
 
-		assert(res == res.max);
+		if(res != res.max){
+			assert(0);
+		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

@@ -12,10 +12,12 @@ int main(){
 	x[2]=11;
 
 	int y=0;
-	foreach(int index, int x; x){
-		y+=x;
+	foreach(int index, int z; x){
+		y += z;
 	}
-	assert(y==27);
+	if(y != 27){
+		assert(0);
+	}
 
 	return 0;
 }

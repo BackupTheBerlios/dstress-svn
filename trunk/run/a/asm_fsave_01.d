@@ -24,10 +24,11 @@ version(runTest){
 			static assert(0);
 		}
 
-		ubyte[] state = new ubyte[stateSize];
+		ubyte* state = new ubyte[stateSize];
 
 		asm{
-			fsave state;
+			mov EAX, state;
+			fsave [EAX];
 		}
 
 		return 0;

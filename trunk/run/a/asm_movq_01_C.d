@@ -16,10 +16,15 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static ulong[2] a = [0x1234_ABCD_5678_EF90_LU, 0x1122_2222_5555_FFFF_LU];
-		static ulong[2] b = [0x1000_1111_5678_EF90_LU, 0x1122_5566_77AA_FFFF_LU];
+		ulong[] a = new ulong[2];
+		a[0] = 0x1234_ABCD_5678_EF90_LU;
+		a[1] = 0x1122_2222_5555_FFFF_LU;
+		
+		ulong[] b = new ulong[2];
+		b[0] = 0x1000_1111_5678_EF90_LU;
+		b[1] = 0x1122_5566_77AA_FFFF_LU;
 
-		ulong[2] c;
+		ulong[] c = new ulong[2];
 
 		asm{
 			movdqu XMM0, a;

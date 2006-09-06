@@ -7,18 +7,22 @@
 // @uri@	news:cttuih$hpb$1@digitaldaemon.com
 // @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2852
 
-module dstress.run.with_13;
+module dstress.run.w.with_13_B;
 
-struct Entry{
+class Entry{
 	int a;
 }
 
 class Class{
 	Entry[] table;
-	
+
 	this(){
 		table = new Entry[10];
-		table[1].a = 4;
+		table[0] = new Entry();
+		table[1] = new Entry();
+		table[2] = new Entry();
+
+		table[1].a = 5;
 	}
 	
 	Entry opIndex(int i){
@@ -30,12 +34,13 @@ int main(){
 	Class c= new Class();
 
 	with(c[1]){
-		if(a != 4){
+		if(a != 5){
 			assert(0);
 		}
 		a++;
 	}
-	if(c[1].a != 4){
+	
+	if(c[1].a != 6){
 		assert(0);
 	}
 

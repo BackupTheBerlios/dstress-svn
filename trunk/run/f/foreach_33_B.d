@@ -10,8 +10,8 @@ int main(){
 
 	char c = 0x20;
 
-	foreach(c; data){
-		sum += c;
+	foreach(x; data){
+		sum += x;
 	}
 
 	if(c != 0x20){

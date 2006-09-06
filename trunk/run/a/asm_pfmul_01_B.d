@@ -16,13 +16,19 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		const float[2] A = [-3.0f, 7.0f];
-		const float[2] B = [2.0f, 8.0f];
-		float[2] c;
+		float[] a = new float[2];
+		a[0] = -3.0f;
+		a[1] = 7.0f;
+		
+		float[] b = new float[2];
+		b[0] = 2.0f;
+		b[1] = 8.0f;
+		
+		float[] c = new float[2];
 
 		asm{
-			movq MM0, A;
-			movq MM1, B;
+			movq MM0, a;
+			movq MM1, b;
 			pfmul MM0, MM1;
 			movq c, MM0;
 			emms;

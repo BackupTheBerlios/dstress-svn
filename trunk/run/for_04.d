@@ -13,6 +13,10 @@ int main() {
 	for (i = 0; i < 10; i++){
 		debug i=22;
 	}
-	assert(i==10);
+
+	if(i != 10){
+		assert(0);
+	}
+
 	return 0;
 }

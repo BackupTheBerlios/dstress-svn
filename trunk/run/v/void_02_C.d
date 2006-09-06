@@ -11,6 +11,8 @@ module dstress.run.v.void_02_C;
 void[10] array = void;
 
 int main(){
-	assert(array.length==10);
+	if(array.length != 10){
+		assert(0);
+	}
 	return 0;
 }

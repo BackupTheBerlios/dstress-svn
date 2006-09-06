@@ -10,9 +10,9 @@ int main(){
 
 	creal c = 1.0L + 2.0Li;
 
-	foreach(c; data){
-		static assert(typeid(typeof(c)) == typeid(char));
-		sum += c;
+	foreach(x; data){
+		static assert(typeid(typeof(x)) == typeid(char));
+		sum += x;
 	}
 
 	if(sum != 0x41){

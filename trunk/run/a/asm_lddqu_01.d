@@ -16,7 +16,7 @@ version(runTest){
 	int main(){
 		haveSSE3!()();
 
-		ubyte[] a = new ubyte[16];
+		ubyte* a = new ubyte[16];
 		a[0] = 1;
 		a[1] = 2;
 		a[2] = 3;
@@ -34,18 +34,16 @@ version(runTest){
 		a[14] = 15;
 		a[15] = 16;
 
-		ubyte[] b = new ubyte[16];
+		ubyte* b = new ubyte[16];
 
 		asm{
-			lddqu XMM0, a;
-			movdqu b, XMM0;
+			mov EAX, a;
+			lddqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu [EAX], XMM0;
 		}
 
-		if(a.length != b.length){
-			assert(0);
-		}
-
-		for(size_t i = 0; i < a.length; i++){
+		for(size_t i = 0; i < 16; i++){
 			if(a[i] != b[i]){
 				assert(0);
 			}

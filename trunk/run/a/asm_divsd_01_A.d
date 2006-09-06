@@ -14,21 +14,24 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		double[] a = new double[2];
+		double* a = new double[2];
 		a[0] = -16.0f;
 		a[1] = 12.0;
 
-		double[] b = new double[2];
+		double* b = new double[2];
 		b[0] = 2.0f;
 		b[1] = 3.0f;
 
-		double[] c = new double[2];
+		double* c = new double[2];
 
 		asm{
-			movupd XMM0, a;
-			movupd XMM1, b;
+			mov EAX, a;
+			movupd XMM0, [EAX];
+			mov EAX, b;
+			movupd XMM1, [EAX];
 			divsd XMM0, XMM1;
-			movupd c, XMM0;
+			mov EAX, c;
+			movupd [EAX], XMM0;
 		}
 
 		c[0] += 8.0f;

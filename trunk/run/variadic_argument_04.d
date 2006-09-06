@@ -24,7 +24,9 @@ template t(T){
 
 int main(){
 	t!(int delegate()) (delegate real(){return 1.1L;});
-	assert(status==1);	
+	if(status != 1){
+		assert(0);
+	}
 	return 0;
 }
 

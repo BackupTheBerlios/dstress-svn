@@ -16,11 +16,16 @@ struct Entry{
 int main(){
 	Entry[10] table;
 
-	assert(table[1].a==0);
-	with( table[1]){
+	if(table[1].a != 0){
+		assert(0);
+	}
+	
+	with(table[1]){
 		a=1;
 	}
-	assert(table[1].a==1);
+	if(table[1].a != 1){
+		assert(0);
+	}
 
 	return 0;
 }

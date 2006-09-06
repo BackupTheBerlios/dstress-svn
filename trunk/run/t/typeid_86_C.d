@@ -15,7 +15,8 @@ int main(){
 	union B{
 	}
 
-	assert(typeid(A) != typeid(B));
-
-	return 0;
+	if(typeid(A) != typeid(B)){
+		return 0;
+	}
+	assert(0);
 }

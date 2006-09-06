@@ -27,7 +27,9 @@ int main(){
 		static assert(0); // this isn't yet part of the standard (v0.124)
 	}
 
-	assert(cpu==1);
+	if(cpu != 1){
+		assert(0);
+	}
 
 	return 0;
 }

@@ -12,4 +12,5 @@ int main(){
 	if(typeid(int*) != typeid(short*)){
 		return 0;
 	}
+	assert(0);
 }

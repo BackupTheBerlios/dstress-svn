@@ -9,11 +9,21 @@
 module dstress.run.t.typeid_86_D;
 
 int main(){
-	assert(typeid(int function(float)) != typeid(int function(char)));
-	assert(typeid(int function(float)) != typeid(byte function(float)));
-	assert(typeid(byte function(byte)) != typeid(byte function(int)));
-	assert(typeid(void function(int)) != typeid(int function(int)));
-	assert(typeid(int function()) != typeid(int function(int)));
+	if(typeid(int function(float)) == typeid(int function(char))){
+		assert(0);
+	}
+	if(typeid(int function(float)) == typeid(byte function(float))){
+		assert(0);
+	}
+	if(typeid(byte function(byte)) == typeid(byte function(int))){
+		assert(0);
+	}
+	if(typeid(void function(int)) == typeid(int function(int))){
+		assert(0);
+	}
+	if(typeid(int function()) == typeid(int function(int))){
+		assert(0);
+	}
 
 	return 0;
 }

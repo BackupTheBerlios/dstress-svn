@@ -9,9 +9,18 @@ class MyClass{
 
 int main(){
 	TypeInfo ti = typeid(MyClass);
-	assert(!(ti is null));
+	if(ti is null){
+		assert(0);
+	}
 	assert(ti);
-	assert(ti.tsize==(MyClass).sizeof);
-	assert(ti.toString()=="dstress.run.t.typeid_87.MyClass");
+	if(ti.tsize != (MyClass).sizeof){
+		assert(0);
+	}
+	if(MyClass.mangleof != "C7dstress3run1t9typeid_877MyClass"){
+		assert(0);
+	}
+	if(ti.toString() != "dstress.run.t.typeid_87.MyClass"){
+		assert(0);
+	}
 	return 0;
 }

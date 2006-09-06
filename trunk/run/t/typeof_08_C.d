@@ -11,11 +11,11 @@ module dstress.run.t.typeof_08_C;
 typeof("abc"w) y;
 
 int main(){
-	static if(!is(typeof(y) == wchar[])){
+	static if(!is(typeof(y) == wchar[3])){
 		static assert(0);
 	}
 
-	if(y.length != 0){
+	if(y.length != 3){
 		assert(0);
 	}
 

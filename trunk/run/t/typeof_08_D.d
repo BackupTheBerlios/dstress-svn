@@ -8,10 +8,10 @@
 
 module dstress.run.t.typeof_08_D;
 
-typeof("") y;
+typeof(""w) y;
 
 int main(){
-	static if(!is(typeof(y) == wchar[])){
+	static if(!is(typeof(y) == wchar[0])){
 		static assert(0);
 	}
 

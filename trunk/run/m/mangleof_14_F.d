@@ -13,7 +13,7 @@ template a(char n){
 }
 
 template b(f) {
-	const int b = a!(f.mangleof[$ - 1]);
+	const char b = a!(f.mangleof[$ - 1]);
 }
 
 int main(){

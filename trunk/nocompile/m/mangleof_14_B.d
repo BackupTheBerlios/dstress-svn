@@ -6,6 +6,8 @@
 // @date@	2005-12-06
 // @uri@	news:dn488i$11kk$1@digitaldaemon.com
 
+// __DSTRESS_ELINE__ 18
+
 module dstress.run.m.mangleof_14_B;
 
 template a(char[] n){

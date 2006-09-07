@@ -94,7 +94,7 @@ nail			<nail-mail@mail.ru>
 ndove			http://www.dsource.org/forums/profile.php?mode=viewprofile&u=142
 Neil Santos
 Nick Sabalausky
-Oskar Linde		<d98-oliRE.MO.VE@nada.kth.se>
+Oskar Linde		<d98-oliRE.MO.VE@nada.kth.se>, <oskar.linde@gmail.com>
 Patrick Down
 Paul Guerra
 Paul Runde		<prunde@consolidated.net>
@@ -116,6 +116,7 @@ Stephan Bergmann	<stephan.bergmann@sun.com>
 Stephan Wienczny	<Stephan@Wienczny.de>, <wienczny@web.de>
 Sterling Christensen	<sterlingchristensen@hotmail.com>
 Stewart Gordon		<smjg_1998@yahoo.com>, <smjg@iname.com>
+sugiyama		<sugiyama563@msn.com>
 teqDruid		<me@teqdruid.com>
 tetsuya
 Thomas Kuehne		<thomas-dloop@kuehne.THISISSPAM.cn>

@@ -6,6 +6,7 @@ Alberto Simon		<lugaidster@gmail.com>
 Aleksey Bobnev		<uw@front.ru>
 Alex			<CppCoder@gmail.com>
 Anders F Björklun	<afb@algonet.se>
+Anders Runesson		<anders@runesson.info>
 Andrew Fedoniouk	<news@terrainformatica.com>
 Andy Friesen		<andy@ikagames.com>
 Ant			<duitoolkit@yahoo.ca>
@@ -111,6 +112,7 @@ Sean Kelly		<sean@f4.ca>
 Sebastian Beschke	<s.beschke@gmx.de>
 shinichiro.h		<s31552@mail.ecc.u-tokyo.ac.jp>
 Simon Buchan
+simon hudon
 Søren J. Løvborg	<web@kwi.dk>
 Stephan Bergmann	<stephan.bergmann@sun.com>
 Stephan Wienczny	<Stephan@Wienczny.de>, <wienczny@web.de>

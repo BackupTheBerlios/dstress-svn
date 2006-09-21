@@ -2,11 +2,11 @@
 
 make distclean
 dmd -w -O log.d || exit 2
-export PATH=.:$PATH
+export PATH=.:/home/tk/misc/bin:$PATH
 
-for DMD in `cd /opt/dmd/bin/; ls *dmd-0.*  | sort -u -r`; do
+for DMD in gdmd-0.19 `cd /opt/dmd/bin/; ls dmd-0.*  | grep -v 157 | grep -v 156 | sort -r`; do
 	export DMD
-	if echo $DMD | grep "\\(0\\.138\\)\\|\\(0\\.139\\)\\|\\(0\\.14\\)\\|\\(gdmd\\)\\|\\(0\\.15\\)" > /dev/null 2>/dev/null; then
+	if echo $DMD | grep "\\(0\\.138\\)\\|\\(0\\.139\\)\\|\\(0\\.14\\)\\|\\(gdmd\\)\\|\\(0\\.15\\)\\|\\(0\\.16\\)" > /dev/null 2>/dev/null; then
 		unset DSTRESS_TORTURE_BLOCK
 	else
 		DSTRESS_TORTURE_BLOCK=-fPIC
@@ -21,100 +21,23 @@ for DMD in `cd /opt/dmd/bin/; ls *dmd-0.*  | sort -u -r`; do
 		gunzip < raw_results/linux-amd64_$DMDX.log.gz > raw_results/linux-amd64_$DMDX.log
 		touch -a -m -r raw_results/linux-amd64_$DMDX.log.gz raw_results/linux-amd64_$DMDX.log
 		./log genUpdateList . raw_results/linux-amd64_$DMDX.log
-		if `mv raw_results/linux-amd64_$DMDX.log.update update-list.sh 2> /dev/null`; then
+		if `cat raw_results/linux-amd64_$DMDX.log.update | grep -v "asm_[l-z]" | sort > update-list.sh`; then
+			rm -rf raw_results/linux-amd64_$DMDX.log.update
 			date -R > raw_results/linux-amd64_$DMDX 
 			date -R > raw_results/linux-amd64_$DMDX.log 
 			chmod +x update-list.sh
 			./update-list.sh 2>> raw_results/linux-amd64_$DMDX 1>> raw_results/linux-amd64_$DMDX.log
+			gzip -9 < raw_results/linux-amd64_$DMDX.log >> raw_results/linux-amd64_$DMDX.log.gz
 		fi
 	else
 		echo "$DMD ($DMDX) - full build"
-		make > raw_results/linux-amd64_$DMDX.log 2>&1
+		make complex > raw_results/linux-amd64_$DMDX.log 2>&1
+		# make compile nocompile run norun >> raw_results/linux-amd64_$DMDX.log 2>&1
 		cat log.txt >> raw_results/linux-amd64_$DMDX.log
+		gzip -9 < raw_results/linux-amd64_$DMDX.log >> raw_results/linux-amd64_$DMDX.log.gz
 	fi
 
-	gzip -9 < raw_results/linux-amd64_$DMDX.log >> raw_results/linux-amd64_$DMDX.log.gz
 	rm -f raw_results/linux-amd64_$DMDX.log
 	make distclean
 done
 
-rm -rf tmp2 || exit 1
-mkdir tmp2 || exit 1
-cp -p raw_results/linux-amd64*gz tmp2 || exit 2
-for LOG in `tree -if tmp2 | grep "gz$"`; do
-	touch -a -m -r $LOG $LOG.stamp
-	gunzip $LOG || exit 2
-	touch -a -m -r $LOG.stamp `echo $LOG | sed "s:\\.gz$::"`
-done
-
-./log genReport . \
-	--./tmp2/linux-amd64_dmd-0.151.log \
-	./tmp2/linux-amd64_dmd-0.150.log \
-	./tmp2/linux-amd64_dmd-0.149.log \
-	--./tmp2/linux-amd64_gdc-0.18.1.log \
-	./tmp2/linux-amd64_dmd-0.148.log \
-	./tmp2/linux-amd64_dmd-0.147.log \
-	./tmp2/linux-amd64_dmd-0.146.log \
-	./tmp2/linux-amd64_dmd-0.145.log \
-	./tmp2/linux-amd64_gdc-0.17.log 
-
-mv www/results.html www/results.short.html
-
-./log genReport . \
-	--./tmp2/linux-amd64_dmd-0.151.log \
-	--./tmp2/linux-amd64_dmd-0.150.log \
-	--./tmp2/linux-amd64_dmd-0.149.log \
-	--./tmp2/linux-amd64_gdc-0.18.1.log \
-	--./tmp2/linux-amd64_dmd-0.148.log \
-	--./tmp2/linux-amd64_dmd-0.147.log \
-	--./tmp2/linux-amd64_dmd-0.146.log \
-	--./tmp2/linux-amd64_dmd-0.145.log \
-	--./tmp2/linux-amd64_dmd-0.144.log \
-	--./tmp2/linux-amd64_dmd-0.143.log \
-	--./tmp2/linux-amd64_dmd-0.142.log \
-	--./tmp2/linux-amd64_dmd-0.141.log \
-	--./tmp2/linux-amd64_gdc-0.17.log \
-	--./tmp2/linux-amd64_dmd-0.140.log \
-	--./tmp2/linux-amd64_dmd-0.139.log \
-	--./tmp2/linux-amd64_dmd-0.138.log \
-	--./tmp2/linux-amd64_gdc-0.16.log \
-	--./tmp2/linux-amd64_dmd-0.137.log \
-	--./tmp2/linux-amd64_dmd-0.136.log \
-	--./tmp2/linux-amd64_dmd-0.135.log \
-	--./tmp2/linux-amd64_dmd-0.134.log \
-	--./tmp2/linux-amd64_dmd-0.133.log \
-	--./tmp2/linux-amd64_dmd-0.132.log \
-	--./tmp2/linux-amd64_dmd-0.131.log \
-	--./tmp2/linux-amd64_dmd-0.128.log \
-	--./tmp2/linux-amd64_dmd-0.127.log \
-	--./tmp2/linux-amd64_dmd-0.126.log \
-	--./tmp2/linux-amd64_dmd-0.125.log \
-	--./tmp2/linux-amd64_dmd-0.124.log \
-	--./tmp2/linux-amd64_dmd-0.123.log \
-	--./tmp2/linux-amd64_dmd-0.122.log \
-	--./tmp2/linux-amd64_dmd-0.121.log \
-	--./tmp2/linux-amd64_dmd-0.120.log \
-	--./tmp2/linux-amd64_dmd-0.119.log \
-	--./tmp2/linux-amd64_dmd-0.118.log \
-	--./tmp2/linux-amd64_dmd-0.117.log \
-	--./tmp2/linux-amd64_dmd-0.116.log \
-	--./tmp2/linux-amd64_dmd-0.114.log \
-	--./tmp2/linux-amd64_dmd-0.113.log \
-	--./tmp2/linux-amd64_dmd-0.111.log \
-	--./tmp2/linux-amd64_dmd-0.110.log \
-	--./tmp2/linux-amd64_dmd-0.109.log \
-	--./tmp2/linux-amd64_dmd-0.108.log \
-	--./tmp2/linux-amd64_dmd-0.106.log \
-	--./tmp2/linux-amd64_dmd-0.105.log \
-	--./tmp2/linux-amd64_dmd-0.104.log \
-	--./tmp2/linux-amd64_dmd-0.103.log \
-	--./tmp2/linux-amd64_dmd-0.102.log \
-	--./tmp2/linux-amd64_dmd-0.101.log \
-	--./tmp2/linux-amd64_dmd-0.100.log \
-	--./tmp2/linux-amd64_dmd-0.099.log \
-	--./tmp2/linux-amd64_dmd-0.098.log \
-	--./tmp2/linux-amd64_dmd-0.096.log \
-	--./tmp2/linux-amd64_dmd-0.095.log \
-	--./tmp2/linux-amd64_dmd-0.093.log
-
-rm -rf tmp2

@@ -14,7 +14,7 @@ typedef int intX;
 
 intX test(intX i)
 body {
-	return i + 1;
+	return cast(intX)(i + 1);
 }
 
 int main(){

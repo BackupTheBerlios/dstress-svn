@@ -23,13 +23,26 @@ version(runTest){
 
 		double* b = new double[2];
 
-		asm{
-			mov EAX, a;
-			movq MM0, [EAX];
-			cvtpi2pd XMM0, MM0;
-			mov EAX, b;
-			movupd [EAX], XMM0;
-			emms;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movq MM0, [EAX];
+				cvtpi2pd XMM0, MM0;
+				mov EAX, b;
+				movupd [EAX], XMM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movq MM0, [RAX];
+				cvtpi2pd XMM0, MM0;
+				mov RAX, b;
+				movupd [RAX], XMM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		b[0] += 3.0;

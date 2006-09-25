@@ -24,12 +24,24 @@ version(runTest){
 
 		float* b = new float[4];
 
-		asm{
-			mov EAX, a;
-			movdqu XMM0, [EAX];
-			cvtdq2ps XMM1, XMM0;
-			mov EAX, b;
-			movdqu [EAX], XMM1;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				cvtdq2ps XMM1, XMM0;
+				mov EAX, b;
+				movdqu [EAX], XMM1;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				cvtdq2ps XMM1, XMM0;
+				mov RAX, b;
+				movdqu [RAX], XMM1;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(b[0] != 0.0f){

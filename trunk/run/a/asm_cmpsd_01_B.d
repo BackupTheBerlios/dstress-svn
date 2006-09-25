@@ -24,14 +24,28 @@ version(runTest){
 		ulong* c = new ulong[2];
 		double* d = new double[2];
 
-		asm{
-			mov EAX, a;
-			movupd XMM0, [EAX];
-			cmpsd XMM0, b, 0;
-			mov EAX, c;
-			movdqu [EAX], XMM0;
-			mov EAX, d;
-			movupd [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movupd XMM0, [EAX];
+				cmpsd XMM0, b, 0;
+				mov EAX, c;
+				movdqu [EAX], XMM0;
+				mov EAX, d;
+				movupd [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movupd XMM0, [RAX];
+				cmpsd XMM0, b, 0;
+				mov RAX, c;
+				movdqu [RAX], XMM0;
+				mov RAX, d;
+				movupd [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0] != ulong.max){

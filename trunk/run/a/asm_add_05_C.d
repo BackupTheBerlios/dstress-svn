@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -fPIC
+
 module dstress.run.a.add_05_C;
 
 version(D_InlineAsm_X86){

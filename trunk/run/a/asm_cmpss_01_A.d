@@ -25,15 +25,30 @@ version(runTest){
 		uint* c = new uint[4];
 		float* f = new float[4];
 
-		asm{
-			mov EAX, a;
-			movups XMM0, [EAX];
-			movups XMM1, [EAX];
-			cmpss XMM0, XMM1, 0;
-			mov EAX, c;
-			movdqu [EAX], XMM0;
-			mov EAX, f;
-			movups [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movups XMM0, [EAX];
+				movups XMM1, [EAX];
+				cmpss XMM0, XMM1, 0;
+				mov EAX, c;
+				movdqu [EAX], XMM0;
+				mov EAX, f;
+				movups [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movups XMM0, [RAX];
+				movups XMM1, [RAX];
+				cmpss XMM0, XMM1, 0;
+				mov RAX, c;
+				movdqu [RAX], XMM0;
+				mov RAX, f;
+				movups [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0] != uint.max){

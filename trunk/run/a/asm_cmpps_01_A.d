@@ -30,16 +30,29 @@ version(D_InlineAsm_X86){
 
 		uint* c = new uint[4];
 
-		asm{
-			mov EAX, a;
-			movups XMM0, [EAX];
-			mov EAX, b;
-			movups XMM1, [EAX];
-			cmpps XMM0, XMM1, 0;
-			mov EAX, c;
-			movups [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movups XMM0, [EAX];
+				mov EAX, b;
+				movups XMM1, [EAX];
+				cmpps XMM0, XMM1, 0;
+				mov EAX, c;
+				movups [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movups XMM0, [RAX];
+				mov RAX, b;
+				movups XMM1, [RAX];
+				cmpps XMM0, XMM1, 0;
+				mov RAX, c;
+				movups [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
-
 		if(c[0]){
 			assert(0);
 		}

@@ -22,12 +22,24 @@ version(runTest){
 
 		int* b = new int[4];
 
-		asm{
-			mov EAX, a;
-			movdqu XMM0, [EAX];
-			cvtpd2dq XMM1, XMM0;
-			mov EAX, b;
-			movdqu [EAX], XMM1;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				cvtpd2dq XMM1, XMM0;
+				mov EAX, b;
+				movdqu [EAX], XMM1;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				cvtpd2dq XMM1, XMM0;
+				mov RAX, b;
+				movdqu [RAX], XMM1;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(b[0] != -2){

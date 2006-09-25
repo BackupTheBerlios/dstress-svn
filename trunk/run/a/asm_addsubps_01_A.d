@@ -28,13 +28,26 @@ version(runTest){
 		b[2] = 0.3f;
 		b[3] = 0.4f;
 
-		asm{
-			mov EAX, a;
-			movups XMM0, [EAX];
-			mov EAX, b;
-			movups XMM1, [EAX];
-			addsubps XMM0, XMM1;
-			movups [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movups XMM0, [EAX];
+				mov EAX, b;
+				movups XMM1, [EAX];
+				addsubps XMM0, XMM1;
+				movups [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movups XMM0, [RAX];
+				mov RAX, b;
+				movups XMM1, [RAX];
+				addsubps XMM0, XMM1;
+				movups [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		b[0] -= 0.9f;

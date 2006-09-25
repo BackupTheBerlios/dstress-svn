@@ -8,8 +8,14 @@
 
 module dstress.run.a.asm_movd_02_A;
 
-int main(){
-	version(D_InlineAsm_X86){
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
+
+version(runTest){
+	int main(){
 		ulong l = 0x4444_AAAA_CCCC_1111;
 		uint i = 0x33FF_FF33;
 		asm{
@@ -32,8 +38,8 @@ int main(){
 		return 0;
 bug:
 		assert(0);
-	}else{
-		pragma(msg, "no X86 inline asm support");
-		return 0;
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

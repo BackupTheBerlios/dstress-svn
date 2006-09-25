@@ -14,7 +14,7 @@ version(runTest){
 	int main(){
 		asm{
 			mov AX, 0x0;
-			lar BX, AX;
+			lar CX, AX;
 		}
 
 		return 0;

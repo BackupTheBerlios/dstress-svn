@@ -26,14 +26,28 @@ version(runTest){
 
 		ulong* c = new ulong[2];
 
-		asm{
-			mov EAX, a;
-			movupd XMM0, [EAX];
-			mov EAX, b;
-			movupd XMM1, [EAX];
-			cmppd XMM0, XMM1, 0;
-			mov EAX, c;
-			movupd [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movupd XMM0, [EAX];
+				mov EAX, b;
+				movupd XMM1, [EAX];
+				cmppd XMM0, XMM1, 0;
+				mov EAX, c;
+				movupd [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movupd XMM0, [RAX];
+				mov RAX, b;
+				movupd XMM1, [RAX];
+				cmppd XMM0, XMM1, 0;
+				mov RAX, c;
+				movupd [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0]){

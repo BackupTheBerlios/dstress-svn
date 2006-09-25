@@ -36,11 +36,22 @@ version(runTest){
 
 		ubyte* b = new ubyte[16];
 
-		asm{
-			mov EAX, a;
-			lddqu XMM0, [EAX];
-			mov EAX, b;
-			movdqu [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				lddqu XMM0, [EAX];
+				mov EAX, b;
+				movdqu [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				lddqu XMM0, [RAX];
+				mov RAX, b;
+				movdqu [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		for(size_t i = 0; i < 16; i++){

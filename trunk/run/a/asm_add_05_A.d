@@ -4,6 +4,8 @@
 
 module dstress.run.a.add_05_A;
 
+// __DSTRESS_TORTURE_BLOCK__ -fPIC
+
 version(D_InlineAsm_X86){
 	version = runTest;
 }else version(D_InlineAsm_X86_64){

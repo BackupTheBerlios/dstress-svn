@@ -28,14 +28,28 @@ version(runTest){
 
 		float* c = new float[4];
 
-		asm{
-			mov EAX, a;
-			movups XMM0, [EAX];
-			mov EAX, b;
-			movups XMM1, [EAX];
-			divps XMM0, XMM1;
-			mov EAX, c;
-			movups [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movups XMM0, [EAX];
+				mov EAX, b;
+				movups XMM1, [EAX];
+				divps XMM0, XMM1;
+				mov EAX, c;
+				movups [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movups XMM0, [RAX];
+				mov RAX, b;
+				movups XMM1, [RAX];
+				divps XMM0, XMM1;
+				mov RAX, c;
+				movups [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		c[0] += 8.0f;

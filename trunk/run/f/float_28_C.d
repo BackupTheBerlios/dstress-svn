@@ -12,9 +12,13 @@ module dstress.run.f.float_28_C;
 int main(){
 	const float r;
 
-	static if(r == 0.0){
+	static if(r == 0){
 		assert(0);
 	}
 
-	return 0;
+	static if(r != 0){
+		return 0;
+	}
+
+	assert(0);
 }

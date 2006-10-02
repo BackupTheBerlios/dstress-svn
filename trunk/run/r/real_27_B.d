@@ -12,9 +12,13 @@ module dstress.run.r.real_27_B;
 int main(){
 	real r;
 
-	if(r == 0.0){
+	if(r == 0){
 		assert(0);
 	}
+	
+	if(r != 0){
+		return 0;
+	}
 
-	return 0;
+	assert(0);
 }

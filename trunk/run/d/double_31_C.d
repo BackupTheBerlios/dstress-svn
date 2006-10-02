@@ -12,9 +12,13 @@ module dstress.run.r.double_31_C;
 int main(){
 	const double r = double.nan;
 
-	static if(r == 0.0){
+	static if(r == 0){
 		assert(0);
 	}
+	
+	static if(r != 0){
+		return 0;
+	}
 
-	return 0;
+	assert(0);
 }

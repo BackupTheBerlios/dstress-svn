@@ -12,9 +12,13 @@ module dstress.run.r.real_27_D;
 int main(){
 	const real r = real.nan;
 
-	static if(r == 0.0){
+	static if(r == 0){
 		assert(0);
 	}
+	
+	static if(r != 0){
+		return 0;
+	}
 
-	return 0;
+	assert(0);
 }

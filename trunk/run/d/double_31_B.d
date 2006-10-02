@@ -12,9 +12,13 @@ module dstress.run.r.double_31_B;
 int main(){
 	double r;
 
-	if(r == 0.0){
+	if(r == 0){
 		assert(0);
 	}
+	
+	if(r != 0){
+		return 0;
+	}
 
-	return 0;
+	assert(0);
 }

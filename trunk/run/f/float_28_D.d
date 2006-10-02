@@ -12,9 +12,13 @@ module dstress.run.f.float_28_D;
 int main(){
 	const float r = real.nan;
 
-	static if(r == 0.0){
+	static if(r == 0){
 		assert(0);
 	}
 
-	return 0;
+	static if(r != 0){
+		return 0;
+	}
+
+	assert(0);
 }

@@ -19,11 +19,13 @@ Benjamin Herr
 Bent Rasmussen		<exo@bent-rasmussen.info>
 berupon			<yu@3dcg.ne.jp>
 bobef			<bobef@lessequal.com>
+Boris Kolar		<boris.kolar@globera.com>
 brad beveridge
 Brad Roberts		<braddr@puremagic.com>
+Bradley Smith		<digitalmars-com@baysmith.com>
 Brian Gardner		<briangr@friberg.us>
 Brian Hjølluu
-Bruno Medeiros		<daiphoenixNO@SPAMlycos.com>, <brunodomedeirosATgmail@SPAM.com>
+Bruno Medeiros		<daiphoenixNO@SPAMlycos.com>, <brunodomedeirosATgmail@SPAM.com>, <brunodomedeiros+bugz@gmail.com>
 Buchan			<kbuchan@xtra.co.nz>
 Burton Radons		<burton-radons@shaw.ca>, <burton-radons@smocky.com>
 Carlos Santander B.	<carlos8294@msn.com>, <csantander619@gmail.com>

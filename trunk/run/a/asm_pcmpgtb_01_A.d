@@ -12,20 +12,22 @@ version(D_InlineAsm_X86){
 
 version(runTest){
 	import addon.cpuinfo;
-	import addon.dyn_array;
 
 	int main(){
 		haveSSE2!()();
 
-		byte[] a = dyn_array!(byte)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-		byte[] b = dyn_array!(byte)(1, 3, 2, 4, 6, 5, 7, 9, 8, 10, 12, 11, 13, 16, 15, 14);
-		ubyte[] c = new ubyte[16];
+		byte* a = [cast(byte)1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+		byte* b = [cast(byte)1, 3, 2, 4, 6, 5, 7, 9, 8, 10, 12, 11, 13, 16, 15, 14];
+		ubyte* c = new ubyte[16];
 
 		asm{
-			movdqu XMM0, a;
-			movdqu XMM1, b;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pcmpgtb XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
 		if(c[0] != 0){

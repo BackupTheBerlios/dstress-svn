@@ -16,15 +16,18 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static short[8] A = [1, 2, 3, 4, 5, 6, 7, 8];
-		static short[8] B = [-9, -8, -7, -6, -5, -4, -3, -2];
-		short[8] c;
+		short* a = [cast(short)1, 2, 3, 4, 5, 6, 7, 8];
+		short* b = [cast(short)-9, -8, -7, -6, -5, -4, -3, -2];
+		short* c = new short[8];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			paddw XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
 		if(c[0] != -8){

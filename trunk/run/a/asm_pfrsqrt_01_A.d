@@ -4,36 +4,59 @@
 
 module dstress.run.a.asm_pfrsqrt_01_A;
 
-int main(){
-	version(D_InlineAsm_X86){
-		const float[2] A = [4.0f, 3.3f];
-		float[2] b;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
 
-		asm{
-			pfrsqrt MM0, A;
-			movq b, MM0;
-			emms;
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		have3DNow!()();
+
+		float* a = new float[2];
+		a[0] = 4.0f;
+		a[1] = 3.3f;
+
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				pfrsqrt MM0, [EAX];
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				pfrsqrt MM0, [RAX];
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
-		b[0] -= 0.5f;
-		if(b[0] < 0.0f){
-			b[0] = -b[0];
+		a[0] -= 0.5f;
+		if(a[0] < 0.0f){
+			a[0] = -a[0];
 		}
-		if(b[0] > float.epsilon * (1 << 11)){
+		if(a[0] > float.epsilon * (1 << 11)){
 			assert(0);
 		}
 
-		b[1] -= 0.5f;
-		if(b[1] < 0.0f){
-			b[1] = -b[1];
+		a[1] -= 0.5f;
+		if(a[1] < 0.0f){
+			a[1] = -a[1];
 		}
-		if(b[1] > float.epsilon * (1 << 11)){
+		if(a[1] > float.epsilon * (1 << 11)){
 			assert(0);
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

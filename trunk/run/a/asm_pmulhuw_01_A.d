@@ -16,16 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const ushort[8] A = [1, 2, 0x7FFF, 7, 0x7FF0, 0x7EDC, 3, 0x6BCD];
-		const ushort[8] B = [1, 0, 7, 0x7FFF, 0x00FF, 0x7EDC, 5, 13];
+		ushort* a = [cast(ushort)1, 2, 0x7FFF, 7, 0x7FF0, 0x7EDC, 3, 0x6BCD];
+		ushort* b = [cast(ushort)1, 0, 7, 0x7FFF, 0x00FF, 0x7EDC, 5, 13];
 
-		ushort[8] c;
+		ushort* c = new ushort[8];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pmulhuw XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
 		if(c[0] != 0){

@@ -16,28 +16,43 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		const float[2] A = [4.0f, 0.5f];
-		float[2] c;
+		float* a = new float[2];
+		a[0] = 4.0f;
+		a[1] = 0.5f;
 
-		asm{
-			pfrsqrt MM0, A;
-			pfrsqit1 MM0, A;
-			movq c, MM0;
-			emms;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				pfrsqrt MM0, [EAX];
+				pfrsqit1 MM0, [EAX];
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				pfrsqrt MM0, [RAX];
+				pfrsqit1 MM0, [RAX];
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
-		c[0] -= 1.001953f;
-		if(c[0] < 0.0f){
-			c[0] = -c[0];
+
+		a[0] -= 1.001953f;
+		if(a[0] < 0.0f){
+			a[0] = -a[0];
 		}
-		if(c[0] > float.epsilon * (1 << 8)){
+		if(a[0] > float.epsilon * (1 << 8)){
 			assert(0);
 		}
 
-		c[1] -= 1.001953f;
-		if(c[1] < 0.0f){
-			c[1] = -c[1];
+		a[1] -= 1.001953f;
+		if(a[1] < 0.0f){
+			a[1] = -a[1];
 		}
-		if(c[1] > float.epsilon * (1 << 8)){
+		if(a[1] > float.epsilon * (1 << 8)){
 			assert(0);
 		}
 

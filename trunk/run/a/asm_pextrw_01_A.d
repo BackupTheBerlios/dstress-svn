@@ -16,12 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		static ushort[8] x = [1, 2, 3, 4, 5, 0xFFFF, 7, 0];
+		ushort* x = [cast(ushort)1, 2, 3, 4, 5, 0xFFFF, 7, 0];
 		uint a;
 		uint b;
 
 		asm{
-			movdqu XMM0, x;
+			mov EAX, x;
+			movdqu XMM0, [EAX];
 			pextrw EAX, XMM0, 5;
 			mov a, EAX;
 			pextrw EDX, XMM0, 1;

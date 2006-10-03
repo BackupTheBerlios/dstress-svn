@@ -16,15 +16,18 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static int[4] A = [0, 3, 0, 4];
-		static int[4] B = [0, 1, 1, 4];
-		uint[4] c;
+		int* a = [cast(int)0, 3, 0, 4];
+		int* b = [cast(int)0, 1, 1, 4];
+		uint* c = new uint[4];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pcmpgtd XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
 		if(c[0] != 0){

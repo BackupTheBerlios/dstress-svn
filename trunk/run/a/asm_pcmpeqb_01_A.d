@@ -16,15 +16,18 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static byte[16] A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-		static byte[16] B = [1, 0, byte.min, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 16];
-		ubyte[16] c;
+		byte* a = [cast(byte)1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+		byte* b = [cast(byte)1, 0, byte.min, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 16];
+		ubyte* c = new ubyte[16];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pcmpeqb XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
 		if(c[0] != 0xFF){

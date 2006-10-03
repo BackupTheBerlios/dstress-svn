@@ -17,14 +17,17 @@ version(runTest){
 		haveMMX!()();
 		have3DNow!()();
 
-		const float[2] A = [123.0f, 457.0f];
-		const float[2] B = [124.0f, 456.0f];
-		uint[2] c;
+		float* a = [123.0f, 457.0f];
+		float* b = [124.0f, 456.0f];
+		uint* c = new uint[2];
 
 		asm{
-			movq MM0, A;
-			pfcmpgt MM0, B;
-			movq c, MM0;
+			mov EAX, a;
+			movq MM0, [EAX];
+			mov EAX, b;
+			pfcmpgt MM0, [EAX];
+			mov EAX, c;
+			movq [EAX], MM0;
 			emms;
 		}
 

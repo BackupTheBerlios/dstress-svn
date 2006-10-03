@@ -16,16 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const short[8] A = [-1, 2, 0x7FFF, 7, 0x7FF0, 0x7EDC, 3, -16];
-		const short[8] B = [2, 0, 7, 0x7FFF, 0x00FF, 0x7EDC, 5, 0x6BCD];
+		short* a = [cast(short)-1, 2, 0x7FFF, 7, 0x7FF0, 0x7EDC, 3, -16];
+		short* b = [cast(short)2, 0, 7, 0x7FFF, 0x00FF, 0x7EDC, 5, 0x6BCD];
 
-		ushort[8] c;
+		ushort* c = new ushort[8];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pmulhw XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
 		if(c[0] != 0xFFFF){

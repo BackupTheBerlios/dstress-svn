@@ -16,15 +16,18 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static ushort[8] A = [1, 0, 3, 4, 5, 6, 7, 8];
-		static ushort[8] B = [ushort.max, 8, 7, 6, 5, 4, 3, 2];
-		ushort[8] c;
+		ushort* a = [cast(ushort)1, 0, 3, 4, 5, 6, 7, 8];
+		ushort* b = [cast(ushort)ushort.max, 8, 7, 6, 5, 4, 3, 2];
+		ushort* c = new ushort[8];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			paddusw XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
 		if(c[0] != ushort.max){

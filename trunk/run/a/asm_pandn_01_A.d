@@ -16,45 +16,48 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		static ushort[8] A = [
+		ushort* a = [cast(ushort)
 			0b01101100_01101110, 0b01101001_01101101, 0b01100011_01101011, 0b11100111_01100111,
 			0b11000110_11100110, 0b10001101_10011011, 0b00011011_10011011, 0b01100110_00000000
 		];
-		static ushort[8] B = [
+		ushort* b = [cast(ushort)
 			0b10000000_11000000, 0b01000000_01100000, 0b00100000_00110000, 0b00010000_00011000,
 			0b00001000_00001100, 0b00000100_00000110, 0b00000010_00000011, 0b11111111_10101010
 		];
-		ushort[8] c;
+		ushort* c = new ushort[8];
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pandn XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
-		if(c[0] != ((A[0] ^ 0xFFFF) & B[0])){
+		if(c[0] != ((a[0] ^ 0xFFFF) & b[0])){
 			assert(0);
 		}
-		if(c[1] != ((A[1] ^ 0xFFFF) & B[1])){
+		if(c[1] != ((a[1] ^ 0xFFFF) & b[1])){
 			assert(0);
 		}
-		if(c[2] != ((A[2] ^ 0xFFFF) & B[2])){
+		if(c[2] != ((a[2] ^ 0xFFFF) & b[2])){
 			assert(0);
 		}
-		if(c[3] != ((A[3] ^ 0xFFFF) & B[3])){
+		if(c[3] != ((a[3] ^ 0xFFFF) & b[3])){
 			assert(0);
 		}
-		if(c[4] != ((A[4] ^ 0xFFFF) & B[4])){
+		if(c[4] != ((a[4] ^ 0xFFFF) & b[4])){
 			assert(0);
 		}
-		if(c[5] != ((A[5] ^ 0xFFFF) & B[5])){
+		if(c[5] != ((a[5] ^ 0xFFFF) & b[5])){
 			assert(0);
 		}
-		if(c[6] != ((A[6] ^ 0xFFFF) & B[6])){
+		if(c[6] != ((a[6] ^ 0xFFFF) & b[6])){
 			assert(0);
 		}
-		if(c[7] != ((A[7] ^ 0xFFFF) & B[7])){
+		if(c[7] != ((a[7] ^ 0xFFFF) & b[7])){
 			assert(0);
 		}
 		return 0;

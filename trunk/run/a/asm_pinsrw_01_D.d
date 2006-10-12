@@ -22,13 +22,26 @@ version(runTest){
 		ushort x = 0x34CD;
 		ushort y = 0x0010;
 
-		asm{
-			mov EAX, a;
-			movdqu XMM0, [EAX];
-			pinsrw XMM0, x, 0;
-			pinsrw XMM0, y, 7;
-			mov EAX, b;
-			movdqu [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				pinsrw XMM0, x, 0;
+				pinsrw XMM0, y, 7;
+				mov EAX, b;
+				movdqu [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				pinsrw XMM0, x, 0;
+				pinsrw XMM0, y, 7;
+				mov RAX, b;
+				movdqu [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(b[0] != 0x34CD){

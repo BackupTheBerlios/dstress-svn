@@ -20,13 +20,26 @@ version(runTest){
 		uint a;
 		uint b;
 
-		asm{
-			mov EAX, x;
-			movdqu XMM0, [EAX];
-			pextrw EAX, XMM0, 5;
-			mov a, EAX;
-			pextrw EDX, XMM0, 1;
-			mov b, EDX;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, x;
+				movdqu XMM0, [EAX];
+				pextrw EAX, XMM0, 5;
+				mov a, EAX;
+				pextrw EDX, XMM0, 1;
+				mov b, EDX;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, x;
+				movdqu XMM0, [RAX];
+				pextrw EAX, XMM0, 5;
+				mov a, EAX;
+				pextrw EDX, XMM0, 1;
+				mov b, EDX;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(a != 0xFFFF){

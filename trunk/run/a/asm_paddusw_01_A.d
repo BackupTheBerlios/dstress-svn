@@ -20,14 +20,28 @@ version(runTest){
 		ushort* b = [cast(ushort)ushort.max, 8, 7, 6, 5, 4, 3, 2];
 		ushort* c = new ushort[8];
 
-		asm{
-			mov EAX, a;
-			movdqu XMM0, [EAX];
-			mov EAX, b;
-			movdqu XMM1, [EAX];
-			paddusw XMM0, XMM1;
-			mov EAX, c;
-			movdqu [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				mov EAX, b;
+				movdqu XMM1, [EAX];
+				paddusw XMM0, XMM1;
+				mov EAX, c;
+				movdqu [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				mov RAX, b;
+				movdqu XMM1, [RAX];
+				paddusw XMM0, XMM1;
+				mov RAX, c;
+				movdqu [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0] != ushort.max){

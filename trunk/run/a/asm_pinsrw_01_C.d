@@ -19,15 +19,30 @@ version(runTest){
 		ushort* a = [cast(ushort)1, 2, 3, 4, 5, 0xFFFF, 7, 0];
 		ushort* b = new ushort[8];
 
-		asm{
-			mov EAX, a;
-			movdqu XMM0, [EAX];
-			mov EAX, 0x12AB_34CD;
-			mov EBX, 0xFDCE_0010;
-			pinsrw XMM0, EAX, 0;
-			pinsrw XMM0, EBX, 7;
-			mov EAX, b;
-			movdqu [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				mov EAX, 0x12AB_34CD;
+				mov EBX, 0xFDCE_0010;
+				pinsrw XMM0, EAX, 0;
+				pinsrw XMM0, EBX, 7;
+				mov EAX, b;
+				movdqu [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				mov EAX, 0x12AB_34CD;
+				mov EBX, 0xFDCE_0010;
+				pinsrw XMM0, EAX, 0;
+				pinsrw XMM0, EBX, 7;
+				mov RAX, b;
+				movdqu [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(b[0] != 0x34CD){

@@ -20,14 +20,28 @@ version(runTest){
 		float* b = [124.0f, 456.0f];
 		uint* c = new uint[2];
 
-		asm{
-			mov EAX, a;
-			movq MM0, [EAX];
-			mov EAX, b;
-			pfcmpge MM0, [EAX];
-			mov EAX, c;
-			movq [EAX], MM0;
-			emms;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movq MM0, [EAX];
+				mov EAX, b;
+				pfcmpge MM0, [EAX];
+				mov EAX, c;
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movq MM0, [RAX];
+				mov RAX, b;
+				pfcmpge MM0, [RAX];
+				mov RAX, c;
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0] != 0){

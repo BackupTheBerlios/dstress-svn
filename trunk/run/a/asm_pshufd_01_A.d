@@ -16,28 +16,31 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const float[4] A = [1.0f, 2.0f, 3.0f, 4.0f];
-		const float[4] B = [5.0f, 6.0f, 7.0f, 8.0f];
+		float* a = [1.0f, 2.0f, 3.0f, 4.0f];
+		float* b = [5.0f, 6.0f, 7.0f, 8.0f];
 
-		float[4] c;
+		float* c = new float[4];
 
 		asm{
-			movups XMM0, A;
-			movups XMM1, B;
+			mov EAX, a;
+			movups XMM0, [EAX];
+			mov EAX, b;
+			movups XMM1, [EAX];
 			pshufd XMM0, XMM1, 0b01_01_00_10;
-			movups c, XMM0;
+			mov EAX, c;
+			movups [EAX], XMM0;
 		}
 
-		if(c[0] != 6.0f){
+		if(c[0] != 7.0f){
 			assert(0);
 		}
-		if(c[1] != 6.0f){
+		if(c[1] != 5.0f){
 			assert(0);
 		}
-		if(c[2] != 5.0f){
+		if(c[2] != 6.0f){
 			assert(0);
 		}
-		if(c[3] != 7.0f){
+		if(c[3] != 6.0f){
 			assert(0);
 		}
 

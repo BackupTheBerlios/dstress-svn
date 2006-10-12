@@ -21,14 +21,28 @@ version(runTest){
 		short* b = [cast(short)-9, 10, -11, -12, 13, 14, 0xFFF, 1];
 		short* c = new short[8];
 
-		asm{
-			mov EAX, a;
-			movdqu XMM0, [EAX];
-			mov EAX, b;
-			movdqu XMM1, [EAX];
-			pmaxsw XMM0, XMM1;
-			mov EAX, c;
-			movdqu [EAX], XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				mov EAX, b;
+				movdqu XMM1, [EAX];
+				pmaxsw XMM0, XMM1;
+				mov EAX, c;
+				movdqu [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				mov RAX, b;
+				movdqu XMM1, [RAX];
+				pmaxsw XMM0, XMM1;
+				mov RAX, c;
+				movdqu [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0] != 1){

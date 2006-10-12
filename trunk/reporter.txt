@@ -12,6 +12,7 @@ Andy Friesen		<andy@ikagames.com>
 Ant			<duitoolkit@yahoo.ca>
 Arcane Jill
 Artem Rebrov		<ar_other@mail.ru>
+Aziz Köksal		<aziz.kerim@gmail.com>
 Bastiaan Veelo		<Bastiaan.N.Veelo@ntnu.no>
 BCS			<shro8822@uidaho.edu>
 Ben Hinkle		<ben.hinkle@gmail.com>, <bhinkle4@juno.com>, <bhinkle@mathworks.com>

@@ -1,7 +1,10 @@
+[./oopack-results.pdf contains updated results]
+
 Thomas Kühne <thomas-dloop@kuehne.cn>
 Thu, 04 Nov 2004 09:30:46 +0100
 news:cmcp5c$41g$4@digitaldaemon.com
 http://www.digitalmars.com/drn-bin/wwwnews?digitalmars.D/12277
+http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D&artnum=12277
 
 gdc-0.8(gcc-3.4.2): -O2 -frename-registers -fomit-frame-pointer -fweb
 -frelease -finline-functions -march=i686

@@ -649,14 +649,6 @@ final class ComplexBenchmark : Benchmark {
 // End of benchmark computations.  
 //=============================================================================
 
-// @bugwatch@ handle a bug in Phobos (dmd-0.105)
-version(linux){
-	const double CLOCKS_PER_SEC = 1000000.0;
-}else version(darwin){
-	const double CLOCKS_PER_SEC = 100.0;
-}
-
-
 //
 // The variable ``C_Seconds'' is the time in seconds in which to run the 
 // C-style benchmarks.

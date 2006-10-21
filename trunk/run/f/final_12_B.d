@@ -12,7 +12,7 @@ module dstress.run.f.final_12_B;
 int status;
 
 interface I {
-	void foo();
+	int foo();
 }
 
 class C : I {

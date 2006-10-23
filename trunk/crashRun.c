@@ -226,7 +226,7 @@ char* reconstructCmd(int argc, char** argv){
 		cmdLen+=1;
 	}
 
-	cmd = malloc(++cmdLen);
+	cmd = (char*) malloc(++cmdLen);
 	if(!cmd){
 		fprintf(stderr, "failed to allocate enough memory");
 		exit(EXIT_FAILURE);

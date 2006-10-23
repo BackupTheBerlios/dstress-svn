@@ -298,7 +298,7 @@ char* genTempFileName(){
 	size_t len;
 
 	len = strlen(tmp_dir) + 128;
-	back = malloc(len);
+	back = (char*) malloc(len);
 
 #ifdef USE_POSIX
 	snprintf(back, len, "%s/t%x-%x-%x.tmp", tmp_dir, getpid(), rand(), ++genTempFileNameCount);
@@ -340,7 +340,7 @@ char* loadFile(char* filename, size_t* len){
 
 	if(errno == 0 && file != 0 && file != -1){
 		if(0==fstat(file, &fileInfo)){
-			back=malloc(fileInfo.st_size+1);
+			back = (char*) malloc(fileInfo.st_size+1);
 			fileInfo.st_size = read(file, back, fileInfo.st_size);
 			if(fileInfo.st_size>=0){
 				*(back+fileInfo.st_size) = '\x00';
@@ -487,14 +487,14 @@ char* getCaseFlag(const char* data, const char* tag){
 			if(end1==NULL){
 				end1 = begin + strlen(begin);
 			}
-			back = malloc(end1-begin+1);
+			back = (char*) malloc(end1-begin+1);
 			strncpy(back, begin, end1-begin);
 			back[end1-begin]='\x00';
 			return strip(back);
 		}
 	}
 
-	back = malloc(1);
+	back = (char*) malloc(1);
 	back[0] = 0;
 	return back;
 }
@@ -525,25 +525,25 @@ int checkErrorMessage(const char* file, const char* line, const char* buffer){
 	if(file!=NULL){
 		if(line!=NULL){
 			len = strlen(file)+strlen(line)+3;
-			dmd = malloc(len);
+			dmd = (char*) malloc(len);
 			snprintf(dmd, len, "%s(%s)", file, line);
 
-			gdc = malloc(--len);
+			gdc = (char*) malloc(--len);
 			snprintf(gdc, len, "%s:%s", file, line);
 		}else{
 			len = strlen(file)+2;
-			dmd = malloc(len);
+			dmd = (char*) malloc(len);
 			snprintf(dmd, len, "%s(", file);
 
-			gdc = malloc(len);
+			gdc = (char*) malloc(len);
 			snprintf(gdc, len, "%s:", file);
 		}
 	}else if(line!=NULL){
 		len = strlen(line)+3;
-		dmd = malloc(len);
+		dmd = (char*) malloc(len);
 		snprintf(dmd, len, "(%s)", line);
 
-		gdc = malloc(--len);
+		gdc = (char*) malloc(--len);
 		snprintf(gdc, len, ":%s", line);
 	}else{
 		return 1;
@@ -601,7 +601,7 @@ int checkRuntimeErrorMessage(const char* file, const char* line, const char* buf
 	if(file!=NULL){
 		if(line!=NULL){
 			len = strlen(file)+strlen(line)+3;
-			phobos = malloc(len);
+			phobos = (char*) malloc(len);
 			begin=strrchr(file,'/');
 			if(begin){
 				begin++;
@@ -619,11 +619,11 @@ int checkRuntimeErrorMessage(const char* file, const char* line, const char* buf
 				(int)(end-begin), begin,
 				line);
 
-			phobosLong = malloc(len);
+			phobosLong = (char*) malloc(len);
 			snprintf(phobosLong, len, "%s(%s)", file, line);
 		}else{
 			len = strlen(file)+2;
-			phobos = malloc(len);
+			phobos = (char*) malloc(len);
 			begin=strrchr(file,'/');
 			if(begin){
 				begin++;
@@ -638,12 +638,12 @@ int checkRuntimeErrorMessage(const char* file, const char* line, const char* buf
 			end=strrchr(file,'.');
 			snprintf(phobos, len, "%.*s(", (int)(end-begin), begin);
 
-			phobosLong = malloc(len);
+			phobosLong = (char*) malloc(len);
 			snprintf(phobosLong, len, "%s(", file);
 		}
 	}else if(line!=NULL){
 		len = strlen(line)+3;
-		phobos = malloc(len);
+		phobos = (char*) malloc(len);
 		snprintf(phobos, len, "(%s)", line);
 
 		phobosLong=NULL;
@@ -725,7 +725,7 @@ int crashRun(const char* cmd, char** logFile){
 	*logFile = genTempFileName();
 #ifdef USE_POSIX
 	len = 20 + strlen(CRASH_RUN) + strlen(cmd) + strlen(*logFile);
-	buffer = malloc(len);
+	buffer = (char*) malloc(len);
 
 	snprintf(buffer, len, "%s %s > %s 2>&1", CRASH_RUN, cmd, *logFile);
 
@@ -848,7 +848,7 @@ int target_compile(int modus, char* compiler, char* arguments, char* case_file,
 	/* gen command */
 	bufferLen = strlen(compiler) + strlen(arguments) + strlen(tmp_dir)
 		+ strlen(case_file) + 21;
-	buffer = malloc(bufferLen);
+	buffer = (char*) malloc(bufferLen);
 	snprintf(buffer, bufferLen, "%s %s ", compiler, arguments);
 
 	if(NULL == strstr(buffer, "-od")){
@@ -942,7 +942,7 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 
 	bufferLen = strlen(compiler) + strlen(arguments) + strlen(tmp_dir)
 			+ strlen(case_file) * 2 + 64;
-	buffer = malloc(bufferLen);
+	buffer = (char*) malloc(bufferLen);
 	snprintf(buffer, bufferLen, "%s %s ", compiler, arguments);
 
 	if(NULL == strstr(buffer, "-od")){
@@ -1016,12 +1016,12 @@ int target_run(int modus, char* compiler, char* arguments, char* case_file,
 		goto no_valgrind;
 	}else if(VALGRIND){
 		bufferLen = strlen(VALGRIND) + strlen(case_file) + 8;
-		buffer = malloc(bufferLen);
+		buffer = (char*) malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s.exe", VALGRIND, case_file);
 	}else{
 no_valgrind:
 		bufferLen = strlen(case_file) + 8;
-		buffer = malloc(bufferLen);
+		buffer = (char*) malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s.exe", case_file);
 	}
 	printf("%s\n", buffer);
@@ -1063,7 +1063,7 @@ no_valgrind:
 		writeFile(gdb_scripter, gdb_script);
 		bufferLen = strlen(gdb) + strlen(case_file)
 			+ strlen(gdb_scripter) + 20;
-		buffer = malloc(bufferLen);
+		buffer = (char*) malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s.exe < %s",
 			gdb, case_file, gdb_scripter);
 		printf("%s\n", buffer);
@@ -1238,7 +1238,7 @@ err:
 		pid_t pid;
 		pid = getpid();
 		bufferLen = strlen(TMP_DIR) + 4 + sizeof(pid_t) * 4;
-		buffer = malloc(bufferLen);
+		buffer = (char*) malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s/_%X", TMP_DIR, pid);
 		tmp_dir = cleanPathSeperator(buffer);
 		if(mkdir(tmp_dir, 0770)){
@@ -1257,7 +1257,7 @@ err:
 #ifdef REG_EXTENDED
 	if(gdb_pattern_raw!=NULL && gdb_pattern_raw[0]!='\x00'){
 
-		gdb_pattern = malloc(sizeof(regex_t));
+		gdb_pattern = (regex_t*) malloc(sizeof(regex_t));
 		if(regcomp(gdb_pattern, gdb_pattern_raw, REG_EXTENDED | REG_NOSUB)){
 			fprintf(stderr, "failed to compile regular expression:"
 				"\n\t%s\n", gdb_pattern_raw);
@@ -1288,7 +1288,7 @@ err:
 		}
 
 		bufferLen = strlen(gdb_script)+11;
-		buffer=malloc(bufferLen);
+		buffer = (char*) malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s\n\nquit\ny\n\n", gdb_script);
 		gdb_script=buffer;
 	}else if(gdb_script){
@@ -1352,7 +1352,7 @@ err:
 			torture_block_case=NULL;
 		}
 
-		buffer = malloc(bufferLen);
+		buffer = (char*) malloc(bufferLen);
 		for(index=0; index < sizeof(torture)/sizeof(char*); index++){
 			if((torture_block_global && strstr(torture[index], torture_block_global))
 				|| (torture_block_case && strstr(torture[index], torture_block_case))
@@ -1393,7 +1393,7 @@ err:
 				bufferLen = strlen(cmd_arg_case);
 				bufferLen += strlen(torture_require);
 				bufferLen += 2;
-				buffer = malloc(bufferLen);
+				buffer = (char*) malloc(bufferLen);
 				snprintf(buffer, bufferLen, "%s %s", cmd_arg_case, torture_require);
 				cmd_arg_case = buffer;
 			}
@@ -1423,7 +1423,7 @@ err:
 		bufferLen = strlen(tmp_dir);
 		bufferLen += strlen(RM_DIR);
 		bufferLen += 2;
-		buffer = malloc(bufferLen);
+		buffer = (char*) malloc(bufferLen);
 		snprintf(buffer, bufferLen, "%s %s", RM_DIR, tmp_dir);
 		system(buffer);
 	}

@@ -370,6 +370,11 @@ class Log{
 					torture.remove(source);
 				}
 			}
+			// asm-filter
+			int i = find(source, "asm_p");
+			if(i >= 0){
+				torture.remove(source);
+			}
 		}
 		torture.rehash;
 		
@@ -549,7 +554,7 @@ class Report{
 			stream.writeLine("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>");
 			stream.writeLine("<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>");
 
-			stream.writeLine("<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&#252;hne' /><meta name='date' content='" ~ dateString() ~ "' /></head>");
+			stream.writeLine("<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&#252;hne' /><meta name='date' content='" ~ dateString() ~ "' /><link rel='shortcut icon' href='data:image/gif;base64,R0lGODlhEAAQAKEAALMfEuWoLv///7MfEiH5BAEKAAMALAAAAAAQABAAAAIpnI95wN06nARqyvSQM6Gz+g3dOGofiabqygYmNYbv/FKLld04aEG+UgAAOw==' type='image/gif' /></head>");
 			stream.writeLine("<body><center><h1>DStress - Torture: "~name~"</h1></center><center><small>by Thomas K&#252;hne &lt;thomas-at-kuehne.cn&gt;</small></center>");
 			stream.writeLine("<h2><a name='note' id='note'></a>Note</h2><blockquote>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.</blockquote>");
 		}
@@ -968,8 +973,8 @@ int main(char[][] args){
 			report.toHtml(o, html, hotspot);
 			
 			o.close();
-			foreach(OutputStream o; html){
-				o.close();
+			foreach(OutputStream stream; html){
+				stream.close();
 			}
 
 			break;

@@ -110,7 +110,7 @@ Rev
 Robert Atkinson		<Robert.Atkinson@gmail.com>
 Robert Schiele		<rschiele@uni-mannheim.de>
 Roberto Mariottini
-Roel Mathys		<roel.mathys@yucom.be>
+Roel Mathys		<roel.mathys@yucom.be>, <roel.mathys@gmail.com>
 Russ Lewis		<spamhole-2001-07-16@deming-os.org>
 Russell Wilkins		<Russell.Wilkins@grovestarsoftware.com>, <rwilkins@grovestarsoftware.com>
 Sam McCall		<tunah@tunah.net>

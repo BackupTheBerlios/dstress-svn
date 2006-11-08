@@ -76,6 +76,7 @@ John Demme		<me@teqdruid.com>
 John Reimer		<brk_6502@NO_SPA_M.yahoo.com>
 Johan Granberg		<lijat.meREM@VEgmail.com>
 k2
+Kazuhiro Inaba		<kinaba@is.s.u-tokyo.ac.jp>
 kenny			<funisher@gmail.com>
 Kevin Bealer
 Kevin VR		<azra@pandora.be>

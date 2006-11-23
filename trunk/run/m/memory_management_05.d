@@ -23,8 +23,14 @@ int main(){
 	}
 
 	foreach(char c; dummy){
-		if(c != c.init){
-			assert(0);
+		switch(c){
+			case 'a':
+			case 'b':
+			case 'c':
+			case c.init:
+				break;
+			default:
+				assert(0);
 		}
 	}
 

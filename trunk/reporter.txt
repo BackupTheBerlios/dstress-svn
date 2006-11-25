@@ -142,6 +142,7 @@ Valéry			<valery@freesurf.fr>
 van eeshan		<vanee@hotmail.com>
 Vathix			<chris@dprogramming.com>, <vathix@dprogramming.com>, <vathixSpamFix@dprogramming.com>
 Victor Nakoryakov	<nail-mail@mail.ru>
+Vladimir		<v04bvs@gmail.com>
 Walter			<newshound@digitalmars.com>
 Witold Baryluk		<aryluk@mpi.int.pl>
 xs0			<xs0@xs0.com>

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.float_litaeral_dec_03;
+module dstress.run.f.float_literal_dec_03;
 
 int main(){
 	float a = 1_2_._3__________f;

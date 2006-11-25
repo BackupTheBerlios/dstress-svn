@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.float_litaeral_dec_11;
+module dstress.run.f.float_literal_dec_11;
 
 int main(){
 	float f=3.40282e+38; // ~~ float.max

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.float_litaeral_dec_05;
+module dstress.run.f.float_litaeral_dec_05;
 
 int main(){
 	float a = 1.2;

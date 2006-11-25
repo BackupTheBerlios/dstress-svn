@@ -101,6 +101,7 @@ nail			<nail-mail@mail.ru>
 Nazo Humei		<lovesyao@hotmail.com>
 ndove			http://www.dsource.org/forums/profile.php?mode=viewprofile&u=142
 Neil Santos
+Nick			<korslund@gmail.com>
 Nick Sabalausky
 Oskar Linde		<d98-oliRE.MO.VE@nada.kth.se>, <oskar.linde@gmail.com>
 Patrick Down
@@ -115,6 +116,7 @@ Roel Mathys		<roel.mathys@yucom.be>, <roel.mathys@gmail.com>
 Russ Lewis		<spamhole-2001-07-16@deming-os.org>
 Russell Wilkins		<Russell.Wilkins@grovestarsoftware.com>, <rwilkins@grovestarsoftware.com>
 Sam McCall		<tunah@tunah.net>
+Samuel Martin Valentin	<samuel@jxdesigner.com>
 Sean Kelly		<sean@f4.ca>
 Sebastian Beschke	<s.beschke@gmx.de>
 shinichiro.h		<s31552@mail.ecc.u-tokyo.ac.jp>

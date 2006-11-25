@@ -44,7 +44,6 @@ david			<davidl@126.com>
 David Friedman		<d3rdclsmail_a_@_t_earthlink_d_._t_net>, <dvdfrdmn@users.sf.net>
 David L. Davis		<SpottedTiger@yahoo.com>
 David Medlock		<amedlock@nospam.org>, <noone@nowhere.com>
-Deewiant		<deewiant.doesnotlike.spam@gmail.com>
 dennis luehring		<dl.soluz@gmx.net>
 Derick Eddington	<derick_eddington@nospam.yahoo.nospam.com>
 Derek Parnell		<ddparnell@bigpond.com>
@@ -81,6 +80,7 @@ kenny			<funisher@gmail.com>
 Kevin Bealer
 Kevin VR		<azra@pandora.be>
 kinghajj
+Kirk McDonald		<kirklin.mcdonald@gmail.com>
 Knud Sorensen		<knud@NetRunner.all-technology.com>
 Kris			<fu@bar.com>, <someidiot@earthlink.dot.dot.dot.net>
 larrycowan
@@ -91,7 +91,9 @@ Lukas Pinkowski		<Lukas.Pinkowski@web.de>
 Manfred Nowak		<svv1999@hotmail.com>
 marko			<tm030127d@galeb.etf.bg.ac.yu>
 Markus Dangl		<sky@quit-clan.de>
+Matti Niemenmaa (Deewiant) <deewiant@gmail.com>
 Michael Butscher	<mbutscher@gmx.de>
+Michael Arntzenius	<daekharel@gmail.com>
 MicroWizard
 Miguel Ferreira Simões	<Kobold@netcabo.pt>
 Mike Parker		<aldacron71@yahoo.com>

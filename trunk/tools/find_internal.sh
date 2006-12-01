@@ -1,3 +1,3 @@
 #!/bin/sh
 
-gzcat $* | grep '\(\.c[ :]\)\|\(\.cc[ :]\)' | sort -u
+bzcat $* | grep '\(\.c[ :]\)\|\(\.cc[ :]\)' | sort -u

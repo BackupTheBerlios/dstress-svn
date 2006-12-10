@@ -7,7 +7,9 @@
 // @uri@	news:bug-651-3@http.d.puremagic.com/issues/
 // @desc@	[Issue 651] New: Assertion failure: 'global.errors' on line 2622 in file 'template.c'
 
-module dstress.compile.b.bug_template_2622_A;
+// __DSTRESS_ELINE__ 21
+
+module dstress.nocompile.b.bug_template_2622_A;
 
 void f(){
 }

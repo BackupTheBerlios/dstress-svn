@@ -1,0 +1,23 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// @author@ Thomas Kühne <thomas-dloop@kuehne.cn>
+// @date@	2006-12-09
+// @uri@	news:bug-664-3@http.d.puremagic.com/issues/
+// @desc@	[Issue 664] New: is(func T == return) ignores variadic arguments
+
+module dstress.compile.i.is_16_B;
+
+void foo(int);
+void bar(int ...);
+
+static if(is(typeof(foo) X == function)){
+	static if(is(typeof(bar) Y == function)){
+		static assert((X.length != Y.length) || (!is(X[0] == Y[0])));
+	}else{
+		static assert(0);
+	}
+}else{
+	static assert(0);
+}

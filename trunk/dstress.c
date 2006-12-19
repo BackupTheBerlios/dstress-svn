@@ -724,10 +724,10 @@ int crashRun(const char* cmd, char** logFile){
 
 	*logFile = genTempFileName();
 #ifdef USE_POSIX
-	len = 20 + strlen(CRASH_RUN) + strlen(cmd) + strlen(*logFile);
+	len = 40 + strlen(CRASH_RUN) + strlen(cmd) + strlen(*logFile);
 	buffer = (char*) malloc(len);
 
-	snprintf(buffer, len, "%s %s > %s 2>&1", CRASH_RUN, cmd, *logFile);
+	snprintf(buffer, len, "%s %s 2>&1 | head -n 200 > %s", CRASH_RUN, cmd, *logFile);
 
 	system(buffer);
 	free(buffer);

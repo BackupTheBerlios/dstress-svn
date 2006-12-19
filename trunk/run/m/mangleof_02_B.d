@@ -6,7 +6,7 @@ module dstress.run.m.mangleof_02_B;
 
 int main(){
 	char[] m = (bool[]).mangleof;
-	if(m == "Ax"){
+	if(m == "Ab"){
 		return 0;
 	}
 }

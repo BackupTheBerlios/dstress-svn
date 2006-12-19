@@ -16,13 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		int* a = new int[4];
+		int* a = (new int[4]).ptr;
 		a[0] = 0;
 		a[1] = -1;
 		a[2] = 2;
 		a[3] = -3;
 
-		double* b = new double[2];
+		double* b = (new double[2]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

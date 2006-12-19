@@ -6,9 +6,13 @@ module dstress.run.sizeof_04;
 
 int main(){
 	int[char[]] array;
-	assert(array.sizeof == 8);
+	if(array.sizeof != (byte[byte]).sizeof){
+		assert(0);
+	}
 	array["drei"]=3;
 	array["sieben"]=7;
-	assert(array.sizeof == 8);
+	if(array.sizeof != (byte[byte]).sizeof){
+		assert(0);
+	}
 	return 0;
 }

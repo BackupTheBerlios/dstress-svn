@@ -7,7 +7,7 @@ module dstress.run.m.mangleof_02_F;
 int main(){
 	bool[2] t;
 	char[] m = (typeof(t)).mangleof;
-	if(m == "G2x"){
+	if(m == "G2b"){
 		return 0;
 	}
 }

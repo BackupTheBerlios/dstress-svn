@@ -16,11 +16,11 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		double* a = new double[2];
+		double* a = (new double[2]).ptr;
 		a[0] = 1.123;
 		a[1] = 1234.5;
 
-		double* b = new double[2];
+		double* b = (new double[2]).ptr;
 		b[0] = 0.0012;
 		b[1] = -2.4;
 

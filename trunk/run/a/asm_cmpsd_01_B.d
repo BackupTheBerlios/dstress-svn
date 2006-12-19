@@ -16,13 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		double* a = new double[2];
+		double* a = (new double[2]).ptr;
 		a[0] = 1.0;
 		a[1] = 2.0;
 
 		double b = 1.0;
-		ulong* c = new ulong[2];
-		double* d = new double[2];
+		ulong* c = (new ulong[2]).ptr;
+		double* d = (new double[2]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

@@ -10,8 +10,8 @@ for A in `ls ./raw_results/linux-amd64_dmd-0.17*bz2 raw_results/linux-amd64_gdc-
 done
 
 ./log genReport . \
-	--./tmp2/linux-amd64_dmd-0.175.log \
-	./tmp2/linux-amd64_dmd-0.174.log \
+	--./tmp2/linux-amd64_dmd-0.177.log \
+	./tmp2/linux-amd64_dmd-0.175.log \
 	./tmp2/linux-amd64_gdc-0.19.log
 
 mv www/results.html www/results.short.html

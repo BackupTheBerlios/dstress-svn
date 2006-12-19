@@ -23,7 +23,7 @@ void foo(Cat*[] c, ...){
 Dog bar(Cat*[] c, uint k, uint v){
 	Dog d;
 
-	d.ptr = new byte[d.length];
+	d.ptr = (new byte[d.length]).ptr;
 	return d;
 }
 

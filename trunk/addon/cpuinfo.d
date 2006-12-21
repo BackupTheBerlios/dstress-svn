@@ -187,7 +187,7 @@ template haveSSE3(){
 
 template aligned_new(T){
 	T[] aligned_new(size_t len, size_t alignment){
-		ubyte* ptr = new ubyte[len * T.sizeof + alignment];
+		ubyte* ptr = (new ubyte[len * T.sizeof + alignment]).ptr;
 
 		alignment *= 8;
 

@@ -22,16 +22,28 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const long A = 0x12_34_56_78_9A_BC_DE_F0;
+		long a = 0x12_34_56_78_9A_BC_DE_F0;
 		long b;
 
-		asm{
-			movq MM0, A;
-			movq b, MM0;
-			emms;
+		static if(size_t.sizeof == 4){
+			asm{
+				lea EAX, a;
+				movq MM0, [EAX];
+				movq b, MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				lea RAX, a;
+				movq MM0, [RAX];
+				movq b, MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
-		if(A != 0x12_34_56_78_9A_BC_DE_F0){
+		if(a != 0x12_34_56_78_9A_BC_DE_F0){
 			assert(0);
 		}
 		if(b != 0x12_34_56_78_9A_BC_DE_F0){

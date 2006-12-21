@@ -24,7 +24,7 @@ version(runTest){
 			static assert(0);
 		}
 
-		ubyte* state = new ubyte[stateSize];
+		ubyte* state = (new ubyte[stateSize]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

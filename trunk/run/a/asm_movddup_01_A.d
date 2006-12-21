@@ -16,17 +16,32 @@ version(runTest){
 	int main(){
 		haveSSE3!()();
 
-		double[] a = new double[2];
+		double* a = (new double[2]).ptr;
 		a[0] = 2.0;
 		a[1] = 3.0;
 
-		double[] b = new double[2];
+		double* b = (new double[2]).ptr;
 
-		asm{
-			movupd XMM0, a;
-			movupd XMM1, a;
-			movddup XMM1, XMM0;
-			movupd b, XMM1;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movupd XMM0, [EAX];
+				movupd XMM1, [EAX];
+				movddup XMM1, XMM0;
+				mov EAX, b;
+				movupd [EAX], XMM1;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movupd XMM0, [RAX];
+				movupd XMM1, [RAX];
+				movddup XMM1, XMM0;
+				mov RAX, b;
+				movupd [RAX], XMM1;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(a[0] != b[0]){

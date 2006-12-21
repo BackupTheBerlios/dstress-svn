@@ -16,15 +16,30 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		double[] a = new double[2];
+		double* a = (new double[2]).ptr;
 		a[0] = 2.0;
 		a[1] = 3.0;
-		double[] b = new double[2];
 
-		asm{
-			movdqu XMM0, a;
-			movapd XMM1, XMM0;
-			movdqu b, XMM1;
+		double* b = (new double[2]).ptr;
+
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				movapd XMM1, XMM0;
+				mov EAX, b;
+				movdqu [EAX], XMM1;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				movapd XMM1, XMM0;
+				mov RAX, b;
+				movdqu [RAX], XMM1;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(a[0] != b[0]){

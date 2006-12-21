@@ -16,15 +16,15 @@ version(runTest){
 	int main(){
 		haveFPU!()();
 
-		static if(size_t.sizeof==4 || size_t.sizeof==8){
+		static if((size_t.sizeof == 4) || (size_t.sizeof == 8)){
 			ubyte stateSize = 108;
-		}else static if(size_t.sizeof==2){
+		}else static if(size_t.sizeof == 2){
 			ubyte stateSize = 94;
 		}else{
-			static assert(0);
+			static assert(0, "unhandled pointer size");
 		}
 
-		ubyte* state = new ubyte[stateSize];
+		ubyte* state = (new ubyte[stateSize]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

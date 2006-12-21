@@ -8,7 +8,7 @@
 
 module dstress.run.a.alias_31_C;
 
-class ClassOf(Type){
+template ClassOf(Type){
 	class ClassOf{
 		Type val;
 

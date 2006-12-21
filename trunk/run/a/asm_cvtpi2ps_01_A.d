@@ -17,17 +17,17 @@ version(runTest){
 		haveSSE2!();
 		haveMMX!();
 
-		int* a = new int[2];
+		int* a = (new int[2]).ptr;
 		a[0] = -3;
 		a[1] = 2;
 
-		float* b = new float[4];
+		float* b = (new float[4]).ptr;
 		b[0] = 10.1f;
 		b[1] = 20.2f;
 		b[2] = 30.3f;
 		b[3] = 40.4f;
 
-		float* c = new float[4];
+		float* c = (new float[4]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

@@ -8,7 +8,7 @@
 
 // :23 is tested in abstract_08
 
-// __DSTRESS_ELINE__ 16
+// __DSTRESS_ELINE__ 19
 
 module dstress.nocompile.a.abstract_14;
 

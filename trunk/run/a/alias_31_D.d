@@ -8,7 +8,7 @@
 
 module dstress.run.a.alias_31_D;
 
-struct StructOf(Type){
+template StructOf(Type){
 	struct StructOf{
 		Type val;
 

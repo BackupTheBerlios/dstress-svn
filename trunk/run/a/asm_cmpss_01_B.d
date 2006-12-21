@@ -16,15 +16,15 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		float* a = new float[4];
+		float* a = (new float[4]).ptr;
 		a[0] = 1.0f;
 		a[1] = 2.0f;
 		a[2] = 3.0f;
 		a[3] = 4.0f;
 		
 		float b = 1.0f;
-		uint* c = new uint[4];
-		float* f = new float[4];
+		uint* c = (new uint[4]).ptr;
+		float* f = (new float[4]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

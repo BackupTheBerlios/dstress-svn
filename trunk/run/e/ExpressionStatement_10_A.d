@@ -9,7 +9,7 @@ int main(){
 	cast(void)(x + x);
 
 	if(x != 3){
-		static assert(0);
+		assert(0);
 	}
 
 	return 0;

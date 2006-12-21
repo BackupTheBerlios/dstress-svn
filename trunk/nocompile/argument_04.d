@@ -6,7 +6,7 @@
 // @author@	John Reimer <brk_6502@yahoo.com>
 // @date@	2005-02-21
 
-// __DSTRESS_ELINE__ 15
+// __DSTRESS_ELINE__ 16
 
 module dstress.nocompile.argument_04;
 

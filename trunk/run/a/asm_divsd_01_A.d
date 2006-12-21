@@ -14,15 +14,15 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		double* a = new double[2];
+		double* a = (new double[2]).ptr;
 		a[0] = -16.0f;
 		a[1] = 12.0;
 
-		double* b = new double[2];
+		double* b = (new double[2]).ptr;
 		b[0] = 2.0f;
 		b[1] = 3.0f;
 
-		double* c = new double[2];
+		double* c = (new double[2]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

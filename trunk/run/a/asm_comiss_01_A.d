@@ -16,13 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		float* a = new float[4];
+		float* a = (new float[4]).ptr;
 		a[0] = 0.0f;
 		a[1] = 1.0f;
 		a[2] = 3.0f;
 		a[3] = 5.0f;
 
-		float* b = new float[4];
+		float* b = (new float[4]).ptr;
 		b[0] = 0.0f;
 		b[1] = 2.0f;
 		b[2] = 4.0f;

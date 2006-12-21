@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-module dstress.run.a.asm_cvtpi2pd_01_A;
+module dstress.run.a.asm_cvtps2pi_01_B;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -17,48 +17,39 @@ version(runTest){
 		haveSSE2!();
 		haveMMX!();
 
-		int* a = (new int[2]).ptr;
-		a[0] = -3;
-		a[1] = 2;
+		float* a = (new float[4]).ptr;
+		a[0] = 1.0f;
+		a[1] = 2.0f;
+		a[2] = 3.0f;
+		a[3] = 4.0f;
 
-		double* b = (new double[2]).ptr;
+		int* b = (new int[2]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{
 				mov EAX, a;
-				movq MM0, [EAX];
-				cvtpi2pd XMM0, MM0;
+				cvtps2pi MM0, [EAX];
 				mov EAX, b;
-				movupd [EAX], XMM0;
+				movq [EAX], MM0;
 				emms;
 			}
 		}else static if(size_t.sizeof == 8){
 			asm{
 				mov RAX, a;
-				movq MM0, [RAX];
-				cvtpi2pd XMM0, MM0;
+				cvtps2pi MM0, [RAX];
 				mov RAX, b;
-				movupd [RAX], XMM0;
+				movq [RAX], MM0;
 				emms;
 			}
 		}else{
 			static assert(0, "unhandled pointer size");
 		}
 
-		b[0] += 3.0;
-		if(b[0] < 0.0){
-			b[0] = -b[0];
-		}
-		if(b[0] > b[0].epsilon * 8){
+		if(b[0] != 1){
 			assert(0);
 		}
 
-
-		b[1] -= 2.0;
-		if(b[1] < 0.0){
-			b[1] = -b[1];
-		}
-		if(b[1] > b[1].epsilon * 8){
+		if(b[1] != 2){
 			assert(0);
 		}
 

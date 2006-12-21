@@ -16,7 +16,7 @@ version(runTest){
 	int main(){
 		haveSSE3!()();
 
-		ubyte* a = new ubyte[16];
+		ubyte* a = (new ubyte[16]).ptr;
 		a[0] = 1;
 		a[1] = 2;
 		a[2] = 3;
@@ -34,7 +34,7 @@ version(runTest){
 		a[14] = 15;
 		a[15] = 16;
 
-		ubyte* b = new ubyte[16];
+		ubyte* b = (new ubyte[16]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

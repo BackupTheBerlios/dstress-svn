@@ -15,7 +15,7 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		float[] a = new float[4];
+		float* a = (new float[4]).ptr;
 		a[0] = 1.0f;
 		a[1] = 2.0f;
 		a[2] = 3.0f;
@@ -23,9 +23,20 @@ version(runTest){
 
 		float b;
 
-		asm{
-			movups XMM0, a;
-			movss b, XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movups XMM0, [EAX];
+				movss b, XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movups XMM0, [RAX];
+				movss b, XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(b != a[0]){

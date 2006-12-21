@@ -16,17 +16,32 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		ulong[] a = new ulong[2];
+		ulong* a = (new ulong[2]).ptr;
 		a[0] = 0x1234_ABCD_5678_EF90_LU;
 		a[1] = 0x1122_5566_77AA_FFFF_LU;
-		ulong[] b = new ulong[2];
+
+		ulong* b = (new ulong[2]).ptr;
 
 		ulong c = 0x1234_ABCD_5678_EF01_LU;
 
-		asm{
-			movdqu XMM0, a;
-			movq XMM0, c;
-			movdqu b, XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				movq c, XMM0;
+				mov EAX, b;
+				movq [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				movq c, XMM0;
+				mov RAX, b;
+				movq [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(b[0] != c){

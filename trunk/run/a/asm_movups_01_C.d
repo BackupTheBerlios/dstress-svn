@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -fPIC
+
 module dstress.run.a.asm_movups_01_C;
 
 version(D_InlineAsm_X86){
@@ -16,13 +18,8 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		float[] a = new float[4];
-		a[0] = 1.0f;
-		a[1] = 2.0f;
-		a[2] = 3.0f;
-		a[3] = 4.0f;
-
-		float[] b = new float[4];
+		float[4] a = [1.0f, 2.0f, 3.0f, 4.0f];
+		float[4] b;
 
 		asm{
 			movups XMM0, a;

@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_TORTURE_BLOCK__ -fPIC
+
 module dstress.run.a.asm_movups_01_A;
 
 version(D_InlineAsm_X86){
@@ -16,29 +18,24 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		float[] a = new float[4];
-		a[0] = 1.0f;
-		a[1] = 2.0f;
-		a[2] = 3.0f;
-		a[3] = 4.0f;
-
-		float[] b = new float[4];
+		float[4] a = [1.0f, 2.0f, 3.0f, 4.0f];
+		float[4] b;
 
 		asm{
-			movdqu XMM0, A;
+			movdqu XMM0, a;
 			movups b, XMM0;
 		}
 
-		if(b[0] != A[0]){
+		if(b[0] != a[0]){
 			assert(0);
 		}
-		if(b[1] != A[1]){
+		if(b[1] != a[1]){
 			assert(0);
 		}
-		if(b[2] != A[2]){
+		if(b[2] != a[2]){
 			assert(0);
 		}
-		if(b[3] != A[3]){
+		if(b[3] != a[3]){
 			assert(0);
 		}
 

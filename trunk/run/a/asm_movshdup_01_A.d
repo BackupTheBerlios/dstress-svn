@@ -14,18 +14,32 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		float[] a = new float[4];
+		float* a = (new float[4]).ptr;
 		a[0] = 1.0f;
 		a[1] = -1.0f;
 		a[2] = -2.0f;
 		a[3] = 2.0f;
 
-		float[] b = new float[4];
+		float* b = (new float[4]).ptr;
 
-		asm{
-			movups XMM0, a;
-			movshdup XMM1, XMM0;
-			movups b, XMM1;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movups XMM0, [EAX];
+				movshdup XMM1, XMM0;
+				mov EAX, b;
+				movups [EAX], XMM1;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movups XMM0, [RAX];
+				movshdup XMM1, XMM0;
+				mov RAX, b;
+				movups [RAX], XMM1;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(a[1] != b[0]){

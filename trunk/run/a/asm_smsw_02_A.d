@@ -20,7 +20,7 @@ version(runTest){
 			mov a, EAX;
 		}
 
-		if(a == 0){
+		if(a & 0xFFFF == 0){
 			assert(0);
 		}
 

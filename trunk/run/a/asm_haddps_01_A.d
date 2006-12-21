@@ -16,19 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE3!()();
 
-		float* a = new float[4];
+		float* a = (new float[4]).ptr;
 		a[0] = 6.1f;
 		a[1] = 7.2f;
 		a[2] = 8.3f;
 		a[3] = 9.4f;
 
-		float* b = new float[4];
+		float* b = (new float[4]).ptr;
 		b[0] = 1.0f;
 		b[1] = 2.0f;
 		b[2] = 3.0f;
 		b[3] = 4.0f;
 
-		float* c = new float[4];
+		float* c = (new float[4]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

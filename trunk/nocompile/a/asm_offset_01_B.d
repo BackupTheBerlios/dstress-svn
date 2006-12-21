@@ -6,13 +6,11 @@
 // @date@	2006-04-28
 // @uri@	news:bug-116-3@http.d.puremagic.com/bugzilla/
 
-// __DSTRESS_ELINE__ 26
+// __DSTRESS_ELINE__ 24
 
 module dstress.nocompile.a.asm_offset_01_B;
 
 version(D_InlineAsm_X86){
-	version = runTest;
-}else version(D_InlineAsm_X86_64){
 	version = runTest;
 }
 

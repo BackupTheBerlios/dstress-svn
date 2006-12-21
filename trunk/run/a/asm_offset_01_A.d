@@ -23,7 +23,7 @@ version(runTest){
 
 		static if(size_t.sizeof == 4){
 			asm{
-				mov EAX, offsetof b;
+				mov EAX, offset b;
 				mov y, EAX;
 			}
 		}else{

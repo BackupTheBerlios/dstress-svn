@@ -7,17 +7,21 @@
 // @uri@	news:bug-640-3@http.d.puremagic.com/issues/
 // @desc@	[Issue 640] New: Strage error messages around structInstance.init
 
-// __DSTRESS_ELINE__ 19
-
-module dstress.nocompile.b.expression_4154_B;
+module dstress.run.e.expression_4154_C;
 
 struct S {
-	int i;
+	int i = 2;
 }
 
-void foo(){
-	S s = {0};
+int main(){
+	const S s = {1};
 
-	s = S.init;
+	S x = s.init;
+
+	if(x.i != 2){
+		assert(0);
+	}
+
+	return 0;
 }
 

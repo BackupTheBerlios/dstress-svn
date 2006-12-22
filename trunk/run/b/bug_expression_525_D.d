@@ -15,7 +15,7 @@ template t(){
 const char [] s = t!();
 
 int main(){
-	if(s == "a"){
+	if(s == "hello"){
 		return 0;
 	}
 }

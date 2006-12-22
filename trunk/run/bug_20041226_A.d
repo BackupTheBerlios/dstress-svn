@@ -48,7 +48,7 @@ class AseLoader{
 void extractTriangles(GeomObject geomObj){
 	void foobar(){
 		try{
-			writefln("name: ", geomObj.name);
+			dummy("name: ", geomObj.name);
 
 			return;  // avoid accessing the array with 0 elements in the next line			
 			geomObj.mesh.faces[0].a - geomObj.xlate;  // when this line is removed, the bug doesn't appear

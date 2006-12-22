@@ -33,6 +33,7 @@ class FooBar : Foo{
 			step++;
 			return mixer.test();
 		}
+		assert(0);
 	}
 }
 

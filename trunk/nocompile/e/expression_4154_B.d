@@ -9,7 +9,7 @@
 
 // __DSTRESS_ELINE__ 19
 
-module dstress.nocompile.b.expression_4154_A;
+module dstress.nocompile.e.expression_4154_B;
 
 struct S {
 	int i;
@@ -18,6 +18,6 @@ struct S {
 void foo(){
 	S s = {0};
 
-	s = s.init;
+	s = S.init;
 }
 

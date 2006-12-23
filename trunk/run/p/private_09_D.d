@@ -6,6 +6,8 @@
 // @date@	2005-12-17
 // @uri@	news:do2bam$2ab0$1@digitaldaemon.com
 
+// __DSTRESS_TORTURE_BLOCK__ -release
+
 module dstress.run.p.private_09_D;
 
 class Base(T){

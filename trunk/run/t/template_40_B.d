@@ -21,10 +21,10 @@ struct Bar {
 }
 
 int main(){
-	if(! is(Bar.Inner!())){
+	if(! is(typeof(Bar.Inner!()) == int)){
 		assert(0);
 	}
-	if(! is(Bar.dummy)){
+	if(! is(typeof(Bar.dummy) == int)){
 		assert(0);
 	}
 

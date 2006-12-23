@@ -17,7 +17,7 @@ int main(){
 
 	const cdouble b = -0.8 - 0.1i;
 	C!(b) sb = new C!(b);
-	if(sa.cf != b){
+	if(sb.cf != b){
 		assert(0);
 	}
 

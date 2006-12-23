@@ -7,7 +7,7 @@
 // @uri@	news:bug-405-3@http.d.puremagic.com/issues/
 // @desc@	[Issue 405] New: typeof in TemplateParameterList causes compiletime segmentfault
 
-// __DSTRESS_ELINE__ 13
+// __DSTRESS_ELINE__ 14
 
 module dstress.nocompile.t.typeof_14_A;
 

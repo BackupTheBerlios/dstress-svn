@@ -4,7 +4,7 @@
 
 // Porting: C#
 
-// __DSTRESS_ELINE__ 15
+// __DSTRESS_ELINE__ 14
 
 module dstress.nocompile.s.set_01_B;
 

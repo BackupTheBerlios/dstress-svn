@@ -32,7 +32,7 @@ int main(){
 	}
 
 	Base bd = new Derived;
-	if(bd.name != "derived"){
+	if(bd.name != "base"){
 		assert(0);
 	}
 	return 0;

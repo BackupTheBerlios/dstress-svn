@@ -11,10 +11,10 @@ module dstress.run.struct_initialization_06;
 
 struct A {
 	int one;
-	int two[4];
+	int[4] two = 2;
 }
 
-A a = { one:1, two:2 };
+A a = { one:1 };
 
 int main(){
 	if(a.one != 1){

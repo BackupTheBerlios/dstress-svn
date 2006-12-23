@@ -17,7 +17,7 @@ int main(){
 
 	const creal b = -0.8L - 0.1Li;
 	auto sb = new C!(b);
-	if(sa.cf != b){
+	if(sb.cf != b){
 		assert(0);
 	}
 

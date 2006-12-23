@@ -31,12 +31,12 @@ int main(){
 	}
 
 	Derived d = new Derived;
-	if(d.test != "derived"){
+	if(d.test != "base"){
 		assert(0);
 	}
 
 	Base bd = new Derived;
-	if(bd.test != "derived"){
+	if(bd.test != "base"){
 		assert(0);
 	}
 	return 0;

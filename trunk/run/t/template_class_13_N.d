@@ -17,7 +17,7 @@ int main(){
 
 	const cfloat b = -0.8f - 0.1fi;
 	C!(b) sb = new C!(b);
-	if(sa.cf != b){
+	if(sb.cf != b){
 		assert(0);
 	}
 

@@ -35,13 +35,13 @@ int main(){
 	}
 
 	s.f = 0.0fi;
-	s.f *= 1.0fi;
+	s.f *= 1.0f;
 	if(s.i != 0x00000000){
 		assert(0);
 	}
 
 	s.f = 0.0fi;
-	s.f *= -1.0fi;
+	s.f *= -1.0f;
 	if(s.i != 0x80000000){
 		assert(0);
 	}

@@ -10,7 +10,7 @@
 module dstress.run.c.cdouble_11_B;
 
 int main(){
-	if(1.0 + 2.0i) * 2.0 + 1.0i != 2.0 + 5.0i){
+	if((1.0 + 2.0i) * 2.0 + 1.0i != 2.0 + 5.0i){
 		assert(0);
 	}
 	return 0;

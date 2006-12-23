@@ -10,7 +10,7 @@
 module dstress.run.c.creal_36_B;
 
 int main(){
-	if(1.0L + 2.0Li) * 2.0L + 1.0Li != 2.0L + 5.0Li){
+	if((1.0L + 2.0Li) * 2.0L + 1.0Li != 2.0L + 5.0Li){
 		assert(0);
 	}
 	return 0;

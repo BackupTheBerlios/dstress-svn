@@ -10,7 +10,7 @@ module dstress.run.d.delete_14_A;
 
 class Foo{
 	new (size_t s){
-		return new byte[s];
+		return (new byte[s]).ptr;
 	}
 
 	delete(void* p){

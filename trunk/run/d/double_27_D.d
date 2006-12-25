@@ -19,7 +19,7 @@ double func (double *array){
 int main (){
 	const double values[] = [double.max, 2.0, 0.5, 1.0];
 
-	if(func(values) != double.max){
+	if(func(values.ptr) != double.max){
 		assert(0);
 	}
 

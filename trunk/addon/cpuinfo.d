@@ -35,7 +35,9 @@ template have3DNow(){
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, 0x8000_0001;
+				db 0x53;
 				cpuid;
+				db 0x5B;
 				mov a, EDX;
 			}
 		}else{
@@ -55,7 +57,9 @@ template haveCMOV(){
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, 1;
+				db 0x53;
 				cpuid;
+				db 0x5B;
 				mov a, EDX;
 			}
 		}else{
@@ -74,7 +78,9 @@ void haveCX8(){
 	version(haveX86InlineAsm){
 		asm{
 			mov EAX, 1;
+			db 0x53;
 			cpuid;
+			db 0x5B;
 			mov a, EDX;
 		}
 	}
@@ -91,7 +97,9 @@ template haveFPU(){
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, 1;
+				db 0x53;
 				cpuid;
+				db 0x5B;
 				mov a, EDX;
 			}
 		}else{
@@ -111,7 +119,9 @@ template haveMMX(){
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, 1;
+				db 0x53;
 				cpuid;
+				db 0x5B;
 				mov a, EDX;
 			}
 		}else{
@@ -131,7 +141,9 @@ template haveSSE(){
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, 1;
+				db 0x53;
 				cpuid;
+				db 0x5B;
 				mov a, EDX;
 			}
 		}else{
@@ -151,7 +163,9 @@ template haveSSE2(){
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, 1;
+				db 0x53;
 				cpuid;
+				db 0x5B;
 				mov a, EDX;
 			}
 		}else{
@@ -172,7 +186,9 @@ template haveSSE3(){
 		version(haveX86InlineAsm){
 			asm{
 				mov EAX, a;
+				db 0x53;
 				cpuid;
+				db 0x5B;
 				mov b, ECX;
 			}
 		}else{

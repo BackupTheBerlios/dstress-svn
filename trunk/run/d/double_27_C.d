@@ -19,7 +19,7 @@ double func (double *array){
 int main (){
 	const double values[] = [0.1e-100, 1.0, -1.0, 0.0];
 
-	if(func(values) != 0.1e-100){
+	if(func(values.ptr) != 0.1e-100){
 		assert(0);
 	}
 

@@ -16,9 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		ushort* a = [cast(ushort)1, 0, 3, 4, 5, 6, 7, 8];
-		ushort* b = [cast(ushort)ushort.max, 8, 7, 6, 5, 4, 3, 2];
-		ushort* c = new ushort[8];
+		ushort[] A = [1, 0, 3, 4, 5, 6, 7, 8];
+		ushort* a = A.ptr;
+
+		ushort[] B = [ushort.max, 8, 7, 6, 5, 4, 3, 2];
+		ushort* b = B.ptr;
+
+		ushort* c = (new ushort[8]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

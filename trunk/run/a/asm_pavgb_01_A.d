@@ -16,7 +16,7 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		byte[] a = new byte[8];
+		byte* a = (new byte[8]).ptr;
 		a[0] = 1;
 		a[1] = 2;
 		a[2] = 3;
@@ -26,7 +26,7 @@ version(runTest){
 		a[6] = 7;
 		a[7] = 8;
 
-		byte[] b = new byte[8];
+		byte* b = (new byte[8]).ptr;
 		b[0] = 5;
 		b[1] = 2;
 		b[2] = 1;
@@ -46,14 +46,32 @@ version(runTest){
 		c[6] = 4;
 		c[7] = 6;
 
-		byte[] d = new byte[8];
+		byte* d = (new byte[8]).ptr;
 
-		asm{
-			movq MM0, a;
-			movq MM1, b;
-			pavgb MM0, MM1;
-			movq d, MM0;
-			emms;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movq MM0, [EAX];
+				mov EAX, b;
+				movq MM1, [EAX];
+				pavgb MM0, MM1;
+				mov EAX, d;
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movq MM0, [RAX];
+				mov RAX, b;
+				movq MM1, [RAX];
+				pavgb MM0, MM1;
+				mov RAX, d;
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		for(size_t i = 0; i < c.length; i++){

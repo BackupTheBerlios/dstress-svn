@@ -16,7 +16,9 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		ushort* x = [cast(ushort)1, 2, 3, 4, 5, 0xFFFF, 7, 0];
+		ushort[] X = [cast(ushort)1, 2, 3, 4, 5, 0xFFFF, 7, 0];
+		ushort* x = X.ptr;
+
 		uint a;
 		uint b;
 

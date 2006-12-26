@@ -16,15 +16,19 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		ushort* a = [cast(ushort)
+		ushort[] A = [
 			0b01101100_01101110, 0b01101001_01101101, 0b01100011_01101011, 0b11100111_01100111,
 			0b11000110_11100110, 0b10001101_10011011, 0b00011011_10011011, 0b01100110_00000000
 		];
-		ushort* b = [cast(ushort)
+		ushort* a = A.ptr;
+
+		ushort[] B = [
 			0b10000000_11000000, 0b01000000_01100000, 0b00100000_00110000, 0b00010000_00011000,
 			0b00001000_00001100, 0b00000100_00000110, 0b00000010_00000011, 0b11111111_10101010
 		];
-		ushort* c = new ushort[8];
+		ushort* b = B.ptr;
+
+		ushort* c = (new ushort[8]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

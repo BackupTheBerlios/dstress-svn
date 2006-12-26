@@ -16,9 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		int* a = [cast(int)0, 1, 0, 4];
-		int* b = [cast(int)0, 3, 1, 4];
-		uint* c = new uint[4];
+		int[] A = [cast(int)0, 1, 0, 4];
+		int* a = A.ptr;
+
+		int[] B = [cast(int)0, 3, 1, 4];
+		int* b = B.ptr;
+
+		uint* c = (new uint[4]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

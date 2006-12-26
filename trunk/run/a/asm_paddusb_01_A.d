@@ -16,9 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		ubyte* a = [cast(ubyte)1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-		ubyte* b = [cast(ubyte)ubyte.max, 7, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5, 6, 7];
-		ubyte* c = new ubyte[16];
+		ubyte[] A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+		ubyte* a = A.ptr;
+
+		ubyte[] B = [ubyte.max, 7, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5, 6, 7];
+		ubyte* b = B.ptr;
+
+		ubyte* c = (new ubyte[16]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

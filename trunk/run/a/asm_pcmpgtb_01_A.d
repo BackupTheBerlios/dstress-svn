@@ -16,9 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		byte* a = [cast(byte)1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-		byte* b = [cast(byte)1, 3, 2, 4, 6, 5, 7, 9, 8, 10, 12, 11, 13, 16, 15, 14];
-		ubyte* c = new ubyte[16];
+		byte[] A = [cast(byte)1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+		byte* a = A.ptr;
+
+		byte[] B = [cast(byte)1, 3, 2, 4, 6, 5, 7, 9, 8, 10, 12, 11, 13, 16, 15, 14];
+		byte* b = B.ptr;
+
+		ubyte* c = (new ubyte[16]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

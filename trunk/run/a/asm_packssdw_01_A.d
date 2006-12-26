@@ -17,26 +17,44 @@ version(runTest){
 		haveSSE2!()();
 		haveMMX!()();
 
-		int[] a = new int[4];
+		int* a = (new int[4]).ptr;
 		a[0] = 1;
 		a[1] = -2;
 		a[2] = 3;
 		a[3] = -4;
 
-		int[] b = new int[4];
+		int* b = (new int[4]).ptr;
 		b[0] = 5;
 		b[1] = -6;
 		b[2] = 7;
 		b[3] = -8;
 
-		short[] c = new short[8];
+		short* c = (new short[8]).ptr;
 
-		asm{
-			movdqu XMM0, a;
-			movdqu XMM1, b;
-			packssdw XMM0, XMM1;
-			movdqu c, XMM0;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				mov EAX, b;
+				movdqu XMM1, [EAX];
+				packssdw XMM0, XMM1;
+				mov EAX, c;
+				movdqu [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				mov RAX, b;
+				movdqu XMM1, [RAX];
+				packssdw XMM0, XMM1;
+				mov RAX, c;
+				movdqu [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
+
 		if(c[0] != 1){
 			assert(0);
 		}

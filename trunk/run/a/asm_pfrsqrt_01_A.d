@@ -16,7 +16,7 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		float* a = new float[2];
+		float* a = (new float[2]).ptr;
 		a[0] = 4.0f;
 		a[1] = 3.3f;
 

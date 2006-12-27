@@ -16,15 +16,15 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		float* a = new float[2];
+		float* a = (new float[2]).ptr;
 		a[0] = 6.0f;
 		a[1] = 2.0f;
 		
-		float* b = new float[2];
+		float* b = (new float[2]).ptr;
 		b[0] = 2.0f;
 		b[1] = -1.0f;
 
-		float* c = new float[2];
+		float* c = (new float[2]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

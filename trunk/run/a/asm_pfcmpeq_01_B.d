@@ -14,11 +14,17 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		have3DNow!()();
+		haveMMX!()();
 
-		float* a = [123.0f, -456.0f];
-		float* b = [123.0f, 456.0f];
-		uint* c = new uint[2];
+		float* a = (new float[2]).ptr;
+		a[0] = 123.0f;
+		a[1] = -456.0f;
+
+		float* b = (new float[2]).ptr;
+		b[0] = 123.0f;
+		b[1] = 456.0f;
+
+		uint* c = (new uint[2]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{
@@ -56,6 +62,6 @@ version(runTest){
 		return 0;
 	}
 }else{
-	pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 	static assert(0);
 }

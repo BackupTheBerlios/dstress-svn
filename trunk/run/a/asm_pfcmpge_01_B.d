@@ -16,9 +16,13 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		float* a = [123.0f, 458.0f];
-		float* b = [124.0f, 456.0f];
-		uint* c = new uint[2];
+		float[] A = [123.0f, 458.0f];
+		float* a = A.ptr;
+
+		float[] B = [124.0f, 456.0f];
+		float* b = B.ptr;
+
+		uint* c = (new uint[2]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

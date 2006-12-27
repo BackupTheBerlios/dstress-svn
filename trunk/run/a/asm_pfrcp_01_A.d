@@ -4,16 +4,43 @@
 
 module dstress.run.a.asm_pfrcp_01_A;
 
-int main(){
-	version(D_InlineAsm_X86){
-		const float[2] A = [2.0f, 3.3f];
-		float[2] c;
+version(D_InlineAsm_X86){
+	version = runTest;
+}else version(D_InlineAsm_X86_64){
+	version = runTest;
+}
 
-		asm{
-			pfrcp MM0, A;
-			movq c, MM0;
-			emms;
+version(runTest){
+	import addon.cpuinfo;
+
+	int main(){
+		haveMMX!()();
+
+		float[] A = [2.0f, 3.3f];
+		float* a = A.ptr;
+
+		float* c = (new float[2]).ptr;
+
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				pfrcp MM0, [EAX];
+				mov EAX, c;
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				pfrcp MM0, [RAX];
+				mov RAX, c;
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
+
 		c[0] -= 0.5f;
 		if(c[0] < 0.0f){
 			c[0] = -c[0];
@@ -31,8 +58,8 @@ int main(){
 		}
 
 		return 0;
-	}else{
-		pragma(msg, "no Inline asm support");
-		static assert(0);
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

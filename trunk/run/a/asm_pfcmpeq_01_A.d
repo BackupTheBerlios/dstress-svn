@@ -16,21 +16,38 @@ version(runTest){
 	int main(){
 		haveMMX!()();
 
-		float[] a = new float[2];
+		float* a = (new float[2]).ptr;
 		a[0] = 123.0f;
 		a[1] = -456.0f;
 
-		float[] b = new float[2];
+		float* b = (new float[2]).ptr;
 		b[0] = 123.0f;
 		b[1] = 456.0f;
 
-		uint[] c = new uint[2];
+		uint* c = (new uint[2]).ptr;
 
-		asm{
-			movq MM0, a;
-			pfcmpeq MM0, b;
-			movq c, MM0;
-			emms;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movq MM0, [EAX];
+				mov EAX, b;
+				pfcmpeq MM0, [EAX];
+				mov EAX, c;
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movq MM0, [RAX];
+				mov RAX, b;
+				pfcmpeq MM0, [RAX];
+				mov RAX, c;
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0] != uint.max){

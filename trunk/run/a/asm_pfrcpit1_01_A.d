@@ -17,14 +17,32 @@ version(runTest){
 		haveMMX!()();
 		have3DNow!()();
 
-		const float[2] A = [2.0f, -0.5f];
-		float[2] c;
+		float* a = (new float[2]).ptr;
+		a[0] = 2.0f;
+		a[1] = -0.5f;
 
-		asm{
-			pfrcp MM0, A;
-			pfrcpit1 MM0, A;
-			movq c, MM0;
-			emms;
+		float* c = (new float[2]).ptr;
+
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				pfrcp MM0, [EAX];
+				pfrcpit1 MM0, [EAX];
+				mov EAX, c;
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				pfrcp MM0, [RAX];
+				pfrcpit1 MM0, [RAX];
+				mov RAX, c;
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		c[0] -= 1.007812f;

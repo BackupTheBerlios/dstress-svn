@@ -16,9 +16,13 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		short* a = [cast(short)1, 2, 3, 4, 5, 6, 16, 2];
-		short* b = [cast(short)-9, 10, -11, -12, 13, 14, 0xFFF, 1];
-		short* c = new short[8];
+		short[] A = [cast(short)1, 2, 3, 4, 5, 6, 16, 2];
+		short* a = A.ptr;
+
+		short[] B = [cast(short)-9, 10, -11, -12, 13, 14, 0xFFF, 1];
+		short* b = B.ptr;
+
+		short* c = (new short[8]).ptr;
 
 		static if(size_t.sizeof == 4){
 			asm{

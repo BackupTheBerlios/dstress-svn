@@ -16,22 +16,28 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const uint[4] A = [1, 0x1234_5678, 0xFEDC_A987, 3];
-		const uint[4] B = [0xFFFF_FFFF, 0xABCD, 13, 88];
+		uint[] A = [1, 0x1234_5678, 0xFEDC_A987, 3];
+		uint* a = A.ptr;
 
-		ulong[2] c;
+		uint[] B = [0xFFFF_FFFF, 0xABCD, 13, 88];
+		uint* b = B.ptr;
+
+		ulong* c = (new ulong[2]).ptr;
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a; 
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pmuludq XMM0, XMM1;
-			movdqu c, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
-		if(c[0] != 0x0000_0C37__89AB_6618){
+		if(c[0] != 0xFFFF_FFFF){
 			assert(0);
 		}
-		if(c[1] != 0x0000_0000__0000_0108){
+		if(c[1] != 0xC_F134_9BDB){
 			assert(0);
 		}
 

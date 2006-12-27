@@ -10,7 +10,6 @@ version(D_InlineAsm_X86){
 	version = runTest;
 }
 
-
 version(runTest){
 	import addon.cpuinfo;
 

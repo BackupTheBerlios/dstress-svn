@@ -17,17 +17,23 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const short[8] A = [1, 2, 3, 4, 5, 6, 16, 1];
-		const short[8] B = [-9, 10, -11, -12, 13, 14, 0xFFF, 2];
+		short[] A = [1, 2, 3, 4, 5, 6, 16, 1];
+		short* a = A.ptr;
 
-		int[4] c;
+		short[] B = [-9, 10, -11, -12, 13, 14, 0xFFF, 2];
+		short* b = B.ptr;
 
-		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
-			pmaddwd XMM0, XMM1;
-			movdqu c, XMM0;
-		}
+		int* c = (new int[4]).ptr;
+
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				mov EAX, b;
+				movdqu XMM1, [EAX];
+				pmaddwd XMM0, XMM1;
+				mov EAX, c;
+				movdqu [EAX], XMM0;
+			}
 
 		if(c[0] != (1 * -9) + (2 * 10)){
 			assert(0);
@@ -35,10 +41,10 @@ version(runTest){
 		if(c[1] != (3 * -11) + (4 * -12)){
 			assert(0);
 		}
-		if(c[2] != (5 * -12) + (6 * 13)){
+		if(c[2] != (5 * 13) + (6 * 14)){
 			assert(0);
 		}
-		if(c[3] != 0xFFF02){
+		if(c[3] != 0xFFF2){
 			assert(0);
 		}
 

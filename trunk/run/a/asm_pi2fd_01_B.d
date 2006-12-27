@@ -16,16 +16,30 @@ version(runTest){
 	int main(){
 		have3DNow!()();
 
-		int[] a = new int[2];
+		int* a = (new int[2]).ptr;
 		a[0] = 6;
 		a[1] = 2;
 
-		float[] b = new float[2];
+		float* b = (new float[2]).ptr;
 
-		asm{
-			pi2fd MM0, a;
-			movq b, MM0;
-			emms;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				pi2fd MM0, [EAX];
+				mov EAX, b;
+				movq [EAX], MM0;
+				emms;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				pi2fd MM0, [RAX];
+				mov RAX, b;
+				movq [RAX], MM0;
+				emms;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(b[0] != 6.0f){

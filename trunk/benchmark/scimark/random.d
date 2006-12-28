@@ -80,7 +80,7 @@ public:
 
         int  I = i;
         int  J = j;
-        int* m = m;
+        int* m = this.m.ptr;
 
         k = m[I] - m[J];
         if(k < 0) k += m1;

@@ -89,9 +89,9 @@ public:
                 /* x is the column vector A(j+1:M,j) */
                 /* y is row vector A(j,j+1:N)        */
 
-                double* luJ = lu[j];
+                double* luJ = lu[j].ptr;
                 for(int ii = j+1; ii < M; ii++) {
-                    double* luII = lu[ii];
+                    double* luII = lu[ii].ptr;
                     double luIIJ = luII[j];
                     for(int jj = j+1; jj < N; jj++) {
                         luII[jj] -= luIIJ * luJ[jj];

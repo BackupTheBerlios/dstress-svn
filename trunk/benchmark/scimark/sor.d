@@ -78,9 +78,9 @@ public:
 
         for(int p = 0; p < iterations; p++) {
             for(int i = 1; i < Mm1; i++) {
-                double* dataI = data[i];
-                double* dataIm1 = data[i-1];
-                double* dataIp1 = data[i+1];
+                double* dataI = data[i].ptr;
+                double* dataIm1 = data[i-1].ptr;
+                double* dataIp1 = data[i+1].ptr;
                 for(int j = 1; j < Nm1; j++) {
                     dataI[j] = omega_over_four * (dataIm1[j] + dataIp1[j] + dataI[j-1] + dataI[j+1]) + one_minus_omega * dataI[j];
                 }

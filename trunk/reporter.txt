@@ -110,6 +110,7 @@ Oskar Linde		<d98-oliRE.MO.VE@nada.kth.se>, <oskar.linde@gmail.com>
 Patrick Down
 Paul Guerra
 Paul Runde		<prunde@consolidated.net>
+Peter C. Chapin		<pchapin@ecet.vtc.edu>
 Regan Heath		<regan@netwin.co.nz>
 Rev
 Robert Atkinson		<Robert.Atkinson@gmail.com>

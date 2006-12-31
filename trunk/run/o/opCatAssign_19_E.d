@@ -4,7 +4,7 @@
 
 // @author@	<lio@lunesu.com>
 // @date@	2006-04-20
-// @uri@	news:bug-111-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=111
 
 module dstress.run.o.opCatAssign_19_E;
 

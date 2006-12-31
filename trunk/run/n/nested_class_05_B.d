@@ -4,7 +4,7 @@
 
 // @author@	<daiphoenix@lycos.com>
 // @date@	2006-03-14
-// @uri@	news:bug-50-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=50
 
 module dstress.run.n.nested_class_05_B;
 

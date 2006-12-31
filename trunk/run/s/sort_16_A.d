@@ -9,8 +9,6 @@
 
 module dstress.run.s.sort_16_A;
 
-import std.stdio;
-
 int main(){
 	dchar[] a = "a\U00000081b\U00002000c\U00010000";
 

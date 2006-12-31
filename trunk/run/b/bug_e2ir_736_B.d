@@ -4,7 +4,7 @@
 
 // @author@	<h3r3tic@mat.uni.torun.pl>
 // @date@	2006-06-01
-// @uri@	news:bug-172-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=172
 
 module dstress.run.b.bug_e2ir_736_B;
 

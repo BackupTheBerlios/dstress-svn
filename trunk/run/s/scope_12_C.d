@@ -4,7 +4,7 @@
 
 // @author@	<daiphoenix@lycos.com>
 // @date@	2006-03-14
-// @uri@	news:bug-47-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=47
 
 module dstress.run.s.scope_12_C;
 

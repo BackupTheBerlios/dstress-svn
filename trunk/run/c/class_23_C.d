@@ -4,7 +4,7 @@
 
 // @author@	<benoit@tionex.de>
 // @date@	2006-05-10
-// @uri@	news:bug-133-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=133
 
 module dstress.run.c.class_23_C;
 

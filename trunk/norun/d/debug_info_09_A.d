@@ -4,7 +4,7 @@
 
 // @author@	<me@teqdruid.com>
 // @date@	2006-06-18
-// @uri@	news:bug-146-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=146
 
 // __DSTRESS_TORTURE_REQUIRE__ -g
 // __GDB_SCRIPT__ run

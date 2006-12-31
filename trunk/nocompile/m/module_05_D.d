@@ -4,7 +4,7 @@
 
 // @author@	<thomas-dloop@kuehn.cn>
 // @date@	2006-03-31
-// @uri@	news:bug-78-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=78
 
 // __DSTRESS_ELINE__ 11
 

@@ -4,7 +4,7 @@
 
 // @author@	<jarrett.billingsley@gmail.com>
 // @date@	2006-04-02
-// @uri@	news:bug-80-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=80
 
 module dstress.run.n.nested_class_04_C;
 

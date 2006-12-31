@@ -4,7 +4,7 @@
 
 // @author@	<smjg@iname.com>
 // @date@	2006-05-13
-// @uri@	news:bug-140-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=140
 
 // __DSTRESS_EFILE__ 17
 

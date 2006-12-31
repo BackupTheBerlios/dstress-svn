@@ -4,7 +4,7 @@
 
 // @author@	<shro8822@uidaho.edu>
 // @date@	2006-05-23
-// @uri@	news:bug-152-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=152
 
 // __DSTRESS_ELINE__ 14
 

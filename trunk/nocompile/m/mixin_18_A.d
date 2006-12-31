@@ -4,7 +4,7 @@
 
 // @author@	<nail-mail@mail.ru>
 // @date@	2006-03-28
-// @uri@	news:bug-76-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=76
 
 // __DSTRESS_ELINE__ 17
 

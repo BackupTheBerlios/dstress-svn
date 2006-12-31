@@ -4,7 +4,7 @@
 
 // @author@	<thomas-dloop@kuehne.cn>
 // @date@	2006-04-09
-// @uri@	news:bug-94-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=94
 
 module dstress.run.o.object_01_A;
 

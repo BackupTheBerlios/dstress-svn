@@ -4,7 +4,7 @@
 
 // @author@	<sky@quit-clan.de>
 // @date@	2006-05-24
-// @uri@	news:bug-156-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=156
 
 module dstress.run.i.inline_16_B;
 

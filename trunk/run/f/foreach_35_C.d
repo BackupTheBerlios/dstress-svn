@@ -4,7 +4,7 @@
 
 // @author@	<ericanderton@yahoo.com>
 // @date@	2006-04-08
-// @uri@	news:bug-95-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=95
 
 module dstress.run.f.foreach_35_C;
 

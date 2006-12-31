@@ -4,7 +4,7 @@
 
 // @author@	<benoit@tionex.de>
 // @date@	2006-03-09
-// @uri@	news:bug-30-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=30
 
 // __DSTRESS_DFLAGS__ run/f/function_05_A.d
 

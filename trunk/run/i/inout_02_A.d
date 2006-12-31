@@ -4,7 +4,7 @@
 
 // @author@	<sean@f4.ca>
 // @date@	2006-03-05
-// @uri@	news:bug-13-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=13
 
 module dstress.run.i.inout_02_A;
 

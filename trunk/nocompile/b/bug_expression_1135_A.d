@@ -4,7 +4,7 @@
 
 // @author@	<clugdbug@yahoo.com.au>
 // @date@	2006-04-19
-// @rui@	news:bug-110-3@http.d.puremagic.com/bugzilla/
+// @rui@	http://d.puremagic.com/issues/show_bug.cgi?id=110
 
 // __DSTRESS_ELINE__ 16
 

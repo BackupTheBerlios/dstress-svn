@@ -4,7 +4,7 @@
 
 // @author@	<benoit@tionex.de>
 // @date@	2006-04-14
-// @uri@	news:bug-106-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=106
 
 module dstress.compile.f.forward_reference_13_E;
 

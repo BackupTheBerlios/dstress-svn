@@ -4,7 +4,7 @@
 
 // @author@	<godaves@yahoo.com>
 // @date@	2006-03-26
-// @uri@	news:bug-74-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=74
 
 module dstress.run.i.if_14_D;
 

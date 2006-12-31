@@ -4,7 +4,7 @@
 
 // @author@	<jarrett.billingsley@gmail.com>
 // @date@	2006-03-11
-// @uri@	news:bug-36-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=36
 
 module dstress.run.a.alias_32_E;
 

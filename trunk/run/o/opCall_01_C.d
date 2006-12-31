@@ -4,7 +4,7 @@
 
 // @author@	<oskar.linde@gmail.com>
 // @date@	2006-05-11
-// @uri@	news:bug-135-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=135
 
 module dstress.run.o.opCall_01_C;
 

@@ -4,7 +4,7 @@
 
 // @author@	<lugaidster@gmail.com>
 // @date@	2006-04-28
-// @uri@	news:bug-116-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=116
 
 // __DSTRESS_ELINE__ 24
 

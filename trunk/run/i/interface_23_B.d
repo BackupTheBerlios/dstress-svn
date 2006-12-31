@@ -4,7 +4,7 @@
 
 // @author@	<smjg@iname.com>
 // @date@	2006-03-22
-// @uri@	news:bug-65-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=65
 
 module dstress.run.i.interface_23_B;
 

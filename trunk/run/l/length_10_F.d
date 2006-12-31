@@ -4,7 +4,7 @@
 
 // @author@	<CppCoder@gmail.com>
 // @date@	2006-05-02
-// @uri@	news:bug-123-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=123
 
 module dstress.run.l.length_10_F;
 

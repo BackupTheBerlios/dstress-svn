@@ -4,7 +4,7 @@
 
 // @author@	<clayasaurus@gmail.com>
 // @date@	2006-04-13
-// @uri@	news:bug-104-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=104
 
 // __DSTRESS_ELINE__ 13
 

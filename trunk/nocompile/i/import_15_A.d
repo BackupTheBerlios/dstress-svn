@@ -4,7 +4,7 @@
 
 // @author@	<benoit@tionex.de>
 // @date@	2006-06-06
-// @uri@	news:bug-176-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=176
 
 // __DSTRESS_ELINE__ 13
 

@@ -4,7 +4,7 @@
 
 // @author@	<ddparnell@bigpond.com>
 // @date@	2006-03-08
-// @uri@	news:bug-24-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=24
 
 // __DSTRESS_ELINE__ 15
 

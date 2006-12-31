@@ -4,7 +4,7 @@
 
 // @author@	<lio@lunesu.com>
 // @date@	2006-05-18
-// @uri@	news:bug-145-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=145
 
 module dstress.run.o.opModule_01_B;
 

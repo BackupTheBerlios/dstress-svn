@@ -4,7 +4,7 @@
 
 // @author@	<benoit@tionex.de>
 // @date@	2006-04-13
-// @uri@	news:bug-105-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=105
 
 module dstress.run.m.mixin_20_A;
 

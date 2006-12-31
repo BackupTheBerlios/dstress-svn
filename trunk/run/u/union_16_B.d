@@ -4,7 +4,7 @@
 
 // @author@	<regan@netwin.co.nz>
 // @date@	2006-03-12
-// @uri@	news:bug-44-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=44
 
 module dstress.run.u.union_16_B;
 

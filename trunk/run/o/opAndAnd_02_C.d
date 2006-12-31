@@ -4,7 +4,7 @@
 
 // @author@	<clugdbug@yahoo.com.au>
 // @date@	2006-05-29
-// @uri@	news:bug-160-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=160
 
 module dstress.run.o.opAndAnd_02_C;
 

@@ -4,7 +4,7 @@
 
 // @author@	<thomas-dloop@kuehne.cn>
 // @date@	2006-03-24
-// @uri@	news:bug-72-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=72
 
 module dstress.run.m.memory_management_05;
 

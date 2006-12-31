@@ -4,7 +4,7 @@
 
 // @author@	<thomas-dloop@kuehne.cn>
 // @date@	2006-04-28
-// @uri@	news:bug-118-3@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=118
 
 module dstress.run.a.asm_movhlps_01_A;
 

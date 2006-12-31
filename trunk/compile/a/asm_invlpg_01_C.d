@@ -7,7 +7,7 @@
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=171
 // @desc@	[Issue 171] 'wrong number of operands' for invlpg inline asm instruction
 
-module dstress.compile.a.asm_invlpg_01_A;
+module dstress.compile.a.asm_invlpg_01_C;
 
 version(D_InlineAsm_X86){
 	version = runTest;
@@ -20,8 +20,8 @@ version(runTest){
 		void* p = arg.ptr;
 
 		asm{
-			mov EAX, [p];
-			invlpg [EAX];
+			mov EAX, p;
+			invlpg EAX;
 		}
 
 		return 0;

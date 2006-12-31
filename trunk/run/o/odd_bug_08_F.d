@@ -4,7 +4,7 @@
 
 // @author@	sugiyama <sugiyama563@msn.com>
 // @date@	2006-09-06
-// @uri@	news:bug-326-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=326
 // @desc@	[Issue 326] New: calculation bug
 
 module dstress.run.o.odd_bug_08_F;

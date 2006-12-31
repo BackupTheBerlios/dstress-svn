@@ -4,7 +4,7 @@
 
 // @author@	Tomasz Stachowiak <h3r3tic@mat.uni.torun.pl>
 // @date@	2006-10-12
-// @uri@	news:bug-431-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=431
 // @desc@	[Issue 431] New: Invalid case selected when switching on a long
 
 module dstress.run.c.case_04_A;

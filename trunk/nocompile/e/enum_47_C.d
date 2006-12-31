@@ -4,7 +4,7 @@
 
 // @author@	James Pelcis <jpelcis@gmail.com>
 // @date@	2006-09-19
-// @uri@	news:bug-355-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=355
 // @desc@	[Issue 355] New: ICE from enum : nonexistent type
 
 // __DSTRESS_ELINE__ 16

@@ -4,7 +4,7 @@
 
 // @author@	Bruno Medeiros <daiphoenix@lycos.com>
 // @date@	2006-08-01
-// @uri@	news:bug-274-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=274
 // @desc@	[Issue 274] Different template alias arguments are treated as the same.
 
 module dstress.run.t.template_42_A;

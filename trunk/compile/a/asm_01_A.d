@@ -4,7 +4,7 @@
 
 // @author@	<fvbommel@wxs.nl>
 // @date@	2006-07-01
-// @uri@	news:bug-233-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=233
 
 module dstress.compile.a.asm_01_A;
 

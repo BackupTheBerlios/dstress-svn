@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg@iname.com>
 // @date@	2006-09-16
-// @uri@	news:bug-351-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=351
 // @desc@	[Issue 351] New: Recursive string template doesn't work if the terminating specialisation is given first
 
 module dstress.compile.t.template_44_A;

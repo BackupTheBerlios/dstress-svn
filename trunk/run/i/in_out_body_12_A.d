@@ -4,7 +4,7 @@
 
 // @author@	Deewiant <deewiant@gmail.com>
 // @date@	2006-07-09
-// @uri@	news:bug-247-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=247
 // @desc@	[Issue 247] Cannot return from nested functions in contracts
 
 module dstress.run.i.in_out_body_12_A;

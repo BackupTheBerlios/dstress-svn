@@ -4,7 +4,7 @@
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2006-09-11
-// @uri@	news:bug-343-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=343
 // @desc@	[Issue 343] New: Compile error using mixin containing struct
 
 module dstress.run.m.mixin_24_D;

@@ -4,7 +4,7 @@
 
 // @author@	Matti Niemenmaa <deewiant@gmail.com>
 // @date@	2006-11-18
-// @uri@	news:bug-555-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=555
 // @desc@	[Issue 555] New: Integral ireal literals can't be specified
 
 module dstress.compile.f.float_literal_dec_18_E;

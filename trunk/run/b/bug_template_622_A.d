@@ -4,7 +4,7 @@
 
 // @author@	<oskar.linde@gmail.com>
 // @date@	2006-07-06
-// @uri@	news:bug-241-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=241
 
 module dstress.run.b.bug_template_622_A;
 

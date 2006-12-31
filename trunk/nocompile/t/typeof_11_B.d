@@ -4,7 +4,7 @@
 
 // @author@	Bruno Medeiros <brunodomedeiros+bugz@gmail.com>
 // @date@	2006-09-26
-// @uri@	news:bug-370-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=370
 // @desc@	[Issue 370] New: Compiler stack overflow on recursive typeof in function declaration.
 
 // __DSTRESS_ELINE__  14

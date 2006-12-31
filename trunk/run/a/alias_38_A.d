@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.cn>
 // @date@	2006-10-03
-// @uri@	news:bug-396-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=396
 // @desc@	[Issue 396] New: aliased identifier in asm blocks cause compiler segment faults
 
 module dstress.run.a.alias_38_A;

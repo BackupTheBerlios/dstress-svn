@@ -4,7 +4,7 @@
 
 // @author@	Tomasz Stachowiak <h3r3tic@mat.uni.torun.pl>
 // @date@	2006-10-17
-// @uri@	news:bug-440-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=440
 // @desc@	[Issue 440] New: dmd.170 fails to mark final methods as implementations of abstract ones
 
 // __DSTRESS_ELINE__ 24

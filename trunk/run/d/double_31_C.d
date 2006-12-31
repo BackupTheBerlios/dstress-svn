@@ -4,7 +4,7 @@
 
 // @author@	Lionello Lunesu <lio@lunesu.com>
 // @date@	2006-08-18
-// @uri@	news:bug-291-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=291
 // @desc@	[Issue 291] assertion
 
 module dstress.run.r.double_31_C;

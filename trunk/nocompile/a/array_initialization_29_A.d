@@ -4,7 +4,7 @@
 
 // @author@	Samuel Martin Valentin <samuel@jxdesigner.com>
 // @date@	2006-11-23
-// @uri@	news:bug-587-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=587
 // @desc@	[Issue 587] New: DMD crashes compiling char[][] initialization
 
 // __DSTRESS_ELINE__ 14

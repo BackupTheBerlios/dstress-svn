@@ -4,7 +4,7 @@
 
 // @author@	Witold Baryluk <baryluk@mpi.int.pl>
 // @date@	2006-10-19
-// @uri@	news:bug-443-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=443
 // @desc@	[Issue 443] New: assignment in return when using cdouble is broken
 
 module dstress.run.r.return_09_B;

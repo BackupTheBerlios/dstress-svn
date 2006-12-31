@@ -4,7 +4,7 @@
 
 // @author@	<jarrett.billingsley@gmail.com>
 // @date@	2006-06-23
-// @uri@	news:bug-222-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=222
 
 // __DSTRESS_ELINE__ 18
 

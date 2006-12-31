@@ -4,7 +4,7 @@
 
 // @author@	Lionello Lunesu <lio@lunesu.com>
 // @date@	2006-07-20
-// @uri@	news:bug-259-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=259
 // @desc@	[Issue 259] New: Comparing signed to unsigned does not generate an error
 
 // __DSTRESS_ELINE__ 18

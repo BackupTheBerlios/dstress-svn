@@ -4,7 +4,7 @@
 
 // @author@	Deewiant <deewiant@gmail.com>	
 // @date@	2006-09-20
-// @uri@	news:bug-297-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=297
 // @desc@	[Issue 297] New: Shadowing declarations allowed in foreach type lists
 
 // __DSTRESS_ELINE__ 18

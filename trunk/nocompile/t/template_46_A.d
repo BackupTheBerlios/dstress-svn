@@ -4,7 +4,7 @@
 
 // @author@	Vladimir <v04bvs@gmail.com>
 // @date@	2006-11-22
-// @uri@	news:bug-585-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=585
 // @desc@	[Issue 585] New: dmd crashes with segmentation fault
 
 // __DSTRESS_ELINE__ 14

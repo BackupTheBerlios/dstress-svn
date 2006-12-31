@@ -4,7 +4,7 @@
 
 // @author@	Don Clugston <clugdbug@yahoo.com.au>
 // @date@	2006-11-16
-// @uri@	news:bug-532-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=532
 // @desc@	[Issue 532] New: Wrong name mangling for template alias params of local vars
 
 module dstress.compile.m.mangleof_19_G;

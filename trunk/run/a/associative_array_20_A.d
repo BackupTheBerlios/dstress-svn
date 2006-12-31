@@ -4,7 +4,7 @@
 
 // @author@	Mitja Slenc <mslenc@gmail.com>
 // @date@	2006-12-05
-// @uri@	news:bug-653-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=653
 // @desc@	[Issue 653] New: AAs are slightly broken
 
 module dstress.run.a.associative_array_20_A;

@@ -4,7 +4,7 @@
 
 // @author@	Don Clugston <clugdbug@yahoo.com.au>
 // @date@	2006-10-04
-// @uri@	news:bug-398-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=398
 // @desc@	[Issue 398] New: No way to abort compilation in a doubly recursive mixin
 
 module dstress.run.m.mixin_25_A;

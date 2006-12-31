@@ -4,7 +4,7 @@
 
 // @author@	<h3r3tic@mat.uni.torun.pl>
 // @date@	2006-06-19
-// @uri@	news:bug-211-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=211
 
 module dstress.run.m.mixin_23_D;
 

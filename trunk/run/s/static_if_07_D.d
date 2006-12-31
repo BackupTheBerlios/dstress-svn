@@ -4,7 +4,7 @@
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2006-08-23
-// @uri@	news:bug-305-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=305
 // @desc@	[Issue 305] New: version and static if blocks introduce new scope for 'scope' statement
 
 module dstress.run.s.static_if_07_D;

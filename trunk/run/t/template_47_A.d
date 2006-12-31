@@ -4,7 +4,7 @@
 
 // @author@	Nazo Humei <lovesyao@hotmail.com>
 // @date@	2006-11-19
-// @uri@	news:bug-571-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=571
 // @desc@	[Issue 571] New: class instance member template returns strange value
 
 module dstress.run.t.template_47_A;

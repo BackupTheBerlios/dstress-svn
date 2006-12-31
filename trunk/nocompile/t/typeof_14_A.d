@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.cn>
 // @date@	2006-10-06
-// @uri@	news:bug-405-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=405
 // @desc@	[Issue 405] New: typeof in TemplateParameterList causes compiletime segmentfault
 
 // __DSTRESS_ELINE__ 14

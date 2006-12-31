@@ -4,7 +4,7 @@
 
 // @author@	Jarrett Billingsley <jarrett.billingsley@gmail.com>
 // @date@	2006-08-12
-// @uri@	news:bug-285-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=285
 
 // __DSTRESS_TORTURE_BLOCK__ -release
 // __DSTRESS_ELINE__ 21

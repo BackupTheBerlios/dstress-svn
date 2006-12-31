@@ -4,7 +4,7 @@
 
 // @author@	Tomasz Stachowiak <h3r3tic@mat.uni.torun.pl>
 // @date@	2006-09-27
-// @uri@	news:bug-381-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=381
 // @desc@	[Issue 381] New: array literals are broken; Internal error: ..\ztc\cod1.c 2525
 
 // __DSTRESS_WARNING__ direct access to Phobos's stdarg

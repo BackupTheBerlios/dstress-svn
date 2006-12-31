@@ -4,7 +4,7 @@
 
 // @autho@	<digitalmars-com@baysmith.com>
 // @date@	2006-07-05
-// @uri@	news:bug-240-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=240
 
 module dstress.run.d.double_30_A;
 

@@ -4,7 +4,7 @@
 
 // @author@	Michael Arntzenius <daekharel@gmail.com>
 // @date@	2006-11-27
-// @uri@	news:bug-611-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=611
 // @desc@	[Issue 611] New: IsExpression fails when inside implemented interface
 
 module dstress.compile.i.is_15_G;

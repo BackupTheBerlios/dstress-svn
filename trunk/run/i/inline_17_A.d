@@ -4,7 +4,7 @@
 
 // @author@	Boris Kolar <boris.kolar@globera.com>
 // @date@	2006-09-27
-// @uri@	news:bug-377-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=377
 // @desc@	[Issue 377] New: Compiler error when using -inline only
 
 module dstress.run.i.inline_17_A;

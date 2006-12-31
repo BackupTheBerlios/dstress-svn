@@ -4,7 +4,7 @@
 
 // @author@	Bill Baxter <wbaxter@gmail.com>
 // @date@	2006-11-06
-// @uri@	news:bug-482-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=482
 // @desc@	[Issue 482] New: _arguments for variadic not available in precondition
 
 // __DSTRESS_TORTURE_BLOCK__ -release

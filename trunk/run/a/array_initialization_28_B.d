@@ -4,7 +4,7 @@
 
 // @author@	Frank Benoit <benoit@tionex.de>
 // @date@	2006-10-09
-// @uri@	news:bug-411-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=411
 // @desc@	[Issue 411] New: array alloc with size from another array
 
 module dstress.run.a.array_initialization_28_B;

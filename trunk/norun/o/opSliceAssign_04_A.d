@@ -4,7 +4,7 @@
 
 // @author@	Burton Radons <burton-radons@smocky.com>
 // @date@	2006-12-07
-// @uri@	news:bug-663-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=663
 // @desc@	[Issue 663] New: Slice assignment does not bounds check when it should
 
 // __DSTRESS_TORTURE_BLOCK__ -release

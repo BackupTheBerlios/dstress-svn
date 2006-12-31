@@ -4,7 +4,7 @@
 
 // @author@ Thomas Kühne <thomas-dloop@kuehne.cn>
 // @date@	2006-12-09
-// @uri@	news:bug-664-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=664
 // @desc@	[Issue 664] New: is(func T == return) ignores variadic arguments
 
 module dstress.compile.i.is_16_A;

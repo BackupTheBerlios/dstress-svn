@@ -4,7 +4,7 @@
 
 // @author@	Serg Kovrov <reg4dyh@inbox.lv>
 // @date@	2006-07-30	
-// @uri@	news:bug-272-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=272
 // @desc@	[Issue 272] foreach inside anonymous function crashes dmd.exe
 
 module destress.run.f.foreach_36_D;

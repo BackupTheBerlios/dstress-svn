@@ -4,7 +4,7 @@
 
 // @author@	Bill Baxter <wbaxter@gmail.com>
 // @date@	2006-11-12
-// @uri@	news:bug-495-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=495
 // @desc@	[Issue 495] New: ICE passing variadic arglist to another variadic template
 
 module dstress.run.t.tuple_08_B;

@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg@iname.com>
 // @date@	2006-07-19
-// @uri@	news:bug-258-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=258
 // @desc@	[Issue 258] New: Undefined identifier error for circular import
 
 module /*dstress.*/compile.i.import_17_C;

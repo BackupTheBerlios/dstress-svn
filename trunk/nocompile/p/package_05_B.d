@@ -4,7 +4,7 @@
 
 // @author@	Jarrett Billingsley <jarrett.billingsley@gmail.com>
 // @date@	2006-07-18
-// @uri@	news:bug-257-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=257
 // @desc@	[Issue 257] New: package vars accessible from sub-modules, package funcs not
 
 // __DSTRESS_ELINE__ 16

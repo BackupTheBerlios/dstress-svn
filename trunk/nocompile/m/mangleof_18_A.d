@@ -4,7 +4,7 @@
 
 // @author@	Don Clugston <clugdbug@yahoo.com.au>
 // @date@	2006-11-06
-// @uri@	news:bug-483-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=483
 // @desc@	[Issue 483] New: ICE-invalid with tuple. mangleof.
 
 // __DSTRESS_ELINE__ 15

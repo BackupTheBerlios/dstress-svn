@@ -4,7 +4,7 @@
 
 // @author@	Bruno Medeiros <daiphoenix@lycos.com>
 // @date@	2006-08-02
-// @uri@	news:bug-276-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=276
 
 module dstress.compile.t.template_41_A;
 

@@ -4,7 +4,7 @@
 
 // @author@	James Pelcis <jpelcis@gmail.com>
 // @date@	2006-07-12
-// @uri@	news:bug-250-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=250
 // @desc@	[Issue 250] enum : bool allowed with odd results
 
 module dstress.compile.e.enum_46_C;

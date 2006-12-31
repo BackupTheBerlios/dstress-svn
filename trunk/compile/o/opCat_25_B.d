@@ -4,7 +4,7 @@
 
 // @author@	Nazo Humei <lovesyao@hotmail.com>
 // @date@	2006-11-25
-// @uri@	news:bug-595-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=595
 // @desc@	[Issue 595] New: can't append to array/arrayliteral statically
 
 module dstress.compile.o.opCat_25_B;

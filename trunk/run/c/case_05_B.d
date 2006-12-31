@@ -4,7 +4,7 @@
 
 // @author@	Nazo Humei <lovesyao@hotmail.com>
 // @date@	2006-11-25
-// @uri@	news:bug-596-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=596
 // @desc@	[Issue 596] New: Support array, arrayliteral and struct in switch and case
 
 module dstress.run.c.case_05_B;

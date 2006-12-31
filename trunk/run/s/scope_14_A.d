@@ -4,7 +4,7 @@
 
 // @author@	<thomas-dloop@kuehne.cn>
 // @date@	2006-07-02
-// @uri@	news:bug-235-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=235
 
 module dstress.run.s.scope_14_A;
 

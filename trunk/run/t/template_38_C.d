@@ -4,7 +4,7 @@
 
 // @author@	<h3r3tic@mat.uni.torun.pl>
 // @date@	2006-06-21
-// @uri@	news:bug-215-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=215
 
 module dstress.run.t.template_38_C;
 

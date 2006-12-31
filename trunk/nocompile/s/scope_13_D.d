@@ -4,7 +4,7 @@
 
 // @author@	<ericanderton@yahoo.com>
 // @date@	2006-06-16
-// @uri@	news:bug-199-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=199
 
 // __DSTRESS_ELINE__ 20
 

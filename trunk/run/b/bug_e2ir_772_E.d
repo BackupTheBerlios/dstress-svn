@@ -4,7 +4,7 @@
 
 // @author@	Vathix <chris@dprogramming.com>
 // @date@	2006-09-17
-// @uri@	news:bug-354-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=354
 // @desc@	[Issue 354] New: Internal error: e2ir.c 772 with bad template use
 
 module dstress.run.b.bug_e2ir_772_E;

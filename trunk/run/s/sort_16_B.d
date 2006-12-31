@@ -4,7 +4,7 @@
 
 // @author@	Derek Parnell <ddparnell@bigpond.com>
 // @date@	2006-10-02
-// @uri@	news:bug-391-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=391
 // @desc@	[Issue 391] New: .sort and .reverse break utf8 encoding
 
 module dstress.run.s.sort_16_B;

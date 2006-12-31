@@ -4,7 +4,7 @@
 
 // @author@	<clugdbug@yahoo.com.au>
 // @date@	2006-06-23
-// @uri@	news:bug-220-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=220
 
 module dstress.compile.m.mangleof_16_C;
 

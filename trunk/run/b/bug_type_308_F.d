@@ -4,7 +4,7 @@
 
 // @author@	<godaves@yahoo.com>
 // @date@	2006-06-27
-// @uri@	news:bug-227-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=227
 
 module dstress.run.b.bug_type_308_F;
 

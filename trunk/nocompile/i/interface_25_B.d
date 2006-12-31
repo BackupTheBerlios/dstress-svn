@@ -4,7 +4,7 @@
 
 // @author@	david <davidl@126.com>
 // @date@	2006-10-09
-// @uri@	news:bug-414-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=414
 // @desc@	[Issue 414] New: interfaces shouldn't be able to inheit from classes
 
 // __DSTRESS_ELINE__ 23

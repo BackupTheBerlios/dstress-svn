@@ -4,7 +4,7 @@
 
 // @author@	Marsell <marsell_pk@yahoo.com>
 // @date@	2006-11-13
-// @uri@	news:bug-500-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=500
 // @desc@	[Issue 500] New: Cannot assign to delegate during definition
 
 module dstress.run.d.delegate_20_B;

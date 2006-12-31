@@ -4,7 +4,7 @@
 
 // @author@	Don Clugston <clugdbug@yahoo.com.au>
 // @date@	2006-11-06
-// @uri@	news:bug-484-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=484
 // @desc@	[Issue 484] New: Compiler segfault with template variadic used as a template alias.
 
 module dstress.run.t.tuple_02_A;

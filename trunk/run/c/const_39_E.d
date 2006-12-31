@@ -4,7 +4,7 @@
 
 // @author@	Bradley Smith <digitalmars-com@baysmith.com>
 // @date@	2006-09-30
-// @uri@	news:bug-389-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=389
 // @desc@	[Issue 389] New: Cannot link to std.path.altsep
 
 module dstress.run.c.const_39_E;

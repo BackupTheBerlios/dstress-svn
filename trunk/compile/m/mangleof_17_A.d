@@ -4,7 +4,7 @@
 
 // @author@	david <davidl@126.com>
 // @date@	2006-10-28
-// @uri@	news:bug-466-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=466
 // @desc@	[Issue 466] New: dmd prevent this from link , if so please prevent it from compiling
 
 module dstress.compile.m.mangleof_17_A;

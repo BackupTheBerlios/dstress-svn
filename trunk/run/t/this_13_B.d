@@ -4,7 +4,7 @@
 
 // @author@	Frank Benoit <benoit@tionex.de>
 // @date@	2006-10-09
-// @uri@	news:bug-419-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=419
 // @desc@	[Issue 419] New: Anonymous classes are not working.
 
 module dstress.run.t.this_13_B;

@@ -4,7 +4,7 @@
 
 // @author@	Kazuhiro Inaba <kinaba@is.s.u-tokyo.ac.jp>
 // @date@	2006-12-03
-// @uri@	news:bug-640-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=640
 // @desc@	[Issue 640] New: Strage error messages around structInstance.init
 
 module dstress.run.e.expression_4154_C;

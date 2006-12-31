@@ -4,7 +4,7 @@
 
 // @author@	Nick <korslund@gmail.com>
 // @date@	2006-11-02
-// @uri@	news:bug-475-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=475
 // @desc@	[Issue 475] New: DMD segfault on recursive variadic template
 
 // __DSTRESS_ELINE__ 16

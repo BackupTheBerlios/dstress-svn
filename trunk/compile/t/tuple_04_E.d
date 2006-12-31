@@ -4,7 +4,7 @@
 
 // @author@	Kirk McDonald <kirklin.mcdonald@gmail.com>
 // @date@	2006-11-23
-// @uri@	news:bug-586-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=586
 // @desc@	[Issue 586] New: Cannot index tuple with non-type elements
 
 module dstress.compile.t.tuple_04_E;

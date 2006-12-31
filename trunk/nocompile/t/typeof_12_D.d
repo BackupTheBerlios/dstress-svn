@@ -4,7 +4,7 @@
 
 // @author@	Bruno Medeiros <brunodomedeiros+bugz@gmail.com>
 // @date@	2006-09-26
-// @uri@	news:bug-369-3@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=369
 // @desc@	[Issue 369] New: "immediate"-function types allowed as part of delegate/function types.
 
 // __DSTRESS_ELINE__ 17

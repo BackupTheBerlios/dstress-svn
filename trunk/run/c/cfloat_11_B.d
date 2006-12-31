@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kühne <thomas-doop@kuehne.cn>
 // @date@	2006-11-19
-// @uri@	news:bug-575-31@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=575
 // @desc@	[Issue 575] New: wrong evaluation of (creal * 2 + 1i)
 
 module dstress.run.c.cfloat_11_B;

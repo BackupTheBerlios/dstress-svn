@@ -4,7 +4,7 @@
 
 // @author@	<dvdfrdmn@users.sf.net>
 // @date@	2006-05-27
-// @uri@	news:bug-157-31@http.d.puremagic.com/bugzilla/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=157
 
 module dstress.run.f.function_06_B;
 

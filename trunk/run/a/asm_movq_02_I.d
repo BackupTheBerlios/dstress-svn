@@ -4,7 +4,7 @@
 
 // @author@	<thomas-dloop@kuehne.cn>
 // @date@	2006-05-26
-// @uri@	news:bug-173-3@http.d.puremagic.com/bugzilla
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=173
 
 // __DSTRESS_TORTURE_BLOCK__ -fPIC
 

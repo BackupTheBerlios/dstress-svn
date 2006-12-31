@@ -4,7 +4,7 @@
 
 // @author@	Gregor Richards <akaquinn@hotmail.com>
 // @date@	2006-11-20
-// @uri@	news:bug-578-31@http.d.puremagic.com/issues/
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=578
 // @desc@	[Issue 578] New: GDC evaluates rvalue of array assignment repeatedly
 
 module dstress.run.o.opSliceAssign_03_A;

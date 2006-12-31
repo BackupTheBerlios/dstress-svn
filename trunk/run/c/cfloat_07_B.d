@@ -4,7 +4,7 @@
 
 // @author@	Don Clugston <dac@nospam.com.au>
 // @date@	2006-03-02
-// @uri@	news:<du6chp$hub$1@digitaldaemon.com
+// @uri@	news:du6chp$hub$1@digitaldaemon.com
 
 module dstress.run.c.cfloat_07_B;
 

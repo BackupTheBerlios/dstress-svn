@@ -16,8 +16,8 @@ version(runTest){
 	int main(){
 		haveFPU!()();
 
-		float a = 12.0f;
-		float b = -3.0f;
+		float a = -3.0f;
+		float b = 12.0f;
 
 		asm{
 			fld b;

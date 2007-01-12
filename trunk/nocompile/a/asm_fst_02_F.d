@@ -6,12 +6,15 @@
 
 module dstress.nocompile.a.asm_fst_02_F;
 
-void main(){
-	version(D_InlineAsm){
+version(D_InlineAsm){
+	void main(){
 		real x;
 		
 		asm{
 			fst x;
 		}
 	}
+}else{
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	static assert(0);
 }

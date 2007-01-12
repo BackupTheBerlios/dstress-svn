@@ -27,7 +27,7 @@ version(runTest){
 			cmp AL, BL;
 			fld1;
 			fldz;
-			fcmovne ST(1);
+			fcmovne ST, ST(1);
 			fst f;
 		}
 
@@ -41,7 +41,7 @@ version(runTest){
 			cmp AL, BL;
 			fld1;
 			fldz;
-			fcmovne ST(1);
+			fcmovne ST, ST(1);
 			fst f;
 		}
 
@@ -55,7 +55,7 @@ version(runTest){
 			cmp AL, BL;
 			fld1;
 			fldz;
-			fcmovne ST(1);
+			fcmovne ST, ST(1);
 			fst f;
 		}
 

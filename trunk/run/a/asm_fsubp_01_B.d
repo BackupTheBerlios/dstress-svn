@@ -14,8 +14,10 @@ version(runTest){
 	import addon.cpuinfo;
 
 	int main(){
-		double a = 2.4;
-		double b = -1.2;
+		haveFPU!()();
+		
+		double a = -1.2;
+		double b = 2.4;
 
 		asm{
 			fld1;

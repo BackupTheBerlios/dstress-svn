@@ -16,7 +16,7 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		ushort[8] a = new ushort[8];
+		ushort* a = (new ushort[8]).ptr;
 		a[0] = 0x1200;
 		a[1] = 0x0120;
 		a[2] = 0x0012;
@@ -26,7 +26,7 @@ version(runTest){
 		a[6] = 0x0000;
 		a[7] = 0x1111;
 
-		ushort[] b = new ushort[8];
+		ushort* b = (new ushort[8]).ptr;
 		b[0] = 0x2100;
 		b[1] = 0x2100;
 		b[2] = 0x2100;
@@ -36,7 +36,7 @@ version(runTest){
 		b[6] = 0x0102;
 		b[7] = 0x2222;
 
-		ushort[] c = new ushort[8];
+		ushort* c = (new ushort[8]).ptr;
 		c[0] = 0x3300;
 		c[1] = 0x2020;
 		c[2] = 0x2112;
@@ -46,24 +46,44 @@ version(runTest){
 		c[6] = 0x0102;
 		c[7] = 0x3333;
 
-		ushort[] d = new ushort[8];
-		ushort[] e = new ushort[8];
+		ushort* d = (new ushort[8]).ptr;
+		ushort* e = (new ushort[8]).ptr;
 
-		asm{
-			movdqu XMM0, a;
-			movdqu XMM1, b;
-			pxor XMM1, XMM0;
-			movdqu d, XMM0;
-			movdqu e, XMM1;
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				mov EAX, b;
+				movdqu XMM1, [EAX];
+				pxor XMM1, XMM0;
+				mov EAX, d;
+				movdqu [EAX], XMM0;
+				mov EAX, e;
+				movdqu [EAX], XMM1;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				mov RAX, b;
+				movdqu XMM1, [RAX];
+				pxor XMM1, XMM0;
+				mov RAX, d;
+				movdqu [RAX], XMM0;
+				mov RAX, e;
+				movdqu [RAX], XMM1;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 
-		foreach(size_t i, ushort s; a){
+		foreach(size_t i, ushort s; a[0 .. 8]){
 			if(s != d[i]){
 				assert(0);
 			}
 		}
-		foreach(size_t i, ushort s; c){
+		foreach(size_t i, ushort s; c[0 .. 8]){
 			if(s != e[i]){
 				assert(0);
 			}

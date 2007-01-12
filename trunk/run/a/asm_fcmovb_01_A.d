@@ -27,7 +27,7 @@ version(runTest){
 			cmp AL, BL;
 			fld1;
 			fldz;
-			fcmovb ST(1);
+			fcmovb ST,ST(1);
 			fst f;
 		}
 
@@ -41,7 +41,7 @@ version(runTest){
 			cmp AL, BL;
 			fld1;
 			fldz;
-			fcmovb ST(1);
+			fcmovb ST,ST(1);
 			fst f;
 		}
 

@@ -28,7 +28,7 @@ version(runTest){
 			fldz;
 			fld1;
 			fld f1;
-			fucomip;
+			fucomip ST, ST(1);
 			fstp f1;
 			fstp f1;
 			fstp f2;

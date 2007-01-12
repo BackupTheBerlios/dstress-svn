@@ -16,19 +16,36 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		float* a = [1.0f, 2.0f, 3.0f, 4.0f];
-		float* b = [5.0f, 6.0f, 7.0f, 8.0f];
+		float[] A = [1.0f, 2.0f, 3.0f, 4.0f];
+		float* a = A.ptr;
 
-		float* c = new float[4];
+		float[] B = [5.0f, 6.0f, 7.0f, 8.0f];
+		float* b = B.ptr;
 
-		asm{
-			mov EAX, a;
-			movups XMM0, [EAX];
-			mov EAX, b;
-			movups XMM1, [EAX];
-			pshufd XMM0, XMM1, 0b01_01_00_10;
-			mov EAX, c;
-			movups [EAX], XMM0;
+		float* c = (new float[4]).ptr;
+
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movups XMM0, [EAX];
+				mov EAX, b;
+				movups XMM1, [EAX];
+				pshufd XMM0, XMM1, 0b01_01_00_10;
+				mov EAX, c;
+				movups [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movups XMM0, [RAX];
+				mov RAX, b;
+				movups XMM1, [RAX];
+				pshufd XMM0, XMM1, 0b01_01_00_10;
+				mov RAX, c;
+				movups [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
 		if(c[0] != 7.0f){

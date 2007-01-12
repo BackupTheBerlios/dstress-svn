@@ -16,28 +16,34 @@ version(runTest){
 	int main(){
 		haveSSE2!()();
 
-		const short[8] A = [9, 9, 9, 9, 9, 9, 9, 9];
-		const short[8] B = [1, 2, 3, 4, 5, 6, 7, 8];
+		short[] A = [9, 9, 9, 9, 9, 9, 9, 9];
+		short* a = A.ptr;
 
-		short[8] c;
+		short[] B = [1, 2, 3, 4, 5, 6, 7, 8];
+		short* b = B.ptr;
+
+		short* c = (new short[8]).ptr;
 
 		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
+			mov EAX, a;
+			movdqu XMM0, [EAX];
+			mov EAX, b;
+			movdqu XMM1, [EAX];
 			pshufhw XMM0, XMM1, 0b11_10_01_00;
-			movdqu, XMM0;
+			mov EAX, c;
+			movdqu [EAX], XMM0;
 		}
 
-		if(c[0] != 4){
+		if(c[0] != 1){
 			assert(0);
 		}
-		if(c[1] != 3){
+		if(c[1] != 2){
 			assert(0);
 		}
-		if(c[2] != 2){
+		if(c[2] != 3){
 			assert(0);
 		}
-		if(c[3] != 1){
+		if(c[3] != 4){
 			assert(0);
 		}
 		if(c[4] != 5){

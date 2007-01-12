@@ -16,17 +16,16 @@ version(runTest){
 	int main(){
 		haveFPU!()();
 
-		float a = -0.0f;
+		float a = 7.0f;
 
 		asm{
 			fld a;
 			fld a;
 			fyl2xp1;
 			fstp a;
-			fstp a;
 		}
 
-		if(a != 0.0L){
+		if(a != 21.0){
 			assert(0);
 		}
 

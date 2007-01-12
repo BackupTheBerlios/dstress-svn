@@ -16,19 +16,39 @@ version(runTest){
 	int main(){
 		haveSSE!()();
 
-		const ubyte[16] A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-		const ubyte[16] B = [2, 2, 2, 2, 2, 2, 2, 2, 1, 10, 10, 10, 10, 10, 10, 10];
+		ubyte[] A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+		ubyte* a = A.ptr;
 
-		ushort[8] c;
+		ubyte[] B = [2, 2, 2, 2, 2, 2, 2, 2, 1, 10, 10, 10, 10, 10, 10, 10];
+		ubyte* b = B.ptr;
 
-		asm{
-			movdqu XMM0, A;
-			movdqu XMM1, B;
-			psadbw XMM0, XMM1;
-			movdqu c, XMM0;
+		ushort* c = (new ushort[8]).ptr;
+
+		static if(size_t.sizeof == 4){
+			asm{
+				mov EAX, a;
+				movdqu XMM0, [EAX];
+				mov EAX, b;
+				movdqu XMM1, [EAX];
+				psadbw XMM0, XMM1;
+				mov EAX, c;
+				movdqu [EAX], XMM0;
+			}
+		}else static if(size_t.sizeof == 8){
+			asm{
+				mov RAX, a;
+				movdqu XMM0, [RAX];
+				mov RAX, b;
+				movdqu XMM1, [RAX];
+				psadbw XMM0, XMM1;
+				mov RAX, c;
+				movdqu [RAX], XMM0;
+			}
+		}else{
+			static assert(0, "unhandled pointer size");
 		}
 
-		if(c[0] != 0){
+		if(c[0] != 22){
 			assert(0);
 		}
 		if(c[1] != 0){
@@ -37,10 +57,10 @@ version(runTest){
 		if(c[2] != 0){
 			assert(0);
 		}
-		if(c[3] != 22){
+		if(c[3] != 0){
 			assert(0);
 		}
-		if(c[4] != 0){
+		if(c[4] != 29){
 			assert(0);
 		}
 		if(c[5] != 0){
@@ -49,7 +69,7 @@ version(runTest){
 		if(c[6] != 0){
 			assert(0);
 		}
-		if(c[7] != 21){
+		if(c[7] != 0){
 			assert(0);
 		}
 		return 0;

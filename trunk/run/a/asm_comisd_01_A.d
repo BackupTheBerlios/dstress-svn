@@ -17,12 +17,13 @@ version(runTest){
 		haveSSE2!()();
 
 		double* a = (new double[2]).ptr;
-		a[0] = 1.0;
-		a[1] = 3.0;
+		a[0] = 3.0;
+		a[1] = 4.0;
+
 
 		double* b = (new double[2]).ptr;
-		b[0] = 4.0;
-		b[1] = 3.0;
+		b[0] = 3.0;
+		b[1] = 5.0;
 
 		static if(size_t.sizeof == 4){
 			asm{
@@ -31,7 +32,7 @@ version(runTest){
 				mov EAX, b;
 				movupd XMM1, [EAX];
 				comisd XMM0, XMM1;
-				jz error;
+				jnz error;
 				jp error;
 				jc error;
 			}
@@ -42,7 +43,7 @@ version(runTest){
 				mov RAX, b;
 				movupd XMM1, [RAX];
 				comisd XMM0, XMM1;
-				jz error;
+				jnz error;
 				jp error;
 				jc error;
 			}

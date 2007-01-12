@@ -27,7 +27,7 @@ version(runTest){
 			fldz;
 			fld1;
 			fldz;
-			fcomi;
+			fcomi ST, ST(1);
 			fstp f1;
 			fstp f2;
 			setc CF;

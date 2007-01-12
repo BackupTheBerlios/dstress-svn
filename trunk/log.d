@@ -370,11 +370,6 @@ class Log{
 					torture.remove(source);
 				}
 			}
-			// asm-filter
-			int i = find(source, "asm_p");
-			if(i >= 0){
-				torture.remove(source);
-			}
 		}
 		torture.rehash;
 		

@@ -16,7 +16,7 @@ int main(){
 	
 	x.length = 200;
 
-	if(x.length != 20){
+	if(x.length != 200){
 		assert(0);
 	}
 	foreach(i; x) {

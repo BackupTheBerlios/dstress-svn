@@ -13,7 +13,7 @@ class Foo(T) {
 }
 
 int main() {
-	if ((Foo!(char)).init == (Foo!(char)).init){
+	if ((Foo!(char)).init != (Foo!(char)).init){
 		return 1;
 	}
 	return 0;

@@ -13,7 +13,7 @@ struct Foo(T) {
 }
 
 int main() {
-	if ((Foo!(byte)).init == (Foo!(byte)).init){
+	if ((Foo!(byte)).init != (Foo!(byte)).init){
 		return 1;
 	}
 	return 0;

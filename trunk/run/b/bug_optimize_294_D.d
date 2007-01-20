@@ -10,10 +10,15 @@
 module dstress.run.b.bug_optimize_294_D;
 
 struct Foo(T) {
+	T t;
 }
 
+alias Foo!(char) A;
+alias Foo!(byte) B;
+
 int main() {
-	if ((Foo!(char)).init != (Foo!(byte)).init){
+
+	if ((cast(void*)&A.init)[0 .. A.init.sizeof] == (cast(void*)&B.init)[0 .. B.init.sizeof]){
 		return 1;
 	}
 	return 0;

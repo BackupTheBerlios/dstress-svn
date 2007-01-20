@@ -15,7 +15,7 @@ union Foo(T) {
 
 int main() {
 	if ((Foo!(char)).init == (Foo!(char)).init){
-		return 1;
+		return 0;
 	}
-	return 0;
+	return 1;
 }

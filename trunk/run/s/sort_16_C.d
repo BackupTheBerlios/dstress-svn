@@ -10,13 +10,13 @@
 module dstress.run.s.sort_16_C;
 
 int main(){
-	char[] a = "a\U00000081b\U00002000c\U00010000";
+	char[] a = "a\U00000081b\U00002000c\U00010000".dup;
 
 	if(a.sort != "abc\U00000081\U00002000\U00010000"){
 		assert(0);
 	}
 
-	char[] b = "\U00010000a\U00002000c\U00000081b";
+	char[] b = "\U00010000a\U00002000c\U00000081b".dup;
 
 	if(b.sort != "abc\U00000081\U00002000\U00010000"){
 		assert(0);

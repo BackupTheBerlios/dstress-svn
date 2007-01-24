@@ -11,7 +11,7 @@ module dstress.run.r.reverse_08_B;
 
 int main(){
 	dchar[] a = "a\U00000081b\U00002000c\U00010000";
-	dchar[] b = a.reverse;
+	dchar[] b = a.dup.reverse;
 
 	if(b != "\U00010000c\U00002000b\U00000081a"){
 		assert(0);

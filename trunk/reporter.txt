@@ -2,6 +2,7 @@
 
 ahiru			<ahiru@1dk.jp>
 AJG			<AJG@nospam.com>
+Alan Knowles		<alan@akbkhome.com>
 Alberto Simon		<lugaidster@gmail.com>
 Aleksey Bobnev		<uw@front.ru>
 Alex			<CppCoder@gmail.com>
@@ -52,6 +53,7 @@ dickl			<dick221z@yahoo.com>
 Don Clugston		<clugdbug@yahoo.com.au>
 downs			<default_357-line@yahoo.de>
 ElfQT			<dethjunk@yahoo.com>
+Elmar Zander		<elmar@zandere.de>
 Eric Anderton (aka Pragma)	<ericanderton@yahoo.com>
 Eugene Pelekhay		<pelekhay@gmail.com>
 Florian Sonnenberger	<nairolf@online.de>

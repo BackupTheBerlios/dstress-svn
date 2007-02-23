@@ -6,6 +6,7 @@ Alan Knowles		<alan@akbkhome.com>
 Alberto Simon		<lugaidster@gmail.com>
 Aleksey Bobnev		<uw@front.ru>
 Alex			<CppCoder@gmail.com>
+Alexander Panek		<a.panek@brainsware.org>
 Anders F Björklun	<afb@algonet.se>
 Anders Runesson		<anders@runesson.info>
 Andrew Fedoniouk	<news@terrainformatica.com>

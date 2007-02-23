@@ -65,6 +65,7 @@ Fredrik Olsson		<peylow@gmail.com>
 Frits van Bommel	<fvbommel@wxs.nl>
 Garett Bass		<garettbass@studiotekne.com>
 Geoff Hickey
+Georg Ramme		<georg.ramme@gmail.com>
 Hauke Duden		<H.NS.Duden@gmx.net>
 Hiroshi Sakurai
 icee			<iceelyne@gmail.com>

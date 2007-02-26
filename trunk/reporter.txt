@@ -66,6 +66,7 @@ Frits van Bommel	<fvbommel@wxs.nl>
 Garett Bass		<garettbass@studiotekne.com>
 Geoff Hickey
 Georg Ramme		<georg.ramme@gmail.com>
+Hasan Aljudy		<hasan.aljudy@gmail.com>
 Hauke Duden		<H.NS.Duden@gmx.net>
 Hiroshi Sakurai
 icee			<iceelyne@gmail.com>

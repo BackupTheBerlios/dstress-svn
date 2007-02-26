@@ -126,7 +126,7 @@ Robert Schiele		<rschiele@uni-mannheim.de>
 Roberto Mariottini
 Roel Mathys		<roel.mathys@yucom.be>, <roel.mathys@gmail.com>
 Rueschi			<rueschi@giquadrat.de>
-Russ Lewis		<spamhole-2001-07-16@deming-os.org>
+Russ Lewis		<spamhole-2001-07-16@deming-os.org>, <webmaster@villagersonline.com>
 Russell Wilkins		<Russell.Wilkins@grovestarsoftware.com>, <rwilkins@grovestarsoftware.com>
 Sam McCall		<tunah@tunah.net>
 Samuel Martin Valentin	<samuel@jxdesigner.com>

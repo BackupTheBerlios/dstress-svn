@@ -5,7 +5,7 @@
 // @author@	Lionello Lunesu <lionello.lunesu@crystalinter.remove.com>
 // @date@	2004-11-30
 // @uri@	news:cohvnb$1eil$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2383
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2383
 
 // __DSTRESS_ELINE__ 19
 

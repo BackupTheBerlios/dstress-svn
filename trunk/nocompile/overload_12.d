@@ -5,7 +5,7 @@
 // @author@	D Trebbien <D_member@pathlink.com>
 // @date@	2005-01-07
 // @uri@	news:crmrb6$2slf$1@digitaldaemon.com
-// @url@        nntp://news.digitalmars.com/digitalmars.D.bugs/2649
+// @uri@        nntp://news.digitalmars.com/digitalmars.D.bugs/2649
 
 // __DSTRESS_ELINE__ 26
 

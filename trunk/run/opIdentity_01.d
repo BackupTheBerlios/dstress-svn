@@ -5,7 +5,7 @@
 // @author@	teqDruid <me@teqdruid.com>
 // @date@	2005-01-12
 // @uri@	news:pan.2005.01.12.13.20.54.546749@teqdruid.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2676
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2676
 
 module dstress.run.opIdentity_01;
 

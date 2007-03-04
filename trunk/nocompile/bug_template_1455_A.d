@@ -5,7 +5,7 @@
 // @author@	Lars Ivar Igesund <larsivar@igesund.net>
 // @date@	2005-02-22
 // @uri@	news:cvg5mn$19lb$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3035
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/3035
 
 // __DSTRESS_ELINE__ 17
 

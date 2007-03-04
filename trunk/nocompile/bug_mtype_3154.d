@@ -5,7 +5,7 @@
 // @author@	Daniel Horn <hellcatv@hotmail.com>
 // @date@	2004-04-30
 // @uri@	news:c6ullo$104s$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/48
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/48
 
 // __DSTRESS_ELINE__ 51
 

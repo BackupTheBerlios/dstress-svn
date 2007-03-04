@@ -5,7 +5,7 @@
 // @author@	J C Calvarese <jcc7@cox.net>
 // @date@	2004-06-21
 // @uri@	news:cb7rbq$2qjd$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/572
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/572
 
 module dstress.run.alias_12;
 

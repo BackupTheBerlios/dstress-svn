@@ -5,7 +5,7 @@
 // @author@	kinghajj <kinghajj_member@pathlink.com>
 // @date@	2004-10-03
 // @uri@	news:cm98hu$e30$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D/12248
+// @uri@	nntp://digitalmars.com/digitalmars.D/12248
 
 module dstress.run.bug_20041103_A;
 

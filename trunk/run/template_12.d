@@ -5,7 +5,7 @@
 // @author@	Aleksey Bobnev <uw@front.ru>
 // @date@	2004-12-27
 // @uri@	news:cqp4fk$1dcj$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2613
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2613
 
 module dstress.run.template_12;
 

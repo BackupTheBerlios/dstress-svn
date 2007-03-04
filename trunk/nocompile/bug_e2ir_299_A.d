@@ -5,7 +5,7 @@
 // @author@	h3r3tic <foo@bar.baz>
 // @date@	2004-12-24
 // @uri@	news:cqi3v3$r2o$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2601
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2601
 
 // function literals cannot call nested functions
 

@@ -5,7 +5,7 @@
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.thisisspam.cn>
 // @date@	2004-12-10
 // @uri@	news:sr8p82-lu3.ln1@kuehne.cn
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2528
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2528
 
 // call to "this" before "super"-constructor
 

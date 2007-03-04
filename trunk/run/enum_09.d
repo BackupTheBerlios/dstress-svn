@@ -5,7 +5,7 @@
 // @author@	shinichiro.h <s31552@mail.ecc.u-tokyo.ac.jp>
 // @date@	2004-11-12
 // @uri@	news:20041112233233.3584a28f.s31552@mail.ecc.u-tokyo.ac.jp
-// @url@	nntp://digitalmars.com/D.gnu/844
+// @uri@	nntp://digitalmars.com/D.gnu/844
 
 module dstress.run.enum_09;
 

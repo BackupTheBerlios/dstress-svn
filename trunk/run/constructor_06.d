@@ -5,7 +5,7 @@
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2004-11-11
 // @uri@	news:cn0g3t$o2i$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2249
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2249
 
 // see also dstress.addon.constructor_06_A
 

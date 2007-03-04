@@ -5,7 +5,7 @@
 // @author@	tetsuya <tetsuya_member@pathlink.com>
 // @date@	2004-11-15
 // @uri@	news:cnaidd$2rnr$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2275
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2275
 
 module dstress.run.default_argument_07;
 

@@ -5,7 +5,7 @@
 // @author@	Bastiaan Veelo <Bastiaan.N.Veelo@ntnu.no>
 // @date@	2004-09-21
 // @uri@	news:cip39j$v4s$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/1890
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/1890
 
 module dstress.run.constructor_02;
 

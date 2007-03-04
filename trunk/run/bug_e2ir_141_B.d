@@ -5,7 +5,7 @@
 // @author@	Vathix <vathix@dprogramming.com>
 // @date@	2004-12-29
 // @uri@	news:opsjr1fu1jkcck4r@tc3-ppp187.dialup.wzrd.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2620
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2620
 
 module dstress.run.bug_e2ir_141_B;
 

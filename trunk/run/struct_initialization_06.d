@@ -5,7 +5,7 @@
 // @author@	Andrew Fedoniouk <news@terrainformatica.com>
 // @date@	2005-03-10
 // @uri@	news:d0otkq$1fsg$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3137
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/3137
 
 module dstress.run.struct_initialization_06;
 

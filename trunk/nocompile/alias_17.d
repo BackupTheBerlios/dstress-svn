@@ -5,7 +5,7 @@
 // @author@	Ilya Zaitseff <sark7@mail333.com>
 // @date@	2005-02-14
 // @uri@	news:opsl6xrbnaaaezs2@robingood
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2983
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2983
 
 // __DSTRESS_ELINE__ 18
 

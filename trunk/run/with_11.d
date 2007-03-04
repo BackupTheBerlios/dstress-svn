@@ -5,7 +5,7 @@
 // @author@	Nick <Nick_member@pathlink.com>
 // @date@	2004-10-07
 // @uri@	news:ck3qie$1nia$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2042
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2042
 
 module dstress.run.with_11;
 

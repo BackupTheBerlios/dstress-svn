@@ -5,7 +5,7 @@
 // @author@	Ilya Zaitseff <sark7@mail333.com>
 // @date@	2004-12-21
 // @uri@	news:opsja8b9ddaaezs2@robingood
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2584
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2584
 
 module dstress.run.constructor_07;
 

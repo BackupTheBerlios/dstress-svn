@@ -5,7 +5,7 @@
 // @author@	Hiroshi Sakurai <Hiroshi_member@pathlink.com>
 // @date@	2005-05-17
 // @uri@	news:d6bm67$cfr$1@digitaldaemon.com	
-// @url@	http://f17.aaa.livedoor.jp/~labamba/?BugTrack%2F13
+// @uri@	http://f17.aaa.livedoor.jp/~labamba/?BugTrack%2F13
 
 module dstress.run.u.unicode_08_A;
 

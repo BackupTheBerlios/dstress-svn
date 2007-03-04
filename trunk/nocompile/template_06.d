@@ -5,7 +5,7 @@
 // @author@	Patrick Down <Patrick_member@pathlink.com>
 // @date@	2004-06-20
 // @uri@	news:cb346n$1uk0$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/565
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/565
 
 module dstress.nocompile.template_06;
 

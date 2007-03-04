@@ -5,7 +5,7 @@
 // @author@	Derek Parnell <derek@psych.ward>
 // @date@	2004-10-12
 // @uri@	news:ckfav3$2gbv$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2080
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2080
 
 // __DSTRESS_ELINE__ 20
 

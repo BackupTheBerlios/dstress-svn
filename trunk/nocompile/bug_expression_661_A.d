@@ -5,7 +5,7 @@
 // @uri@	news:opsh76x6l7jccy7t@simon.homenet
 // @author@	Simon Buchan <currently@no.where>
 // @date@	2004-11-30
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs:2371
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs:2371
 
 // __DSTRESS_ELINE__ 14
 

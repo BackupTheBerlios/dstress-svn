@@ -5,7 +5,7 @@
 // @author@	Jarrett Billingsley <kb3ctd2@yahoo.com>
 // @date@	2004-12-30
 // @uri@	news:cr19ka$q75$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D/14115
+// @uri@	nntp://digitalmars.com/digitalmars.D/14115
 
 module dstress.run.this_03;
 

@@ -5,7 +5,7 @@
 // @author@	h3r3tic <foo@bar.baz>
 // @date@	2004-12-26
 // @uri@	news:cqmufn$26oj$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2606
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2606
 
 module dstress.run.bug_20041226_C;
 

@@ -5,7 +5,7 @@
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-01-12
 // @uri@	news:cs2t3t$1700$2@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2673
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2673
 
 module dstress.run.forward_reference_07;
 

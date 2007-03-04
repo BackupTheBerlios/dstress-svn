@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @url@	http://d.puremagic.com/issues/show_bug.cgi?id=950
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=950
 // @desc@	[Issue 950] Missing filename and line number: conflict between implicit length in [...] and explicit length declared in the scope
 
 // __DSTRESS_ELINE__ 19

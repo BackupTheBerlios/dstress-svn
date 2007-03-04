@@ -5,7 +5,7 @@
 // @author@	Carlos Santander B. <csantander619@gmail.com>
 // @date@	2005-02-15
 // @uri@	news:cutof5$1e68$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/D.gnu/1039
+// @uri@	nntp://news.digitalmars.com/D.gnu/1039
 
 module dstress.run.static_29;
 

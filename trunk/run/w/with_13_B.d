@@ -5,7 +5,7 @@
 // @author@	Manfred Nowak <svv1999@hotmail.com>
 // @date@	2005-02-03
 // @uri@	news:cttuih$hpb$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2852
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2852
 
 module dstress.run.w.with_13_B;
 

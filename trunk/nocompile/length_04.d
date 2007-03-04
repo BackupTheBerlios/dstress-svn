@@ -5,7 +5,7 @@
 // @author@	Buchan <kbuchan@xtra.co.nz>
 // @date@	2004-10-18
 // @uri@	news:opsf15ngwe44buww@simon.mshome.net
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2126
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2126
 
 // __DSTRESS_ELINE__ 16
 

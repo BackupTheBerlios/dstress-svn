@@ -5,7 +5,7 @@
 // @author@	Anders F Bj�klund <afb@algonet.se>
 // @date@	2004-12-19
 // @uri@	news://cq2h5u$2n99$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D/13868
+// @uri@	nntp://digitalmars.com/digitalmars.D/13868
 
 // __DSTRESS_ELINE__ 19
 

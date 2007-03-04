@@ -5,7 +5,7 @@
 // @author@	tetsuya <tetsuya_member@pathlink.com>
 // @date@	2004-12-13
 // @uri@	news:cpk4vq$1m5a$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2546
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2546
 
 // __DSTRESS_ELINE__ 18
 

@@ -5,7 +5,7 @@
 // @author@	Anders F Björklund <afb@algonet.se>
 // @date@	2005-03-06
 // @uri@	news:d0ek4k$2ko8$2@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3093
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/3093
 
 // @WARNING@ depends on Phobos
 

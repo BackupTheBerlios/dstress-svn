@@ -5,7 +5,7 @@
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2004-11-10
 // @uri@	news:cmsg75$rom$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2240
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2240
 
 module dstress.run.throw_02;
 

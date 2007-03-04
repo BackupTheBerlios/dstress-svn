@@ -5,7 +5,7 @@
 // @author@	Jarrett Billingsley <kb3ctd2@yahoo.com>
 // @date@	2005-01-09
 // @uri@	news:crshla$2io3$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/2659
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2659
 
 // __DSTESS_ELINE__  25
 

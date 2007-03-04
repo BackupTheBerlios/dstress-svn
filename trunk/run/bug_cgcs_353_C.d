@@ -5,7 +5,7 @@
 // @author@	Ben Hinkle <ben.hinkle@gmail.com>
 // @date@	2005-03-01
 // @uri@	news:d00fr5$17dc$1@digitaldaemon.com
-// @url@	nntp://news.digitalmars.com/digitalmars.D.bugs/3068
+// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/3068
 
 module dstress.run.bug_cgcs_353_C;
 

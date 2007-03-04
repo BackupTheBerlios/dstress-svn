@@ -5,7 +5,7 @@
 // @author@	John Reimer <brk_6502@NO_SPA_M.yahoo.com>
 // @date@	2004-07-11
 // @uri@	news:cct6f0$cj6$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/783
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/783
 
 module dstress.run.break_02;
 

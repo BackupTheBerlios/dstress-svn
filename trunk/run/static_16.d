@@ -5,7 +5,7 @@
 // @author@	tetsuya <tetsuya_member@pathlink.com>
 // @date@	2004-10-30
 // @uri@	news:cm057b$13nu$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/2165
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2165
 
 module dstress.run.static_16;
 

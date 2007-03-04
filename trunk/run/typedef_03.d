@@ -5,7 +5,7 @@
 // @author@	Sam McCall <tunah@tunah.net>
 // @date@	2004-07-27
 // @uri@	news:ce586c$212e$1@digitaldaemon.com
-// @url@	nntp://digitalmars.com/digitalmars.D.bugs/1148
+// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/1148
 
 module dstress.run.typedef_03;
 

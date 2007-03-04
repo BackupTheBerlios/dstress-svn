@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @auhtor@	 Deewiant <deewiant@gmail.com>
+// @author@	 Deewiant <deewiant@gmail.com>
 // @date@	2006-08-19
 // @uri@	news:ec6kit$560$1@digitaldaemon.com
 // @desc@	[Issue 287] DMD optimization bug arround dynamic array length

@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @autho@	<digitalmars-com@baysmith.com>
+// @author@	<digitalmars-com@baysmith.com>
 // @date@	2006-07-05
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=240
 

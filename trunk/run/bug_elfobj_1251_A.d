@@ -5,7 +5,7 @@
 // @author@	Ben Hinkle <bhinkle4@juno.com>
 // @date@	2004-12-09
 // @uri@	news:cp86l0$106o$2@digitaldaemon.com
-// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2491
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2491
 
 module dstress.run.bug_elfobj_1251_A;
 

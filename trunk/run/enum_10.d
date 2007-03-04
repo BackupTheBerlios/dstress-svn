@@ -5,7 +5,7 @@
 // @author@	John Reimer <brk_6502@NO_SPA_M.yahoo.com>
 // @date@	2004-12-11
 // @uri@	news:cpfvm8$krm$1@digitaldaemon.com
-// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2534
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2534
 
 module dstress.run.enum_10;
 

@@ -5,7 +5,7 @@
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-02-11
 // @uri@	news:cui1u9$1kl1$1@digitaldaemon.com
-// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2943
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2943
 
 module dstress.run.overload_18;
 

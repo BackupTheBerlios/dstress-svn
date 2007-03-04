@@ -5,7 +5,7 @@
 // @author@	Thomas Kuehne <thomas@kuehne.thisisspam.cn>
 // @date@	2005-01-22
 // @uri@	news:csu1gv$see$1@digitaldaemon.com
-// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2737
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2737
 
 module dstress.run.alias_14;
 

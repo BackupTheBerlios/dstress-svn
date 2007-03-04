@@ -5,7 +5,7 @@
 // @author@	Simon Buchan <currently@no.where>
 // @date@	2004-11-29
 // @uri@        news:opsh702et0jccy7t@simon.homenet
-// @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs/2369
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2369
 
 module dstress.run.typeid_83;
 

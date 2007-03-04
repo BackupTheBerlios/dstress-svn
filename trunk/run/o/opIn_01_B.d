@@ -16,7 +16,7 @@ int main(){
 	S s = new S();
 	s.x = 3;
 
-	if(s in 5 != 8){
+	if((s in 5) != 8){
 		assert(0);
 	}
 

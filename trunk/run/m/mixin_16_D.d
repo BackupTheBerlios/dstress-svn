@@ -5,6 +5,7 @@
 // @author@	Chris Miller <chris@dprogramming.com>
 // @date@	2006-01-30
 // @uri@	news:op.s36xvez5po9bzi@moe
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=711
 
 module dstress.run.m.mixin_16_D;
 

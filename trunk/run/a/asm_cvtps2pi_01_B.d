@@ -2,6 +2,9 @@
 // $Date$
 // $Author$
 
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=708
+// @desc@	[Issue 708] inline assembler: "CVTPS2PI mm, xmm/m128" fails to compile
+
 module dstress.run.a.asm_cvtps2pi_01_B;
 
 version(D_InlineAsm_X86){

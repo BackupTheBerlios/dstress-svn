@@ -5,6 +5,7 @@
 // @author@	John C <johnch_atms@hotmail.com>
 // @date@	2006-01-24
 // @uri@	news:dr4t3d$1f24$1@digitaldaemon.com
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=712
 
 module dstress.run.m.mixin_15_B;
 

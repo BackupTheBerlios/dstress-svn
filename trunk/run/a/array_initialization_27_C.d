@@ -2,6 +2,9 @@
 // $Date$
 // $Author$
 
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=706
+// @desc@	[Issue 706] incorrect type deduction for array literals in functions
+
 module dstress.run.a.array_initialization_27_C;
 
 int main(){

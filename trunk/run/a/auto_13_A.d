@@ -5,6 +5,7 @@
 // @author@	Chris Sauls <ibisbasenji@gmail.com>
 // @date@	2005-12-10
 // @uri@	news:dneava$evs$1@digitaldaemon.com
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=705
 
 module dstress.run.a.auto_13_A;
 

@@ -12,7 +12,7 @@ struct S{
 
 int main(){
 	S s;
-	if(3 in s != 4){
+	if((3 in s) != 4){
 		assert(0);
 	}
 

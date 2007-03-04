@@ -12,7 +12,7 @@ class C{
 int main(){
 	C c = new C();
 	void delegate() d = &c.test;
-	if(d.ptr !is c){
+	if(cast(void*)d.ptr !is cast(void*)c){
 		assert(0);
 	}
 

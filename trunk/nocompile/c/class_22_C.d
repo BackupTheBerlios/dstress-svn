@@ -6,8 +6,9 @@
 // @date@	2006-03-01
 // @uri@	news:du4ojh$1b0n$1@digitaldaemon.com
 // @desc@	dmd: toobj.c:191: virtual void ClassDeclaration::toObjFile(): Assertion `!scope' failed.
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=717
 
-// __DSTRESS_ELINE__ 18
+// __DSTRESS_ELINE__ 19
 
 module dstress.nocompile.c.class_22_C;
 

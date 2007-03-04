@@ -5,6 +5,7 @@
 // @author@	Dave <Dave_member@pathlink.com>
 // @date@	2006-03-18
 // @uri@	news:dvgq34$22hv$1@digitaldaemon.com
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=487
 
 module dstress.run.t.template_32_O;
 

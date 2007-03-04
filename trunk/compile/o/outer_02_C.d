@@ -14,7 +14,7 @@ class Box{
 		class Inner{
 			void foo() {
 				typeof(this.outer) x;
-				static assert(Outer == typeof(x));
+				static assert(is(typeof(x) == Outer));
 			}
 		}
 	}

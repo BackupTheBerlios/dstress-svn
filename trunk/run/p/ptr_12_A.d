@@ -21,7 +21,7 @@ int main() {
 	A a = new A();
 	void delegate() dg;
 
-	dg.ptr = a;
+	dg.ptr = cast(void*)a;
 	dg.funcptr = &A.foo;
 
 	if(status != 0){

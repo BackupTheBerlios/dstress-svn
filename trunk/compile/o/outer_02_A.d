@@ -13,7 +13,7 @@ class Outer{
 	class Inner{
 		this() {
 			typeof(this.outer) x;
-			static assert(Outer == typeof(x));
+			static assert(is(typeof(x) == Outer));
 		}
 	}
 }

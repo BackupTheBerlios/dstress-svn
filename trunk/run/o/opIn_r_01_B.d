@@ -12,7 +12,7 @@ class C{
 
 int main(){
 	C c = new C();
-	if(3 in c != 4){
+	if((3 in c) != 4){
 		assert(0);
 	}
 

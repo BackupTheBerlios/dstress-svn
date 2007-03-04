@@ -9,7 +9,7 @@
 module dstress.run.s.string_postfix_07_B;
 
 int main(){
-	char[6] cstr = "1234"c;
+	char[4] cstr = "1234"c;
 	auto a = cast(dchar[1])(cstr);
 	auto b = cast(dchar[1])("1234"c);
 

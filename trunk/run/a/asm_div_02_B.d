@@ -56,7 +56,7 @@ int main(){
 
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
 		static assert(0);
 	}
 }

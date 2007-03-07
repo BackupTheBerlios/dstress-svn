@@ -24,8 +24,12 @@ class MyClass{
 int main(){
 	MyClass c = new MyClass();
 	c.prop = true ? MyClass.prop : MyClass.prop;
-	assert(c.prop == 0);
+	if(0 != c.prop){
+		assert(0);
+	}
 	c.prop = 7;
-	assert(c.prop == 7);
+	if(7 != c.prop){
+		assert(0);
+	}
 	return 0;
 }

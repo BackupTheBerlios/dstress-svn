@@ -12,17 +12,17 @@ module dstress.run.nested_function_03;
 void fn( in char[] buf ){
 	void fn2(){
 		assert(buf.length==0);
-		assert(buf.sizeof==8);
+		assert(buf.sizeof==2 * size_t.sizeof);
 	}
 	fn2();
 	assert(buf.length==0);
-	assert(buf.sizeof==8);
+	assert(buf.sizeof== 2 * size_t.sizeof);
 }
 
 int main(){
 	char[] buf;
 	assert(buf.length==0);
-	assert(buf.sizeof==8);
+	assert(buf.sizeof== 2 * size_t.sizeof);
 	fn( buf );
 	return 0;
 }

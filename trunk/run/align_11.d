@@ -8,9 +8,14 @@
 
 module dstress.run.align_11;
 
-version(X86){
+version(X86) version = type1;
+version(X86_64) version = type1;
+
+version(type1){
 	version(linux) version=testA; // c compiler: gcc
 	version(Windows) version=testA; // c compiler: dmc
+}else{
+	static assert(0);
 }
 
 align(1) struct S{

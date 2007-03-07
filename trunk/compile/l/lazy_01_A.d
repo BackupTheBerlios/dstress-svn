@@ -10,7 +10,7 @@
 module dstress.compile.l.lazy_01_A;
 
 class C {
-	void func(uint delegate() x) {
+	void func(hash_t delegate() x) {
 		func(&super.toHash);
 	}
 }

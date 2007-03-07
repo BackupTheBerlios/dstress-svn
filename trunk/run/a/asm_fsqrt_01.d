@@ -36,6 +36,6 @@ version(runTest){
 		return 0;
 	}
 }else{
-	pragma(msg, "no inline asm support");
+	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 	static assert(0);
 }

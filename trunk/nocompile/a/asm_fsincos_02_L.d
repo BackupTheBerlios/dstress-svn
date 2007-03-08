@@ -7,7 +7,7 @@
 module dstress.nocompile.a.asm_fsincos_02_L;
 
 void main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		cfloat x;
 		
 		asm{

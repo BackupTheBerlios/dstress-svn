@@ -7,7 +7,7 @@
 module dstress.nocompile.a.asm_fscale_02_D;
 
 void main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		long x;
 		
 		asm{

@@ -7,7 +7,7 @@
 module dstress.nocompile.a.asm_fnstcw_02_A;
 
 void main(){
-	version(D_InlineAsm){
+	version(D_InlineAsm_X86){
 		
 		byte b;
 		

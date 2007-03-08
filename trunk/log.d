@@ -370,6 +370,11 @@ class Log{
 					torture.remove(source);
 				}
 			}
+			// asm-filter
+			int i = find(source, "asm_p");
+			if(i >= 0){
+				torture.remove(source);
+			}
 		}
 		torture.rehash;
 		
@@ -550,7 +555,7 @@ class Report{
 			stream.writeLine("<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>");
 
 			stream.writeLine("<head><title>DStress - Torture: "~name~"</title><link rel='stylesheet' type='text/css' href='formate.css' /><meta name='author' content='Thomas K&#252;hne' /><meta name='date' content='" ~ dateString() ~ "' /><link rel='shortcut icon' href='data:image/gif;base64,R0lGODlhEAAQAKEAALMfEuWoLv///7MfEiH5BAEKAAMALAAAAAAQABAAAAIpnI95wN06nARqyvSQM6Gz+g3dOGofiabqygYmNYbv/FKLld04aEG+UgAAOw==' type='image/gif' /></head>");
-			stream.writeLine("<body><center><h1>DStress - Torture: "~name~"</h1></center><center><small>by Thomas K&#252;hne &lt;thomas-at-kuehne.cn&gt;</small></center>");
+			stream.writeLine("<body><center><h1>DStress - Torture: "~name~"</h1></center><center><small>by Thomas K&#252;hne &lt;<a href='mailto:thomas@kuehne.cn'>thomas@kuehne.cn</a>&gt;</small></center>");
 			stream.writeLine("<h2><a name='note' id='note'></a>Note</h2><blockquote>A detailed description of the testing and the used symbols can be found on the <a href='./dstress.html'>main page</a>.</blockquote>");
 		}
 		
@@ -666,10 +671,7 @@ class Report{
 		
 		{ // footer
 			stream.writeLine("<div><br /><br /><hr /><a href='http://dstress.kuehne.cn/www/"~cleanName~".html'>http://dstress.kuehne.cn/www/"~cleanName~".html</a>&#160; &#160;" ~ dateString() ~ "</div>");
-			stream.writeLine("<!-- Start of StatCounter Code -->");
-			stream.writeLine("<script type='text/javascript'><!-- var sc_project=1337754; var sc_invisible=1; var sc_partition=12; var sc_security=\"a4a998fe\"; var sc_remove_link=1; //--> </script>");
-			stream.writeLine("<script type='text/javascript' src='http://www.statcounter.com/counter/counter_xhtml.js'></script><noscript><div class='statcounter'><img src='http://c13.statcounter.com/counter.php?sc_project=1337754&amp;amp;java=0&amp;amp;security=a4a998fe&amp;amp;invisible=1' class='statcounter' alt='counter' /></div></noscript>");
-			stream.writeLine("<!-- End of StatCounter Code -->");
+			stream.writeLine("<center><a href='http://developer.berlios.de'><img src='http://developer.berlios.de/bslogo.php?group_id=2732' width='124' height='32' border='0' alt='BerliOS Logo' /></a></center>");
 
 			stream.writeLine("</body></html>");
 		}

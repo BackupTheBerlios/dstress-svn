@@ -4,8 +4,16 @@
 
 module dstress.run.a.asm_sens_01;
 
-int main(){
-	version(D_InlineAsm){
+version(D_InlineAsm_X86){
+	version = test;
+}else version(D_Inline_Asm_X86_64){
+	version = test;
+}else{
+	static assert(0, "DSTRESS{XFAIL}: no inline x86 asm support");
+}
+
+version(test){
+	int main(){
 		ubyte a;
 
 		a = a.max;
@@ -39,8 +47,5 @@ int main(){
 		assert(a == 1);
 
 		return 0;
-	}else{
-		pragma(msg, "DSTRESS{XPASS}: no inline ASM support");
-		static assert(0);
 	}
 }

@@ -5,6 +5,7 @@
 // @author@	<CppCoder@gmail.com>
 // @date@	2006-05-02
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=123
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1031
 
 module dstress.run.l.length_10_B;
 

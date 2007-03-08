@@ -5,6 +5,7 @@
 // @author@	David Medlock <noone@nowhere.com>
 // @date@	2006-07-08
 // @uri@	news:e8narj$2h1s$1@digitaldaemon.com
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1031
 // @desc@	Initialization error in classes
 
 module dstress.run.o.odd_bug_06_B;

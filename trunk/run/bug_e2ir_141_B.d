@@ -6,6 +6,7 @@
 // @date@	2004-12-29
 // @uri@	news:opsjr1fu1jkcck4r@tc3-ppp187.dialup.wzrd.com
 // @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2620
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1037
 
 module dstress.run.bug_e2ir_141_B;
 

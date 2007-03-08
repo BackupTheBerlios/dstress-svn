@@ -6,6 +6,7 @@
 // @date@	2004-09-11
 // @uri@	news:chtj6t$24bm$1@digitaldaemon.com
 // @uri@	nntp://digitalmars.com/digitalmars.D.bugs/1821
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1035
 
 module dstress.run.auto_03;
 

@@ -5,6 +5,7 @@
 // @author@	Fredrik Olsson <peylow@gmail.com>
 // @date@	2005-11-30
 // @uri@	news:dmjkbv$31is$1@digitaldaemon.com
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1033
 
 module dstress.run.n.nested_function_07_A;
 

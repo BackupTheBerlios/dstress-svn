@@ -5,6 +5,7 @@
 // @author@	<someidiot@earthlink.net>
 // @date@	2006-08-23
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=306
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1033
 // @desc@	[Issue 306] New: dmd 165 breaks existing code
 
 module dstress.run.d.delegate_19_B;

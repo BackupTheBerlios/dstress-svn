@@ -4,8 +4,8 @@
  *
  * Copyright (C)
  * 	2005, 2006 Thomas Kuehne <thomas@kuehne.cn>
- * 	2005 Carlos Santander (Window files)
- * 	2005 Stewart Gordon <smjg_1998@yahoo.com> (Window crashRun)
+ * 	2005 Carlos Santander (Windows files)
+ * 	2005 Stewart Gordon <smjg_1998@yahoo.com> (Windows crashRun)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -157,7 +157,7 @@ typedef int pid_t;
 #define TORTURE_PREFIX		"torture-"
 
 #ifdef USE_POSIX
-#define		CRASH_RUN	"./crashRun 30 2000"
+#define		CRASH_RUN	"./crashRun 30 1000"
 #ifdef USE_VALGRIND
 #define		VALGRIND	"valgrind --leak-check=no -q --suppressions=valgrind.suppress"	
 #else

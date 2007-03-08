@@ -146,7 +146,8 @@ endef
 # target should fail to compile
 #
 nocompile : $(dstress__) nocompile_clean
-	find nocompile -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-nocompile" > nocompile.sh
+	echo '#!/bin/sh' > nocompile.sh
+	find nocompile -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-nocompile" >> nocompile.sh
 	chmod +x nocompile.sh
 	./nocompile.sh 2>> $(LOG)
 
@@ -175,7 +176,8 @@ endef
 # target should compile (excludes linking)
 #
 compile : $(dstress__) compile_clean
-	find compile -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-compile" > compile.sh
+	echo '#!/bin/sh' > compile.sh
+	find compile -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-compile" >> compile.sh
 	chmod +x compile.sh
 	./compile.sh 2>> $(LOG)
 
@@ -202,7 +204,8 @@ endef
 # target should compile, link and run
 # 
 run : $(dstress__) run_clean
-	find run -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-run" > run.sh
+	echo '#!/bin/sh' > run.sh
+	find run -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-run" >> run.sh
 	chmod +x run.sh
 	./run.sh 2>> $(LOG)
 
@@ -270,7 +273,8 @@ endef
 # target should compile and link but fail to run
 # 
 norun : $(dstress__) norun_clean
-	find norun -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-norun" > norun.sh
+	echo '#!/bin/sh' > norun.sh
+	find norun -type f | grep -v ".svn" | sort -f | xargs -n 1 echo "$(dstress__) torture-norun" >> norun.sh
 	chmod +x norun.sh
 	./norun.sh 2>> $(LOG)
 

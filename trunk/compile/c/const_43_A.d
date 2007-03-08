@@ -7,7 +7,7 @@
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1016
 // @desc@	[Issue 1016] CTFE fails with recursive functions
 
-module dstress.comile.c.const_43_A;
+module dstress.compile.c.const_43_A;
 
 bool bar(int i){
 	bool state = false;

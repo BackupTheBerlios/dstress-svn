@@ -738,7 +738,7 @@ int crashRun(const char* cmd, char** logFile){
 	if(strstr(buffer, "EXIT CODE: 0")){
 		back = EXIT_SUCCESS;
 	}else if(strstr(buffer, "EXIT CODE: 256")
-			|| strstr(buffer, "EXIT CODE: timeout"))
+			|| strstr(buffer, "EXIT CODE: timeout") || strstr(buffer, "Cputime limit exceeded"))
 	{
 		back = EXIT_FAILURE;
 	}else{

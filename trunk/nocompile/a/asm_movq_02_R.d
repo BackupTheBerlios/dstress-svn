@@ -29,6 +29,6 @@ version(runTest){
 		}
 	}
 }else{
-	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
+	pragma(msg, "DSTRESS{XFAIL}: no inline x86 asm support");
 	static assert(0);
 }

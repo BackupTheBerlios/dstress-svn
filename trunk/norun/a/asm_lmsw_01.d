@@ -13,7 +13,7 @@ int main(){
 
 		return 0;
 	}else{
-		pragma(msg, "no Inline asm support");
+		pragma(msg, "DSTRESS{XFAIL}: no inline x86 asm support");
 		static assert(0);
 	}
 }

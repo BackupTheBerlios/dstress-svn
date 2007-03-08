@@ -124,6 +124,7 @@ Paul Guerra
 Paul Runde		<prunde@consolidated.net>
 Peter C. Chapin		<pchapin@ecet.vtc.edu>
 Regan Heath		<regan@netwin.co.nz>
+Reiner Pope		<reiner.pope@gmail.com>
 Rev
 Robert Atkinson		<Robert.Atkinson@gmail.com>
 Robert Schiele		<rschiele@uni-mannheim.de>

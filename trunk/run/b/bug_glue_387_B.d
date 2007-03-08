@@ -10,7 +10,7 @@
 module dstress.run.b.bug_glue_387_B;
 
 version(D_InlineAsm_X86){
-}else version(D_InlineAsm){
+}else version(D_InlineAsm_X86_64){
 }else{
 	pragma(msg, "DSTRESS{XFAIL}: no inline ASM support");
 	static assert(0);

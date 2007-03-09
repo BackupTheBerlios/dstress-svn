@@ -3,7 +3,7 @@
 # $Author$
 #
 # experimental parallel GnuMakefile for DStress http://dstress.kuehne.cn/www/dstress.html
-# Copyright (C) 2006 Thomas Kuehne
+# Copyright (C) 2006, 2007 Thomas Kuehne
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ FIND := find
 endif
 
 ifndef RM
-RM := rm -f --
+RM := rm -rf --
 endif
 
 find := find
@@ -91,6 +91,7 @@ compile : $(sort $(patsubst %,%.exe,$(shell $(find) compile $(find_filter))))
 compile/%.exe : compile/% tools
 	@$(dstress) $(torture)compile $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
+	@$(RM) obj/$(basename $(notdir $<))*
 
 #
 # nocompile
@@ -100,6 +101,7 @@ nocompile : $(sort $(patsubst %,%.exe,$(shell $(find) nocompile $(find_filter)))
 nocompile/%.exe : nocompile/% tools
 	@$(dstress) $(torture)nocompile $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
+	@$(RM) obj/$(basename $(notdir $<))*
 
 #
 # norun
@@ -109,6 +111,7 @@ norun : $(sort $(patsubst %,%.exe,$(shell $(find) norun $(find_filter))))
 norun/%.exe : norun/% tools
 	@$(dstress) $(torture)norun $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
+	@$(RM) obj/$(basename $(notdir $<))*
 
 #
 # run
@@ -118,6 +121,7 @@ run : $(sort $(patsubst %,%.exe,$(shell $(find) run $(find_filter))))
 run/%.exe : run/% tools
 	@$(dstress) $(torture)run $< > obj/$(notdir $<)$(logsuffix)
 	@$(CAT) obj/$(notdir $<)$(logsuffix)
+	@$(RM) obj/$(basename $(notdir $<))*
 
 #
 # clean
@@ -138,7 +142,7 @@ clean ::
 	$(RM) obj/[k-o]*.*
 	$(RM) obj/[p-t]*.*
 	$(RM) obj/[u-z]*.*
-	$(RM) -rf obj/*
+	$(RM) obj/*
 	$(RM) run.sh norun.sh compile.sh nocompile.sh
 	$(RM) $(dstress) $(crashRun)
 

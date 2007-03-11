@@ -27,6 +27,7 @@ Boris Kolar		<boris.kolar@globera.com>
 brad beveridge
 Brad Roberts		<braddr@puremagic.com>
 Bradley Smith		<digitalmars-com@baysmith.com>
+Brian Byrne		<bdbyrne@wisc.edu>
 Brian Gardner		<briangr@friberg.us>
 Brian Hjølluu
 Bruno Medeiros		<daiphoenixNO@SPAMlycos.com>, <brunodomedeirosATgmail@SPAM.com>, <brunodomedeiros+bugz@gmail.com>

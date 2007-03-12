@@ -19,7 +19,7 @@ dchar[] test(dchar[] input){
 
 int main(){
 	static x = test("hello");
-	if("hel" != x){
+	if("el" != x){
 		assert(0);
 	}
 	return 0;

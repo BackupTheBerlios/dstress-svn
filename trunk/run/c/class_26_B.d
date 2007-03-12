@@ -16,8 +16,14 @@ int main(){
 	int delegate() foo(){
 		return &(new class
 			{
+				int* _status;
+
+				this(){
+					_status = &status;
+				}
+
 				int dg(){
-					return ++status;
+					return ++(*_status);
 				}
 			}
 		).dg;

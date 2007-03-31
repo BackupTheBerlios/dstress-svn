@@ -11,8 +11,8 @@ module dstress.run.i.is_11_G;
 void function() T;
 
 int main(){
-	if(!is(T == function)){
-		assert(0);
+	static if(!is(typeof(T) == function)){
+		static assert(0);
 	}
 
 	return 0;

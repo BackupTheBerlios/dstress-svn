@@ -11,8 +11,8 @@ module dstress.run.i.is_12_H;
 void delegate() T;
 
 int main(){
-	if(!is(T == delegate)){
-		assert(0);
+	static if(!is(typeof(T) == delegate)){
+		static assert(0);
 	}
 
 	return 0;

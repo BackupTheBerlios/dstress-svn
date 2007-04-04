@@ -9,6 +9,8 @@
 
 module dstress.run.l.lazy_03_A;
 
+import std.stdarg;
+
 int step;
 int[] master = [0x12_34_56_78, 0x12_34_56_78, 0xAB_CD_EF_00, 0xAB_CD_EF_00];
 

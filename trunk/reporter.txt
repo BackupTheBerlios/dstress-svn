@@ -101,6 +101,7 @@ Li Jie			<cpunion@gmail.com>
 Lionello Lunesu		<lionello.lunesu@crystalinter.remove.com>, <lio@lunesu.com>
 Luís Marques		<luismarques@gmail.com>
 Lukas Pinkowski		<Lukas.Pinkowski@web.de>
+Madeleine Freudenberg	<madou@madou.org>
 Manfred Nowak		<svv1999@hotmail.com>
 Manuel König		<manuelk89@gmx.net>
 marko			<tm030127d@galeb.etf.bg.ac.yu>
@@ -166,6 +167,7 @@ van eeshan		<vanee@hotmail.com>
 Vathix			<chris@dprogramming.com>, <vathix@dprogramming.com>, <vathixSpamFix@dprogramming.com>
 Victor Nakoryakov	<nail-mail@mail.ru>
 Vladimir		<v04bvs@gmail.com>
+Vladimir		<thecybershadow@gmail.com>
 Walter			<newshound@digitalmars.com>
 Witold Baryluk		<aryluk@mpi.int.pl>
 xs0			<xs0@xs0.com>

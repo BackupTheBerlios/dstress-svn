@@ -168,6 +168,7 @@ Valéry			<valery@freesurf.fr>
 van eeshan		<vanee@hotmail.com>
 Vathix			<chris@dprogramming.com>, <vathix@dprogramming.com>, <vathixSpamFix@dprogramming.com>
 Victor Nakoryakov	<nail-mail@mail.ru>
+Ville Mattila		<ville.mattila@iki.fi>
 Vladimir		<v04bvs@gmail.com>
 Vladimir		<thecybershadow@gmail.com>
 Walter			<newshound@digitalmars.com>

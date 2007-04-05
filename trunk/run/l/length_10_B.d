@@ -2,23 +2,16 @@
 // $Date$
 // $Author$
 
-// @author@	<CppCoder@gmail.com>
-// @date@	2006-05-02
-// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=123
-// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1031
+// @author@	Nick Atamas <nick.atamas@gmail.com>
+// @date@	2007-02-04
+// @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=929
+// @desc@	[Issue 929] Resizing array of associative arrays (uint[char[]][]) causes infinite loop / hang
 
 module dstress.run.l.length_10_B;
 
-size_t intRes(){
-	return 4;
-}
-
-const char[] foo = "abc123";
-
 int main(){
-	char c = foo[intRes() % $];
-
-	if(c != '2'){
+	uint[char[]][10] fractal;
+	if(10 != fractal.length){
 		assert(0);
 	}
 

@@ -13,6 +13,7 @@ template Alias(alias A){
 	alias A Alias;
 }
 
-Alias!(int) x;
+typedef int Int;
+Alias!(Int) x;
 
-static assert(is(typeof(x) == int));
+static assert(is(typeof(x) == Int));

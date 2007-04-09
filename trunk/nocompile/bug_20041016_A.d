@@ -5,7 +5,7 @@
 // @author@	Ivan Senji <ivan.senji@public.srce.hr>
 // @date@	2004-10-16
 // @uri@	news:ckpj76$2r3m$1@digitaldaemon.com
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2117
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2117
 
 module dstress.nocompile.bug_20041016_A;
 

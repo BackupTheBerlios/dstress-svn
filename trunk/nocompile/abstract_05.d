@@ -5,7 +5,7 @@
 // @author@	Jarrett Billingsley <kb3ctd2@yahoo.com>
 // @date@	2004-12-29
 // @uri@	news:cqvnro$26ul$1@digitaldaemon.com
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2624
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2624
 
 // __DSTRESS_ELINE__ 15
 

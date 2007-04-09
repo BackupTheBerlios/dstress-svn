@@ -4,7 +4,7 @@
 
 // @author@	BCS <ao@pathlink.com>
 // @date@	2007-03-24
-// @uri@	news:ce0a334389688c93c3bbfaa07d6@news.digitalmars.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=10738
 // @desc@	switch bug
 
 module dstress.run.s.switch_24_A;

@@ -4,7 +4,7 @@
 
 // @author@	Johan Granberg <lijat.meREM@OVEgmail.com>
 // @date@	2006-09-14
-// @uri@	news:eeb08s$2p5n$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8389
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1034
 // @desc@	Incorrect code generation -O2 gdc
 

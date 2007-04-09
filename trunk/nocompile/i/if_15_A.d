@@ -4,7 +4,7 @@
 
 // @author@	BCS <fubar@pathlink.com>
 // @date@	2006-10-07
-// @uri@	news:eg95k2$27pi$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8639
 // @desc@	name shadowing in if statement
 
 // __DSTRESS_ELINE__ 17

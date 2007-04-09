@@ -4,7 +4,7 @@
 
 // @author@	Lionello Lunesu <lio@lunesu.com>
 // @date@	2006-09-15
-// @uri@	news:eeek2t$1kkv$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8400
 // @desc@	[Issue 223] Error message for unset constants doesn't specify error location
 
 // __DSTRESS_ELINE__ 15

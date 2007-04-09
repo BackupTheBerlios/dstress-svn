@@ -4,7 +4,7 @@
 
 // @author@	Karen Lanrap <karen@digitaldaemon.com>
 // @date@	2006-09-27
-// @uri@	news:Xns984BB274364EFdigitaldaemoncom@63.105.9.61
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8501
 // @desc@	wrong function overload
 
 // __DSTRESS_ELINE__ 27

@@ -4,7 +4,7 @@
 
 // @author@	Frank Benoit <benoit@tionex.de>
 // @date@	2006-08-21
-// @uri@	news:eccer4$2mda$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8187
 // @desc@	[Issue 303] delegate in finally
 
 module dstress.run.f.finally_11_A;

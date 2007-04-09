@@ -4,7 +4,7 @@
 
 // @author@	rm <roel.mathys@gmail.com>
 // @date@	2006-10-04
-// @uri@	news:eg14oj$4vh$4@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=D.gnu&artnum=2134
 // @desc@	infinite loop in gdc-0.19 with tempaltes
 
 module dstress.compile.t.template_48_B;

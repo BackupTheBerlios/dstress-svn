@@ -4,7 +4,7 @@
 
 // @author@	Deewiant <deewiant@gmail.com>
 // @date@	2006-09-30
-// @uri@	news:eflvsd$29iq$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8550
 // @desc@	[Issue 355] ICE from enum : nonexistent type
 
 // __DSTRESS_ELINE__ 14

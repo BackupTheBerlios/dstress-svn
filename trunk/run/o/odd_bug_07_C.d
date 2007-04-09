@@ -4,7 +4,7 @@
 
 // @author@	 Deewiant <deewiant@gmail.com>
 // @date@	2006-08-19
-// @uri@	news:ec6kit$560$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8170
 // @desc@	[Issue 287] DMD optimization bug arround dynamic array length
 
 module dstress.run.o.odd_bug_07_C;

@@ -4,7 +4,7 @@
 
 // @author@	Michael Arntzenius <daekharel@gmail.com>
 // @date@	2006-11-20
-// @uri@	news:ejte18$16s$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=9156
 // @desc@	[Issue 235] goto & scope: cannot goto forward into different try block level
 
 module dstress.run.s.scope_14_C;

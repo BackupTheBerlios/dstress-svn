@@ -4,7 +4,7 @@
 
 // @author@	Tyro <ridimz@yahoo.com>
 // @date@	2006-09-02
-// @uri@	news:edabs3$2se6$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8247
 // @desc@	Internal error: ..\ztc\cod1.c 2521
 
 // __DSTRESS_ELINE__ 21

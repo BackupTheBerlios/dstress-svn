@@ -4,7 +4,7 @@
 
 // @author@	Johan Granberg <lijat.meREM@OVEgmail.com>
 // @date@	2006-09-14
-// @uri@	news:eeb08s$2p5n$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=8389
 // @desc@	Incorrect code generation -O2 gdc
 
 module dstress.run.o.odd_bug_09_B;

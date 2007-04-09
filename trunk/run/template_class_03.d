@@ -5,7 +5,7 @@
 // @author@	Roel Mathys <roel.mathys@yucom.be>
 // @date@	2004-05-21
 // @uri@	news:c8ljro$q9h$1@digitaldaemon.com
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/250
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=250
 
 module dstress.run.template_class_03;
 

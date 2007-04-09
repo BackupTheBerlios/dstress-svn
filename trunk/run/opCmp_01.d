@@ -5,7 +5,7 @@
 // @author@	k2 <k2_member@pathlink.com>
 // @date@	2004-08-04
 // @uri@	news:ceq9g7$25mj$1@digitaldaemon.com
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/1248
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1248
 
 module dstress.run.opCmp_01;
 

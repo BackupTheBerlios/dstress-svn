@@ -5,7 +5,7 @@
 // @author@	Ilya Zaitseff <sark7@mail333.com>
 // @date@	2004-08-06
 // @uri@	news:opscahl7ddaaezs2@ilya.tec.amursk.ru
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/1284
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1284
 
 module dstress.run.destructor_03;
 

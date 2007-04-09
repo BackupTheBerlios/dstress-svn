@@ -5,7 +5,7 @@
 // @author@	shinichiro.h <s31552@mail.ecc.u-tokyo.ac.jp>
 // @date@	2004-10-30
 // @uri@	news:20041030030623.0497f385.s31552@mail.ecc.u-tokyo.ac.jp
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2163
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2163
 
 module dstress.run.struct_14;
 

@@ -5,7 +5,7 @@
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2004-09-11
 // @uri@	news:chtj6t$24bm$1@digitaldaemon.com
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/1821
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1821
 
 module dstress.run.auto_01;
 

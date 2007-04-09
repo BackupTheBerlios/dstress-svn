@@ -5,7 +5,7 @@
 // @author@	Buchan <kbuchan@xtra.co.nz>
 // @date@	2004-11-14
 // @uri@	news:opshfzxz0b44buww@simon.homenet
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/2262
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2262
 
 // __DSTRESS_TORTURE_BLOCK__ -release
 

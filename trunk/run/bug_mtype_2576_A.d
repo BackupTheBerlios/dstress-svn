@@ -5,7 +5,7 @@
 // @author@	J Anderson <REMOVEanderson@badmama.com.au>
 // @date@	2004-05-18
 // @uri@	news:c8c0uk$229r$1@digitaldaemon.com
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/205
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=205
 
 module dstress.run.bug_mtype_2576_A;
 

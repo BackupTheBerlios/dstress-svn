@@ -5,7 +5,7 @@
 // @author@	zwang <nehzgnaw@gmail.com>
 // @date@	2005-02-19
 // @uri@	news:cv7gn5$2irj$1@digitaldaemon.com
-// @uri@	nntp://digitalmars.com/digitalmars.D.bugs/3022
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3022
 
 module dstress.run.sort_14;
 

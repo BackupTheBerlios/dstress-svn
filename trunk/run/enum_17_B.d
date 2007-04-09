@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-04-29
-// @uri@	news:d4sr1u$505$2@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3844
 
 module dstress.run.enum_17_B;
 

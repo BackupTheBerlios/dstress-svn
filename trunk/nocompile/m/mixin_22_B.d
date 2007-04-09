@@ -4,7 +4,7 @@
 
 // @author@	Tom S <h3r3tic@remove.mat.uni.torun.pl>
 // @date@	2006-05-02
-// @uri@	news:e37iiv$482$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7130
 
 module dstress.nocompile.m.mixin_22_B;
 

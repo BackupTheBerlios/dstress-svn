@@ -4,7 +4,7 @@
 
 // @author@	Manfred Nowak <svv1999@hotmail.com>
 // @date@	2005-05-09
-// @uri@	news:d5nifh$k61$2@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3935
 
 // __DSTRESS_ELINE__ 15
 

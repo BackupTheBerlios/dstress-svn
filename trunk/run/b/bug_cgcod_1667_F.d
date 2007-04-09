@@ -4,7 +4,7 @@
 
 // @author@	Sterling Christensen <sterlingchristensen@hotmail.com>
 // @date@	2006-06-08
-// @uri@	news:op.tcd8nfiww9vrcz@sterling
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7818
 
 module dstress.run.b.bug_cgcod_1677_F;
 

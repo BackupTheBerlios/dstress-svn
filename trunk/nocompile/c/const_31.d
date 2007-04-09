@@ -4,7 +4,7 @@
 
 // @author@	Artem Rebrov <ar_other@mail.ru>
 // @date@	2006-02-06
-// @uri@	news:op.s4kei3z6ncj208@comp
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6177
 
 // __DSTRESS_ELINE__ 13
 

@@ -4,7 +4,7 @@
 
 // @author@	Nick <Nick_member@pathlink.com>
 // @date@	2005-05-25
-// @uri@	news:d72fan$60m$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4162
 
 module dstress.run.d.double_25_A;
 

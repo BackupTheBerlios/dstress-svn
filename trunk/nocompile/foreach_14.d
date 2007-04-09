@@ -4,7 +4,7 @@
 
 // @author@ 	Tyro <ridimz_at@yahoo.dot.com>
 // @date@	2004-09-22
-// @uri@	news:ciqutj$10bq$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1897
 
 // __DSTRESS_ELINE__ 15
 

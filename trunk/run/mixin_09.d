@@ -4,7 +4,7 @@
 
 // @author@	Regan Heath <regan@netwin.co.nz>
 // @date@	2005-03-17
-// @uri@	news:opsnp8x0v923k2f5@nrage.netwin.co.nz
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3195
 
 module dstress.run.mixin_09;
 

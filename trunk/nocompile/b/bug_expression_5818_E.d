@@ -4,7 +4,7 @@
 
 // @author@	David Medlock <noone@nowhere.com>
 // @date@	2005-09-27
-// @uri@	news:dhc170$qa0$2@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5076
 
 // __DSTRESS_ELINE__ 16
 

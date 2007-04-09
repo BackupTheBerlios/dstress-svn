@@ -4,7 +4,7 @@
 
 // @author@	Wang Zhen <nehzgnaw@gmail.com>
 // @date@	2006-02-17
-// @uri@	news:dt4a71$2hva$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6300
 
 module dstress.nocompile.t.template_30_E;
 

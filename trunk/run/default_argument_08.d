@@ -4,7 +4,7 @@
 
 // @author@	Lars Ivar Igesund <larsivar@igesund.net>	
 // @date@	2005-04-09
-// @uri@	news:d39ij9$2bf9$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3596
 
 module dstress.run.default_argument_08;
 

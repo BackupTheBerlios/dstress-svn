@@ -4,7 +4,7 @@
 
 // @author@	simon hudon <simon_member@pathlink.com>
 // @date@	2006-07-17
-// @uri@	news:e9f3bk$21hp$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7907
 // @desc@	foreach on aggregate class in some delegate litterals
 
 module dstress.run.b.bug_declaration_440_B;

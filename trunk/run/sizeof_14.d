@@ -4,7 +4,7 @@
 
 // @author@	brad beveridge <brad@nowhere.com>
 // @date@	2005-04-25
-// @uri@	news:d4ie14$1evb$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3816
 
 module dstress.run.sizeof_14;
 

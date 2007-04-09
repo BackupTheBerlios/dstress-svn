@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.THISISSPAM.cn>
 // @date@	2005-02-06
-// @uri@	news:s2chd2-1n2.ln1@lnews.kuehne.cn
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2878
 
 // __DSTRESS_TORTURE_BLOCK__ -release
 

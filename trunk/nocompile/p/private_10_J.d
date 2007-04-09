@@ -4,7 +4,7 @@
 
 // @author@	bobef <bobef@lessequal.com>
 // @date@	2006-01-11
-// @uri@	news:dsk9hb$ugh$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6224
 
 // __DSTRESS_ELINE__ 17
 

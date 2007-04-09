@@ -4,7 +4,7 @@
 
 // @author@	Nick <Nick_member@pathlink.com>
 // @date@	2005-06-10
-// @uri@	news:d8btjq$11c7$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4272
 // @desc@	compiler hangs on recursive template
 
 // __DSTRESS_ELINE__ 15

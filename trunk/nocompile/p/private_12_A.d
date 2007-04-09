@@ -4,7 +4,7 @@
 
 // @author@	Bruno Medeiros <daiphoenixNO@SPAMlycos.com>
 // @date@	2006-02-15
-// @uri@	news:dsvkum$1cjj$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6268
 
 // __DSTRESS_ELINE__ 15
 

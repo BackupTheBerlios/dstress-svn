@@ -4,7 +4,7 @@
 
 // @author@	Carlos Santander B. <csantander619@gmail.com>
 // @date@	2005-04-07
-// @uri@	news:d34se7$18vb$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3545
 
 // __DSTRESS_ELINE__ 15
 

@@ -4,7 +4,7 @@
 
 // @author@	David L. Davis <SpottedTiger@yahoo.com>
 // @date@	2005-09-22
-// @uri@	news:dgup0c$1j47$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5054
 
 module dstress.run.v.variadic_argument_07_D;
 

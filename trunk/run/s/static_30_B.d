@@ -4,7 +4,7 @@
 
 // @author@	xs0 <xs0@xs0.com>
 // @date@	2005-05-12
-// @uri@	news:d5vnlr$9h6$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3960
 
 module dstress.run.s.static_30_B;
 

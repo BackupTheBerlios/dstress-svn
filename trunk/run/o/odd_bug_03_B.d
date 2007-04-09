@@ -5,7 +5,7 @@
 // @desc@	vararg / char[] / foreach code generation bug
 // @author@	zwang <nehzgnaw@gmail.com>
 // @date@	2005-05-29
-// @uri@	news:d7d2kq$1mc$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4171
 
 // @WARNING@ direct use of Phobos
 

@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.cn>
 // @date@	2006-02-17
-// @uri@	news:86jgc3-gc7.ln1@birke.kuehne.cn
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6297
 
 // Porting: C#
 

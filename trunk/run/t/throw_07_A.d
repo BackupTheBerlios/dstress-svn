@@ -4,7 +4,7 @@
 
 // @author@	<mclysenk@mtu.edu>
 // @date@	2006-05-11
-// @uri@	news:e3u2au$2l0c$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7180
 
 module dstress.run.t.throw_07_C;
 

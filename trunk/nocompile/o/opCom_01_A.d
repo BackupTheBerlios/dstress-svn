@@ -4,7 +4,7 @@
 
 // @author@	Oskar Linde <oskar.lindeREM@OVEgmail.com>
 // @date@	2006-02-28
-// @uri@	news:du1l30$1jfl$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6401
 
 // __DSTRESS_ELINE__ 16
 

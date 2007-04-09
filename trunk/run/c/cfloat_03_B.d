@@ -4,7 +4,7 @@
 
 // @author@	Don Clugston <dac@nospam.com.au>
 // @date@	2005-11-08
-// @uri@	news:dkq3ck$2370$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5360
 
 module dstress.run.c.cfloat_03_B;
 

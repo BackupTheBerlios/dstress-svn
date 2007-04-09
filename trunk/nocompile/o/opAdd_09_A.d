@@ -4,7 +4,7 @@
 
 // @author@	Don Clugston <dac@nospam.com.au>
 // @date@	2006-03-01
-// @uri@	news:du4en6$seu$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6407
 
 // __DSTRESS_ELINE__ 15
 

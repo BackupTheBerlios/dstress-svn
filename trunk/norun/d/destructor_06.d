@@ -4,7 +4,7 @@
 
 // @author@	Kris <fu@bar.com>
 // @date@	2006-01-12
-// @uri@	news:dq6ca9$16i7$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6006
 
 // __DSTRESS_ELINE__ 82
 

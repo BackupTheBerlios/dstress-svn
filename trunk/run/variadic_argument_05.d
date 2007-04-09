@@ -4,7 +4,7 @@
 
 // @author@	Manfred Nowak <svv1999@hotmail.com>
 // @date	2005-04-21
-// @uri@	news:d46udp$1mqe$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3763
 
 // @WARNING@    direct access to Phobos
 

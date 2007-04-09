@@ -4,7 +4,7 @@
 
 // @author@	Carlos Santander B. <carlos8294@msn.com>
 // @date@	2004-08-20
-// @uri@	news:cg41gm$2u2d$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1428
 
 module dstress.run.bool_05;
 

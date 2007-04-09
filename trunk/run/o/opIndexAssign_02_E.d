@@ -4,7 +4,7 @@
 
 // @author@	Burton Radons <burton-radons@smocky.com>
 // @date@	2005-09-07
-// @uri@	news:dfnoke$15gk$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4937
 
 module dstress.run.opIndexAssign_02_E;
 

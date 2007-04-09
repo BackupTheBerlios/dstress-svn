@@ -4,7 +4,7 @@
 
 // @author@	 Garett Bass <garettbass@studiotekne.com>
 // @date@	2005-11-11
-// @uri@	news:dl14b4$2noa$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5389
 
 // __DSTRESS_ELINE__ 19
 

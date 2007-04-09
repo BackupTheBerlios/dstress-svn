@@ -4,7 +4,7 @@
 
 // @author@	Vathix <vathix@dprogramming.com>
 // @date@	2005-05-22
-// @uri@	news:op.sq4gt8ddkcck4r@esi
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4114
 // @desc@	-inline calling wrong virtual function
 
 module dstress.run.i.inline_10_A;

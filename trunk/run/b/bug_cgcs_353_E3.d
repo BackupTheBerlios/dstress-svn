@@ -4,7 +4,7 @@
 
 // @author@	James Dunne <james.jdunne@gmail.com>
 // @date@	2005-08-28
-// @uri@	news:dethn0$1gn8$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4882
 
 module dstress.run.b.bug_cgcs_353_E3;
 

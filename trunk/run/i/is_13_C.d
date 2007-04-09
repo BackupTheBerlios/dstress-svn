@@ -4,7 +4,7 @@
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2006-03-15
-// @uri@	news:dv9okf$mfp$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6674
 
 module dstress.run.i.is_13_C;
 

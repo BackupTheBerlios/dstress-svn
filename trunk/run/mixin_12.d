@@ -4,7 +4,7 @@
 
 // @author@	Jarrett Billingsley <kb3ctd2@yahoo.com>
 // @date@	2005-03-23
-// @uri@	news:d1sosj$cmo$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3319
 
 module dstress.run.mixin_12;
 

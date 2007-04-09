@@ -4,7 +4,7 @@
 
 // @author@	Tim Keating <Tim_member@pathlink.com>
 // @date@	2006-01-27
-// @uri@	news:drcl3a$jh2$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6099
 
 module dstress.run.e.enum_43_H;
 

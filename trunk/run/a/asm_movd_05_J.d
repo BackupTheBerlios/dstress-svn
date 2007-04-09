@@ -4,7 +4,7 @@
 
 // @author@	pmoore <pmoore_member@pathlink.com>
 // @date@	2006-03-14
-// @uri@	news:dv76et$oe1$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6662
 
 module dstress.run.a.asm_movd_05_J;
 

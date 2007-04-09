@@ -4,7 +4,7 @@
 
 // @author@	<clugdbug@yahoo.com.au>
 // @date@	2006-03-13
-// @uri@	news:dv3rrs$2m8i$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6652
 
 module dstress.run.m.mangleof_15_D;
 

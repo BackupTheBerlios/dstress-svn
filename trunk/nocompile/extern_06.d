@@ -4,7 +4,7 @@
 
 // @author@	Russ Lewis <spamhole-2001-07-16@deming-os.org>
 // @date@	2004-12-14
-// @uri@	news:cpoao4$lqs$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2566
 // @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs:2556
 
 module dstress.nocompile.extern_06;

@@ -4,7 +4,7 @@
 
 // @author@	Deewiant <deewiant.doesnotlike.spam@gmail.com>
 // @date@	2005-08-06
-// @uri@	news:dd23j9$1b6c$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4699
 
 module dstress.run.f.for_06_M;
 

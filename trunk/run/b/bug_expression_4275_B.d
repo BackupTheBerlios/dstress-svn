@@ -4,7 +4,7 @@
 
 // @author@	Victor Nakoryakov <nail-mail@mail.ru>
 // @date@	2005-07-07
-// @uri@	news:daj84k$15p4$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4469
 
 module dstress.run.b.bug_expression_4275_B;
 

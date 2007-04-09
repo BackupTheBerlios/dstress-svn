@@ -5,7 +5,7 @@
 // @desc@	class inheritance recoursion
 // @author@	Andrew Fedoniouk <news@terrainformatica.com>
 // @date@	2005-06-09
-// @uri@	news:d88kv9$he4$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4249
 
 // __DSTRESS_ELINE__ 21
 

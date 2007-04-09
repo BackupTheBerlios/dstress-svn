@@ -4,7 +4,7 @@
 
 // @author@	Ben Hinkle <ben.hinkle@gmail.com>
 // @date@	2005-05-20
-// @uri@	news:d6j9fq$2qdd$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4080
 
 module dstress.run.s.struct_initialization_07;
 

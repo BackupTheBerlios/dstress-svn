@@ -4,7 +4,7 @@
 
 // @author@	Chris Miller <chris@dprogramming.com>
 // @date@	2006-02-07
-// @uri@	news:op.s4mmglojpo9bzi@moe
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6182
 
 module dstress.run.s.struct_23_F;
 

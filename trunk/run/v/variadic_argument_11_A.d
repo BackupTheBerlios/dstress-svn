@@ -4,7 +4,7 @@
 
 // @author@	John C <johnch_atms@hotmail.com>
 // @date@	2005-12-04
-// @uri@	news:dmus5e$11jp$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5738
 
 module dstress.run.v.variadic_argument_11_A;
 

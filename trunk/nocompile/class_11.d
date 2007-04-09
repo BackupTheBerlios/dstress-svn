@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.thisisspam.cn>
 // @date@	2005-04-19
-// @uri@	news:d6bgj2-k2c.ln1@lnews.kuehne.cn
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3747
 
 // __DSTRESS_ELINE__ 13
 

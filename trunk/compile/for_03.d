@@ -4,7 +4,7 @@
 
 // @author@	Mike Swieton <mike@swieton.net>
 // @date@	2004-05-27
-// @uri@	news:pan.2004.05.27.03.36.49.673273@swieton.net
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=296
 
 module dstress.compile.for_03;
 

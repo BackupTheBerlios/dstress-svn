@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-05-31
-// @uri@	news:d7hfbd$1dtf$2@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4183
 // @desc@	nested types can't be forward referenced
 
 module dstress.run.f.forward_reference_12_E;

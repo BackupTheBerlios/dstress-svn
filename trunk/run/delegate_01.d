@@ -4,7 +4,7 @@
 
 // @author@	Bent Rasmussen <exo@bent-rasmussen.info>
 // @date@	2004-08-12
-// @uri@	news:cfe9vt$1btr$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1338
 
 module dstress.run.delegate_01;
 

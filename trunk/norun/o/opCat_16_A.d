@@ -4,7 +4,7 @@
 
 // @author@	zwang <nehzgnaw@gmail.com>
 // @date@	2005-09-15
-// @uri@	news:dgap19$2lhi$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4996
 
 // __DSTRESS_TORTURE_BLOCK__ -release
 // __DSTRESS_ELINE__ 30

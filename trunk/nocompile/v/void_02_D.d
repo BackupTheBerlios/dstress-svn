@@ -4,7 +4,7 @@
 
 // @author@	zwang <nehzgnaw@gmail.com>
 // @date@	2005-09-20
-// @uri@	news:dgoa9j$bsv$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5036
 
 // __DSTRESS_ELINE__ 14
 

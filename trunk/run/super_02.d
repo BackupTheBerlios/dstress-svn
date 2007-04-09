@@ -4,7 +4,7 @@
 
 // @author@	Ant <duitoolkit@yahoo.ca>
 // @date@	2004-08-21
-// @uri@	news:pan.2004.08.21.15.02.20.419085@yahoo.ca
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1488
 
 module dstress.run.super_02;
 

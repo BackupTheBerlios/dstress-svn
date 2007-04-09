@@ -4,7 +4,7 @@
 
 // @author@	Deewiant <deewiant.doesnotlike.spam@gmail.com>
 // @date@	2005-08-04
-// @uri@	news:dct2rf$5bf$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4683
 
 // __DSTRESS_ELINE__ 19
 

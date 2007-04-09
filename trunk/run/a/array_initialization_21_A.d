@@ -4,7 +4,7 @@
 
 // @author@	clayasaurus <clayasaurus@gmail.com>
 // @date@	2005-12-25
-// @uri@	news:news:donatt$1acv$1@digitaldaemon.com
+// @uri@	news:http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5910
 
 module dstress.run.a.array_initialization_21_A;
 

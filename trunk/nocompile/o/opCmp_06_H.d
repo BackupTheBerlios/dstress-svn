@@ -4,7 +4,7 @@
 
 // @author@	<jmjmak@utu.invalid.fi>
 // @date@	2005-08-31
-// @uri@	news:df4t72$27kf$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4903
 
 // __DSTRESS_ELINE__ 27
 

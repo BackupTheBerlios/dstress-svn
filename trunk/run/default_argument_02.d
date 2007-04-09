@@ -4,7 +4,7 @@
 
 // @author@	Andy Friesen <andy@ikagames.com>
 // @date@	2004-06-25
-// @uri@	news:cbfp7c$2rcg$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=591
 
 module dstress.run.default_argument_02;
 

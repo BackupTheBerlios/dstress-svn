@@ -2,7 +2,7 @@
 // $Date$
 // $Author$
 
-// @uri@	news:opsh76x6l7jccy7t@simon.homenet
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2366
 // @author@	Simon Buchan <currently@no.where>
 // @date@	2004-11-30
 // @uri@	nntp://news.digitalmars.com/digitalmars.D.bugs:2371

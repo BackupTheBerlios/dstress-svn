@@ -4,7 +4,7 @@
 
 // @author@	k2 <k2_member@pathlink.com>
 // @date@	2006-06-20
-// @uri@	news:e797n4$2fn8$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7620
 
 // __DSTRESS_ELINE__ 13
 

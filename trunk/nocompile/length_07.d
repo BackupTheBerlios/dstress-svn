@@ -4,7 +4,7 @@
 
 // @author@	MicroWizard <MicroWizard_member@pathlink.com>
 // @date@	2005-04-11
-// @uri@	news:d3em9h$bdg$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3614
 
 // __DSTRESS_ELINE__ 15
 

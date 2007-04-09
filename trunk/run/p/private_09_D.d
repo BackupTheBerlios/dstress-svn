@@ -4,7 +4,7 @@
 
 // @author@	Kris <fu@bar.com>
 // @date@	2005-12-17
-// @uri@	news:do2bam$2ab0$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5887
 
 // __DSTRESS_TORTURE_BLOCK__ -release
 

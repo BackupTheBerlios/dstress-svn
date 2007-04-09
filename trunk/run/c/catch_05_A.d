@@ -4,7 +4,7 @@
 
 // @author@	Nick <Nick_member@pathlink.com>
 // @date@	2005-06-21
-// @uri@	news:d99id2$fgj$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4383
 // @desc@	foreach and throw/catch code generation
 
 module dstress.run.c.catch_05_A;

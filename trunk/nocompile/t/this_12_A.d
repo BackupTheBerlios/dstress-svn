@@ -4,7 +4,7 @@
 
 // @author@	BCS <BCS_member@pathlink.com>
 // @date@	2006-06-01
-// @uri@	news:e5n6sp$1at7$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7367
 
 // __DSTRESS_ELINE__ 16
 

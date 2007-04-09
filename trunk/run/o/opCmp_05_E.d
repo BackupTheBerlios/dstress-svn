@@ -4,7 +4,7 @@
 
 // @author@	David L. Davis <SpottedTiger@yahoo.com>
 // @date@	2005-08-10
-// @uri@	news:dddj2k$lrr$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4752
 // @desc@	Negative numbers are treated as Positive in compares.
 
 module dstress.run.o.opCmp_05_E;

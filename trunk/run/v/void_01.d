@@ -4,7 +4,7 @@
 
 // @author@	Vathix <vathix@dprogramming.com>
 // @date@	2006-06-08
-// @uri@	news:op.sr2gh5jwkcck4r@esi
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4246
 // @desc@	void.sizeof: semicolon expected, not '.'
 
 module dtsress.run.v.void_01;

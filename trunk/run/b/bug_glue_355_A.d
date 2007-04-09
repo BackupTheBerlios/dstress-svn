@@ -4,7 +4,7 @@
 
 // @author@	John C <johnch_atms@hotmail.com>
 // @date@	2005-09-29
-// @uri@	news:dhf4c3$pua$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5083
 
 module dstress.run.b.bug_glue_355_A;
 

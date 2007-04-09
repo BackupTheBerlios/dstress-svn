@@ -4,7 +4,7 @@
 
 // @author@	Ivan Senji <ivan.senji@public.srce.hr>
 // @date@	2004-08-07
-// @uri@	news:cf2ivm$1qu0$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1303
 
 // __DSTRESS_ELINE__ 22
 

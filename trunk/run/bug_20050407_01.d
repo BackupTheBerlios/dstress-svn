@@ -4,7 +4,7 @@
 
 // @author@	David Medlock <amedlock@nospam.org>
 // @date@	2005-04-07
-// @uri@	news:d33h85$2bem$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3538
 
 module dstress.run.bug_20050407_01;
 

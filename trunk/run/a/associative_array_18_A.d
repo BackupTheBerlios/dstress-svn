@@ -4,7 +4,7 @@
 
 // @author@	Bastiaan Veelo <Bastiaan.N.Veelo@ntnu.no>
 // @date@	2005-09-04
-// @uri@	news:dffjik$2p30$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4931
 
 module dstress.run.a.associative_array_18_A;
 

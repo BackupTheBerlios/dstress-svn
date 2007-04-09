@@ -4,7 +4,7 @@
 
 // @author@	MicroWizard <MicroWizard_member@pathlink.com>
 // @date@	2005-11-04
-// @uri@	news:dkgkic$2v7n$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5299
 
 module dstress.compile.b.bug_cgcod_1497_B2;
 

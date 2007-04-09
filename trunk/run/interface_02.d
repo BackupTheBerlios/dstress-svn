@@ -4,7 +4,7 @@
 
 // @author@	van eeshan <vanee@hotmail.com>
 // @date@	2004-08-05
-// @uri@	news:ces67k$rgj$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=1262
 
 module dstress.run.interface_02;
 

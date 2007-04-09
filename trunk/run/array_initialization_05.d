@@ -4,7 +4,7 @@
 
 // @author@	Jarrett Billingsley <kb3ctd2@yahoo.com>
 // @date@	2005-02-28
-// @uri@	news:d004cg$p47$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3062
 
 module dstress.run.array_initialization_05;
 

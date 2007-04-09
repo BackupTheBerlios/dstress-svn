@@ -4,7 +4,7 @@
 
 // @author@	Vathix <chris@dprogramming.com>
 // @date@	2005-07-14
-// @uri@	news:op.stwu8jtdl2lsvj@esi
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4533
 
 // __DSTRESS_ELINE__ 13
 

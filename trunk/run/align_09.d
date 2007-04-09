@@ -4,7 +4,7 @@
 
 // @author@	Ben Hinkle <bhinkle@mathworks.com>
 // @date@	2005-03-23
-// @uri@	news:d1s5gs$2odc$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3313
 
 // @WARNING@	imports Phobos' gc
 

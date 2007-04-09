@@ -4,7 +4,7 @@
 
 // @author@	Tiago Gasiba <tiago.gasiba@gmail.com>
 // @date@	2005-11-24
-// @uri@	news:dm3vu1$2vaf$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5643
 
 module dstress.run.c.creal_30;
 

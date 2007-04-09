@@ -4,7 +4,7 @@
 
 // @author@	David Medlock <noone@nowhere.com>
 // @date@	2006-07-08
-// @uri@	news:e8narj$2h1s$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7809
 // @desc@	Initialization error in classes
 
 module dstress.run.o.odd_bug_06_A;

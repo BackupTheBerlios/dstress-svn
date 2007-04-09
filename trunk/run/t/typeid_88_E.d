@@ -4,7 +4,7 @@
 
 // @author@	Chris Miller <chris@dprogramming.com>
 // @date@	2006-02-20
-// @uri@	news:op.s5anrdhxpo9bzi@moe
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6332
 
 module dstress.run.t.typeid_88_E;
 

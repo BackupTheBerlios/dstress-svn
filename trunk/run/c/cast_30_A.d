@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.THISISSPAM.cn>
 // @date@	2005-12-03
-// @uri@	news:1nd963-jgj.ln1@birke.kuehne.cn
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5729
 
 module dstress.run.c.cast_30_A;
 

@@ -4,7 +4,7 @@
 
 // @author@	Dave <Dave_member@pathlink.com>
 // @date@	2006-02-11
-// @uri@	news:dsjs7l$ai9$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6219
 
 module dstress.nocompile.d.delete_11;
 

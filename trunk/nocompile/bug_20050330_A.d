@@ -4,7 +4,7 @@
 
 // @author@	Regan Heath <regan@netwin.co.nz>
 // @date@	2005-03-30
-// @uri@	news:opsof4hwgy23k2f5@nrage.netwin.co.nz
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3385
 
 // __DSTRESS_ELINE__ 14
 

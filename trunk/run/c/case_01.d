@@ -4,7 +4,7 @@
 
 // @author@	Paul Guerra <Paul_member@pathlink.com>
 // @date@	2005-07-29
-// @uri@	news:dccg4l$o6a$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4634
 
 // this clearly seems illegal but I can't find any rule combination disallowing it
 

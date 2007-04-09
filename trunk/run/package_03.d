@@ -4,7 +4,7 @@
 
 // @author@	Mike Parker <aldacron71@yahoo.com>
 // @date@	2005-04-25
-// @uri@	news:d4i19u$12td$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3814
 
 module dstress.run.package_03;
 

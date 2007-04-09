@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-08-20
-// @uri@	news:de6npa$l97$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4819
 
 // __DSTRESS_ELINE__ 15
 

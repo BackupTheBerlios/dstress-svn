@@ -4,7 +4,7 @@
 
 // @author@	Derek Parnell <derek@psych.ward>
 // @date@	2005-06-20
-// @uri@	news:z9tq34fp6es8$.1qbwawa43urrx$.dlg@40tude.net
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4363
 // @desc@	Internal error: ../ztc/cgcs.c 213
 
 module dstress.run.o.opOrAssign_01_A;

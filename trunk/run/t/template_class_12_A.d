@@ -4,7 +4,7 @@
 
 // @author@	Garett Bass <garettbass@studiotekne.com>
 // @date@	2005-11-02
-// @uri@	news:dkb749$edg$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5289
 
 module dstress.run.t.template_class_12_A;
 

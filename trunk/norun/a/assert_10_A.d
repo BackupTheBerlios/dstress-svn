@@ -4,7 +4,7 @@
 
 // @author@	Derek Parnell <derek@psych.ward>
 // @date@	2005-05-31
-// @uri@	news:151tzf2ee9law$.15kklgaxy0bfr$.dlg@40tude.net
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4178
 // @desc@	invalid code generation
 
 // __DSTRESS_ELINE__ 31

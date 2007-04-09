@@ -5,7 +5,7 @@
 // @desc@	tocsym.c:142: virtual Symbol* VarDeclaration::toSymbol(): Assertion `!needThis()' failed.
 // @author@	Tiago Gasiba <tiago.gasiba@gmail.com>
 // @date@	2005-10-24
-// @uri@	news:dji2d3$acl$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5190
 
 // __DSTRESS_ELINE__ 22
 

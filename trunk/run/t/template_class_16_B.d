@@ -4,7 +4,7 @@
 
 // @author@	Johan Granberg <lijat.meREM@VEgmail.com>
 // @date@	2006-01-03
-// @uri@	news:dpee4j$m7a$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5970
 
 module dstress.run.t.template_class_16_B;
 

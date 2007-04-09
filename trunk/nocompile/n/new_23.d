@@ -4,7 +4,7 @@
 
 // @author@	Jarrett Billingsley <kb3ctd2@yahoo.com>
 // @date@	2005-06-08
-// @uri@	news:d88a8a$4b3$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4248
 // @desc@	nested struct non-static initializer crash
 
 // __DSTRESS_ELINE__ 19

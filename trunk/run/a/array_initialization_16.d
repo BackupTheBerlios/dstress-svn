@@ -4,7 +4,7 @@
 
 // @author@	Michael Butscher <mbutscher@gmx.de>
 // @date@	2005-05-15
-// @uri@	news:MPG.1cf1a08e35a16a9b989684@news.digitalmars.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3981
 
 module dstress.run.a.array_initialization_16;
 

@@ -4,7 +4,7 @@
 
 // @author@	Chris Sauls <ibisbasenji@gmail.com>
 // @date@	2005-07-18
-// @uri@	news:dbfiit$29h3$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4549
 
 module dstress.nocompile.o.opAssign_01_B;
 

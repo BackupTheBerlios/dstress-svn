@@ -4,7 +4,7 @@
 
 // @author@	tetsuya <tetsuya_member@pathlink.com>
 // @date@	2005-09-02
-// @uri@	news:df86a5$248l$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4912
 
 // __DSTRESS_ELINE__ 14
 

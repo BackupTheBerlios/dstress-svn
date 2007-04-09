@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-06-14
-// @uri@	news:d8m7rs$mtv$2@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4300
 // @desc@	misplaced initialisers in static rectangular array
 
 module dstress.run.a.array_initialization_17_C;

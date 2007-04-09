@@ -4,7 +4,7 @@
 
 // @author@	Paul Runde <prunde@consolidated.net>
 // @date@	2004-06-02
-// @uri@	news:c9jcpq$1fu$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=373
 
 module dstress.run.odd_bug_01;
 

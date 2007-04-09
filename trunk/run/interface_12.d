@@ -4,7 +4,7 @@
 
 // @author@	Tom S <h3r3tic@remove.mat.uni.torun.pl>
 // @date@	2005-03-20
-// @uri@	news:d1kc3u$ubc$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3283
 
 module dstress.run.interface_12;
 

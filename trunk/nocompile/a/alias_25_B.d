@@ -4,7 +4,7 @@
 
 // @author@	David L. Davis <SpottedTiger@yahoo.com>
 // @date@	2005-06-16
-// @uri@	news:d8rms7$1vc0$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4337
 // @desc@	ignored attributes of imported alias
 
 // __DSTRESS_ELINE__ 18

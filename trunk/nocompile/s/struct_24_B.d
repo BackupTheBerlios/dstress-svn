@@ -4,7 +4,7 @@
 
 // @author@	Ant <duitoolkit@yahoo.ca>
 // @date@	2006-03-06
-// @uri@	news:duiilb$2heo$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6533
 
 // __DSTRESS_ELINE__ 13
 

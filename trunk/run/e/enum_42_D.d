@@ -4,7 +4,7 @@
 
 // @author@	Thomas Kuehne <thomas-dloop@kuehne.cn>
 // @date@	2005-11-04
-// @uri@	news:th-92A9AC784C1CE3592F06EC49@birke.kuehne.cn
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5307
 
 module dstress.run.e.enum_42_D;
 

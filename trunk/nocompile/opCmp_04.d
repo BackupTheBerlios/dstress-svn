@@ -4,7 +4,7 @@
 
 // @author@	Uwe Salomon <post@uwesalomon.de>
 // @date@	2005-04-08
-// @uri@	news:opsow0pmwb6yjbe6@sandmann.maerchenwald.net
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3559
 
 // __DSTRESS_ELINE__ 21
 

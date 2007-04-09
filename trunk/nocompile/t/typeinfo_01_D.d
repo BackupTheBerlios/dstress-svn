@@ -4,7 +4,7 @@
 
 // @author@	Wang Zhen <nehzgnaw@gmail.com>
 // @date@	2006-02-17
-// @uri@	news:dt4b75$2j45$4@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6306
 
 // __DSTRESS_ELINE__ 18
 

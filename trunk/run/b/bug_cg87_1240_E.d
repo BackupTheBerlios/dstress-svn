@@ -4,7 +4,7 @@
 
 // @author@	David L. Davis <SpottedTiger@yahoo.com>
 // @date@	2005-04-23
-// @uri@	news:d4cemj$mma$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3784
 
 // __DSTRESS_ELINE__ 16
 

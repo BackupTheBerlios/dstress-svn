@@ -4,7 +4,7 @@
 
 // @author@	Bruno Medeiros <brunodomedeirosATgmail@SPAM.com>
 // @date@	2006-06-24
-// @uri@	news:e7hus2$1egl$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7648
 
 module dstress.run.b.bug_mtype_2226_A;
 

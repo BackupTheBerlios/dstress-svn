@@ -4,7 +4,7 @@
 
 // @author@	Sean Kelly <sean@f4.ca>
 // @date@	2005-08-01
-// @uri@	news:dclojd$6ak$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4658
 // @desc@	Assertion failure: '!v->csym' on line 387 in file 'glue.c'
 
 module dstress.run.b.bug_glue_387_B;

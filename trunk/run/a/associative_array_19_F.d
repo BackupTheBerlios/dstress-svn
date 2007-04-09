@@ -4,7 +4,7 @@
 
 // @author@	Sebastian Beschke <s.beschke@gmx.de>
 // @date@	2005-03-25
-// @uri@	news:e03hkt$2lvf$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6821
 
 // @WARNING@ direct access to Phobos' GC
 

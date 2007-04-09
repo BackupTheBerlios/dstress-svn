@@ -4,7 +4,7 @@
 
 // @author@	Stewart Gordon <smjg_1998@yahoo.com>
 // @date@	2005-05-31
-// @uri@	news:d7hfef$1dtf$4@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4185
 // @desc@	Internal error: ../ztc/cod1.c 2503
 
 module dstress.run.o.opSlice_01_D;

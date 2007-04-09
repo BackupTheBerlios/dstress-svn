@@ -4,7 +4,7 @@
 
 // @author@	Uwe Salomon <post@uwesalomon.de>
 // @date@	2005-07-13
-// @uri@	news:op.studsoj86yjbe6@sandmann.maerchenwald.net
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4525
 
 module dstress.run.i.inline_13_A;
 

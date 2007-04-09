@@ -4,7 +4,7 @@
 
 // @author@	Burton Radons <burton-radons@smocky.com>
 // @date@	2005-05-08
-// @uri@	news:d5lotd$29j1$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3924
 
 module dstress.run.t.typeid_86_B;
 

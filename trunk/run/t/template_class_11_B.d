@@ -4,7 +4,7 @@
 
 // @author@	Ivan Senji <ivan.senji_REMOVE_@_THIS__gmail.com>
 // @date@	2005-10-24
-// @uri@	news:djj0eh$132e$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5191
 
 module dstress.run.t.template_class_11_B;
 

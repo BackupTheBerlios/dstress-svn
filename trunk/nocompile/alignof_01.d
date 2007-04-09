@@ -4,7 +4,7 @@
 
 // @author@	Jarrett Billingsley <kb3ctd2@yahoo.com>
 // @date@	2005-04-22
-// @uri@	news:d4c3qc$eu8$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3780
 
 // __DSTRESS_ELINE__ 14
 

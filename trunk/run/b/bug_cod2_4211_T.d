@@ -4,7 +4,7 @@
 
 // @author@	Deewiant <deewiant.doesnotlike.spam@gmail.com>
 // @date@	2005-07-07
-// @uri@	news:dajn75$1hfl$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4472
 // @desc@	Internal error: ../ztc/cod2.c 4211
 
 module dstress.run.b.bug_cod2_4211_T;

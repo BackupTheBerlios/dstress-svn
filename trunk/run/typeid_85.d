@@ -4,7 +4,7 @@
 
 // @author@	ahiru <ahiru@1dk.jp>
 // @date@	2005-03-01
-// @uri@	news:d015pr$1t80$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3072
 
 module dstress.run.typeid_85;
 

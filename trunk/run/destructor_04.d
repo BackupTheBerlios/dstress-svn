@@ -4,7 +4,7 @@
 
 // @author@	Kevin Bealer <Kevin_member@pathlink.com>
 // @date@	2005-02-05
-// @uri@	news:cu1m3r$13b4$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2864
 
 module dstress.run.destructor_04;
 

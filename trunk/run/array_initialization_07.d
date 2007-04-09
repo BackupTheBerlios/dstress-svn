@@ -4,7 +4,7 @@
 
 // @author@	Andrew Fedoniouk <news@terrainformatica.com>
 // @date@	2005-04-12
-// @uri@	news:d3hjto$cl8$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3632
 
 module dstress.run.array_initialization_07;
 

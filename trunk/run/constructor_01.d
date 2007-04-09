@@ -4,7 +4,7 @@
 
 // @author@	Stephan Wienczny <wienczny@web.de>
 // @date@	2004-04-30
-// @uri@	news:c6tkos$2a78$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=44
 
 module dstress.run.constructor_01;
 

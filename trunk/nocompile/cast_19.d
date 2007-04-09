@@ -4,7 +4,7 @@
 
 // @author@	Russell Wilkins <Russell.Wilkins@grovestarsoftware.com>
 // @date@	2005-02-05
-// @uri@	news:cu1tku$18h6$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2865
 
 // __DSTRESS_ELINE__ 19
 

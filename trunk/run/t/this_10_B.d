@@ -4,7 +4,7 @@
 
 // @author@	bobef <bobef@lessequal.com>
 // @date@	2006-03-02
-// @uri@	news:du4ong$1b0n$2@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6414
 // @desc@	func.c:373: virtual void FuncDeclaration::semantic3(Scope*): Assertion `0' failed.
 
 module dstress.run.t.this_10_B;

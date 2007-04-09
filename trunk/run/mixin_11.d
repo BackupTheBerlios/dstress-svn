@@ -4,7 +4,7 @@
 
 // @author@	Ben Hinkle <ben.hinkle@gmail.com>
 // @date@	2005-04-11
-// @uri@	news:d3f87v$14n7$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3619
 
 module dstress.run.mixin_11;
 

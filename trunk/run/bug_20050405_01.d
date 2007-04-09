@@ -4,7 +4,7 @@
 
 // @author@	Valéry <valery@freesurf.fr>
 // @date@	2005-04-05
-// @uri@	news:d2v0pb$gl$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3470
 
 module dstress.run.bug_20050405_01;
 

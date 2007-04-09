@@ -4,7 +4,7 @@
 
 // @author@	debugger <debugger_member@pathlink.com>
 // @date@	2006-03-19
-// @uri@	news:dvj2tg$2i3s$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6701
 
 module dstress.run.m.many_functions_02;
 

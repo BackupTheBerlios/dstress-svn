@@ -4,7 +4,7 @@
 
 // @author@	AJG <AJG@nospam.com>
 // @date@	2005-09-18
-// @uri@	news:dgj92k$226p$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5027
 
 module dstress.run.o.opCat_16_E;
 

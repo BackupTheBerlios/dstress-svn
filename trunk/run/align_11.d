@@ -4,7 +4,7 @@
 
 // @author@	Robert Atkinson <Robert.Atkinson@gmail.com>
 // @date@	2005-05-04
-// @uri@	news:d5afkg$1svk$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3882
 
 module dstress.run.align_11;
 

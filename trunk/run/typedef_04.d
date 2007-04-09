@@ -4,7 +4,7 @@
 
 // @author@ 	berupon <yu@3dcg.ne.jp>
 // @date@	2004-06-10
-// @uri@	news:20040611054017.9D25.YU@3dcg.ne.jp
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=444
 
 module dstress.run.typedef_04;
 

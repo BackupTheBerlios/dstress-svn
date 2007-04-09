@@ -4,7 +4,7 @@
 
 // @author@	ElfQT <dethjunk@yahoo.com>
 // @date@	2005-09-03
-// @uri@	news:dfd6f0$oit$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4927
 
 module dstress.run.m.mixin_14_B;
 

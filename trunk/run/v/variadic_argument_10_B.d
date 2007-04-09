@@ -4,7 +4,7 @@
 
 // @author@	Kris <fu@bar.com>
 // @date@	2005-11-18
-// @uri@	news:dllsvr$2agc$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5597
 
 module dstress.run.v.variadic_argument_10_B;
 

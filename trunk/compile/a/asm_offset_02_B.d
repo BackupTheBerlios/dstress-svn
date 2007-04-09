@@ -4,7 +4,7 @@
 
 // @author@	<pmoore_member@pathlink.com>
 // @date@	2006-06-21
-// @uri@	news:e7cgng$13vq$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=7627
 
 module dstress.compile.a.asm_offset_02_B;
 

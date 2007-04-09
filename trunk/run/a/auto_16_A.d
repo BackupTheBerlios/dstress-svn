@@ -4,7 +4,7 @@
 
 // @author@	yama <yama_member@pathlink.com>
 // @date@	2006-02-26
-// @uri@	news:dtr1ms$2upj$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6373
 
 module dstress.run.a.auto_16_A;
 

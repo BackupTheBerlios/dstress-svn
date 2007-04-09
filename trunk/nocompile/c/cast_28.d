@@ -4,7 +4,7 @@
 
 // @author@	kenny <funisher@gmail.com>
 // @date@	2005-07-17
-// @uri@	news:dbcphe$2s0d$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=4547
 
 module dstress.nocompile.c.cast_28;
 

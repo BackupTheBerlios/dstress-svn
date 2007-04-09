@@ -4,7 +4,7 @@
 
 // @author@	Lukas Pinkowski <Lukas.Pinkowski@web.de>
 // @date@	2005-02-26
-// @uri@	news:cvq9fq$qir$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3047
 
 // __DSTRESS_ELINE__ 16
 

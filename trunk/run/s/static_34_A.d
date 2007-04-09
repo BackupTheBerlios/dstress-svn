@@ -4,7 +4,7 @@
 
 // @author@	Kris <du@bar.com>
 // @date@	2005-10-28
-// @uri@	news:djtsj4$2aci$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5233
 
 module dstress.run.s.static_34_A;
 

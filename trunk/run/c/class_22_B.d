@@ -4,7 +4,7 @@
 
 // @author@	bobef <bobef@lessequal.com>
 // @date@	2006-03-01
-// @uri@	news:du4ojh$1b0n$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=6413
 // @desc@	dmd: toobj.c:191: virtual void ClassDeclaration::toObjFile(): Assertion `!scope' failed.
 
 module dstress.run.c.class_22_B;

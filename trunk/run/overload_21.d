@@ -4,7 +4,7 @@
 
 // @author@	Kirs <fu@bar.com>
 // @date@	2005-04-08
-// @uri@	news:d37pf8$17b3$2@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3573
 
 module dstress.run.overload_21;
 

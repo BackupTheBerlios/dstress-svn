@@ -4,7 +4,7 @@
 
 // @author@	h3r3tic
 // @date@	2005-03-18
-// @uri@	news:d1d4lc$25e2$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3234
 
 // __DSTRESS_ELINE__ 16
 

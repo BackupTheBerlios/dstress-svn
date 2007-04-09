@@ -4,7 +4,7 @@
 
 // @author@	Nick Sabalausky <z@a.a>
 // @date@	2005-02-01
-// @uri@	news:ctpknf$21se$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2825
 // @uri@	nntp://news.digitmars.com/digitalmars.D.bugs
 
 // name resolution happens before overload resolution

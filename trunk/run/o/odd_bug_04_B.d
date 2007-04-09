@@ -4,7 +4,7 @@
 
 // @author@	John Demme <me@teqdruid.com>
 // @date@	2005-12-05
-// @uri@	news:dn2l1b$2j2i$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5755
 
 module dstress.run.o.odd_bug_04_B;
 

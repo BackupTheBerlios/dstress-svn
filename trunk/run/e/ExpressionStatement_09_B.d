@@ -4,7 +4,7 @@
 
 // @author@	Bruno Medeiros <daiphoenixNO@SPAMlycos.com>
 // @date@	2006-01-06
-// @uri@	news:dpud2c$5ch$1@digitaldaemon.com
+// @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=5989
 
 
 module dstress.run.e.ExpressionStatement_09_B;

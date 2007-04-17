@@ -68,6 +68,7 @@ Fredrik Olsson		<peylow@gmail.com>
 Frits van Bommel	<fvbommel@wxs.nl>
 Garett Bass		<garettbass@studiotekne.com>
 Geoff Hickey
+Geert Mulders		<g.c.w.m.mulders@phys.uu.nl>
 Georg Ramme		<georg.ramme@gmail.com>
 Hasan Aljudy		<hasan.aljudy@gmail.com>
 Hauke Duden		<H.NS.Duden@gmx.net>

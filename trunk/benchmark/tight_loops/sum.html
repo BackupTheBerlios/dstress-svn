@@ -1,38 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head>
-
-  
-  
-  
-  
-  
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <title>data</title>
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
   <link href="../../www/formate.css" type="text/css" rel="stylesheet">
-
-
-
-
-
-
-  
-  
-  
-  
   <style type="text/css">
 .good { background-color:#00FF00; }
 .bad { background-color:#FF0000; }
@@ -43,47 +13,22 @@ td { text-align:right;}
 <small>Thomas Kühne &lt;<a href="mailto:thomas@kuehne.cn">thomas@kuehne.cn</a>&gt;</small>
 </center>
 
-
-
-
-
-
 <blockquote>
 What is the best way to sum 2<sup>20</sup> to 2<sup>28</sup> array elements in D? Below you'll find <a href="#source">9 different functions</a>
 for summing arrays. While all of these have the same time complexity
 and should result in exactly the same results for integer arrays the
 performance vary quite drastically.
 <br>
-(Skip to the <a href="#results">results</a>)
+(skip to the <a href="#results">results</a>)
 </blockquote>
 
-
-
-
-
-
 <h3><a name="setup"></a>Setup</h3>
-
-
-
-
-
 <blockquote>
 The arrays were allocated via <i>calloc(array_length, element_size)</i> and the elements filled with their array index (e.g. array element 5 had the value 5). The standard D way <i>new type[array_length]</i> couldn't be used because both DMD's Phobos as well as GDC's GPhobos failed to handle unsuccessful allocations of large (2<sup>+26</sup>)
 arrays. Every function was executed ten times and the total time in
-microseconds used as the performance score. The test system was a AMD
-Turion with 2GB ram.</blockquote>
-
-
-
-
+microseconds used as the performance score. Testing was done on a AMD Turion with 2GB ram.</blockquote>
 
 <h3><a name="data"></a>Data</h3>
-
-
-
-
-
 
 <blockquote>
 <p>Smaller number as better.</p>
@@ -132,8 +77,8 @@ Turion with 2GB ram.</blockquote>
 </dd></dl>
 <p>Please keep in mind that the preformed tests strongly depend on the
 memory architecture and don't really measure how fast an addition is
-but how effecently the memory reads - and to a lesser extend writes -
-are sceduled by the compiler.
+but how efficiently the memory reads - and to a lesser extend writes -
+are scheduled by the compiler.
 </p></blockquote>
 
 

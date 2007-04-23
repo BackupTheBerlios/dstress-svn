@@ -433,9 +433,9 @@ final class MatrixBenchmark : Benchmark {
 
 	/** Compute E=C*D with OOP-style code. */
 	void oop_style() {
-		Matrix c= new Matrix( L, L, C );			// Set up three matrices
-		Matrix d= new Matrix( L, L, D );
-		Matrix e= new Matrix( L, L, E );
+		Matrix c= new Matrix( L, L, C.ptr );			// Set up three matrices
+		Matrix d= new Matrix( L, L, D.ptr );
+		Matrix e= new Matrix( L, L, E.ptr );
 		for( int i=0; i<e.rows; i++ ){		// Do matrix-multiplication
 			for( int j=0; j<e.cols; j++ ) {
 				double sum = 0;
@@ -533,8 +533,8 @@ final class IteratorBenchmark : Benchmark {
 	/** Compute dot-product with OOP-style code */
 	void oop_style(){
 		double sum = 0;
-		Iterator ai = new Iterator(A,N);
-		for( Iterator bi=new Iterator(B,N); !ai.done(); ai.next(), bi.next()){
+		Iterator ai = new Iterator(A.ptr,N);
+		for( Iterator bi=new Iterator(B.ptr,N); !ai.done(); ai.next(), bi.next()){
 			sum += ai.look()*bi.look();
 		}
 		IteratorResult = sum;

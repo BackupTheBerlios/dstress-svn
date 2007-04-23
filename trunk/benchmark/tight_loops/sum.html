@@ -1,105 +1,470 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html><head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>Summing large arrays (performance of tight loops)</title>
-  <link href="../../www/formate.css" type="text/css" rel="stylesheet">
-  <style type="text/css">
-.good { background-color:#00FF00; }
-.bad { background-color:#FF0000; }
-td { text-align:right;}
-  </style></head><body dir="ltr" style="background-color: rgb(255, 255, 255);">
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>Summing large arrays (performance of tight loops)</title>
+	<meta name="DC.Identifier" content="http://dstress.kuehne.cn/benchmark/tight_loops/sum.html" />
+	<style type="text/css">
+		body  { background-color:#ffe28c; color:#000000; }
+
+		a { color:#370be5; }
+		a:hover { background-color:#fff7b7; }
+		.min { background-color:#00FF00; }
+		.max { background-color:#FF0000; }
+		pre { background-color:#DDDDFF; }
+		td { text-align:right;}
+		th { text-align: center; }
+	</style>
+</head><body>
 
 <center><h2>Summing large arrays (performance of tight loops)</h2>
 <small>Thomas Kühne &lt;<a href="mailto:thomas@kuehne.cn">thomas@kuehne.cn</a>&gt;</small>
 </center>
 
 <blockquote>
-What is the best way to sum 2<sup>20</sup> to 2<sup>28</sup> array elements in D? Below you'll find <a href="#source">9 different functions</a>
-for summing arrays. While all of these have the same time complexity
-and should result in exactly the same results for integer arrays the
-performance vary quite drastically.
+What is the best way to sum 2<sup>22</sup> to 2<sup>30</sup> array elements in D? Below you'll find <a href="#source">9 different functions</a> for doing so. While all of these have the same time complexity and should result in exactly the same results for integer arrays the performance vary quite drastically.
 <br>
 (skip to the <a href="#results">results</a>)
 </blockquote>
 
 <h3><a name="setup"></a>Setup</h3>
-<blockquote>
-The arrays were allocated via <i>calloc(array_length, element_size)</i> and the elements filled with their array index (e.g. array element 5 had the value 5). The standard D way <i>new type[array_length]</i> couldn't be used because both DMD's Phobos as well as GDC's GPhobos failed to handle unsuccessful allocations of large (2<sup>+26</sup>)
-arrays. Every function was executed ten times and the total time in
-microseconds used as the performance score. Testing was done on a AMD Turion with 2GB ram.</blockquote>
+<blockquote>Testing was done on a AMD Turion with 2GB ram. For allocation and measuring details please have a look at the <a href="#source">source</a>.</blockquote>
 
 <h3><a name="data"></a>Data</h3>
 
 <blockquote>
 <p>Smaller numbers are better.</p>
-<table border="1"><tbody><tr><th><i>sum(int[]) - DMD-1.011</i></th><th><a href="#foreach">foreach</a></th><th><a href="#array">array</a></th><th><a href="#const_length">const length</a></th><th><a href="#pointer">pointer</a></th><th><a href="#pointer_2a">pointer 2a</a></th><th><a href="#pointer_2b">pointer 2b</a></th><th><a href="#pointer_2c">pointer 2c</a></th><th><a href="#struct2">struct2</a></th><th><a href="#struct4">struct4</a></th></tr><tr><th>2^20</th><td class="bad">39487</td><td>29846</td><td>24341</td><td>25195</td><td class="good">18537</td><td>19057</td><td>19961</td><td>19020</td><td>24969</td></tr><tr><th>2^21</th><td class="bad">73997</td><td>57552</td><td>46594</td><td>50114</td><td class="good">36400</td><td>36508</td><td>39229</td><td>37772</td><td>51565</td></tr><tr><th>2^22</th><td class="bad">150230</td><td>122630</td><td>93768</td><td>98350</td><td class="good">73073</td><td>73384</td><td>77028</td><td>74370</td><td>99221</td></tr><tr><th>2^23</th><td class="bad">292691</td><td>236082</td><td>183791</td><td>196665</td><td>143398</td><td class="good">142987</td><td>161674</td><td>148839</td><td>195495</td></tr><tr><th>2^24</th><td>1175839</td><td>913347</td><td>912137</td><td>778297</td><td class="good">603129</td><td>761136</td><td>608608</td><td>623014</td><td class="bad">1258316</td></tr><tr><th>2^25</th><td class="bad">2373532</td><td>2181018</td><td>1527581</td><td>1768198</td><td class="good">1143496</td><td>1150346</td><td>1243648</td><td>1225862</td><td>1570916</td></tr><tr><th>2^26</th><td class="bad">4851729</td><td>3648426</td><td>3196856</td><td>3139241</td><td class="good">2284931</td><td>2375935</td><td>2626162</td><td>3072473</td><td>4573186</td></tr><tr><th>2^27</th><td class="bad">11308678</td><td>7284736</td><td>6151410</td><td>6253621</td><td class="good">4562178</td><td>4590524</td><td>4892955</td><td>4704366</td><td>6495310</td></tr><tr><th>2^28</th><td class="bad">19939066</td><td>14503930</td><td>11779464</td><td>12453572</td><td>9423131</td><td class="good">9184663</td><td>9793640</td><td>9858083</td><td>13109742</td></tr></tbody></table>
-<br><table border="1"><tbody><tr><th><i>sum(int[]) - GDC-0.23</i></th><th><a href="#foreach">foreach</a></th><th><a href="#array">array</a></th><th><a href="#const_length">const length</a></th><th><a href="#pointer">pointer</a></th><th><a href="#pointer_2a">pointer 2a</a></th><th><a href="#pointer_2b">pointer 2b</a></th><th><a href="#pointer_2c">pointer 2c</a></th><th><a href="#struct2">struct2</a></th><th><a href="#struct4">struct4</a></th></tr><tr><th>2^20</th><td>33905</td><td>33765</td><td>36656</td><td>36614</td><td>33935</td><td class="bad">36776</td><td class="good">33667</td><td>34220</td><td>36708</td></tr><tr><th>2^21</th><td>68606</td><td>66152</td><td>72531</td><td>72836</td><td>66480</td><td>72567</td><td class="good">66191</td><td>66820</td><td class="bad">83352</td></tr><tr><th>2^22</th><td>131675</td><td class="good">128806</td><td class="bad">145258</td><td>145159</td><td>130948</td><td>143583</td><td>141416</td><td>131424</td><td>145110</td></tr><tr><th>2^23</th><td>260759</td><td class="good">257600</td><td>294391</td><td>287307</td><td>260200</td><td>295746</td><td class="bad">329018</td><td>263779</td><td>293465</td></tr><tr><th>2^24</th><td class="good">520159</td><td>521603</td><td>568738</td><td>629862</td><td class="bad">737227</td><td>568174</td><td>530669</td><td>522560</td><td>576958</td></tr><tr><th>2^25</th><td>1054166</td><td class="good">1029775</td><td class="bad">1145534</td><td>1145042</td><td>1043372</td><td>1143455</td><td>1049781</td><td>1052983</td><td>1142737</td></tr><tr><th>2^26</th><td>2087338</td><td class="good">2065728</td><td class="bad">2288074</td><td>2285380</td><td>2083681</td><td>2286603</td><td>2106958</td><td>2100707</td><td>2284949</td></tr><tr><th>2^27</th><td>4170883</td><td class="good">4113056</td><td>4583107</td><td>4581479</td><td>4170349</td><td>4574770</td><td>4198121</td><td>4241094</td><td class="bad">4865397</td></tr><tr><th>2^28</th><td>8487888</td><td class="good">8267262</td><td class="bad">9190723</td><td>9185441</td><td>8480895</td><td>9469061</td><td>8726432</td><td>8418852</td><td>9187261</td></tr></tbody></table>
-<br><table border="1"><tbody><tr><th><i>sum(float[]) - DMD-1.011</i></th><th><a href="#foreach">foreach</a></th><th><a href="#array">array</a></th><th><a href="#const_length">const length</a></th><th><a href="#pointer">pointer</a></th><th><a href="#pointer_2a">pointer 2a</a></th><th><a href="#pointer_2b">pointer 2b</a></th><th><a href="#pointer_2c">pointer 2c</a></th><th><a href="#struct2">struct2</a></th><th><a href="#struct4">struct4</a></th></tr><tr><th>2^20</th><td>104,584</td><td class="good">56,464</td><td>179,892</td><td>228,684</td><td>101,692</td><td>194,298</td><td>230,061</td><td>187,213</td><td class="bad">296,968</td></tr><tr><th>2^21</th><td>234,158</td><td class="good">117,309</td><td>358,791</td><td>360,352</td><td>204,909</td><td>445,710</td><td class="bad">566,972</td><td>186,661</td><td>349,429</td></tr><tr><th>2^22</th><td>408,780</td><td class="good">221,424</td><td>721,992</td><td>711,698</td><td>401,641</td><td>721,752</td><td class="bad">777,944</td><td>593,617</td><td>726,188</td></tr><tr><th>2^23</th><td>826,775</td><td class="good">443,228</td><td>1,442,361</td><td>1,411,166</td><td>812,180</td><td>1,442,146</td><td class="bad">1,451,274</td><td>744,959</td><td>1,402,958</td></tr><tr><th>2^24</th><td>1,645,775</td><td class="good">879,525</td><td>2,873,823</td><td>2,829,072</td><td>1,620,790</td><td>2,873,192</td><td class="bad">2,908,794</td><td>1,479,099</td><td>2,811,043</td></tr><tr><th>2^25</th><td>3,286,693</td><td class="good">1,767,557</td><td>5,743,333</td><td>5,652,024</td><td>3,236,135</td><td>5,742,945</td><td class="bad">5,819,018</td><td>2,959,554</td><td>5,622,600</td></tr><tr><th>2^26</th><td>6,567,994</td><td class="good">3,541,314</td><td>11,483,121</td><td>11,293,087</td><td>6,467,498</td><td>11,483,688</td><td class="bad">11,597,877</td><td>6,050,549</td><td>11,237,598</td></tr><tr><th>2^27</th><td>13,126,155</td><td class="good">7,077,687</td><td>22,953,176</td><td>23,165,154</td><td>13,016,702</td><td class="bad">24,006,338</td><td>23,210,629</td><td>12,049,252</td><td>23,470,996</td></tr><tr><th>2^28</th><td>26,661,849</td><td class="good">14,460,236</td><td>47,305,046</td><td class="bad">48,538,986</td><td>27,584,410</td><td>45,884,787</td><td>46,703,483</td><td>23,691,245</td><td>45,533,893</td></tr></tbody></table>
-<br><table border="1"><tbody><tr><th><i>sum(float[]) - GDC-0.23</i></th><th><a href="#foreach">foreach</a></th><th><a href="#array">array</a></th><th><a href="#const_length">const length</a></th><th><a href="#pointer">pointer</a></th><th><a href="#pointer_2a">pointer 2a</a></th><th><a href="#pointer_2b">pointer 2b</a></th><th><a href="#pointer_2c">pointer 2c</a></th><th><a href="#struct2">struct2</a></th><th><a href="#struct4">struct4</a></th></tr><tr><th>2^20</th><td>40,100</td><td class="good">36,123</td><td>61,085</td><td class="bad">61,952</td><td>37,749</td><td>60,448</td><td>60,823</td><td>60,080</td><td>60,178</td></tr><tr><th>2^21</th><td>76,927</td><td class="good">70,679</td><td>120,330</td><td class="bad">128,126</td><td>74,606</td><td>118,584</td><td>117,482</td><td>119,905</td><td>121,072</td></tr><tr><th>2^22</th><td>149,637</td><td>150,945</td><td>235,033</td><td>236,031</td><td class="good">145,774</td><td>234,485</td><td>243,789</td><td>236,741</td><td class="bad">282,689</td></tr><tr><th>2^23</th><td>302,977</td><td>376,907</td><td class="bad">754,182</td><td>477,703</td><td class="good">286,107</td><td>469,333</td><td>474,149</td><td>511,084</td><td>657,263</td></tr><tr><th>2^24</th><td>600,411</td><td class="good">550,026</td><td>943,535</td><td class="bad">946,752</td><td>578,923</td><td>933,801</td><td>940,072</td><td>935,879</td><td>944,541</td></tr><tr><th>2^25</th><td>1,192,165</td><td class="good">1,105,892</td><td class="bad">1,889,572</td><td>1,883,737</td><td>1,146,901</td><td>1,887,318</td><td>1,869,101</td><td>2,242,656</td><td>1,886,341</td></tr><tr><th>2^26</th><td>2,384,673</td><td class="good">2,209,293</td><td>3,768,365</td><td>3,772,416</td><td>2,288,746</td><td>3,768,794</td><td>3,733,957</td><td>3,729,306</td><td class="bad">4,122,289</td></tr><tr><th>2^27</th><td>5,038,215</td><td class="good">4,430,383</td><td>7,522,700</td><td>7,533,278</td><td>4,580,962</td><td>7,528,176</td><td>7,709,803</td><td>7,632,599</td><td class="bad">8,005,256</td></tr><tr><th>2^28</th><td>10,342,558</td><td class="good">8,868,552</td><td>15,560,921</td><td>15,481,551</td><td>9,201,479</td><td>15,044,718</td><td>15,564,101</td><td>15,045,353</td><td class="bad">16,094,330</td></tr></tbody></table>
+<a name='byte'></a>
+<table border='1'>
+<tr><th><i>DMD byte[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>181</td><td>175</td><td>173</td><td>136</td><td class='max'>381</td><td>97</td><td class='min'>79</td><td>366</td><td>264</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>350</td><td>354</td><td>346</td><td>271</td><td class='max'>766</td><td>182</td><td class='min'>159</td><td>728</td><td>533</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>704</td><td>719</td><td>706</td><td>548</td><td class='max'>1573</td><td>390</td><td class='min'>327</td><td>1564</td><td>1061</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>1414</td><td>1531</td><td>1388</td><td>1088</td><td class='max'>3176</td><td>767</td><td class='min'>671</td><td>3078</td><td>2364</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>3224</td><td>2812</td><td>3067</td><td>2324</td><td class='max'>6545</td><td>1462</td><td class='min'>1272</td><td>5810</td><td>4398</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>5605</td><td>5612</td><td>5553</td><td>4320</td><td class='max'>12214</td><td>2919</td><td class='min'>2548</td><td>11612</td><td>8473</td></tr>
+<tr><th><i>2 ^ 28</i></th><td>11221</td><td>11215</td><td>11103</td><td>8638</td><td class='max'>24439</td><td>5834</td><td class='min'>5093</td><td>23220</td><td>16970</td></tr>
+<tr><th><i>2 ^ 29</i></th><td>22436</td><td>22431</td><td>22208</td><td>17280</td><td class='max'>48848</td><td>11658</td><td class='min'>10194</td><td>46439</td><td>33895</td></tr>
+<tr><th><i>2 ^ 30</i></th><td>44986</td><td>44916</td><td>44345</td><td>34518</td><td class='max'>97537</td><td>23349</td><td class='min'>20336</td><td>92755</td><td>67695</td></tr>
+</table><br><table border='1'>
+<tr><th><i>GDC byte[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td class='max'>136</td><td>134</td><td>134</td><td>135</td><td>74</td><td>97</td><td>75</td><td>91</td><td class='min'>68</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>269</td><td>270</td><td>273</td><td>296</td><td>149</td><td class='max'>346</td><td>154</td><td>181</td><td class='min'>136</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>543</td><td>551</td><td class='max'>556</td><td>549</td><td>305</td><td>376</td><td>300</td><td>403</td><td class='min'>278</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>1108</td><td>1110</td><td>1086</td><td>1088</td><td>764</td><td class='max'>1277</td><td>602</td><td>842</td><td class='min'>587</td></tr>
+<tr><th><i>2 ^ 26</i></th><td class='max'>2183</td><td>2161</td><td>2161</td><td>2160</td><td>1198</td><td>1470</td><td>1202</td><td>1459</td><td class='min'>1097</td></tr>
+<tr><th><i>2 ^ 27</i></th><td class='max'>4777</td><td>4320</td><td>4644</td><td>4319</td><td>2396</td><td>2936</td><td>2411</td><td>2911</td><td class='min'>2197</td></tr>
+<tr><th><i>2 ^ 28</i></th><td class='max'>8999</td><td>8644</td><td>8831</td><td>8645</td><td>4852</td><td>5868</td><td>4826</td><td>5816</td><td class='min'>4393</td></tr>
+<tr><th><i>2 ^ 29</i></th><td class='max'>17897</td><td>17431</td><td>17262</td><td>17412</td><td>9804</td><td>12035</td><td>10630</td><td>11618</td><td class='min'>9114</td></tr>
+<tr><th><i>2 ^ 30</i></th><td class='max'>35520</td><td>34984</td><td>34526</td><td>35489</td><td>19131</td><td>23436</td><td>19276</td><td>23231</td><td class='min'>17552</td></tr>
+</table><br>
+<a name='short'></a>
+<table border='1'>
+<tr><th><i>DMD short[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>131</td><td>130</td><td>180</td><td>179</td><td>112</td><td class='min'>111</td><td>129</td><td class='max'>380</td><td>243</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>260</td><td>260</td><td>363</td><td>359</td><td class='min'>223</td><td>226</td><td>245</td><td class='max'>755</td><td>485</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>525</td><td>519</td><td>720</td><td>719</td><td class='min'>446</td><td class='min'>446</td><td>490</td><td class='max'>1505</td><td>973</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>1042</td><td>1042</td><td>1440</td><td>1432</td><td>896</td><td class='min'>887</td><td>984</td><td class='max'>3015</td><td>1947</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>2085</td><td>2083</td><td>2872</td><td>2869</td><td>1789</td><td class='min'>1773</td><td>1963</td><td class='max'>6028</td><td>3892</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>4164</td><td>4163</td><td>5735</td><td>5726</td><td>3575</td><td class='min'>3547</td><td>3926</td><td class='max'>12048</td><td>7777</td></tr>
+<tr><th><i>2 ^ 28</i></th><td>8336</td><td>8339</td><td>11440</td><td>11424</td><td>7146</td><td class='min'>7088</td><td>7861</td><td class='max'>24109</td><td>15542</td></tr>
+<tr><th><i>2 ^ 29</i></th><td>17360</td><td>17125</td><td>23880</td><td>25845</td><td>15477</td><td class='min'>14912</td><td>16839</td><td class='max'>49783</td><td>32879</td></tr>
+</table><br><table border='1'>
+<tr><th><i>GDC short[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td class='max'>141</td><td class='max'>141</td><td class='max'>141</td><td class='max'>141</td><td class='min'>106</td><td>108</td><td>114</td><td>112</td><td class='min'>106</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>282</td><td>282</td><td class='max'>287</td><td>282</td><td class='min'>211</td><td>217</td><td>222</td><td>223</td><td class='min'>211</td></tr>
+<tr><th><i>2 ^ 24</i></th><td class='max'>568</td><td>563</td><td>567</td><td>562</td><td>429</td><td>433</td><td>438</td><td>444</td><td class='min'>426</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>1129</td><td class='max'>1130</td><td>1129</td><td>1129</td><td>846</td><td>869</td><td>869</td><td>893</td><td class='min'>844</td></tr>
+<tr><th><i>2 ^ 26</i></th><td class='max'>2268</td><td>2265</td><td>2263</td><td>2263</td><td>1693</td><td>1739</td><td>1733</td><td>1786</td><td class='min'>1689</td></tr>
+<tr><th><i>2 ^ 27</i></th><td class='max'>4540</td><td>4535</td><td>4539</td><td>4537</td><td>3386</td><td>3473</td><td>3471</td><td>3573</td><td class='min'>3373</td></tr>
+<tr><th><i>2 ^ 28</i></th><td class='max'>9088</td><td>9081</td><td>9082</td><td>9079</td><td>6789</td><td>6944</td><td>6943</td><td>7131</td><td class='min'>6744</td></tr>
+<tr><th><i>2 ^ 29</i></th><td>18173</td><td>18170</td><td>18174</td><td class='max'>18178</td><td>13530</td><td>13885</td><td>13885</td><td>14267</td><td class='min'>13489</td></tr>
+</table><br>
+<a name='int'></a>
+<table border='1'>
+<tr><th><i>DMD int[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>218</td><td>338</td><td>420</td><td class='min'>190</td><td>215</td><td>203</td><td>205</td><td class='max'>439</td><td>230</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>476</td><td>579</td><td>514</td><td class='min'>377</td><td>426</td><td>405</td><td>412</td><td class='max'>595</td><td>462</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>953</td><td>1124</td><td>1055</td><td class='min'>760</td><td>846</td><td>814</td><td>815</td><td class='max'>1195</td><td>916</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>1750</td><td>1749</td><td>1755</td><td class='min'>1671</td><td>1750</td><td>2011</td><td>1732</td><td class='max'>2387</td><td>1829</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>3484</td><td>3487</td><td>3489</td><td class='min'>3021</td><td>3372</td><td>3234</td><td>3265</td><td class='max'>4769</td><td>3658</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>6959</td><td>6965</td><td>6975</td><td class='min'>6031</td><td>6734</td><td>6464</td><td>6518</td><td class='max'>9575</td><td>7303</td></tr>
+<tr><th><i>2 ^ 28</i></th><td>13931</td><td>13919</td><td>13943</td><td class='min'>12047</td><td>13452</td><td>12913</td><td>13031</td><td class='max'>19173</td><td>14611</td></tr>
+</table><br><table border='1'>
+<tr><th><i>GDC int[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td class='max'>194</td><td>189</td><td>188</td><td>189</td><td>187</td><td>191</td><td>187</td><td>187</td><td class='min'>186</td></tr>
+<tr><th><i>2 ^ 23</i></th><td class='max'>382</td><td>376</td><td>377</td><td>381</td><td>373</td><td class='min'>371</td><td>377</td><td class='min'>371</td><td>376</td></tr>
+<tr><th><i>2 ^ 24</i></th><td class='max'>757</td><td>750</td><td>756</td><td>755</td><td>746</td><td>742</td><td>746</td><td>747</td><td class='min'>740</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>1507</td><td class='max'>1510</td><td>1504</td><td class='max'>1510</td><td>1488</td><td>1492</td><td>1488</td><td>1492</td><td class='min'>1483</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>3015</td><td>3012</td><td class='max'>3075</td><td>3014</td><td>2978</td><td>2980</td><td>2978</td><td>2978</td><td class='min'>2969</td></tr>
+<tr><th><i>2 ^ 27</i></th><td class='max'>6022</td><td>6020</td><td>6019</td><td>6020</td><td>5950</td><td>5950</td><td>5951</td><td>5951</td><td class='min'>5936</td></tr>
+<tr><th><i>2 ^ 28</i></th><td>12038</td><td>12038</td><td>12036</td><td>12036</td><td>12016</td><td class='max'>12312</td><td>11896</td><td>11900</td><td class='min'>11866</td></tr>
+</table><br>
+<a name='long'></a>
+<table border='1'>
+<tr><th><i>DMD long[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>408</td><td class='min'>380</td><td class='max'>553</td><td>547</td><td>449</td><td>548</td><td>423</td><td>452</td><td>410</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>821</td><td class='min'>753</td><td class='max'>1109</td><td>1088</td><td>901</td><td>1092</td><td>852</td><td>901</td><td>824</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>1639</td><td class='min'>1501</td><td class='max'>2220</td><td>2178</td><td>1801</td><td>2184</td><td>1695</td><td>1801</td><td>1648</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>3270</td><td class='min'>3000</td><td class='max'>4425</td><td>4347</td><td>3596</td><td>4360</td><td>3391</td><td>3594</td><td>3285</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>6524</td><td class='min'>5987</td><td class='max'>8867</td><td>8701</td><td>7180</td><td>8730</td><td>6767</td><td>7182</td><td>6563</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>13042</td><td class='min'>11961</td><td class='max'>17750</td><td>17406</td><td>14360</td><td>17462</td><td>13540</td><td>14626</td><td>13117</td></tr>
+</table><br><table border='1'>
+<tr><th><i>GDC long[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>377</td><td>381</td><td>373</td><td>373</td><td class='max'>424</td><td>419</td><td>423</td><td class='min'>372</td><td>406</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>750</td><td>755</td><td>748</td><td>747</td><td>840</td><td>836</td><td class='max'>841</td><td class='min'>745</td><td>805</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>1511</td><td>1506</td><td>1494</td><td>1490</td><td class='max'>1681</td><td class='max'>1681</td><td>1677</td><td class='min'>1489</td><td>1606</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>3012</td><td>3012</td><td>2981</td><td>2981</td><td>3357</td><td class='max'>3362</td><td>3358</td><td class='min'>2970</td><td>3212</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>6021</td><td>6018</td><td>5959</td><td>5959</td><td>6707</td><td class='max'>6715</td><td>6714</td><td class='min'>5938</td><td>6420</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>12031</td><td>12033</td><td>11913</td><td>11915</td><td>13421</td><td>13425</td><td class='max'>13442</td><td class='min'>11863</td><td>12831</td></tr>
+</table><br>
+<a name='float'></a>
+<table border='1'>
+<tr><th><i>DMD float[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>714</td><td>694</td><td class='max'>727</td><td>702</td><td>417</td><td>724</td><td>371</td><td>407</td><td class='min'>233</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>1427</td><td>1383</td><td class='max'>1452</td><td>1407</td><td>830</td><td class='max'>1452</td><td>735</td><td>816</td><td class='min'>469</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>2847</td><td>2771</td><td>2902</td><td>2810</td><td>1659</td><td class='max'>2907</td><td>1464</td><td>1630</td><td class='min'>933</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>5686</td><td>5539</td><td>5803</td><td>5626</td><td>3317</td><td class='max'>5807</td><td>2932</td><td>3259</td><td class='min'>1864</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>11370</td><td>11060</td><td>11594</td><td>11251</td><td>6617</td><td class='max'>11611</td><td>5857</td><td>6522</td><td class='min'>3721</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>22733</td><td>22136</td><td>23180</td><td>22490</td><td>13210</td><td class='max'>23217</td><td>11676</td><td>13044</td><td class='min'>7440</td></tr>
+<tr><th><i>2 ^ 28</i></th><td>45452</td><td>44224</td><td>46336</td><td>44963</td><td>26400</td><td class='max'>46416</td><td>23311</td><td>26072</td><td class='min'>14874</td></tr>
+</table><br><table border='1'>
+<tr><th><i>GDC float[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>242</td><td>243</td><td>243</td><td class='max'>247</td><td class='min'>203</td><td>239</td><td>239</td><td>210</td><td>205</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>484</td><td>487</td><td>484</td><td class='max'>488</td><td class='min'>405</td><td>482</td><td>478</td><td>412</td><td>407</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>970</td><td>970</td><td>969</td><td class='max'>971</td><td class='min'>812</td><td>956</td><td>956</td><td>819</td><td>818</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>1941</td><td>1935</td><td class='max'>1942</td><td>1940</td><td class='min'>1623</td><td>1913</td><td>1914</td><td>1634</td><td>1633</td></tr>
+<tr><th><i>2 ^ 26</i></th><td class='max'>3884</td><td>3883</td><td>3876</td><td>3882</td><td class='min'>3247</td><td>3822</td><td>3829</td><td>3275</td><td>3263</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>7766</td><td class='max'>7768</td><td>7765</td><td>7762</td><td class='min'>6481</td><td>7653</td><td>7655</td><td>6541</td><td>6520</td></tr>
+<tr><th><i>2 ^ 28</i></th><td>15535</td><td>15529</td><td class='max'>15537</td><td>15531</td><td class='min'>12961</td><td>15308</td><td>15312</td><td>13069</td><td>13045</td></tr>
+</table><br>
+<a name='double'></a>
+<table border='1'>
+<tr><th><i>DMD double[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>1115</td><td>1115</td><td class='max'>1302</td><td class='max'>1302</td><td>766</td><td>1301</td><td>644</td><td>761</td><td class='min'>431</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>2228</td><td>2227</td><td class='max'>2606</td><td>2601</td><td>1530</td><td>2601</td><td>1287</td><td>1521</td><td class='min'>862</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>4453</td><td>4458</td><td>5205</td><td>5205</td><td>3053</td><td class='max'>5212</td><td>2586</td><td>3036</td><td class='min'>1732</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>8898</td><td>8896</td><td class='max'>10402</td><td>10398</td><td>6098</td><td class='max'>10402</td><td>5132</td><td>6072</td><td class='min'>3458</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>17790</td><td>17781</td><td>20780</td><td class='max'>21424</td><td>12459</td><td>21146</td><td>10423</td><td>12477</td><td class='min'>6925</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>36188</td><td>36186</td><td>41881</td><td class='max'>41951</td><td>24650</td><td>41892</td><td>21163</td><td>24553</td><td class='min'>13840</td></tr>
+</table><br><table border='1'>
+<tr><th><i>GDC double[]</i></th><th><a href='#array'>array</a></th><th><a href='#const_length'>const length</a></th><th><a href='#foreach'>foreach</a></th><th><a href='#pointer'>pointer</a></th><th><a href='#pointer_2a'>pointer 2a</a></th><th><a href='#pointer_2b'>pointer 2b</a></th><th><a href='#pointer_2c'>pointer 2c</a></th><th><a href='#struct2'>struct2</a></th><th><a href='#struct4'>struct4</a></th></tr>
+<tr><th><i>2 ^ 22</i></th><td>369</td><td>374</td><td class='min'>368</td><td class='min'>368</td><td class='max'>376</td><td>369</td><td>369</td><td>375</td><td>372</td></tr>
+<tr><th><i>2 ^ 23</i></th><td>740</td><td>740</td><td>740</td><td class='min'>735</td><td>744</td><td>741</td><td>741</td><td>739</td><td class='max'>749</td></tr>
+<tr><th><i>2 ^ 24</i></th><td>1474</td><td>1478</td><td class='min'>1473</td><td>1478</td><td>1484</td><td>1482</td><td>1478</td><td class='max'>1488</td><td class='max'>1488</td></tr>
+<tr><th><i>2 ^ 25</i></th><td>2950</td><td>2949</td><td class='min'>2948</td><td class='min'>2948</td><td>2968</td><td>2958</td><td>2957</td><td>2968</td><td class='max'>2979</td></tr>
+<tr><th><i>2 ^ 26</i></th><td>5894</td><td class='min'>5892</td><td>5893</td><td class='min'>5892</td><td>5933</td><td>5910</td><td>5904</td><td>5935</td><td class='max'>5952</td></tr>
+<tr><th><i>2 ^ 27</i></th><td>11782</td><td class='min'>11776</td><td>11781</td><td>11778</td><td>11868</td><td>11813</td><td>11815</td><td class='max'>11922</td><td>11903</td></tr>
+</table>
 </blockquote>
 
-
-
-
-
-
 <h3><a name="results"></a>Results</h3>
-
-
-
-
-
-<blockquote><dl>
-<dt>integer arrays<br>
-</dt>
-<dd><ol>
-	
-	<li>the performance of the 9 different functions differs much more for DMD (factor 2) than for GDC (factor 1.4)</li>
-	<li>DMD's <a href="#foreach">foreach</a> is 2 times slower than <a href="#pointer_2a">pointer 2a</a> and <a href="#pointer_2b">pointer 2b</a></li>
-	<li>GDC's <a href="#array">array</a> is the clear winner and <a href="#const_length">const length</a> as well as <a href="#struct4">struct4</a> the overall losers</li>
-	<li>GDC's best results for less than 2<sup>24</sup> elements are ca. 1.8 times slower than DMD's</li></ol></dd>
-<dt>float arrays</dt>
-<dd>
-      <ol>
-	<li>the performance of the 9 different functions differs much more for DMD (factor 3.4) than for GDC (factor 2)</li>
-        <li>both DMD's and GDC's <a href="#array">array</a> are the clear performance winners</li>
-        <li>DMD's best results are consistently ca. 1.6 times slower than GDC's<br>
-        </li>
-
-      </ol>
-    </dd>
-<dt>overall</dt>
-<dd>
-<ul><li>considering that <a href="#foreach">foreach</a> is a native D construct and provides all required information the slow code generated by DMD is worrying</li>
-        <li>equally worrying is that DMD and GDC (as well as GCC) failed to use SSE instructions for <a href="#struct4">struct4</a><br>
-        </li>
-</ul>
-</dd></dl>
+<blockquote>
 <p>Please keep in mind that the preformed tests strongly depend on the
 memory architecture and don't really measure how fast an addition is
 but how efficiently the memory reads - and to a lesser extend writes -
-are scheduled by the compiler.
-</p></blockquote>
-
-
-
-
+are scheduled by the compiler.</p>
+<dl>
+	<dt><strong><a href='#byte' name='result_byte'>byte[]</a></strong></dt>
+	<dd><ol>
+		<li>DMD's best solution(<a href="#pointer_2c">pointer_2c</a>) is ca. 15% slower than GDC's <a href='#struct4'>struct4</a></li>
+		<li>Both DMD's and GDC's <a href='#foreach'>foreach</a> are roughly 2 times slower than the compiler's best solution</li>
+		<li>DMD's <a href='#pointer_2a'>pointer 2a</a> is 4.8 times slower than DMD's best solution and GDC's <a href='#pointer_2a'>pointer 2a</a></li>
+	</ol></dd>
+	<dt><strong><a href='#short' name='result_short'>short[]</a></strong></dt>
+	<dd><ol>
+		<li>DMD's best solution(<a href='#pointer_2b'>pointer 2b</a>) is ca. 5% slower than GDC's <a href='#struct4'>struct4</a></li>
+		<li>DMD's <a href='#foreach'>foreach</a> is 60% and GDC's 35% slower than the best solutions</li>
+	</ol></dd>
+	<dt><strong><a href='#int' name='result_int'>int[]</a></strong></dt>
+	<dd><ol>
+		<li>DMD's best solution(<a href='#pointer'>pointer</a>) and GDC's best(<a href='#struct4'>struct4</a>) have almost identical performance</li>
+		<li>DMD's <a href='#foreach'>foreach</a> is 16% slower than DMD's best solution, GDC's <a href='#foreach'>foreach</a> is only marginally slower than the best solution</li>
+	</ol></dd>
+	<dt><strong><a href='#long' name='result_long'>long[]</a></strong></dt>
+	<dd><ol>
+		<li>DMD's best solution(<a href='#const_length'>const length</a>) and GDC's best(<a href='#struct2'>struct2</a>) have almost identical performance</li>
+		<li>DMD's <a href='#foreach'>foreach</a> is 48% slower than DMD's best solution, GDC's <a href='#foreach'>foreach</a> is only marginally slower than the best solution</li>
+	</ol></dd>
+	<dt><strong><a href='#float' name='result_float'>float[]</a></strong></dt>
+	<dd><ol>
+		<li>DMD's best solution(<a href='#struct4'>struct4</a>) is 15% slower thant GDC's best <a href='#pointer_2a'>pointer 2a</a></li>
+		<li>DMD's <a href='#foreach'>foreach</a> is 211% slower than DMD's best solution slower than DMD's best solution, GDC's <a href='#foreach'>foreach</a> is 20% slower than its best solution</li>
+	</ol></dd>
+	<dt><strong><a href='#double' name='result_double'>double[]</a></strong></dt>
+	<dd><ol>
+		<li>DMD's best solution(<a href='#struct4'>struct4</a>) is 18% slower thant GDC's best <a href='#const_llength'>const length</a></li>
+		<li>while GDC produces optimal code for <a href='#foreach'>foreach</a>, DMD's is 203% slower its best</li>
+	</ol></dd>
+	<dt><strong>general</strong></dt>
+	<dd><ul>
+		<li>while DMD and GDC share the same D frontend their code generation differs drastically (<a href='#double'>double[]</a> and <a href='#byte'>byte[]</a> are prime examples)</li>
+		<li>GDC's optimizer seems to be much more mature (worst case 200%) than DMD's (worst case 480%)</li>
+		<li>GDC produces consistenly better code for <a href='#foreach'>foreach</a> than DMD</li>
+		<li>DMD's optimizer seems to have problems with bytes, floats and doubles</li>
+		<li>GDC's optimizer seems to have problems with bytes</li>
+		<li><a href='#foreach'>foreach</a> - appart from GDC's long[] as well as int[] and DMD's int[] - has a significantly worse performance than the best solution</li>
+	</ul></dd>
+</dl>
+</blockquote>
 
 <h3><a name="source"></a>Source</h3>
+<blockquote>
+The code below was compiled via <i>dmd -O -inline -release sum.html -version=benchmark</i> and <i>gdmd -O -inline -release sum.html -version=benchmark</i>.
+<pre><code>
 
+<a name="foreach"></a>T sum_foreach(T)(T[] data){
+	T result = 0;
+	foreach(element; data){
+		result += element;
+	}
+	return result;
+}
 
+<a name="array"></a>T sum_array(T)(T[] data){
+	T result = 0;
+	size_t index = 0;
+	while(index &lt; data.length){
+		result += data[index];
+		index++;
+	}
+	return result;
+}
 
+<a name="const_length"></a>T sum_array_const_length(T)(T[] data){
+	T result = 0;
+	size_t length = data.length;
+	size_t index = 0;
+	while(index &lt; length){
+		result += data[index];
+		index++;
+	}
+	return result;
+}
 
+<a name="pointer"></a>T sum_pointer(T)(T[] data){
+	T result = 0;
+	auto end = data.ptr + data.length;
+	auto ptr = data.ptr;
+	
+	while(ptr != end){
+		result += *ptr;
+		ptr++;
+	}
+	return result;
+}
 
+<a name="pointer_2a"></a>T sum_pointer_2a(T)(T[] data){
+	T result_a = 0;
+	T result_b = 0;
+	
+	auto end = data.ptr + data.length;
+	
+	auto ptr_a = data.ptr;
+	auto ptr_b = data.ptr + 1;
 
-<blockquote><pre><code><br><a name="foreach"></a>T sum_foreach(T)(T[] data){<br>	T result = 0;<br>	foreach(element; data){<br>		result += element;<br>	}<br>	return result;<br>}<br><br><a name="array"></a>T sum_array(T)(T[] data){<br>	T result = 0;<br>	size_t index = 0;<br>	while(index &lt; data.length){<br>		result += data[index];<br>		index++;<br>	}<br>	return result;<br>}<br><br><a name="const_length"></a>T sum_array_const_length(T)(T[] data){<br>	T result = 0;<br>	size_t length = data.length;<br>	size_t index = 0;<br>	while(index &lt; length){<br>		result += data[index];<br>		index++;<br>	}<br>	return result;<br>}<br><br><a name="pointer"></a>T sum_pointer(T)(T[] data){<br>	T result = 0;<br>	auto end = data.ptr + data.length;<br>	auto ptr = data.ptr;<br>	<br>	while(ptr != end){<br>		result += *ptr;<br>		ptr++;<br>	}<br>	return result;<br>}<br><br><a name="pointer_2a"></a>T sum_pointer_2a(T)(T[] data){<br>	T result_a = 0;<br>	T result_b = 0;<br>	<br>	auto end = data.ptr + data.length;<br>	<br>	auto ptr_a = data.ptr;<br>	auto ptr_b = data.ptr + 1;<br><br>	while(ptr_b &lt; end){<br>		result_a += *ptr_a;<br>		result_b += *ptr_b;<br>		ptr_a += 2;<br>		ptr_b += 2;<br>	}<br><br>	if(ptr_a ;&amp;l; end){<br>		result_a += *ptr_a;<br>	}<br>	return result_a + result_b;<br>}<br><br><a name="pointer_2b"></a>T sum_pointer_2b(T)(T[] data){<br>	T result = 0;<br>	<br>	auto end = data.ptr + data.length;<br>	<br>	auto ptr_a = data.ptr;<br>	auto ptr_b = data.ptr + 1;<br><br>	while(ptr_b &lt; end){<br>		result += *ptr_a;<br>		ptr_a += 2;<br>		result += *ptr_b;<br>		ptr_b += 2;<br>	}<br><br>	if(ptr_a &lt; end){<br>		result += *ptr_a;<br>	}<br>	return result;<br>}<br><br><a name="pointer_2c"></a>T sum_pointer_2c(T)(T[] data){<br>	T result = 0;<br><br>	if(0 != data.length){<br>		auto end = data.ptr + data.length - 1;<br>		auto ptr = data.ptr;<br><br>		while(ptr &lt; end){<br>			result += *(ptr+0);<br>			result += *(ptr+1);<br>			ptr += 2;<br>		}<br><br>		if(ptr == end){<br>			result += *ptr;<br>		}<br>	}<br>	return result;<br>}<br><br><a name="struct2"></a>T sum_struct2(T)(T[] data){<br>	struct S{<br>		T a = 0;<br>		T b = 0;<br>	}<br><br>	S result;<br>	S* s = cast(S*) data.ptr;<br>	S* end = s + (data.length / 2);<br>	while(s &lt; end){<br>		result.a += s.a;<br>		result.b += s.b;<br>		s++;<br>	}<br><br>	switch(data.length % 2){<br>		case 1:<br>			result.a += s.a;<br>		case 0:<br>			break;<br>	}<br><br>	return result.a + result.b;<br>}<br><br><a name="struct4"></a>T sum_struct4(T)(T[] data){<br>	struct S{<br>		T a = 0;<br>		T b = 0;<br>		T c = 0;<br>		T d = 0;<br>	}<br><br>	S result;<br>	S* s = cast(S*) data.ptr;<br>	S* end = s + (data.length / 4);<br>	while(s &lt; end){<br>		result.a += s.a;<br>		result.b += s.b;<br>		result.c += s.c;<br>		result.d += s.d;<br>		s++;<br>	}<br>	<br>	switch(data.length % 4){<br>		case 3:<br>			result.c += s.c;<br>		case 2:<br>			result.b += s.b;<br>		case 1:<br>			result.a += s.a;<br>		case 0:<br>			break;<br>	}<br><br>	return result.a + result.b + result.c + result.d;<br>}<br></code></pre></blockquote>
+	while(ptr_b &lt; end){
+		result_a += *ptr_a;
+		result_b += *ptr_b;
+		ptr_a += 2;
+		ptr_b += 2;
+	}
 
+	if(ptr_a &lt; end){
+		result_a += *ptr_a;
+	}
+	return result_a + result_b;
+}
 
+<a name="pointer_2b"></a>T sum_pointer_2b(T)(T[] data){
+	T result = 0;
+	
+	auto end = data.ptr + data.length;
+	
+	auto ptr_a = data.ptr;
+	auto ptr_b = data.ptr + 1;
 
+	while(ptr_b &lt; end){
+		result += *ptr_a;
+		ptr_a += 2;
+		result += *ptr_b;
+		ptr_b += 2;
+	}
 
+	if(ptr_a &lt; end){
+		result += *ptr_a;
+	}
+	return result;
+}
 
+<a name="pointer_2c"></a>T sum_pointer_2c(T)(T[] data){
+	T result = 0;
 
+	if(0 != data.length){
+		auto end = data.ptr + data.length - 1;
+		auto ptr = data.ptr;
 
+		while(ptr &lt; end){
+			result += *(ptr+0);
+			result += *(ptr+1);
+			ptr += 2;
+		}
+
+		if(ptr == end){
+			result += *ptr;
+		}
+	}
+	return result;
+}
+
+<a name="struct2"></a>T sum_struct2(T)(T[] data){
+	struct S{
+		T a = 0;
+		T b = 0;
+	}
+
+	S result;
+	S* s = cast(S*) data.ptr;
+	S* end = s + (data.length / 2);
+	while(s &lt; end){
+		result.a += s.a;
+		result.b += s.b;
+		s++;
+	}
+
+	switch(data.length % 2){
+		case 1:
+			result.a += s.a;
+		case 0:
+			break;
+	}
+
+	return result.a + result.b;
+}
+
+<a name="struct4"></a>T sum_struct4(T)(T[] data){
+	struct S{
+		T a = 0;
+		T b = 0;
+		T c = 0;
+		T d = 0;
+	}
+
+	S result;
+	S* s = cast(S*) data.ptr;
+	S* end = s + (data.length / 4);
+	while(s &lt; end){
+		result.a += s.a;
+		result.b += s.b;
+		result.c += s.c;
+		result.d += s.d;
+		s++;
+	}
+	
+	switch(data.length % 4){
+		case 3:
+			result.c += s.c;
+		case 2:
+			result.b += s.b;
+		case 1:
+			result.a += s.a;
+		case 0:
+			break;
+	}
+
+	return result.a + result.b + result.c + result.d;
+}
+
+version(benchmark){
+	import std.stdio;
+	import std.perf;
+	import std.c.stdlib;
+	import std.c.stdio;
+
+	void benchmark_sum(T, alias fill_function)(size_t array_length, size_t repeat){
+		PerformanceCounter counter = new PerformanceCounter();
+		T* input_raw = cast(T*) calloc(array_length, T.sizeof);
+		
+		if(null == input_raw){
+			writefln("failed to allocate memory");
+			return;
+		}
+		T[] input = input_raw[0 .. array_length];
+
+		foreach(index, inout element; input){
+			element = fill_function!(T)(index);
+		}
+
+		T function(T[])[char[]] tests;
+		tests["sum_foreach"] = &amp;sum_foreach!(T);
+		tests["sum_array"] = &amp;sum_array!(T);
+		tests["sum_array_const_length"] = &amp;sum_array_const_length!(T);
+		tests["sum_pointer"] = &amp;sum_pointer!(T);
+		tests["sum_pointer_2a"] = &amp;sum_pointer_2a!(T);
+		tests["sum_pointer_2b"] = &amp;sum_pointer_2b!(T);
+		tests["sum_pointer_2c"] = &amp;sum_pointer_2c!(T);
+		tests["sum_pointer_2c"] = &amp;sum_pointer_2c!(T);
+		tests["sum_struct2"] = &amp;sum_struct2!(T);
+		tests["sum_struct4"] = &amp;sum_struct4!(T);
+		
+		if(0 == array_length){
+			writef("sum (%s[] * %s)", T.stringof, repeat);
+			foreach(name; tests.keys.sort){
+				writef("\t%s", name);
+			}
+			writefln("");
+			return;
+		}
+		
+
+		foreach(name; tests.keys.sort){
+			auto f = tests[name];
+			counter.start();
+			for(int count = 0 ; count &lt; repeat; count++){
+				T result = f(input);
+				fwritefln(stderr, "%s(%s[%s]) %s", name, T.stringof, input.length, result);
+			}
+			counter.stop();
+			writef("\t%s", counter.milliseconds());
+		}
+		writefln("");
+		delete input;
+		free(input_raw);
+	}
+
+	T index_fill(T)(size_t index){
+		return index;
+	}
+	
+	T common_fill(T)(size_t index){
+		return (index % (4096 * 2)) - 4096;
+	}
+
+	void benchmark(T)(int repeat_count){
+		benchmark_sum!(T, common_fill)(0, repeat_count);
+		for(int i = 1; i &lt; 32; i++){
+			writef("2 ^ %s", i);
+			benchmark_sum!(T, common_fill)(1 &lt;&lt; i, repeat_count);
+		}
+	}
+
+	void main(){
+		writefln("summing large D arrays $Revision: 7617 $");
+		writefln();
+		benchmark!(byte)(20);
+		writefln();
+		benchmark!(short)(20);
+		writefln();
+		benchmark!(int)(20);
+		writefln();
+		benchmark!(long)(20);
+		writefln();
+		benchmark!(float)(20);
+		writefln();
+		benchmark!(double)(20);
+	}
+}
+</code></pre></blockquote>
 <hr>
 <center><a href="http://developer.berlios.de"><img src="http://developer.berlios.de/bslogo.php?group_id=2732" width="124" height="32" border="0" alt="BerliOS Logo" /></a></center>
 </body></html>

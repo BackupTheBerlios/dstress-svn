@@ -24,7 +24,7 @@ int main(){
 	char str[1000];
 	int i;
 	for (i = 0; i < 1000000; ++i) {
-		compare(str, 1000, str, 1000);
+		compare(str.ptr, 1000, str.ptr, 1000);
 	}
 	return 0;
 }

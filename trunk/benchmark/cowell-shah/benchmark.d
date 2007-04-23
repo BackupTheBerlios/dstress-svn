@@ -172,7 +172,7 @@ double io(int ioMax)
 	i = 0;
 	while (i++ < ioMax)
 	{
-		fgets(readLine, 100, stream);
+		fgets(readLine.ptr, 100, stream);
 	}
 	fclose(stream);
 

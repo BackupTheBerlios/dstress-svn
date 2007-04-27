@@ -31,8 +31,14 @@ template AA(V, K){
 
 int main(){
 	char[][char[]] array = AA!(char[], char[])("a", "b", "c", "d");
-	assert(2 == array.length);
-	assert("b" == array["a"]);
-	assert("d" == array["c"]);
+	if(2 != array.length){
+		assert(0);
+	}
+	if("b" != array["a"]){
+		assert(0);
+	}
+	if("d" != array["c"]){
+		assert(0);
+	}
 	return 0;
 }

@@ -7,18 +7,17 @@
 // @uri@	news:cunl9i$15r2$1@digitaldaemon.com
 // @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=2966
 
-// __DSTRESS_ELINE__ 22
-
-module dstress.nocompile.c.case_03;
+module dstress.run.c.case_02;
 
 char[] getString(){
 	return "i";
 }
 
-void test(){
-	char[] hold;
-	switch(hold) {
-		case "":
+int main(char[][] args){
+	switch(args[0]) {
 		case getString():
+			assert(0);
+		defaut:
+			return 0;
 	}
 }

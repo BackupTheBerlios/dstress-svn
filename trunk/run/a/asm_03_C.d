@@ -7,6 +7,8 @@
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=1173
 // @desc@	[Issue 1173] Inline assembler: cannot use global scope operator
 
+// __DSTRESS_TORTURE_BLOCK__ -fPIC
+
 module dstress.run.a.asm_03_C;
 
 version(D_InlineAsm_X86){

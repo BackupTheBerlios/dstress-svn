@@ -7,7 +7,7 @@
 // @uri@	http://d.puremagic.com/issues/show_bug.cgi?id=776
 // @desc@	[Issue 776] Unittest section inside a template does not alway execute.
 
-// __DSTRESS_DFLAGS__ -unittest
+// __DSTRESS_DFLAGS__ -unittest compile/u/unittest_10_C.d
 
 module /*dstress.*/norun.u.unittest_10_H;
 import /*dstress.*/compile.u.unittest_10_C;

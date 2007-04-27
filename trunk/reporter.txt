@@ -99,6 +99,7 @@ Knud Sorensen		<knud@NetRunner.all-technology.com>
 Kris			<fu@bar.com>, <someidiot@earthlink.dot.dot.dot.net>
 larrycowan
 Lars Ivar Igesund	<larsivar@igesund.net>
+Leo Dahlmann		<leo.dahlmann@gmail.com>
 Li Jie			<cpunion@gmail.com>
 Lionello Lunesu		<lionello.lunesu@crystalinter.remove.com>, <lio@lunesu.com>
 Luís Marques		<luismarques@gmail.com>

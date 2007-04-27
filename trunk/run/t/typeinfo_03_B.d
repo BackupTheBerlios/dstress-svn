@@ -18,10 +18,10 @@ int main(){
 	*a = -10;
 	*b = int.max;
 
-	if(-1 < t.compare(a, b)){
+	if(t.compare(a, b) < 0){
 		assert(0);
 	}
-	if(t.compare(b, a) < 1){
+	if(0 < t.compare(b, a)){
 		assert(0);
 	}
 

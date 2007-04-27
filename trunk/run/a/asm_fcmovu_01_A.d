@@ -24,7 +24,7 @@ version(runTest){
 			fld f;
 			fucomip;
 			fldz;
-			fcmovu ST, ST(1);
+			fcmovu ST(0), ST(1);
 			fst f;
 		}
 
@@ -37,7 +37,7 @@ version(runTest){
 			fld1;
 			fucomip;
 			fldz;
-			fcmovu ST, ST(1);
+			fcmovu ST(0), ST(1);
 			fst f;
 		}
 

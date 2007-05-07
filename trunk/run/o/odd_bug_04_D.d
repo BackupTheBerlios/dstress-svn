@@ -9,7 +9,7 @@
 module dstress.run.o.odd_bug_04_D;
 
 abstract class Container(V) {
-	abstract int opApply(int delegate(inout V) dg);
+	abstract int opApply(int delegate(ref V) dg);
 }
 
 abstract class MutableList(V): Container!(V) {

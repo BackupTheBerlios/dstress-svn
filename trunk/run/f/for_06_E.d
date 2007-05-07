@@ -8,7 +8,7 @@
 
 module dstress.run.f.for_06_E;
 
-int foo(inout real[] arr) {
+int foo(ref real[] arr) {
 	size_t i = 2;
 	int counter;
 

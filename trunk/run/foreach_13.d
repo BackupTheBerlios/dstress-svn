@@ -11,7 +11,7 @@ int main(){
 	assert(array[0]=='a');
 	assert(array[1]=='b');
 	assert(array[2]=='c');
-	foreach(inout char value; array){
+	foreach(ref char value; array){
 		count++;
 		value++;
 	}

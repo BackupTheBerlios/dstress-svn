@@ -29,7 +29,7 @@ struct TestStruct{
 		assert(left is null);
 	}
 
-	int opApply(int delegate(inout int val) dg){
+	int opApply(int delegate(ref int val) dg){
 		return 0;
 	}
 

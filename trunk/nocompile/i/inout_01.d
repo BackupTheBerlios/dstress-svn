@@ -10,7 +10,7 @@
 
 module dstress.nocompile.i.inout_01;
 
-void test(inout byte i){
+void test(ref byte i){
 	i++;
 }
 

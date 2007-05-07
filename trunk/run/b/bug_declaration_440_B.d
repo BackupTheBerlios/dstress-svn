@@ -12,7 +12,7 @@ module dstress.run.b.bug_declaration_440_B;
 int[] status;
 
 class Container {
-	int opApply (int delegate (inout int) dg) {
+	int opApply (int delegate (ref int) dg) {
 		int counter = 3;
 		dg(counter);
 		counter--;

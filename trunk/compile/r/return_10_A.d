@@ -10,7 +10,7 @@
 module dstress.compile.r.return_10_A;
 
 void foo(){
-	int nothing( int delegate(inout int) dg ){
+	int nothing( int delegate(ref int) dg ){
 		return 0;
 	}
 

@@ -16,7 +16,7 @@ struct Foo(T...){
 		x += t[0];
 	}
 
-	void get(inout T t){
+	void get(ref T t){
 		x *= t[0];
 	}
 }

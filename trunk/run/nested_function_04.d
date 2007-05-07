@@ -9,7 +9,7 @@
 
 module dstress.run.nested_function_04;
 
-void fn( inout char[] buf ){
+void fn( ref char[] buf ){
 	void fn2(){
 		assert(buf.length==0);
 		assert(buf.sizeof== 2 * size_t.sizeof);

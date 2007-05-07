@@ -9,7 +9,7 @@
 module dstress.compile.f.foreach_30_A;
 
 class Collection{
-	int opApply(int delegate(inout int) dg){
+	int opApply(int delegate(ref int) dg){
 		return 0;
 	}
 }

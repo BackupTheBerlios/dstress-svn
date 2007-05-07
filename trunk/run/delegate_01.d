@@ -11,7 +11,7 @@ module dstress.run.delegate_01;
 struct List(T){
 	T[] S;
 
-	void bug(void delegate(inout T) f){
+	void bug(void delegate(ref T) f){
 		f(S[0]);
 	}
 }

@@ -9,7 +9,7 @@
 module dstress.run.c.continue_04_A;
 
 struct MyStruct{
-	int opApply(int delegate(inout int i) dg){
+	int opApply(int delegate(ref int i) dg){
 		for(int index=0; index < 3; index++){
 			dg(index);
 		}

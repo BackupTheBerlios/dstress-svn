@@ -9,7 +9,7 @@
 module dstress.run.v.volatile_01_B;
 
 template load( T, int i, size_t sizeofT : 4 = T.sizeof ){
-	T load( inout T val ){
+	T load( ref T val ){
 		asm{
 			naked;
 			mov EAX, [EAX];

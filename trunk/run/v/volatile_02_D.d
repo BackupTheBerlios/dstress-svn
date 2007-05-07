@@ -9,7 +9,7 @@
 module dstress.run.v.volatile_02_D;
 
 template atomicLoad( T ){
-	T atomicLoad( inout T val ){
+	T atomicLoad( ref T val ){
 		return val;
 	}
 }

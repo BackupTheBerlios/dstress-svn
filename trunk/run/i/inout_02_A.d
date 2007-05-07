@@ -13,7 +13,7 @@ version(D_InlineASM_X86){
 }
 
 version(runTest){
-	void fn(inout byte val){
+	void fn(ref byte val){
 		asm{
 			mov EAX, val;
 			inc [EAX];

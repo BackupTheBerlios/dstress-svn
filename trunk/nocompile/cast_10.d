@@ -17,7 +17,7 @@ class Parent{
 class Child : Parent {
 }
 
-void test(inout Parent p){
+void test(ref Parent p){
 }
 
 int main(){

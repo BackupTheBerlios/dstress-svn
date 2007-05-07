@@ -16,7 +16,7 @@ struct Leaf{
 	int[arity] data = void;
 }
 
-void init(inout Leaf* leaf){
+void init(ref Leaf* leaf){
 	leaf= new Leaf;
 }
 

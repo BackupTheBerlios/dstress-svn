@@ -11,7 +11,7 @@
 
 module dstress.nocompile.bug_20041103_C;
 
-char rot13_c(inout char ret){
+char rot13_c(ref char ret){
 	if(ret > 'A'-1 && ret < 'N'){
 		ret += 13;
 	}else if(ret > 'M' && ret < 'Z'+1){

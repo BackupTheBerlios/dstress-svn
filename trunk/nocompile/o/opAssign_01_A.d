@@ -8,7 +8,7 @@
 
 module dstress.nocompile.o.opAssign_01_A;
 
-void func(inout int[] x){
+void func(ref int[] x){
 }
 
 void main(){

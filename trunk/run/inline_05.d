@@ -19,7 +19,7 @@ struct MyStruct{
 
 	MyStruct bar(){
 		MyStruct v;
-		foreach (inout int f; v.x){
+		foreach (ref int f; v.x){
 			f=0;
 		}
 		return v;

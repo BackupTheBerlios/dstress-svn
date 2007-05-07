@@ -13,7 +13,7 @@
 module dstress.nocompile.c.continue_03_A;
 
 class Stream{
-	int opApply(int delegate(inout char[] line) dg){
+	int opApply(int delegate(ref char[] line) dg){
 	}
 }
 

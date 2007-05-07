@@ -9,7 +9,7 @@
 
 module dstress.compile.i.interpret_05_B;
 
-void bar(inout int x){
+void bar(ref int x){
 	x = 2;
 }
 

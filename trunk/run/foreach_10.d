@@ -14,7 +14,7 @@ class MyArray{
 		array[2]=8.0;
 	}
 	
-	int opApply(int delegate(inout double) dg){
+	int opApply(int delegate(ref double) dg){
 		double result;
 		for(int i=0; i<array.length; i++){
 			result = dg(array[i]);

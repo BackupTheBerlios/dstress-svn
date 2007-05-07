@@ -12,8 +12,8 @@ template StructOf(Type){
 	struct StructOf{
 		Type val;
 
-		template ref(){
-			alias val ref;
+		template ref_tmpl(){
+			alias val ref_tmpl;
 		}
 	}
 }
@@ -22,9 +22,9 @@ int main(){
 	auto c = new StructOf!(int)();
 	int x = 3;
 
-	c.ref!() = x;
+	c.ref_tmpl!() = x;
 
-	if(c.ref!() == 3){
+	if(c.ref_tmpl!() == 3){
 		return 0;
 	}
 }

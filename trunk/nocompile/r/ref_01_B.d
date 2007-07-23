@@ -2,17 +2,15 @@
 // $Date$
 // $Author$
 
-// Porting: C#
-
-// __DSTRESS_ELINE__ 13
+// __DSTRESS_ELINE__ 14
 
 module dstress.nocompile.r.ref_01_B;
 
-void main(){
-	int i;
-	test(ref i);
+
+void test(ref int x){
 }
 
-void test(ref int i){
+int main(){
+	test(1);
+	return 0;
 }
-

@@ -34,6 +34,7 @@ version(runTest){
 			asm{
 				mov RAX, offset b;
 				mov y, RAX;
+			}
 		}else{
 			pragma(msg, "DSTRESS{ERROR}: unsupported pointer size");
 			static assert(0);

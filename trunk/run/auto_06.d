@@ -14,7 +14,9 @@ auto class A{
 	}
 
 	~this(){
-		assert(status==cond);
+		if(cond != status){
+			assert(0);
+		}
 		status--;
 	}
 }

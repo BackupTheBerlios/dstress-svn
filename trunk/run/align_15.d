@@ -25,8 +25,7 @@ int main(){
 			assert(0);
 		}
 	}else{
-		pragma(msg, "no C alignment data present");
-		static assert(0);
+		static assert(0, "DSTRESS{XFAIL}: no C alignment data present");
 	}
 	return 0;
 }

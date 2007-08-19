@@ -15,8 +15,10 @@ class MyClass{
 		test=2;
 	}
 	
-	invariant{
-		assert(test > 1);
+	invariant(){
+		if(2 != test){
+			assert(0);
+		}
 		status++;
 	}
 }
@@ -24,6 +26,8 @@ class MyClass{
 int main(){
 	assert(status==0);
 	MyClass c = new MyClass();
-	assert(status==1);
+	if(1 != status){
+		assert(0);
+	}
 	return 0;
 }

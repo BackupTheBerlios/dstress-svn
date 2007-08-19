@@ -12,7 +12,7 @@
 module dstress.run.invariant_18;
 
 class MyClass{
-	invariant{
+	invariant(){
 		assert(0);
 	}
 }

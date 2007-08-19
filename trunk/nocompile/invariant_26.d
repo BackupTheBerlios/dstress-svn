@@ -15,7 +15,7 @@ class MyClass{
 		bug();
 	}
 
-	invariant{
+	invariant(){
 		middle();
 	}
 }

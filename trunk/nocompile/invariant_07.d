@@ -12,7 +12,7 @@ int test()
 	body{
 		return 0;
 	}
-	invariant{
+	invariant(){
 		assert(0);
 	}
 

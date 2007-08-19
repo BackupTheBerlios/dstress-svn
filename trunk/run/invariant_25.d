@@ -10,8 +10,14 @@
 
 module dstress.run.invariant_25;
 
+version(Tango){
+	import tango.core.Exception : AE = AssertException;
+}else{
+	import std.asserterror :  AE = AssertError;
+}
+
 class MyClass{
-	invariant{
+	invariant(){
 		assert(0);
 	}
 }
@@ -20,7 +26,7 @@ int main(){
 	try{
 		MyClass c = new MyClass();
 		assert(c);
-	}catch(InvariantException e){
+	}catch(AE e){
 		return 0;
 	}
 	assert(0);

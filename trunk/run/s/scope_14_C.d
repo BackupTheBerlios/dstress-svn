@@ -10,7 +10,7 @@
 module dstress.run.s.scope_14_C;
 
 class C {
-	invariant {
+	invariant() {
 	}
 
 	synchronized void foo() {

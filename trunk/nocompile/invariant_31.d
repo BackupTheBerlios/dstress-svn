@@ -7,10 +7,10 @@
 module dstress.nocompile.invariant_31;
 
 union MyUnion{
-	invariant{
+	invariant(){
 	}
 
-	invariant{
+	invariant(){
 	}
 }
 

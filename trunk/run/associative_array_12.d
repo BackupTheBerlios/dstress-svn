@@ -12,6 +12,8 @@ int main() {
 	int[cfloat] x;
 	cfloat d=22.0f+0.0fi;
 	x[d] = 44;
-	assert( x[d] == 44 );
+	if(44 != x[d]){
+		assert(0);
+	}
 	return 0;
 }

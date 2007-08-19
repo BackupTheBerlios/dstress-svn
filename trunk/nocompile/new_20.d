@@ -8,7 +8,7 @@
 module dstress.nocompile.new_20;
 
 class MyClass{
-	invariant{
+	invariant(){
 		new(size_t s){
 			void* v;
 			return v;

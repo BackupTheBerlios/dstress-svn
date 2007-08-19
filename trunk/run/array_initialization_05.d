@@ -14,7 +14,10 @@ int main(){
 	a[0]=5;
 	a[1]=10;
 	int[] b=a.init;
-	assert(b.length==0);
+
+	if(0 != b.length){
+		assert(0);
+	}
 	return 0;
 }
 

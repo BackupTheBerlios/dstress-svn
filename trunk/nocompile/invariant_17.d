@@ -22,7 +22,7 @@ class MyClass{
 		return 0;
 	}
 
-	invariant{
+	invariant(){
 		assert(test()!=0);
 	}
 }

@@ -22,9 +22,15 @@ int main(){
 
 	ifloat[] arr=concat();
 
-	assert(arr.length==2);
-	assert(arr[0]==1.0fi);
-	assert(arr[1]==3.0fi);
+	if(2 != arr.length){
+		assert(0);
+	}
+	if(1.0fi != arr[0]){
+		assert(0);
+	}
+	if(3.0fi != arr[1]){
+		assert(0);
+	}
 	
 	return 0;
 }

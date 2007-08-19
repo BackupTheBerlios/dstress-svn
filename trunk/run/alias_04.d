@@ -24,7 +24,11 @@ class D : C  {
 int main(){
 	D d = new D();
 
-	assert(d.foo(1, 2u) == 2);   // calls B.foo
-	assert(d.foo(1) == 3);       // calls C.foo
+	if(d.foo(1, 2u) != 2){
+		assert(0);
+	}
+	if(d.foo(1) != 3){
+		assert(0);
+	}
 	return 0;
 }

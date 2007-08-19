@@ -14,14 +14,18 @@ int status;
 
 auto class AutoClass{
 	~this(){
-		assert(status==0);
+		if(0 != status){
+			assert(0);
+		}
 		status--;
 		throw new Exception("error msg");
 	}
 }
 
 void test(){
-	assert(status==0);
+	if(0 != status){
+		assert(0); 
+	}
 	auto AutoClass ac = new AutoClass();
 }
 

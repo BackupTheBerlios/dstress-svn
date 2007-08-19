@@ -21,6 +21,8 @@ void bar(){
 int main(){
 	x= 2.0 + 0.0i;
 	bar();
-	assert(x == -2.0 + 0.0i);
+	if(-2.0 + 0.0i != x ){
+		assert(0);
+	}
 	return 0;
 } 

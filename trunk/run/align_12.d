@@ -14,8 +14,6 @@ version(X86_64) version = type1;
 version(type1){
 	version(linux) version=testA; // c compiler: gcc
 	version(Windows) version=testA; // c compiler: dmc
-}else{
-	static assert(0);
 }
 
 align(2) struct S{
@@ -28,8 +26,7 @@ int main(){
 	version(testA){
 		assert((cast(void*)&s.a)-(cast(void*)&s.b)==-2);
 	}else{
-		pragma(msg, "no C alignment data present");
-		static assert(0);
+		static assert(0, "DSTRESS{XFAIL}: no C alignment data present");
 	}
 	return 0;
 }

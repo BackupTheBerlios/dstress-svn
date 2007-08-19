@@ -9,7 +9,7 @@
 
 module dstress.run.bug_cgcs_353_B;
 
-int main(char[][]args){
+int main(string[] args){
 	delete args[0..0];
 	return 0;
 }

@@ -15,7 +15,7 @@ class MyClass{
 	this(){
 	}
 
-	invariant{
+	invariant(){
 		assert(0);
 	}
 }

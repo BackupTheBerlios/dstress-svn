@@ -22,7 +22,7 @@ class MyClass{
 		check();
 	}
 
-	invariant{
+	invariant(){
 		middle();
 		inv++;
 	}

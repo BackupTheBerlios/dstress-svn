@@ -14,11 +14,15 @@ class Parent{
 	void test(){
 	}
 	
-	invariant{
-		assert(!checked);
+	invariant(){
+		if(checked){
+			assert(0);
+		}
 		checked=true;
 		// even number
-		assert((x&1u)==0);
+		if(x & 1u){
+			assert(0);
+		}
 	}
 }
 
@@ -33,10 +37,14 @@ class GrandChild : Child{
 
 int main(){
 	try{
-		assert(!checked);
+		if(checked){
+			assert(0);
+		}
 		GrandChild gc = new GrandChild();
 	}catch{
-		assert(checked);
+		if(!checked){
+			assert(0);
+		}
 		return 0;
 	}
 	assert(0);

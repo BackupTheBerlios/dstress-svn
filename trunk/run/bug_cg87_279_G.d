@@ -21,6 +21,8 @@ void bar(){
 int main(){
 	x=2;
 	bar();
-	assert(x==-2);
+	if(-2 != x){
+		assert(0);
+	}
 	return 0;
 } 

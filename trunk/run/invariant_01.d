@@ -11,8 +11,10 @@ class MyClass{
 
 	this(){}
 	
-	invariant{
-		assert(test > 1);
+	invariant(){
+		if(test != 0){
+			assert(0);
+		}
 	}
 }
 
@@ -23,6 +25,8 @@ int main(){
 	}catch{
 		success++;
 	}
-	assert(success==1);
+	if(success != 1){
+		assert(0);
+	}
 	return 0;
 }

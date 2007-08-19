@@ -7,10 +7,10 @@
 module dstress.nocompile.invariant_29;
 
 class MyClass{
-	invariant{
+	invariant(){
 	}
 
-	invariant{
+	invariant(){
 	}
 }
 

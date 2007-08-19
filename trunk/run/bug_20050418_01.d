@@ -14,8 +14,10 @@ class Buffer{
 	uint limit;
 	int position;
 
-        invariant{
-		assert (position <= limit);
+        invariant(){
+		if(position > limit){
+			assert(0);
+		}
 	}
 }
 

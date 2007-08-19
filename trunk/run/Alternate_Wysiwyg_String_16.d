@@ -5,8 +5,8 @@
 module dstress.run.Alternate_Wysiwyg_String_16;
 
 int main(){
-	char[] string=`"`;
-	assert(string.length==1);
-	assert(string[0]=='"');
+	string arr=`"`;
+	if(1 != arr.length){ assert(0); }
+	if('"' != arr[0]){ assert(0); }
 	return 0;
 }

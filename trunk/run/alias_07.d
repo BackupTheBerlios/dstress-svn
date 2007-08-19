@@ -12,9 +12,11 @@ module dstress.run.alias_07;
 alias int MyInt;
 
 int main(){
-	MyInt test(char[] c=""){
+	MyInt test(string c = ""){
 		return 2;
 	}
-	assert(test("abc")==2);
+	if(test("abc") != 2){
+		assert(0);
+	}
 	return 0;
 }

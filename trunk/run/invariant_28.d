@@ -18,7 +18,7 @@ class MyClass{
 		status++;
 	}
 
-	invariant{
+	invariant(){
 		check();
 		inv++;
 	}

@@ -15,7 +15,7 @@ class MyClass{
 		status++;
 	}
 
-	invariant{
+	invariant(){
 		assert(status==0);
 		status++;
 	}

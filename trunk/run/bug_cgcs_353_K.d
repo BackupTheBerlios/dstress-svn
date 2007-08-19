@@ -22,9 +22,15 @@ int main(){
 
 	cfloat[] arr=concat();
 
-	assert(arr.length==2);
-	assert(arr[0]==0.5f+1.0fi);
-	assert(arr[1]==0.5f+3.0fi);
+	if(2 != arr.length){
+		assert(0);
+	}
+	if(0.5f+1.0fi != arr[0]){
+		assert(0);
+	}
+	if(0.5f+3.0fi != arr[1]){
+		assert(0);
+	}
 	
 	return 0;
 }

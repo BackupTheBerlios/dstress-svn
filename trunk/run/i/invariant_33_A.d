@@ -14,7 +14,7 @@ module dstress.run.i.invariant_33_A;
 int state;
 
 class X{
-	synchronized invariant{
+	synchronized invariant(){
 		int x;
 		state += ++x;
 	}

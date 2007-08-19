@@ -12,6 +12,8 @@ int main() {
 	int[creal] x;
 	creal d=22.0L+0.0Li;
 	x[d] = 44;
-	assert( x[d] == 44 );
+	if(44 != x[d]){
+		assert(0);
+	}
 	return 0;
 }

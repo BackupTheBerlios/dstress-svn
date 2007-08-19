@@ -10,7 +10,7 @@
 module dstress.run.f.final_13_C;
 
 final class Foo(){
-	invariant {
+	invariant(){
 	}
 }
 

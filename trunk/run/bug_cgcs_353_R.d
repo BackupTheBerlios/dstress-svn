@@ -22,9 +22,15 @@ int main(){
 
 	bool[] arr=concat();
 
-	assert(arr.length==2);
-	assert(!arr[0]);
-	assert(arr[1]);
+	if(2 != arr.length){
+		assert(0);
+	}
+	if(arr[0]){
+		assert(0);
+	}
+	if(!arr[1]){
+		assert(0);
+	}
 	
 	return 0;
 }

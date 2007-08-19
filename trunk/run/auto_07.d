@@ -15,19 +15,25 @@ auto class Parent{
 
 auto class Child : Parent{
 	this(){
-		assert(status==0);
+		if(0 != status){
+			assert(0);
+		}
 		status=1;
 	}    
 
 	~this(){
-		assert(status==1);
+		if(1 != status){
+			assert(0);
+		}
 		status=2;
 	}
 }
 
 void test(){
 	auto Parent o = new Child();
-	assert(status==1);
+	if(1 != status){
+		assert(0);
+	}
 }
 
 int main(){

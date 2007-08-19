@@ -22,19 +22,27 @@ union MyUnion{
 		i++;
 	}	
 	
-	invariant{
+	invariant(){
 		status++;
 	}
 }
 
 int main(){
 	MyUnion u;
-	assert(status==0);
+	if(0 != status){
+		assert(0);
+	}
 	u.test();
-	assert(status==1);
+	if(1 != status){
+		assert(0);
+	}
 	u.i=2;
-	assert(status==2);
+	if(2 != status){
+		assert(0);
+	}
 	assert(u);
-	assert(status==3);
+	if(3 != status){
+		assert(0);
+	}
 	return 0;
 }

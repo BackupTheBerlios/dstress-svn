@@ -12,9 +12,11 @@ class Parent{
 	void test(){
 	}
 	
-	invariant{
+	invariant(){
 		// even number
-		assert(x&1==0);
+		if(x & 1){
+			assert(0);
+		}
 	}
 }
 
@@ -26,8 +28,10 @@ class GrandChild : Child{
 		this.x=x;	
 	}
 
-	invariant{
-		assert(x>2);
+	invariant(){
+		if(x <= 2){
+			assert(0);
+		}
 	}
 }
 

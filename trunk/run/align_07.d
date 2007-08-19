@@ -52,33 +52,33 @@ struct e_real { double d; real ld; }
 e_real s_d_ld = { 34.0, 35.0 };
 
 int main (){
-	assert(s_c_s.c == 'a');
-	assert(s_c_s.s == 13);
-	assert(s_c_i.c == 'b');
-	assert(s_c_i.i == 14);
-	assert(s_s_i.s == 15);
-	assert(s_s_i.i == 16);
-	assert(s_c_f.c == 'c');
-	assert(s_c_f.f == 17.0);
-	assert(s_s_f.s == 18);
-	assert(s_s_f.f == 19.0);
-	assert(s_c_d.c == 'd');
-	assert(s_c_d.d == 20.0);
-	assert(s_s_d.s == 21);
-	assert(s_s_d.d == 22.0);
-	assert(s_i_d.i == 23);
-	assert(s_i_d.d == 24.0);
-	assert(s_f_d.f == 25.0);
-	assert(s_f_d.d == 26.0);
-	assert(s_c_ld.c == 'e');
-	assert(s_c_ld.ld == 27.0);
-	assert(s_s_ld.s == 28);
-	assert(s_s_ld.ld == 29.0);
-	assert(s_i_ld.i == 30);
-	assert(s_i_ld.ld == 31.0);
-	assert(s_f_ld.f == 32.0);
-	assert(s_f_ld.ld == 33.0);
-	assert(s_d_ld.d == 34.0);
-	assert(s_d_ld.ld == 35.0);
+	if('a' != s_c_s.c){ assert(0); }
+	if(13 != s_c_s.s){ assert(0); }
+	if('b' != s_c_i.c){ assert(0); }
+	if(14 != s_c_i.i){ assert(0); }
+	if(15 != s_s_i.s){ assert(0); }
+	if(16 != s_s_i.i){ assert(0); }
+	if('c' != s_c_f.c){ assert(0); }
+	if(17.0 != s_c_f.f){ assert(0); }
+	if(18 != s_s_f.s){ assert(0); }
+	if(19.0 != s_s_f.f){ assert(0); }
+	if('d' != s_c_d.c){ assert(0); }
+	if(20.0 != s_c_d.d){ assert(0); }
+	if(21 != s_s_d.s){ assert(0); }
+	if(22.0 != s_s_d.d){ assert(0); }
+	if(23 != s_i_d.i){ assert(0); }
+	if(24.0 != s_i_d.d){ assert(0); }
+	if(25.0 != s_f_d.f){ assert(0); }
+	if(26.0 != s_f_d.d){ assert(0); }
+	if('e' != s_c_ld.c){ assert(0); }
+	if(27.0 != s_c_ld.ld){ assert(0); }
+	if(28 != s_s_ld.s){ assert(0); }
+	if(29.0 != s_s_ld.ld){ assert(0); }
+	if(30 != s_i_ld.i){ assert(0); }
+	if(31.0 != s_i_ld.ld){ assert(0); }
+	if(32.0 != s_f_ld.f){ assert(0); }
+	if(33.0 != s_f_ld.ld){ assert(0); }
+	if(34.0 != s_d_ld.d){ assert(0); }
+	if(35.0 != s_d_ld.ld){ assert(0); }
 	return 0;
 }

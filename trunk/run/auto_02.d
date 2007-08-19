@@ -13,8 +13,8 @@ auto class AutoClass{
 	void bad(){
 		throw new Exception("error msg");
 	}
+
 	~this(){
-		
 		if(status == 0){
 			status--;
 		}else{

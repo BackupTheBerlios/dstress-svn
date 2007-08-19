@@ -22,9 +22,15 @@ int main(){
 
 	cdouble[] arr=concat();
 
-	assert(arr.length==2);
-	assert(arr[0]==0.5+1.0i);
-	assert(arr[1]==0.5+3.0i);
+	if(2 != arr.length){
+		assert(0);
+	}
+	if(0.5+1.0i != arr[0]){
+		assert(0);
+	}
+	if(0.5+3.0i != arr[1]){
+		assert(0);
+	}
 	
 	return 0;
 }

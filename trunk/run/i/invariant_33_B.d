@@ -10,7 +10,7 @@
 module dstress.run.i.invariant_33_B;
 
 struct X{
-	synchronized invariant{
+	synchronized invariant(){
 		int x;
 	}
 

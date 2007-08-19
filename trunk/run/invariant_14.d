@@ -19,7 +19,7 @@ class Parent{
 		x=3;
 	}
 	
-	invariant{
+	invariant(){
 		assert(x>2);
 	}
 }
@@ -33,7 +33,7 @@ class GrandChild : Child{
 		x=5;
 	}
 
-	invariant{
+	invariant(){
 		assert(x>4);
 	}
 }

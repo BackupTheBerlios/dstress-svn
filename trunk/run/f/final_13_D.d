@@ -13,7 +13,7 @@ final class Foo{
 	this(){
 	}
 
-	invariant {
+	invariant() {
 	}
 }
 

@@ -21,8 +21,10 @@ struct MyStruct{
 	void test(){
 	}
 
-	invariant{
-		assert(i==1);
+	invariant(){
+		if(1 != i){
+			assert(0);
+		}
 		tested=true;
 	}
 }
@@ -31,6 +33,8 @@ int main(){
 	MyStruct s;
 	assert(!tested);
 	s.test();
-	assert(tested);
+	if(!tested){
+		assert(0);
+	}
 	return 0;
 }

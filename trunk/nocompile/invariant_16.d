@@ -10,7 +10,7 @@ module dstress.nocompile.invariant_16;
 
 interface MyInterface{
 	private int check();
-	invariant{
+	invariant(){
 		assert(check()!=4);
 	}
 }

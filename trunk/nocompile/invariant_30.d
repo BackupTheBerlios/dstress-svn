@@ -7,10 +7,10 @@
 module dstress.nocompile.invariant_30;
 
 struct MyStruct{
-	invariant{
+	invariant(){
 	}
 
-	invariant{
+	invariant(){
 	}
 }
 

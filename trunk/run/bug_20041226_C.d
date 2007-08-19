@@ -29,8 +29,8 @@ struct Mesh{
 	
 struct GeomObject{
 	Mesh	mesh;
-	char[]	name;
-	vec3		xlate;
+	string	name;
+	vec3	xlate;
 }
 
 class AseLoader{

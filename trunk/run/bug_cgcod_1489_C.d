@@ -24,7 +24,9 @@ int main(){
 	S var;
 	var.a=2;
 
-	assert(var==bug(var));
+	if(bug(var) != var){
+		assert(0);
+	}
 
 	return 0;
 }

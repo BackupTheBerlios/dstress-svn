@@ -6,7 +6,7 @@ module dstress.run.break_08;
 
 int status;
 
-int test(char[][] args){
+int test(string[] args){
 loop:	while(1){	
 		try{
 			try{
@@ -14,7 +14,9 @@ loop:	while(1){
 					break loop;
 				}
 			}finally{
-				assert(status==0);
+				if(0 != status){
+					assert(0); 
+				}
 				status+=2;
 			}
 
@@ -24,7 +26,9 @@ loop:	while(1){
 				assert(0);
 			}
 		}finally{
-			assert(status==2);
+			if(2 != status){
+				assert(0);
+			}
 			status+=3;
 		}
 		assert(0);
@@ -33,10 +37,18 @@ loop:	while(1){
 	return -1;
 }
 
-int main(char[][] args){
-	assert(status == 0);
-	assert(args.length == 1);
-	assert(test(args) == -1);
-	assert(status == 5);
+int main(string[] args){
+	if(0 != status ){
+		assert(0); 
+	}
+	if(1 != args.length ){
+		assert(0); 
+	}
+	if(-1 != test(args) ){
+		assert(0);
+	}
+	if(5 != status ){
+		assert(0);
+	}
 	return 0;
 }

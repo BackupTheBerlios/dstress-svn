@@ -19,7 +19,7 @@ class MyClass{
 	public void check(){
 	}
 
-	invariant{
+	invariant(){
 		assert(g()==1);
 	}
 }

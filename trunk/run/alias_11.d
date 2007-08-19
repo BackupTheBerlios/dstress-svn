@@ -13,5 +13,6 @@ class bar(Tp: Tp[]){
 alias bar!(char[]) Alias;
 
 int main(){
+	Alias a = new Alias();
 	return 0;
 }

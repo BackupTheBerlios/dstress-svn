@@ -13,7 +13,9 @@ struct MyStruct{
 	int i;
      
 	void display(){
-		assert(i==10);
+		if(10 != i){
+			assert(0);
+		}
 	}
     
 	void someFunc(){
@@ -22,17 +24,25 @@ struct MyStruct{
 			array[0].i = i+1; // Comment out this line and the bug goes away
 		}
     
-		assert(i==10);
+		if(10 != i){
+			assert(0);
+		}
 		display();
-		assert(i==10);
+		if(10 != i){
+			assert(0);
+		}
 	}
 }
     
 int main(){
 	MyStruct m;
 	m.i = 10;
-	assert(m.i==10);
+	if(10 != m.i){
+		assert(0);
+	}
 	m.someFunc();
-	assert(m.i==10);
+	if(10 != m.i){
+		assert(0);
+	}
 	return 0;
 }   

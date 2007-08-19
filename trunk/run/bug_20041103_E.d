@@ -9,7 +9,7 @@
 
 module dstress.run.bug_20041103_E;
 
-char rot13_c(in int ret){
+char rot13_c(int ret){
 	if(ret > 'A'-1 && ret < 'N'){
 		ret += 13;
 	}else if(ret > 'M' && ret < 'Z'+1){
@@ -24,6 +24,8 @@ char rot13_c(in int ret){
 
 int main(){
 	char c = rot13_c('A');
-	assert(c=='A'+13);
+	if('A'+13 != c){
+		assert(0);
+	}
 	return 0;
 }

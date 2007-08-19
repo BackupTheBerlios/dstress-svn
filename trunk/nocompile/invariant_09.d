@@ -10,7 +10,7 @@ module dstress.nocompile.invariant_09;
 
 class MyClass{
 	int test(){
-		invariant{
+		invariant(){
 			assert(0);
 		}
 		return 0;

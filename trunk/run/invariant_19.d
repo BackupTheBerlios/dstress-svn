@@ -19,7 +19,7 @@ class MyClass{
 		return 1;
 	}
 
-	invariant{
+	invariant(){
 		assert(g()==1);
 	}
 }

@@ -13,11 +13,15 @@ int status;
 
 auto class AutoClass{
 	this(){
-		assert(status==0);
+		if(0 != status){
+			assert(0);
+		}
 		status+=2;
 	}
 	~this(){
-		assert(status==2);
+		if(2 != status){
+			assert(0);
+		}
 		status--;
 		throw new Exception("error msg");
 	}
@@ -29,11 +33,11 @@ void check(){
 }
 
 int main(){
-	assert(status==0);
+	if(0 != status){ assert(0); }
 	try{
 		check();
 	}catch{
-		assert(status==1);
+		if(1 != status){ assert(0); }
 		status-=5;
 	}
 	

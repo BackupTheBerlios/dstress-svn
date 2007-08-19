@@ -6,6 +6,8 @@ module dstress.run.associative_array_02;
 
 int main(){
 	int[int] k;
-	assert(k.length == 0);
+	if(0 != k.length){
+		assert(0);
+	}
 	return 0;
 }

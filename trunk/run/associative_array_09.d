@@ -12,6 +12,8 @@ int main() {
 	int[float] x;
 	float d=22;
 	x[d] = 44;
-	assert( x[d] == 44 );
+	if(44  != x[d]){
+		assert(0);
+	}
 	return 0;
 }

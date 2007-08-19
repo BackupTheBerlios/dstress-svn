@@ -6,30 +6,33 @@
 // @date@	2005-03-23
 // @uri@	http://www.digitalmars.com/pnews/read.php?server=news.digitalmars.com&group=digitalmars.D.bugs&artnum=3313
 
-// @WARNING@	imports Phobos' gc
-
 module dstress.run.align_09;
 
-import std.gc;
+version(Tango){
+	static assert(0, "DSTRESS{XFAIL}: Tango doesn't provide access to fullCollect");
+}else{
+	// @WARNING@	imports Phobos' gc
+	import std.gc;
 
-struct S{
-	char[] font_face;
-	byte charset;
-}
-
-int main(){
-	S[] x;
-
-	for (int i=0;i<3;i++) {
-		S s;
-		s.font_face="font face".dup;
-		x ~= s;
+	struct S{
+		char[] font_face;
+		byte charset;
 	}
 
-	fullCollect();
+	int main(){
+		S[] x;
 
-	assert(x[0].font_face=="font face");
-	assert(x[1].font_face=="font face");
+		for (int i=0;i<3;i++) {
+			S s;
+			s.font_face="font face".dup;
+			x ~= s;
+		}
 
-	return 0;
+		fullCollect();
+
+		assert(x[0].font_face=="font face");
+		assert(x[1].font_face=="font face");
+
+		return 0;
+	}
 }

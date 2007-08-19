@@ -33,8 +33,9 @@ class Check{
 int main(){
 	Check c = new Check();
 	status=0;
-	assert(status==0);
 	c.test();
-	assert(status==1);
+	if(1 != status){
+		assert(0);
+	}
 	return 0;
 }

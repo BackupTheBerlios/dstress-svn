@@ -20,6 +20,8 @@ class B : A{
 
 int main(){
 	A a = new B();
-	assert(a.test()==3);
+	if(3 != a.test()){
+		assert(0);
+	}
 	return 0;
 }

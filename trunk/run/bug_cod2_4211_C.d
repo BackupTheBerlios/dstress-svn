@@ -21,9 +21,15 @@ int main(){
 
 	short[] arr=concat();
 
-	assert(arr.length==2);
-	assert(arr[0]==1);
-	assert(arr[1]==3);
+	if(2 != arr.length){
+		assert(0);
+	}
+	if(1 != arr[0]){
+		assert(0);
+	}
+	if(3 != arr[1]){
+		assert(0);
+	}
 	
 	return 0;
 }

@@ -9,8 +9,8 @@
 module dstress.nocompile.foreach_19;
 
 int main(){
-	char[] string;
-	foreach(byte index, char c; string){
+	string x = "ab";
+	foreach(byte index, char c; x){
 	}
 	return 0;
 }

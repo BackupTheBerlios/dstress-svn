@@ -10,7 +10,7 @@ module dstress.run.v.variadic_argument_07_G;
 
 int counter;
 
-void test(wchar[] s){
+void test(wstring s){
 	if(s != "string"){
 		assert(0);
 	}
@@ -26,9 +26,9 @@ int main(){
 		assert(0);
 	}
 
-	wchar[] string = "string";
+	wstring x = "string";
 	
-	test(string);
+	test(x);
 	if(counter != 1){
 		assert(0);
 	}

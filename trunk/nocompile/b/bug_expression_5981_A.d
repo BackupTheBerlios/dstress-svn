@@ -11,7 +11,7 @@
 
 module dstress.nocompile.b.bug_expression_5981_A;
 
-template g(char[] s){
+template g(string s){
 } 
 
 void foo(){

@@ -6,13 +6,13 @@
 
 module dstress.nocompile.s.string_postfix_06_D;
 
-void test(char[] a){
+void test(string a){
 }
 
-void test(wchar[] a){
+void test(wstring a){
 }
 
-void test(dchar[] a){
+void test(dstring a){
 }
 
 void main(){

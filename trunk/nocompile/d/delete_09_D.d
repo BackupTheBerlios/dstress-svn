@@ -10,8 +10,8 @@
 
 module dstress.nocompile.d.delete_09_D;
 
-typedef char string;
+typedef char XX;
  
-void test(string[int] arr, int key ){
+void test(XX[int] arr, int key ){
 	delete arr[ key ];
 } 

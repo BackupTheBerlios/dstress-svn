@@ -5,9 +5,9 @@
 module dstress.run.Wysiwyg_String_13;
 
 int main(){
-	char[] string=r"\u";
-	assert(string.length==2);
-	assert(string[0]=='\\');
-	assert(string[1]=='u');
+	string x=r"\u";
+	assert(x.length==2);
+	assert(x[0]=='\\');
+	assert(x[1]=='u');
 	return 0;
 }

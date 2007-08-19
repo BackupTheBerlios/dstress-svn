@@ -1,4 +1,12 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 10
+
+module dstress.nocompile.escape_unicode16_06;
+
 int main(){
-	char[] string="\u1G12";
+	auto x = "\u1G12";
 	return 0;
 }

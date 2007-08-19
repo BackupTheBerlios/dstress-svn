@@ -11,7 +11,7 @@
 
 module dstress.run.l.large_id_02_B;
 
-void bug(char[] msg)(){
+void bug(string msg)(){
 	if(441 != msg.length){
 		assert(0);
 	}

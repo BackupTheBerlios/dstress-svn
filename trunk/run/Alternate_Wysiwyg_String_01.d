@@ -5,12 +5,12 @@
 module dstress.run.Alternate_Wysiwyg_String_01;
 
 int main(){
-	string string=`hello`;
-	if(5 != string.length){ assert(0); }
-	if('h' != string[0]){ assert(0); }
-	if('e' != string[1]){ assert(0); }
-	if('l' != string[2]){ assert(0); }
-	if('l' != string[3]){ assert(0); }
-	if('o' != string[4]){ assert(0); }
+	string x=`hello`;
+	if(5 != x.length){ assert(0); }
+	if('h' != x[0]){ assert(0); }
+	if('e' != x[1]){ assert(0); }
+	if('l' != x[2]){ assert(0); }
+	if('l' != x[3]){ assert(0); }
+	if('o' != x[4]){ assert(0); }
 	return 0;
 }

@@ -21,22 +21,22 @@ int main(){
  *	 "blah blah (linenumber) blah blah"
  */
 void checkLineNumber(Object o){
-	char[] string=o.toString();
+	string msg=o.toString();
 	
 	int start;
-	for(start=0; start<string.length; start++){
-		if(string[start]=='('){
+	for(start=0; start<msg.length; start++){
+		if(msg[start]=='('){
 			break;
 		}
 	}
 
 	int end;
-	for(end=string.length-1; end>start; end--){
-		if(string[end]==')'){
+	for(end=msg.length-1; end>start; end--){
+		if(msg[end]==')'){
 			break;
 		}
 	}
 
 	assert(end-start==2);
-	assert(string[start+1]=='9');
+	assert(msg[start+1]=='9');
 }

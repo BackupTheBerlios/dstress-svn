@@ -9,11 +9,11 @@
 
 module dstress.run.c.case_02;
 
-char[] getString(){
+string getString(){
 	return "i";
 }
 
-int main(char[][] args){
+int main(string[] args){
 	switch(args[0]) {
 		case getString():
 			assert(0);

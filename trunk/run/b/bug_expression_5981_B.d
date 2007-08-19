@@ -12,7 +12,7 @@ module dstress.run.b.bug_expression_5981_B;
 int main(){
 	auto x = ([""]~[])[0];
 
-	if(is(typeof(x) : char[])){
+	if(is(typeof(x) : string)){
 		return 0;
 	}
 

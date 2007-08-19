@@ -1,4 +1,12 @@
+// $HeadURL$
+// $Date$
+// $Author$
+
+// __DSTRESS_ELINE__ 10
+
+module dstress.nocompile.escape_unicode32_09;
+
 int main(){
-	char[] string="\U0000";
+	auto x="\U0000";
 	return 0;
 }

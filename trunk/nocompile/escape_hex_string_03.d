@@ -7,6 +7,6 @@
 module dstress.nocompile.escape_hex_string_03;
 
 int main(){
-	char[] string=x"1G";
+	auto x = x"1G";
 	return 0;
 }

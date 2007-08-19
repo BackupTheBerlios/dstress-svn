@@ -9,11 +9,11 @@
 module dstress.run.o.opCat_16_H;
 
 int main(){
-	wchar[][] strings;
+	wstring[] strings;
 	strings.length = 1;
 	strings[0] = "Foo";
-	assert((strings ~ "Bar"w).length==2);
-	assert((strings ~ "Bar"w)[0] == "Foo"w);
-	assert((strings ~ "Bar"w)[1] == "Bar"w);
+	assert((strings ~ "Bar"w.dup).length==2);
+	assert((strings ~ "Bar"w.dup)[0] == "Foo"w);
+	assert((strings ~ "Bar"w.dup)[1] == "Bar"w);
 	return 0;
 }

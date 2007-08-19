@@ -24,14 +24,14 @@ int main(){
  *       "blah blah "filename" blah blah"
  */
 void checkFileSpec(Object o){
-	char[] string=o.toString();
+	string x=o.toString();
 
 	int start;
-	for(start=0; start<string.length; start++){
-		if(string[start]=='('){
+	for(start=0; start<x.length; start++){
+		if(x[start]=='('){
 			break;
 		}
 	}
 
-	assert(string[start-1 .. start+3]==" (0)");
+	assert(x[start-1 .. start+3]==" (0)");
 }

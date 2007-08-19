@@ -5,11 +5,11 @@
 module dstress.run.foreach_16;
 
 int main(){
-	char[] string = x"F0 9D 83 93"; // utf-8 for U+1D0D3
+	string x = x"F0 9D 83 93"; // utf-8 for U+1D0D3
 
 	int count=0;
 	dchar tmp;
-	foreach(dchar value ; string){
+	foreach(dchar value ; x){
 		tmp=value;
 		count++;
 	}

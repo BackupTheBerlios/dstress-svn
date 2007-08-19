@@ -7,6 +7,6 @@
 module dstress.nocompile.escape_octal_02;
 
 int main(){
-	char[] string="\";
+	string x="\";
 	return 0;
 }

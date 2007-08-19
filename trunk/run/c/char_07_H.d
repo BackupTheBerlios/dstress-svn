@@ -9,11 +9,11 @@
 module dstress.run.c.char_07_H;
 
 int main(){
-	const char[] string = "\uDBC4\uDD11"w;
+	const char[] x = "\uDBC4\uDD11"w;
 
-	static assert(string.length == 4);
+	static assert(x.length == 4);
 
-	static if(string[0] == 0xF0 && string[1] == 0x81 && string[2] == 0x84 && string[3] == 0x91){
+	static if(x[0] == 0xF0 && x[1] == 0x81 && x[2] == 0x84 && x[3] == 0x91){
 		return 0;
 	}
 }

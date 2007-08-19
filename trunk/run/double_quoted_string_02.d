@@ -5,10 +5,10 @@
 module dstress.run.double_quoted_string_02;
 
 int main(){
-	char[] string="
+	string x="
 	";
-	assert(string.length==2);
-	assert(string[0]=='\n');
-	assert(string[1]=='\t');
+	assert(x.length==2);
+	assert(x[0]=='\n');
+	assert(x[1]=='\t');
 	return 0;
 }

@@ -7,6 +7,6 @@
 module dstress.nocompile.double_quoted_string_16;
 
 int main(){
-	char[] string="\!";
+	string x="\!";
 	return 0;
 }

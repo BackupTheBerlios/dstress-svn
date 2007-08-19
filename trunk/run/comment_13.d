@@ -5,13 +5,13 @@
 module dstress.run.comment_13;
 
 int main(){
-	char[] string="
+	string x="
 //
 ";
-	assert(string.length==4);
-	assert(string[0]=='\n');
-	assert(string[1]=='/');
-	assert(string[2]=='/');
-	assert(string[3]=='\n');
+	assert(x.length==4);
+	assert(x[0]=='\n');
+	assert(x[1]=='/');
+	assert(x[2]=='/');
+	assert(x[3]=='\n');
 	return 0;
 }

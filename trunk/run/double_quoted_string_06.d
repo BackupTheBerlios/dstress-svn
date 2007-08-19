@@ -5,8 +5,8 @@
 module dstress.run.double_quoted_string_06;
 
 int main(){
-	char[] string="\'";
-	assert(string.length==1);
-	assert(string[0]=='\'');
+	string x="\'";
+	assert(x.length==1);
+	assert(x[0]=='\'');
 	return 0;
 }

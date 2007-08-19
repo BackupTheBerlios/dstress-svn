@@ -9,8 +9,8 @@
 module dstress.nocompile.foreach_18;
 
 int main(){
-	char[] string;
-	foreach(out char c; string){
+	string x = "av";
+	foreach(out char c; x){
 	}
 	return 0;
 }

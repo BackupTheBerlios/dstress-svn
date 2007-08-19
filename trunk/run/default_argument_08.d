@@ -8,17 +8,25 @@
 
 module dstress.run.default_argument_08;
 
-int foo(char [] string = BAR){
-	return string.length;
+int foo(string x = BAR){
+	return x.length;
 }
 
-char [] BAR = "Bar";
+string BAR = "Bar";
 
 int main(){
-	assert(foo()==3);
-	assert(foo("a")==1);
-	assert(foo==3);
+	if(3 != foo()){
+		assert(0);
+	}
+	if(1 != foo("a")){
+		assert(0);
+	}
+	if(3 != foo){
+		assert(0);
+	}
 	BAR="ab";
-	assert(foo()==2);
+	if(2 != foo()){
+		assert(0);
+	}
 	return 0;
 }

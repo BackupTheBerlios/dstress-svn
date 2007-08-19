@@ -5,9 +5,9 @@
 module dstress.run.Wysiwyg_String_15;
 
 int main(){
-	char[] string=r"
+	string x=r"
 ";
-	assert(string.length==1);
-	assert(string[0]=='\n');
+	assert(x.length==1);
+	assert(x[0]=='\n');
 	return 0;
 }

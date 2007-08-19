@@ -9,12 +9,18 @@
 module dstress.run.o.opCat_16_C;
 
 int main(){
-	char[][] strings;
+	string[] strings;
 	strings.length = 1;
 	strings[0] = "Foo";
-	char[] test = "Bar";
-	assert((strings ~ test).length==2);
-	assert((strings ~ test)[0] == "Foo");
-	assert((strings ~ test)[1] == "Bar");
+	string test = "Bar";
+	if(2 != (strings ~ test).length){
+		assert(0);
+	}
+	if("Foo" != (strings ~ test)[0]){
+		assert(0);
+	}
+	if("Bar" != (strings ~ test)[1]){
+		assert(0);
+	}
 	return 0;
 }

@@ -9,11 +9,13 @@
 module dstress.run.d.dchar_10_A;
 
 int main(){
-	dchar[] string = "\uDBC4\uDD11";
+	dchar[] x = "\uDBC4\uDD11";
 
-	assert(string.length == 1);
+	if(1 != x.length){
+		assert(0);
+	}
 
-	if(string[0] == 0x101111){
+	if(x[0] == 0x101111){
 		return 0;
 	}
 }

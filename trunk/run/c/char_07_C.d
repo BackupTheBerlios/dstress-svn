@@ -9,13 +9,13 @@
 module dstress.run.c.char_07_C;
 
 int main(){
-	char[] string = "\uDBC4\uDD11"d;
+	string x = "\uDBC4\uDD11"d;
 
-	if(string.length != 4){
+	if(x.length != 4){
 		assert(0);
 	}
 
-	if(string[0] == 0xF0 && string[1] == 0x81 && string[2] == 0x84 && string[3] == 0x91){
+	if(x[0] == 0xF0 && x[1] == 0x81 && x[2] == 0x84 && x[3] == 0x91){
 		return 0;
 	}
 }

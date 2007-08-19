@@ -7,8 +7,8 @@
 module dstress.nocompile.foreach_21;
 
 int main(){
-	char[] string;
-	foreach(int c, char c; string){
+	string x;
+	foreach(int c, char c; x){
 	}
 	return 0;
 }

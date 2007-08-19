@@ -9,11 +9,11 @@
 module dstress.run.c.wchar_11_H;
 
 int main(){
-	const wchar[] string = "\uDBC4\uDD11"w;
+	const wchar[] x = "\uDBC4\uDD11"w;
 
-	static assert(string.length == 2);
+	static assert(x.length == 2);
 
-	static if(string[0] == 0xDBC4 && string[1] == 0xDD11){
+	static if(x[0] == 0xDBC4 && x[1] == 0xDD11){
 		return 0;
 	}
 }

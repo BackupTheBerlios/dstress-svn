@@ -5,11 +5,11 @@
 module dstress.run.comment_11;
 
 int main(){
-	char[] string="/**/";
-	assert(string.length==4);
-	assert(string[0]=='/');
-	assert(string[1]=='*');
-	assert(string[2]=='*');
-	assert(string[3]=='/');
+	string x="/**/";
+	assert(x.length==4);
+	assert(x[0]=='/');
+	assert(x[1]=='*');
+	assert(x[2]=='*');
+	assert(x[3]=='/');
 	return 0;
 }

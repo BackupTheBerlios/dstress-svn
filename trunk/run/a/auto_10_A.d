@@ -2,12 +2,12 @@
 // $Date$
 // $Author$
 
-module dstress.run.c.auto_10_A;
+module dstress.run.a.auto_10_A;
 
 int main(){
 	auto x = 4.0;
 
-	if(typeid(typeof(x)).toString() != "double"){
+	if("double" != typeid(typeof(x)).toString()){
 		assert(0);
 	}
 

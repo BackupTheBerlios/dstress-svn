@@ -4,15 +4,15 @@
 
 module dstress.run.s.string_postfix_06_C;
 
-int test(char[] a){
+int test(string a){
 	return a.length;
 }
 
-int test(wchar[] a){
+int test(wstring a){
 	return a.length + 100;
 }
 
-int test(dchar[] a){
+int test(dstring a){
 	return a.length + 10000;
 }
 

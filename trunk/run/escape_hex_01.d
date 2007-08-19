@@ -5,9 +5,9 @@
 module dstress.run.escape_hex_01;
 
 int main(){
-	char[] string="\x412";
-	assert(string.length==2);
-	assert(string[0]=='A');
-	assert(string[1]=='2');
+	string x="\x412";
+	assert(x.length==2);
+	assert(x[0]=='A');
+	assert(x[1]=='2');
 	return 0;
 }

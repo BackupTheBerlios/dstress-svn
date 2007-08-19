@@ -2,6 +2,8 @@
 // $Date$
 // $Author$
 
+// __DSTRESS_ELINE__ 9
+
 module dstress.nocompile.eol_string_10;
 
-char[] s = `A`; // U+001A
+string s = `A`; // U+001A

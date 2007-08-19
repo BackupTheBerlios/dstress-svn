@@ -7,6 +7,6 @@
 module dstress.nocompile.double_quoted_string_13;
 
 int main(){
-	char[] string="\B";
+	string x ="\B";
 	return 0;
 }

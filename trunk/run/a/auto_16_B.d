@@ -11,7 +11,7 @@
 module dstress.run.a.auto_16_B;
 
 class C{
-	char[] toString(){
+	string toString(){
 		return "hallo bug";
 	}
 }

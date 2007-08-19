@@ -9,11 +9,11 @@
 module dstress.run.d.dchar_10_D;
 
 int main(){
-	dchar[] string = "\uDBC4\uDD11"w;
+	const dchar[] x = "\uDBC4\uDD11"w;
 
-	assert(string.length == 1);
+	assert(x.length == 1);
 
-	if(string[0] == 0x101111){
+	if(x[0] == 0x101111){
 		return 0;
 	}
 }

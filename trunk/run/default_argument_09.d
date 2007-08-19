@@ -10,8 +10,8 @@ module dstress.run.default_argument_09;
 
 char [] BAR = "Bar";
 
-int foo(char [] string = BAR){
-	return string.length;
+int foo(char [] x = BAR){
+	return x.length;
 }
 
 int main(){

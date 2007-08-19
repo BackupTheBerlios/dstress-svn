@@ -15,12 +15,12 @@ int main(){
 		0xB9u, 0xEFu, 0xBDu, 0x97u
 	];
 
-	char[] string = x"E3 83 AF E3 83 AD E3 82 B9 EF BD 97";
+	string x = x"E3 83 AF E3 83 AD E3 82 B9 EF BD 97";
 
-	assert(string.length==master.length);
+	assert(x.length==master.length);
 
 	for(int i=0; i<master.length; i++){
-		assert(string[i]==master[i]);
+		assert(x[i]==master[i]);
 	}
 
 	return 0;

@@ -12,7 +12,7 @@ module dstress.run.o.odd_bug_11_D;
 class A {
 	static const char[] MY_CONST_STRING = "hello";
 
-	this(char[] cmp) {
+	this(string cmp) {
 		if(cmp != MY_CONST_STRING){
 			assert(0);
 		}

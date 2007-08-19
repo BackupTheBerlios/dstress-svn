@@ -7,6 +7,6 @@
 module dsress.nocompile.escape_hex_string_04;
 
 int main(){
-	char[] string=x"123";
+	auto x = x"123";
 	return 0;
 }
